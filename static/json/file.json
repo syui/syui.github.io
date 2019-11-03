@@ -1,0 +1,32 @@
+[
+  {
+    "music": [
+      {
+        "1": "/music/niji.mp3"
+      },
+      {
+        "2": "/music/hosi.mp3"
+      },
+      {
+        "3": "/music/saki.mp3"
+      },
+      {
+        "4": "/music/siro.mp3"
+      },
+      {
+        "5": "/music/sora.mp3"
+      },
+      {
+	      "album":"/music/music.zip",
+	      "checksum":"abbc3ec357ee5923fb2dea0e6bc46f5d"
+      }
+    ]
+  }
+  ,{
+	  "json":[
+		  {"1":"/json/file.json"},
+		  {"2":"/json/link.json"},
+		  {"3":"/json/keybase.json"}
+	  ]
+  }
+]

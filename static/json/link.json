@@ -1,0 +1,269 @@
+[
+  {
+    "title": "about",
+    "author": "syui",
+    "name": "ichinose syuu",
+    "url": "https://syui.cf",
+    "from": "japan",
+    "mail": "syui@syui.cf",
+    "sns": "@syui@syui.cf",
+    "mention": "https://mstdn.syui.cf/@syui",
+    "photo": "https://raw.githubusercontent.com/mba-hack/images/master/about/about.png",
+    "img": "https://raw.githubusercontent.com/mba-hack/images/master/phoenix/phoenix_world.png",
+    "body": [
+      {
+        "en": "my name is syui.\\ni am a beginner."
+      },
+      {
+        "ja": "syuiと言います。\\n初心者です。"
+      }
+    ]
+  },
+  {
+    "title": "syui.cf",
+    "url": "https://syui.gitlab.io",
+    "domain": "https://syui.cf",
+    "tag": "site",
+    "date": "2017",
+    "source": "https://gitlab.com/syui/syui.gitlab.io"
+  },
+  {
+    "title": "mba-hack",
+    "url": "https://mba-hack.blogspot.com",
+    "domain": "https://mbahack.syui.cf",
+    "tag": "blog",
+    "date": "2012",
+    "source": "https://blogger.com"
+  },
+  {
+    "title": "mba-hack2",
+    "url": "https://syui.github.io",
+    "domain": "https://mbahack2.syui.cf",
+    "tag": "blog",
+    "date": "2014",
+    "source": "https://github.com/syui/syui.github.io"
+  },
+  {
+    "title": "mba-hack3",
+    "url": "https://syui.gitlab.io",
+    "domain": "https://mbahack3.syui.cf",
+    "tag": "blog",
+    "date": "2016",
+    "source": "https://gitlab.com/syui/syui.gitlub.io"
+  },
+  {
+    "title": "syui.blog",
+    "url": "https://syui.gitlub.io/blog",
+    "domain": "https://blog.syui.cf",
+    "tag": "blog",
+    "date": "2016",
+    "source": "https://gitlub.com/syui/blog"
+  },
+  {
+    "title": "syui.blog m",
+    "url": "https://syui.github.io/middleman",
+    "domain": "https://blogm.syui.cf",
+    "tag": "blog",
+    "date": "2015",
+    "source": "https://github.com/syui/middleman"
+  },
+  {
+    "title": "mastodon",
+    "host": "mstdn.syui.cf",
+    "user": "syui",
+    "url": "https://mstdn-syui.herokuapp.com",
+    "domain": "https://mstdn.syui.cf",
+    "tag": [
+      "sns",
+      "mastodon"
+    ],
+    "date": "2017",
+    "source": "https://github.com/syui/mastodon",
+    "mention": [
+      "@syui@mstdn.syui.cf",
+      "@syui@syui.cf"
+    ]
+  },
+  {
+    "title": "twitter",
+    "url": "https://twitter.com/syui__",
+    "user": "syui__",
+    "tag": "sns",
+    "date": "2010",
+    "mention": "@syui__"
+  },
+  {
+    "title": "github",
+    "user": "syui",
+    "url": "https://github.com/syui",
+    "tag": "git"
+  },
+  {
+    "title": "gitlab",
+    "user": "syui",
+    "url": "https://gitlub.com/syui",
+    "tag": "git"
+  },
+  {
+    "title": "docker",
+    "user": [
+      "syui",
+      "archlinuxjp"
+    ],
+    "url": [
+      "https://hub.docker.com/u/syui",
+      "https://hub.docker.com/u/archlinuxjp"
+    ],
+    "tag": "docker"
+  },
+  {
+    "title": "slack",
+    "user": [
+      "syui",
+      "archlinuxjp"
+    ],
+    "url": [
+      "https://syui.slack.com/syui",
+      "https://archlinuxjp.slack.com"
+    ],
+    "tag": [
+      "slack",
+      "chat"
+    ]
+  },
+  {
+    "title": "zcash",
+    "user": "syui",
+    "tag": [
+      "coin",
+      "money"
+    ],
+    "z-address": "zc8YZoUAT2hN6Jz7SqKZeY7Z8nDBxtE5eRNHLVdsCnrrchtWNjBxo3yLx5q52jL9BsknoLj8wdciLdKF7x838oy8TUmCFNw",
+    "t-address": "t1bAUbDvtAotM3N6f6Y8C4pajW9oLhULbkd"
+  },
+  {
+    "title": "bitcoin",
+    "user": "syui",
+    "tag": [
+      "coin",
+      "money"
+    ],
+    "address": "16PjxXSExCsZnkTu1uppzrxvSMHpfjohLt"
+  },
+  {
+    "title": "keybase",
+    "user": "syui",
+    "url": "https://keybase.io/syui",
+    "tag": [
+      "gpg",
+      "pgp"
+    ],
+    "date": "2017",
+    "key": [
+      {
+        "fingerprint": "1E8DB9FC4B49FA7266A684268459A733DDFB3B95"
+      },
+      {
+        "64-bit": "8459A733DDFB3B95"
+      },
+      {
+        "pgp-keys": "https://keybase.io/syui/pgp_keys.asc?fingerprint=1e8db9fc4b49fa7266a684268459a733ddfb3b95"
+      }
+    ]
+  },
+  {
+    "title": "archlinux",
+    "user": "syui",
+    "url": "https://aur.archlinux.org/account/syui",
+    "tag": [
+      "aur",
+      "linux",
+      "arch",
+      "archlinux",
+      "build"
+    ]
+  },
+  {
+    "title": "medium",
+    "user": [
+      "@syui",
+      "syui"
+    ],
+    "url": [
+      "https://medium.com/@syui",
+      "https://medium.com/syui"
+    ],
+    "tag": "medium"
+  },
+  {
+    "title": "qiita",
+    "user": "syui",
+    "url": "https://qiita.com/syui",
+    "tag": "qiita"
+  },
+  {
+    "title": "now.sh",
+    "url": "https://syui.now.sh/"
+  },
+  {
+    "title": "artstation",
+    "tag": "illust",
+    "url": [ "https://www.artstation.com/syui", "https://syui.artstation.com" ]
+  },
+  {
+    "title": "hearthis.at",
+    "tag": "music",
+    "url": "https://hearthis.at/syui"
+  },
+  {
+    "title": "fanburst",
+    "tag": "music",
+    "url": "https://fanburst.com/syui"
+  },
+  {
+    "title": "sketchfab",
+    "url": "https://sketchfab.com/syui"
+  },
+  {
+    "title": "gitbook",
+    "user": "@syui",
+    "url": [
+      "https://gitbook.com/@syui",
+      "https://legacy.gitbook.com/@syui"
+    ],
+    "page": "https://gitbook.syui.cf",
+    "source": "https://syui.gitbook.io"
+  },
+  {
+    "title": "gnu-social",
+    "url": [
+      "https://gnu-social.herokuapp.com"
+    ],
+    "mention": [
+      "@syui@gnu-social.herokuapp.com"
+    ],
+    "tag": "sns"
+  },
+  {
+    "title": "pleroma",
+    "url": "https://plrma.herokuapp.com",
+    "tag": "sns",
+    "mention": "@syui@plrma.herokuapp.com"
+  },
+  {
+    "title": "misskey",
+    "url": "https://misky.herokuapp.com/@syui",
+    "tag": "sns",
+    "mention": "@syui@misky.herokuapp.com"
+  },
+  {
+    "title": "cachet",
+    "tag": "status",
+    "url": "https://cachet.mybluemix.net"
+  },
+  {
+    "title": "note.mu",
+    "tag": "note",
+    "url": "https://note.mu/syui"
+  }
+]

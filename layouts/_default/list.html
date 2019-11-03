@@ -1,0 +1,19 @@
+{{ partial "head-min.html" . }}
+{{ partial "header.html" . }}
+			<div id="container">
+			    <div class="outer">
+				<div id="blog-archives" class="category">
+				    <ul class="cp_list">
+					{{ range .Pages }}
+					<li>
+					    {{.Date.Format "2006-01-02"}} <a href="{{.Permalink}}">{{.Title}}</a>
+					</li>
+					{{ end }}
+				    </ul>
+				</div>
+			    </div>
+			</div>
+		</div>
+		{{ partial "footer" . }}
+</body>
+</html>

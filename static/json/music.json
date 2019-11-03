@@ -1,0 +1,44 @@
+[
+  {
+    "id": "0",
+    "title": "docs",
+    "url": "https://github.com/syui/vocaloid/readme.md"
+  },
+  {
+    "id": "1",
+    "title": "niji",
+    "url": "https://syui.cf/music/niji.mp3",
+    "img": "https://syui/cf/music/niji.png"
+  },
+  {
+    "id": "2",
+    "title": "hosi",
+    "url": "https://syui.cf/music/hosi.mp3",
+    "img": "https://syui/cf/music/hosi.png"
+  },
+  {
+    "id": "3",
+    "title": "tuki",
+    "url": "https://syui.cf/music/tuki.mp3",
+    "video" :"https://syui/cf/music/tuki.mp4",
+    "img": "https://syui/cf/music/tuki.png"
+  },
+  {
+    "id": "4",
+    "title": "siro",
+    "url": "https://syui.cf/music/siro.mp3",
+    "img": "https://syui/cf/music/siro.png"
+  },
+  {
+    "id": "5",
+    "title": "sora",
+    "url": "https://syui.cf/music/sora.mp3",
+    "img": "https://syui/cf/music/sora.png"
+  },
+  {
+    "id": "album",
+    "title": "music.zip",
+    "url": "https://syui.cf/music/music.zip",
+    "checksum":"9f42daf4813fb5aa7a814081cb660c12"
+  }
+]

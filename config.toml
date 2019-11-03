@@ -1,0 +1,18 @@
+baseurl = "https://syui.cf"
+languageCode = "ja-jp"
+title = "syui.cf"
+copyright = "&copy; 2019. All rights reserved."
+#canonifyurls = true
+paginate = 10000
+PygmentsCodeFences = true
+pygmentsstyle = "monokai"
+[permalinks]
+    post = "/archive/note/:slug"
+    blog = "/blog/post/:year/:month/:day/:slug"
+
+[author]
+	name = "syui"
+[params]
+    date_format = "2006-01-02"
+    mainSections = ["post"]
+

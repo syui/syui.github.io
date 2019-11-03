@@ -1,0 +1,34 @@
+name: github pages
+
+on:
+  push:
+    branches:
+    - src
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+      with:
+        ref: src
+        submodules: true
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2.2.2
+      with:
+        hugo-version:
+        # extended: true
+
+    - name: Build
+      run: |
+           hugo --gc --minify --cleanDestinationDir
+           touch ./public/.nojekyll
+           cp ./CNAME ./public/
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ./public
