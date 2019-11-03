@@ -1,0 +1,62 @@
+[
+  {
+    "title": "about",
+    "author": "syui",
+    "penname": "ichinose syuu",
+    "url": "https://syui.cf",
+    "from": "japan",
+    "mail": "syui@syui.cf",
+    "message": 
+    	[
+	    "https://mstdn.syui.cf/@syui",
+	    "https://twitter.com/syui__"
+       	],
+    "photo": "https://syui.cf/img/about.png",
+    "icon": "https://syui.cf/icon/syui.png"
+  },
+  {
+    "title": "syui.cf",
+    "url": "https://syui.cf",
+    "tag": [ "site", "blog" ]
+  },
+  {
+    "title": "mba-hack",
+    "url": "https://mba-hack.blogspot.com",
+    "domain": "https://mbahack.syui.cf",
+    "tag": "blog"
+  },
+  {
+    "title": "mba-hack2",
+    "domain": "https://mbahack2.syui.cf",
+    "tag": "blog"
+  },
+  {
+    "title": "mastodon",
+    "host": "mstdn.syui.cf",
+    "account": "https://mstdn.syui.cf/@syui",
+    "mention": [
+      "@syui@syui.cf",
+      "@syui@mstdn.syui.cf"
+    ]
+  },
+  {
+    "title": "twitter",
+    "account": "https://twitter.com/syui__"
+  },
+  {
+    "title": "github",
+    "account": "https://github.com/syui"
+  },
+  {
+    "title": "gitlab",
+    "account": "https://gitlub.com/syui"
+  },
+  {
+    "title": "qiita",
+    "account": "https://qiita.com/syui"
+  },
+  {
+    "title": "note.mu",
+    "account": "https://note.mu/syui"
+  }
+]

@@ -1,0 +1,27 @@
+{{ $s := path.Dir (.Permalink | relURL) }}
+{{ $t := index (split $s "/") 2 }}
+{{ if eq $t "post" }}
+<body onload="highlight_prompt()">
+{{ else }} 
+<body>
+{{ end }}
+	<div class="containerx">
+		<header id="header">
+		        {{ if eq $t "note" }}
+			<div class="logo"> <a href="/archive"> {{ partial "svg.html" . }} </a> </div>
+			<!--<div class="logo"> <a href="/archive"> <span class="icon-phoenix-world"></span> </a> </div>-->
+			{{ else if eq $t "post" }}
+			<div class="logo"> <a href="/blog"> {{ partial "svg.html" . }} </a> </div>
+			<!--<div class="logo"> <a href="/blog"> <span class="icon-phoenix-world"></span> </a> </div>-->
+			{{ else if eq $t "dev" }}
+			<div class="logo"> <a href="/app"> {{ partial "svg.html" . }} </a> </div>
+			{{ else if eq $t "yui" }}
+			<div class="logo"> <a href="/novel"> {{ partial "svg.html" . }} </a> </div>
+			<!--<div class="logo"> <a href="/novel"> <span class="icon-phoenix-world"></span> </a> </div>-->
+			{{ else }}
+			<div class="logo"> <a href="/" > {{ partial "svg.html" . }} </a> </div>
+			<!--
+			<div class="logo"> <a href="/"> <span class="icon-phoenix-world"></span> </a> </div>
+			-->
+			{{ end }}
+		</header>

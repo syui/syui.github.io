@@ -1,0 +1,19 @@
+name: COMMENT action
+on:
+  issue_comment:
+    types: [created, edited]
+jobs:
+  build:
+    name: COMMENT action
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run action
+      env:
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }}
+        ISSUE_NUMBER: ${{ github.event.issue.number }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        labels=$(echo "${ISSUE_PAYLOAD}" | jq '.labels[]|.name' | jq -s . | jq -c '.|.+["COMMENT"]|unique')
+        curl -X PATCH -d '{"labels": '${labels}'}' -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}
+      if: startsWith(github.event.comment.body, '/com')

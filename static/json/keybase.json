@@ -1,0 +1,24 @@
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01016869c5cbd032bb3caeb207fabe6639a8f7dd817ba901e095a2b62f245ee3fe910a",
+            "fingerprint": "1e8db9fc4b49fa7266a684268459a733ddfb3b95",
+            "host": "keybase.io",
+            "key_id": "8459a733ddfb3b95",
+            "kid": "01016869c5cbd032bb3caeb207fabe6639a8f7dd817ba901e095a2b62f245ee3fe910a",
+            "uid": "53cc85468df64c6d2727ebb3a20eec19",
+            "username": "syui"
+        },
+        "service": {
+            "hostname": "syui.cf",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1490896889,
+    "expire_in": 157680000,
+    "prev": "84e1ea4bc3d770408b96e2982d0ea2f358134aef0c1d1c9c9363e423d008bded",
+    "seqno": 3,
+    "tag": "signature"
+}
