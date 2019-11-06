@@ -10,13 +10,12 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
       with:
+        node-version: 12
         ref: src
         submodules: true
-   - name: Setup Yarn
-     uses: borales/actions-yarn@v2.0.0
-     with:
-        cmd: install
+    - run: yarn install
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.2
@@ -27,7 +26,7 @@ jobs:
     - name: Build
       run: |
            yarn build
-           cp ./public-vue/build.js* ./static/manga
+           cp -rf ./public-vue/build.js* ./static/manga
            hugo --gc --minify --cleanDestinationDir
            touch ./public/.nojekyll
            cp ./CNAME ./public/
