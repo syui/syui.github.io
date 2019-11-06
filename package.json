@@ -18,7 +18,7 @@
     "vuex": "^2.4.0"
   },
   "devDependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-latest": "^6.0.0",
