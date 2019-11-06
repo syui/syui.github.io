@@ -13,6 +13,10 @@ jobs:
       with:
         ref: src
         submodules: true
+   - name: Setup Yarn
+     uses: borales/actions-yarn@v2.0.0
+     with:
+        cmd: install
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.2
@@ -22,6 +26,8 @@ jobs:
 
     - name: Build
       run: |
+           yarn build
+           cp ./public-vue/build.js* ./static/manga
            hugo --gc --minify --cleanDestinationDir
            touch ./public/.nojekyll
            cp ./CNAME ./public/
