@@ -93,7 +93,7 @@ var app = new Vue({
     el: '#app',
   data: {
     product: 0,
-    products: ['/manga/ai_001.png', '/manga/ai_002.png', '/manga/ai_003.png'],
+    products: ['/manga/ai_000.png', '/manga/ai_001.png', '/manga/ai_002.png', '/manga/ai_003.png'],
     timer: 1
   },
   computed: {
