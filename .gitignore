@@ -8,3 +8,4 @@ gh-pages
 node_modules
 public-vue
 resources
+yarn.lock
