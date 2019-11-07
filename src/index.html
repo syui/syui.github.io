@@ -132,7 +132,7 @@
 
 	<div id="app">
 		<transition name="slide">
-		<img v-bind:src="'/manga/' + products[product] + '.png'"/> 
+			<img v-bind:src="'/manga/' + products[product] + '.png'"/> 
 		</transition>
 		<div class="image-button">
 			<button id="next-manga" @click="nextSlide">&gt;</button> <button id="start-stop" @click="offTimer">{{ btnString }}</button>

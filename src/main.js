@@ -93,7 +93,7 @@ var app = new Vue({
   el: '#app',
   data: {
     product: 0,
-    products: [...Array(7).keys()],
+    products: [...Array(4).keys()],
     timer: 1
   },
   computed: {
