@@ -28,7 +28,7 @@ type: manga
 
 <div id="app">
 	<transition name="slide">
-		<img :src="products[product]"/> 
+		<img v-bind:src="'/manga/' + products[product] + '.png'"/> 
 	</transition>
 	<div class="image-button">
 		<button id="next-manga" @click="nextSlide">&gt;</button> <button id="start-stop" @click="offTimer">{{ btnString }}</button>
