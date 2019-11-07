@@ -9,3 +9,4 @@ node_modules
 public-vue
 resources
 yarn.lock
+package.json
