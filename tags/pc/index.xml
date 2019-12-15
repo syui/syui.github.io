@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pc on syui.cf</title><link>https://syui.cf/tags/pc/</link><description>Recent content in pc on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pc/index.xml" rel="self" type="application/rss+xml"/><item><title>protonmail</title><link>https://syui.cf/blog/post/2017/02/02/pc/</link><pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/02/02/pc/</guid><description>メールサービスはprotonmailが良いらしい。
+https://protonmail.com
+Custom Domainは有料でなければサポートしていないのが少し残念だけど。
+https://protonmail.com/support/knowledge-base/paid-plans/</description></item><item><title>nasneのHDD復旧(続)</title><link>https://syui.cf/blog/post/2017/01/30/pc/</link><pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/01/30/pc/</guid><description>HDDそのものは無事新しいものに換装できた。nasneのランプを見る限りだとHDD自体は正常に復旧している。IPを取得し、HDDも正常。
+ただし、電源ランプが点滅しているので、nasneのシステムが正常に起動していない状態だと思われる。(前回の記事、点滅を点灯と書いていたので誤植があった)
+やはり、死にかけてたHDDをバックアップする際、システム領域(sys2)に出てたエラーが原因で一部起動に必要なシステムをバックアップできなかったということだと思われる。
+リストア後、sys2に正常にアクセスできなかったのでfsckで修復すると、見た目Linuxのディレクトリ構造に戻すことに成功したけど、それでもnasneの電源ランプの点滅が点灯に変わらない。
+つまり、nasne壊れたっぽい(正確には修復できなかったっぽい)。
+参考
+https://babooshka-innerjourneys.blogspot.jp/2012/11/gnu-ddrescuehdd.html</description></item><item><title>nasneが故障した時の対処法</title><link>https://syui.cf/blog/post/2017/01/29/pc/</link><pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/01/29/pc/</guid><description>私のケースでは、nasneの電源を入れたらすべてのランプがずっと点滅してしまい、内部HDDをパソコンにつなげてチェックしてみたところエラーを吐きまくる(ディスクの認識や読み込み自体がとても遅い)という状態でした。HDD自体が死にかけてると思われます。
+それぞれの事案に対処できるかどうかわからないけど、nasneなHDDが故障しているケースが多いのでそれに対する一般的な処置について書きます。十分調査した上で開始してください。ここに書いてあることはあくまで参考程度にし、理解した上で実行してください。
+まず分解して、HDDを取り出します。nasneの構成はsdb1:ext3(boot), sdb2:ext3, sdb3:xfsです。システムがHDD(sdb1,2)にはいっており、sdb3がユーザー領域でフォーマットしてもかまわない領域だと考えられます。
+とりあえずバックアップした後に色々やります(私のケースでは主に新しいHDDに換装)。私のケースではHDDが死にかけているためバックアップが非常に困難(時間がかかる)。この場合、エラーがsys1,2にクリティカルヒットし、かつそれが起動に必要なものであり修復できない場合、多分ですがリストアしてもnasneが起動できないかもしれません。なので、クリティカルしてないことを祈るしかない&amp;hellip;。
+$ sudo fdisk -l # バックアップ $ sudo dd if=/dev/sdb of=~/nasne.img bs=512 count=2623488 # エラーが出てる時はdumpなどでバックアップを取ったほうが良い $ sudo dump -0u -z9 -f ~/nasne_sdb1.dump /dev/sdb1 $ sudo dump -0u -z9 -f ~/nasne_sdb2.dump /dev/sdb2 # その他のバックアップ方法 $ sudo ddrescue -v -d -f -r3 /dev/sdb ~/nasne.img # リストア(新しいHDD, cfdiskで領域削除した後に) $ sudo dd if=~/nasne.img of=/dev/sdb # user:xfs領域のチェック $ sudo xfs_check /dev/sdb3 error # 修復, これで治るのがベスト $ sudo xfs repair -L /dev/sdb3 # 場合によってはフォーマット(録画したビデオなどは消える) $ sudo cfdisk /dev/sdb # sdb3領域を削除し、新しい領域を作って保存 $ sudo mkfs.</description></item><item><title>PRを自動生成するシステムなど</title><link>https://syui.cf/blog/post/2017/01/25/pc/</link><pubDate>Wed, 25 Jan 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/01/25/pc/</guid><description>archlinux.orgのニュースの更新を監視し、更新された場合、自動で翻訳及び文書チェックを行ってPR(Pull Req)を生成するシステムを作った際に色々やった。
+こちらのリポジトリに実験でPRを送ってみた。
+github.com/mba-hack/archweb-jp
+で、これは例のごとくTravisとDockerで動かしているシステムなので、その他にも色々な機能があって、PRでなくIssueやCommit Commentなどにメッセージを投稿でき、内容としてはlintの出力などを載せられる感じになっている。
+また、archwikiで同様のことをテストしてたりした。まあ、翻訳作業している時、Google翻訳の結果や文章チェックの出力結果が載せられてると便利だと思ったので。
+しかし、こういうシステムをどこで運用するのが一番いいのかというのは迷っていて、やっぱりこういうのは個人アカウント上で動かそうと思ってる。
+そもそも自動PR, Comment, Issuesなどを送りつけられるのも迷惑だろうし(メンバーの方々が)。</description></item><item><title>gcli</title><link>https://syui.cf/blog/post/2017/01/24/pc/</link><pubDate>Tue, 24 Jan 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/01/24/pc/</guid><description>$ go get -u github.com/tcnksm/gcli $ go get -u github.com/tcnksm/cli-init $ go get -u github.com/jteeuwen/go-bindata $ cd $GOPATH/src/github.com/tcnksm $ make $ make install $ cd $GOPATH/src/github.com/mitchellh/cli # -F:framework, -c:option, $=name $ gcli new -F mitchellh_cli -c add -c list -c delete todo $ cd $GOPATH/src/github.com/$USER/todo $ go build $ ./todo</description></item><item><title>git-rebase-hack</title><link>https://syui.cf/blog/post/2016/12/25/git-rebase-hack/</link><pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/12/25/git-rebase-hack/</guid><description>前回の記事の補足として一つのGitハックを紹介します。
+(というか前回の記事に含めて書いてたつもりだったけど確認してみたところなぜか書かれてなかったという&amp;hellip;。
+# mac $ GIT_SEQUENCE_EDITOR=&amp;#34;sed -i &amp;#39;&amp;#39; -e &amp;#39;2,\$d&amp;#39;&amp;#34; git rebase -i --root # linux $ GIT_SEQUENCE_EDITOR=&amp;#34;sed -i -e &amp;#39;2,\$d&amp;#39;&amp;#34; git rebase -i --root これは最初のコミットへ強制的に戻すコマンドでGIT_EDITORあたりの変数がポイントになりそう。rebaseの一つの使い方として、このようにcommitを戻して、最新のrepositoryをそこ(./.gitがあるところ)へコピーしcommit, pushすれば、履歴の上書きが可能。
+基本的にはcat /usr/local/Cellar/git/$(git --version|cut -d ' ' -f 3)/libexec/git-core/git-rebase*あたり見て色々確認したりするのが面白いかもしれません(実際、やらないけど)。
+あと、上記は/Cellarからもわかるようにmac(brew)。一般的なlinuxの場合は/shareとかになりそう(これはpackage managerによる)。
+各種のGit Commandというのはあまり知られてなさそうなことですが、かなりの割合でShell Scriptだという気がしなくもないですね(適当)。
+今回はちょっとまともに書いた気がしなくもない(補足含めて)。おわり。</description></item><item><title>amp</title><link>https://syui.cf/blog/post/2016/12/07/amp/</link><pubDate>Wed, 07 Dec 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/12/07/amp/</guid><description>hugoでampに対応したthemeが公開されています。私のサイトはhugoで構築されていますので、hugoのcontentをそのままビルドできるので便利です。
+https://github.com/wildhaber/gohugo-amp
+$ mkdir themes $ cd themes $ git clone https://github.com/wildhaber/gohugo-amp.git $ rm -rf gohugo-amp/.git $ mv gohugo-amp/exampleSite/ . config.toml
+baseurl = &amp;quot;https://amp.syui.cf/&amp;quot; languageCode = &amp;quot;en-us&amp;quot; title = &amp;quot;MBA-HACK3 AMP&amp;quot; theme = &amp;quot;gohugo-amp&amp;quot; enableRobotsTXT = true [params] amp = true # enables amp features ampCdnRoot = &amp;quot;https://cdn.ampproject.org/&amp;quot; # defined base cdn root of the amp projects files ampRelease = &amp;quot;v0&amp;quot; # define amp release you want to use ampElementsVersion = &amp;quot;0.</description></item><item><title>twitter</title><link>https://syui.cf/blog/post/2016/12/01/twitter/</link><pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/12/01/twitter/</guid><description>Twitterの業績がよくないという話を耳にすることが多くなってきて、今更ながら、自分のツイートはメールと同じように定期的に削除していったほうがいいのかもしれないなという結論にいたり、過去ツイートをとりあえず全部削除してみた。ちなみに、バックアップは取ってあるので、いつでも復元は可能な状態にしてあるのはあるんだけど、多分復元することもないだろうなとは思うけど一応。
+個人的にはここ最近、過去ツイートを閲覧することが全くないので、過去ツイートを削除したところで不便は生じないと思われる。
+確かに思い出として残しておくことも良いかもしれないけれど、私は基本的に思い出を全く残さないタイプなので、まあ、これについてもやはり個人的には不要だと思った。
+現在、Twitterは完全に書くことには使っておらず、主に読むだけになってる。
+ちなみに、こういったやり方で運用するものの、一定期間は残すようにするので、1ヶ月とか1年とか、なのでやり取りにはそこそこ便利には使える。
+全部のツイートをバックアップして、そのcvsを使うことで全部のツイートを削除することが可能(Twitter API必須)。IDは個別のものから取得するために記述は不要。Twitter User IDからのやり方は3200ごとにAPI制限に引っかかる模様。
+#!/usr/bin/env python # -*- coding: utf-8 -*- import twitter import csv api = twitter.Api( consumer_key=&amp;#39;YOUR_CONSUMER_KEY&amp;#39;, consumer_secret=&amp;#39;YOUR_CONSUMER_SECRET&amp;#39;, access_token_key=&amp;#39;YOUR_ACCESS_TOKEN_KEY&amp;#39;, access_token_secret=&amp;#39;YOUR_ACCESS_TOKEN_SECRET&amp;#39; ) csvReader = csv.reader(open(&amp;#39;tweets.csv&amp;#39;, &amp;#39;r&amp;#39;)) next(csvReader) for row in csvReader: print(row[3], row[5]) # Time stamp and actual tweet api.DestroyStatus(row[0])</description></item><item><title>DockerでMT5を動かす方法</title><link>https://syui.cf/blog/post/2016/11/04/docker-mt5/</link><pubDate>Fri, 04 Nov 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/11/04/docker-mt5/</guid><description>DockerでMT5を動かす方法 dockerfile
+FROM ubuntu:16.10 RUN dpkg --add-architecture i386 RUN apt-get update -y RUN apt-get install -y software-properties-common &amp;amp;&amp;amp; add-apt-repository -y ppa:ubuntu-wine/ppa RUN apt-get install -y wine1.8 winetricks xvfb curl wget zsh RUN apt-get purge -y software-properties-common RUN apt-get autoclean -y RUN curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe RUN echo &amp;#34;alias mt5=&amp;#39;wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&amp;#39;&amp;#34; &amp;gt;&amp;gt; ~/.zshrc RUN echo -e &amp;#34;#!/bin/sh wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&amp;#34; &amp;gt;&amp;gt; ~/main.sh &amp;amp;&amp;amp; chmod +x ~/main.sh ENV HOME /root CMD /bin/zsh $ sudo docker build -t ubuntu:base .</description></item><item><title>GitLabPagesでドメイン.cfを使うことにした</title><link>https://syui.cf/blog/post/2016/10/12/freenom-cloudflare-gitlab/</link><pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/10/12/freenom-cloudflare-gitlab/</guid><description>GitLab Pagesでドメイン.cfを使うことにした 今回はドメインの取得からネームサーバーを使ったSSL有効化まで全部を無料(Free)で済ませています。
+まず、ドメインは.tk, .ml, .cfなどが無料になっているFreenomを使って取得します。IPを辿ってみると、dot tkぽいですね。
+次に、CloudFlareを使ってFreenomで取得したドメインを解析、登録します。内容は以下を参考に。
+syui.cf A 104.208.235.32
+www CNAME syui.gitlab.io
+ちなみに、A(root)の104.208.235.32はGitLabのWebサーバーのものです。あとはCloudFlareで取得したネームサーバーをFreenomに登録します。登録されたか確認するのは以下のコマンド。
+$ dig syui.cf +nostats +nocomments ns 最後にCloudFlareにてSSLの設定を行います。
+ここのCrypto, Page Rulesを選択して適時設定。
+結果をブラウザで確認。
+なぜ.cfを選択したのか 無料のなかで色々あるのになぜ.cfを選択したのかというと、何となくです。
+まあ、.comの.cが一致していることと、また個人的にcfはよく見かけるような気がするので(気のせいかもしれないけど)。
+調べてみると、アフリカ中央らしい。ドメインには国別やら色々とあって、例えば、.ioはイギリスで.jpは日本です。
+でも、IT関連では.ioが割りと人気で、その理由としてはGoogle IOなどがあり、そういった意味でIOとかけているからだと思われます。
+まあ、ドメインにあまり深い意味を求めてはいけないということで。
+おわり。</description></item><item><title>moment-js</title><link>https://syui.cf/blog/post/2016/10/11/moment-js/</link><pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/10/11/moment-js/</guid><description>自分のサイト、久しぶりに見に行ってみると、GitLabから取得してるカレンダーが表示されなくなってた。
+調べてみると、GitLabのカレンダーが更新されていた。
+具体的には、APIではないけれどJSON出力が載せられているページがあって、そこの情報がUNIX timeから標準 timeに変更されていた。こういったことは是非やめていただきたい。
+$ bower install moment var obj = $.parseJSON(json); var len = Object.keys(obj).length - 1; var ttmp = &amp;#34;&amp;#34;; for (i = 0; i &amp;lt;= len; i++) { var tdata = Object.keys(obj)[i]; var cdata = moment(tdata).unix(); var tnl = obj[tdata]; if ( i == len ) { var ttmp = ttmp + &amp;#39;&amp;#34;&amp;#39; + cdata + &amp;#39;&amp;#34;&amp;#39; + &amp;#34;:&amp;#34; + 1 + &amp;#34;}&amp;#34;; } else if ( i == 0 ){ var ttmp = &amp;#34;{&amp;#34; + ttmp + &amp;#39;&amp;#34;&amp;#39; + cdata + &amp;#39;&amp;#34;&amp;#39; + &amp;#34;:&amp;#34; + tnl + &amp;#34;,&amp;#34;; } else { var ttmp = ttmp + &amp;#39;&amp;#34;&amp;#39; + cdata + &amp;#39;&amp;#34;&amp;#39; + &amp;#34;:&amp;#34; + tnl + &amp;#34;,&amp;#34;; } }</description></item><item><title>古いパソコンもらった</title><link>https://syui.cf/blog/post/2016/09/08/arch-cd-boot/</link><pubDate>Thu, 08 Sep 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/09/08/arch-cd-boot/</guid><description>古いパソコンもらった おじいちゃんが古いパソコンが要らなくなったというので貰い受けた。
+案の定、WindowsXPというものがインストールされていたので、それを削除してArch Linuxを入れ、サーバーとして使うことにした。
+古いパソコンはBIOSでのUSBブートができないようだったので内蔵されているDVDドライブからブートすることにした。しかし、私はDVD/CD類は殆ど持っておらず、持ってたとしてもHDDにコピーして捨ててしまうので、やっぱり持ってなかった。そのため、空のDVD/CDというものも当然持っておらず、仕方なく買いに行くことにした。
+買ってきたディスクにはArch Linuxのイメージをddした。が、いざブートしようと思ったらパソコンに内蔵されているDVD/CDドライブが壊れているようだったのでブートできなかった。
+ここでUSBブートも, DVDブートもダメとなると、選択肢は限られてくる。
+幸運にも私はUSB接続するタイプのDVD外付けドライブを持っていたので、そちらからArchインストールディスクをブートすることにした。
+ブートは成功したものの幾つかのエラーが出ていてArch Linux自体は起動しなかった。外部ドライブ先である/dev/sr1からエラーが出ていたので、以下のコマンドでも問題解決には至らなかった。
+[rootfs] Waiting 30 seconds for device /dev/disk/ARCH_201609 $ ln -sf /dev/sr1 /dev/disk/by-label/ARCH_201609 $ exit したがって、USBを接続して、そちらに入れてあるArch Linuxを使うことにした。これは、要求されているラベルを書き換えることで使うことができた。DVDブートが要求しているラベルはARCH_201609。
+[rootfs] $ cd /dev/disk/by-label/ $ ls ARCH_201608...USB $ mv ARCH_201608 ARCH_201609 $ exit これでArch Linuxが無事起動した。ここまでくれば後は問題ないと思っていたが、HDDをマウントできない問題が発生した。
+[archiso] $ mkfs.ext4 /dev/sda2 $ mount /dev/sda2 /mnt mount: unknown filesystem type &amp;#39;ext4&amp;#39; https://bbs.archlinux.org/viewtopic.php?id=215432
+他のフォーマットを試したけど無駄ぽい。マウントできないというのは割りとどうしようもないので、USBの起動イメージを変えてみることにした。具体的にはArch Linuxのイメージを少し古くしてみたらいけた。
+[rootfs] $ cd /dev/disk/by-label/ $ ls ARCH_201508...USB $ mv ARCH_201508 ARCH_201609 $ exit [archiso] $ mkfs.</description></item><item><title>表示速度を改善する</title><link>https://syui.cf/blog/post/2016/09/06/html-min/</link><pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/09/06/html-min/</guid><description>表示速度を改善する 基本的には以下のページから分析し、分析結果から最適化されたファイルをダウンロードできるので、それをダウンロードし各ファイルに上書きします。
+https://developers.google.com/speed/pagespeed/insights/?hl=ja
+スクリプトの読み込みはasyncを付けます。
+HTMLを最適化するためにhtml-minifierを使います。
+以下のような感じでビルドすればよいでしょう。
+image: publysher/hugo before_script: - apt-get update -qq &amp;amp;&amp;amp; apt-get install -y -qq git zsh curl - apt-get update -qq - curl -sL https://deb.nodesource.com/setup_6.x | bash - - apt-get install -y nodejs - curl -L https://npmjs.org/install.sh | sh pages: script: - hugo - npm i html-minifier - ./bin/html-minifier.sh artifacts: paths: - public only: - master Dockerのpublysher/hugoはDebianらしいので、Node.jsのインストールが面倒くさいです。個人的にDocker ImageはArch Linux, Alpine Linuxなどを使って欲しさはある。
+https://nodejs.org/en/download/package-manager/
+bin/html-minifier.sh
+#!/bin/zsh d=${0:a:h:h} h=${0:a:h} cp $d/public/index.</description></item><item><title>browserstack-test</title><link>https://syui.cf/blog/post/2016/09/04/browserstack-test/</link><pubDate>Sun, 04 Sep 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/09/04/browserstack-test/</guid><description>ブラウザのテストをするには、BrowserStackが便利です。と言ってもここまでのものを使うことはあまりないと思いますが、それでもテストが楽になります。通常、テストはCircleCI, Werckerなどで行うと思います。
+https://www.browserstack.com/javascript-testing-api
+$ npm -g install browserstack-runner $ browserstack-runner init $ cat browserstack.json $ browserstack-runner var browserstackRunner = require(&amp;#39;browserstack-runner&amp;#39;); var config = require(&amp;#39;./browserstack.json&amp;#39;); browserstackRunner.run(config, function(error, report) { if(error) { console.log(&amp;#34;Error:&amp;#34; + error); return; } console.log(JSON.stringify(report, null, 2)); console.log(&amp;#34;Test Finished&amp;#34;); });</description></item><item><title>filestamp-ctime</title><link>https://syui.cf/blog/post/2016/09/03/filestamp-ctime/</link><pubDate>Sat, 03 Sep 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/09/03/filestamp-ctime/</guid><description>タイムスタンプは基本的なものでmtime, atime, ctimeという感じのものがあります。調べてませんし、適当なのでまあそんな感じのものが3つあるということです。作成日時、最終アクセス、更新日時みたいな内容だった記憶ですが、今回はそれらを改竄する方法についてです。
+タイムスタンプはlsやexiftoolから簡単に確認できます。
+$ ls -l $ ls -lc $ ls -lu $ exiftool $file タイムスタンプにはこれらの3つ以外にも独自フォーマットで保存される事が多く、通常、何らかのソフトを使ってファイルを作成すると、上記以外のタイムスタンプが保存されることがあります。
+もし完璧にタイムスタンプの偽装をしたければ、ソフトごとに異なるタイムスタンプにも注意を払わなければなりません。
+しかし、ここで紹介するのは、LinuxやUnixで一般的に使われているもののみです。注意してください。
+mtime, atimeは簡単に偽装できます。
+$ touch -d 201601010000 * ただ、ctimeは少し厄介です。touchでは偽装できません。ctimeの書き換え方法として一般的に知られているやり方はディスク操作が必要になります。
+しかし、ここでは最も簡単なハックのみ紹介します。
+$ export now=$(date +&amp;#34;%Y-%m-%d %H:%M:%S&amp;#34;) $ echo $now $ sudo date --set=&amp;#34;2016-01-01 00:00:00.00&amp;#34; $ chmod -R 777 . $ sudo date --set=&amp;#34;$now&amp;#34; ctimeの偽装はこんな感じです。
+このやり方では、ファイル数によっては多少設定時刻がズレるのですが、時刻サーバーから取得して修正すれば直ると思います。</description></item><item><title>Android端末でおすすめのもの</title><link>https://syui.cf/blog/post/2016/08/31/huawei-asus-android/</link><pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/08/31/huawei-asus-android/</guid><description>Android端末でおすすめのもの Nexus7が非常に良かったのでAsus製のものが人気です。したがって、ZenPad, ZenFoneなんかは昔から良さそうだなーと思って見てます。
+次に、Huawei製のものも人気があります。HUAWEI P9とか新しいです。
+もし私がAsusかHuaweiのどちらかを買うとしたら、Huaweiのものにすると思います。買いませんが。
+私が現時点で実際に購入するような端末は多分、Google Pixel, Google Nexusのどちらかになると思います。</description></item><item><title>Android7.0が来てる端末</title><link>https://syui.cf/blog/post/2016/08/30/android-7/</link><pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/08/30/android-7/</guid><description>Android 7.0が来てる端末 Nexus5X, Nexus9などに来ている模様。
+https://developers.google.com/android/nexus/images
+ただし、Android 7.0は今のところroot化は簡単にはできないぽい。
+https://autoroot.chainfire.eu/
+一応、Nexus7(flo)には6.0.1の最新版が来ていたので、もろもろアップデートとルートログイン。
+$ adb reboot-bootloader # Android 6.0.1 # https://developers.google.com/android/nexus/images $ fastboot erase system $ fastboot flash system system.img # CF-auto-root # https://autoroot.chainfire.eu/ $ chmod +x root-mac.sh $ ./root-mac.sh # Twrp 3.0.2 # https://twrp.me/devices/asusnexus72013wifi.html $ fastboot flash recovery twrp-3.0.2-0-flo.img $ fastboot boot twrp-3.0.2-0-flo.img # Xposed v86 # http://dl-xda.xposed.info/framework/sdk23/x86/ $ adb push xposed-v86-sdk23-x86.zip /sdcard/Download Install -&amp;gt; xposed-v86-sdk23-x86.zip Reboot System # BusyBox # https://play.google.com/store/apps/details?id=stericson.busybox&amp;amp;hl=en # /system/xbin - &amp;gt; /su/xbin しかし、こうしてみると面倒ですね。私は5-10分くらいで終わりましたが、みんなアップデートのたびにこんな面倒な対応しているのだろうか?</description></item><item><title>GoogleImgAPIを久しぶりに使ってみたら動かなくなっていた件</title><link>https://syui.cf/blog/post/2016/08/24/google-img-search-api/</link><pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/08/24/google-img-search-api/</guid><description>Google Img APIを久しぶりに使ってみたら動かなくなっていた件 $ curl -e http://www.my-ajax-site.com &amp;#39;http://ajax.googleapis.com/ajax/services/search/web?v=1.0&amp;amp;q=riot&amp;#39; {&amp;#34;responseData&amp;#34;: null, &amp;#34;responseDetails&amp;#34;: &amp;#34;The Google Web Search API is no longer available. Please migrate to the Google Custom Search API (https://developers.google.com/custom-search/)&amp;#34;, &amp;#34;responseStatus&amp;#34;: 403} なるほど。Google Custom Searchを使えと。
+あと、Google Img Searchを有効にするには、Google APIで有効にする必要があります。
+title=&amp;#34;カバネリ&amp;#34; SEARCH_WORDS=`echo ${title} | ruby -r cgi -ne &amp;#39;puts CGI.escape $_.chomp&amp;#39;` # https://cse.google.com/cse/all # https://console.developers.google.com/apis/ API_KEY=fdiosoi4IFDJyijgfioehdgosaI SEARCH_ENGINE_ID=&amp;#34;0850540110499400394093:dfy8a84jvdjr&amp;#34; imgapiurl=&amp;#34;https://www.googleapis.com/customsearch/v1?key=${API_KEY}&amp;amp;cx=${SEARCH_ENGINE_ID}&amp;amp;searchType=image&amp;amp;q=${SEARCH_WORDS}&amp;#34; curl -sL $imgapiurl | jq -r &amp;#39;.items|.[]|.link&amp;#39; 前にもどこかでやった気がするこの既視感はなんだろう。まあ、いいか。
+アニメサイトで使う予定の画像を取得するので、以下を読んで適切なサイズのものを取得。
+https://developers.google.com/custom-search/json-api/v1/reference/cse/list
+&amp;amp;imgSize=xxlarge, &amp;amp;highRange=lowRange</description></item><item><title>Nexus7(2013)でWebサイトを編集するのが快適な理由</title><link>https://syui.cf/blog/post/2016/07/24/android-hugo-theme/</link><pubDate>Sun, 24 Jul 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/07/24/android-hugo-theme/</guid><description>写真多分でかいです、すいません。できれば端末回転で横にすればよかたんだけど面倒くさかった
+Nexus7(2013)でWebサイトを編集するのが快適な理由 ここで言うWebサイトとは、Webサーバー、Webテンプレート、Webテーマなどを含みます。
+Webサーバーを操作する場合は、多くの人が使っているAWS(Amazon)やHerokuがありますが、個人的にはHerokuがおすすめですが、どちらでも可能です。
+ただし、今回は主にWebテーマを編集する一例を紹介することになります。
+現在、Nexus7 7-inchだけでHugoブログを管理できますが、専門的な知識がない私でも簡単にテーマの調整ができてます。
+関係ありませんが、Nexus7は非常に良い端末です。Android端末では値段はあまり重要ではありません。高価なものが良いとは限らないし、安価なものが悪いとは限りません。そして、一つの重要な視点があり、そのポイントさえ抑えれば、あまり詳しくない人でも端末を選ぶ際、適切な判断が下せるでしょう。ここで、私にとってのポイントは端末のサイズと、Nexusシリーズであるかどうかです(今後、Googleが直接製造に踏み切る可能性があり、その場合はNexus以外も選択肢に入ります)。サイズの解説は省略するとして、なぜNexusシリーズでなければならないのかというと、一つはOSのアップデート対応です。Androidはバージョンアップが非常に早いOSの一つです。年々新たなアップグレードが配信されます。Nexusシリーズ以外はアップグレード対応が放置されている例が目につきます。次に、プリインアプリ(プリインストールアプリ)です。最初から入ってるアプリのことですね。Nexus以外は出荷段階で不要なアプリが入れられている可能性が高いです。場合によっては個人情報をGoogle以外の自社サーバーに送るアプリもインストールされているかもしれません。ただ、これらに関しては、最新のセキュリティ事情は出荷段階でハードに埋め込むタイプの侵害が増加しているようです。したがって、Nexusであれば安心と言える状況ではなくなってきているのも事実でしょう。セキュリティ上関わる企業が少なければ少ないほどユーザーにとっては安心できます。そのため、もしGoogleが端末を製造するなら、そちらのほうが良いということになります。
+話を戻しましょう。Wordpressであろうとそれ以外であろうと、その編集においては、通常、ハッカーが取りうる選択肢は多義に渡ります。つまり、ありとあらゆる方法が考えられ、それを実行できるだろうということです。
+具体的には、アプリを使って編集してもいいし、サーバーから操作してもいいし、仮想環境から編集することも可能です。
+ここでは、仮想環境を作ってテーマ編集する方法を採用します。難易度的にもこれが最も難しいと思われます。正確には難しいというか面倒な方法です。ただし、応用可能性は格段に広がります。一度、仮想環境を作れば、例えば、Dockerを使って更に膨大なコンテナをAndroid上で操作することも可能です。
+しかし、Docker自体はAndroidで動かすのはオススメしません。今回もDockerコンテナを作ろうと思えば可能です。例えば、Hugo用のコンテナなどを作っておくと便利でしょう。しかし、Alpineイメージを使ってさえ容量を相当圧迫するDockerはAndroid端末上で扱うのに向いているとは思いません。更に、Dockerを複数管理するにしてもスペックも不足しています。そして、単体で動かすのであればあまり意味が無いでしょう。ただ、Dockerイメージの中にはAndroidからも便利に扱えるイメージがいくつか在るのも事実です。その場合は都度紹介します。
+とりあえず、まずは仮想環境の構築ですね。前提としてRootは必須になるので、Androidのユーザー権限は書き換えておいてください。権限書き換え後は権限管理アプリ、例えば、SuperSUなどを使えばよいでしょう。
+次に、Android Terminal Emulatorを使ってAndroid用にカスタマイズされたOSイメージを読み込みます。OSイメージは色々な種類がありますが、私は、Arch Linuxのイメージを使います。
+http://linuxonandroid.org/downloads/
+配布されているイメージの容量が少ない場合は容量を拡張します。
+$ sudo pacman -S qemu --noconfirm $ export img=arch.img $ export size=3G $ qemu-img resize $img $size $ sudo losetup -f $ sudo losetup /dev/loop0 $img $ sudo mount -t ext4 /dev/loop0 /mnt $ sudo resize2fs /dev/loop0 $size これで基本的な準備は完了です。後は、イメージと起動スクリプトをAndroidにPushします。起動スクリプトは適時好みにカスタマイズしてください。
+$ adb shell mkdir -p /sdcard/arch $ adb push ./arch.boot /sdcard/arch $ adb push .</description></item><item><title>gitbook-mdbook</title><link>https://syui.cf/blog/post/2016/07/18/gitbook-mdbook/</link><pubDate>Mon, 18 Jul 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/07/18/gitbook-mdbook/</guid><description>gitbookからmdbookに移行するのが最近の流行らしい。
+https://github.com/azerupi/mdBook
+gitbookは結構遅いし不満があるらしい。何より古い。
+反対にmdbookはrustを使います。
+# packager for rust $ cargo install mdbook $ git clone https://github.com/azerupi/mdBook.git $ cargo build</description></item><item><title>game3</title><link>https://syui.cf/blog/post/2016/07/10/game3/</link><pubDate>Sun, 10 Jul 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/07/10/game3/</guid><description>相手の油断を付く戦略についての続きです。
+例えば、相手がプロであったり、頭がすごく良かった場合どうしますか。
+たぶん、いつもより警戒するでしょう。
+そして、警戒されている時、罠を仕掛けても引っかかりにくいです。もちろん、通常の場合と比べての話です。
+なんか当事者が反対になってしまって分かりにくいですが、これが私の思考なので仕方ありません。
+通常の場合も罠を仕掛けただけでは、それに引っかかる人はあまりいないでしょう。
+しかし、その前に「あいつは歩いてるだけで自分の宝を落とす底抜けの馬鹿だ」と思わせることができればどうでしょう。こっちのほうが罠は通りやすいのです。
+例えば、こちらに狙いがあったとして、それを隠すにはすぐ罠を仕掛けるのではなく、その前に意味のない動きや馬鹿に見えるような動きをすることでそう思わせることができます。
+順序としては、意味ない動きを何度かした後、罠を仕掛けます。罠というのは、例えば「この歩を一&amp;quot;歩&amp;quot;進めたらタダで&amp;quot;角&amp;quot;を取れる」というような状況を作り出します。これは相手にとって有利です。しかし、それを実行したら「大手飛車取りが通る」という相手に不利な要素も存在します。
+しかし、直接的にこれを仕掛けても、罠だと気づかれる可能性が大きいです。なぜなら、単に罠を仕掛けるだけでそれに引っかかる人は少ないからです。
+ここで、もし相手が罠も考えられないような底抜けのマヌケだった場合はどうでしょう。その場合、これは罠なんかではなく、単なるミスじゃないかと考えるのではないでしょうか。
+相手は歩いてるだけで宝を落とすやつです。これもミスに違いない。その直前にもぎこちない動きをしていたので間違いない。
+いや、正確には考えているわけではないですね。こういう時、人はそれほど考えていません。心がそう決めているのです。
+しかし、「角をとった」と思った次の瞬間、「大手飛車取り」を食らったりすることがあるかもしれません。
+つまり、角をただで取れる状況は罠だった。相手のミスだと思っていたものが、実はミスではなかった。
+ここで、相手が警戒している時とかに直接に罠を置いても、すぐに気づかれてしまう可能性が高いかもしれません。だからこそ、相手を油断させるということが重要になってきます。相手の警戒を解くわけです。しかし、いきなり警戒を解くことは不可能です。少しずつやっていかなければなりません。これは、お話を作ることと似ているかもしれません。
+私のやり方の一つは、意味のない動きでフェイントしてる間に相手の心を見ます。そして、ここだと思った時に罠を置くという感じです。直感といえば、まあ直感かもしれないです。
+テクニック的な面で強調したいことは、「何か考えがあるなら、時に目眩ましも役に立つ」ということです。
+しかし、本質としてテクニックはあまり重要にはなりません。一番重要なのは相手の心であり、自分の心です。なぜならそれがわかれば、勝負をする意味すらないのですから。
+なので、基本このことを中心に考えていくと面白いと思います。
+おわり。
+なお、ここで書いたことが何かの役に立つとは思わないでください。これは単に私の一部のやり方を書いてみただけに過ぎません。
+いや、やり方というかむしろ考え方に近いかもしれません。
+世の中には色々な考え方があるものです。
+重要なのは自分で考えることです。そして、全部自分で考えたとは思わないことです。
+それは、ほとんどが受け継がれたものかもしれません。本当に自分で考え生み出したものは1割にも満たないかもしれません。
+しかし、受け継がれたものは価値が無いというわけでもなければ、自分で考えたことは価値が無いというわけでもありません。
+あと、ちょっとした質問に答えます。もちろん、自分で作った質問です。将棋です。
+守りはどうしているの? 守りは、基本的には行いません。また、いわゆる陣というやつを一つも知りません。なので作りようがありません。ただ、対戦相手はポチポチ教科書に載ってるような陣を作り上げていく人が多いです。ちなみに、私はその時その時の試合で考えるため、相手が使った守りの陣を覚えていませんし、覚えようともしません。
+陣についてどう思う? 攻撃する限りでは、完璧な守りだという印象を受けるものが多いですね。隙が全くありません。ただ、それを人間が運用していく限り、必ず隙が生まれるものだと考えています。
+本当に守りはやらないの? 時に守備に回ることはあります。それは、(1)相手の明白な攻撃の意図が読める場合、(2)隠れた攻撃の意図を推測できる動きを相手がした場合の2つです。これもその時々で考えます。私は既に述べているように初心者です。定型パターンなんてありません。基本、その時その時で考えるだけなのです。なので、この記事で書いた戦略自体、次の試合では変わっているでしょうね。
+将棋なんて興味ない?
+私もあんまりないですね。
+ただ、勝負した時なんかはいろいろ考えたことがあったので書いてみました。</description></item><item><title>game2</title><link>https://syui.cf/blog/post/2016/07/08/game2/</link><pubDate>Fri, 08 Jul 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/07/08/game2/</guid><description>はあ、前回、なんかやなことを書いてしまった気がする。でも、ネガティブなことばかり書くのは良くないので、仕方ない&amp;hellip;のかな。
+今回は前回の補足として私の考えを少しだけ書きます。
+主に、相手が隙を見せることについてですね。
+相手が隙を見せる時って、どういう時だろう。
+これも色々ありますが、一番は、やはり「自分のほうが格上で、相手を格下だと思っている時」でしょうね。
+なので、自分のほうが格下だと思わせる戦略は、初戦には相当な強みになることが多いです。大概、相手は油断しています。油断する人が多いです。
+「そんなことだれだって知ってる!!」
+本当にそうでしょうか。確かに、言葉上では当たり前のことです。しかし、これを常に気をつけるのは難しいことです。
+反対に、私の場合は、相手がどれだけ初心者であろうと、徹底的にボコボコにします。ゲームでは初心者が上級者を下すことはよくあることです。したがって、どんな相手だろうと、油断したり、甘く見たりすることは最大の命取りになりえるからです。ただ、常に気をつけるのはやっぱり難しいです。知っていても、実際やるのとは全然違いますからね。
+大体の補足は終わりです。多分、言いたいことは伝わったのではないかな。
+さて、ここで、初戦は相手が油断するかもしれないけれど、2戦目以降はどうするのか?という話でもしましょうか。
+2戦目は基本やりません。
+あんまり具体的なプランもないし、さらに言えば、私は勝ち逃げを基本としているからです。
+まあ、これも気分の問題なのですけど、自分の感覚でギリギリの勝負だった場合、基本的には2戦目はやりませんね。何がともあれ、私の自分ルールでは勝ち逃げが最優先です。
+それ以外なら気分が乗ればやりますけどね。
+おわり。
+ちなみに、ここで書いていることは基本、何の参考にもなりません。
+ここに書いているのはゲームに勝つための方法でもなければ、上手くやるためのノウハウでもないし、能力を高めるための知識でもないからです。
+ここに書いてあるのは、単に私のやり方です。
+人にはその人に合うやり方というものがあるものです。
+にも関わらず、他人ルールを自分ルールにしたり、それを当てはめても、それらは何の役にも立たないでしょう。
+なので、ここで書いていることは基本、何の役にも立たないと思います。そのことはご理解ください。</description></item><item><title>将棋</title><link>https://syui.cf/blog/post/2016/07/07/private/</link><pubDate>Thu, 07 Jul 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/07/07/private/</guid><description>将棋 「私は運が悪い」とネガティブなことばかり書いているのもあれなので、バランスをとるためにも少しばかりポジティブなことも書いてみようかなと思います。
+ということで、例えば、将棋の話でもしてみます。
+私は将棋、はっきり言って初心者中の初心者です。全くと言っていいほどやりませんし、やって来ませんでした。もちろん、習ったこともありません。
+なので、私は、コマの並べ方と動き方しか知りません。将棋のルールは、基本的なものについてある程度把握しています。完璧に把握しているかと聞かれると、よう分からん。まあ、そんな感じ。
+でも、この前プロの方と勝負したことがあって、なぜか勝ってしまいました。
+で、最終的な形(基盤?)を見ると、私の圧勝に見えました。周りの人たちもそう思ってるようでした。
+私は最初の布陣を動かすこと無く、防御も一切行わず、歩以外の手駒を取らせず、かつ自分の持ち駒は大量にありました。相手は持ち駒なし。歩すら持っていない状態で決着しました。
+これを見たら、コマの動かし方しか知らない初心者がプロに圧勝したという勘違いをしそうです。(でもゲームの良い所はルールさえ知っていれば誰にでもかつチャンスが与えられることだと私は思います。これは現実とは違うゲームの良い部分であると。なので、本来的にはプロとか関係ないとは思っています。
+ちなみに、私はゲームは結構得意なんです。特に運が介在しないゲームは得意な傾向にあるみたいです。ただ、将棋もあまりやらない(やっても年に1,2度くらい)ので、あくまで統計でしかないけど。
+真実 次に、真実の話をしましょう。
+私は最終局面を見る限りではプロに圧勝したように見えたけれど、真実は、圧勝なんかではありませんでした。
+本当のところは、すごくギリギリな勝負だったと思います。
+再度同じように勝てる自信は全くありません。
+つまり、真実は「単に運が良かったから勝てただけ」でした。
+ただ、もう一つの真実は「将棋というゲームは運が介在しない」ので、この2つは矛盾します。したがって、真実を聞いた後の判断はお任せします。
+ここで、まず試合をした時の私の戦略をお話しましょう。
+私の戦略はとても単純で、相手が隙を見せたところを一気に攻めるというものでした。
+そして、ただで隙を見せる相手なんていませんから、色々な心理的圧力をかける事で隙を出させるように計らいます。これが私の基本戦略。将棋のことはあまり知らないので、もちろん自分で考えました。こういった戦略が一般的かどうかは知りません。
+でも、真実の話を聞いた人はこう思うんでしょうね。「そんなのあたりまえだ」と。
+しかし、現実としてはどうでしょう。本当にこのことを理解できている人は少ない気がします。さらに言えば、いわゆる心理戦を実践している人はもっと少ないように思います。
+次に、もう少し具体的な話に移ります。
+私は、最初「飛車?」を使って、歩を取ることに集中しました。まあ、これ自体、3段階の合わせ技を使って、歩を持ち駒にし、相手は防御のためその場で歩を使わざるをえない状況を作り出すというものでした。
+ややこしいですね。なので分かりやすく言うと、勝敗はイーブンだけど、私は持ち駒として歩を所有できるという点にメリットがあったと考えてください。
+まずは、そこを目指しました。
+次に目指したのも、やはり歩取りでした。持ち駒となった歩を使って、ただで歩を取ることを目指しました。
+難しかったですが、最終的に相手が油断していたのかこれも成功しました。
+最後に、相手が隙を出すことを願いつつ、幾つかの揺さぶりをかけました。
+具体的には、同じ場所を行ったり来たりなど「こいつ何やってんだ。バカなのか」とイライラさせる作戦を実行しました。
+最終的にこれが功を奏したのか、私は王手飛車取り(おおてひしゃとり)をくらわせます。これが勝敗を分ける決定的な瞬間になりました。もちろん、当時ではないです。後から思えばという話です。
+ここからは、一気に攻撃しました。一手でも手を緩めれば、攻撃をミスれば、多分、こちらがやられてたでしょう。
+私は、即座に持ち駒の飛車を使って、駒を取り、取った駒で再度攻撃という感じでやりました。
+ここで、私は初期陣営。つまり、最初の布陣(状態)からほぼ全く動かしていませんでした。しかし、私は相手の懐に攻め込んでいました。歩と飛車、そして相手から奪った持ち駒を使って。
+なお、角は効かせてありますので、そこの歩が一つだけ動いています。こちらの布陣。
+ただ、初期状態の防御は、即効で詰みの状態にできるというやり方を私自身は幾つか思いついていました。
+なので、攻撃をミスると危ないと思っていました。
+確かに、一目見て戦況は圧勝の様相でした。
+しかし、実際はいっぱいいっぱいでした。
+私の心境は「ここでやらなければ、やられる」です。そういう状態でしたし、そういう試合だったと思います。
+最終的には、そこで確実に仕留めることができましたが、もし失敗すれば、多分こちらがやられてたと思います。
+したがって、見るからに圧勝の戦局でしたが、真実は「勝てたのは運が良かっただけ」ということになります。
+運 ただ、将棋とかチェスとかって、基本的には、運が介在しないゲームだと私は考えています。また、そもそもゲームというのは、運の介在をできる限り減らしたものが多い気がします。
+私は、運はめちゃ悪ですが、ゲームは割と得意な気がします。
+初めてプレイするゲームでもあっさり上級者に勝ってしまうことが今まで何度かありましたので、そんな風に感じています。
+もちろん、絶対的に勝てるというわけでもないし、そのような自信は全くないのですけどね。今までの勝率を見ると、めちゃ強いと出ているようです。
+運はめちゃ弱ですが、ゲームはめちゃ強いよ。
+ここで、多くの人が考えるであろう一言を記してこの話を閉じようと思います。
+「運が悪いなんて単なる言い訳」
+ですよねー。
+なので、運が悪いなんて、本当のことでも言うべきではないです。
+というか、ゲームが強いとかもいうべきではないです。単なる自慢話であり、そこには何の意味もない。
+ゲームなんてどちらが勝つかわからない。これはどんな時であれ、どんな勝負であれそうなのです。
+ゲームが強い?そんなもんは過去形でしかなく、ゲームが強かった、でもこれからはわからない、というのが真実です。そして、「わしゃ、ゲームが強かったんじゃよ」なんていう昔話をしても、それは無意味というものです。馬鹿げてる。プロと試合したのは半年前ですが、それでもやっぱりその勝敗について語ることは無意味です。
+じゃあ、自分は何が言いたかったのだろうか?
+それは、やっぱり運の話なんじゃないかなと思います。
+運ってみんな平等だから、悪ければその分良くなるよって言う人がいます。
+&amp;hellip;私はあまり信じてないんですけどね。
+でも、それがたまたま自分に当てはまることがあるとして「今までの分、とことんまで運が良くなればいいなー」と私はそう願います。
+本当はこれが言いたかった。
+&amp;hellip;とりあえず運が良くなった場合を想定し、準備でもしとくか。(呑気</description></item><item><title>amp-sample</title><link>https://syui.cf/blog/post/2016/06/28/amp-sample/</link><pubDate>Tue, 28 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/28/amp-sample/</guid><description>Google検索上でAMPコンテンツを表示するようにしてみました。
+AMPとは、モバイルに最適化されたAMP用のHTMLを書くことで、Googleはそれを優先的に表示してくれるようです。
+まずは、サンプルがあるので、そちらでページを作成し、自分のサイト用に修正していくことに。別ページで作成し、それを本サイトに結びつけるのが良いでしょう。
+https://github.com/ampproject/amp-by-example
+$ git clone https://github.com/YOUR_GITHUB_NAME/amp-by-example.git $ cd amp-by-example $ npm i $ glup -------------- $ curl -sL localhost:8000 $ vim tasks/lib/Metadata.js ソース(HTML)を読めば大体の形式がわかると思います。
+日本語は、こちらの記事で分かりやすく解説されています。
+https://ics.media/entry/12291
+http://masup.net/2015/10/fits-amp-html.shtml</description></item><item><title>archlinux-bug</title><link>https://syui.cf/blog/post/2016/06/27/archlinux-bug/</link><pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/27/archlinux-bug/</guid><description>Arch Linuxを使っていて、最近、ネットワーク接続に不調がありました。
+問題はドライバだけではありません。主要なネットワーク関連のツールについてもそうでした。
+私の場合、こういうトラブルに会っているためか、ネットワーク接続に関するトラブル解決に多少強くなった気がします。
+どのような状況であれ、物理的にネットワークに接続できる環境であれば、ネットワークに接続できるという自信があります。それは、何もない状態であってもです。Arch Linuxはほぼ素の状態から各ツールを使い、そして設定します。Archer(Arch Linuxユーザー)もそうしている人が多いでしょう。
+私は、地雷を踏んだ数だけトラブルに強くなると考えています。
+そして、Arch Linuxは、地雷を踏むためにはベストなOSと言えるでしょう。
+確かに、ネットワーク設定についてもそうですが、調べれば分かります。わざわざ地雷を踏む必要なんてないだろ、もし踏んだらその時に調べれば済む話であって、できるだけ踏まないほうが良いという意見もわかります。
+ただ、コンピュータのトラブルシュートにおいて、調べれてもわからない問題なんてそうそうあるでしょうか。殆どの問題は、調べれば分かるものが大半です。
+私の考えはこうです。
+「何かトラブルが起こった時、調べずにパパっと設定できるほうがカッコいい」
+確かに、面倒です。時間もかかります。効率も良くないでしょう。コンピュータの設定なんかより他のことに集中したいですよね。
+でも、私は地雷を踏んだ数だけ強くなれると思っているし、何のトラブルも起こらない平穏な環境を望んでいるわけではないのです。
+Arch Linuxは、平穏を求める人ではなく、むしろ、不安定を求める人にこそ使って欲しいOSですね。
+なんかそんなことを思いました。
+おわり。</description></item><item><title>archlinux-network-macbook</title><link>https://syui.cf/blog/post/2016/06/26/archlinux-network-macbook/</link><pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/26/archlinux-network-macbook/</guid><description>MacBookにインストールしたArchLinuxのネットワークの調子がここ最近おかしかったのですが、どうやらドライバのアップデートが来て直った模様。
+$ yaourt -S broadcom-wl-dkms $ sudo pacman -S linux-headers あと、色々触っているうちにnetctlをやめてipを使ったネットワーク設定などをやってみたり。
+# デバイス名を自動設定する機能をOFFにする, これでeth0, wlan0になります $ sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules # ipの場合、通常こんな感じで接続します, netctlよりも相当に面倒です $ export eth=eth0 $ sudo ip link set $eth up $ sudo ip addr add 192.168.1.2/24 broadcast 192.168.1.255 dev $eth $ sudo ip route add default via 192.168.11.1 # 自動起動の場合もscriptとsystemctlのunitを作成してenableしなければなりません $ sudo systemctl enable network@interface.service $ sudo systemctl start network@interface.service これはArchLinux特有の問題でもないのだろうけれど、Updateが速いのでいろいろな面倒事に巻き込まれる確率は高まる。</description></item><item><title>Webサーバーを立てるとしたら</title><link>https://syui.cf/blog/post/2016/06/25/nginx-h2o/</link><pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/25/nginx-h2o/</guid><description>Webサーバーを立てるとしたら Nginxかh2oが良い感じですかね。
+あと、Reverse proxy, Transparent Proxyなどの知識を持っておくと良い感じですかね。
+ついでに以下の様な記事を読んでおくと便利です。
+https://www.thecthulhu.com/setting-up-a-hidden-service-with-nginx/
+ただし、.onionにアクセスする場合は十分に注意を払いましょう。なるべく通常使われているブラウザでアクセスするのを控え、標準機能、プラグインをオフにしましょう。通信を制限、監視しましょう。必ず中継サーバーを経由し、VPNを設定しましょう。</description></item><item><title>Webサーバーを立てたことはないの?</title><link>https://syui.cf/blog/post/2016/06/24/deep-web/</link><pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/24/deep-web/</guid><description>Webサーバーを立てたことはないの? 以前、Webサーバーを立てたことはないみたいな言い方をしたことがありましたが、実は立てたことあります。
+私のような初心者がWebサーバーを立てることは本当は危険なのですけどね。
+しかし、その時使った私のやり方はちょっとばかり特殊なものでした。
+したがって、まずは、一般的なWebサーバーについて少しばかり説明します。
+一般的なものは、レンタルサーバーを借りて、ドメインを借りて立てるのが通常です。
+なぜなら、自宅の一般回線上でWebサーバーを立てると、そのWebサーバーの場所が自宅になってしまうこと以上に、そのIPアドレス上のポート80などを開けておく必要があるため何かと危険だからです。
+IPアドレスから大体の場所は特定できますし、ブルートフォースも危険です。
+また、ドメインというのは、要は名前解決です(正確には違いますが)。分かりやすい名前とアドレスを紐付けすることで、アクセスしやすくなるわけですね。そんなイメージのものです。
+したがって、通常はレンタルサーバーを借りて、ドメインを借りるわけですね。
+こうすることで、サーバーのIPアドレスは、レンタルサーバー会社が持っているサーバーが置いてある場所になりますし(そのWebサーバーの場所が秘匿されていないかぎり)、ドメインで簡単にアクセスできるようになります。そのうち検索サイトからも簡単にインデックスされるでしょう。
+ただし、これらはあくまで一般的なやり方です。
+Deep Web, Dark Webのような特殊なノードを用いる方法を採用すれば、個人情報を秘匿するためにレンタルサーバーを借りる必要性は低くなります。
+このようなDeep Web, Dark Webの特徴は、検索エンジンからはアドレスがヒットせず、リンクをたどっていくしか接続はほぼ不可能だという点と、たとえアクセスしたとしてもその管理者の情報があまり得られないであろうということです。
+レンタルサーバーを借りた場合、その情報を検索するのは割と容易です。また、ドメインを借りている場合も、管理者の情報は簡単に検索できます。
+反対に、Deep Webではこれらが難しくなります。
+このようなDeep Webの類は、もちろん悪用されて危険な面もあります。
+ただ、私の印象で言うと、割りとまともな情報も多いです。
+もちろん、変なもの、明らかに悪いもの多いです。そして、これらにはあまり目を向けないほうが良いでしょう。精神的な安定のためにも。
+しかし、高度な技術的情報は、Deep Web上に多く存在しているのも事実です。
+現在のインターネットは監視社会の一部です。もちろん、これにはメリットもデメリットもあります。
+広告や企業サイトなどは、あらゆるトラフィックを解析し、そして、それが個人と結び付けられ、既に膨大な個人データベースが出来上がっています。
+つまり、誰がどこで何をしているか、どんな思想を持ち、どんな興味を持っているかを把握されているということです。
+誰にかというと、政治家、学校、職場の上司、社長などでしょう。あなたを管理したがる人間です。
+それ以外にも性別、年齢、国籍、所属、年収、趣味など普通にインターネットをしているだけで、それは知られてしまうでしょう。
+中には用心している人もいますが、専門技術的な知識がない人が用心しても正直あまり効果があるとは思えません。
+そういった監視を嫌がる人々は、Deep Webにいく傾向にあります。
+理由としては、普通のインターネットをやると、通常は、学校や職場にそれを知られることとなりますが、そこではそうならないので、気分的に良いのでしょう。
+所感では、ネットが常に監視されている現状は息が詰まることもあります。
+私自身はそこで特に何かする予定はなかったのですが、とりあえず一般的なツールを使って、その上でノードを再設定し、Deep Web, Dark Webに沿った形でサーバーを立ててみたことがあります。特に必要性を感じなかったので一瞬で閉じましたけどね。
+そして、Webサーバーを立ててみると分かることですが、考えることがあまりに多いです。
+それは特にセキュリティですね。監視ツールの導入と日頃のチェックやアラームの設定など。また、日頃のメンテナンスなども大変です。
+しかし、微弱ではあるものの立ててみないとわからないことも多いと思います。
+したがって、私は、技術的に多少の不安はあっても、とりあえず立ててみて運用してみるというやり方は良いことだと思いますね。
+続きは明日。</description></item><item><title>xclip-display</title><link>https://syui.cf/blog/post/2016/06/19/xclip-display/</link><pubDate>Sun, 19 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/19/xclip-display/</guid><description>クリップボードアプリで有名なのはxselとxclipです。
+ただし、xやsshで扱うには多少のオプションが必要になります。
+$ echo test | xclip -i -sel c -d :0 $ xclip -o -sel c -d :0 上記オプションは、input, outputと-sel clipboard, -display :0になります。</description></item><item><title>gitlab-docker-build</title><link>https://syui.cf/blog/post/2016/06/17/gitlab-docker-build/</link><pubDate>Fri, 17 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/17/gitlab-docker-build/</guid><description>GitLabがDockerとの連携機能を提供しはじめたのでDockerを使ってのビルドやテスト、プッシュが簡単になりました。
+http://docs.gitlab.com/ce/ci/docker/using_docker_build.html
+$ sudo docker ps -a $ sudo systemctl start docker $ docker login registry.gitlab.com $ mkdir -p ~/docker/reponame/Dockerfile $ cd ~/docker/reponame $ sudo docker build -t registry.example.com/group/project . $ sudo docker tag my-image my-registry:5000/my-image $ sudo docker run my-docker-image /script/to/run/tests $ sudo docker push registry.example.com/group/project .gitlab-ci.ymlをこんな感じで書けるようになります。
+build_image: image: docker:git services: - docker:dind script: - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.example.com - docker build -t registry.example.com/my-group/my-project . - docker run registry.</description></item><item><title>docs-slate</title><link>https://syui.cf/blog/post/2016/06/16/docs-slate/</link><pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/16/docs-slate/</guid><description>ドキュメントは何で書いていますか?
+sphinxとか定番です。
+でもslateとか先駆的なのでオススメです(と言っても若干古い)。
+$ git clone https://github.com/lord/slate $ cd !$:t $ bundle install $ bundle exec middleman server 見た目のカスタマイズにはsource/layouts/layout.erbとかを編集します。htmlでなくerbで書きます。cssはscssで書きますので、source/stylesheets/_foo.scssを用意して、source/stylesheets/{print.css.scss,screen.css.scss}などからインポートします。
+gitlab-ciでdeployする場合はmiddlemanを使いまので、以下のような感じ。
+image: ruby:2.3 pages: script: - apt-get update -yqqq - apt-get install -y nodejs - bundle install - bundle exec middleman build artifacts: paths: - public only: - master これはハマりポイントなのですが、GitLab Pagesは、pathsをpublicで指定しないとDeployに何故か失敗します。
+更に、Middlemanはbuildディレクトリにビルドされるのがデフォルトで、これを設定ファイルであるconfig.rbにて指定しなければなりません。
+configure :build do set :build_dir, 'public' end それと、bundleはnodejsをインストールしなければ使えなかった気がします。インストールしないとbundleがないと言われるし、gem i bundlerでインストールすると、middleman buildが何故か失敗するような感じだった覚えがあります。正直、よく分からん&amp;hellip;。
+個人的には、Middlemanはもう使いたくないのですが、他のDoc Genよりはマシということで。</description></item><item><title>iron</title><link>https://syui.cf/blog/post/2016/06/15/iron/</link><pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/15/iron/</guid><description>よくLambdaとIronが比較されていますが、後者のほうを使ってみました。
+Free Planはアカウント作成から15日間になります。
+基本的には、Iron CLIをインストールして、Dockerでテストして、アップロードするという流れ。
+$ mkdir -p iron/test $ cd !$ $ curl -sSL https://cli.iron.io/install | sh $ echo &amp;#39; package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello from IronWorker! &amp;#34;) }&amp;#39; &amp;gt;&amp;gt; hello_worker.go # test $ docker run --rm -it -v &amp;#34;$PWD&amp;#34;:/go/src/x/y/z -w /go/src/x/y/z -e &amp;#34;GOPATH=/go/src/x/y/z/vendor:/go&amp;#34; iron/go go build -o hello_worker ... $ docker run --rm -it -v &amp;#34;$PWD&amp;#34;:/app -w /app iron/go ./hello_worker # upload $ zip -r hello_worker.</description></item><item><title>base64</title><link>https://syui.cf/blog/post/2016/06/14/base64/</link><pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/14/base64/</guid><description>base64を扱う場合、base64コマンドによってエンコード、デコードできます。
+$ echo test | base64 $ echo test | base64 | pbcopy # 以下のコマンドはコピーしないように $ pbpaste | base64 -d jsonと組み合わせると以下のように感じで使えます。
+$ echo "eyJ0aXRsZSI6IiIsImJvZHkiOiIifQo=" | base64 -d | jq . { "title": "", "body": "" } また、secret base64を使うことで暗号化データを扱えます。これについては後述するjwtを使います。
+例えば、jwtというものがあります。これを使うと、jsonに暗号化及び署名を行えます。
+$ echo "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ" | base64 -d OAuthなどのAccess Tokenを扱う場合、非常に便利です。
+以下の記事が参考になります。
+https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
+http://trustedanalytics.org/how-to-secure-tap-applications-using-oauth2/
+基本的には以下の様な感じで使います。
+$ mkdir koa-test &amp;&amp; cd koa-test $ npm install koa koa-jwt co-body --save $ openssl genrsa -out demo.</description></item><item><title>m</title><link>https://syui.cf/blog/post/2016/06/13/m/</link><pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/13/m/</guid><description>m.zshでは、dateコマンドを多用しています。
+便利なのですが、Macでは、Linux用のものをインストールしなければ使いにくいです。
+$ brew install coreutils $ export PATH=&amp;#34;$(brew --prefix coreutils)/libexec/gnubin:$PATH&amp;#34; $ date -d &amp;#34;2016-01-01 -1 day&amp;#34; +&amp;#34;%Y-%m-%d&amp;#34; 2015-12-31 $ date -d &amp;#34;2016-01-01 1 day&amp;#34; +&amp;#34;%Y-%m-%d&amp;#34; 2016-01-02</description></item></channel></rss>

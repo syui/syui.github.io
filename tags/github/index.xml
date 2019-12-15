@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on syui.cf</title><link>https://syui.cf/tags/github/</link><description>Recent content in github on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>github issuesを使うコメントシステムutterancを設置する</title><link>https://syui.cf/blog/post/2019/12/12/issue/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/12/issue/</guid><description>utterancでコメントを設置 基本的にはutteranc.esにアクセスして、GitHubにアプリをインストールします。
+https://github.com/utterance/utterances
+そして、コメントを載せたい場所にコードを貼り付ければOKです。
+&amp;lt;script src=&amp;#34;https://utteranc.es/client.js&amp;#34; repo=&amp;#34;[ENTER REPO HERE]&amp;#34; issue-term=&amp;#34;pathname&amp;#34; theme=&amp;#34;github-light&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34; async&amp;gt; &amp;lt;/script&amp;gt; コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。
+github actionsを使ったChatOpsでラベルを付ける ChatOpsと連携すると便利かもということで、やってみました。
+自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。
+name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: | labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description></item><item><title>ホームページ、りにゅーある</title><link>https://syui.cf/blog/post/2019/10/20/gh-pages/</link><pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/10/20/gh-pages/</guid><description>ホームページをりにゅーあるしました。遊びに来てね
+gh-actionsに少しハマったので、ポイントだけ書いておきます。
+peaceiris/actions-hugo
+まず、branch:gh-pagesで実行する場合、そのままいけましたが、titleにスペースを入れるとなぜか失敗してた記憶があります。が、今は問題なさそうな感じでした。
+次に、branch:masterで実行する場合、これはgithub側の問題ですが、githubが自動で実行するjekyll-deployなどが成功するも、なぜかページが上手く表示されないという現象が起こりました。index.htmlには全く問題がありませんし、ステータスはokになってるのですが、なぜ。
+なので、こんな感じのコマンドを実行し、jekyll-buildを停止。あと一応、CNAMEの問題かもしれないので置きました(自前でpushした場合は無くてもいけてた気がするけど)。
+- name: Build run: | hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description></item><item><title>github.dev</title><link>https://syui.cf/blog/post/2019/02/22/github/</link><pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/02/22/github/</guid><description>googleから取得できるdomainの.devで、github.devがgithubによって速攻で取得され、github pagesの宣伝に使われてたので、とりあえずpreviewしてみた。
+https://github.dev
+source : https://github.com/github/personal-website
+deploy : https://mbahack2.syui.cf/personal-website
+$ git clone https://github.com/github/personal-website $ personal-website $ rvm install 2.6.1 $ rvm --default use 2.6.1 $ gem install jekyll bundler $ bundle $ bundle exec jekyll serve repoを作って、branch:gh-pagesにpushすると、開発者っぽいabout pagesがdeployされる。url:https://syui.github.io/personal-website
+$ git branch $ git checkout -b gh-pages $ git push origin gh-pages # fork $ curl -sL https://syui.github.io/personal-website url,baseurlをsetすると、cssがhttps protocolになった。
+$ vim _config.yml url: https://mbahack2.syui.cf baseurl: personal-website $ vim _includes/header.html // https://jekyllrb.</description></item><item><title>Mastodonの自動アップデート</title><link>https://syui.cf/blog/post/2017/04/24/github/</link><pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/24/github/</guid><description>Mastodonのインスタンスを管理する上での負担の一つはアップデートなわけだけど、これを自動化した話。
+Travis CIでCron Jobを動かすことにしたんだけど、ローカルではうまくいくのに、Travisのgitコマンドでは上手くいかないのでハマった。
+Travisでは多分だけどcloneしたリポジトリの変更を許さない感じになっていて、upstreamをmeargeしたものがコミットできなかったのではないかなと。できなかったというより、変更はありませんみたいなこと言われるのでmergeしたものをデプロイ出来なかった。
+これはスクリプトを書いて更にcloneした後、upstreamをmergeしてtokenを使ってpushし、それをHeroku Deployする感じで解決した。
+ただし、この仕組、デプロイを2回やらないといけないことになるのだけど、1回目はcronで実行され、そこでupstreamがpushされるので2回目が回ってupstreamが取り込まれたものがDeployされる仕組み。1日に2回デプロイするのは無駄なので、この辺をなんとかしたいと思いつつ、良い方法が思い浮かばないので放置。
+TravisのHerokuはどういった形でデプロイされているのだろうか、もしgit push https://$ENCRYPTED_API_KEY@heroku.com/$APP_NAME.git masterみたいな感じだったらスクリプトで条件つければいけそうな気がするのだけど、調べるのも面倒くさいので放置。</description></item></channel></rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pleroma on syui.cf</title><link>https://syui.cf/tags/pleroma/</link><description>Recent content in pleroma on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 04 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pleroma/index.xml" rel="self" type="application/rss+xml"/><item><title>pleromaをherokuで立てる</title><link>https://syui.cf/blog/post/2019/04/04/pleroma/</link><pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/04/04/pleroma/</guid><description>pleroma on heroku.
+herokuでpleromaを動かします。動いた環境を記録します。
+heroku info remote: * Stack heroku-18 remote: * Erlang 21.2 remote: * Elixir 1.7 src : https://git.pleroma.social/pleroma/pleroma , fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8
+buildpack : https://github.com/syui/heroku-buildpack-elixir
+こちらのHashNuke/heroku-buildpack-elixirで${build_path}からmixを実行できないので、それを修正したもの。
+$ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mix remote: fatal: not a git repository (or any parent up to mount point /) remote: Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). $ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME Procfile
+web: mix phx.</description></item><item><title>dockerでpleromaを起動してみる</title><link>https://syui.cf/blog/post/2018/07/29/docker-pleroma/</link><pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/07/29/docker-pleroma/</guid><description>導入 分散型SNSの一つにpleromaというものがあります。分散型SNSというのは、GNU Social(PHP), Mastodon(Ruby)のようなものです。
+pleromaは、ElixirのPhoenixというフレームワークで書かれたWebアプリ&amp;hellip;と言っていいか分かりませんが、そんな感じのものです。
+ご存知の通り、ElixirのPhoneixは非常にレスポンスと言うか、自動更新周りの処理がエコでして、pleromaも非常に軽い感じで動作します。
+メモリとかGNU SosicalやMastodonと比べて段違いに少なくて済むのでは。
+ことPaaSとかSaaSとか、他のものにpleromaを置くにしても、最近は、dockerやk8sなどのコンテナを利用する可能性が高く、メモリは以前に増して少量であることが重要な要素の一つだと思います。
+GCPとかBluemixとかHerokuとかOpenShiftとか、無料もしくは格安プランで動かす場合、1GB制限とかそういうの多いんですよ。
+ということで、今回はとりあえずpleromaをdockerで動かしてみたいなーと思いたって、適当にやってみました。
+docker:pleroma github.com/ht164/pleroma-docker-compose
+検索したらこういうものがアップされていました。docker-composeで上げられてるの、非常にありがたい!
+$ git clone https://github.com/ht164/pleroma-docker-compose $ mkdir -p web/pleroma &amp;amp;&amp;amp; cd web/pleroma $ git clone https://git.pleroma.social/pleroma/pleroma.git . 大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。
+https://git.pleroma.social/pleroma/pleroma/wikis/home
+./pleroma-docker-compose/web/pleroma
+$ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, adapter: Ecto.Adapters.Postgres, username: &amp;#34;pleroma&amp;#34;, password: &amp;#34;pleroma&amp;#34;, database: &amp;#34;pleroma_dev&amp;#34;, hostname: &amp;#34;db&amp;#34;, pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres $ cd ../.. # ./pleroma-docker-compose $ docker-compose build $ docker-compose up -d $ docker ps 12345678 pleroma/pleroma pleroma-docker-compose_web_1 $ docker exec -it 12345678 /bin/sh &amp;gt; $ mix ecto.</description></item></channel></rss>

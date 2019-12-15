@@ -1,5 +1,0 @@
----
-title: "music"
-type: music
----
-

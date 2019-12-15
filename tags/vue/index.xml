@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vue on syui.cf</title><link>https://syui.cf/tags/vue/</link><description>Recent content in vue on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 26 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vue/index.xml" rel="self" type="application/rss+xml"/><item><title>vue+hugo+milligramでブログを作ってみた</title><link>https://syui.cf/blog/post/2018/07/26/vue/</link><pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/07/26/vue/</guid><description>導入 最近、フロントエンドにvue.jsを使うことが多くなりました。
+とは言え、私は、コンピュータ関連のことは何も知らないのに、カッコつけてそれらしいキーワードを並び立ててるに過ぎないんですけどね。フロントエンドとかvue.jsとか、いかにもって感じじゃないですか。前回書いた記事も本当はそんな感じの内容なんですよね。多分、分かる人には「あ、こいつそれらしいキーワードを並び立ててるだけで、本当はコンピュータ、プログラミングのことをまるで分かっていない初心者だな」と見抜かれてしまうと思うんですけどね&amp;hellip;。
+さて、前置きはそのくらいにして、この前、vue.jsという「それっぽいやつ」をなんとなしに使ってみたのですが、所感としては、vue.jsかなりいいです!
+で、これは何かと言うと、react, angularみたいなやつです、Webフレームワーク。
+ということで、今回は、どんな感じでvueを使ってみたのかの記録になっています。
+vueは何がいいのか あ、いつの間にか名前を小文字にしてしまってる。本当はVue.jsなのかな。知らん。
+しかし、やっぱり基本的には全部小文字で書きたいので、今後は小文字でいきます。
+いきなり話がそれましたが、vueは何がいいのかと言うと、私の感想では、「簡単に作れる」という点がいいなと思っています。それほど複雑でもないし。
+ですが、大規模なものをvueで作っていくと、スケールしにくいんじゃないかなって感じはします。一方、reactとかだと最初は複雑だったり、難しかったりするかもですが、スケールしやすいのではないかな。
+とは言え、かなり大雑把な感想ですが、私は、vueのほうが好きですね。しかし、内容によって使い分けたほうが良いと思います。
+サンプルコード そんなvueですが、実際にどう使ったのかと言うと、jsonを読み込んでページに反映するみたいな感じのものを書きました。
+package.json
+{ &amp;#34;name&amp;#34;: &amp;#34;vue-sample&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;0.0.1&amp;#34;, &amp;#34;author&amp;#34;: &amp;#34;syui &amp;lt;syui@syui.cf&amp;gt;&amp;#34;, &amp;#34;license&amp;#34;: &amp;#34;MIT&amp;#34;, &amp;#34;scripts&amp;#34;: { &amp;#34;dev&amp;#34;: &amp;#34;cross-env NODE_ENV=development webpack-dev-server --open --hot --host 0.0.0.0 --port 7000&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack --progress --hide-modules&amp;#34;, &amp;#34;build:watch&amp;#34;: &amp;#34;cross-env NODE_ENV=production WEBPACK_WATCH=true webpack --progress --hide-modules&amp;#34; }, &amp;#34;dependencies&amp;#34;: { &amp;#34;vue&amp;#34;: &amp;#34;^2.4.2&amp;#34;, &amp;#34;vuex&amp;#34;: &amp;#34;^2.4.0&amp;#34; }, &amp;#34;devDependencies&amp;#34;: { &amp;#34;axios&amp;#34;: &amp;#34;^0.17.1&amp;#34;, &amp;#34;babel-core&amp;#34;: &amp;#34;^6.0.0&amp;#34;, &amp;#34;babel-loader&amp;#34;: &amp;#34;^6.0.0&amp;#34;, &amp;#34;babel-preset-latest&amp;#34;: &amp;#34;^6.</description></item></channel></rss>

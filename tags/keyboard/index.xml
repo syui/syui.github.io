@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>keyboard on syui.cf</title><link>https://syui.cf/tags/keyboard/</link><description>Recent content in keyboard on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 18 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/keyboard/index.xml" rel="self" type="application/rss+xml"/><item><title>月配列S1</title><link>https://syui.cf/blog/post/2017/05/18/keyboard/</link><pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/18/keyboard/</guid><description>自分で作った。かな入力+中指シフトの月配列作って練習してる
+https://github.com/syui/tsuki-layout
+かな入力は今までやったことなかったし、ローマ字より速いっていうし、汎用性あるので覚えておいて損はないと思うので。また、JISなら確認がすぐできるのもポイント高かった気がする。
+練習はしてないけどしてる感じです。どういうことかというと、これを書いているのは月配列で書いているのだけど、しかし、こういった実践ではなくタイピングアプリとか使ってやった方が上達早そうに思います。</description></item><item><title>月配列</title><link>https://syui.cf/blog/post/2017/05/17/keyboard/</link><pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/17/keyboard/</guid><description>最近、MacBookのキーボードがヘタってきて思ってることがある。まず、MacBookのキーボードは2,3年でへたるので、普段は外付けキーボードなどを買って使うべきだったなということと、そして、キーボード配列を考慮すべきだったなということだった。
+私はローマ字入力でやっていて、特に配列なんて意識したことなかったけど、どうやらQWERTY及びローマ字入力は非効率らしい。さらに、MacBookのヘタったキーボードを使っていて思うことは、これらの配列は「負担大きいな」ということだった。特に日本語入力でローマ字入力を用いるところは負担が大きいように感じる。引っかかりを感じるのは間違いなく日本語を入力しているときで、コードを書いてる時はこういうのあまりない気がする。
+ということで、今現在、まずは日本語入力の配列を変更してみようと思い立って月配列を使った。
+月配列は色々あってややこしいが、月配列2-263式と月配列U9, E-Xがいいらしい。
+http://blog.livedoor.jp/eninlog/archives/4775068.html
+ただ配列自体は自作して、1日で覚えた。ブラインドタッチは完璧なんだけど激遅なので意味ないけど&amp;hellip;。
+現在、この配列で書いているのだけど、それがあまりに打ちづらくて文章思考までおかしくなっている感覚がある。
+あと、QWERTY配列よりもDvorak配列のほうが良いんじゃないかということで、そちらにも移行していけたらなと思っている。</description></item></channel></rss>

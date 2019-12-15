@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hearthis-at on syui.cf</title><link>https://syui.cf/tags/hearthis-at/</link><description>Recent content in hearthis-at on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/hearthis-at/index.xml" rel="self" type="application/rss+xml"/><item><title>SoundCloudに代わる音楽サービスとしてhearthis.atを使い始めた</title><link>https://syui.cf/blog/post/2018/10/07/music-hearthis-at/</link><pubDate>Sun, 07 Oct 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/10/07/music-hearthis-at/</guid><description>hearthis.atは、自分が作った楽曲などをアップロードして、再生したり、もしくは気になるユーザーをフォローしたりできるサービスです。このようなサービスでは、soundcloudが一番有名ですよね。
+ということで、hearthis.atにアカウントを作ってみました。
+https://hearthis.at/syui
+ユーザー画面はこんな感じで、soundcloudに似ていて、直感的で分かりやすくなっています。
+しかし、soundcloudは、ユーザー数が多すぎて、自分のidが取れなかったりするものですから、私は、hearthis.atを使っていこうかなと思っています。
+登録は簡単ですし、有名なサービスアカウント(Twitterなど)からも登録(sing-in)することができます(アカウント作成)。
+機能も豊富で、曲をアップロードする上では、不便を感じませんでした。
+また、音楽の再生の面でも使いやすいと思います。
+ただし、少し画面がごちゃごちゃしているのと、公式APIが提供されていない?点は、少し不便を感じます。
+これに関しては、fanburstというサービスがあります。こちらは、シンプルな画面にAPIも用意されていて、個人的には、こっちのほうが好みですが、hearthis.atと比べると、UIがシンプルすぎる気がして、流行らなさそうな気配を感じます(わかりませんが)。
+そして、現在、hearthis.atはあまり日本で認知されていなくて、tag:vocaloidで検索しても、ほとんど曲が出てきません。再生もあまりされていない感じでした。
+これはもしかしたら、hearthis.atの中では、もしかしたら一番のボカロPになれるかもしれないですし、チャンスかもしれません。(ライバルが少ないので)
+なので、hearthis.atという場所で、最初は全然ですが、頑張ってみようかなと思っています。
+最初は曲を上げてみても、カウンターは1とか2とか、自分しか再生していないというのが現状です。
+でも、私がブログを始めたときもGitHubやQiita始めたときも最初はそんな感じでした。
+しかし、続けていると、フォローしてくれる人が居たり、いいねをしてくれたりと、少しずつですが増えていきました。
+なので、hearthis.atでも少しずつ再生数とか増えていけば嬉しいなーと思っています。
+クリエイターの皆様にもおすすめですよ!
+以上、hearthis.atの紹介でした。
+ちなみに、私は、hearth(ハート) + this + atで覚えています。</description></item></channel></rss>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>twitter on syui.cf</title><link>https://syui.cf/tags/twitter/</link><description>Recent content in twitter on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/twitter/index.xml" rel="self" type="application/rss+xml"/><item><title>twgというtwitter clientを作った</title><link>https://syui.cf/blog/post/2018/07/25/twitter/</link><pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/07/25/twitter/</guid><description>導入 突然ですが、バックエンドやサーバーサイドでよく使う技術ってありますか。ちなみに、ここで言うバックエンドは主にWebアプリの裏側の意味で、サーバーサイドは、サーバーの保守とか管理の意味ですかね。曖昧ですが。
+私は、これらの領域では、主にShell ScriptとGo(Go lang)を使うことが多いかなって思います。
+Shell Scriptは、これは非常に優れた言語、とは言えないかもしれませんが、非常に優れたプログラミング技術であることは間違いありません。その理由の一つとして挙げられるのが、実現可能性ではないでしょうか。実現したいことが素早く簡単に実現できてしまう、Shell Scriptには、そういった力があると個人的には思っています。
+ですが、Shell Scriptは書いて動かしたら、それでおしまいみたいな感じになってしまうことが多いんですよね。なので、これで書いたものは、継続的に開発するとかは基本ないです。それに、やる気でないですよ。
+そのため、最近はもっぱらバックエンドやサーバーサイドで細々と使うCLIツール群はGoで書くようにしています。
+これがすごくいいんですよね。Goという言語はすごくいい。
+ということで、今回は、Goの魅力と、自分がどんな感じでGoで書いたプログラムを使っているのかを書いていきたいなーと思います。
+TwitterクライアントをGoで作ってみた時の話 この間、twgというtwitter clientを作りました。
+twgというのは、twitter goの略でつけた名前です。
+first commit gitに残ってる最初のコミットは、酷いですねー。正直、最小構成をcommitしとけばよかったなと思います。今後はそんな感じでやっていきたい&amp;hellip;。
+話を戻しますが、まずは作り始めた時の最小構成を改めて再現してみたいと思います。
+main.go
+package main import ( &amp;#34;flag&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;encoding/json&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;github.com/urfave/cli&amp;#34; &amp;#34;github.com/ChimeraCoder/anaconda&amp;#34; &amp;#34;github.com/skratchdot/open-golang/open&amp;#34; &amp;#34;github.com/mrjones/oauth&amp;#34; ) func Action(c *cli.Context) { if c.Args().Get(0) == &amp;#34;&amp;#34; { RunOAuth() return } return } func App() *cli.App { app := cli.NewApp() app.Name = &amp;#34;twg&amp;#34; app.Usage = &amp;#34;$ twg&amp;#34; app.Version = &amp;#34;0.</description></item></channel></rss>

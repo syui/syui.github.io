@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>svg on syui.cf</title><link>https://syui.cf/tags/svg/</link><description>Recent content in svg on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/svg/index.xml" rel="self" type="application/rss+xml"/><item><title>svgにハマったついでに、新しいアイコンをデザインしてみた</title><link>https://syui.cf/blog/post/2019/12/14/svg/</link><pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/14/svg/</guid><description>svg、全くわからん svg、わかりにくすぎて、思った通りの変換、inkscapeなどによる編集も難しすぎた。
+まず、変換が思った通りにいかないことも多く、そこそこ使えたのは、以下の方法。
+変換サイト : https://image.online-convert.com/convert-to-svg
+変換コマンド : https://eprev.org/2015/05/27/converting-png-to-svg
+$ brew install potrace imagemagick $ convert -alpha remove party-never.png pgm: \ | mkbitmap -f 32 -t 0.4 - -o - \ | potrace --svg -o party-never.svg で、変換がうまくいったかは、大体がsvgファイルを見ればわかります。
+viewBoxなどが普通の数字であること、及び、path dが入ってることが重要。viewBoxが変な値だと、操作するのが難しすぎるし、viewBoxわけわからん。まあ全体と位置を決めてるらしいけど、これを手動で合わせるとか無理。svg演算する専門アプリとかありそう。
+&amp;lt;svg width=&amp;#34;512.000000pt&amp;#34; height=&amp;#34;512.000000pt&amp;#34; viewBox=&amp;#34;0 0 512.000000 512.000000&amp;#34; preserveAspectRatio=&amp;#34;xMidYMid meet&amp;#34;&amp;gt; &amp;lt;path d=&amp;#34;M0 2560 l0 -2560 2560 0 2560 0 0 2560 0 2560 -2560 0 -2560 0 0&amp;#34;&amp;gt; svgはパスで書かれていて、変換した際、なぜかパスが反転してしまうこともあって、例えば、pngで透明だった背景ベースでパスが構築されてしまう。これもパスを反転すればいいだけじゃんと思ったけど、画像編集の常識が通用しないので、正直、わけがわからんかった。これ、自由自在に編集できる人いるんだろうか？
+その後、配色を黒にしたら、変換できました。
+新しいアイコンのデザイン そんなことをやりながら、ついでに新しいアイコンをデザインしてみた。</description></item><item><title>svgアニメーションを作ってみた</title><link>https://syui.cf/blog/post/2019/12/13/svg/</link><pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/13/svg/</guid><description>この前、svgでロゴにアニメーション付けている人を見かけて、いいなーと思ったので、自分もやってみることにしました。
+svgの仕様は、今回はハマらなかったのですが(たまたま)、場合によってはハマりそうだなって思いました。
+重要なのは、d, pathです。あと、width, scaleとかもめんどくさそうですが、svgの中身を参考にすればいいと思います。
+demo : https://syui.github.io/svg-animation-particle-circle.css
+$ git clone https://github.com/syui/svg-animation-particle-circle.css $ cd !$:t $ open index.html 色とか透明度をアニメーションで調整してやると、いい感じになります。夢が広がりますね！
+最終的には以下のような形で落ち着きましたけど、悩みました。特徴は、scale(1,0.9)と90%のfillです。パーティクルの色は、html-svgに書いてあるので変更できます。
+.likeButton .syuiold { fill: #EF454A; } .likeButton.clicked .syuiold { fill: #EF454A; -webkit-animation: syuioldAnime 400ms; animation: syuioldAnime 400ms; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; } @keyframes syuioldAnime { 40% { fiil:#ef454a63; transform-origin:0 0 0; transform: scale(1,0.9) translate(-9%, 9%); -webkit-transform: scale(1,0.9) translate(-9%, 9%); } 50% { fill:#ef454ab8; transform-origin:0 0 0; transform: scale(1,0.9) translate(-7%, 7%); -webkit-transform: scale(1,0.</description></item></channel></rss>

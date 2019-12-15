@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>title on syui.cf</title><link>https://syui.cf/tags/title/</link><description>Recent content in title on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 04 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/title/index.xml" rel="self" type="application/rss+xml"/><item><title>タイトルを変更した</title><link>https://syui.cf/blog/post/2019/02/04/title/</link><pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/02/04/title/</guid><description>タイトルを変更しました。
+タイトルの変更って良くないですよね。私もそう思います。けど、前のがダメすぎたので、早めに修正しといたほうがいいなって思いました。
+修正大事。でもタイトルの変更はよくない。
+なので、自分が納得する方を選びました。今後、タイトルが変更されることは多分ない。
+今のタイトルにこれだ感がありますので。スペースもなければ、ドットもない。スペースはよくないですし、ドットはドメインとの区別がつきにくいので問題でした。また、ハイフンとかも基本、良くないですよね。
+piyologを参考にしました。piyologoを見た時、タイトルはこの方式が正解だって思いました。piyologは偉大。
+cnameも追加しました。
+https://log.syui.cf
+https://blog.syui.cf
+https://syui.gitlab.io/blog
+しかし、元のリポジトリが、blogというのがちょっと不満ですが、割とどうしようもない。そちらをリダイレクトページにすればいいんですけど、良くないので、やりません。
+変化の過程 タイトルの変化過程を一応、記録しときます。心境も同時に。
+昔はですね、例えば、ドメインがblog.syui.cfなら、ドットの前後を反転させるのが正解だって思っていました。だって、シンプルですし、めんどくさくないですしね(ルールが明白という意味で)。そんな考え方でした。
+↓ ↓ blog.syui.cf = syui.blog しかし、上記は見た目はたしかにいいのですが、これではドメインとの区別がつきにくくてダメでした。実は、昔からこの問題点は把握していたのですが、見た目と簡潔さを重視していました。しかし、考え方が変わりました。ブラウザのアドレスバーから検索しやすくないとやっぱりダメですよね。
+次に、ドメインをそのままというのも考えました。しかし、サブドメインの場合は、ドットが2つもあるので、覚えにくいのでダメだと思いました。
+blog.syui.cf = blog.syui.cf これがメインドメインなら、ありだと思いますし、いいと思います。けど、blogはサブでやってますしね。ダメです。
+syui.cf = syui.cf 次は、スペースでやってみました。上記のような区別問題もないですし、見た目もわかりやすいですが、スペース自体が好きではなかったのです。
+blog.syui.cf = &amp;#34;syui blog&amp;#34; そこで、ドット前後を反転した上で、単純にドットを消すのが正解かなって思いました。今思いましたね。
+blog.syui.cf = syuiblog しかし、8文字って多いですよね。7文字くらいに減らしたいところです。しかも、元ネタもありますし、blogをlogにすることにしました。
+log.syui.cf = syuilog 限りなくめんどくさくないルールで、かつ間違いが起こりにくい方式で行きたいです。サブドメインなら、シンプルに単語を連結させるのが正解でした。そう思います。
+ついでにbaseurlもセットしておくことにしました。今までは、実は確実性を期して、セットしていなかったのですけど、流石に、やはりタイトルがlogなのに、blogリポジトリsyui.gitlab.io/blogは変ですしね。
+以上</description></item></channel></rss>

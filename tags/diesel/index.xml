@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>diesel on syui.cf</title><link>https://syui.cf/tags/diesel/</link><description>Recent content in diesel on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 22 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/diesel/index.xml" rel="self" type="application/rss+xml"/><item><title>rustをやっていきたい</title><link>https://syui.cf/blog/post/2018/08/22/rust/</link><pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/08/22/rust/</guid><description>導入 自分が苦手意識を持っている言語は、いくつかあります。
+と言っても特に使ったこともないんだけど、何故か苦手意識を持っています。
+私が苦手な言語は、例えば、lisp, haskell, rustなどになるのですが、rustに関しては、やっておいたほうがいいだろうということで、やっていきます。
+ここで、私がなぜrustに苦手意識を持っているのかというと、多分、mdbookを使ってたことが起因していると思います。
+mdbookというのは、gitbookをrustで書いたものなんですが、そこですごくハマったことがあったんですよね。依存パッケージのbuildとかも相当な時間がかかったりで、とにかく大変だった印象があるのです。
+そんなこともあり、なんとなくrustはなー&amp;hellip;とか思ってたんですが、rustを急にやってみたくなったので、やってみたいなーということで。
+rust c++の代替みたいな感じですかね。速いことで有名。single coreを余すことなく使うらしい。
+基本的には、cargoでinstallしたりbuildしたり。cargo.tomlを作ります。rocketというフレームワークが便利そう。dbとの接続はdieselを使う感じ。
+とりあえず、rocketから触ってみることに。
+https://github.com/SergioBenitez/Rocket/tree/master/examples/json
+api server立てるっぽいやつを動かしてみる。ここでコードの内容も見ていく。
+$ rustc -V $ cargo -V $ git clone https://github.com/SergioBenitez/Rocket $ cd Rocket/example/json $ rustup override set nightly $ cat Cargo.toml $ cargo build $ cargo run $ cat src/main.rs # check $ curl localhost:8000/message/1 # post $ curl -H &amp;#39;Content-Type:application/json&amp;#39; -d &amp;#39;{ &amp;#34;contents&amp;#34;: &amp;#34;Hello, world!&amp;#34; }&amp;#39; localhost:8000/message/1 # get $ curl localhost:8000/message/1 次は、dbを組み合わせた感じのものを見ていきます。</description></item></channel></rss>
