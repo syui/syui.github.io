@@ -10,7 +10,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         branch: 'master'
-        run: git pull;git checkout master
+        run: |
+           git log
+           git branch -a
+           git pull;git checkout master
+           git branch -a
+           git log
       
     - uses: ad-m/github-push-action@master
       with:
@@ -18,8 +23,11 @@ jobs:
         force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+           git branch -a
            git pull;git checkout master
+           git branch -a
            git config --local user.email "action@github.com"
            git config --local user.name "GitHub Action"
            GIT_SEQUENCE_EDITOR="sed -ie '2 s/^pick /f /g'" git rebase -i --root
+           git log
 
