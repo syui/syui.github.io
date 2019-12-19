@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>golangのcli toolをurfave/cli/v2に移行する</title><link>https://syui.cf/blog/post/2019/12/18/xq/</link><pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/18/xq/</guid><description>urfave/cliがv1からv2へ移行したみたいで、このlibで作ったcli toolがCIを通したgo getなどに失敗するようになっていたので対応。(一部だけ
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>イラスト描いてみた16</title><link>https://syui.cf/blog/post/2019/12/19/illust/</link><pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/19/illust/</guid><description>ファイル名は16なので、16番目ということで。(数えるの面倒になってきた
+最初のコンセプトは、星と山で、まずはそれを描いてみたんだけど、なんか物足りなくて、残りの部分を過去のイラストから持ってきた。
+星を山にぶっ刺すの、描いてみると難しかったんですよね。
+ipadはすばらしく描きやすいです。
+しかし、アプリの使い方が未だによくわかってなくて、調べるのも面倒なので放置してます。
+インプットが圧倒的に不足していて、よくない。
+調べながら描かないとうまくならないよなあと思いつつ、さっさと完成させたい欲が強く、結局調べないという悪循環。
+今度は細かい部分、見ていこう。</description></item><item><title>golangのcli toolをurfave/cli/v2に移行する</title><link>https://syui.cf/blog/post/2019/12/18/xq/</link><pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/18/xq/</guid><description>urfave/cliがv1からv2へ移行したみたいで、このlibで作ったcli toolがCIを通したgo getなどに失敗するようになっていたので対応。(一部だけ
 https://github.com/urfave/cli/blob/master/docs/v2/manual.md
 $ GO111MODULE=on go get github.com/urfave/cli/v2 ~/go/src/github.com/urfave/cli/v2 (from $GOROOT) $ go mod init $ echo export GO111MODULE=on &amp;gt;&amp;gt; ~/.zshrc $ . !$ $ go get -v -u github.com/urfave/cli/v2 これでv1 -&amp;gt; v2で変更された箇所を書き換えれば、buildが通ります。
 https://github.com/urfave/cli/releases/tag/v2.0.0
