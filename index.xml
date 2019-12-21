@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>mastodonからtwitterに投稿する</title><link>https://syui.cf/blog/post/2019/12/21/mastodon/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/21/mastodon/</guid><description>この前、golangで使ってるlibがv2にupdateしたとかで書き直さなきゃいけなくて、面倒だと思ってたんだけど、mastodonとtwitter連携が面白そうだったので、それをネタにツールを書き直して、ついでに仕組みを作ってみました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>Herokuで立てる分散SNS</title><link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid><description>今回は、Herokuで立てる分散SNSの話です。
+アドベントカレンダーに参加しています。
+Heroku Advent Calendar 2019
+分散SNS Advent Calendar 2019
+Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
+Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPaaSだと思っています。今までOpenShiftやIBM Cloud(Bluemix)など様々なサービスを試してきましたが、その中では総合的に見てHerokuが一番でした。(あくまで個人的見解
+さて、そんなHerokuですが、サービスとしての認知度は高く、定評があり、人気もあるので、知っている人は多いかと思います。
+ですが、Herokuがどういった会社なのかを知る人は少ないと思うので、今回は少しだけそのへんを考えてみたいと思います。
+まず下のページを読んでみてください。
+Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description></item><item><title>mastodonからtwitterに投稿する</title><link>https://syui.cf/blog/post/2019/12/21/mastodon/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/21/mastodon/</guid><description>この前、golangで使ってるlibがv2にupdateしたとかで書き直さなきゃいけなくて、面倒だと思ってたんだけど、mastodonとtwitter連携が面白そうだったので、それをネタにツールを書き直して、ついでに仕組みを作ってみました。
 具体的には、mastodonにtwitterタグを付けて投稿すると、twitterにも投稿されるようにしてみる。
 仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。
 GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能
