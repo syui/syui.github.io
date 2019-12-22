@@ -20,17 +20,6 @@
     "tag": [ "site", "blog" ]
   },
   {
-    "title": "mba-hack",
-    "url": "https://mba-hack.blogspot.com",
-    "domain": "https://mbahack.syui.cf",
-    "tag": "blog"
-  },
-  {
-    "title": "mba-hack2",
-    "domain": "https://mbahack2.syui.cf",
-    "tag": "blog"
-  },
-  {
     "title": "mastodon",
     "host": "mstdn.syui.cf",
     "account": "https://mstdn.syui.cf/@syui",
@@ -56,7 +45,7 @@
     "account": "https://qiita.com/syui"
   },
   {
-    "title": "note.mu",
-    "account": "https://note.mu/syui"
+    "title": "soundcloud",
+    "account": "https://soundcloud.com/asyui"
   }
 ]
