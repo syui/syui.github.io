@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>Herokuで立てる分散SNS</title><link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid><description>今回は、Herokuで立てる分散SNSの話です。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 23 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>Packer + Vagrant + Ansibleで構築するdotfiles</title><link>https://syui.cf/blog/post/2019/12/23/dotfiles/</link><pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/23/dotfiles/</guid><description>アドベントカレンダーに参加しています。
+dotfiles Advent Calendar 2019 今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。
+自動化スクリプトが動かなくなってた話 私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。
+$ curl -L git.io/air|zsh ですが、最近実行してみると、やっぱり動かなくなっていたのです！
+dotfilesのメンテもいつの間にかやらなくなる話 dotfilesも同じく、最初はちゃんとpushするんですが、そのうち、commitがめんどくさくなってしまい、いつの間にかメンテナンスしなくなっていました。
+そんな時、Ansibleで構築してみると便利かもしれないと思ったので、今回は、Ansible + dotfilesで環境一新してみることにしたのです。
+(魔界化したdotfilesは何から手を付けていいのかわからない)
+Ansibleとは環境構築を自動化するツールです。dotfilesは設定ファイル群で、今回はこれらを組み合わせます。
+仮想環境は、Packer, Vagrant, ArchLinuxを使います。PackerでArchLinuxのVagrantイメージを作り、その上にdotfilesをおいてAnsible Playbookを実行しデスクトップ環境を構築するという流れでやってみたいと思います。
+デスクトップのi3は、Mod4 + EnterでTerminalを起動。
+https://github.com/elnappo/dotfiles
+Packer + VagrantでArchLinuxの仮想環境を構築 ArchLinuxは、なかなか良さげのVagrantイメージがありませんでした。ということで、Packerで作ることにします。
+まずは必要なものをインストール。
+$ brew install packer $ brew cask install vagrant 続いて、Packerの設定ファイルを取ってきて、PackerでVagrantイメージを作ります(今回のために作った)。
+https://github.com/syui/arch
+$ git clone https://github.com/syui/arch $ cd arch/packer $ packer build arch.json 作ったVagrantイメージをクラウドに保存して、ダウンロード起動します。
+$ vagrant login $ vagrant box add syui/arch arch.box --force $ vim vagrantfile Vagrant.</description></item><item><title>Herokuで立てる分散SNS</title><link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid><description>今回は、Herokuで立てる分散SNSの話です。
 アドベントカレンダーに参加しています。
 Heroku Advent Calendar 2019
 分散SNS Advent Calendar 2019
