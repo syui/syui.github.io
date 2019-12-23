@@ -1023,15 +1023,7 @@ https://github.com/syui/misskey/tree/v10
 つまりですね、できれば、人生、楽しみたいものですよね。自分も、周りも。
 そんなことを意味不明にも思っておりまして、私の行動原理って、割とそんなところが多いですから、それに従って、行動することが多い気がしてます。
 misskeyに幸あれ
-以上</description></item><item><title>鳳小春</title><link>https://syui.cf/blog/post/2019/04/05/novel/</link><pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/04/05/novel/</guid><description>鳳小春とは 鳳小春(おおとり こはる)は、ライトノベルの「可愛ければ変態でも好きになってくれますか？」に登場する脇役キャラです。好きです。
-5巻の表紙になっています。ラノベでは、2巻に登場します。
-https://comic-walker.com/contents/detail/KDCW_FS01200181010000_68
-で、このキャラ、年上のお姉さんだけど、見た目ロリみたいな感じで、自分はこの属性に弱いのかもなって思ったりした。
-まあ、それだけでもないんだけど
-話し方とか、性格。あとは、小学生に見られる高校三年生なんだけど、そのことをあまり気にしていないというか、引け目に感じていないところ。
-物語を要約すると、鳳小春が後輩に恋をして、その後輩、主人公とは同級生の友達なんだけど、なので、視点としては、小春が先輩になるのか。で、その友達、イケメンでできるやつで、ただ唯一の欠点がロリコン、年下しか絶対に認めないみたいなやつで、小春はストーカーなので、そういうのも全部知ってて、だから、高校一年の後輩のふりして仲良くなるんだけど、みたいな話だった。
-ラノベ自体はなんというか、2巻は面白かったけど、他はちょっと良くわからなかった。
-気まぐれでちょっと検索したら、意外となかったので、狙ってみました。</description></item><item><title>misskeyをherokuで立てる</title><link>https://syui.cf/blog/post/2019/04/04/misskey/</link><pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/04/04/misskey/</guid><description>misskey on heroku.
+以上</description></item><item><title>misskeyをherokuで立てる</title><link>https://syui.cf/blog/post/2019/04/04/misskey/</link><pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/04/04/misskey/</guid><description>misskey on heroku.
 misskeyという分散snsをherokuというpaasで動かしてみた記録です。
 remote: * Stack heroku-18 remote: NPM_CONFIG_LOGLEVEL=error remote: NODE_ENV=production remote: NODE_MODULES_CACHE=true remote: NODE_VERBOSE=false remote: Resolving node version 10.x... remote: Downloading and installing node 10.15.3... remote: Using default npm version: 6.4.1 remote: &amp;gt; misskey@10.98.3 install misskeyをherokuで動作させるポイントとしては、.config/default.ymlとheroku $PORTです。
 herokuは、deployする度にPORTが変動し、その値は、PORTの環境変数に入っています。しかし、misskeyのsource codeはそれに対応していないようなので、少しだけcodeをPaaS向きに書き換える必要があります。
