@@ -1,0 +1,27 @@
+name: mastodon tweet
+
+on:
+  schedule:
+    - cron:  '59 23 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: |
+        export GOPATH=$HOME/go
+        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+        go get -v github.com/syui/xq
+        curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg
+        chmod +x twg
+        mkdir -p ~/.config/twg
+        cat .config/twg/user.json| jq ".|=. + {\"Token\":\"${{ secrets.TWITTER_TOKEN }}\",\"Secret\":\"${{ secrets.TWITTER_SECRET }}\"}" > t
+        mv t ~/.config/twg/user.json
+        url=https://syui.cf/blog/index.xml
+        curl -sLO $url
+        date_now=`date -u +%Y%m%d`
+        date_xml=`date --date="$(xq p ./index.xml)" -u +%Y%m%d`
+        if [ "$date_now" = "$date_xml" ];then
+                ./twg p "`xq l l ./index.xml`"
+        fi
