@@ -1,4 +1,4 @@
-name: mastodon tweet
+name: day check link tweet
 
 on:
   schedule:
