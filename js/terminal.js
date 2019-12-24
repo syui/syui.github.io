@@ -155,7 +155,11 @@ $(function() {
             term.echo("user");
         } else if (/nyancat/.test(input)) {
             term.echo("/nyancat");
-	    window.open('/nyancat/');
+	    window.location.href = '/nyancat';
+	    //window.open('/nyancat/');
+        } else if (/top/.test(input)) {
+	    window.location.href = '/';
+	    //window.open('/nyancat/');
         } else if (/uname/.test(input)) {
             term.echo("Linux");
         } else if (command.length === 0) {} else if (/ls/.test(input)) {
@@ -269,7 +273,7 @@ $(function() {
         greetings: greetings,
         height: 450,
         onInit: function(term) {
-            term.insert("cat /json/link.json");
+            //term.insert("cat /json/link.json");
             term.history().clear();
         },
         completion: function(term, string, callback) {
@@ -277,9 +281,9 @@ $(function() {
 		if (t.match(/cat/)) {
             		callback(["/json/link.json","/json/keybase.json","/json/file.json","/gpg/pgp_keys.asc.txt"]);
 		} else if (t.match(/help/)){
-            		callback(["help","ls","cat","nyancat"]);
+            		callback(["help","ls","cat","nyancat","top"]);
 		} else {
-            		callback(["help","ls","cat","nyancat"]);
+            		callback(["help","ls","cat","nyancat","top"]);
 		}
         },
         tabcompletion: true
