@@ -4,19 +4,28 @@ title = "xq"
 description = "| xmlをjsonに変換するツール"
 +++
 
-`xq`は、`index.xml`を`json`に変換します。ほしい要素を取り出します。
+`xq`は、`xml`を`json`に変換します。ほしい要素を取り出します。
 
 [Download](https://github.com/syui/xq/releases)
 
 ```sh
-# https://github.com/syui/xq/releases
-$ go get -v gitlab.com/syui/xq
+# https://github.com/syui/xq
+$ go get -v -u github.com/syui/xq
+$ xq -v
+xq version 0.3.4
 
-$ curl -sLO syui.cf/index.xml
-$ xq i ./index.xml
-{"title":"芝をどこまで続けられるか","link":"https://syui.cf/blog/post/2016/06/08/blog/","update":"","publish":"Wed, 08 Jun 2016 00:00:00 +0000"}
-{"title":"新しくメモプラグインを作成した","link":"https://syui.cf/blog/post/2016/06/07/m/","update":"","publish":"Tue, 07 Jun 2016 00:00:00 +0000"}
-{"title":"移転","link":"https://syui.cf/blog/post/2016/06/07/start/","update":"","publish":"Tue, 07 Jun 2016 00:00:00 +0000"}
+$ curl -sLO https://syui.cf/blog/index.xml
+
+$ xq ./index.xml | jq .
 ```
 
+```sh
+$ xq l l ./index.xml
+https://syui.cf/blog/post/2019/12/24/music/
 
+$ xq p ./index.xml
+Tue, 24 Dec 2019 00:00:00 +0000
+
+$ xq u ./index.xml
+Tue, 24 Dec 2019 00:00:00 +0000
+```
