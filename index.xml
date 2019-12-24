@@ -227,7 +227,7 @@ $ git clone https://github.com/syui/exchat $ cd exchat $ mix deps.get $ mix ecto
 解説記事 http://syui.github.io/blog/post/2018/08/25/webpack
 https://qiita.com/syui/items/2e1bb571e9d50608809e</description></item><item><title>medigo</title><link>https://syui.cf/app/dev/medigo/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/medigo/</guid><description>medigoは、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
 Download
-# https://github.com/syui/medigo $ go get -u -v gitlab.com/syui/medigo or $ yay -S medigo 使い方 releasesからダウンロードするか、AURからインストールして使います。
+# https://github.com/syui/medigo $ go get -u -v github.com/syui/medigo or $ yay -S medigo 使い方 releasesからダウンロードするか、AURからインストールして使います。
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、medigoを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth
 # If authentication does not exist, open the browser. $ medigo authorization code : xxxx oauth認証が終わると、以下のコマンドが使用できます。
