@@ -10,7 +10,7 @@ description = "| mediumの投稿や編集するアプリ"
 
 ```sh
 # https://github.com/syui/medigo
-$ go get -u -v gitlab.com/syui/medigo
+$ go get -u -v github.com/syui/medigo
 or
 $ yay -S medigo
 ```
