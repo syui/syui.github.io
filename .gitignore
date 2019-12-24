@@ -10,3 +10,5 @@ public-vue
 resources
 yarn.lock
 content/novel
+nyan-cat
+particles.js

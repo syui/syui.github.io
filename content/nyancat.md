@@ -1,0 +1,5 @@
+---
+title: "nyancat"
+type: nyancat
+---
+
