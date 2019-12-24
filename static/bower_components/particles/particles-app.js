@@ -3,7 +3,7 @@
 /* ----------------------------------------------- */
 
 /* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
-particlesJS.load('particles-js', '/json/particles.json', function() {
+particlesJS.load('particles-js', '/bower_components/particles/particles.json', function() {
   console.log('particles.js loaded - callback');
 });
 
