@@ -64,45 +64,33 @@ $(function() {
 	});
 	return executed;
     }
-    HTMLAudioElement.prototype.stop = function()
-    {
-	this.pause();
-	this.currentTime = 0.0;
-    }
 
+    var command_all = ["help","ls","cat","nyancat","top","mpv"];
     function interpreter(input, term) {
 
 	var command, inputs;
 	inputs = input.split(/ +/)
 	command = inputs[0];
 
-	if (input === "ls /json") {
-	    term.echo("/json/link.json");
-	} else if (inputs[0] === 'cat' && inputs[1] === '/json/link.json') {
+	if (inputs[0] === 'cat' && inputs[1] === '/json/link.json') {
 	    term.echo(syui_link);
 	} else if (inputs[0] === 'cat' && inputs[1] === '/json/keybase.json') {
 	    term.echo(gpg_link);
 	} else if (inputs[0] === 'cat' && inputs[1] === '/json/file.json') {
 	    term.echo(file_list);
 	} else if (inputs[0] === 'help') {
-	    term.echo(test_help);
-	} else if (inputs[0] === 'cat') {
-	    term.echo(file_full);
+	    term.echo(command_all);
 	} else if (/(cd)/.test(command)) {
 	    bash(inputs, term);
-	} else if (/whoami/.test(input)) {
-	    term.echo("user");
 	} else if (/nyancat/.test(input)) {
 	    term.echo("/nyancat");
 	    window.location.href = '/nyancat';
 	} else if (/top/.test(input)) {
 	    window.location.href = '/';
-	} else if (/uname/.test(input)) {
-	    term.echo("Linux");
 	} else if (command.length === 0) {} else if (/ls/.test(input)) {
 	    term.echo(file_full);
 	} else if (/ls/.test(input)) {
-	    term.echo(file_list);
+	    term.echo(file_full);
 	} else if (inputs[0] === 'mpv' && origin_songs.includes(inputs[1])) {
 	    music = new Audio(inputs[1]);
 	    music.play();
@@ -137,20 +125,21 @@ $(function() {
 	greetings: greetings,
 	height: 450,
 	onInit: function(term) {
-	    //term.insert("cat /json/link.json");
-	    term.history().clear();
+	    term.echo(command_all);
 	},
 	completion: function(term, string, callback) {
-
 	    var t = $(term[0]).text();
-	    if (t.match(/cat/)) {
+	    if (t.match(/none/)) {
+		term.clear();
+	    } else if (t.match(/cat/)) {
 		callback(file_full);
+		term.clear();
 	    } else if (t.match(/mpv/)) {
 		callback(origin_songs);
 	    } else if (t.match(/help/)){
-		callback(["help","ls","cat","nyancat","top","mpv"]);
+		callback(command_all);
 	    } else {
-		callback(["help","ls","cat","nyancat","top","mpv"]);
+		term.history().clear();
 	    }
 	},
 	tabcompletion: true
