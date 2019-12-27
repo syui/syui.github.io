@@ -3,9 +3,11 @@ $(function() {
     var prompt = "[[b;#d33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
     var days_left = Math.round((new Date('2016 01 01') - new Date()) / (1000 * 60 * 60 * 24));
     var test_help = "Press [[b;#d33682;]<Tab>]";
+    var ip_list = "";
     var greetings = ""
     var origin_songs = [];
     var file_full = [];
+    var command_all = ["help","ls","cat","nyancat","top","mpv","ip"];
 
     axios.get('https://syui.cf/json/keybase.json')
 	.then(function (response) {
@@ -34,6 +36,9 @@ $(function() {
 		file_full.push(file_all[i][a]);
 	    };
 	})
+    $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+	ip_list = JSON.stringify(data.geobytesipaddress, null, 2);
+    });
 
     function print_slowly(term, paragraph, callback) {
 	var foo, i, lines;
@@ -65,7 +70,6 @@ $(function() {
 	return executed;
     }
 
-    var command_all = ["help","ls","cat","nyancat","top","mpv"];
     function interpreter(input, term) {
 
 	var command, inputs;
@@ -80,6 +84,8 @@ $(function() {
 	    term.echo(file_list);
 	} else if (inputs[0] === 'help') {
 	    term.echo(command_all);
+	} else if (inputs[0] === 'ip') {
+	    term.echo(ip_list);
 	} else if (/(cd)/.test(command)) {
 	    bash(inputs, term);
 	} else if (/nyancat/.test(input)) {
@@ -87,8 +93,6 @@ $(function() {
 	    window.location.href = '/nyancat';
 	} else if (/top/.test(input)) {
 	    window.location.href = '/';
-	} else if (command.length === 0) {} else if (/ls/.test(input)) {
-	    term.echo(file_full);
 	} else if (/ls/.test(input)) {
 	    term.echo(file_full);
 	} else if (inputs[0] === 'mpv' && origin_songs.includes(inputs[1])) {
