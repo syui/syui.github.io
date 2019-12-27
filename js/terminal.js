@@ -1,10 +1,8 @@
 $(function() {
-    var pacman_install_message_post = "";
     var prompt = "[[b;#d33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
-    var days_left = Math.round((new Date('2016 01 01') - new Date()) / (1000 * 60 * 60 * 24));
     var test_help = "Press [[b;#d33682;]<Tab>]";
     var ip_list = "";
-    var greetings = ""
+    var greetings = "";
     var origin_songs = [];
     var file_full = [];
     var command_all = ["help","ls","cat","nyancat","top","mpv","ip"];
