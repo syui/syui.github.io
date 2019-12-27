@@ -139,6 +139,7 @@ $(function() {
 	    } else if (t.match(/help/)){
 		callback(command_all);
 	    } else {
+		callback(command_all);
 		term.history().clear();
 	    }
 	},
