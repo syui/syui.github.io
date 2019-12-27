@@ -5,7 +5,8 @@ $(function() {
     var greetings = "";
     var origin_songs = [];
     var file_full = [];
-    var command_all = ["help","ls","cat","nyancat","top","mpv","ip"];
+    var command_all = ["help","ls","cat","nyancat","top","mpv","ip","pacman"];
+    var pacman_option = "-Syu";
 
     axios.get('https://syui.cf/json/keybase.json')
 	.then(function (response) {
@@ -68,6 +69,16 @@ $(function() {
 	return executed;
     }
 
+    var pacman_update_pre = "\
+	\n:: Synchronizing package databases...\
+	\n core is up to date\
+	\n extra                               4.1 MiB  4.10M/s 00:01 [#######################] 100%\
+	\n community                           3.2 MiB  3.20M/s 00:01 [#######################] 100%\
+	\n archlinux is up to date\
+	\n:: Starting full system upgrade...\
+	\n there is nothing to do\
+    ";
+
     function interpreter(input, term) {
 
 	var command, inputs;
@@ -84,15 +95,6 @@ $(function() {
 	    term.echo(command_all);
 	} else if (inputs[0] === 'ip') {
 	    term.echo(ip_list);
-	} else if (/(cd)/.test(command)) {
-	    bash(inputs, term);
-	} else if (/nyancat/.test(input)) {
-	    term.echo("/nyancat");
-	    window.location.href = '/nyancat';
-	} else if (/top/.test(input)) {
-	    window.location.href = '/';
-	} else if (/ls/.test(input)) {
-	    term.echo(file_full);
 	} else if (inputs[0] === 'mpv' && origin_songs.includes(inputs[1])) {
 	    music = new Audio(inputs[1]);
 	    music.play();
@@ -100,6 +102,20 @@ $(function() {
 	} else if (/mpv quit/.test(input)) {
 	    music.pause();
 	    music.currentTime = 0;
+	} else if (/nyancat/.test(input)) {
+	    term.echo("/nyancat");
+	    window.location.href = '/nyancat';
+	} else if (/top/.test(input)) {
+	    window.location.href = '/';
+	} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
+	    print_slowly(term, pacman_update_pre, function(){
+		term.echo(pacman_update_post);
+		term.echo();
+	    });
+	} else if (/(cd)/.test(command)) {
+	    bash(inputs, term);
+	} else if (/ls/.test(input)) {
+	    term.echo(file_full);
 	} else {
 	    term.error(command + " is not a valid command");
 	}
