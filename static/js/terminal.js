@@ -148,9 +148,9 @@ $(function() {
 	    } else if (t.match(/mpv/)) {
 		callback(origin_songs);
 	    } else if (t.match(/help/)){
-		callback(["help","ls","cat","nyancat","top"]);
+		callback(["help","ls","cat","nyancat","top","mpv"]);
 	    } else {
-		callback(["help","ls","cat","nyancat","top"]);
+		callback(["help","ls","cat","nyancat","top","mpv"]);
 	    }
 	},
 	tabcompletion: true
