@@ -107,8 +107,6 @@ $(function() {
 	    window.location.href = '/';
 	} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
 	    print_slowly(term, pacman_update_pre, function(){
-		term.echo(pacman_update_pre);
-		term.echo();
 	    });
 	} else if (/(cd)/.test(command)) {
 	    bash(inputs, term);
