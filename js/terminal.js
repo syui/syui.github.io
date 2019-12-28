@@ -1,12 +1,12 @@
 $(function() {
     var prompt = "[[b;#d33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
     var test_help = "Press [[b;#d33682;]<Tab>]";
-    var ip_list = "";
     var greetings = "";
     var origin_songs = [];
     var file_full = [];
-    var command_all = ["help","ls","cat","nyancat","top","mpv","ip","pacman"];
+    var command_all = ["help","ls","cat","nyancat","top","mpv","pacman"];
     var pacman_option = "-Syu";
+    var ip_list = "";
 
     axios.get('https://syui.cf/json/keybase.json')
 	.then(function (response) {
@@ -35,9 +35,9 @@ $(function() {
 		file_full.push(file_all[i][a]);
 	    };
 	})
-    $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
-	ip_list = JSON.stringify(data.geobytesipaddress, null, 2);
-    });
+    //$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+    //    ip_list = JSON.stringify(data.geobytesipaddress, null, 2);
+    //});
 
     function print_slowly(term, paragraph, callback) {
 	var foo, i, lines;
@@ -93,8 +93,6 @@ $(function() {
 	    term.echo(file_list);
 	} else if (inputs[0] === 'help') {
 	    term.echo(command_all);
-	} else if (inputs[0] === 'ip') {
-	    term.echo(ip_list);
 	} else if (inputs[0] === 'mpv' && origin_songs.includes(inputs[1])) {
 	    music = new Audio(inputs[1]);
 	    music.play();
@@ -109,7 +107,7 @@ $(function() {
 	    window.location.href = '/';
 	} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
 	    print_slowly(term, pacman_update_pre, function(){
-		term.echo(pacman_update_post);
+		term.echo(pacman_update_pre);
 		term.echo();
 	    });
 	} else if (/(cd)/.test(command)) {
