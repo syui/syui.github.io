@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pogo on syui.cf</title><link>https://syui.cf/tags/pogo/</link><description>Recent content in pogo on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pogo/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoで相棒と一緒に冒険できるようになった</title><link>https://syui.cf/blog/post/2019/12/20/pogo/</link><pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/20/pogo/</guid><description>ポケモンGoに新しい機能が実装されました。相棒ポケモンを選択すると、フィールドに現れます。(正確にはきのみをあげた時点)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pogo on syui.cf</title><link>https://syui.cf/tags/pogo/</link><description>Recent content in pogo on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pogo/index.xml" rel="self" type="application/rss+xml"/><item><title>相棒にすべきポケモン</title><link>https://syui.cf/blog/post/2019/12/31/pogo/</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/31/pogo/</guid><description>相棒にすべきと決まっているポケモンはいません。自分が好きなポケモンを相棒にするのがおすすめで、いなければ強いポケモン。その他、色違いや個体値も考慮に入れると良いかもしれません。
+私は基本、色違いしか育てませんので、相棒にするのも色違いが優先です。例えば、色違いが実装されていないディアルガは強いけど、相棒にはしないでしょうね。ルカリオも同様ですが、音楽性の違いというやつです。個体値は、リーグのCP制限があるので、計算してみるといいかも。
+ということで、私の場合は、ミュウ, ミュウツーの2体を相棒にしてレベルを上げています。
+ミュウは好きだし、そこそこ強いです。ポケモンGoの強さ(勝敗)はタイプ &amp;gt; わざ &amp;gt; 種族値 &amp;gt; 個体値の順に決まります。(絶対ではありません)
+よって、わざのアドバンテージが高いミュウは、おそらく現在実装されているポケモンの中で最も勝てるポケモンが多いのではと私は考えています。
+どういうことかというと、AxBの技の組み合わせで最もダメージを与えられる構成でテストしていくと、そうなるんじゃないかという予想です。(限定技は考慮しない)
+例えば、ミュウとミュウツーが戦う場合、ミュウはあくタイプの組み合わせ、ミュウツーはエスパーの組み合わせになるでしょう。このような単純テストをしていくと、やっぱりミュウが強いのではということです。
+ただ、アルセウスが実装された場合はどうでしょう。アルセウスは、アイテムによりタイプを変えられるポケモンで、その場合、アルセウスのほうが単純テストでは強いだろうと見ています。わざよりも、タイプのほうが優先順位高いので。
+しかし、現実問題、勝敗がこのような単純さで決まることはありません。相手が出してくるポケモンのタイプがわからないことには、変更のしようがありませんし、わざマシン消費の問題もあります。
+現実問題としては、やはりはがね, フェアリータイプが強いです。弱点が少なく、フェアリーは、効果抜群も多い。
+私は、単に好きだから、そこそこ強いからという理由でミュウを育て、色違いとメガシンカがあるミュウツーを育てていますが、ディアルガやルカリオを育てても間違いではないと思います。</description></item><item><title>ポケモンGoで相棒と一緒に冒険できるようになった</title><link>https://syui.cf/blog/post/2019/12/20/pogo/</link><pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/20/pogo/</guid><description>ポケモンGoに新しい機能が実装されました。相棒ポケモンを選択すると、フィールドに現れます。(正確にはきのみをあげた時点)
 こういう機能はうれしい。ほら、あれ、なんというか&amp;hellip;自由ですし。(わけわからん
 お気に入りのポケモンがいる人も多いですし、いいと思います。
 方向性が初期からブレないゲームというのは、そう多くないと思うのですが、その点で、ポケモンGoはすごいと思う。
