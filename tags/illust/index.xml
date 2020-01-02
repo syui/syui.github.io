@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>illust on syui.cf</title><link>https://syui.cf/tags/illust/</link><description>Recent content in illust on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 30 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml"/><item><title>絵を描く機会を増やしてみる</title><link>https://syui.cf/blog/post/2019/12/30/illust/</link><pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/30/illust/</guid><description>ゲームを作り始めたおかげで、絵を描く機会が増えています。私は基本的に怠け者なので、こうでもしないと、おそらく、描かないでしょう。
 これはコードでも絵でも言えることですが、必要あれば書くけど、必要ないなら書かないみたいな感じです。
 今回は、新しいキャラクターを出す必要があったので、描いてみたやつです。キョウスケとポンタ、忍者とサッカー(キーパー)が好きなやつらです。
+/imgame
 あと、ipadで絵を書くのが楽しいというのも大きいかな。</description></item><item><title>Live2Dで絵に動きをつけてみた</title><link>https://syui.cf/blog/post/2019/12/26/live2d/</link><pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/26/live2d/</guid><description>Live2Dで絵を動かしてみました。
 このアプリは、おそらく、レイヤーを複製してメッシュ変形を当て、その連続で動きを付けているのでしょう。
 基本的には、10分もあれば絵を動かすことはできると思いますが、違和感のないような動きに修正するのに時間がかかります。また、動きを確認しつつ、絵の方の修正も必要なので、かなりの時間がかかりました。
