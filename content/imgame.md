@@ -1,5 +1,5 @@
 ---
-title: "yui"
+title: "[GAME]yui"
 type: imgame
-description: "ひょんなことから宇宙人の標的に？"
+description: "「ポセイドン3号でも無理だったか...地球に発射じゃあ！」ひょんなことから宇宙人の標的に？"
 ---
