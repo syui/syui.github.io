@@ -16,7 +16,7 @@
 		<meta property="og:type" content="blog" />
 		<meta property="og:title" content="{{ .Title }}" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui blog" />
+		<meta property="og:description" content="{{if .Description}}{{ .Description }}{{ else }}syui blog{{ end }}" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
