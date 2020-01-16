@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>今期のおすすめアニメ2020冬</title><link>https://syui.cf/blog/post/2020/01/13/anime/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/13/anime/</guid><description>2019冬で良かったのは、ハイスコアガール、ビースターズ、サイコパス3でした。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ゲーム2を作ってみた</title><link>https://syui.cf/blog/post/2020/01/17/game/</link><pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/17/game/</guid><description>タイトルはyui2となっています。
+https://syui.cf/imgame2
+まずロゴを作りました。数字の部分、最初はフォントを使おうと思ったんですが、めんどくさいですしね、でもしっくりこなかったので、自分で作る羽目になりました、2です。
+今回もアイテムから背景、キャラクター、シナリオなどを設計しました。
+例えば、モンスターボックスというアイテムが登場するのですが、以下のようなデザインから構成されています。なんとなく線を引いたり、消したり、塗りつぶしてみたり。
+シナリオに関しては、最初のシリーズで謎だった部分の伏線がいくつか回収されていると思います。
+イラストで描いている背景、アイテム、キャラクターは方向性がそれぞれに決まっているのでやりやすいです。
+やらないこととやることを決めていて、やらないことはやりません。それは面白くないことだったり、めんどくさいことだったり、やたら時間がかかることだったり。
+シナリオに関しては、やはり非公開で書いていた小説が原案になっています。シリーズ1では暗くなってしまうので、バッサリと切り捨てた部分を少し拾いました。
+キャラクターに関しては、キョウスケ、ポンタ、オクトカットはゲームからの参加で、それによって原案キャラも若干影響を受けていると思います。
+ここから少しキャラクターに関する話をします。
+例えば、yuiに出てくるキャラで私はどれに当てはまるのかってよく聞かれるんですが&amp;hellip;うそですきかれたことありません！で、自分がどのキャラに当たるかと言うとそりゃもちろん、アイですよ！&amp;hellip;という冗談は置いといて、私はおそらく、誰でもあって、誰でもないのだと思います。
+私は以前、こんなコメントを見たことがあって、作者が自分のキャラのセリフにはっとさせられたという話に「作者は自分の思いをキャラAに語らせていて感動的」とコメントがついていました。
+これですね、大半の人がコメントと同じような意見を持つと思うんですけど、私が思ったのはおそらくそうではないなと。
+作者が作ったキャラでも、あいつらは勝手に動いて勝手にしゃべるので、特に作者がこうしゃべらせているみたいなことって少ないです。作者は単にキャラが勝手に喋ったそれをですね、メモしたり、記録したりですね、するだけですから、おそらく、本当に自分が作ったキャラのセリフにはっとさせられたんだろうなーって思ったんです。
+一方で、そうは言っても作者が作ってんでしょと言われると、確かにそうで、それはやはり、どこかにあるからだと思うんです。
+なので、私は、どのキャラでもないし、どのキャラでもあるなあと今の所はそう思ってたり。
+話を変えて、次はモンスターの話です。
+(本作ではまだ未登場)
+今回は、モンスターが登場しますが、モンスターを作るの結構大変でした。特に、アイテムの方向性でデザインするのか、キャラクターの方向性でデザインするのかで迷いました。なので、その中間をとって、基本は四角や三角の図形で構成するものの、やはり躍動的に表現する部分も可という方向で行くことにしました。各々の部品もシンプルにすることを心がけ、あまり複雑にしてしまうと、あとで描くの大変ですからね&amp;hellip;。
+あと、配色ですが、私は1キャラ、1フィールド、1アイテムにつき3,4色と決めているところがありますので、モンスターも同じ。それでも配色は、難しかったし、悩みます。ただ、鳥なら鳥、ネコならネコ、ドラゴンならドラゴンで、一番に思いつく色ってあるじゃないですか。私の場合、それを基本色にしました。
+最後にキャラクター紹介ページを作りました。
+https://syui.cf/gamechara/
+これは、漫画とか読む人はわかると思うんですが、冒頭にありますよね。私は全く見ないんですけど、というかゲームも説明書すら読まなかったり&amp;hellip;でも作る側からすると、やっぱり「わかりにくいかな、こいつ誰ってなったりしない、途中から入って大丈夫？」みたいなことをちょっとだけ気にします&amp;hellip;うそ、すごく気にします。なので、作りました。
+ゲーム作るのとか、面倒でしたけど、でも、面白かったですよ、楽しかった。
+次はどんなお話にしましょうか。</description></item><item><title>今期のおすすめアニメ2020冬</title><link>https://syui.cf/blog/post/2020/01/13/anime/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/13/anime/</guid><description>2019冬で良かったのは、ハイスコアガール、ビースターズ、サイコパス3でした。
 今期は多分これを見るだろうなーというのを載せておきます。
 映像研 最初は、そこまで面白い話ではなかったと思います。まだ最初ですしね。
 ただ、秘密基地などのワクワク感はありました。
