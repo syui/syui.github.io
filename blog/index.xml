@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ゲーム2を作ってみた</title><link>https://syui.cf/blog/post/2020/01/17/game/</link><pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/17/game/</guid><description>タイトルはyui2となっています。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>開発環境を作り直してみた1</title><link>https://syui.cf/blog/post/2020/01/20/dotfiles/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/20/dotfiles/</guid><description>ゲームのシナリオを書こうと思ったけど、やる気でないので、こういうときは他のことしたほうがいいと思って、カオスになってた開発環境の整理をはじめました。
+以前から整理しようと思っていたgithubのdotfilesのbranchを切らず、自前のgit-serverで整理していこうかなと思っています。別に移行するわけではありませんが、今は整理されてないリポジトリ群を見たくない&amp;hellip;。
+https://git.syui.cf/syui/dotfiles
+$ git clone https://git.syui.cf/syui/dotfiles zpluginとvim-plug まずはplugin-managerを入れました。ただ、本格的にやる気が出てきたのは、やはり自分のpowerline.zshを作り直しているときです。
+https://github.com/zdharma/zinit
+https://github.com/junegunn/vim-plug
+自分で目に見える変化を付けていくほうがやる気が出るのでおすすめです。
+powerline.zsh 今回はこんな感じで配色をシンプルにしました。昔は色とりどりでしたが、時間が経つにつれ、あまりかっこよくないなあと。でもカスタマイズするのも面倒なので放置していました。
+https://github.com/syui/powerline.zsh
+git-repoにcdするとき劇遅になるので、zle reset-promptして必要があればcd .で表示します。このあたり改善したいのですが、今のところ放置。
+# z + peco # 入力があれば移動履歴から補完、なければ移動 function peco-z-search (){ zdirselect=`z | sort -g -r | peco | cut -d &amp;#39; &amp;#39; -f 2- | sed &amp;#39;s/ //g&amp;#39;` if [ `echo &amp;#34;$LBUFFER&amp;#34; | wc -w | tr -d &amp;#39; &amp;#39;` -eq 0 ];then cd $zdirselect ls -slhAF zle reset-prompt else LBUFFER+=&amp;#34;$zdirselect&amp;#34; fi } zle -N peco-z-search bindkey &amp;#39;^f&amp;#39; peco-z-search pmy 今回は、pmyというツールを使ってfzfと連携してみました。</description></item><item><title>ゲーム2を作ってみた</title><link>https://syui.cf/blog/post/2020/01/17/game/</link><pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/17/game/</guid><description>タイトルはyui2となっています。
 https://syui.cf/imgame2
 まずロゴを作りました。数字の部分、最初はフォントを使おうと思ったんですが、めんどくさいですしね、でもしっくりこなかったので、自分で作る羽目になりました、2です。
 今回もアイテムから背景、キャラクター、シナリオなどを設計しました。
