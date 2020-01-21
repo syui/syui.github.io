@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>開発環境を作り直してみた1</title><link>https://syui.cf/blog/post/2020/01/20/dotfiles/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/20/dotfiles/</guid><description>ゲームのシナリオを書こうと思ったけど、やる気でないので、こういうときは他のことしたほうがいいと思って、カオスになってた開発環境の整理をはじめました。
 以前から整理しようと思っていたgithubのdotfilesのbranchを切らず、自前のgit-serverで整理していこうかなと思っています。別に移行するわけではありませんが、今は整理されてないリポジトリ群を見たくない&amp;hellip;。
 https://git.syui.cf/syui/dotfiles
-$ git clone https://git.syui.cf/syui/dotfiles zpluginとvim-plug まずはplugin-managerを入れました。ただ、本格的にやる気が出てきたのは、やはり自分のpowerline.zshを作り直しているときです。
+$ git clone https://git.syui.cf/syui/dotfiles zpluginとvim-plug まずはplugin-managerを入れました。
 https://github.com/zdharma/zinit
 https://github.com/junegunn/vim-plug
+ただ、本格的にやる気が出てきたのは、やはり自分のpowerline.zshを作り直しているときです。
 自分で目に見える変化を付けていくほうがやる気が出るのでおすすめです。
 powerline.zsh 今回はこんな感じで配色をシンプルにしました。昔は色とりどりでしたが、時間が経つにつれ、あまりかっこよくないなあと。でもカスタマイズするのも面倒なので放置していました。
 https://github.com/syui/powerline.zsh
