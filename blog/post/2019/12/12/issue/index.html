@@ -12,23 +12,23 @@
         <span style=color:#a6e22e>crossorigin</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;anonymous&#34;</span>
         <span style=color:#a6e22e>async</span>&gt;
 &lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></div><p>コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。</p><h2 id=github-actionsを使ったchatopsでラベルを付ける>github actionsを使ったChatOpsでラベルを付ける</h2><p>ChatOpsと連携すると便利かもということで、やってみました。</p><p>自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml:.github/workflows/com.yml data-lang=yml:.github/workflows/com.yml>name: COMMENT action
-on:
-  issue_comment:
-    types: [created, edited]
-jobs:
-  build:
-    name: COMMENT action
-    runs-on: ubuntu-latest
-    steps:
-    - name: Run action
-      env:
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }}
-        ISSUE_NUMBER: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: <span style=color:#e6db74>|
+</code></pre></div><p>コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。</p><h2 id=github-actionsを使ったchatopsでラベルを付ける>github actionsを使ったChatOpsでラベルを付ける</h2><p>ChatOpsと連携すると便利かもということで、やってみました。</p><p>自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml:.github/workflows/com.yml data-lang=yml:.github/workflows/com.yml><span style=color:#66d9ef>name</span>: COMMENT action
+<span style=color:#66d9ef>on</span>:
+  <span style=color:#66d9ef>issue_comment</span>:
+    <span style=color:#66d9ef>types</span>: [created, edited]
+<span style=color:#66d9ef>jobs</span>:
+  <span style=color:#66d9ef>build</span>:
+    <span style=color:#66d9ef>name</span>: COMMENT action
+    <span style=color:#66d9ef>runs-on</span>: ubuntu-latest
+    <span style=color:#66d9ef>steps</span>:
+    - <span style=color:#66d9ef>name</span>: Run action
+      <span style=color:#66d9ef>env</span>:
+        <span style=color:#66d9ef>GITHUB_REPOSITORY</span>: ${{ github.repository }}
+        <span style=color:#66d9ef>ISSUE_PAYLOAD</span>: ${{ toJson(github.event.issue) }}
+        <span style=color:#66d9ef>ISSUE_NUMBER</span>: ${{ github.event.issue.number }}
+        <span style=color:#66d9ef>GITHUB_TOKEN</span>: ${{ secrets.GITHUB_TOKEN }}
+      <span style=color:#66d9ef>run</span>: <span style=color:#e6db74>|
 </span><span style=color:#e6db74>       </span><span style=color:#e6db74> </span><span style=color:#e6db74>labels=$(echo &#34;${ISSUE_PAYLOAD}&#34; | jq &#39;.labels[]|.name&#39; | jq -s . | jq -c &#39;.|.+[&#34;COMMENT&#34;]|unique&#39;)</span>
         curl -X PATCH -d <span style=color:#e6db74>&#39;{&#34;labels&#34;: &#39;</span>${labels}<span style=color:#e6db74>&#39;}&#39;</span> -H <span style=color:#e6db74>&#34;Authorization: token ${GITHUB_TOKEN}&#34;</span> https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}
-      if: startsWith(github.event.comment.body, <span style=color:#e6db74>&#39;/com&#39;</span>)
+      <span style=color:#66d9ef>if</span>: startsWith(github.event.comment.body, <span style=color:#e6db74>&#39;/com&#39;</span>)
 </code></pre></div><p>これでissues上で<code>/com</code>を投稿すると、自動で<code>COMMENT</code>のラベルが付きます。</p><p><img src=https://raw.githubusercontent.com/mba-hack/images/master/github_issues_chatops_comment.png alt></p><p>参考 : <a href=https://qiita.com/shmurata/items/db66a4e8d5fabb545f11>https://qiita.com/shmurata/items/db66a4e8d5fabb545f11</a></p><nav id=article-nav><a href=https://syui.cf/blog/post/2019/12/13/svg/ id=article-nav-newer class=article-nav-link-wrap><i class="fa fa-chevron-right"></i>svgアニメーションを作ってみた</a></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>

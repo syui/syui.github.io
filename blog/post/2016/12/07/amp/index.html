@@ -50,15 +50,15 @@ enableRobotsTXT = true
 
 [permalinks]
     post = &quot;/:year/:month/:day/:slug&quot;
-</code></pre><p><a href=https://cdn.ampproject.org/>https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p><p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p><p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-.gitlab-ci.yml data-lang=.gitlab-ci.yml>image: publysher/hugo
+</code></pre><p><a href=https://cdn.ampproject.org/>https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p><p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p><p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-.gitlab-ci.yml data-lang=.gitlab-ci.yml><span style=color:#66d9ef>image</span>: publysher/hugo
 
-pages:
-  script:
+<span style=color:#66d9ef>pages</span>:
+  <span style=color:#66d9ef>script</span>:
   - hugo
-  artifacts:
-    paths:
+  <span style=color:#66d9ef>artifacts</span>:
+    <span style=color:#66d9ef>paths</span>:
     - public
-  only:
+  <span style=color:#66d9ef>only</span>:
   - master
 </code></pre></div><p><code>content/post</code>はまるごとコピーしておきましょう。</p><p>これで<code>amp.syui.cf</code>がampのコンテンツアドレスになります。したがって、<a href=https://syui.cf/2016/10/26/web-app/>https://syui.cf/2016/10/26/web-app/</a> = <a href=https://amp.syui.cf/2016/10/26/web-app/>https://amp.syui.cf/2016/10/26/web-app/</a>です。</p><p><code>post = "/:year/:month/:day/:slug"</code>は2つの<code>config.toml</code>で一致させます。本来なら<code>post = "/post/:slug"</code>などのpermlinkを設定したかったのですが、コメントシステムの対応が面倒だったので、日付を入れることにしました。</p><p>あと、ちょっと気になったのはAnalyticsを設定してないと文字が表示されてしまうことでした。したがって、<code>themes/gohugo-amp/layouts/partials/amp/google-analytics.html</code>を編集。</p><p>検証は<code>npm i amphtml-validator -g</code>で行います。または、<a href=https://validator.ampproject.org/>https://validator.ampproject.org/</a>です。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ amphtml-validator https://amp.syui.cf
 The tag <span style=color:#e6db74>&#39;img&#39;</span> may only appear as a descendant of tag <span style=color:#e6db74>&#39;noscript&#39;</span>. Did you mean <span style=color:#e6db74>&#39;amp-img&#39;</span>?

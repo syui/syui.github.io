@@ -10,18 +10,18 @@ $ git clone https://github.com/lord/slate
 $ cd !$:t
 $ bundle install
 $ bundle exec middleman server
-</code></pre><p>見た目のカスタマイズには<code>source/layouts/layout.erb</code>とかを編集します。<code>html</code>でなく<code>erb</code>で書きます。<code>css</code>は<code>scss</code>で書きますので、<code>source/stylesheets/_foo.scss</code>を用意して、<code>source/stylesheets/{print.css.scss,screen.css.scss}</code>などからインポートします。</p><p><code>gitlab-ci</code>でdeployする場合は<code>middleman</code>を使いまので、以下のような感じ。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml>image: ruby:<span style=color:#ae81ff>2.3</span>
+</code></pre><p>見た目のカスタマイズには<code>source/layouts/layout.erb</code>とかを編集します。<code>html</code>でなく<code>erb</code>で書きます。<code>css</code>は<code>scss</code>で書きますので、<code>source/stylesheets/_foo.scss</code>を用意して、<code>source/stylesheets/{print.css.scss,screen.css.scss}</code>などからインポートします。</p><p><code>gitlab-ci</code>でdeployする場合は<code>middleman</code>を使いまので、以下のような感じ。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#66d9ef>image</span>: ruby:<span style=color:#ae81ff>2.3</span>
 
-pages:
-  script:
+<span style=color:#66d9ef>pages</span>:
+  <span style=color:#66d9ef>script</span>:
   - apt-get update -yqqq
   - apt-get install -y nodejs
   - bundle install
   - bundle exec middleman build
-  artifacts:
-    paths:
+  <span style=color:#66d9ef>artifacts</span>:
+    <span style=color:#66d9ef>paths</span>:
     - public
-  only:
+  <span style=color:#66d9ef>only</span>:
   - master
 </code></pre></div><p>これはハマりポイントなのですが、GitLab Pagesは、<code>paths</code>を<code>public</code>で指定しないとDeployに何故か失敗します。</p><p>更に、<code>Middleman</code>は<code>build</code>ディレクトリにビルドされるのがデフォルトで、これを設定ファイルである<code>config.rb</code>にて指定しなければなりません。</p><pre><code class=yml>
 configure :build do

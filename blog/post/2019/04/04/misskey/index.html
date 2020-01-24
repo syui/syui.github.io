@@ -44,31 +44,31 @@ $ heroku config
 
 $ vim default.yml
 </code></pre></div><blockquote><p>default.yml</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#75715e># Final accessible URL seen by a user.</span>
-url: https://$APP_NAME.herokuapp.com
+<span style=color:#66d9ef>url</span>: https://$APP_NAME.herokuapp.com
 <span style=color:#75715e>#url: http://localhost</span>
-port: <span style=color:#ae81ff>80</span>
+<span style=color:#66d9ef>port</span>: <span style=color:#ae81ff>80</span>
 <span style=color:#75715e>#port: 8000</span>
 
 <span style=color:#75715e># mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
-mongodb:
-  host: $DB_HOST
-  port: $DB_PORT
-  db: $DB_NAME
-  user: $DB_USER
-  pass: $DB_PASS
+<span style=color:#66d9ef>mongodb</span>:
+  <span style=color:#66d9ef>host</span>: $DB_HOST
+  <span style=color:#66d9ef>port</span>: $DB_PORT
+  <span style=color:#66d9ef>db</span>: $DB_NAME
+  <span style=color:#66d9ef>user</span>: $DB_USER
+  <span style=color:#66d9ef>pass</span>: $DB_PASS
 
-drive:
-  storage: <span style=color:#e6db74>&#39;db&#39;</span>
+<span style=color:#66d9ef>drive</span>:
+  <span style=color:#66d9ef>storage</span>: <span style=color:#e6db74>&#39;db&#39;</span>
 
 <span style=color:#75715e># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
-redis:
-  host: $REDIS_HOST
-  port: $REDIS_PORT
-  pass: $REDIS_PASS
+<span style=color:#66d9ef>redis</span>:
+  <span style=color:#66d9ef>host</span>: $REDIS_HOST
+  <span style=color:#66d9ef>port</span>: $REDIS_PORT
+  <span style=color:#66d9ef>pass</span>: $REDIS_PASS
 
-autoAdmin: <span style=color:#66d9ef>true</span>
-disableHsts: <span style=color:#66d9ef>true</span>
-clusterLimit: <span style=color:#ae81ff>1</span>
+<span style=color:#66d9ef>autoAdmin</span>: <span style=color:#66d9ef>true</span>
+<span style=color:#66d9ef>disableHsts</span>: <span style=color:#66d9ef>true</span>
+<span style=color:#66d9ef>clusterLimit</span>: <span style=color:#ae81ff>1</span>
 </code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># repo rootに移動</span>
 $ cd ..
 

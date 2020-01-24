@@ -18,12 +18,12 @@ $ git push origin gh-pages
 </code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># fork</span>
 $ curl -sL https://syui.github.io/personal-website
 </code></pre></div><p>url,baseurlをsetすると、cssがhttps protocolになった。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml>$ vim _config.yml
-url: https://mbahack2.syui.cf
-baseurl: personal-website
+<span style=color:#66d9ef>url</span>: https://mbahack2.syui.cf
+<span style=color:#66d9ef>baseurl</span>: personal-website
 
 $ vim _includes/header.html
 // https://jekyllrb.com/news/<span style=color:#ae81ff>2016</span>/<span style=color:#ae81ff>10</span>/<span style=color:#ae81ff>06</span>/jekyll<span style=color:#ae81ff>-3</span><span style=color:#ae81ff>-3</span>-is-here/
-By default, baseurl is set to <span style=color:#e6db74>&#34;&#34;</span> and therefore yields (never set to <span style=color:#e6db74>&#34;/&#34;</span>):
+By default, baseurl is set to <span style=color:#e6db74>&#34;&#34;</span> and therefore yields (never set to <span style=color:#e6db74>&#34;/&#34;</span><span style=color:#66d9ef>)</span>:
 {{ <span style=color:#e6db74>&#34;/docs/assets/&#34;</span> | absolute_url }} =&gt; https://jekyllrb.com/myproject/docs/assets
 {{ <span style=color:#e6db74>&#34;/docs/assets/&#34;</span> | relative_url }} =&gt; /myproject/docs/assets
 </code></pre></div><p>ちなみに、dirではなくrootに置く場合は、<code>repo</code>を<code>${user}.github.io</code>にする。</p><nav id=article-nav><a href=https://syui.cf/blog/post/2019/02/25/illust/ id=article-nav-newer class=article-nav-link-wrap><i class="fa fa-chevron-right"></i>iOS/AndroidのSnapseedで背景を作る</a></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>
