@@ -4,7 +4,7 @@ powerline.zsh https://github.com/syui/powerline.zsh
 https://github.com/syui/ricomoon
 zshのprompt(powerline.zsh)を調整しています。昔から不満のあったオリジナルアイコンの位置などを修正しました。昔からちょっと上にズレてたんですよね、気になってたんですが、放置してたのです。
 icomoonで作ったやつは以下の調整でいけた。ただし、基本とするフォントにもよる。
-#!/usr/bin/fontforge -script Open(&amp;#34;./font/icomoon.ttf&amp;#34;) SelectAll() foreach Scale(80, 80, 0, 0) endloop Generate(&amp;#34;./font/i.ttf&amp;#34;) Close() またgitlabやherokuのアイコンをプラスしました。昔はfont-awesome(bland)に入ってなかった。ただ、省略したアイコンも多く、最初は必要なものにとどめました。
+#!/usr/bin/fontforge -script Open(&amp;#34;./font/icomoon.ttf&amp;#34;) SelectAll() foreach Scale(80, 80, 0, 0) endloop Generate(&amp;#34;./font/i.ttf&amp;#34;) Close() またgitlabやheroku(に似ている)のアイコンをプラスしました。昔はfont-awesome(bland)に入ってなかった。ただ、省略したアイコンも多く、最初は必要なものにとどめました。
 フォントに関しては、SF Monoがいいらしい。そのうち時間があれば見てみようかなと思っています。ただ、フォントやアイコン周りを久しぶりに触ることになりましたが、たいへん。fontforgeなんもわからん。
 zstyle ':vcs_info:git:*' formatsとかで表示する情報にコミット数を追加してみたりした。
 $ git --no-pager shortlog -sn |tr -d &amp;#39; &amp;#39;|cut -f 1 | head -n 1 zsh-notify zsh-notify入れたら端末がおかしくなったような気がしたので、アンインストールした。
