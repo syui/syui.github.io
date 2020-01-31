@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>iosのgoodreaderでsftpのprivate-keyが読み込めない問題</title><link>https://syui.cf/blog/post/2020/01/26/goodreader/</link><pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/26/goodreader/</guid><description>opensshのsftpが前提です。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 30 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる</title><link>https://syui.cf/blog/post/2020/01/30/pogo/</link><pubDate>Thu, 30 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/30/pogo/</guid><description>これまで対戦の経験は、ゼロ。タスクに必要な場合は借りたりとかで、やってきましたけど、今回はそういう訳にはいかないみたいです。つまり、戦うしかない！
+対戦してるとそのうちルールとかわかってくるだろうと思い、とりあえずやってみることに。
+感想としては、みんな強すぎだろ！という感想しかない。
+ある5戦のうち2人がテンプレで、3人が私と同じくテンプレ狩りの構成でした。テンプレだけでも強いのに、早くも&amp;hellip;いや、早すぎだろというテンプレ狩りの構成が私を襲う。
+3勝2敗ですが、1回はミスで、もう一回は相性でした。ミスはどうにかできますが、相性はどうにもならんかった。
+よって、ミスを減らす練習は必要だなあと思ったりしてます。
+また、リーグは、強い人と当たった場合、相性による運勝負になる傾向が強いのではと思います。
+なので、そのへんは気楽に考えて「確かに勝負は運で決まるけど、運良く勝てるように、できることをやっていこう」という前向き？な気持ち。
+スーパーリーグ 現在の構成はピクシー, シャンデラ, フシギバナ。ようはあまえる, はっぱカッターのノーマル技でゴリ押しのテンプレ狩りと言ったところ。
+ポケモン タイプ わざ ピクシー フェアリー あまえる シャンデラ ほのお・ゴースト ほのおのうず フシギバナ くさ・どく はっぱカッター シャンデラはレジスチルとかエアームドをやっつけます。ただ、耐久力は低いのです。
+戦略としては、一撃で沈められそうならシールド、それ以外は無視。必殺技は使わない方向で。必殺技を使うと、あと一歩のところでやられてしまうことがありました。最後に、先鋒交代はできる限りしない方向で、先鋒には頑張ってもらうしかない。先鋒を先に交代してしまうと負けてしまう確率が非常に高いと思います。
+その意味では、やはりポケモンバトルにおいて相手の先鋒次第という部分はあると思う。リーグにおいて、運というのが勝敗を分ける最大の要素だと思います。なので、私と同じく負けまくってる人もそこまで落ち込まないで！
+とはいえ「どうせ運勝負なんだから何もしない」というのも面白くないので、やれることはやっていくスタイル。
+こんな感じでスーパーリーグは頑張るとして、次はハイパーを考えてみます。
+ハイパーリーグ ハイパーも同じく、検索して、一般的に強いよって言われているポケモンのうち選ばれそうなポケモンを対策することから考えてみることに。
+ギラティナ(アナザー)とかクレセリアが人気でそうですよね。なのでこいつらを返り討ちにする構成ということで以下。
+ポケモン タイプ わざ トゲキッス フェアリー・ひこう あまえる ヒードラン ほのお・はがね ほのおのうず メガニウム くさ はっぱカッター マスターリーグ マスターもついでに。こっちはディアルガが使われそうで、それはハイパーも同じかも。</description></item><item><title>iosのgoodreaderでsftpのprivate-keyが読み込めない問題</title><link>https://syui.cf/blog/post/2020/01/26/goodreader/</link><pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/01/26/goodreader/</guid><description>opensshのsftpが前提です。
 iosのgoodreaderでsftpのprivate-keyが読み込めませんでした。
 これはmacのssh-keygenで作成されるコマンドの出力が変更されているので、昔作ったキーでは読み込めますが、新しく作ったキーは読み込めなかったのです。よって、キーを作り直すか、キー自体を編集することで解決。
 問題の答え # 公開鍵、秘密鍵の作成 $ ssh-keygen -t rsa -b 4096 -m PEM -f ~/.ssh/goodreader # serverにpublic-keyを登録 $ ssh-copy-id -i ~/.ssh/goodreader.pub user@192.168.1.11 -p 22 # ~/.ssh/goodreader # このprivate-keyをiosのgoodreaderに持っていく 問題の内容 私はいつもこんな感じでssh-keyを登録したり、変更したりします。単純ですね。
