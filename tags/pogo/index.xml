@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pogo on syui.cf</title><link>https://syui.cf/tags/pogo/</link><description>Recent content in pogo on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 01 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pogo/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる3</title><link>https://syui.cf/blog/post/2020/02/01/pogo/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/01/pogo/</guid><description>やはり、ピクシー、シャンデラ、フシギバナの構成では安定しないと思うので、構成を考え直してみた。
 今度は以下のような感じになりました。
-|ポケモン|タイプ|わざ1|わざ2| |&amp;mdash;|&amp;mdash;|&amp;mdash;| |ピクシー|フェアリー|あまえる|コメットパンチ| |ハリテヤマ|かくとう|カウンター|インファイト| |ルンパッパ|くさ・みず|はっぱカッター|れいとうビーム|
-以前の構成では、あと一歩のところで押し負ける事案が多発。それ以外は割と圧勝するので、ハマれば強いけど、勝てなければ意味がありません。それに、ギリギリの勝負は望んでいないので、変えてみることにしました。
+ポケモン タイプ わざ1 わざ2 ピクシー フェアリー あまえる コメットパンチ ハリテヤマ かくとう カウンター インファイト ルンパッパ くさ・みず はっぱカッター れいとうビーム 以前の構成では、あと一歩のところで押し負ける事案が多発。それ以外は割と圧勝するので、ハマれば強いけど、勝てなければ意味がありません。それに、ギリギリの勝負は望んでいないので、変えてみることにしました。
 今までのバトルを思い出すと、タテトプス、ラグラージ+ナマズン、エアームド、レジスチル、チルタリスというテンプレに苦しめられている感じだったと思う。
 特にタテトプスが出てくるときつかった。ということで、ほのおではがねを攻めるのではく、かくとうで攻めてみることに。これでタテトプス、レジスチルが消えます。
 次に、フシギバナはチルタリスを当てられることが多く、苦戦するので、代わりにルンパッパをぶつけることにしてみます。フシギバナはれいとうビームとかかえんほうしゃを食らうことも多かったので、みずが入ってるルンパッパはよさそう。
