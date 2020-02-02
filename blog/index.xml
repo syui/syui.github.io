@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 01 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる3</title><link>https://syui.cf/blog/post/2020/02/01/pogo/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/01/pogo/</guid><description>やはり、ピクシー、シャンデラ、フシギバナの構成では安定しないと思うので、構成を考え直してみた。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 02 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる4</title><link>https://syui.cf/blog/post/2020/02/02/pogo/</link><pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/02/pogo/</guid><description>ランク8に上がりました。ただ、レーティングが低すぎるので、ランク10はほぼ不可能に近い。今回も思ったことなど書いていきます。
+ランク7からの勝率は覚えているので、12勝3敗です。
+なぜ覚えているのかというと、私の勘違いでレーティングはレベル7からだから、それまでは敗けてもいいので、テンプレ撃破のメンバーを考えよう検証しようと思っていたからです。
+で、ようやく探り当てた感じです。検索してとか、誰かのを真似してとか、誰かに教えてもらったとかではありません。
+というのも、レベル7以上になると、「自分で考えて構成してきた人と、誰かに教えてもらって構成してきた人」とでは大きな差が出てくるのではと思っていたからです。
+そして、自分で考えて構成してきた人とぶつかると、その勝敗は運次第になりやすいと思うのです。とすれば、誰かに教えてもらったり、テンプレをコピーしたりの自分で考えられない人を狩るしかレベル7から始まるレーティングを上げる方法はないのでは？とそんな考えも頭の中にありました。
+その意味で、この辺のランクで勝利収めるのは、けっこう厳しいのではと思ってます。ランクが上がるほど厳しいのではと。
+ですから、以降はかなり厳しい戦いになりそうな予感が。
+しかもそれを探り当てるまでのコストというか、私はあまり頭がよくありませんし、不真面目で適当ですからね。かなりコストかけてしまったという感じで、それが致命的にやばかったみたいです。
+それにいくつもの勘違いをしていたようで、私はレベル7で、レーティングが開始されると、その時点で全員にレーティングポイントが振り分けられ、そこから始まると思っていたのです。だからコストをかけることをあまり厭わなかった。ただ、実際は違うようで、すでに始まっていて、それが見えなかっただけということぽいので、かなりつらい状況に陥っているぽいことに今気づきました。
+今日、ランク8でやってみて、運良く5連勝したんですけど、上がったレーティング+30ぽっちでした。なので、無理！という感想しかない。
+とはいえ、ランク10を目指してほどほどに頑張る。
+それと、プレリリースが終わったらランクやレーティングがリセットされるという話がありますが、リセットするかは選択できるようにしといてほしい。これが無に帰すと、大半のユーザーは死にます。</description></item><item><title>ポケモンGoにリーグが実装されたのでやってみる3</title><link>https://syui.cf/blog/post/2020/02/01/pogo/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/01/pogo/</guid><description>やはり、ピクシー、シャンデラ、フシギバナの構成では安定しないと思うので、構成を考え直してみた。
 今度は以下のような感じになりました。
 ポケモン タイプ わざ1 わざ2 ピクシー フェアリー あまえる コメットパンチ ハリテヤマ かくとう カウンター インファイト ルンパッパ くさ・みず はっぱカッター れいとうビーム 以前の構成では、あと一歩のところで押し負ける事案が多発。それ以外は割と圧勝するので、ハマれば強いけど、勝てなければ意味がありません。それに、ギリギリの勝負は望んでいないので、変えてみることにしました。
 今までのバトルを思い出すと、タテトプス、ラグラージ+ナマズン、エアームド、レジスチル、チルタリスというテンプレに苦しめられている感じだったと思う。
