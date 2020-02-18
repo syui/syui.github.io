@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>openssh 8.2とgoodreader</title><link>https://syui.cf/blog/post/2020/02/16/openssh/</link><pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/16/openssh/</guid><description>openssh 8.2がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる8</title><link>https://syui.cf/blog/post/2020/02/18/pogo/</link><pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/18/pogo/</guid><description>ハイパーで戦っています。連勝することも稀にあります。運が良かっただけですが。
+5連勝したときだけ嬉しそうにスクショを残すやつ。
+ですが、基本的には悪戦苦闘しています。この前は、バグとマッチングによる2勝3敗を食らってしまって、レートが下がり、かなり落ち込んでたりする。
+バグに関しては、バトル開始したのにバトル画面に移行せず、操作できない状態になってしまい敗けました。これは不正を食らったという感じではなく、単なるバグだと思いますね。(まだわかりませんが
+マッチングに関しては、相性が悪すぎる相手にあたってしまい、負けてしまったんですよね。自分のメンバーではどうやっても勝てなかった。しかし、次のバトルでも同じ相手と当たってしまって2連敗を食らうという悲劇。どう考えてもマッチングおかしいだろっ！と思いますが、こういうことが積み重なって、レートがだだ下がり中。
+ただでさえ勝つの難しいのに&amp;hellip;。もう戦いたくないでござる、絶対に戦いたくないでござる！という気持ちしかない。
+とはいえ、ランク10を目指すと決めた以上、やるしかない。長年付き合ってきたゲームですし、クリアしたい。
+そこで、不正を食らっても、バグを食らっても、恣意的なマッチングを連発されても、それでもそこそこ戦えるメンバーを考える必要があるかもしれないと思ったので、また少しだけ考えてみました。今回はそれについて。
+まず、思いつく限り当たってみたのですが、やはり、最強ラグラージを筆頭にフシギバナ、ギラティナ、レジスチルをまとめて葬り去るようなポケモンは、ある一匹を除いて存在しません。ミュウツー(アーマード)やクレセリアでも無理です。
+その一匹とは、ミュウです。現時点で最強のポケモン、ミュウ。
+ですが、私はミュウを育ててしまっているので、ハイパーには使えません。ですが、マスターでは活躍するかもしれないと思っています。
+ポケモン 弱点 耐性x2 わざ1 わざ2 わざ3 ミュウ あく,むし,ゴースト かくとう,エスパー シャドークロー れいとうビーム オーバーヒート 下記はバトルシュミレーションです。ミュウは、上記のわざで、ラグラージ、フシギバナ、ギラティナ、レジスチル、おまけにミュウツーに勝ちます。これは、ハイパー、マスター同じ。
+https://pokemongo-get.com/taimansym/
+次に、ディアルガと戦ってみたのですが、流石にテンプレわざでは勝てませんでした。しかし、わざをきあいだまに変えれば、ディアルガにも勝ちます。ミュウ、つよすぎ！
+ただし、リザードンと戦った場合、テンプレわざではギリギリ負けてしまうみたい。わざをげんしのちからに変えれば勝ちますが。
+理論的には、二重弱点を持つポケモンはミュウに勝つことができません。
+ということで、前回忘れていましたが、ミュウは育てておくとよいかもしれません。CP制限を考慮し育てないにしても、技開放くらいはしておいても損はないポケモンだと思います。
+現在、ミュウのつよさに気づいている人はほとんどいません。
+しかし、新しいわざマシンが実装されてしまうと、ポケモンGoにおけるミュウのとてつもなさに気づいてしまう人が増えてしまう可能性があります。
+それだけはマジやめてくれと思っていて、ミュウが流行ってしまうと、ますますバトルが厳しくなってしまう。
+でも、わざマシンがあると自分もミュウをもっと使いやすくなるので、嬉しくもあり、悲しくもあるような複雑な気持ち。
+しかし、きっと、ミュウが人気になるのは、きっと喜ばしいことなのでしょう。お気に入りのポケモンですからね。
+そんなこともあり、この状況を心から喜べるよう、私はプレシーズン中になんとしてでもランク10に到達しなければなりません。
+このリーグの檻から心を解き放つには、戦うしかなく、勝つしかないようです。</description></item><item><title>openssh 8.2とgoodreader</title><link>https://syui.cf/blog/post/2020/02/16/openssh/</link><pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/16/openssh/</guid><description>openssh 8.2がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。
 ので、downgradeしました。downgradeが古かったので、何故か実行してもアクセスできないという現象に遭遇したので、downgradeもupdateしておきましょう。
 $ yay -S downgrade $ downgrade openssh openssh 8.1p1 4 x86_64 (remote) $ sudo systemctl restart sshd goodreaderでキー(private-key)が読み込めない問題はこちらが参考になります。
 iosのgoodreaderでsftpのprivate-keyが読み込めない問題</description></item><item><title>ポケモンGoにリーグが実装されたのでやってみる7</title><link>https://syui.cf/blog/post/2020/02/15/pogo/</link><pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/15/pogo/</guid><description>ハイパーで戦っていて、勝敗が五分五分な感じだったので、そこそこ手応えがありそうなメンバーに変えてみた。
