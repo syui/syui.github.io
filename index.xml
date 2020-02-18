@@ -19,9 +19,9 @@ https://pokemongo-get.com/taimansym/
 しかし、新しいわざマシンが実装されてしまうと、ポケモンGoにおけるミュウのとてつもなさに気づいてしまう人が増えてしまう可能性があります。
 それだけはマジやめてくれと思っていて、ミュウが流行ってしまうと、ますますバトルが厳しくなってしまう。
 でも、わざマシンがあると自分もミュウをもっと使いやすくなるので、嬉しくもあり、悲しくもあるような複雑な気持ち。
-しかし、きっと、ミュウが人気になるのは、きっと喜ばしいことなのでしょう。お気に入りのポケモンですからね。
-そんなこともあり、この状況を心から喜べるよう、私はプレシーズン中になんとしてでもランク10に到達しなければなりません。
-このリーグの檻から心を解き放つには、戦うしかなく、勝つしかないようです。</description></item><item><title>openssh 8.2とgoodreader</title><link>https://syui.cf/blog/post/2020/02/16/openssh/</link><pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/16/openssh/</guid><description>openssh 8.2がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。
+しかし、きっと、ミュウが人気になるのは喜ばしいことなのでしょう。お気に入りのポケモンですからね。
+そんなこともあり、この状況を心から喜べるよう私はプレシーズン中に、なんとしてでもランク10に到達しなければなりません。
+このリーグの檻から心を解き放つには、戦うしかなく、勝つしかない。</description></item><item><title>openssh 8.2とgoodreader</title><link>https://syui.cf/blog/post/2020/02/16/openssh/</link><pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/16/openssh/</guid><description>openssh 8.2がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。
 ので、downgradeしました。downgradeが古かったので、何故か実行してもアクセスできないという現象に遭遇したので、downgradeもupdateしておきましょう。
 $ yay -S downgrade $ downgrade openssh openssh 8.1p1 4 x86_64 (remote) $ sudo systemctl restart sshd goodreaderでキー(private-key)が読み込めない問題はこちらが参考になります。
 iosのgoodreaderでsftpのprivate-keyが読み込めない問題</description></item><item><title>ポケモンGoにリーグが実装されたのでやってみる7</title><link>https://syui.cf/blog/post/2020/02/15/pogo/</link><pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/15/pogo/</guid><description>ハイパーで戦っていて、勝敗が五分五分な感じだったので、そこそこ手応えがありそうなメンバーに変えてみた。
