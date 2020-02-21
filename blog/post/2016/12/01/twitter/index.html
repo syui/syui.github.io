@@ -12,13 +12,13 @@
 <span style=color:#f92672>import</span> csv
 
 api <span style=color:#f92672>=</span> twitter<span style=color:#f92672>.</span>Api(
-    consumer_key<span style=color:#f92672>=</span><span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>YOUR_CONSUMER_KEY</span><span style=color:#e6db74>&#39;</span>,
-    consumer_secret<span style=color:#f92672>=</span><span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>YOUR_CONSUMER_SECRET</span><span style=color:#e6db74>&#39;</span>,
-    access_token_key<span style=color:#f92672>=</span><span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>YOUR_ACCESS_TOKEN_KEY</span><span style=color:#e6db74>&#39;</span>,
-    access_token_secret<span style=color:#f92672>=</span><span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>YOUR_ACCESS_TOKEN_SECRET</span><span style=color:#e6db74>&#39;</span>
+    consumer_key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;YOUR_CONSUMER_KEY&#39;</span>,
+    consumer_secret<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;YOUR_CONSUMER_SECRET&#39;</span>,
+    access_token_key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;YOUR_ACCESS_TOKEN_KEY&#39;</span>,
+    access_token_secret<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;YOUR_ACCESS_TOKEN_SECRET&#39;</span>
 )
 
-csvReader <span style=color:#f92672>=</span> csv<span style=color:#f92672>.</span>reader(open(<span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>tweets.csv</span><span style=color:#e6db74>&#39;</span>, <span style=color:#e6db74></span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;</span>))
+csvReader <span style=color:#f92672>=</span> csv<span style=color:#f92672>.</span>reader(open(<span style=color:#e6db74>&#39;tweets.csv&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>))
 next(csvReader)
 
 <span style=color:#66d9ef>for</span> row <span style=color:#f92672>in</span> csvReader:

@@ -10,11 +10,11 @@
 $ vim ~/.xinitrc 
 pcmanfm -d &amp;
 </code></pre></div><h3 id=root-umount>root umount</h3><blockquote><p>/etc/polkit-1/rules.d/00-mount-internal.rules</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>polkit.addRule<span style=color:#f92672>(</span><span style=color:#66d9ef>function</span><span style=color:#f92672>(</span>action, subject<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-   <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span><span style=color:#f92672>(</span>action.id <span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;org.freedesktop.udisks2.filesystem-mount-system&#34;</span> <span style=color:#f92672>&amp;&amp;</span>
-      subject.local <span style=color:#f92672>&amp;&amp;</span> subject.active <span style=color:#f92672>&amp;&amp;</span> subject.isInGroup<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;storage&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span>
+   <span style=color:#66d9ef>if</span> <span style=color:#f92672>((</span>action.id <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;org.freedesktop.udisks2.filesystem-mount-system&#34;</span> <span style=color:#f92672>&amp;&amp;</span>
+      subject.local <span style=color:#f92672>&amp;&amp;</span> subject.active <span style=color:#f92672>&amp;&amp;</span> subject.isInGroup<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;storage&#34;</span><span style=color:#f92672>)))</span>
       <span style=color:#f92672>{</span>
          <span style=color:#66d9ef>return</span> polkit.Result.YES;
       <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span><span style=color:#f92672>)</span>;
+<span style=color:#f92672>})</span>;
 </code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ usermod -aG storage username
 </code></pre></div><p><a href=https://wiki.archlinux.jp/index.php/PCManFM>https://wiki.archlinux.jp/index.php/PCManFM</a></p><p>快適です!!</p><nav id=article-nav><a href=https://syui.cf/blog/post/2018/08/08/softethervpn/ id=article-nav-newer class=article-nav-link-wrap><i class="fa fa-chevron-right"></i>archlinuxで手軽にvpn serverを立てる</a></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>

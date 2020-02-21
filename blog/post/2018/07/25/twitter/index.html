@@ -43,11 +43,11 @@
 
 <span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Oauth</span> <span style=color:#66d9ef>struct</span> {
 	<span style=color:#a6e22e>AdditionalData</span> <span style=color:#66d9ef>struct</span> {
-		<span style=color:#a6e22e>ScreenName</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;screen_name&#34;</span><span style=color:#e6db74>`</span>
-		<span style=color:#a6e22e>UserID</span>     <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;user_id&#34;</span><span style=color:#e6db74>`</span>
-	} <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;AdditionalData&#34;</span><span style=color:#e6db74>`</span>
-	<span style=color:#a6e22e>Secret</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;Secret&#34;</span><span style=color:#e6db74>`</span>
-	<span style=color:#a6e22e>Token</span>  <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;Token&#34;</span><span style=color:#e6db74>`</span>
+		<span style=color:#a6e22e>ScreenName</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;screen_name&#34;`</span>
+		<span style=color:#a6e22e>UserID</span>     <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;user_id&#34;`</span>
+	} <span style=color:#e6db74>`json:&#34;AdditionalData&#34;`</span>
+	<span style=color:#a6e22e>Secret</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;Secret&#34;`</span>
+	<span style=color:#a6e22e>Token</span>  <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;Token&#34;`</span>
 }
 
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>RunOAuth</span>() {
@@ -178,11 +178,11 @@ $ ./main
 
 <span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Oauth</span> <span style=color:#66d9ef>struct</span> {
 	<span style=color:#a6e22e>AdditionalData</span> <span style=color:#66d9ef>struct</span> {
-		<span style=color:#a6e22e>ScreenName</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;screen_name&#34;</span><span style=color:#e6db74>`</span>
-		<span style=color:#a6e22e>UserID</span>     <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;user_id&#34;</span><span style=color:#e6db74>`</span>
-	} <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;AdditionalData&#34;</span><span style=color:#e6db74>`</span>
-	<span style=color:#a6e22e>Secret</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;Secret&#34;</span><span style=color:#e6db74>`</span>
-	<span style=color:#a6e22e>Token</span>  <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;Token&#34;</span><span style=color:#e6db74>`</span>
+		<span style=color:#a6e22e>ScreenName</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;screen_name&#34;`</span>
+		<span style=color:#a6e22e>UserID</span>     <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;user_id&#34;`</span>
+	} <span style=color:#e6db74>`json:&#34;AdditionalData&#34;`</span>
+	<span style=color:#a6e22e>Secret</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;Secret&#34;`</span>
+	<span style=color:#a6e22e>Token</span>  <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;Token&#34;`</span>
 }
 
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>RunOAuth</span>() {
@@ -250,7 +250,7 @@ $ ./main
 }
 </code></pre></div><p>解説がだいぶ長くなってしまいましたが、やってることは単純で、フレームワークを使って、コマンドラインツールを作ります。</p><p>そして、引数がない場合の処理として、twitterのapi認証を行い、home_timelineを出力します。</p><p>必要な機能(関数)は、<a href=https://github.com/ChimeraCoder/anaconda>github.com/ChimeraCoder/anaconda</a>を使いましたので、こちらのコードを読んで判断していく感じです。</p><p>最初、このパッケージは認証のために使うだけで、各種機能を自前で用意していた時代もありましたが、コード整理の時、コードを短くする一環として、<code>anaconda</code>が用意してくれてる関数を素直に使うようにしました。それでもいくつか不足してたり、探しきれなかったりした部分でわざわざ自前でやってしまったこともありましたが。</p><p>ちなみに、自前でやる場合は、twitter apiの出力を<code>gojson</code>で持ってきて、それを使うと良いです。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ cat ~/.config/twg/verify.json | jq . | gojson
 </code></pre></div><p>で、かなり省略してますが、それを<code>type</code>に定義して、コードはこんな感じで。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>UserVerifyCredentials</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>Verified</span>       <span style=color:#66d9ef>bool</span>        <span style=color:#e6db74>`</span><span style=color:#e6db74>json:&#34;verified&#34;</span><span style=color:#e6db74>`</span>
+	<span style=color:#a6e22e>Verified</span>       <span style=color:#66d9ef>bool</span>        <span style=color:#e6db74>`json:&#34;verified&#34;`</span>
 }
 
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>GetVerifyCredentials</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>Context</span>) <span style=color:#66d9ef>error</span> {

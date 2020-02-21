@@ -27,9 +27,9 @@ $ vim config/prod.exs
 config :chat, ChatWeb.Endpoint,
   load_from_system_env: true,
   url: <span style=color:#f92672>[</span>scheme: <span style=color:#e6db74>&#34;https&#34;</span>, host: <span style=color:#e6db74>&#34;syui-chat.herokuapp.com&#34;</span>, port: 443<span style=color:#f92672>]</span>,
-  force_ssl: <span style=color:#f92672>[</span>rewrite_on: <span style=color:#f92672>[</span>:x_forwarded_proto<span style=color:#f92672>]</span><span style=color:#f92672>]</span>,
+  force_ssl: <span style=color:#f92672>[</span>rewrite_on: <span style=color:#f92672>[</span>:x_forwarded_proto<span style=color:#f92672>]]</span>,
   cache_static_manifest: <span style=color:#e6db74>&#34;priv/static/cache_manifest.json&#34;</span>,
-  secret_key_base: Map.fetch!<span style=color:#f92672>(</span>System.get_env<span style=color:#f92672>(</span><span style=color:#f92672>)</span>, <span style=color:#e6db74>&#34;SECRET_KEY_BASE&#34;</span><span style=color:#f92672>)</span>
+  secret_key_base: Map.fetch!<span style=color:#f92672>(</span>System.get_env<span style=color:#f92672>()</span>, <span style=color:#e6db74>&#34;SECRET_KEY_BASE&#34;</span><span style=color:#f92672>)</span>
 
 $ mix deps.get
 $ mix phx.gen.secret
@@ -46,14 +46,14 @@ $ git push heroku master
 </code></pre></div><p>多分、こんな感じですね。</p><p><a href=https://github.com/dwyl/learn-heroku/blob/master/elixir-phoenix-app-deployment.md>https://github.com/dwyl/learn-heroku/blob/master/elixir-phoenix-app-deployment.md</a></p><p><a href=https://hexdocs.pm/phoenix/heroku.html#making-our-project-ready-for-heroku>https://hexdocs.pm/phoenix/heroku.html#making-our-project-ready-for-heroku</a></p><h2 id=pleroma>pleroma</h2><p><a href=https://git.pleroma.social/pleroma/pleroma>pleroma</a>もphxで書かれています。ただし、phx exampleであるようなディレクトリ構造とは少し違うので、heroku buildpacksも違ってきます。</p><p>具体的には、<code>https://github.com/gjaldon/heroku-buildpack-phoenix-static.git</code>は、<code>assets/package.json</code>を<code>npm i</code>するのですが、pleromaは、heroku deployする際に、npm(node)が必要ありません。<code>package.json</code>ないですし。ということで、buildpacksは<code>elixir</code>のやつだけでOKです。</p><p>大抵、srcを読めばわかりますが、<code>config/prod.exs</code>はこんな感じになってます。</p><blockquote><p>config/prod.exs</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>use Mix.Config
 
 config :pleroma, Pleroma.Web.Endpoint,
- http: <span style=color:#f92672>[</span>port: <span style=color:#f92672>{</span>:system, <span style=color:#e6db74>&#34;PORT&#34;</span><span style=color:#f92672>}</span><span style=color:#f92672>]</span>,
+ http: <span style=color:#f92672>[</span>port: <span style=color:#f92672>{</span>:system, <span style=color:#e6db74>&#34;PORT&#34;</span><span style=color:#f92672>}]</span>,
   url: <span style=color:#f92672>[</span>scheme: <span style=color:#e6db74>&#34;https&#34;</span>, host: <span style=color:#e6db74>&#34;pleroma.syui.cf&#34;</span>, port: 443<span style=color:#f92672>]</span>,
-  force_ssl: <span style=color:#f92672>[</span>rewrite_on: <span style=color:#f92672>[</span>:x_forwarded_proto<span style=color:#f92672>]</span><span style=color:#f92672>]</span>,
+  force_ssl: <span style=color:#f92672>[</span>rewrite_on: <span style=color:#f92672>[</span>:x_forwarded_proto<span style=color:#f92672>]]</span>,
   <span style=color:#75715e>#cache_static_manifest: &#34;priv/static/manifest.json&#34;,</span>
   secret_key_base: System.get_env<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;SECRET_KEY_BASE&#34;</span><span style=color:#f92672>)</span>
 
 config :logger, level: :info
-config :logger, :console, format: <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>[</span>$level<span style=color:#e6db74>] </span>$message<span style=color:#e6db74>\n</span><span style=color:#e6db74>&#34;</span>
+config :logger, :console, format: <span style=color:#e6db74>&#34;[</span>$level<span style=color:#e6db74>] </span>$message<span style=color:#e6db74>\n&#34;</span>
 
 config :phoenix, :stacktrace_depth, <span style=color:#ae81ff>20</span>
 
@@ -76,7 +76,7 @@ $ heroku addons:open scheduler -a $APP_NAME
 $ heroku run <span style=color:#e6db74>&#34;mix register_user &lt;name&gt; &lt;username&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;&#34;</span> -a $APP_NAME
 
 <span style=color:#75715e># admin user</span>
-$ heroku run <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>mix set_moderator </span>$USER<span style=color:#e6db74>&#34;</span> -a $APP_NAME
+$ heroku run <span style=color:#e6db74>&#34;mix set_moderator </span>$USER<span style=color:#e6db74>&#34;</span> -a $APP_NAME
 
 <span style=color:#75715e># single user mode</span>
 $ vim config/config.exs
@@ -149,16 +149,16 @@ $ sudo docker run -it rudism/gnu-social /bin/bash
 $ sudo docker ps -q
 $ sudo docker cp xxx:/var/www/gnu-social/config.php .
 </code></pre></div><p>上記コマンドを見れば、やりたいことはだいたい分かると思います。いろいろな方法があります。この他にも色々ありますね。</p><p>しかし、要点は、heroku dbの情報を入力して作成されたconfig.phpを持ってくることが重要だと思います。下記はexampleです。</p><blockquote><p>config.php</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>&lt;?php
-<span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>!defined<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;GNUSOCIAL&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span> exit<span style=color:#f92672>(</span>1<span style=color:#f92672>)</span>; <span style=color:#f92672>}</span>
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;name&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;gnusocial&#39;</span>;
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;server&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;app.herokuapp.com&#39;</span>;
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;path&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> false; 
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;ssl&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;never&#39;</span>; 
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;database&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mysql://username:password@hostname/database&#39;</span>;
-$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mysql&#39;</span>;
+<span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>!defined<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;GNUSOCIAL&#39;</span><span style=color:#f92672>))</span> <span style=color:#f92672>{</span> exit<span style=color:#f92672>(</span>1<span style=color:#f92672>)</span>; <span style=color:#f92672>}</span>
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;name&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;gnusocial&#39;</span>;
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;server&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;app.herokuapp.com&#39;</span>;
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;path&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> false; 
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;site&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;ssl&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;never&#39;</span>; 
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;database&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mysql://username:password@hostname/database&#39;</span>;
+$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mysql&#39;</span>;
 // Uncomment below <span style=color:#66d9ef>for</span> better performance. Just remember you must run
 // php scripts/checkschema.php whenever your enabled plugins change!
-//$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>]</span><span style=color:#f92672>[</span><span style=color:#e6db74>&#39;schemacheck&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;script&#39;</span>;
+//$config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;db&#39;</span><span style=color:#f92672>][</span><span style=color:#e6db74>&#39;schemacheck&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;script&#39;</span>;
 </code></pre></div><p>gnu-socialをdocker等で試行錯誤した結果、<code>ssl</code>と<code>pgsql</code>はどうやっても機能しませんでした。特に、<code>pgsql</code>はバグってると思います。<code>lib/installer.php</code>みたいなファイルから書き直したんですが、docker上でもheroku上でもまともに動きませんでした。正直、よくわからない。</p><p><a href=https://suriyadeepan.gitbooks.io/mesh-guide/content/gnu_social.html>https://suriyadeepan.gitbooks.io/mesh-guide/content/gnu_social.html</a></p><p>あと、config.phpを置いたのはいいんですが、本来は、644でchmodされるファイルですから、そのパーミッションで行きたいんですけど、なぜか<code>heroku run bash</code>, <code>ls -l config.php</code>で確かめてみると、意図した権限じゃないんですよね。危険ですよ。composerでscript実行してるはずなんですけどね。(これはherokuの問題だと思う)</p><p>その他、gnu-socialはqvitterというpluginがあるのですが、qvitter+pleroma-feでdual bootできるっぽいので、今度試してみようかなーと思っています。(herokuでどこまでできるかわからないけど。directory構造とかnginx設定とかが来ると、ちょっと面倒なことになりそうですね&mldr;)</p><p><a href=https://git.pleroma.social/pleroma/pleroma-fe/wikis/dual-boot-with-qvitter>https://git.pleroma.social/pleroma/pleroma-fe/wikis/dual-boot-with-qvitter</a></p><h3 id=追記>追記</h3><p><a href=https://git.gnu.io/h2p/Qvitter>qvitter</a>+<a href=https://git.pleroma.social/pleroma/pleroma-fe>pleroma-fe</a>できた。</p><p>ちょっとハマったところとかを解説。</p><p>qvitterは、urlに/index.phpを付けずにapiを呼び出すため、fancy urlsをenableにしていない場合、url間違いでapiを呼び出せない。そのためエラーを出すのだけど、herokuなどのPaaSは、nginxなどを直接操作できないため、なかなか面倒でした。</p><p>具体的には、<code>nginx_app.conf</code>を作って、Procfileのオプションで指定してやればOKでした。</p><blockquote><p>nginx_app.conf</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>location @rewriteapp <span style=color:#f92672>{</span>
     <span style=color:#75715e># rewrite all to index.php</span>
     rewrite ^<span style=color:#f92672>(</span>.*<span style=color:#f92672>)</span>$ /index.php/$1 last;

@@ -179,9 +179,9 @@ $ heroku config:set MAX_THREADS<span style=color:#f92672>=</span><span style=col
 </code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e>## tootを削除したはずなのに残ってる</span>
 <span style=color:#75715e>## 1.6(6c81f9d)</span>
 $ url<span style=color:#f92672>=</span>https://mstdn.syui.cf/api/v1/statuses/473
-$ curl -X DELETE $url -H <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span>
-&gt; <span style=color:#f92672>{</span><span style=color:#f92672>}</span>
-$ curl -X GET $url -H <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span>
+$ curl -X DELETE $url -H <span style=color:#e6db74>&#34;Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span>
+&gt; <span style=color:#f92672>{}</span>
+$ curl -X GET $url -H <span style=color:#e6db74>&#34;Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span>
 <span style=color:#f92672>{</span>
   <span style=color:#e6db74>&#34;id&#34;</span>: 473,
   <span style=color:#e6db74>&#34;created_at&#34;</span>: <span style=color:#e6db74>&#34;2017-09-15&#34;</span>,
@@ -295,7 +295,7 @@ $ curl -X GET $url -H <span style=color:#e6db74>&#34;</span><span style=color:#e
 
   <span style=color:#a6e22e>generateDivs</span> () {
     <span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>intl</span>, <span style=color:#a6e22e>columnId</span>, <span style=color:#a6e22e>hasUnread</span>, <span style=color:#a6e22e>multiColumn</span> } <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>props</span>;
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pinned</span> <span style=color:#f92672>=</span> <span style=color:#f92672>!</span><span style=color:#f92672>!</span><span style=color:#a6e22e>columnId</span>;
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pinned</span> <span style=color:#f92672>=</span> <span style=color:#f92672>!!</span><span style=color:#a6e22e>columnId</span>;
     <span style=color:#a6e22e>moreDivs</span>.<span style=color:#a6e22e>push</span>(
       <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>Column</span> <span style=color:#a6e22e>ref</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setRef</span>}<span style=color:#f92672>&gt;</span>
         <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ColumnHeader</span>
@@ -308,17 +308,17 @@ $ curl -X GET $url -H <span style=color:#e6db74>&#34;</span><span style=color:#e
           <span style=color:#a6e22e>pinned</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>pinned</span>}
           <span style=color:#a6e22e>multiColumn</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>multiColumn</span>}
         <span style=color:#f92672>&gt;</span>
-          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ColumnSettingsContainer</span> <span style=color:#f92672>/</span><span style=color:#f92672>&gt;</span>
-        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/</span><span style=color:#960050;background-color:#1e0010>C</span><span style=color:#960050;background-color:#1e0010>o</span><span style=color:#960050;background-color:#1e0010>l</span><span style=color:#960050;background-color:#1e0010>u</span><span style=color:#960050;background-color:#1e0010>m</span><span style=color:#960050;background-color:#1e0010>n</span><span style=color:#960050;background-color:#1e0010>H</span><span style=color:#960050;background-color:#1e0010>e</span><span style=color:#960050;background-color:#1e0010>a</span><span style=color:#960050;background-color:#1e0010>d</span><span style=color:#960050;background-color:#1e0010>e</span><span style=color:#960050;background-color:#1e0010>r</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
+          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ColumnSettingsContainer</span> <span style=color:#f92672>/&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/ColumnHeader&gt;</span>
 
         <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>StatusListContainer</span>
           <span style=color:#a6e22e>timelineId</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;public&#39;</span>
           <span style=color:#a6e22e>loadMore</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>handleLoadMore</span>}
           <span style=color:#a6e22e>trackScroll</span><span style=color:#f92672>=</span>{<span style=color:#f92672>!</span><span style=color:#a6e22e>pinned</span>}
-          <span style=color:#a6e22e>scrollKey</span><span style=color:#f92672>=</span>{<span style=color:#e6db74>`</span><span style=color:#e6db74>public_timeline-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>columnId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>}
-          <span style=color:#a6e22e>emptyMessage</span><span style=color:#f92672>=</span>{<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>FormattedMessage</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;empty_column.public&#39;</span> <span style=color:#a6e22e>defaultMessage</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;There is nothing here! Write something publicly, or manually follow users from other instances to fill it up&#39;</span> <span style=color:#f92672>/</span><span style=color:#f92672>&gt;</span>}
-        <span style=color:#f92672>/</span><span style=color:#f92672>&gt;</span>
-      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/</span><span style=color:#960050;background-color:#1e0010>C</span><span style=color:#960050;background-color:#1e0010>o</span><span style=color:#960050;background-color:#1e0010>l</span><span style=color:#960050;background-color:#1e0010>u</span><span style=color:#960050;background-color:#1e0010>m</span><span style=color:#960050;background-color:#1e0010>n</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
+          <span style=color:#a6e22e>scrollKey</span><span style=color:#f92672>=</span>{<span style=color:#e6db74>`public_timeline-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>columnId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>}
+          <span style=color:#a6e22e>emptyMessage</span><span style=color:#f92672>=</span>{<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>FormattedMessage</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;empty_column.public&#39;</span> <span style=color:#a6e22e>defaultMessage</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;There is nothing here! Write something publicly, or manually follow users from other instances to fill it up&#39;</span> <span style=color:#f92672>/&gt;</span>}
+        <span style=color:#f92672>/&gt;</span>
+      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/Column&gt;</span>
     );
     <span style=color:#a6e22e>setTimeout</span>(() =&gt; {
       <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setState</span>({<span style=color:#a6e22e>divs</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>divs</span>.<span style=color:#a6e22e>concat</span>(<span style=color:#a6e22e>moreDivs</span>)});
@@ -331,9 +331,9 @@ $ curl -X GET $url -H <span style=color:#e6db74>&#34;</span><span style=color:#e
           <span style=color:#a6e22e>next</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>generateDivs</span>}
           <span style=color:#a6e22e>hasMore</span><span style=color:#f92672>=</span>{<span style=color:#66d9ef>true</span>}
           <span style=color:#a6e22e>height</span><span style=color:#f92672>=</span>{<span style=color:#ae81ff>300</span>}
-          <span style=color:#a6e22e>loader</span><span style=color:#f92672>=</span>{<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h4</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Loading</span>...<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/</span><span style=color:#960050;background-color:#1e0010>h</span><span style=color:#960050;background-color:#1e0010>4</span><span style=color:#960050;background-color:#1e0010>&gt;</span><span style=color:#960050;background-color:#1e0010>}</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
+          <span style=color:#a6e22e>loader</span><span style=color:#f92672>=</span>{<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h4</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Loading</span>...<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h4&gt;}&gt;</span>
           {<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>divs</span>}
-        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/</span><span style=color:#960050;background-color:#1e0010>I</span><span style=color:#960050;background-color:#1e0010>n</span><span style=color:#960050;background-color:#1e0010>f</span><span style=color:#960050;background-color:#1e0010>i</span><span style=color:#960050;background-color:#1e0010>n</span><span style=color:#960050;background-color:#1e0010>i</span><span style=color:#960050;background-color:#1e0010>t</span><span style=color:#960050;background-color:#1e0010>e</span><span style=color:#960050;background-color:#1e0010>S</span><span style=color:#960050;background-color:#1e0010>c</span><span style=color:#960050;background-color:#1e0010>r</span><span style=color:#960050;background-color:#1e0010>o</span><span style=color:#960050;background-color:#1e0010>l</span><span style=color:#960050;background-color:#1e0010>l</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
+        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/InfiniteScroll&gt;</span>
     );
   }
 
@@ -551,37 +551,37 @@ Firewall :
 </code></pre></div><h2 id=gitlab-pages-image-storage>GitLab Pages (Image Storage)</h2><p>現在、画像ファイルの保存、読み込みを行うサーバーにgitlab.io(具体的には、GitLab Pages)を利用しています。</p><p>しかし、このサーバーは反応が遅いので、できれば、GitHubの方に移行するか、若しくはアップロードや管理がしやすい他のサーバーに移行することを考えています。</p><p>どうやってアップロードするのかというと、これは手動(自動化は可能)になるのですが、以下の方法が最も適切です。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>host_meta<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;.well-known//webfinger?resource&#34;</span>
 
 surl<span style=color:#f92672>=</span>$protocol://$host/$api_url/accounts/1/followers
-sjson<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL $surl -H <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
+sjson<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL $surl -H <span style=color:#e6db74>&#34;Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
 sbody<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#39;.[]|.acct&#39;</span><span style=color:#e6db74>`</span>
 sn<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo <span style=color:#e6db74>&#34;</span>$sjson<span style=color:#e6db74>&#34;</span> | jq length<span style=color:#e6db74>`</span>
 <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$sn<span style=color:#e6db74>&#34;</span> !<span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0&#34;</span> <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>
 	sn<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span><span style=color:#e6db74>${</span>sn<span style=color:#e6db74>}</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span><span style=color:#66d9ef>))</span>
 <span style=color:#66d9ef>fi</span>
 
-<span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#f92672>(</span>i<span style=color:#f92672>=</span>0;i&lt;<span style=color:#f92672>=</span>$sn;i++<span style=color:#f92672>)</span><span style=color:#f92672>)</span>
+<span style=color:#66d9ef>for</span> <span style=color:#f92672>((</span>i<span style=color:#f92672>=</span>0;i&lt;<span style=color:#f92672>=</span>$sn;i++<span style=color:#f92672>))</span>
 <span style=color:#66d9ef>do</span>
-	avatar<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.avatar</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
+	avatar<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.avatar&#34;</span><span style=color:#e6db74>`</span>
 	echo $avatar
-	acct<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.acct</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
-	url<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.url</span><span style=color:#e6db74>&#34;</span>|cut -d / -f -3<span style=color:#e6db74>`</span>
+	acct<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.acct&#34;</span><span style=color:#e6db74>`</span>
+	url<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $sjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.url&#34;</span>|cut -d / -f -3<span style=color:#e6db74>`</span>
 	output<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL -H <span style=color:#e6db74>&#34;Accept: application/json&#34;</span> <span style=color:#e6db74>&#34;</span>$url<span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>host_meta<span style=color:#e6db74>}</span><span style=color:#e6db74>=acct:</span><span style=color:#e6db74>${</span>acct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>|jq -r <span style=color:#e6db74>&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style=color:#e6db74>`</span>
 	curl -sL $output | awk -vRS<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&lt;/logo&gt;&#34;</span> <span style=color:#e6db74>&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
 <span style=color:#66d9ef>done</span>
 
 gurl<span style=color:#f92672>=</span>$protocol://$host/$api_url/accounts/1/following
-gjson<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL $gurl -H <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
+gjson<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL $gurl -H <span style=color:#e6db74>&#34;Authorization: Bearer </span>$access_token<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
 gbody<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#39;.[]|{avatar,acct,url}&#39;</span><span style=color:#e6db74>`</span>
 gn<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo <span style=color:#e6db74>&#34;</span>$gjson<span style=color:#e6db74>&#34;</span> | jq length<span style=color:#e6db74>`</span>
 <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$gn<span style=color:#e6db74>&#34;</span> !<span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0&#34;</span> <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>
 	gn<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span><span style=color:#e6db74>${</span>gn<span style=color:#e6db74>}</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span><span style=color:#66d9ef>))</span>
 <span style=color:#66d9ef>fi</span>
 
-<span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#f92672>(</span>i<span style=color:#f92672>=</span>0;i&lt;<span style=color:#f92672>=</span>$gn;i++<span style=color:#f92672>)</span><span style=color:#f92672>)</span>
+<span style=color:#66d9ef>for</span> <span style=color:#f92672>((</span>i<span style=color:#f92672>=</span>0;i&lt;<span style=color:#f92672>=</span>$gn;i++<span style=color:#f92672>))</span>
 <span style=color:#66d9ef>do</span>
-	avatar<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.avatar</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
-	acct<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.acct</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>`</span>
-	url<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[</span>$i<span style=color:#e6db74>]|.url</span><span style=color:#e6db74>&#34;</span>|cut -d / -f -3<span style=color:#e6db74>`</span>
-	<span style=color:#66d9ef>if</span> ! echo <span style=color:#e6db74>&#34;</span>$gjson<span style=color:#e6db74>&#34;</span>| jq -r <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>.[]|select(.acct == \&#34;</span><span style=color:#e6db74>${</span>acct<span style=color:#e6db74>}</span><span style=color:#e6db74>\&#34;)</span><span style=color:#e6db74>&#34;</span> &gt; /dev/null 2&gt;&amp;1;<span style=color:#66d9ef>then</span>
+	avatar<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.avatar&#34;</span><span style=color:#e6db74>`</span>
+	acct<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.acct&#34;</span><span style=color:#e6db74>`</span>
+	url<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $gjson|jq -r <span style=color:#e6db74>&#34;.[</span>$i<span style=color:#e6db74>]|.url&#34;</span>|cut -d / -f -3<span style=color:#e6db74>`</span>
+	<span style=color:#66d9ef>if</span> ! echo <span style=color:#e6db74>&#34;</span>$gjson<span style=color:#e6db74>&#34;</span>| jq -r <span style=color:#e6db74>&#34;.[]|select(.acct == \&#34;</span><span style=color:#e6db74>${</span>acct<span style=color:#e6db74>}</span><span style=color:#e6db74>\&#34;)&#34;</span> &gt; /dev/null 2&gt;&amp;1;<span style=color:#66d9ef>then</span>
 		output<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>curl -sSL -H <span style=color:#e6db74>&#34;Accept: application/json&#34;</span> <span style=color:#e6db74>&#34;</span>$url<span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>host_meta<span style=color:#e6db74>}</span><span style=color:#e6db74>=acct:</span><span style=color:#e6db74>${</span>acct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>|jq -r <span style=color:#e6db74>&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style=color:#e6db74>`</span>
 		curl -sL $output | awk -vRS<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&lt;/logo&gt;&#34;</span> <span style=color:#e6db74>&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
 	<span style=color:#66d9ef>fi</span>

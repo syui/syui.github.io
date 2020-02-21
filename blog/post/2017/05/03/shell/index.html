@@ -17,7 +17,7 @@ set a <span style=color:#f92672>(</span>echo word<span style=color:#f92672>)</sp
 end
 
 <span style=color:#75715e># case $1 in</span>
-switch <span style=color:#f92672>(</span>echo arvg<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span><span style=color:#f92672>)</span>
+switch <span style=color:#f92672>(</span>echo arvg<span style=color:#f92672>[</span>1<span style=color:#f92672>])</span>
 	<span style=color:#66d9ef>case</span> test
 		echo ok
 	end
@@ -86,7 +86,7 @@ $ hub
  and exit
 end
 </code></pre></div><p>zとの連携は以下のような感じ。<code>j -l</code>で取得したりできるので、それを元に関数を書く。キーバインドの<code>C-j</code>で移動。</p><blockquote><p>~/.config/fish/config.fish</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>set -U Z_CMD <span style=color:#e6db74>&#34;j&#34;</span>
-set -U Z_DATA <span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/.z</span><span style=color:#e6db74>&#34;</span>
+set -U Z_DATA <span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/.z&#34;</span>
 </code></pre></div><blockquote><p>~/.config/fish/functions/fish_user_key_bindings.fish</p></blockquote><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#66d9ef>function</span> peco_z
  set -l query <span style=color:#f92672>(</span>commandline<span style=color:#f92672>)</span>
 

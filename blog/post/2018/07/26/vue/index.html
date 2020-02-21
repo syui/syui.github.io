@@ -50,7 +50,7 @@ var HtmlWebpackPlugin <span style=color:#f92672>=</span> require<span style=colo
 var CopyWebpackPlugin <span style=color:#f92672>=</span> require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;copy-webpack-plugin&#39;</span><span style=color:#f92672>)</span>;
 
 module.exports <span style=color:#f92672>=</span> <span style=color:#f92672>{</span>
-  watch: process.env.WEBPACK_WATCH <span style=color:#f92672>=</span><span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;true&#39;</span>,
+  watch: process.env.WEBPACK_WATCH <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;true&#39;</span>,
   entry: <span style=color:#e6db74>&#39;./src/main.js&#39;</span>,
   output: <span style=color:#f92672>{</span>
     path: path.resolve<span style=color:#f92672>(</span>__dirname, <span style=color:#e6db74>&#39;./public-vue&#39;</span><span style=color:#f92672>)</span>,
@@ -82,7 +82,7 @@ module.exports <span style=color:#f92672>=</span> <span style=color:#f92672>{</s
       <span style=color:#f92672>}</span>,
       <span style=color:#f92672>{</span>
         test: /<span style=color:#ae81ff>\.</span>css$/,
-        loader: ExtractTextPlugin.extract<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+        loader: ExtractTextPlugin.extract<span style=color:#f92672>({</span>
           fallback: <span style=color:#e6db74>&#39;style-loader&#39;</span>,
           use: <span style=color:#f92672>[</span>
             <span style=color:#f92672>{</span>
@@ -93,29 +93,29 @@ module.exports <span style=color:#f92672>=</span> <span style=color:#f92672>{</s
               loader: <span style=color:#e6db74>&#39;postcss-loader&#39;</span>,
               options: <span style=color:#f92672>{</span>
                 plugins: <span style=color:#f92672>[</span>
-                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-smart-import&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span>,
-                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-url&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span>,
-                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-base64&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-smart-import&#39;</span><span style=color:#f92672>)()</span>,
+                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-url&#39;</span><span style=color:#f92672>)()</span>,
+                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-base64&#39;</span><span style=color:#f92672>)({</span>
                     extensions: <span style=color:#f92672>[</span><span style=color:#e6db74>&#39;.svg&#39;</span><span style=color:#f92672>]</span>,
                     root: <span style=color:#e6db74>&#39;src&#39;</span>
-                  <span style=color:#f92672>}</span><span style=color:#f92672>)</span>,
-                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-cssnext&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+                  <span style=color:#f92672>})</span>,
+                  require<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;postcss-cssnext&#39;</span><span style=color:#f92672>)({</span>
                     browsers: <span style=color:#f92672>[</span><span style=color:#e6db74>&#39;&gt; 1%&#39;</span>, <span style=color:#e6db74>&#39;last 2 versions&#39;</span>, <span style=color:#e6db74>&#39;Firefox ESR&#39;</span>, <span style=color:#e6db74>&#39;Opera 12.1&#39;</span><span style=color:#f92672>]</span>,
                     features: <span style=color:#f92672>{</span> autoprefixer: <span style=color:#f92672>{</span> remove: false <span style=color:#f92672>}</span> <span style=color:#f92672>}</span> // <span style=color:#e6db74>&#39;background-image: radial-gradient&#39;</span> broken in autoprefixer
-                  <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+                  <span style=color:#f92672>})</span>
                 <span style=color:#f92672>]</span>
               <span style=color:#f92672>}</span>
             <span style=color:#f92672>}</span>
           <span style=color:#f92672>]</span>
-        <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+        <span style=color:#f92672>})</span>
       <span style=color:#f92672>}</span>
     <span style=color:#f92672>]</span>
   <span style=color:#f92672>}</span>,
   plugins: <span style=color:#f92672>[</span>
     new ExtractTextPlugin<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;[name].css&#39;</span><span style=color:#f92672>)</span>,
-    new HtmlWebpackPlugin<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+    new HtmlWebpackPlugin<span style=color:#f92672>({</span>
       template: <span style=color:#e6db74>&#39;src/index.html&#39;</span>
-    <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>})</span>
   <span style=color:#f92672>]</span>,
   resolve: <span style=color:#f92672>{</span>
     alias: <span style=color:#f92672>{</span>
@@ -132,25 +132,25 @@ module.exports <span style=color:#f92672>=</span> <span style=color:#f92672>{</s
   devtool: <span style=color:#e6db74>&#39;#eval-source-map&#39;</span>
 <span style=color:#f92672>}</span>;
 
-<span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>process.env.NODE_ENV <span style=color:#f92672>=</span><span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;production&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+<span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>process.env.NODE_ENV <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;production&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
   module.exports.devtool <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;#source-map&#39;</span>;
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>module.exports.plugins <span style=color:#f92672>||</span> <span style=color:#f92672>[</span><span style=color:#f92672>]</span><span style=color:#f92672>)</span>.concat<span style=color:#f92672>(</span><span style=color:#f92672>[</span>
-    new webpack.DefinePlugin<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+  module.exports.plugins <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>module.exports.plugins <span style=color:#f92672>||</span> <span style=color:#f92672>[])</span>.concat<span style=color:#f92672>([</span>
+    new webpack.DefinePlugin<span style=color:#f92672>({</span>
       <span style=color:#e6db74>&#39;process.env&#39;</span>: <span style=color:#f92672>{</span>
         NODE_ENV: <span style=color:#e6db74>&#39;&#34;production&#34;&#39;</span>
       <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span><span style=color:#f92672>)</span>,
-    new webpack.optimize.UglifyJsPlugin<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+    <span style=color:#f92672>})</span>,
+    new webpack.optimize.UglifyJsPlugin<span style=color:#f92672>({</span>
       sourceMap: true,
       compress: <span style=color:#f92672>{</span>
         warnings: false
       <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span><span style=color:#f92672>)</span>,
-    new webpack.LoaderOptionsPlugin<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+    <span style=color:#f92672>})</span>,
+    new webpack.LoaderOptionsPlugin<span style=color:#f92672>({</span>
       minimize: true
-    <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
-  <span style=color:#f92672>]</span><span style=color:#f92672>)</span>;
+    <span style=color:#f92672>})</span>
+  <span style=color:#f92672>])</span>;
 <span style=color:#f92672>}</span>
 </code></pre></div><p>ここでビルドやプレビューに必要なものをインストールします。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ yarn install
 </code></pre></div><p>インストールできたら先程作った<code>webpack</code>の設定ファイルに沿って、vueのコードを書いていきます。</p><blockquote><p>src/main.js</p></blockquote><pre><code>import Vue from 'vue'

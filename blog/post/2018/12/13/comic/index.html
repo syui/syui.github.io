@@ -23,7 +23,7 @@ cd $hd
 w<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>osascript -e <span style=color:#e6db74>&#39;tell application &#34;Google Chrome&#34; to get the bounds of the first window&#39;</span> | tr -d <span style=color:#e6db74>&#39; &#39;</span><span style=color:#e6db74>`</span>
 osascript -e <span style=color:#e6db74>&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
 id<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>osascript -e <span style=color:#e6db74>&#39;tell application &#34;Google Chrome&#34; to get id of every window&#39;</span><span style=color:#e6db74>`</span>
-<span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#f92672>(</span>i<span style=color:#f92672>=</span>1;i&lt;<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>pg<span style=color:#e6db74>}</span>;i++ <span style=color:#f92672>)</span><span style=color:#f92672>)</span>
+<span style=color:#66d9ef>for</span> <span style=color:#f92672>((</span>i<span style=color:#f92672>=</span>1;i&lt;<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>pg<span style=color:#e6db74>}</span>;i++ <span style=color:#f92672>))</span>
 <span style=color:#66d9ef>do</span>
 	osascript -e <span style=color:#e6db74>&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
 	<span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> $i -le <span style=color:#ae81ff>9</span> <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>

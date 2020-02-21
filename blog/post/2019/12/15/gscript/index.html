@@ -16,8 +16,8 @@
 }
 
 <span style=color:#75715e>//function doGet(e) {
-</span><span style=color:#75715e></span><span style=color:#75715e>//  return ContentService.createTextOutput(&#34;doGet!!&#34;);
-</span><span style=color:#75715e></span><span style=color:#75715e>//}
+</span><span style=color:#75715e>//  return ContentService.createTextOutput(&#34;doGet!!&#34;);
+</span><span style=color:#75715e>//}
 </span></code></pre></div><p>これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># post req</span>
 $ curl -L -d <span style=color:#e6db74>&#34;{\&#34;txt\&#34;:\&#34;hello\&#34;}&#34;</span> https://script.google.com/macros/s/<span style=color:#e6db74>${</span>APP_ID<span style=color:#e6db74>}</span>/exec
 こんにちは
@@ -52,8 +52,8 @@ date_xml<span style=color:#f92672>=</span>$date_now
 title<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>./xq $xml|jq -r <span style=color:#e6db74>&#34;.[0]|.title&#34;</span><span style=color:#e6db74>`</span>
 body<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>./xq $xml|jq -r <span style=color:#e6db74>&#34;.[0]|.description&#34;</span>|tr -d <span style=color:#e6db74>&#39;\n&#39;</span><span style=color:#e6db74>`</span>
 echo $title, $body
-curl -L -d <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{\&#34;txt\&#34;:\&#34;</span>$title<span style=color:#e6db74>\&#34;}</span><span style=color:#e6db74>&#34;</span> $url
-curl -L -d <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{\&#34;txt\&#34;:\&#34;</span>$body<span style=color:#e6db74>\&#34;}</span><span style=color:#e6db74>&#34;</span> $url
+curl -L -d <span style=color:#e6db74>&#34;{\&#34;txt\&#34;:\&#34;</span>$title<span style=color:#e6db74>\&#34;}&#34;</span> $url
+curl -L -d <span style=color:#e6db74>&#34;{\&#34;txt\&#34;:\&#34;</span>$body<span style=color:#e6db74>\&#34;}&#34;</span> $url
 </code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ chmod +x run.sh
 $ ./run.sh https://script.google.com/macros/s/<span style=color:#e6db74>${</span>APP_ID<span style=color:#e6db74>}</span>/exec t
 </code></pre></div><p><code>github.com/syui/xq</code>がおかしいと思ったら、<code>github.com/urfave/cli</code>が壊れてるぽい。あと、最新のバイナリをreleasesに置いてなかったので、ずっとオプション間違えてて、ローカルでは動いてたので、ハマりまくった。やっぱり、golangで書いたものは、releasesするCIを回しておけばよかった&mldr;。</p><nav id=article-nav><a href=https://syui.cf/blog/post/2019/12/16/ghpages/ id=article-nav-newer class=article-nav-link-wrap><i class="fa fa-chevron-right"></i>github pagesでサブドメインのリポジトリにソースを載せない方法</a></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>

@@ -16,7 +16,7 @@ git merge upstream/master --allow-unrelated-histories
 
 <span style=color:#75715e># local</span>
 <span style=color:#75715e># 自分が変更したファイルはHARDを優先する</span>
-git --no-pager log -n <span style=color:#ae81ff>2</span> --graph --name-status --pretty<span style=color:#f92672>=</span>format:<span style=color:#e6db74>&#39;%C(green)%an&#39;</span> --author<span style=color:#f92672>=</span>$USER | tr -d <span style=color:#e6db74>&#39;	&#39;</span> | cut -d <span style=color:#e6db74>&#39; &#39;</span> -f 2|grep -v <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>|</span>$USRR<span style=color:#e6db74>&#34;</span>
+git --no-pager log -n <span style=color:#ae81ff>2</span> --graph --name-status --pretty<span style=color:#f92672>=</span>format:<span style=color:#e6db74>&#39;%C(green)%an&#39;</span> --author<span style=color:#f92672>=</span>$USER | tr -d <span style=color:#e6db74>&#39;	&#39;</span> | cut -d <span style=color:#e6db74>&#39; &#39;</span> -f 2|grep -v <span style=color:#e6db74>&#34;|</span>$USRR<span style=color:#e6db74>&#34;</span>
 git checkout --ours filename
 
 <span style=color:#75715e># update</span>
