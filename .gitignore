@@ -3,6 +3,11 @@ static/img/.DS_Store
 static/.DS_Store
 resources
 .DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+*/*/*/*/.DS_Store
+*/*/*/*/*/.DS_Store
 gh-pages.pub
 gh-pages
 node_modules
@@ -12,3 +17,4 @@ yarn.lock
 content/novel
 nyan-cat
 particles.js
+
