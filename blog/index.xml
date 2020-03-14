@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 07 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>自作ゲームを更新してみた</title><link>https://syui.cf/blog/post/2020/03/07/game/</link><pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/07/game/</guid><description>自作のノベルゲームを更新しました。以下のページにアクセスして、はじめから-&amp;gt;最新話:45話となっています。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGOのリーグが正式に始まるのでポイントをまとめてみる</title><link>https://syui.cf/blog/post/2020/03/12/pogo/</link><pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/12/pogo/</guid><description>GOリーグはあまり好きではありません。ただ、実際にプレイしてきたのでポイントをまとめます。
+ノーマル攻撃かシールド破壊か スーパーはノーマル攻撃で押せます。マスターはシールド破壊が有効です。ノーマル押しでは勝てません。そういった傾向にあります。
+この知識を前提に戦略を立てるとよいでしょう。ノーマル攻撃が強いポケモンはなにか、シールドを破壊できるポケモンは何かを考えていけばメンバーは決めやすいと思います。
+耐性x2 その上で、よく出てくるテンプレに相性で対抗することを考えます。二重耐性(耐性x2)が特に重要です。
+例えば、フシギバナにはヒードランが耐性x2を持ちます。ギラティナにはカビゴンです。その上でわざをベストなものに変更します。
+シャドウ シャドウポケモンは、与えるダメージが大きくなります。
+スーパー 以下、連勝経験のあるパーティーです。
+テンプレ:チルタリス、マリルリ、ランターン、エアームド、ラグラージ
+ポケモン わざ1 わざ2 わざ3 グランブル あまえる かみくだく インファイト マッスグマ シャドークロー かみなり くさむすび ルンパッパ はっぱカッター れいとうビーム ハイドロポンプ グランブルをシールドで守りつつ、先鋒(or交代)を倒し切る。これができなかった場合、負ける確率が高い。グランブルをプクリンやピクシーにしてもいい。
+予備:マッスグマと適時入れ替えるのがオススメ
+ポケモン わざ1 わざ2 わざ3 フワライド たたりめ こごえるかぜ シャドーボール レアコイル でんきショック ほうでん マグネットボム シュバルゴ カウンター つばめがえし メガホーン マンタイン あわ つばめがえし れいとうビーム ジラーチが使える場合、スーパーではジラーチが強いので使いましょう。</description></item><item><title>自作ゲームを更新してみた</title><link>https://syui.cf/blog/post/2020/03/07/game/</link><pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/07/game/</guid><description>自作のノベルゲームを更新しました。以下のページにアクセスして、はじめから-&amp;gt;最新話:45話となっています。
 PLAY : /game
 紹介 : /imgame
 今回もイラストを描いたり、背景を描いたり、脚本を書いたりしました。

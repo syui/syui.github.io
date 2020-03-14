@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pogo on syui.cf</title><link>https://syui.cf/tags/pogo/</link><description>Recent content in pogo on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 26 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pogo/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoにリーグが実装されたのでやってみる11</title><link>https://syui.cf/blog/post/2020/02/26/pogo/</link><pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/26/pogo/</guid><description>マスターリーグに突入しましたね。唐突ですが、私はやめることにしました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pogo on syui.cf</title><link>https://syui.cf/tags/pogo/</link><description>Recent content in pogo on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pogo/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGOのリーグが正式に始まるのでポイントをまとめてみる</title><link>https://syui.cf/blog/post/2020/03/12/pogo/</link><pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/12/pogo/</guid><description>GOリーグはあまり好きではありません。ただ、実際にプレイしてきたのでポイントをまとめます。
+ノーマル攻撃かシールド破壊か スーパーはノーマル攻撃で押せます。マスターはシールド破壊が有効です。ノーマル押しでは勝てません。そういった傾向にあります。
+この知識を前提に戦略を立てるとよいでしょう。ノーマル攻撃が強いポケモンはなにか、シールドを破壊できるポケモンは何かを考えていけばメンバーは決めやすいと思います。
+耐性x2 その上で、よく出てくるテンプレに相性で対抗することを考えます。二重耐性(耐性x2)が特に重要です。
+例えば、フシギバナにはヒードランが耐性x2を持ちます。ギラティナにはカビゴンです。その上でわざをベストなものに変更します。
+シャドウ シャドウポケモンは、与えるダメージが大きくなります。
+スーパー 以下、連勝経験のあるパーティーです。
+テンプレ:チルタリス、マリルリ、ランターン、エアームド、ラグラージ
+ポケモン わざ1 わざ2 わざ3 グランブル あまえる かみくだく インファイト マッスグマ シャドークロー かみなり くさむすび ルンパッパ はっぱカッター れいとうビーム ハイドロポンプ グランブルをシールドで守りつつ、先鋒(or交代)を倒し切る。これができなかった場合、負ける確率が高い。グランブルをプクリンやピクシーにしてもいい。
+予備:マッスグマと適時入れ替えるのがオススメ
+ポケモン わざ1 わざ2 わざ3 フワライド たたりめ こごえるかぜ シャドーボール レアコイル でんきショック ほうでん マグネットボム シュバルゴ カウンター つばめがえし メガホーン マンタイン あわ つばめがえし れいとうビーム ジラーチが使える場合、スーパーではジラーチが強いので使いましょう。</description></item><item><title>ポケモンGoにリーグが実装されたのでやってみる11</title><link>https://syui.cf/blog/post/2020/02/26/pogo/</link><pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/26/pogo/</guid><description>マスターリーグに突入しましたね。唐突ですが、私はやめることにしました。
 コツコツやってきて、レートは2600から3300になりました。初期レートからの上昇幅は+700くらい。
 レートというのは勝てば上がるし、負ければ下がるようです。所感では、3勝2敗で下がり、4勝1敗でもほぼ上がりません。5勝0敗、つまり、5連勝しないと上がらないという感じでした。少し理不尽な気もしますが、そういった仕組みで戦ってきたことを考えると、今までそこそこに勝ってきたということだと思います。
 ただ、マスターリーグの初戦から困難に直面してしまい、この打開策は存在しないだろうなと思ったので、悔しいですが、ここでやめることにしました。
