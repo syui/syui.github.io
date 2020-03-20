@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGO、バトルリーグの改善案ついて説明してみる</title><link>https://syui.cf/blog/post/2020/03/16/pogo/</link><pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/16/pogo/</guid><description>前回、バトルリーグの改善案を話しましたが、今回は、その案について丁寧に説明してみることにします。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ノベルゲームの続きを書いた</title><link>https://syui.cf/blog/post/2020/03/20/game/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/20/game/</guid><description>オリジナルのノベルゲームを更新しました。
+以下のページにアクセスして、はじめからを選択してください。新しい章を選べるようになっています。
+PLAY : /game
+紹介 : /imgame
+ちょっとした制作秘話 今回の作ったお話は、yui3の前半、モンスター編という位置づけになっています。
+簡単に言うと、アイとはかせが作ったモンスターボックスがどんなものなのか、その設定を紹介する内容です。
+このような設定をただ説明するだけでは、物語としてつまらない。
+したがって、物語の中にモンスターボックスの設定を組み込んで説明しています。
+また、yui3の後半、アム編の冒頭を少しだけ公開しました。
+アムというのは、宇宙のナンバーワン通貨を発行している星です。今回、アイはそこに潜入するというミッションです(わけわからん)。
+なぜそうなったのかは、これから語られるかもしれませんし、語られないかもしれませんが、まあ、そんな感じです。
+で、こういったシーンで使えるかっこいい感じのBGMが欲しかったので、作りました。ええ、この冒頭のためだけに作りましたとも。
+今まではゆるふわな話が多かった気もするので、今回は、少し大人な感じで話を進めていこうと思っていて、そういった雰囲気を少しでも出せれば嬉しいです。
+ただ、どんなに悲しかったり、つらかったり、あるいは怖かったりする話でも、最後には、どこか笑える、ハッピーエンドな感じのギャグを入れることも忘れずにやっていきたいなあと考えています。
+あ、アイが手に持っている剣は、頭の上の輪っかですね。それを形状変化させたもの。
+アム星は警備が厳重で、武器は持ち込めませんし、力も使えません。よって、今回、重力で鍛えた肉体とソードのみで突破することになりそうな気がする。(わからんけど)</description></item><item><title>ポケモンGO、バトルリーグの改善案ついて説明してみる</title><link>https://syui.cf/blog/post/2020/03/16/pogo/</link><pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/16/pogo/</guid><description>前回、バトルリーグの改善案を話しましたが、今回は、その案について丁寧に説明してみることにします。
 対戦数を表示してはいけない理由 まず対戦数は表示してはいけません。なぜか？それはユーザーを不快にする要素があるからです。熱心なユーザーは、相棒ポケモンをやるために毎日トレーニングします。バトル数でハートを稼ぐためです。しかし、トレーニングするにはこの忌まわしき対戦画面に移る必要があるんですよね。ここでPvPに興味がない人でも、自分の成績をまざまざと見せられてしまい精神的に辛いのです。
 例えば、勝利数38,対戦数55のユーザーと勝利数12,対戦数55のユーザーがいたとしましょう。それを見ただけで人は区別してしまうんですよ。普通だなとか、弱いやつだなとか。
 これは、非常に良くない。他人に対しても個人に対しても良くないことです。悪影響しかないと言ってよい。
