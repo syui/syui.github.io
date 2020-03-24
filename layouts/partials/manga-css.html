@@ -1,11 +1,12 @@
 		<style>
-
 			img {
-			    width: 100%;
-					/* max-width: 700px; */
-					/* margin-left:55px; */
+					max-width: 900px;
+					margin:0 60px;
 			}
-
+			.containerx {
+				width:100%;
+				max-width:100%;
+			}
 			body {
 			  font-family: Helvetica Neue, Arial, sans-serif;
 			  font-size: 14px;
@@ -44,7 +45,6 @@
 			th.active .arrow {
 			  opacity: 1;
 			}
-			
 			.arrow {
 			  display: inline-block;
 			  vertical-align: middle;
@@ -91,16 +91,26 @@
 			    z-index: 2;
 			    height: 100%;
 			    min-height: 100%; 
-			    background-color: #008fc7c9;
+			    background-color: #ef454a38;
 			    color: #fff;
 			}
-			@media screen and (max-width: 1000px){
+			@media screen and (max-width: 1100px){
 				img {
-					   margin-left:0px;
+					max-width:100%;
+				  margin: 0 0;
 				}
+				.containerx {
+				  margin: 0 0;
 			}
-			.containerx {
-			    width: 100%;
-			    margin: 0 60px;
+
 			}
+
 		</style>
+
+		<script>
+			$(function() {
+			  $("button#next-manga").click(function() {
+			    $('body, html').scrollTop(0);
+			  });
+			});
+		</script>
