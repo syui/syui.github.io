@@ -89,13 +89,11 @@ var status = new Vue({
 	}
 });
 
-// manga + 1
-// 4page = 5
 var app = new Vue({
   el: '#app',
   data: {
     product: 0,
-    products: [...Array(7).keys()],
+    products: [...Array(Number(process.env.page)).keys()],
     timer: 1
   },
   computed: {
@@ -123,6 +121,5 @@ var app = new Vue({
         this.timer = null;
       }
     }
-    
   }
 });

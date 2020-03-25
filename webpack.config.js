@@ -4,6 +4,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   mode: 'production',
   watch: process.env.WEBPACK_WATCH === 'true',
@@ -68,6 +70,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new Dotenv('./.env'),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
       template: 'src/index.html'

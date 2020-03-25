@@ -12,10 +12,14 @@
     "deploy": "npm run demo:index && ghpages -p public"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
     "onsenui": "^2.10.10",
     "vue": "^2.6.10",
+    "vue-cli": "^2.9.6",
     "vue-onsenui": "^2.6.2",
-    "vuex": "^3.1.1"
+    "vuex": "^3.1.1",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
