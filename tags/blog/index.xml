@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/tags/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 22 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>blogを統合してみた</title><link>https://syui.cf/blog/post/2019/10/22/blog/</link><pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/10/22/blog/</guid><description>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/tags/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログをはじめるならGitHub Pagesがおすすめ</title><link>https://syui.cf/blog/post/2020/03/28/blog/</link><pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/28/blog/</guid><description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。
+私は、少し前にGitLabでブログをやっていましたが、その後、GitHubに移行したというか、戻りました。経緯としてはGitHub -&amp;gt; GitLab -&amp;gt; GitHubという流れです。
+syui.github.io
+割と長くGitHub PagesやGitLab Pagesでブログをやってきたので、今回は、両者の違いをまとめてみます。
+GitLabはプライベートリポジトリが無制限で、HTMLソースを公開しなくていい
+Web Serverは、GitHubのほうが安定していて速い
+GitLabのほうがドキュメントが充実しており、公式テンプレートがわかりやすい
+どちらもCIを回せるけど、GitLabはGitLab CIを回して、public/にビルドするという形態と採用するため、CIが成功しないとページが公開、更新されない。ユーザーが.gitlab-ci.ymlを書く必要がある
+GitHub PagesはデフォルトでJekyll Buildを実行しページが公開される仕組み。ただし、リポジトリルートに.nojekyllを置くことでJekyll Buildを実行しないオプションも存在する。よって、HTMLを直に置いてページを作ることもできる
+GitHubは、${USER}.github.ioというリポジトリ名を作成することで、当該ドメインが与えられる。branch:masterにHTMLをpushすると更新される。複数のページを用意したい場合は、リポジトリを作ったうえでbranch:gh-pagesにjekyll buildが通るHTMLを置くことでページを公開する
+GitLabも同じく${USER}.gitlab.ioというリポジトリ名を作る。ただし、ブランチは基本的にはmasterを使用する。なお、.gitlab-ci.ymlでソースを置くブランチは制御、変更できる
+現在、GitHub Pagesには、GitLab CIに相当するGitHub Actionsがあるのでページの自動ビルド、デプロイの関して不便はない
+GitLab Pagesは複数のドメインを登録できる。GitHubは無理。なので必要なときはGitLab Pagesのドメイン設定を使ってGitHub Pagesにリダイレクトさせるなどのハックに利用させてもらってる
+GitLabからGitHubに移行した経緯 私は、GitLab Pagesを2年くらい使っていましたし、特に不満もなかったのですが(たまに不安定で遅かったというのはある)、あるとき突然にページが非公開になってしまうことがありました。
+で、運営に連絡してみたのですが、返事がなかったので、GitHub Pagesに同じソースでデプロイしました。つまり、ここで移行という形になります。
+その後、GitLabの方で非公開が解除されたのですが、なんだったのかよくわからなかったので、その後、GitLabに戻ることはありませんでした。そのような経緯で、それ以降は、GitHub Pagesを使っています。
+ただ、GitHubはCI連携がデフォルトではなかったため、通常は、ビルドしたものをリポジトリにpushしなければ更新できません。したがって、Travis CIを回してページのビルド、デプロイを自動化してましたが、GitHub Actionsが登場したので、今はそちらに移行しています。
+GitLab Pagesを使った複数ドメインを利用するハック 例えば、blog.syui.cfとlog.syui.cfというドメインをsyui.github.io/blogに飛ばしたいとしましょう。この場合、GitHub Pagesは一つのページに一つしかドメインを指定することができないので難しい。
+そこで、GitLab Pagesで２つのドメインを登録した上で、CloudFlareなどのリダイレクトをGitHub Pagesへ走らせることで、blog.syui.cfとlog.syui.cfを目的の場所に飛ばすことができます。</description></item><item><title>blogを統合してみた</title><link>https://syui.cf/blog/post/2019/10/22/blog/</link><pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/10/22/blog/</guid><description>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。
 urlは、https://syui.cf/blogになります。hugoて、xmlをcontent/以下のディレクトリでも生成してくれるぽいので、ブログのrssとかは/blog/index.xmlから取ってもらえればと思います。
 しばらくの間は、過去urlであるblog.syui.cfとかlog.syui.cfとかは、cloudflareでリダイレクトしてますが、それほど長い期間は対応しないと思います。対応した内容を書いておきます。
 # cloudflare CNAME log syui.gitlab.io CNAME blog syui.gitlab.io Redirect *log.syui.cf/* 301 https://syui.cf/blog $ mkdir -p content/{blog,log}します。そして、githubではdomain設定は新しいリポジトリ作らなければならないので、gitlabのほうでリポジトリを作って、pages -&amp;gt; domainを設定します。gitlab-pagesの場合、複数のcnameが設定できるので便利。</description></item><item><title>ブログを少しだけいじった</title><link>https://syui.cf/blog/post/2019/08/10/blog/</link><pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/08/10/blog/</guid><description>まず、riotを引き剥がしてからトップ画面が何もなかったので、いつもどおりロゴっぽいものを載せた。あと、フッターも用意した。昔はriot.jsでbuildしてたけど、めんどくさいのでやめてた。
