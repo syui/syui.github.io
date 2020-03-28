@@ -29,6 +29,7 @@ jobs:
       env: 
         TZ: "Asia/Tokyo"
       run: |
+           echo page=`ls ./static/manga/*png|wc -l` > .env
            yarn build
            cp -rf ./public-vue/build.js* ./static/manga
            hugo --gc --minify --cleanDestinationDir
