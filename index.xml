@@ -5,18 +5,16 @@ syui.github.io
 GitLabはプライベートリポジトリが無制限で、HTMLソースを公開しなくていい
 Web Serverは、GitHubのほうが安定していて速い
 GitLabのほうがドキュメントが充実しており、公式テンプレートがわかりやすい
-どちらもCIを回せるけど、GitLabはGitLab CIを回して、public/にビルドするという形態と採用するため、CIが成功しないとページが公開、更新されない。ユーザーが.gitlab-ci.ymlを書く必要がある
-GitHub PagesはデフォルトでJekyll Buildを実行しページが公開される仕組み。ただし、リポジトリルートに.nojekyllを置くことでJekyll Buildを実行しないオプションも存在する。よって、HTMLを直に置いてページを作ることもできる
-GitHubは、${USER}.github.ioというリポジトリ名を作成することで、当該ドメインが与えられる。branch:masterにHTMLをpushすると更新される。複数のページを用意したい場合は、リポジトリを作ったうえでbranch:gh-pagesにjekyll buildが通るHTMLを置くことでページを公開する
+どちらもCIを回せるけど、GitLabはGitLab CIを回して、public/にビルドするという形態を採用するため、CIが成功しないとページが公開、更新されない。ユーザーが.gitlab-ci.ymlを書く必要がある
+GitHub PagesはデフォルトでJekyll Buildを実行しページが公開される仕組み。ただし、リポジトリルートに.nojekyllを置くことでJekyll Buildを実行しないオプションも存在する。よって、HTMLを直に置いてページを作ることもできる。何らかの原因でJekyll Buildが失敗する場合、この手段を用いることができる
+GitHubは、${USER}.github.ioというリポジトリ名を作成することで、当該ドメインが与えられる。branch:masterにHTMLをpushすると更新される。複数のページを用意したい場合は、リポジトリを作ったうえでbranch:gh-pagesにjekyll buildが通るソースコードを置くことでページを公開する
 GitLabも同じく${USER}.gitlab.ioというリポジトリ名を作る。ただし、ブランチは基本的にはmasterを使用する。なお、.gitlab-ci.ymlでソースを置くブランチは制御、変更できる
 現在、GitHub Pagesには、GitLab CIに相当するGitHub Actionsがあるのでページの自動ビルド、デプロイに関しての不便はない
 GitLab Pagesは複数のドメインを登録できる。GitHubは無理。なので必要なときはGitLab Pagesのドメイン設定を使ってGitHub Pagesにリダイレクトさせるなどのハックに利用させてもらってる
-GitLabからGitHubに移行した経緯 私は、GitLab Pagesを2年くらい使っていましたし、特に不満もなかったのですが(たまに不安定で遅かったというのはある)、あるとき突然にページが非公開になってしまうことがありました。
-で、運営に連絡してみたのですが、返事がなかったので、GitHub Pagesに同じソースでデプロイしました。つまり、ここで移行という形になります。
-その後、GitLabの方で非公開が解除されたのですが、なんだったのかよくわからなかったので、その後、GitLabに戻ることはありませんでした。そのような経緯で、それ以降は、GitHub Pagesを使っています。
-ただ、GitHubはCI連携がデフォルトではなかったため、通常は、ビルドしたものをリポジトリにpushしなければ更新できません。したがって、Travis CIを回してページのビルド、デプロイを自動化してましたが、GitHub Actionsが登場したので、今はそちらに移行しています。
-GitLab Pagesを使った複数ドメインを利用するハック 例えば、blog.syui.cfとlog.syui.cfというドメインをsyui.github.io/blogに飛ばしたいとしましょう。この場合、GitHub Pagesは一つのページに一つしかドメインを指定することができないので難しい。
-そこで、GitLab Pagesで２つのドメインを登録した上で、CloudFlareなどのリダイレクトをGitHub Pagesへ走らせることで、blog.syui.cfとlog.syui.cfを目的の場所に飛ばすことができます。</description></item><item><title>vue 2.x + webpack 4.xでenvを使う</title><link>https://syui.cf/blog/post/2020/03/25/vue2x/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/25/vue2x/</guid><description>vue 2.x + webpack 4.x 系でenvを使うのにハマったのでメモ。
+まとめ 以下、サービス別に特徴をまとめます。一応、GitHub Pagesをおすすめしておきます。GitLab Pagesはweb serverが不安定なことが多かった記憶があります。とはいえ、好みの問題ですね。
+GitHub Pages web serverが速くて安定している
+デフォルトではjekyll buildが回る、オプションで切ることもできる
+GitLab Pages ドキュメントや公式テンプレートがわかりやすい</description></item><item><title>vue 2.x + webpack 4.xでenvを使う</title><link>https://syui.cf/blog/post/2020/03/25/vue2x/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/25/vue2x/</guid><description>vue 2.x + webpack 4.x 系でenvを使うのにハマったのでメモ。
 結論としてdotenv-webpackを使えばいけました。
 $ echo &amp;#34;page=4&amp;#34; &amp;gt;&amp;gt; .env $ yarn add dotenv-webpack const Dotenv = require(&amp;#39;dotenv-webpack&amp;#39;); module.exports = { plugins: [ new Dotenv(&amp;#39;./.env&amp;#39;) ] } var app = new Vue({ data: { products: [...Array(Number(process.env.page)).keys()] } }) &amp;#34;scripts&amp;#34;: { &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack --progress --hide-modules&amp;#34; }</description></item><item><title>再びマンガを描きはじめた話</title><link>https://syui.cf/blog/post/2020/03/24/manga/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/24/manga/</guid><description>昔、ちょっとだけよくわからないマンガを書いてたことあります。
 今回、ノベルゲームの物語が進み、ようやく繋がりそうだったので、再びそのあたりをマンガで描いてみることにしました。
