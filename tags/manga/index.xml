@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>manga on syui.cf</title><link>https://syui.cf/tags/manga/</link><description>Recent content in manga on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/manga/index.xml" rel="self" type="application/rss+xml"/><item><title>再びマンガを描きはじめた話</title><link>https://syui.cf/blog/post/2020/03/24/manga/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/24/manga/</guid><description>昔、ちょっとだけよくわからないマンガを書いてたことあります。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>manga on syui.cf</title><link>https://syui.cf/tags/manga/</link><description>Recent content in manga on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/manga/index.xml" rel="self" type="application/rss+xml"/><item><title>マンガを1話だけ完成させてみる</title><link>https://syui.cf/blog/post/2020/04/02/manga/</link><pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/02/manga/</guid><description>これが1話かどうか怪しいですが、ページ数的には、1話の分量ですね。物語的にも一区切り付きました。
+/manga
+マンガのページはvue.jsで構築しています。次のページボタンと画像URLのリンクを生成。
+できればこちらのリンクから読んだほうが読みやすいと思います。ブログページは画像を縮小して表示するため。
+独り言 週間連載の漫画家は、バケモンじゃないかと思いました。絵を書くのって大変で、セリフとか背景とか時間がかかります。
+私は、そこまで緻密に考えたり設計したり描き込んだりするタイプではなく、それでも時間がかかってしまいました。
+物語の構成は、1:海, 2:虹, 3:月となっています。とはいえ、内容があるかと言うと、特にありません。
+オリジナル小説または、ノベルゲームとの関連性はあります。設定はすべてそこから来ているため、キャラやその他の設定を受け継いでいます。今の所、ノベルゲームのスピンオフという位置づけ。しかし、これからどうなるのかは、わかりません。
+唯を追い出した羊は、第423代の大統領。ドラゴンの名前は、ドライ。色はブルーぽい感じ。ゲームの方でも必要になればキャラクター(モンスター)一覧に追加しますが、おそらく、追加しないでしょう。ガララ星に大陸はないの？反対側に一つだけあります。
+ページ /manga</description></item><item><title>再びマンガを描きはじめた話</title><link>https://syui.cf/blog/post/2020/03/24/manga/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/24/manga/</guid><description>昔、ちょっとだけよくわからないマンガを書いてたことあります。
 今回、ノベルゲームの物語が進み、ようやく繋がりそうだったので、再びそのあたりをマンガで描いてみることにしました。
 書き直しになるのか、スピンオフになるのか、そんな感じです。
 ノベルゲームも物語を追加したので、気になる方は、続きを読んでみてください。

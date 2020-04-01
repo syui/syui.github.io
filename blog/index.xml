@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログをはじめるならGitHub Pagesがおすすめ</title><link>https://syui.cf/blog/post/2020/03/28/blog/</link><pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/28/blog/</guid><description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>マンガを1話だけ完成させてみる</title><link>https://syui.cf/blog/post/2020/04/02/manga/</link><pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/02/manga/</guid><description>これが1話かどうか怪しいですが、ページ数的には、1話の分量ですね。物語的にも一区切り付きました。
+/manga
+マンガのページはvue.jsで構築しています。次のページボタンと画像URLのリンクを生成。
+できればこちらのリンクから読んだほうが読みやすいと思います。ブログページは画像を縮小して表示するため。
+独り言 週間連載の漫画家は、バケモンじゃないかと思いました。絵を書くのって大変で、セリフとか背景とか時間がかかります。
+私は、そこまで緻密に考えたり設計したり描き込んだりするタイプではなく、それでも時間がかかってしまいました。
+物語の構成は、1:海, 2:虹, 3:月となっています。とはいえ、内容があるかと言うと、特にありません。
+オリジナル小説または、ノベルゲームとの関連性はあります。設定はすべてそこから来ているため、キャラやその他の設定を受け継いでいます。今の所、ノベルゲームのスピンオフという位置づけ。しかし、これからどうなるのかは、わかりません。
+唯を追い出した羊は、第423代の大統領。ドラゴンの名前は、ドライ。色はブルーぽい感じ。ゲームの方でも必要になればキャラクター(モンスター)一覧に追加しますが、おそらく、追加しないでしょう。ガララ星に大陸はないの？反対側に一つだけあります。
+ページ /manga</description></item><item><title>ブログをはじめるならGitHub Pagesがおすすめ</title><link>https://syui.cf/blog/post/2020/03/28/blog/</link><pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/28/blog/</guid><description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。
 私は、少し前にGitLabでブログをやっていましたが、その後、GitHubに移行したというか、戻りました。経緯としてはGitHub -&amp;gt; GitLab -&amp;gt; GitHubという流れです。
 syui.github.io
 割と長くGitHub PagesやGitLab Pagesでブログをやってきたので、今回は、両者の違いをまとめてみます。
