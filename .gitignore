@@ -17,4 +17,4 @@ yarn.lock
 content/novel
 nyan-cat
 particles.js
-
+.env
