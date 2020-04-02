@@ -2,7 +2,7 @@
 title: "yui | MANGA"
 type: manga
 page_image : "https://syui.cf/icon/ai.png"
-description: "惑星で暮らすドラゴンと少女の物語"
+description: "惑星で暮らすドラゴンと少女のお話"
 ---
 
 <script type="text/x-template" id="grid-template">
