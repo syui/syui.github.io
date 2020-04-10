@@ -1,15 +1,15 @@
-## vue + hugo
+## hugo + vue
 
 ```sh
 $ yarn install
-$ yarn dev
+$ yarn serve
 $ yarn build
-$ cp -rf ./public-vue/build.js* ./static/manga/
-$ cp -rf ./public-vue/index.html ./layouts/manga/single.html
+$ cp -rf ./dist/*.js ./static/manga/
+$ cp -rf ./dist/*.css ./static/manga/
 
 $ hugo serve
 ```
 
 ## update
 
-webpack4, babel7, babel-loader8
+vue-cli 4

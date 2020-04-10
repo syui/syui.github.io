@@ -30,9 +30,11 @@ jobs:
         TZ: "Asia/Tokyo"
       run: |
            rm -r ./static/manga/build.js*
-           echo page=`ls ./static/manga/*png|wc -l` > .env
+           echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` > .env
            yarn build
-           cp -rf ./public-vue/build.js* ./static/manga
+           cp -rf ./dist/*.js ./static/manga
+           cp -rf ./dist/*.css ./static/manga
+           cp -rf ./dist/*.map ./static/manga
            hugo --gc --minify --cleanDestinationDir
            touch ./public/.nojekyll
            cp ./CNAME ./public/
