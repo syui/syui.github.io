@@ -66,7 +66,7 @@
 	<span style=color:#a6e22e>height</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span><span style=color:#a6e22e>px</span>;
 }
 &lt;/<span style=color:#f92672>style</span>&gt;
-</code></pre></div><p>vueとhooperのexampleをもう少しだけ。例えば、画像の場所になにか固定のコンテンツを配置するとしたら下記のような感じです。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:App.vue data-lang=html:App.vue>&lt;<span style=color:#f92672>template</span>&gt;
+</code></pre></div><p>vueとhooperのexampleをもう少しだけ。例えば、指定のコンテンツを配置するとしたら下記のような感じです。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:App.vue data-lang=html:App.vue>&lt;<span style=color:#f92672>template</span>&gt;
   &lt;<span style=color:#f92672>hooper</span> <span style=color:#f92672>:settings</span><span style=color:#e6db74>=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style=color:#f92672>slide</span> <span style=color:#f92672>v-for</span><span style=color:#e6db74>=&#34;(item, index) in items&#34;</span>&gt;
     {{ <span style=color:#a6e22e>index</span> }} <span style=color:#960050;background-color:#1e0010>-</span> {{ <span style=color:#a6e22e>item.message</span> }}
@@ -98,4 +98,4 @@
   }
 };
 &lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></div><p>この場合のスライド出力は、<code>0 - Foo</code>, <code>1 - Bar</code>となります。<code>date{items}</code>を変更すればいいでしょう。</p><nav id=article-nav></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>
+</code></pre></div><p>この場合のスライド出力は、<code>0 - Foo</code>, <code>1 - Bar</code>となります。<code>data{items}</code>を変更すればいいでしょう。</p><nav id=article-nav></nav><div class=utterances><script src=https://utteranc.es/client.js repo=syui/syui.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div></article></div><script type=text/javascript src=/js/svg.js></script><script src=/js/highlight-filename.js></script><footer id=footer>© syui</footer></body></html>
