@@ -56,4 +56,7 @@ img {
 	text-align: center;
 	height: 50px;
 }
+.hooper-pagination {
+	width: 100%;
+}
 </style>
