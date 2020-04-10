@@ -50,7 +50,7 @@ button.hooper-indicator {
 	background-color: #000;
 }
 img {
-	max-width:700px;
+	max-width:799px;
 }
 .page_n {
 	text-align: center;
