@@ -152,7 +152,7 @@ $ yarn build
 	<span style=color:#a6e22e>height</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span><span style=color:#a6e22e>px</span>;
 }
 &lt;/<span style=color:#f92672>style</span>&gt;
-</code></pre></div><h4 id=hooperでslideをloopさせる>hooperでslideをloopさせる</h4><p>わざわざslideを一つずつ用意するのは面倒ですので、通常はfor,bindなどでloop処理を書くことになると思います。あるいは配列を持ってくるなど。以下は必要な部分の記述です。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:src/App.vue data-lang=html:src/App.vue>&lt;<span style=color:#f92672>template</span>&gt;
+</code></pre></div><h4 id=hooperのslideをloopで書く>hooperのslideをloopで書く</h4><p>わざわざslideを一つずつ用意するのは面倒ですので、通常はfor,bindなどでloop処理を書くことになると思います。あるいは配列を持ってくるなど。以下は必要な部分の記述です。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:src/App.vue data-lang=html:src/App.vue>&lt;<span style=color:#f92672>template</span>&gt;
   &lt;<span style=color:#f92672>hooper</span> <span style=color:#f92672>:settings</span><span style=color:#e6db74>=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style=color:#f92672>slide</span> <span style=color:#f92672>v-for</span><span style=color:#e6db74>=&#34;(n,index) of products&#34; </span><span style=color:#f92672>:key</span><span style=color:#e6db74>=&#34;n&#34;</span>&gt;
      &lt;<span style=color:#f92672>img</span> <span style=color:#f92672>:</span><span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
