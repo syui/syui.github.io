@@ -12,7 +12,20 @@ $ yarn add apexcharts vue-apexcharts
 $ cd !$:t
 $ yarn install
 $ yarn serve
-</code></pre></div><p>内容は非常にシンプルで以下のような書き方になりました。axiosでjsonを取ってきて配列に入れてあげる感じ。あと、type:lineがやりたくてoptionかなあと思ったのですが、vue-apexchartは、htmlで<code>type="line"</code>みたいです。</p><p>チャートを作成するときは、jsonのkeyやら確認する必要がありますので、<code>this.items = res.data</code>して表示してます。これはなくてもいい。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:App.vue data-lang=html:App.vue>&lt;<span style=color:#f92672>template</span>&gt;
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js:src/main.js data-lang=js:src/main.js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>Vue</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;vue&#39;</span>
+<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>App</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./App.vue&#39;</span>
+<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>axios</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;axios&#39;</span>
+<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>VueAxios</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;vue-axios&#39;</span>
+<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>VueApexCharts</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;vue-apexcharts&#39;</span>
+
+<span style=color:#a6e22e>Vue</span>.<span style=color:#a6e22e>component</span>(<span style=color:#e6db74>&#39;apexchart&#39;</span>, <span style=color:#a6e22e>VueApexCharts</span>)
+<span style=color:#a6e22e>Vue</span>.<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>productionTip</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>
+<span style=color:#a6e22e>Vue</span>.<span style=color:#a6e22e>use</span>(<span style=color:#a6e22e>VueAxios</span>, <span style=color:#a6e22e>axios</span>, <span style=color:#a6e22e>VueApexCharts</span>)
+
+<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Vue</span>({
+  <span style=color:#a6e22e>render</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>h</span> =&gt; <span style=color:#a6e22e>h</span>(<span style=color:#a6e22e>App</span>)
+}).<span style=color:#a6e22e>$mount</span>(<span style=color:#e6db74>&#39;#app&#39;</span>)
+</code></pre></div><p>内容は非常にシンプルで以下のような書き方になりました。axiosでjsonを取ってきて配列に入れてあげる感じ。あと、type:lineがやりたくてoptionかなあと思ったのですが、vue-apexchartは、htmlで<code>type="line"</code>みたいです。</p><p>チャートを作成するときは、jsonのkeyやら確認する必要がありますので、<code>this.items = res.data</code>して表示してます。これはなくてもいい。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html:src/App.vue data-lang=html:src/App.vue>&lt;<span style=color:#f92672>template</span>&gt;
 	&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;covid19&#34;</span>&gt;
 		&lt;<span style=color:#f92672>h1</span>&gt;<span style=color:#a6e22e>covid19</span>&lt;/<span style=color:#f92672>h1</span>&gt;
 		&lt;<span style=color:#f92672>div</span>&gt;
