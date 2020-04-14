@@ -14,8 +14,8 @@
 現実との接点は多少あるものの、もともとファンタジーであり、ゲームですよね。仮に私の態度を物語に当てはめてみた場合、非常によろしくない。
 どうせなら、ゲームにおける現実や理想を、自身に逆輸入したほうが、個人にとってもよい影響があるはずです。
 ということで、GBLについては、淡々とやっていこうと思っています。自慢も批判も真実も運も関係ありません。
-ランク10を目指す。GBLについては、それだけです。
-とはいえ、理想が高すぎて既に失敗してしまっていることから、GBLはほどほどに、自分がやりたいようプレイしていければと思います。</description></item><item><title>vueでapexchartsを使いチャートを作ってみた</title><link>https://syui.cf/blog/post/2020/04/12/vue/</link><pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/12/vue/</guid><description>chart.jsが有名みたいで、ちょっと触ってチャートを表示してみたのですが、非常に操作しづらかったので、apexchartsを使ってみました。個人的には、こちらのほうがオススメかも。
+ランク10を目指す、ただそれだけです。
+とはいえ、理想が高すぎて既に失敗してしまっていることから、GBLはほどほどに、自分がやりたいようプレイしていければと思っています。</description></item><item><title>vueでapexchartsを使いチャートを作ってみた</title><link>https://syui.cf/blog/post/2020/04/12/vue/</link><pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/12/vue/</guid><description>chart.jsが有名みたいで、ちょっと触ってチャートを表示してみたのですが、非常に操作しづらかったので、apexchartsを使ってみました。個人的には、こちらのほうがオススメかも。
 # https://github.com/apexcharts/vue-apexcharts $ yarn add apexcharts vue-apexcharts 今回作ったのは、vue+apexcharts+axiosという構成で、毎日更新されてるぽいcovid-19のjsonがあるのですが、値をとってきてチャートで表示することにしてみました。
 https://syui.cf/covid-vue-chart
 $ git clone https://github.com/syui/covid-vue-chart $ cd !$:t $ yarn install $ yarn serve import Vue from &amp;#39;vue&amp;#39; import App from &amp;#39;./App.vue&amp;#39; import axios from &amp;#39;axios&amp;#39; import VueAxios from &amp;#39;vue-axios&amp;#39; import VueApexCharts from &amp;#39;vue-apexcharts&amp;#39; Vue.component(&amp;#39;apexchart&amp;#39;, VueApexCharts) Vue.config.productionTip = false Vue.use(VueAxios, axios, VueApexCharts) new Vue({ render: h =&amp;gt; h(App) }).$mount(&amp;#39;#app&amp;#39;) 内容は非常にシンプルで以下のような書き方になりました。axiosでjsonを取ってきて配列に入れてあげる感じ。あと、type:lineがやりたくてoptionかなあと思ったのですが、vue-apexchartは、htmlでtype=&amp;quot;line&amp;quot;みたいです。
