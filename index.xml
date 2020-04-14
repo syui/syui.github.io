@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>vueでapexchartsを使いチャートを作ってみた</title><link>https://syui.cf/blog/post/2020/04/12/vue/</link><pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/12/vue/</guid><description>chart.jsが有名みたいで、ちょっと触ってチャートを表示してみたのですが、非常に操作しづらかったので、apexchartsを使ってみました。個人的には、こちらのほうがオススメかも。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケモンGoのGBLについて考えを改めた話</title><link>https://syui.cf/blog/post/2020/04/14/pogo/</link><pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/14/pogo/</guid><description>今回は、GBLについて少し思っていることを書いていきたいと思います。過去の反省を含め、考えを改めなければならないという話になります。
+レートは相変わらず上がったり下がったり。自分の判断ミスや不運も重なり、今は、2500-2600あたりをウロウロしてます。
+さて、今回は、このGBLにおける私の考えや態度は、真実ではあるものの、率直に言ってよくないものだということです。だからこそ、今回はそれを改めなければならないという結論に至りました。
+これについては、実は最初から迷っていました。ポケモン風に言うと、現実で行こうか、理想で行こうか、悩んでいたのです。ブラック・ホワイトはそんな感じのテーマだった記憶があります。
+私は、当初、GBLが始まるよりもずっと前から、GBLはこういう理由でよくないと主張していました。そして、GBLが始まり、参加し、勝利し、レートを上げきたにもかかわらず、その考え方や態度は変わることはありませんでした。私は、始まる前からGBLを批判し、始まったあともずっと批判し続けてきた。
+バグによって負ける試合が相次いでいますが、それは些細な問題であり、GBLの最大の問題は、その仕組みにあります。対戦相手を踏み台にすることでしか楽しめない、そのシステム、そこに最大の問題があり、私が今まで遊んできたポケモンGoというゲームのゲーム性には相容れない、そんな思いがありました。今でもこの考え方は変わりません。
+次にバトルについてですが、マスターリーグを見ていても分かる通り、使われるポケモンと個人スキルには大きな差はありません。みんな同じポケモンを使い、同じスキルを持つため、勝敗は運に依存するところが大きい。もっというとマッチングと初手ポケモンにです。最善手を選択し続けても、負けるときは負けるし、勝つときは勝つのです。これが真実です。ランクやレートについても同じで、ランク10に到達した人の殆どは、初期レートが高かったのでしょう。例外はあります、常に。しかし、多くの場合は初期レートによって決まります。初期レートはランダムか、あるいはコントール不可能な数値です。例えば、会場に集まった人達でジャンケン大会があったとしましょう。10連勝する人もいれば、1勝しかしない人も出てくるでしょう。これが真実です。
+しかし、ポケモンGoってもともとどういうゲームだったか考えてみると、現実と仮想の融合です。原作にないポケモンGoの価値はそこにあると私は考えていたはずです。
+原作のポケモンは、RPGです。RPGとは他人の物語を進めていくというもの。それは想定されたストーリー、現実との接点はありません。
+ですが、ポケモンGoは違います。自分が主人公、外に出てポケモンを捕まえるというコンセプト。現実とつながっているのです。その意味で、原作で捕まえたポケモンとGoで捕まえたポケモンは、後者のほうが圧倒的に価値が高い。一過性の物語をクリアしたらそれで終わりの原作とは大きく異なります。
+私はこういった理由から、このゲームを始めたわけで、今もなんとなく続けています。
+とすればですよ、現実における理想や真実をGBLにぶつけるのはよくないなあとそう思いました。
+なぜかというと、現実と理想を融合させるゲームなので、現実だけ、理想だけ、どちらか一方だけというのはよくないのだと思います。
+現実との接点は多少あるものの、もともとファンタジーであり、ゲームですよね。仮に私の態度を物語に当てはめてみた場合、非常によろしくない。
+どうせなら、ゲームにおける現実や理想を、自身に逆輸入したほうが、個人にとってもよい影響があるはずです。
+ということで、GBLについては、淡々とやっていこうと思っています。自慢も批判も真実も運も関係ありません。
+ランク10を目指す。GBLについては、それだけです。
+とはいえ、理想が高すぎて既に失敗してしまっていることから、GBLはほどほどに、自分がやりたいようプレイしていければと思います。</description></item><item><title>vueでapexchartsを使いチャートを作ってみた</title><link>https://syui.cf/blog/post/2020/04/12/vue/</link><pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/12/vue/</guid><description>chart.jsが有名みたいで、ちょっと触ってチャートを表示してみたのですが、非常に操作しづらかったので、apexchartsを使ってみました。個人的には、こちらのほうがオススメかも。
 # https://github.com/apexcharts/vue-apexcharts $ yarn add apexcharts vue-apexcharts 今回作ったのは、vue+apexcharts+axiosという構成で、毎日更新されてるぽいcovid-19のjsonがあるのですが、値をとってきてチャートで表示することにしてみました。
 https://syui.cf/covid-vue-chart
 $ git clone https://github.com/syui/covid-vue-chart $ cd !$:t $ yarn install $ yarn serve import Vue from &amp;#39;vue&amp;#39; import App from &amp;#39;./App.vue&amp;#39; import axios from &amp;#39;axios&amp;#39; import VueAxios from &amp;#39;vue-axios&amp;#39; import VueApexCharts from &amp;#39;vue-apexcharts&amp;#39; Vue.component(&amp;#39;apexchart&amp;#39;, VueApexCharts) Vue.config.productionTip = false Vue.use(VueAxios, axios, VueApexCharts) new Vue({ render: h =&amp;gt; h(App) }).$mount(&amp;#39;#app&amp;#39;) 内容は非常にシンプルで以下のような書き方になりました。axiosでjsonを取ってきて配列に入れてあげる感じ。あと、type:lineがやりたくてoptionかなあと思ったのですが、vue-apexchartは、htmlでtype=&amp;quot;line&amp;quot;みたいです。
