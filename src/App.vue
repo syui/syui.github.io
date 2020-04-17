@@ -59,4 +59,7 @@ img {
 .hooper-pagination {
   position: fixed;
 }
+.hooper-next, .hooper-prev {
+    background-color: #b8cfe03d;
+}
 </style>
