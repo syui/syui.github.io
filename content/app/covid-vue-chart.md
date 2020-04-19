@@ -1,7 +1,7 @@
 +++
 date = "2020-04-01"
 title = "covid-vue-chart"
-description = "| vueのchartでcovid-19統計を表示する"
+description = "| vueで書かれたcovid-19のチャート"
 +++
 
 vue + apexcharts + axios
