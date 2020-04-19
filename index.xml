@@ -86,7 +86,10 @@ ibisPaint Xで再生を押すと、描いている最中の動画が流れて、
 物語の構成は、1:海, 2:虹, 3:月となっています。とはいえ、内容があるかと言うと、特にありません。
 オリジナル小説または、ノベルゲームとの関連性はあります。設定はすべてそこから来ているため、キャラやその他の設定を受け継いでいます。今の所、ノベルゲームのスピンオフという位置づけ。しかし、これからどうなるのかは、わかりません。
 唯を追い出した羊は、第423代の大統領。ドラゴンの名前は、ドライ。色はブルーぽい感じ。ゲームの方でも必要になればキャラクター(モンスター)一覧に追加しますが、おそらく、追加しないでしょう。ガララ星に大陸はないの？反対側に一つだけあります。
-ページ /manga</description></item><item><title>ブログをはじめるならGitHub Pagesがおすすめ</title><link>https://syui.cf/blog/post/2020/03/28/blog/</link><pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/28/blog/</guid><description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。
+ページ /manga</description></item><item><title>covid-vue-chart</title><link>https://syui.cf/app/dev/covid-vue-chart/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/covid-vue-chart/</guid><description>vue + apexcharts + axios
+https://github.com/syui/covid-vue-chart
+$ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ yarn serve $ yarn build $ curl -sL https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json|jq &amp;#34;.|keys&amp;#34;</description></item><item><title>shasumgo</title><link>https://syui.cf/app/dev/shasumgo/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/shasumgo/</guid><description>https://github.com/syui/shasumgo
+$ go get github.com/syui/shasumgo # version $ shasumgo -v # help $ shasumgo h # example $ shasumgo ~/.bashrc ~/.zshrc da39a3ee5e6b4b0d3255bfef95601890afd80709 336de4a66576637c35e0a02e3b4233fdb28798db $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc ok # success:result display is none $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc</description></item><item><title>ブログをはじめるならGitHub Pagesがおすすめ</title><link>https://syui.cf/blog/post/2020/03/28/blog/</link><pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/28/blog/</guid><description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。
 私は、少し前にGitLabでブログをやっていましたが、その後、GitHubに移行したというか、戻りました。経緯としてはGitHub -&amp;gt; GitLab -&amp;gt; GitHubという流れです。
 syui.github.io
 割と長くGitHub PagesやGitLab Pagesでブログをやってきたので、今回は、両者の違いをまとめてみます。
@@ -957,6 +960,7 @@ https://github.com/syui/exchat
 $ git clone https://github.com/syui/exchat $ cd exchat $ mix deps.get $ mix ecto.create &amp;amp;&amp;amp; mix ecto.migrate $ npm install . $ mix phoenix.server 基本的には、./config以下にある環境変数をherokuに入れて、pushすると動くと思います。
 解説記事 http://syui.github.io/blog/post/2018/08/25/webpack
 https://qiita.com/syui/items/2e1bb571e9d50608809e</description></item><item><title>medigo</title><link>https://syui.cf/app/dev/medigo/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/medigo/</guid><description>medigoは、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
+現在、medium apiが一般公開されなくなったことにより動作しません
 Download
 # https://github.com/syui/medigo $ go get -u -v github.com/syui/medigo or $ yay -S medigo 使い方 releasesからダウンロードするか、AURからインストールして使います。
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
