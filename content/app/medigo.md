@@ -6,6 +6,8 @@ description = "| mediumの投稿や編集するアプリ"
 
 `medigo`は、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
 
+> 現在、medium apiが一般公開されなくなったことにより動作しません
+
 [Download](https://github.com/syui/medigo/releases)
 
 ```sh
