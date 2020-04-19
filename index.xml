@@ -848,10 +848,10 @@ https://github.com/utterance/utterances
 &amp;lt;script src=&amp;#34;https://utteranc.es/client.js&amp;#34; repo=&amp;#34;[ENTER REPO HERE]&amp;#34; issue-term=&amp;#34;pathname&amp;#34; theme=&amp;#34;github-light&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34; async&amp;gt; &amp;lt;/script&amp;gt; コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。
 github actionsを使ったChatOpsでラベルを付ける ChatOpsと連携すると便利かもということで、やってみました。
 自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。
-name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: | labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description></item><item><title>願い事が叶うなら</title><link>https://syui.cf/archive/note/09/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/archive/note/09/</guid><description>もしたった一つの願い事が叶うとしたら、何を願えばいいのでしょう。私はそのことについて、考えてみました。
-存在の願いは、非存在。神ですら惟一、実現できない願いだから。
+name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: | labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description></item><item><title>願い事が叶うなら</title><link>https://syui.cf/archive/note/09/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/archive/note/09/</guid><description>もしたった一つの願いが叶うなら、何を願えばいいでしょう。私はそのことについて、考えてみました。
+存在の願いは、非存在。神ですら唯一、実現できない願いだから。
 人の意識でいうと、存在し続けること、生まれ変わること、繰り返すことの苦しみは大きすぎるのです。
-だからこそ、過去、真実を理解する人ほど、それを願ったのではないかと推察します。
+だからこそ、過去、真理を探求する人ほど、それを願ったのではないかと推察しています。
 しかし、存在は存在、それを受け入れるしかありません。
 それは正しくもあり、間違いでもあると思いえます。
 あるいは、この世界に間違いなど、ないのでしょう。
