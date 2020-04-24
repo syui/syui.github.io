@@ -14,7 +14,6 @@ node_modules
 public-vue
 resources
 yarn.lock
-content/novel
 nyan-cat
 particles.js
 .env
