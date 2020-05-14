@@ -3,7 +3,7 @@
 ただ、最近は、rustが人気みたい。理由としては、高速で、サイズが小さく、安全であることが挙げられます。デメリットはコンパイルが遅いこと。
 しかし、rustも非常に魅力なので、base64 {encode,decode}などをcli tool化しながら、rustを学んでいこうという記事です。
 まず、テンプレを作成します。src/main.rsが本体になります。
-$ cargo new udrs $ cd udrs $ vim src/main.rs ここで、cli optionなどを書きやすくするframeworkを導入します。
+$ cargo new udrs $ cd udrs $ vim src/main.rs ここで、cli optionなどを書きやすくするframeworkのseahorseを導入します。
 use std::env; use seahorse::{App, Command, Context}; fn main() { let args: Vec&amp;lt;String&amp;gt; = env::args().collect(); let app = App::new() .name(env!(&amp;#34;CARGO_PKG_NAME&amp;#34;)) .author(env!(&amp;#34;CARGO_PKG_AUTHORS&amp;#34;)) .version(env!(&amp;#34;CARGO_PKG_VERSION&amp;#34;)) .usage(&amp;#34;cli_tool [command] [x] [y]&amp;#34;) .command( Command::new() .name(&amp;#34;t&amp;#34;) .usage(&amp;#34;udrs t {}&amp;#34;) .action(t), ); app.run(args); } fn t(_c: &amp;amp;Context) { let t = &amp;#34;hello world.&amp;#34;; println!(&amp;#34;{}&amp;#34;,t); } [dependencies] seahorse = &amp;#34;0.</description></item><item><title>rustで作るcli toolに入門してみる</title><link>https://syui.cf/blog/post/2020/05/10/rust/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/05/10/rust/</guid><description>前からrustでcli toolを作ってみようかなと思っていたので作ってみました。
 こちらの記事がわかりやすすぎた。
 https://qiita.com/watawuwu/items/b20abfae62f76e4b4c0c
