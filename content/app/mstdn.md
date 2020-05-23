@@ -1,7 +1,7 @@
 +++
 date = "2019-12-01"
 title = "mstdn.zsh"
-description = "| zshでmastodon-apiをサポートします"
+description = "| zshで書かれたmastodon client"
 +++
 
 `mstdn.zsh`は、zshで書かれたコマンドツールです。[mastodon api](https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md)をサポートします。

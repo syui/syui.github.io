@@ -1,7 +1,7 @@
 +++
 date = "2019-12-01"
 title = "twg"
-description = "| twitterのTL閲覧や投稿するアプリ"
+description = "| goで書かれたtwitter client"
 +++
 
 `twg`は、goで書かれたシンプルなtwitter clientです。

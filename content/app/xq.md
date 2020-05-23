@@ -1,7 +1,7 @@
 +++
 date = "2019-12-01"
 title = "xq"
-description = "| xmlをjsonに変換するツール"
+description = "| goで書かれたxmlをjsonに変換するツール"
 +++
 
 `xq`は、`xml`を`json`に変換します。ほしい要素を取り出します。

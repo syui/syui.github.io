@@ -1,7 +1,7 @@
 +++
 date = "2019-12-01"
 title = "airsave.vim"
-description = "| vimで自動保存するplugin"
+description = "| vimの自動保存を可能にするplugin"
 +++
 
 [airsave.vim](https://github.com/syui/airsave.vim)は、vimの自動保存をサポートするvim-pluginです。
