@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ノベルゲームをiosとandroid用に調整してみた</title><link>https://syui.cf/blog/post/2020/05/24/app/</link><pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/05/24/app/</guid><description>前回は、画面の調整などをしていなかったので、今回は、調整してみました。
 まずtyranoscriptは、画面サイズを調整するのがそこそこに面倒でした。具体的には、背景画像などのサイズをimagemagickなどで変換し、ボタンの配置を調整しました。androidは、data/system/Config.jsの以下を調整すればいけました。
 ml = 0; mt = 0; mw = 400-0; mh = 700-0; 次に、アイコンですが、こちらも面倒です。基本的には、cordovaのフォルダ構成で以下の場所に配置します。
-$ git clone https://github.com/hibara/create-ios-all-icons-shellscript $ ls ./platforms/ios/yui/Images.xcassets/AppIcon.appiconset/*.png https://github.com/hibara/create-ios-all-icons-shellscript
+$ ls ./platforms/ios/yui/Images.xcassets/AppIcon.appiconset/*.png $ ls ./res/{Android,ios} 変換スクリプトは以下を使います。
+https://github.com/hibara/create-ios-all-icons-shellscript
 ios iosはxcodeでbuildします。実機でdebugしました。
 $ npm i -g cordova $ cordova platform add ios $ cordova compile ios # 更新 $ vim www/ $ cordova prepare ios $ ls ./platforms/ios $ open -a Xcode ./platforms/ios/yui.xcodeproj ただ、apple storeで配布するには、年間1万円以上の費用がかかるみたいです。これでは、配布しても回収できませんね。それに、審査も厳しそうです。
 android androidはandroid sdkでcli toolやemulateをdownloadし、sdkmanでgradleをinstallします。cordovaがpathからこれらを実行し、buildします。
