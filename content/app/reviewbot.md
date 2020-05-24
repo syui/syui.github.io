@@ -1,7 +1,7 @@
 +++
 date = "2020-05-24"
 title = "reviewbot"
-description = "| gh-actionsで書かれたpull-reqをlintでreviewするbot"
+description = "| pull-reqをlintでreviewするbot"
 +++
 
 `reviewbot`は、reviewしたいgithub-repoに置くと、gh-actionsが有効になり、pull-reqが開いたとき、特定の言語をlintでreviewします。
