@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>android on syui.cf</title><link>https://syui.cf/tags/android/</link><description>Recent content in android on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>ノベルゲームを実機でテストしてみた</title><link>https://syui.cf/blog/post/2020/05/25/app/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/05/25/app/</guid><description>nexus7, iphoneseでテストしてみました。調整も一通り終了したので、releasesにて配布します。
-https://github.com/syui/game/releases/tag/3.0
+https://github.com/syui/game/releases/tag/v3.0
 いまのところ、対応はmac, win, ios, androidとなっています。
 やったこと アイコン調整 アイコンがぼやけてたので、シャープ強にしてから変換しました。
 また、xcodeでのアイコンの設定が分かりづらかったのですが、サイズのあった.pngをprojectのImages.xcassets/AppIcon.appiconset/に置きます。そして、Contents.jsonを書きます。
