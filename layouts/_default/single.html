@@ -7,6 +7,17 @@
 				        <h2>{{ .Title }}</h2>
        			 		{{ .Content }}
        			 		{{ partial "prev_next_post.html" . }}
+
+								{{ $taxo := "tags" }}
+								{{ with .Param $taxo }}
+								    <strong>tag{{ if gt (len .) 1 }}s{{ end }}:</strong>
+								    {{ range $index, $director := . }}
+								        {{- if gt $index 0 }}, {{ end -}}
+								        {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+								            <a href="{{ .Permalink }}">{{ $director }}</a>
+								        {{- end -}}
+								    {{- end -}}
+								{{ end }}
 					<div class="utterances">
 						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 					</div>
@@ -14,6 +25,5 @@
        			</article>
 		</div>
 		{{ partial "footer.html" . }}
-
 	</body>
 </html>

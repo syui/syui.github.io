@@ -21,5 +21,7 @@ paginate = 10000
   unsafe = true
 
 [frontmatter]
-date  = [":filename", ":default"]
-#date  = [":default"]
+	date  = [":filename", ":default"]
+
+[taxonomies]
+	tag = "tags"
