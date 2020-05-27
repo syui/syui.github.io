@@ -20,58 +20,7 @@ urlは、https://syui.cf/blogになります。hugoて、xmlをcontent/以下の
 # cloudflare CNAME log syui.gitlab.io CNAME blog syui.gitlab.io Redirect *log.syui.cf/* 301 https://syui.cf/blog $ mkdir -p content/{blog,log}します。そして、githubではdomain設定は新しいリポジトリ作らなければならないので、gitlabのほうでリポジトリを作って、pages -&amp;gt; domainを設定します。gitlab-pagesの場合、複数のcnameが設定できるので便利。</description></item><item><title>ブログを少しだけいじった</title><link>https://syui.cf/blog/post/2019/08/10/blog/</link><pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/08/10/blog/</guid><description>まず、riotを引き剥がしてからトップ画面が何もなかったので、いつもどおりロゴっぽいものを載せた。あと、フッターも用意した。昔はriot.jsでbuildしてたけど、めんどくさいのでやめてた。
 コピーライトの本来の書き方は年数を含めるのだけど、私は、シンプルな方がいいので、特にコピーライトとして役割を果たせているか疑問だけど、ハンドルネームだけ載せることにしてる。おそらく、誰もここの文章なんてパクらないだろうし、仮にパクられたとしてもあまり問題があるようにも思えない。よって、ここでは、コピーライトなんて単にそれっぽく見せるために用意してるだけなので、カッコが付けばそれでいいと思ってる。
 githubのコメントシステムを使うm2w/talariaで色々やってみた関係上、記事urlを変更した。けど、過去のバージョンも何故か使えなくなってたので、おそらく、github側の変更が関係していると思うけど、諦めてutterance/utterancesを使うようにした。昔作ったリポジトリはなんとか動くけど、それ以外は新しく作ったものでは動かなくなってた。
-utterancesは、基本的に、cloneして、utterances.confみたいなものを編集後にyarn install, buildして、dist/を読み込めばいけそうな気がしたんだけど、これはrootに置かないと行けない感じで、index.htmlにアクセスし、なおかつ、github oauthなどが必要で、github appも必要だったので、readme.mdなどから読み解いてもらえれば、自前で運用できそうだけど、今の所、utteranc.esにホストしてる。</description></item><item><title>てりやき</title><link>https://syui.cf/blog/post/2018/07/22/food/</link><pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/07/22/food/</guid><description>導入 皆さん、ピザはお好きですか?
-いや、ピザの話がたまたま出てるのを見かけて、私はピザ、好きなんで、よく食べるんですよね。
-とは言え、ピザと言ってもいろいろな種類がありますよね。
-私が食べるピザは「てりやきチキンピザ」なんですけど、言うなれば、これしか食べません。
-なぜなら、「てりやきチキンピザ」は美味しいからです。あと、私はてりやきが好きなんですよね。
-マクドナルドもてりやきが一番好きなメニューです。
-ということで、今回は、てりやきの話を少しだけしてみたいと思います。
-昔話 私は、マクドナルドが好きで、中学生くらいの頃、良くハンバーガーを買って食べていました。
-控えめに言って「ハマってる」といってもいい状態でしたね。毎日のように食べてた気がする。
-でも、てりやきバーガーって学生にとって結構高いんですよね。300円,400円くらいでしたっけ。
-ということで、あれ自分にも作れないかなってことで、マクドナルドで少しの間、アルバイトしたことがありました。
-結局、作り方とか全然よくわかんなかったんですけどね(笑)
-でも、その時、色々なコツというか、ポイントだけは抑えることができたかなって思っています。
-ファーストフード 私は、ファーストフードが大好きなんですよ。
-理由としては、速くて、その上美味しいからなんですけど、やっぱりポイントは、速さと味、そして、値段にあるのではないでしょうか。
-だから、私がなにか料理を作る場合、そこにウエイトを置くことになるのは必然でした。
-話をファーストフードに戻すと、あのスピードとおいしさ、そして、安さが実現できるのって、安価な材料と手軽に作れる仕組みがあるからだと思うんですよね。
-したがって、実際、私が大好きなてりやきバーガーを1~2分ほどで作ってみようかなって思います。(本当は30秒もあればできますけどね)
-これは、私が実際よく作っているもので、マクドナルドで購入する場合と比較し、今までで計10万を超えるくらいには節約できてるんじゃないかなと思います。あくまで適当な話ですけど。
-ファーストフードというのは、オプションメニューによって収益を上げている部分が大きく、また、あの値段って基本、手間賃なんですよね。他人に作ってもらうからこその値段なわけです。
-また、特殊なバーガーの値段って結構高いんですよ。だから、そういうのを自分の手間で補うことで、費用を抑えられたり&amp;hellip;するんでしょうかね。
-しかし、実際のところいくら節約になっているのかは分かりません。
-もしかしたら、実際は浪費になっている可能性もありますが、自分で作れるというのは、結構面白いので費用面の話は完全スルーさせていただきます。気になる方は自分で計算してみてください。
-メニューの分析 それからというもの、私にとって、ファーストフードのお店というのは、食べるために注文するものではなく、分解するために注文するものという感じになりました。
-私は、料理にしても何にしてもそうですが、完全な創作から始めるのではなく、まず既にある簡単そうな料理(それも自分が好きなもの)を自分なりに分析することで、そのレシピや作り方を自分で考えていくことにしています。なぜなら、そのほうがめんどくさくなさそうなんですよ。
-ここで、マクドナルドのハンバーガーについてはどういう評価なのかというと、「単に肉、野菜、それにソースをパンに挟んだだけ」という評価になっています。ですが、むしろそこがいい!
-私は、料理というものに時間をかけたくないですし、言うなれば時間をかけずに美味しいものを作りたいと思っているんですよね。
-よって、ファーストフードのメニューというのは、私にとって非常に分析しがいがある検体だったのです。
-てりやきバーガー では、実際、てりやきバーガーを作ってみたいと思います。作ることがそれを理解する上で一番の近道です。
-用意するものは、以下の通り。シンプルですよ。多分、普通に冷蔵庫にあると思いますが、ない場合は購入で。
-レタス
-マヨネーズ
-お好みソース, もしくは、たこ焼きソースでも良いが、味は薄くなる
-今回は、最初からすべての部品、いや、材料ですが、その材料をすべて自前で調達するのではなく、分析の意味も兼ねて、マクドナルドで実際ハンバーガーを一つ買ってきて、それを材料に使いましょう。
-わざわざハンバーガーから始める理由はいくつかありますが、一つは「分析」した上で、それを応用するためです。つまり、その料理がどういう仕組で出来上がっているのかを知るため、そして、実際にやってみるためですね。
-最初から「レシピを見る」のではなく、料理そのものからレシピを考えてみるという手順を採用するほうが合理的だと考えるからです。
-さて、ハンバーガー(100 JPY)は用意できましたか。あくまで材料、具体的には、パンと肉の詰め合わせ一パックを調達するためのものに過ぎないと考えてください。スーパーに売ってるお惣菜みたいなもんですね。ああいうのを混ぜ合わせたりして料理する人も多いですよね。そんな感じです。
-材料の説明を終えたところ、今度は、実際の作り方を見ていきたいと思います。(画像付き、大変でしたー)
-まずは、取り出して、肉をソースに浸します。
-その上にレタスをおいて、レタスの上にマヨネーズをポンとすると
-完成!
-じゃあ、それ食べていいですよ。通常のハンバーガーと食べ比べてみると面白いかもしれませんね。
-これで大体の手順はわかったと思うので、これを応用できます。あとは、自分なりに材料を選んで、それをストックしておくと、食べたいときにぱっと作れると思います。面白いですよ。私自身、小さい頃、ハンバーガーを自分で作ってみたいなーと思ったことありましたもん。
-ファーストフードは、手間(時間)を売ってる場所でもあるんですよね。しかし、考えてみると、わざわざお店まで行って、並んで、注文して、食べて帰るというのでも相当な手間ですよね。なので、自分で作れるというのは、色々な意味で、やっぱり嬉しいですね!
-その他 てりやき=ソース味 てりやきって、単なるソース味のことなんですよね。濃かったら薄めたりしないといけないかもですが、それを使えば、大抵、てりやきの味が出せたりします。おいしい
-その他、色々なアレンジを加えられたりもしますので、後は、自分なりに適当に考えてやれば、すぐにできるようになります。
-このように、自分なりのレシピというか、こんな感じで作れるやつをいくつか持っておくと便利かもしれませんね。
-私もいくつか持っていますので、便利です!
-てりたま 例えば、てりたまバーガーなんかもよく作ります。さっきのやつの応用なんですけどね。
-てりたまのタマゴあるじゃないですか。
-あれ、100円ショップに売ってる電子レンジで目玉焼きを作るやつでやれば、あとは、チンして挟むだけですからね。簡単ですよ。
-ポイントは、卵を割った殻で黄身に十字の線を入れます。(ようは潰します)</description></item><item><title>thanks</title><link>https://syui.cf/blog/post/2017/10/01/z-blog-daily-end-point/</link><pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/10/01/z-blog-daily-end-point/</guid><description>thank you very much !</description></item><item><title>投稿ミス</title><link>https://syui.cf/blog/post/2017/08/31/blog/</link><pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/08/31/blog/</guid><description>直前の記事、投稿ミスしました。ここでの修正はしませんが、正しい内容は https://syui.github.io/middleman の方に投稿されると思います。</description></item><item><title>email protected</title><link>https://syui.cf/blog/post/2017/05/30/blog/</link><pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/30/blog/</guid><description>email protectedとなる場合、cloudflareのScrape Shield＞Email Address Obfuscation:offで回避できました。</description></item><item><title>middleman-auto-scroll</title><link>https://syui.cf/blog/post/2017/05/28/blog/</link><pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/28/blog/</guid><description>middlemanの場合、/page/3のところを../3とかなってハマる。
+utterancesは、基本的に、cloneして、utterances.confみたいなものを編集後にyarn install, buildして、dist/を読み込めばいけそうな気がしたんだけど、これはrootに置かないと行けない感じで、index.htmlにアクセスし、なおかつ、github oauthなどが必要で、github appも必要だったので、readme.mdなどから読み解いてもらえれば、自前で運用できそうだけど、今の所、utteranc.esにホストしてる。</description></item><item><title>thanks</title><link>https://syui.cf/blog/post/2017/10/01/z-blog-daily-end-point/</link><pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/10/01/z-blog-daily-end-point/</guid><description>thank you very much !</description></item><item><title>投稿ミス</title><link>https://syui.cf/blog/post/2017/08/31/blog/</link><pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/08/31/blog/</guid><description>直前の記事、投稿ミスしました。ここでの修正はしませんが、正しい内容は https://syui.github.io/middleman の方に投稿されると思います。</description></item><item><title>email protected</title><link>https://syui.cf/blog/post/2017/05/30/blog/</link><pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/30/blog/</guid><description>email protectedとなる場合、cloudflareのScrape Shield＞Email Address Obfuscation:offで回避できました。</description></item><item><title>middleman-auto-scroll</title><link>https://syui.cf/blog/post/2017/05/28/blog/</link><pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/28/blog/</guid><description>middlemanの場合、/page/3のところを../3とかなってハマる。
 https://github.com/gilbitron/Infiniscroll
 layout.slim
 - paginate = current_page.metadata[:locals][&amp;#34;paginate&amp;#34;] - num_pages = current_page.metadata[:locals][&amp;#34;num_pages&amp;#34;] - page_number = current_page.metadata[:locals][&amp;#34;page_number&amp;#34;] - prev_page = current_page.metadata[:locals][&amp;#34;prev_page&amp;#34;] - next_page = current_page.metadata[:locals][&amp;#34;next_page&amp;#34;] .content - if paginate &amp;amp;&amp;amp; num_pages &amp;gt; 1 .pager - if prev_page = link_to &amp;#34;./page/#{page_number-1}&amp;#34;, class: &amp;#34;prev&amp;#34; |前のページ //= link_to prev_page, class: &amp;#34;prev&amp;#34; // |前のページ - else .pager__prev - if next_page = link_to &amp;#34;./page/#{page_number+1}&amp;#34;, class: &amp;#34;next&amp;#34; | 次のページ //= link_to next_page, class: &amp;#34;next&amp;#34; // | 次のページ - else .</description></item><item><title>Blogger.comのSSL</title><link>https://syui.cf/blog/post/2017/05/25/blog/</link><pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/25/blog/</guid><description>CloudFlareではSSLにFull, Flexibleなどがあるのですが、Blogger.comはFlexible, Mastodon(Heroku)は Fullを選択しないと問題がおきてしまいます。
