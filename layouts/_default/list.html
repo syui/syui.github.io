@@ -2,6 +2,7 @@
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
 			<div id="container">
+
 			    <div class="outer">
 				<div id="blog-archives" class="category">
 				    <ul class="cp_list">
@@ -12,6 +13,13 @@
 					{{ end }}
 				    </ul>
 				</div>
+				{{ $s := path.Dir (.Permalink | relURL) }}
+				{{ $t := index (split $s "/") 1 }}
+				{{ if eq $t "tags" }}
+				  {{- range $termName, $index := .Site.Taxonomies.tags }}
+					<span class="tag"><a href="{{ "/tags/" | relLangURL }}{{ $termName | urlize }}">{{ $termName }}</a></span>
+				  {{- end }}
+				{{ end }}
 			    </div>
 			</div>
 		</div>
