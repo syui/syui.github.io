@@ -186,3 +186,8 @@ h2 {
     line-height: 2rem;
 }
 
+span.tag {
+    background-color: #fff;
+    padding: 2px 6px;
+    word-break: break-word;
+}
