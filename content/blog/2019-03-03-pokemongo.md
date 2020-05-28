@@ -1,8 +1,8 @@
 +++
 date = "2019-03-03"
-tags = ["pokemongo"]
+tags = ["pokemon"]
 title = "Pokemon Goの進捗"
-slug = "pokemongo"
+slug = "pokemon"
 +++
 
 

@@ -1,6 +1,6 @@
 +++
 date = "2018-07-23"
-tags = ["mba"]
+tags = ["macbook"]
 title = "MacBook Air 11-inchのキーボードが故障したので修理した"
 slug = "mba11"
 +++

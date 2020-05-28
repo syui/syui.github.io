@@ -2,7 +2,7 @@
 date = "2019-04-29"
 tags = ["pokemon"]
 title = "ポケモンGoのアバターをイラストで書いてみた"
-slug = "pokemongo"
+slug = "pokemon"
 +++
 
 ポケモンGoで使っている自分のアバターをイラスト化してみました。なんとなくです。
