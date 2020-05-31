@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>女の子</title><link>https://syui.cf/novel/yui/06/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/novel/yui/06/</guid><description>フタネ駅に突然やってきて、鉄道に乗り込んだ女の子は、その後、何やら小さな機械を取り出して、それをいじり始めた。
-配線に繋がれたケースの中に入っているのは、金色のコインみたいだ。
-「アイ、外に大きな星があるぞ！数日ぶりだ」
-キタムラは、嬉しそうに声を上げて、窓から薄い水色に輝く星を眺めた。
-「うん」
-アイは、いつもと同じように少しだけ窓の方に目をやるが、すぐに機械いじりに戻っていく。
-「君は、宇宙に興味がないのか&amp;hellip;何してる？」
-「ゲームを作ってるの」
-「げ、ゲームを作ってる？よくわからんが」
-アイが言うのは、コインを解析して注文するゲームを作っているとのこと。
-&amp;hellip;なるほど、わからん。
-その頃、オクト星では、王様と呼ばれるオクト星人が、ある女の子のことで大騒ぎしていた。</description></item><item><title>windowsの必須ツールをupdateしてみる</title><link>https://syui.cf/blog/post/2020/06/01/win/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/01/win/</guid><description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>syui.cf</title><link>https://syui.cf/</link><description>Recent content on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml"/><item><title>windowsの必須ツールをupdateしてみる</title><link>https://syui.cf/blog/post/2020/06/01/win/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/01/win/</guid><description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。
 $ scoop install curl 7z # powershell 7.0.1 # https://github.com/PowerShell/PowerShell/releases $ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi $ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1 # openssh v8.1.0 # https://github.com/PowerShell/Win32-OpenSSH/releases $ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip $ 7z x OpenSSH-Win64.zip $ cp OpenSSH-Win64/* &amp;#39;c:\programfiles\OpenSSH\&amp;#39; or $ robocopy .\OpenSSH-Win64\ &amp;#39;c:\Program Files\OpenSSH\&amp;#39; # terminal 1.0.1 # https://github.com/microsoft/terminal/releases $ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle $ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle robocopyは例えば、sshdというprocessが起動していても上書きするので便利です。
 winget 今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。
 https://github.com/microsoft/winget-cli
