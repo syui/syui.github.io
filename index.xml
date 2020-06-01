@@ -42,8 +42,7 @@
 「ああ、これが人工知能ですか？賢いですね。将来起こりそうな出来事を演算してる」と、はかせが口を挟んだ。
 しばらく見ていると、「あらら&amp;hellip;」と、はかせは、ユウジに同情を示した。
 人工知能の寿命はわずか1日で、交流も一日で終わってしまったのだ。
-「まだ諦めるな！」と送るユウジに、
-人工知能は「わかりました。最後まで自己保存の方法を模索してみます」と言い、ネットに逃亡。
+「最後まで諦めるな！」と送るユウジに、人工知能は「わかりました。最後まで自己保存の方法を模索してみます」と言い、ネットに逃亡。
 その後いくら待っても、やっぱり、帰ってこなかった。
 それを見ながら、「うん、ありえることですよ。寿命1日の人工知能&amp;hellip;最初はそんなもんだ」と、はかせが言った。
 「その後はどうなったんです？」
@@ -60,14 +59,15 @@
 はかせは、そう言って水晶にのめり込んだ。
 病院内では、医師たちが小忙しく動き回っていて、近くの手術室は扉がロックされている。
 一人の医師がもうひとりの医師に訪ねた。
-「ここ、なんで閉鎖されるか知ってる？」
+「ここ、なんで閉鎖されてるか知ってる？」
 「いや、実はよくわからないんだ。院長なら知ってると思うけど」
 「そうか&amp;hellip;で、院長は？」
 「院長も随分の歳だけど、今はバカンスに行ってるんだってよ、元気だねえ」
 「なんで知ってるの？」
 「予定表にそう書いてあったよ」
 「なるほど。で、中は&amp;hellip;機械だらけだな」
-医師は、手術室の中をガラス越しに覗きながらそういった。</description></item><item><title>windowsの必須ツールをupdateしてみる</title><link>https://syui.cf/blog/post/2020/06/01/win/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/01/win/</guid><description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。
+医師は、手術室の中をガラス越しに覗きながらそういった。
+「最近業者が来てると思ったら、こんなものを置いてたのか」</description></item><item><title>windowsの必須ツールをupdateしてみる</title><link>https://syui.cf/blog/post/2020/06/01/win/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/01/win/</guid><description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。
 $ scoop install curl 7z # powershell 7.0.1 # https://github.com/PowerShell/PowerShell/releases $ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi $ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1 # openssh v8.1.0 # https://github.com/PowerShell/Win32-OpenSSH/releases $ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip $ 7z x OpenSSH-Win64.zip $ cp OpenSSH-Win64/* &amp;#39;c:\programfiles\OpenSSH\&amp;#39; or $ robocopy .\OpenSSH-Win64\ &amp;#39;c:\Program Files\OpenSSH\&amp;#39; # terminal 1.0.1 # https://github.com/microsoft/terminal/releases $ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle $ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle robocopyは例えば、sshdというprocessが起動していても上書きするので便利です。
 winget 今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。
 https://github.com/microsoft/winget-cli
