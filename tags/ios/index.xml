@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ios on syui.cf</title><link>https://syui.cf/tags/ios/</link><description>Recent content in ios on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ios/index.xml" rel="self" type="application/rss+xml"/><item><title>ノベルゲームを実機でテストしてみた</title><link>https://syui.cf/blog/post/2020/05/25/app/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/05/25/app/</guid><description>nexus7, iphoneseでテストしてみました。調整も一通り終了したので、releasesにて配布します。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ios on syui.cf</title><link>https://syui.cf/tags/ios/</link><description>Recent content in ios on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ios/index.xml" rel="self" type="application/rss+xml"/><item><title>iphone5s(ios 12.4.7)をjailbreakしてみた</title><link>https://syui.cf/blog/post/2020/06/10/ios-jb/</link><pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/10/ios-jb/</guid><description>現在、iphone5sでsignedなiosのfwである12.4.7でjailbreak(脱獄)可能なので、checkm8のexploitを利用してjailbreakしてみました。
+iphone5sは、現在、放置になってて、楽しい使い方ができてなかったので、これを期に活用していきたい。
+checkra1n 実行にはcheckra1nというツールが便利です。jailbreak後はcydiaもinstallが簡単にできます。
+ただし、checkra1nの実行は、少しの工夫が必要でした。iphone5s(12.4.7)の場合、通常は、error -21が出てきてjailbreakができません。exploitが走っていない模様です。
+https://github.com/checkra1n/BugTracker/issues/1389
+私の場合ですが、dfu-modeになったときにもホームボタンを離さず、次のステージに進んだ時点でホームボタンを離すとうまくrebootしてexploitが走ったような気がする。usb接続の抜き差しはやっていません。何度かやると成功するぽいので、何度か実行してみてください。
+altstore altstoreというものがあり、app(.ipa)に自己署名して起動するものらしいです。
+altstore-serverをmacで起動し、mail.appにて、pluginを有効にします。そして、deviceとusb接続し、当該deviceを信頼した上で、altstoreをinstallします。なお、installの際には、apple id, passwordが必要になります。完了すると、deviceにaltstoreのアイコンがあります。また、ファイアウォールをoffにするといいという情報もあります。
+https://github.com/rileytestut/AltStore/issues/83
+reprovision 自己署名の自動化(再署名)を可能にするreprovisionが便利です。</description></item><item><title>ノベルゲームを実機でテストしてみた</title><link>https://syui.cf/blog/post/2020/05/25/app/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/05/25/app/</guid><description>nexus7, iphoneseでテストしてみました。調整も一通り終了したので、releasesにて配布します。
 https://github.com/syui/game/releases/tag/v3.0
 いまのところ、対応はmac, win, ios, androidとなっています。
 やったこと アイコン調整 アイコンがぼやけてたので、シャープ強にしてから変換しました。
