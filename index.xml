@@ -7,7 +7,9 @@ https://github.com/checkra1n/BugTracker/issues/1389
 altstore altstoreというものがあり、app(.ipa)に自己署名して起動するものらしいです。
 altstore-serverをmacで起動し、mail.appにて、pluginを有効にします。そして、deviceとusb接続し、当該deviceを信頼した上で、altstoreをinstallします。なお、installの際には、apple id, passwordが必要になります。完了すると、deviceにaltstoreのアイコンがあります。また、ファイアウォールをoffにするといいという情報もあります。
 https://github.com/rileytestut/AltStore/issues/83
-reprovision 自己署名の自動化(再署名)を可能にするreprovisionが便利です。</description></item><item><title>ノベルゲームを更新してみた</title><link>https://syui.cf/blog/post/2020/06/06/game/</link><pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/06/game/</guid><description>60話から68話が最新となっております。
+reprovision 自己署名の自動化(再署名)を可能にするreprovisionが便利です。
+unc0ver 脱獄ツールぽいunc0verですが、github-releasesから.ipaをdownloadしてaltstoreで開きます。
+なお、12.4.7はまだサポートされてないぽい。</description></item><item><title>ノベルゲームを更新してみた</title><link>https://syui.cf/blog/post/2020/06/06/game/</link><pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/06/game/</guid><description>60話から68話が最新となっております。
 PLAY : https://game.syui.cf
 ゲーム紹介 : https://syui.cf/imgame/
 制作秘話 制作に関して、つぶやいたことなど、覚えている限りで適当に書いてみます。
