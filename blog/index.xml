@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケマスのエンテイをクリアしてみた</title><link>https://syui.cf/blog/post/2020/06/13/pokemas/</link><pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/13/pokemas/</guid><description>ホウオウ以来、プレイしてなかったのですが、twitter見てるとエンテイが来てるぽいので、クリアしてみました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ノベルゲームを更新してみた69</title><link>https://syui.cf/blog/post/2020/06/17/game/</link><pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/17/game/</guid><description>69話から74話が最新となっております。
+PLAY : https://game.syui.cf
+ゲーム紹介 : https://syui.cf/imgame/
+くいなちゃんが隠しキャラとして登場 くいなちゃんをゲストとしてちょろっと登場させてみました。隠しキャラなので探してください。登場するのは今回の一度きりですが。
+たまにあるじゃないですか、他の作品のキャラがゲストとして登場したりするの。ああいうの一度やってみたいなあ、面白そうだなあと思ったので。
+(それに二次創作で一度絵を描いたことがあって楽だったというのもある)
+その他 今回のテーマは、恋愛&amp;hellip;みたいなものでしょうか。一度やってみっか、とか思ったので。
+セニョールことセニルですが、実は、自分が一番苦手なタイプと言うか、あまり好きではないタイプです。あえてそうしました。
+普通、なんで苦手なタイプで書くんだよ！って感じですけどね。なんとなくです。
+ストーリー的には漫画の方につながるよう構成されています。
+しかし、漫画の続きを書くかどうかがわかりません！
+まんが、かくの、たいへんなんだよなあ&amp;hellip;。</description></item><item><title>ポケマスのエンテイをクリアしてみた</title><link>https://syui.cf/blog/post/2020/06/13/pokemas/</link><pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/13/pokemas/</guid><description>ホウオウ以来、プレイしてなかったのですが、twitter見てるとエンテイが来てるぽいので、クリアしてみました。
 ポケマスはもしかしたら長続きするゲームになるかもしれないと思いました。こういったメダルの実装はいいですね。こういうのがあると、課金してでも集めたいような、または継続するための要素になりそうな気がする。
 難易度は、正直、難しかったです。ちょっと難しすぎるんじゃないって思いました。脱落者がすごく出そう。これが良いのか悪いのかわかりません。難しいゲームがいいのか、簡単なゲームがいいのか。
 今回、アセロラ、レッド、リーフでクリアしました。アセロラでひるませて、リーフでB技を繰り返します。アセロラはLV100なのですが、かなり役に立ちました。というか、アセロラがいなかったらクリアできなかったな。
@@ -26,7 +37,7 @@ altstore-serverをmacで起動し、mail.appにて、pluginを有効にします
 https://github.com/rileytestut/AltStore/issues/83
 reprovision 自己署名の自動化(再署名)を可能にするreprovisionが便利です。
 unc0ver 脱獄ツールぽいunc0verですが、github-releasesから.ipaをdownloadしてaltstoreで開きます。
-なお、12.4.7はまだサポートされてないぽい。</description></item><item><title>ノベルゲームを更新してみた</title><link>https://syui.cf/blog/post/2020/06/06/game/</link><pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/06/game/</guid><description>60話から68話が最新となっております。
+なお、12.4.7はまだサポートされてないぽい。</description></item><item><title>ノベルゲームを更新してみた60</title><link>https://syui.cf/blog/post/2020/06/06/game/</link><pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/06/06/game/</guid><description>60話から68話が最新となっております。
 PLAY : https://game.syui.cf
 ゲーム紹介 : https://syui.cf/imgame/
 制作秘話 制作に関して、つぶやいたことなど、覚えている限りで適当に書いてみます。
