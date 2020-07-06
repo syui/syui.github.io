@@ -2,7 +2,7 @@ name: day check link tweet
 
 on:
   schedule:
-    - cron:  '59 23 * * *'
+    - cron:  '0 0 * * *'
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
         mv t ~/.config/twg/user.json
         url=https://syui.cf/blog/index.xml
         curl -sLO $url
-        date_now=`date -u +%Y%m%d --date '1 day ago'`
+        date_now=`date -u +%Y%m%d --date '2 day ago'`
         date_xml=`date --date="$(xq p ./index.xml)" -u +%Y%m%d`
         echo "ci:$date_now blog:$date_xml"
         if [ "$date_now" = "$date_xml" ];then
