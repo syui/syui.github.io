@@ -2,7 +2,7 @@ name: day check link tweet
 
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '59 08 * * *'
 
 jobs:
   build:
