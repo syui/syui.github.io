@@ -90,7 +90,7 @@ m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7
   <g transform="scale(3 3) matrix(0.866, -0.5, 0.25, 0.433, 85, 85)" >
     <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FF6633" >
       <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
-			<animate fill="freeze" dur="4000ms" begin="0s" values="#EF454A;#DD6699;#DDDD00;#EF454A" calMode="linear" attributeName="fill" repeatCount="indefinite" />
+			<animate fill="freeze" dur="4000ms" begin="0s" values="#d38eff;#DD6699;#DDDD00;#008ccf" calMode="linear" attributeName="fill" repeatCount="indefinite" />
     </path>
   </g>
 </svg>
