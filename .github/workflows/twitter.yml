@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - run: |
+        TZ=Asia/Tokyo
         export GOPATH=$HOME/go
         export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
         go get -v github.com/syui/xq
