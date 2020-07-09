@@ -5,7 +5,7 @@ on:
     branches:
     - src
   schedule:
-  - cron: "00 9 * * *"
+  - cron: "00 0 * * *"
 
 jobs:
   build-deploy:
