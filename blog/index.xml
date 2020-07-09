@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>github profile(readme)にsvgを付けてみる</title><link>https://syui.cf/blog/post/2020/07/09/github/</link><pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/07/09/github/</guid><description>github profile(readme)を使用するには、githubで$userのrepositoryを作成してreadme.mdを置くとgithub.com/$userで表示できるようになるかもしれない。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on syui.cf</title><link>https://syui.cf/blog/</link><description>Recent content in blog on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>ポケマスのコバルオンをクリアしてみた</title><link>https://syui.cf/blog/post/2020/07/10/pokemas/</link><pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/07/10/pokemas/</guid><description>久しぶりにポケマスにログインしてみると、レジェントバトルにコバルオンが追加されていたのでクリアしてみました。
+私は、ウツボットの人とレッド、リーフで構成、ラストのHP50%まで削りました。
+なお、コバルオンは大ダメージが通るときと通らないときがあって、通らないときは全然ダメージが入りません。したがって、「ここは大ダメージが通るな」と思ったとき一気に連続攻撃(ねっぷう)することが重要だと思います。
+基本は眠らせて、B技を貯めます。B技は最初リーフでバフして耐久を上げています。
+コバルオンは、HPの半分を超えるタイミングが特に重要。これを超えたときねむりを当てること。そして、ここでねっぷうを連発しなければなりません。いざというときのためB技が使える状態だと良いでしょう。また、それが大ダメージが通るときじゃないと一気に倒すことができずやられてしまいます。
+このような条件を満たすとこのメンバーだけでクリアできると思います。が、私はいくつか失敗して、次のメンバーに引き継ぎました。
+次のメンバーでは、相手がB技を打ってくるタイミングだったので一人メンバーのバインド使いLV1を出撃させました。バインド当ててB技を食らい無事死亡。
+次が本命でアチャモ、シルバー、アセロラでやりました。ひるませて、バフして、シルバーで攻撃というパターン。ここで無事撃破という感じ。
+ポケマスは、メダルが実装されてからなんか面白くなってる気がします。レジェンドバトルもいいですね。</description></item><item><title>github profile(readme)にsvgを付けてみる</title><link>https://syui.cf/blog/post/2020/07/09/github/</link><pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/07/09/github/</guid><description>github profile(readme)を使用するには、githubで$userのrepositoryを作成してreadme.mdを置くとgithub.com/$userで表示できるようになるかもしれない。
 この機能のテストに当選した人は、リポジトリを作成するとき以下の表示が出るようです。
 ここでsvgを再生したいなあと思ったのですが、このブログで使用しているsvgは少し複雑過ぎるので、新しく作り直してみました。
 urlはrawを引用したほうがいいようです。
