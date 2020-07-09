@@ -1,39 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
- preserveAspectRatio="xMidYMid meet">
-<metadata>
-syui
-</metadata>
-
-
-<!--
-  <g class="particleLayer">
-    <circle fill="#FF6633" cx="130" cy="126.5" r="12.5"/>
-    <circle fill="#FF6633" cx="411" cy="313.5" r="12.5"/>
-    <circle fill="#FF6633" cx="279" cy="86.5" r="12.5"/>
-    <circle fill="#FF6633" cx="155" cy="390.5" r="12.5"/>
-    <circle fill="#FF6633" cx="89" cy="292.5" r="10.5"/>
-    <circle fill="#FF6633" cx="414" cy="282.5" r="10.5"/>
-    <circle fill="#FF6633" cx="115" cy="149.5" r="10.5"/>
-    <circle fill="#FF6633" cx="250" cy="80.5" r="10.5"/>
-    <circle fill="#FF6633" cx="78" cy="261.5" r="10.5"/>
-    <circle fill="#FF6633" cx="182" cy="402.5" r="10.5"/>
-    <circle fill="#FF6633" cx="401.5" cy="166" r="13"/>
-    <circle fill="#FF6633" cx="379" cy="141.5" r="10.5"/>
-    <circle fill="#FF6633" cx="327" cy="397.5" r="10.5"/>
-    <circle fill="#FF6633" cx="296" cy="392.5" r="10.5"/>
-    <animateTransform attributeName="transform" type="rotate" values="0 24 24;-18 24 24;16.8 24 24;-11.4 24 24;8.7 24 24;-7.5 24 24;6 24 24;-4.8 24 24;3.79 24 24;-3.12 24 24;2.52 24 24;-2.01 24 24;1.56 24 24;-1.2 24 24;0.96 24 24;-0.75 24 24;0.6 24 24;-0.48 24 24;0.384 24 24;0 24 24;0 24 24;0 24 24;0 24 24;0 24 24;0 24 24"
-    begin="0s" dur="2s" fill="freeze" repeatCount="indefinite" />
-  </g>
--->
-
-
+width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
+preserveAspectRatio="xMidYMid meet">
+<metadata>syui</metadata>
 <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
 fill="#000000" stroke="none">
-<path d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92
+	<path d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92
 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22
 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5
 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247
@@ -85,13 +59,12 @@ m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7
 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0
 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40
 16 57 18 38 52 41 99 11z" fill="#EF454A"/>
-
 </g>
-  <g transform="scale(3 3) matrix(0.866, -0.5, 0.25, 0.433, 85, 85)" >
-    <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FF6633" >
-      <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
-			<animate fill="freeze" dur="4000ms" begin="0s" values="#d38eff;#DD6699;#DDDD00;#008ccf" calMode="linear" attributeName="fill" repeatCount="indefinite" />
-    </path>
-  </g>
+<g transform="scale(3 3) matrix(0.866, -0.5, 0.25, 0.433, 85, 85)" >
+	<path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FF6633" >
+		<animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
+		<animate fill="freeze" dur="4000ms" begin="0s" values="#D38EFF;#DD6699;#DDDD00;#008CCF" calMode="linear" attributeName="fill" repeatCount="indefinite" />
+	</path>
+</g>
 </svg>
 
