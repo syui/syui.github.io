@@ -192,6 +192,6 @@ span.tag {
     word-break: break-word;
 }
 
-.google-ads {
-    margin: 30px 0px;
+div#google-center-div img {
+    margin: 55px 0px !important;
 }
