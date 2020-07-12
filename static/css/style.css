@@ -192,6 +192,7 @@ span.tag {
     word-break: break-word;
 }
 
-div#google-center-div img {
-    margin: 55px 0px !important;
+ins.adsbygoogle {
+    margin: 55px 0px;
 }
+
