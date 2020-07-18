@@ -1,9 +1,8 @@
 name: github pages
 
 on:
-  push:
-    branches:
-    - src
+  schedule:
+  - cron: "00 9 * * *"
 
 jobs:
   build-deploy:
@@ -34,7 +33,7 @@ jobs:
            cp -rf ./dist/*.js ./static/manga
            cp -rf ./dist/*.css ./static/manga
            cp -rf ./dist/*.map ./static/manga
-           TZ=Asia/Tokyo hugo --gc --minify --cleanDestinationDir
+           TZ=Asia/Tokyo hugo -F --gc --minify --cleanDestinationDir
            touch ./public/.nojekyll
            cp ./CNAME ./public/
 
