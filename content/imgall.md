@@ -1,0 +1,5 @@
+---
+title: "illust"
+type: imgall
+---
+
