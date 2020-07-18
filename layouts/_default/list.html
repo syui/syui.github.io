@@ -8,7 +8,7 @@
 				    <ul class="cp_list">
 					{{ range .Pages }}
 					<li>
-					    {{ dateFormat "2006-01-02" .Date.Local }} <a href="{{.Permalink}}">{{.Title}}</a>
+					    {{ .Date.Local.Format "2006-01-02" }} <a href="{{.Permalink}}">{{.Title}}</a>
 					</li>
 					{{ end }}
 				    </ul>
