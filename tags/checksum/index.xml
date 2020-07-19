@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>checksum on syui.cf</title><link>https://syui.cf/tags/checksum/</link><description>Recent content in checksum on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/checksum/index.xml" rel="self" type="application/rss+xml"/><item><title>checksumで2つのファイルの同一性をチェックするツールをgolangで書いてみた</title><link>https://syui.cf/blog/post/2020/03/05/checksum/</link><pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/05/checksum/</guid><description>私はファイルのハッシュ値を調べるとか比較するとかをまとめてchecksumと呼んでいます。ただ、この辺の知識は調べたり、詳しかったりするわけではなく、普段なんとなく思ってる、ふわっとした理解に過ぎません。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>checksum on syui.cf</title>
+    <link>https://syui.cf/tags/checksum/</link>
+    <description>Recent content in checksum on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/checksum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>checksumで2つのファイルの同一性をチェックするツールをgolangで書いてみた</title>
+      <link>https://syui.cf/blog/post/2020/03/05/checksum/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/03/05/checksum/</guid>
+      <description>私はファイルのハッシュ値を調べるとか比較するとかをまとめてchecksumと呼んでいます。ただ、この辺の知識は調べたり、詳しかったりするわけではなく、普段なんとなく思ってる、ふわっとした理解に過ぎません。
 それを前提に話をすると、webやserverに置かれたファイルというのは、改ざんされている可能性があるため、特にインストール時や実行権限を得られるディレクトリにバイナリを置く際などはファイルの同一性をチェックし、偽装されていないかなどを確認することがよくあります。また、ファイル破損などのチェックにも有効なので、通常は、ファイルをダウンロードする時などに自動チェックされることが多いと思います。ブラウザやダウンローダーもハッシュ値チェックは行っているでしょう。
 通常、checksumには、sha1sum,md5sumなどのコマンドを使います。
 で、ファイルを比較するとか、ハッシュ値とファイルを比較するとかになると、普通は、shellscriptを書くことになると思います。
@@ -7,4 +27,8 @@ $ go get github.com/syui/shasumgo $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s
 また、shellscriptにも使いやすいようコマンド成功時の出力をなしにするオプションもつけました。成功すると出力なし。失敗するとハッシュ値が出力されます。
 $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc 最近、gh-actionsを使っていると、やっぱり、go-binaryは使いやすいなーと思ったので。
 もしworkflowを書くときchecksumが必要ならgo get github.com/syui/shasumgoしてshasumgoコマンドで処理を書くのも便利そうと思ったりしてます。
-if [ -z &amp;#34;`shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc`&amp;#34; ];then echo ok fi 今日は、ゲーム(小説)の続き書こうと思ってたんだけど、なぜかこれ作ってた。</description></item></channel></rss>
+if [ -z &amp;#34;`shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc`&amp;#34; ];then echo ok fi 今日は、ゲーム(小説)の続き書こうと思ってたんだけど、なぜかこれ作ってた。</description>
+    </item>
+    
+  </channel>
+</rss>

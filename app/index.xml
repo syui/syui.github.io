@@ -1,40 +1,154 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apps on syui.cf</title><link>https://syui.cf/app/</link><description>Recent content in Apps on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/app/index.xml" rel="self" type="application/rss+xml"/><item><title>reviewbot</title><link>https://syui.cf/app/dev/reviewbot/</link><pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/reviewbot/</guid><description>reviewbotは、reviewしたいgithub-repoに置くと、gh-actionsが有効になり、pull-reqが開いたとき、特定の言語をlintでreviewします。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apps on syui.cf</title>
+    <link>https://syui.cf/app/</link>
+    <description>Recent content in Apps on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/app/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>reviewbot</title>
+      <link>https://syui.cf/app/dev/reviewbot/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/reviewbot/</guid>
+      <description>reviewbotは、reviewしたいgithub-repoに置くと、gh-actionsが有効になり、pull-reqが開いたとき、特定の言語をlintでreviewします。
 対応言語 : html, sql
 https://github.com/syui/reviewbot
 詳しくはこちらのファイルを見てください。
 https://github.com/syui/reviewbot/tree/master/.github/workflows
 条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。
-on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: | ## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description></item><item><title>udrs</title><link>https://syui.cf/app/dev/udrs/</link><pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/udrs/</guid><description>udrsは、rustで書かれたurlの整形支援するcliツールです。base64のencode,decodeや指定した区切りで取得することができます。
+on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: | ## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
+    </item>
+    
+    <item>
+      <title>udrs</title>
+      <link>https://syui.cf/app/dev/udrs/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/udrs/</guid>
+      <description>udrsは、rustで書かれたurlの整形支援するcliツールです。base64のencode,decodeや指定した区切りで取得することができます。
 Download
-#base64 encode $ udrs e &amp;#34;hello world.&amp;#34; aGVsbG8gd29ybGQu $ udrs d &amp;#34;aGVsbG8gd29ybGQu&amp;#34; hello world. $ udrs ud &amp;#34;foo%20bar&amp;#34; foo bar $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -l /ksk001100/seahorse $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -p https $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -d github.com</description></item><item><title>covid-vue-chart</title><link>https://syui.cf/app/dev/covid-vue-chart/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/covid-vue-chart/</guid><description>vue + apexcharts + axios
+#base64 encode $ udrs e &amp;#34;hello world.&amp;#34; aGVsbG8gd29ybGQu $ udrs d &amp;#34;aGVsbG8gd29ybGQu&amp;#34; hello world. $ udrs ud &amp;#34;foo%20bar&amp;#34; foo bar $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -l /ksk001100/seahorse $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -p https $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -d github.com </description>
+    </item>
+    
+    <item>
+      <title>covid-vue-chart</title>
+      <link>https://syui.cf/app/dev/covid-vue-chart/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/covid-vue-chart/</guid>
+      <description>vue + apexcharts + axios
 https://github.com/syui/covid-vue-chart
-$ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ yarn serve $ yarn build $ curl -sL https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json|jq &amp;#34;.|keys&amp;#34;</description></item><item><title>shasumgo</title><link>https://syui.cf/app/dev/shasumgo/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/shasumgo/</guid><description>https://github.com/syui/shasumgo
-$ go get github.com/syui/shasumgo # version $ shasumgo -v # help $ shasumgo h # example $ shasumgo ~/.bashrc ~/.zshrc da39a3ee5e6b4b0d3255bfef95601890afd80709 336de4a66576637c35e0a02e3b4233fdb28798db $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc ok # success:result display is none $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc</description></item><item><title>airsave.vim</title><link>https://syui.cf/app/dev/airsave/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/airsave/</guid><description>airsave.vimは、vimの自動保存をサポートするvim-pluginです。
+$ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ yarn serve $ yarn build $ curl -sL https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json|jq &amp;#34;.|keys&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>shasumgo</title>
+      <link>https://syui.cf/app/dev/shasumgo/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/shasumgo/</guid>
+      <description>https://github.com/syui/shasumgo
+$ go get github.com/syui/shasumgo # version $ shasumgo -v # help $ shasumgo h # example $ shasumgo ~/.bashrc ~/.zshrc da39a3ee5e6b4b0d3255bfef95601890afd80709 336de4a66576637c35e0a02e3b4233fdb28798db $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc ok # success:result display is none $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc </description>
+    </item>
+    
+    <item>
+      <title>airsave.vim</title>
+      <link>https://syui.cf/app/dev/airsave/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/airsave/</guid>
+      <description>airsave.vimは、vimの自動保存をサポートするvim-pluginです。
 Plug &amp;#39;syui/airsave.vim&amp;#39; .vimrcにlet g:air_auto_write = 1を書くと有効になります。
-&amp;#34; 最小構成aug vimrc_airsave_vim au! au TextChanged * waug END&amp;#34; オートセーブを有効にするlet g:air_auto_write = 1&amp;#34; 書き込みを表示するlet g:air_auto_write_nosilent = 1&amp;#34; オートセーブを開始するnm &amp;lt;Leader&amp;gt;s &amp;lt;Plug&amp;gt;(AirAutoWriteStart)&amp;#34; オートセーブを停止するnm &amp;lt;Leader&amp;gt;ss &amp;lt;Plug&amp;gt;(AirAutoWriteStop)</description></item><item><title>comic.page</title><link>https://syui.cf/app/dev/comic-page/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/comic-page/</guid><description>comic.pageは、vue.jsで書かれたシンプルな画像ページを作ります。
+&amp;#34; 最小構成aug vimrc_airsave_vim au! au TextChanged * waug END&amp;#34; オートセーブを有効にするlet g:air_auto_write = 1&amp;#34; 書き込みを表示するlet g:air_auto_write_nosilent = 1&amp;#34; オートセーブを開始するnm &amp;lt;Leader&amp;gt;s &amp;lt;Plug&amp;gt;(AirAutoWriteStart)&amp;#34; オートセーブを停止するnm &amp;lt;Leader&amp;gt;ss &amp;lt;Plug&amp;gt;(AirAutoWriteStop)</description>
+    </item>
+    
+    <item>
+      <title>comic.page</title>
+      <link>https://syui.cf/app/dev/comic-page/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/comic-page/</guid>
+      <description>comic.pageは、vue.jsで書かれたシンプルな画像ページを作ります。
 Download
 demo : https://syui.github.io/comic.page
-$ git clone https://github.com/syui/comic.page $ cd comic.page $ yarn install $ yarn dev $ yarn build</description></item><item><title>exchat</title><link>https://syui.cf/app/dev/exchat/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/exchat/</guid><description>exchatは、elixir, reduxで構成されたchatアプリ。ただし、メンテナンスされておらず、pull-reqを送っても反応がないので、forkしてメンテナンスしています。
+$ git clone https://github.com/syui/comic.page $ cd comic.page $ yarn install $ yarn dev $ yarn build </description>
+    </item>
+    
+    <item>
+      <title>exchat</title>
+      <link>https://syui.cf/app/dev/exchat/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/exchat/</guid>
+      <description>exchatは、elixir, reduxで構成されたchatアプリ。ただし、メンテナンスされておらず、pull-reqを送っても反応がないので、forkしてメンテナンスしています。
 https://github.com/syui/exchat
 $ git clone https://github.com/syui/exchat $ cd exchat $ mix deps.get $ mix ecto.create &amp;amp;&amp;amp; mix ecto.migrate $ npm install . $ mix phoenix.server 基本的には、./config以下にある環境変数をherokuに入れて、pushすると動くと思います。
 解説記事 http://syui.github.io/blog/post/2018/08/25/webpack
-https://qiita.com/syui/items/2e1bb571e9d50608809e</description></item><item><title>medigo</title><link>https://syui.cf/app/dev/medigo/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/medigo/</guid><description>medigoは、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
-現在、medium apiが一般公開されなくなったことにより動作しません
-Download
+https://qiita.com/syui/items/2e1bb571e9d50608809e</description>
+    </item>
+    
+    <item>
+      <title>medigo</title>
+      <link>https://syui.cf/app/dev/medigo/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/medigo/</guid>
+      <description>medigoは、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
+ 現在、medium apiが一般公開されなくなったことにより動作しません
+ Download
 # https://github.com/syui/medigo $ go get -u -v github.com/syui/medigo or $ yay -S medigo 使い方 releasesからダウンロードするか、AURからインストールして使います。
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、medigoを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth
 # If authentication does not exist, open the browser. $ medigo authorization code : xxxx oauth認証が終わると、以下のコマンドが使用できます。
-$ medigo h $ medigo u</description></item><item><title>mstdn.zsh</title><link>https://syui.cf/app/dev/mstdn/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/mstdn/</guid><description>mstdn.zshは、zshで書かれたコマンドツールです。mastodon apiをサポートします。
+$ medigo h $ medigo u </description>
+    </item>
+    
+    <item>
+      <title>mstdn.zsh</title>
+      <link>https://syui.cf/app/dev/mstdn/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/mstdn/</guid>
+      <description>mstdn.zshは、zshで書かれたコマンドツールです。mastodon apiをサポートします。
 Download
 curlやjq, pecoなどが必要になる場合があります。
 使い方は、json/user.jsonにアプリ認証情報を置いて、$ mstdn.zsh aコマンドを実行します。
-$ git clone https://github.com/syui/mstdn.zsh $ cd mstdn.zsh $ chmod +x mstdn.zsh $ ./mstdn.zsh a { &amp;#34;host&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;app&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;select_command&amp;#34; : &amp;#34;fzf&amp;#34; } # 投稿 $ mstdn.zsh p -f &amp;#34;test.&amp;#34; # タイムライン $ mstdn.zsh t # ユーザー情報 $ mstdn.zsh s</description></item><item><title>twg</title><link>https://syui.cf/app/dev/twg/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/twg/</guid><description>twgは、goで書かれたシンプルなtwitter clientです。
+$ git clone https://github.com/syui/mstdn.zsh $ cd mstdn.zsh $ chmod +x mstdn.zsh $ ./mstdn.zsh a { &amp;#34;host&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;app&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;select_command&amp;#34; : &amp;#34;fzf&amp;#34; } # 投稿 $ mstdn.zsh p -f &amp;#34;test.&amp;#34; # タイムライン $ mstdn.zsh t # ユーザー情報 $ mstdn.zsh s </description>
+    </item>
+    
+    <item>
+      <title>twg</title>
+      <link>https://syui.cf/app/dev/twg/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/twg/</guid>
+      <description>twgは、goで書かれたシンプルなtwitter clientです。
 Download
 # https://github.com/syui/twg $ go get -u -v gitlab.com/syui/twg or $ yay -S twg 使い方 releasesからダウンロードするか、AURからインストールして使います。
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、twgを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth
 # If authentication does not exist, open the browser. $ twg authorization code : xxxx oauth認証が終わると、以下のコマンドが使用できます。
-# timeline $ twg # help $ twg h # post $ twg p &amp;#34;send tweet&amp;#34; # user timeline $ twg u syui__ $ twg u # stream $ twg s # oauth $ twg o # search $ twg / &amp;#34;#twitter&amp;#34; 2</description></item><item><title>xq</title><link>https://syui.cf/app/dev/xq/</link><pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/app/dev/xq/</guid><description>xqは、xmlをjsonに変換します。ほしい要素を取り出します。
+# timeline $ twg # help $ twg h # post $ twg p &amp;#34;send tweet&amp;#34; # user timeline $ twg u syui__ $ twg u # stream $ twg s # oauth $ twg o # search $ twg / &amp;#34;#twitter&amp;#34; 2 </description>
+    </item>
+    
+    <item>
+      <title>xq</title>
+      <link>https://syui.cf/app/dev/xq/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/xq/</guid>
+      <description>xqは、xmlをjsonに変換します。ほしい要素を取り出します。
 Download
-# https://github.com/syui/xq $ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4 $ curl -sLO https://syui.cf/blog/index.xml $ xq ./index.xml | jq . $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000</description></item></channel></rss>
+# https://github.com/syui/xq $ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4 $ curl -sLO https://syui.cf/blog/index.xml $ xq ./index.xml | jq . $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 </description>
+    </item>
+    
+  </channel>
+</rss>

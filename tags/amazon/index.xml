@@ -1,17 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>amazon on syui.cf</title><link>https://syui.cf/tags/amazon/</link><description>Recent content in amazon on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/amazon/index.xml" rel="self" type="application/rss+xml"/><item><title>あなたはビオフェルミンSを知っているか？</title><link>https://syui.cf/blog/post/2020/07/13/amazon/</link><pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/07/13/amazon/</guid><description>最近、TLで胃の調子が悪いみたいな話が結構流れてきたので、ビオフェルミンを紹介してみる。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>amazon on syui.cf</title>
+    <link>https://syui.cf/tags/amazon/</link>
+    <description>Recent content in amazon on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/amazon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>あなたはビオフェルミンSを知っているか？</title>
+      <link>https://syui.cf/blog/post/2020/07/13/amazon/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/07/13/amazon/</guid>
+      <description>最近、TLで胃の調子が悪いみたいな話が結構流れてきたので、ビオフェルミンを紹介してみる。
 もちろん、本物の万能薬では全く無いのだけど、薬嫌いで薬は絶対飲まないような人間が、ビオフェルミンだけは飲むので、それなりに信頼してくれてもいいと思う。
 とはいえ、効果は人それぞれだし、合う合わないはあると思う。
 それを前提に話をすると、ビオフェルミンは、副作用の危険があまりない。単なる乳酸菌の類(たぶん)だと思うので飲みやすいと思う。
 私はこのビオフェルミンを知ってから二ヶ月ほど特に理由なく飲み続けたことがあった。その頃に胃腸関連で全般的に体調が改善されたように感じたことがあったりする。
 もちろん、これは気のせいかもしれない。けど、人によっては、ビオフェルミンを知っているか知らないかは大きいかもしれないと思ったので、一応、紹介してみることにした。
 なお、プラスか通常版か、どちらがいいのかは知らない。
-新ビオフェルミンS+ 薬嫌いだけど、唯一、ビオフェルミンだけは飲むという。
+新ビオフェルミンS+   薬嫌いだけど、唯一、ビオフェルミンだけは飲むという。
 最初の二ヶ月ほど特に理由なく飲み続け、体調が改善されたように感じている。
-ついでにアイテムのページを作ってみた。
-/item</description></item><item><title>最近、買ってよかったもの</title><link>https://syui.cf/blog/post/2019/03/15/amazon/</link><pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/03/15/amazon/</guid><description>SSD+ケース Xcode, iMovie, Node, Dockerなどを使ってると、内蔵SSDの容量をすごく圧迫するので、VirtualBoxのimgを外付けHDDに入れて使っていました。しかし、vm-imgの起動速度などがあまりに遅すぎるので、SSDが安くなってきたこの機に外付けSSDに移行してみました。結果、爆走になりました。昔、内蔵SSDに入れていたときとほとんど変わらないくらいまでには速くなった気がします(体感)。
-ビデオキャプチャ このビデオキャプチャとQuickTimePlayer(for mac)を使うと、簡単にプレイ動画を取れます。iMovie(for mac)で簡単に編集できます。オーディオ入力もうまくいったので満足です。
-GCコントローラーBluetooth GCコントローラーやWiiコントローラーをBluetoothして、Switchで使えるようにできます。便利。遅延はありませんでした(体感)。
-スマホ撮影用ベルト しっかりと固定できるので、走っているときもスマホ撮影できそうです。ちょっとだけ試してみましたが、痛くならないので良いです。ただし、まだ長距離では実験していません。</description></item><item><title>Amazonアソシエイトのリンクを横並びにする</title><link>https://syui.cf/blog/post/2018/12/10/amazon-adsense/</link><pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/12/10/amazon-adsense/</guid><description>&amp;lt;iframe style=&amp;#34;width:150px;height:240px;&amp;#34; frameborder=&amp;#34;0&amp;#34; src=&amp;#34;https://...&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;iframe style=&amp;#34;width:150px;height:240px;&amp;#34; frameborder=&amp;#34;0&amp;#34; src=&amp;#34;https://...&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; 基本的にいくつかのオプションを削除すれば、divを付けなくても横並びになるらしい。</description></item><item><title>鞄や靴などでお気に入りのもの</title><link>https://syui.cf/blog/post/2017/02/18/amazon/</link><pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/02/18/amazon/</guid><description>ちょっとカテゴリとして関連があったので、この際まとめておこうかなということで(と言っても前に紹介したものばかり)。
+ ついでにアイテムのページを作ってみた。
+/item</description>
+    </item>
+    
+    <item>
+      <title>最近、買ってよかったもの</title>
+      <link>https://syui.cf/blog/post/2019/03/15/amazon/</link>
+      <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/03/15/amazon/</guid>
+      <description>SSD+ケース Xcode, iMovie, Node, Dockerなどを使ってると、内蔵SSDの容量をすごく圧迫するので、VirtualBoxのimgを外付けHDDに入れて使っていました。しかし、vm-imgの起動速度などがあまりに遅すぎるので、SSDが安くなってきたこの機に外付けSSDに移行してみました。結果、爆走になりました。昔、内蔵SSDに入れていたときとほとんど変わらないくらいまでには速くなった気がします(体感)。
+  ビデオキャプチャ このビデオキャプチャとQuickTimePlayer(for mac)を使うと、簡単にプレイ動画を取れます。iMovie(for mac)で簡単に編集できます。オーディオ入力もうまくいったので満足です。
+ GCコントローラーBluetooth GCコントローラーやWiiコントローラーをBluetoothして、Switchで使えるようにできます。便利。遅延はありませんでした(体感)。
+  スマホ撮影用ベルト しっかりと固定できるので、走っているときもスマホ撮影できそうです。ちょっとだけ試してみましたが、痛くならないので良いです。ただし、まだ長距離では実験していません。
+ </description>
+    </item>
+    
+    <item>
+      <title>Amazonアソシエイトのリンクを横並びにする</title>
+      <link>https://syui.cf/blog/post/2018/12/10/amazon-adsense/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/12/10/amazon-adsense/</guid>
+      <description>&amp;lt;iframe style=&amp;#34;width:150px;height:240px;&amp;#34; frameborder=&amp;#34;0&amp;#34; src=&amp;#34;https://...&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;iframe style=&amp;#34;width:150px;height:240px;&amp;#34; frameborder=&amp;#34;0&amp;#34; src=&amp;#34;https://...&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; 基本的にいくつかのオプションを削除すれば、divを付けなくても横並びになるらしい。</description>
+    </item>
+    
+    <item>
+      <title>鞄や靴などでお気に入りのもの</title>
+      <link>https://syui.cf/blog/post/2017/02/18/amazon/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/02/18/amazon/</guid>
+      <description>ちょっとカテゴリとして関連があったので、この際まとめておこうかなということで(と言っても前に紹介したものばかり)。
 前回の補足 前回の補足として、服の素材。これを意識してる人は少ないかもしれませんが、服って素材によって特徴が全然違います。私には好みがあって、ポリエステルが結構好きです。これは乾きやすく、匂いがつきにくい素材で、軽くて動きやすいので私は好きですね。夏服はこの素材のものを選びます。まあ、好みの問題だと思いますね。
 鞄とか靴とかの好み 鞄とか靴とかにも自分なりの好みはあります。主にメーカーや色合いなどですね。
 鞄(GRANDSTONE) : https://www.amazon.co.jp/dp/B00E3NY2XG
@@ -19,11 +67,29 @@ GCコントローラーBluetooth GCコントローラーやWiiコントローラ
 靴(NIKE) : https://www.amazon.co.jp/dp/B00OTZOV70
 靴は主に配色とロゴマークで判断。色は全体が白を選びます。NIKEはロゴの外と内で配色が分かれてるものがあり、黒や赤がメインの配色が好きです。具体的には以下の通りの配色のものを選択します。単一の配色は好きではなく、また似た色の組み合わせも好きではないです。
 (全体/ロゴ/ロゴ周り)
-ホワイト/ブラック/メタリックシルバー
-ホワイト/レッド/メタリックシルバー
-このように私が何かを選ぶ際、大抵のものは決まっています。
+  ホワイト/ブラック/メタリックシルバー
+  ホワイト/レッド/メタリックシルバー
+  このように私が何かを選ぶ際、大抵のものは決まっています。
 ただし、上のように多少のこだわりがあったりするものの(つまりなんでもいいというわけではない)、これよりもいいものがあったら即座に乗り換えると思うので、そのこだわりはあまり強いとはいえませんが、しかし、あまり変わりませんね&amp;hellip;。
-読者の方々もお気に入りはあると思うので、あまり参考にはならないと思いますが、そうでなければ参考までに。おわり。</description></item><item><title>Amazonで二段階認証ができるようになってた</title><link>https://syui.cf/blog/post/2017/02/01/amazon/</link><pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/02/01/amazon/</guid><description>タイトルの通りだけど、アカウント設定 &amp;gt; 高度なセキュリティ... みたいな項目で可能。</description></item><item><title>トラックボールマウスのレビュー</title><link>https://syui.cf/blog/post/2017/01/27/amazon/</link><pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/01/27/amazon/</guid><description>だいぶ前から持ってるけど、ふいにレビューが上がってたので、自分もレビューしてみるかということで。
+読者の方々もお気に入りはあると思うので、あまり参考にはならないと思いますが、そうでなければ参考までに。おわり。</description>
+    </item>
+    
+    <item>
+      <title>Amazonで二段階認証ができるようになってた</title>
+      <link>https://syui.cf/blog/post/2017/02/01/amazon/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/02/01/amazon/</guid>
+      <description>タイトルの通りだけど、アカウント設定 &amp;gt; 高度なセキュリティ... みたいな項目で可能。</description>
+    </item>
+    
+    <item>
+      <title>トラックボールマウスのレビュー</title>
+      <link>https://syui.cf/blog/post/2017/01/27/amazon/</link>
+      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/01/27/amazon/</guid>
+      <description>だいぶ前から持ってるけど、ふいにレビューが上がってたので、自分もレビューしてみるかということで。
 ロジクールM570tみたいなやつです。
 まず、頭の体操には良いです、最初だけ。その点では良かったかなと。
 それ以外では普通のと対して変わりません。まあ、私はマウス全然使わないので、それほどカスタマイズしてるわけでもないし、マウス使いというわけでもありませんので、なんとも言えませんが。
@@ -32,4 +98,8 @@ GCコントローラーBluetooth GCコントローラーやWiiコントローラ
 逆に大きくて邪魔だなと思ったことなら何度か。まあ、マウスって基本的に使うわけでもなく単にパソコンの横においてあるだけの存在みたいな所があるので。
 でもパソコンでゲームをする人にはマウス重要になってきそうですよね。
 私も色々カスタマイズしたりしてマウス使い目指したいのですが、今のところその機会はなく、トラックボールもあまり便利に感じませんでした。でも反対に不便も感じてませんけど。
-おわり。</description></item></channel></rss>
+おわり。</description>
+    </item>
+    
+  </channel>
+</rss>

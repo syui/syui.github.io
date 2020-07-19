@@ -1,19 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mail on syui.cf</title><link>https://syui.cf/tags/mail/</link><description>Recent content in mail on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mail/index.xml" rel="self" type="application/rss+xml"/><item><title>phxでmail notifyを実装した</title><link>https://syui.cf/blog/post/2018/08/24/phx/</link><pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/08/24/phx/</guid><description>導入 今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mail on syui.cf</title>
+    <link>https://syui.cf/tags/mail/</link>
+    <description>Recent content in mail on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/mail/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>phxでmail notifyを実装した</title>
+      <link>https://syui.cf/blog/post/2018/08/24/phx/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/08/24/phx/</guid>
+      <description>導入 今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。
 iconの取得はmailからgravatar.comを使ってるんじゃないですかね(知りませんが)。コード読めという話ですね。
 さて、ではrepoのcloneからいきましょー。今回もexample chatみたいな感じのやつです。
 $ git clone https://github.com/tony612/exchat $ cd !$:t $ cat ./elixir_buildpack.config erlang_version=20.1 elixir_version=1.6.0 always_rebuild=true config_vars_to_export=(DATABASE_URL JWT_SECRET) $ cat ./Procfile web: MIX_ENV=prod POOL_SIZE=2 mix ecto.migrate &amp;amp;&amp;amp; mix phoenix.server # npm i # frontendは、react ,redux, jwt(login), bootstrapみたいな感じ。 $ heroku buildpacks:add --index 2 https://github.com/gjaldon/heroku-buildpack-phoenix-static.git -a $APP_NAME heroku config:setには、DATABASE_URL, JWT_SECRET, SECRET_KEY_BASEを入れてください。というか、DATABASE_URL, PORTはpostgresを入れれば勝手に作成されると思う。JWTとKEYは、$ mix phx.gen.sercetになります。
 notifyの実装 通知の手段は色々あるんですけど、mailが簡単そうなので、まずは簡単そうなものから。
-mix.exs
-applications: [:bamboo] defp deps do [{:phoenix, &amp;#34;~&amp;gt; 1.3.3&amp;#34;}, {:bamboo, &amp;#34;~&amp;gt; 1.0.0&amp;#34;}, {:bamboo_smtp, &amp;#34;~&amp;gt; 1.</description></item><item><title>mailgun+cloudflare</title><link>https://syui.cf/blog/post/2017/05/23/mail/</link><pubDate>Tue, 23 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/23/mail/</guid><description>mailgunを使えばdomain addressのmail serverとして機能するかもしれないという話。
+ mix.exs
+ applications: [:bamboo] defp deps do [{:phoenix, &amp;#34;~&amp;gt; 1.3.3&amp;#34;}, {:bamboo, &amp;#34;~&amp;gt; 1.0.0&amp;#34;}, {:bamboo_smtp, &amp;#34;~&amp;gt; 1.</description>
+    </item>
+    
+    <item>
+      <title>mailgun&#43;cloudflare</title>
+      <link>https://syui.cf/blog/post/2017/05/23/mail/</link>
+      <pubDate>Tue, 23 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/05/23/mail/</guid>
+      <description>mailgunを使えばdomain addressのmail serverとして機能するかもしれないという話。
 CNAMEはDNS Onlyを選択します。
 # Optional DNS Records ## The CNAME record is necessary for tracking opens, clicks, and unsubscribes. CNAME email.mg.syui.cf mailgun.org Automatic (DNS Only) 最初は登録したdomainがdisableになってますが、supportに連絡するとenableになります。具体的にはこちらに答えます。
 https://help.mailgun.com/hc/en-us/articles/202051664-My-domain-has-been-disabled-Now-what-
 私の場合、これでdomain mail addressが有効に活用できるようになりました。
 参考 :
-https://hail2u.net/blog/internet/mailgun-as-an-email-solution-for-cloudflare.html</description></item><item><title>ちょっとMXレコードについて調べてみた</title><link>https://syui.cf/blog/post/2017/04/15/mail/</link><pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/15/mail/</guid><description>CloudFlareで以下のような記述があった。
-An MX record was not found for your root domain. An MX record is required for mail to reach @syui.cf addresses.
-これはMXレコードを追加すればメールアドレスに到達できるとも読めるのでちょっと調べてみた。
+https://hail2u.net/blog/internet/mailgun-as-an-email-solution-for-cloudflare.html</description>
+    </item>
+    
+    <item>
+      <title>ちょっとMXレコードについて調べてみた</title>
+      <link>https://syui.cf/blog/post/2017/04/15/mail/</link>
+      <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/15/mail/</guid>
+      <description>CloudFlareで以下のような記述があった。
+ An MX record was not found for your root domain. An MX record is required for mail to reach @syui.cf addresses.
+ これはMXレコードを追加すればメールアドレスに到達できるとも読めるのでちょっと調べてみた。
 https://support.cloudflare.com/hc/en-us/articles/218069617-How-do-I-add-or-edit-mail-or-MX-records-
 メールサーバー、メールプロバイダーを登録しなければならないので難易度高そう。過去にサービスを検索したことあったけどなかなか使えるものがなかった記憶。
 あとは、G Suiteというものがヒットしたりした。
-https://support.google.com/a/answer/140034?hl=ja</description></item></channel></rss>
+https://support.google.com/a/answer/140034?hl=ja</description>
+    </item>
+    
+  </channel>
+</rss>

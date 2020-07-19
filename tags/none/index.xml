@@ -1,14 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>none on syui.cf</title><link>https://syui.cf/tags/none/</link><description>Recent content in none on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 12 Jun 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/none/index.xml" rel="self" type="application/rss+xml"/><item><title>m</title><link>https://syui.cf/blog/post/2016/06/12/m/</link><pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/12/m/</guid><description>個人用のメモのプラグインをアップデートしました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>none on syui.cf</title>
+    <link>https://syui.cf/tags/none/</link>
+    <description>Recent content in none on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 12 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/none/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>m</title>
+      <link>https://syui.cf/blog/post/2016/06/12/m/</link>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/12/m/</guid>
+      <description>個人用のメモのプラグインをアップデートしました。
 内容としては、「jsonで書かないオプションを追加し、それが現時点での最新記事(未来の日付)に保存されていく」という仕組み。
 そして、これは、jsonで書いた記事よりも優先的にポストされていく仕組みです。
 更に、プラグイン自体から独立しているので管理が楽?です。
 しかし、注意しなければいけないのは記事のバックアップと間違ってプッシュされてしまわないように気をつけなければならないことです。
 一元管理する場合はこういった手間は不要なのですが、分割するとどうしても注意しなければいけないことが増えます。依存は減ってよいのですけどね。まあ、メリット・デメリットがあるということで。
-それはともかく、これで、多少はjsonの構文に囚われずコードを挿入した記事を書けるので、旧ブログよりは充実していきそうな気がします。</description></item><item><title>gitlab-ci</title><link>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</link><pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</guid><description>GitLab CIを試してみているのですが、結構遅いです。
+それはともかく、これで、多少はjsonの構文に囚われずコードを挿入した記事を書けるので、旧ブログよりは充実していきそうな気がします。</description>
+    </item>
+    
+    <item>
+      <title>gitlab-ci</title>
+      <link>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</guid>
+      <description>GitLab CIを試してみているのですが、結構遅いです。
 ただ、最終的には実行してくれる感じなのでWerckerよりは良くなってくのかも。
 あと、Elmのテンプレートが上手くビルドできなかった。gulp buildで引っかかります。ローカルではOK。
 https://github.com/Gizra/elm-hedley
-image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package install -y - npm i - bower install pages: script: - npm i elm@0.16.0 - gulp build artifacts: paths: - serve https://github.com/isRuslan/awesome-elm</description></item><item><title>置き去りにされた子の話</title><link>https://syui.cf/blog/post/2016/06/10/private/</link><pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/10/private/</guid><description>置き去りにされた子の話 最近、話題になってたニュースというと、置き去りにされた子が行方不明になったという感じの話でした。
+image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package install -y - npm i - bower install pages: script: - npm i elm@0.16.0 - gulp build artifacts: paths: - serve https://github.com/isRuslan/awesome-elm</description>
+    </item>
+    
+    <item>
+      <title>置き去りにされた子の話</title>
+      <link>https://syui.cf/blog/post/2016/06/10/private/</link>
+      <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/10/private/</guid>
+      <description>置き去りにされた子の話 最近、話題になってたニュースというと、置き去りにされた子が行方不明になったという感じの話でした。
 今回は、これについて個人的な考えを述べます。
 まず、世間の反応については予想通りでした。
 親よりも子供への批判が大きかった気がしますし、親への同情的な意見も目立ちました。
@@ -71,26 +109,71 @@ image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package
 つまり、「しばらくしても戻ってなかった」ということを証明しないかぎり、故意は認められず犯罪は不成立で、かつ起訴することすら難しいと考えられます。
 したがって、私は、総合的に考えて保護責任者遺棄罪として本件を捉えるのはちょっと無理があるなーと適当に考えてました。
 まあ、的外れ意見ですが、そんな感じでニュースを見てました。(私が見る限りでは、誰も保護責任者遺棄罪に言及してなかった)
-今回、何がいいたいのかというと、大多数の考えは立場によって構築される傾向にあるということと、刑事罰が成立するまでには長い道のりがあるって感じです。</description></item><item><title>英語で記事を書くためには何が必要か</title><link>https://syui.cf/blog/post/2016/06/09/english/</link><pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/09/english/</guid><description>英語で記事を書くためには何が必要か https://grammarly.com/
+今回、何がいいたいのかというと、大多数の考えは立場によって構築される傾向にあるということと、刑事罰が成立するまでには長い道のりがあるって感じです。</description>
+    </item>
+    
+    <item>
+      <title>英語で記事を書くためには何が必要か</title>
+      <link>https://syui.cf/blog/post/2016/06/09/english/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/09/english/</guid>
+      <description>英語で記事を書くためには何が必要か https://grammarly.com/
 このようなサービスが便利です。
 とあとは、本ですね。海外での英語の教科書(洋書)が良いらしいです。具体的には、Grammar in Useなどが人気です。和書は使わないほうが良いとのこと。
 English Grammar in Use
-Grammar in Use Intermediate</description></item><item><title>Webの何が面倒くさいって</title><link>https://syui.cf/blog/post/2016/06/08/web/</link><pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/08/web/</guid><description>Webの何が面倒くさいって Webの何が面倒くさいかというと、表示確認とその調整です。
+Grammar in Use Intermediate</description>
+    </item>
+    
+    <item>
+      <title>Webの何が面倒くさいって</title>
+      <link>https://syui.cf/blog/post/2016/06/08/web/</link>
+      <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/08/web/</guid>
+      <description>Webの何が面倒くさいって Webの何が面倒くさいかというと、表示確認とその調整です。
 表示はデバイスごとによって異なります。OSごとによっても、ブラウザごとによっても異なります。
 例えば、コンピュータのみで確認を行うため色々なものが用意されていたりします。iPhone用の表示だとか。
 しかし、実機に勝るものはありませんし、実際に確認してみると違った表示がなされます。大抵は違います。
 ここで、私は、MacBook Air, iPhone5s, Nexus7を使って確認するわけですが、これが非常に時間がかかりますし、労力がかかります。
 巷のサイトでは、稀に表示が崩れているサイトとかを見かけますが、大抵の場合はしっかりと対応されています。これは大変なことです。
 更に、ブラウザごとにも表示が異なります。IE, Firefox, Chromeなど。そして、OSごとにも表示が異なります。設定によっても変わってきます。
-この辺りがすごーーーく面倒くさいです。</description></item><item><title>芝をどこまで続けられるか</title><link>https://syui.cf/blog/post/2016/06/08/blog/</link><pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/08/blog/</guid><description>芝をどこまで続けられるか このブログ、ソースコードを公開することにしていて、その理由の一つが芝です。
-本ブログでも芝を表示するようにしてから、Publicの連続更新が可視化されるようになったので、毎日更新を目指したいですね。</description></item><item><title>新しくメモプラグインを作成した</title><link>https://syui.cf/blog/post/2016/06/07/m/</link><pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/07/m/</guid><description>新しくメモプラグインを作成した 新しくメモプラグインを作成しました。
+この辺りがすごーーーく面倒くさいです。</description>
+    </item>
+    
+    <item>
+      <title>芝をどこまで続けられるか</title>
+      <link>https://syui.cf/blog/post/2016/06/08/blog/</link>
+      <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/08/blog/</guid>
+      <description>芝をどこまで続けられるか このブログ、ソースコードを公開することにしていて、その理由の一つが芝です。
+本ブログでも芝を表示するようにしてから、Publicの連続更新が可視化されるようになったので、毎日更新を目指したいですね。</description>
+    </item>
+    
+    <item>
+      <title>新しくメモプラグインを作成した</title>
+      <link>https://syui.cf/blog/post/2016/06/07/m/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/07/m/</guid>
+      <description>新しくメモプラグインを作成した 新しくメモプラグインを作成しました。
 コードも前回の1/100(割りとマジ)くらいになりました。
 また、不都合もありません。コードが少ないので当たり前か&amp;hellip;。
 ただ、コンセプトは前回と変わらず、jsonで直書きですし、メモ自体がプラグインと連携しているので、その辺り変更していきたいと思っています。
 テキストはダウンロードするように変更したい。メモ自体を別の場所から取得する形にすると、プラグインのリポジトリが公開しやすくなります。
 でも、もともとプラグインはgit pull共有前提で作成されていますのでテキストを別にすると二重の手間がかかり適切ではないかもしれません。遅くなります。
 あと、jsonではなくそれを自動で変換する処理を介すると多少は楽になるかもしれません(現時点でもあまり不満は感じてないけど)。
-ただ、変換処理はgo言語でやるとしても色々とあれなんですよね。正しくなかったり、構文エラーが出たり、なかなかに苦労した記憶が。</description></item><item><title>移転</title><link>https://syui.cf/blog/post/2016/06/07/start/</link><pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2016/06/07/start/</guid><description>移転 1年間更新してたサブでやってたブログを移転しました。
+ただ、変換処理はgo言語でやるとしても色々とあれなんですよね。正しくなかったり、構文エラーが出たり、なかなかに苦労した記憶が。</description>
+    </item>
+    
+    <item>
+      <title>移転</title>
+      <link>https://syui.cf/blog/post/2016/06/07/start/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2016/06/07/start/</guid>
+      <description>移転 1年間更新してたサブでやってたブログを移転しました。
 具体的にはこれですね。
 syui.github.io/middleman
 このブログも以前と同じように適当な感じで自動更新されていくと思います。緩めな感じにしないと続きそうもないですし。
@@ -108,4 +191,8 @@ Git Push Botが起動するのが大体24:00くらいですので、その時間
 本家ではまとまったものしか書かないと思います。
 本ブログは英語で 本ブログは、英語で書いていこうかなと思っています。
 本当に下手ですが、英語が読み書きできるようになりたいので。
-あと、英語圏の人の反応とかが来ると嬉しいなあ。</description></item></channel></rss>
+あと、英語圏の人の反応とかが来ると嬉しいなあ。</description>
+    </item>
+    
+  </channel>
+</rss>

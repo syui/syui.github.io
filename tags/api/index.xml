@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>api on syui.cf</title><link>https://syui.cf/tags/api/</link><description>Recent content in api on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 18 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/api/index.xml" rel="self" type="application/rss+xml"/><item><title>MastodonのAPIを使ってみる</title><link>https://syui.cf/blog/post/2017/04/18/api/</link><pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/18/api/</guid><description>まずは、curlでアプリ登録、アクセストークン取得しようとしたんだけど、なぜかJSONでポストしないとアクセストークンが取得できなかった。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>api on syui.cf</title>
+    <link>https://syui.cf/tags/api/</link>
+    <description>Recent content in api on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 18 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MastodonのAPIを使ってみる</title>
+      <link>https://syui.cf/blog/post/2017/04/18/api/</link>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/18/api/</guid>
+      <description>まずは、curlでアプリ登録、アクセストークン取得しようとしたんだけど、なぜかJSONでポストしないとアクセストークンが取得できなかった。
 http://qiita.com/syui/items/b6d07958cc9acf1b9fdc
 Goでクライアント書こうと思ってたら既に作成されてた。しかも、APIリクエスト、ほぼ網羅されてるようですごい。
 https://github.com/mattn/go-mastodon
@@ -6,4 +26,8 @@ https://github.com/mattn/go-mastodon
 https://mstdn.syui.cf/@syui.atom
 https://mstdn.syui.cf/.well-known/webfinger?resource=https://syui.mstdn.cf/@syui
 ref : https://gist.github.com/okapies/60d62d0df0163bbfb4ab09c1766558e8
-やっぱブログに似てるなーという感じがする。</description></item></channel></rss>
+やっぱブログに似てるなーという感じがする。</description>
+    </item>
+    
+  </channel>
+</rss>

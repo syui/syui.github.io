@@ -1,5 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mpv on syui.cf</title><link>https://syui.cf/tags/mpv/</link><description>Recent content in mpv on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 28 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mpv/index.xml" rel="self" type="application/rss+xml"/><item><title>homebrewのmpvでrebuild mpv insteadと言われる件</title><link>https://syui.cf/blog/post/2019/09/28/mpv/</link><pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/09/28/mpv/</guid><description>mpvが動かず
-mpv was compiled against a different version of FFmpeg/Libav than the shared library it is linked against. This is most likely a broken build and could result in misbehavior and crashes.
-mpv does not support this configuration and will not run - rebuild mpv instead.
-とか言われる。これは、mpvがhomebrew/coreからcaskに移行したからっぽい。したがって、一旦、uninstallしてから、caskでinstallすればよさそう。
-$ brew uninstall --ignore-dependencies mpv $ brew cask install mpv</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mpv on syui.cf</title>
+    <link>https://syui.cf/tags/mpv/</link>
+    <description>Recent content in mpv on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 28 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/mpv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>homebrewのmpvでrebuild mpv insteadと言われる件</title>
+      <link>https://syui.cf/blog/post/2019/09/28/mpv/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/09/28/mpv/</guid>
+      <description>mpvが動かず
+ mpv was compiled against a different version of FFmpeg/Libav than the shared library it is linked against. This is most likely a broken build and could result in misbehavior and crashes.
+  mpv does not support this configuration and will not run - rebuild mpv instead.
+ とか言われる。これは、mpvがhomebrew/coreからcaskに移行したからっぽい。したがって、一旦、uninstallしてから、caskでinstallすればよさそう。
+$ brew uninstall --ignore-dependencies mpv $ brew cask install mpv </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>manga on syui.cf</title><link>https://syui.cf/tags/manga/</link><description>Recent content in manga on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/manga/index.xml" rel="self" type="application/rss+xml"/><item><title>マンガの4,5話を描いてみた</title><link>https://syui.cf/blog/post/2020/04/17/manga/</link><pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/17/manga/</guid><description>マンガの4話と5話を描いてみました。cookieが効いてるかもなので、その場合はシークレットモードで。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>manga on syui.cf</title>
+    <link>https://syui.cf/tags/manga/</link>
+    <description>Recent content in manga on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/manga/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>マンガの4,5話を描いてみた</title>
+      <link>https://syui.cf/blog/post/2020/04/17/manga/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/04/17/manga/</guid>
+      <description>マンガの4話と5話を描いてみました。cookieが効いてるかもなので、その場合はシークレットモードで。
 https://syui.cf/manga/
 ひとりごと vueのページも不便だったので作り直したりと思ったより時間がかかってしまいました。
 とはいえ一番はモチベがないと描かないってことかなと思います。モチベがあれば割とすぐ描きますけど、モチベがないと全く描かない。描かないと完成しませんから、モチベが全て。
@@ -8,7 +28,16 @@ https://syui.cf/manga/
 ただ、バトル漫画とか好きですし、描いてるときは楽しかったと思います。それにバトルシーンって読み直していても飽きが少ないような気がします。
 絵の雑さがひどすぎる件。本当にひどい&amp;hellip;もう少し丁寧に描けるといいんですけど。
 「これ下書きですか？」
-「いや、あれが限界なんですよ&amp;hellip;」</description></item><item><title>マンガを1話だけ完成させてみる</title><link>https://syui.cf/blog/post/2020/04/02/manga/</link><pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/04/02/manga/</guid><description>これが1話かどうか怪しいですが、ページ数的には、1話の分量ですね。物語的にも一区切り付きました。
+「いや、あれが限界なんですよ&amp;hellip;」</description>
+    </item>
+    
+    <item>
+      <title>マンガを1話だけ完成させてみる</title>
+      <link>https://syui.cf/blog/post/2020/04/02/manga/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/04/02/manga/</guid>
+      <description>これが1話かどうか怪しいですが、ページ数的には、1話の分量ですね。物語的にも一区切り付きました。
 /manga
 マンガのページはvue.jsで構築しています。次のページボタンと画像URLのリンクを生成。
 できればこちらのリンクから読んだほうが読みやすいと思います。ブログページは画像を縮小して表示するため。
@@ -17,7 +46,16 @@ https://syui.cf/manga/
 物語の構成は、1:海, 2:虹, 3:月となっています。とはいえ、内容があるかと言うと、特にありません。
 オリジナル小説または、ノベルゲームとの関連性はあります。設定はすべてそこから来ているため、キャラやその他の設定を受け継いでいます。今の所、ノベルゲームのスピンオフという位置づけ。しかし、これからどうなるのかは、わかりません。
 唯を追い出した羊は、第423代の大統領。ドラゴンの名前は、ドライ。色はブルーぽい感じ。ゲームの方でも必要になればキャラクター(モンスター)一覧に追加しますが、おそらく、追加しないでしょう。ガララ星に大陸はないの？反対側に一つだけあります。
-ページ /manga</description></item><item><title>再びマンガを描きはじめた話</title><link>https://syui.cf/blog/post/2020/03/24/manga/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/03/24/manga/</guid><description>昔、ちょっとだけよくわからないマンガを書いてたことあります。
+ページ /manga</description>
+    </item>
+    
+    <item>
+      <title>再びマンガを描きはじめた話</title>
+      <link>https://syui.cf/blog/post/2020/03/24/manga/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/03/24/manga/</guid>
+      <description>昔、ちょっとだけよくわからないマンガを書いてたことあります。
 今回、ノベルゲームの物語が進み、ようやく繋がりそうだったので、再びそのあたりをマンガで描いてみることにしました。
 書き直しになるのか、スピンオフになるのか、そんな感じです。
 ノベルゲームも物語を追加したので、気になる方は、続きを読んでみてください。
@@ -28,13 +66,31 @@ https://syui.cf/manga/
 私は、非公開の小説を書いていたり、ゲームを作っていたりして、ゲームで追加したキャラとかもたくさんいて、新しいキャラの影響もあって、非公開(稀に公開)のマンガや小説の設定も成長してきました。その意味でも今回は少しだけ頑張って描いていけたらと思います。
 というか、今、ipadで描いてるんですけど、ipadなら楽しく描けるような気がする。
 マンガは数ページだけnexus7で描いたことがあったのですが、今思うと、作業環境としては猛烈につらかったんだなって&amp;hellip;。
-ipad、買ってよかったじょ！</description></item><item><title>五等分の花嫁、最後のクイズ</title><link>https://syui.cf/blog/post/2020/02/13/manga/</link><pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2020/02/13/manga/</guid><description>五等分の花嫁、最後のクイズが出されたので、一応、答えておくことにします。
+ipad、買ってよかったじょ！</description>
+    </item>
+    
+    <item>
+      <title>五等分の花嫁、最後のクイズ</title>
+      <link>https://syui.cf/blog/post/2020/02/13/manga/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/02/13/manga/</guid>
+      <description>五等分の花嫁、最後のクイズが出されたので、一応、答えておくことにします。
 左から5,2,1,3,4なので、一番右が四葉だと思います。80%の確率で。
 まず手の仕草からわかるのは、5,2,3です。1,4は表情からなんとなくです。
 花嫁は四葉でした。これは個人的な推しということを抜きにしても、最も結婚に向いているのも性格的に四葉だろうなあと思っていて、よかったねーという感想しかない。
 私が好きなキャラ、そういうのに向いてないのが多いんですけどね。平沢唯(けいおん)とかはかせ(日常)とか。
 でも四葉は向いてるんじゃないかなって思います。
-本作は最後まで誰だろうってのが面白くて、ついつい考えたくなっちゃいますね。</description></item><item><title>五等分の花嫁、四葉の秘密</title><link>https://syui.cf/blog/post/2019/03/20/manga/</link><pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/03/20/manga/</guid><description>今、五等分の花嫁ってアニメやってますよね。あれ、漫画を読んでるんですけど、漫画では、色々と明らかになってきてます。
+本作は最後まで誰だろうってのが面白くて、ついつい考えたくなっちゃいますね。</description>
+    </item>
+    
+    <item>
+      <title>五等分の花嫁、四葉の秘密</title>
+      <link>https://syui.cf/blog/post/2019/03/20/manga/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/03/20/manga/</guid>
+      <description>今、五等分の花嫁ってアニメやってますよね。あれ、漫画を読んでるんですけど、漫画では、色々と明らかになってきてます。
 最初に、ちょっとだけキャラクター評価します。
 まず、一花です。一花は、戦略家という感じですね。多分、拒否されるのが怖いんでしょうね。それは、誰もが怖いですし、ニノでも怖いと思う。ただ、現時点で最も勇気がないのは、一花だと思います。恋愛において、それが重要かどうかはわかりません。しかし、&amp;ldquo;勇気&amp;quot;が必要になる場面もあるでしょう。そのタイミング(チャンス)において、一花は不利だと思っています。
 次に、二ノですが、最も高火力、ストレートなキャラです。強いです。現実で言えば、間違いなく勝利するのはニノなんだろなーという感じですね。ただ、これはファンタジーなので、どうなるかはわかりませんね。
@@ -57,7 +113,16 @@ ipad、買ってよかったじょ！</description></item><item><title>五等分
 だから、恋愛において、四葉というキャラクターは、それほど面白くはないのかもしれません。それが私の四葉への正当な評価です。
 また、世の中、色々な考え方があるようで、価値観によっては、四葉の「自分を好きになってもらわなくても、相手が幸せならそれでいい」という考えに対して、「あんたは、本気で人を好きになったことがないから、そんなことを言えるのよ!」とか批判されてしまいそうですね。特に、ニノあたりから。
 私は、四葉の考え方、好きなんですけどね。しかし、人によっては、ムカつく考え方であることも確かだと思うので、それ以外、特に、言うことはありません。
-以上、単なる個人感想でした。</description></item><item><title>漫画描いた4</title><link>https://syui.cf/blog/post/2018/11/14/manga/</link><pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/11/14/manga/</guid><description>read
+以上、単なる個人感想でした。</description>
+    </item>
+    
+    <item>
+      <title>漫画描いた4</title>
+      <link>https://syui.cf/blog/post/2018/11/14/manga/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/11/14/manga/</guid>
+      <description>read
 前回の続きを書いたりした。
 少しだけ丁寧に書いたんだけど、続かなかった。
 気持ちばかり焦って、物語性を付与すると、どうしてもあそこまで書こうってなってしまって、急いでしまう感じだった。
@@ -66,10 +131,28 @@ ipad、買ってよかったじょ！</description></item><item><title>五等分
 やっぱり、文字ばかりだと、読む気が失せると思う。というか、描いている本人が読む気失せてる。
 描いている最中、これは次回、謎だらけになるぞとそう思ったんだけど、どうなんだろう。そのへんはよくわからない。読者からしたら謎でも何でもないのかもしれないし、どうでもいい謎なのかもしれない。もしそうならば、失敗だったとそう思う。
 一応、話は、頭の中でできていて、それを漫画で表現しているという感じなんだけど、絵にするのは難しかったりする。絵以外でも、設定の説明がすごい難しいと思ったりした。
-しかし、とりあえず最後まで進むことにしたい。</description></item><item><title>漫画描いた3</title><link>https://syui.cf/blog/post/2018/11/05/manga/</link><pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/11/05/manga/</guid><description>read
+しかし、とりあえず最後まで進むことにしたい。</description>
+    </item>
+    
+    <item>
+      <title>漫画描いた3</title>
+      <link>https://syui.cf/blog/post/2018/11/05/manga/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/11/05/manga/</guid>
+      <description>read
 前回の続きを書いたりした。
 目標は、文字入力。あと、食べ物を出したりとか、かなあ。
-次は、多分、丁寧さを目指そうって感じなんだけど、&amp;hellip;正直、これはきついね。</description></item><item><title>漫画描いた2</title><link>https://syui.cf/blog/post/2018/10/18/manga/</link><pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/10/18/manga/</guid><description>syui.gitlab.io/manga-kumo
+次は、多分、丁寧さを目指そうって感じなんだけど、&amp;hellip;正直、これはきついね。</description>
+    </item>
+    
+    <item>
+      <title>漫画描いた2</title>
+      <link>https://syui.cf/blog/post/2018/10/18/manga/</link>
+      <pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/10/18/manga/</guid>
+      <description>syui.gitlab.io/manga-kumo
 前回の続きをちょっと描いてみました。
 下書き状態。売り物でもないし、仕上げるのめんどくさいしということで、絵はかなり雑なんですけどね。
 お気づきの方、いるかもしれませんが、私が今まで描いてみたイラストを物語化してみようということで、そこから話を適当に考えています。
@@ -86,7 +169,16 @@ ipad、買ってよかったじょ！</description></item><item><title>五等分
 で、ファイヤウォールを切ったり、調整したりすればいいんですが、わざわざそういうことやりたくないなって。
 となると、パソコンに保存してから文字を入れていくことになるんですけど、私はペンタブすら持っていないので、面倒だなって。
 そもそも全部の作業をタブレットでやりたいし、そこで完結しないと、やっぱり面倒になって、やる気が維持されないって感じなので、心もとないタブレットのNexus7でなんとか作業を完結させたい。
-ともあれ、文字くらいちゃんとしろってことですよね&amp;hellip;がんばります。</description></item><item><title>漫画を描いてみた</title><link>https://syui.cf/blog/post/2018/10/15/manga/</link><pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/10/15/manga/</guid><description>ちょっと前に、どこかで漫画を描ききってみるといいよという話を聞いたような気がしたので、1話だけ最後まで描いてみました。
+ともあれ、文字くらいちゃんとしろってことですよね&amp;hellip;がんばります。</description>
+    </item>
+    
+    <item>
+      <title>漫画を描いてみた</title>
+      <link>https://syui.cf/blog/post/2018/10/15/manga/</link>
+      <pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/10/15/manga/</guid>
+      <description>ちょっと前に、どこかで漫画を描ききってみるといいよという話を聞いたような気がしたので、1話だけ最後まで描いてみました。
 link : syui.gitlab.io/manga-kumo/
 感想 一応、話は読めるように描いたつもりなので、普通に読める内容なら嬉しいです。面白いかどうかは別にして。
 あと、セリフつけるの大変だった。一番大変だったかも。
@@ -106,4 +198,8 @@ mastodon 以下、mastodonでつぶやいた内容を貼り付けておきます
 おもろくはないよな&amp;hellip; 単に漫画?としての体裁でできただけで。 コンセプトだけは明確なんだけどね。
 コンセプト: 表紙を、物語化して、セリフを、入れる!!
 色々な説明は、一切を削ってる。 正直、読者というのは、別に詳しい説明なくても大丈夫だと思う。勝手に補完し、勝手に想像すると思ってるので、そこら辺を全部説明しようとする必要ないと考えてる。
-とはいえ、バックグラウンドの説明はあったほうが面白いとも思うので、適当な合間に入れていけばいいかという程度</description></item></channel></rss>
+とはいえ、バックグラウンドの説明はあったほうが面白いとも思うので、適当な合間に入れていけばいいかという程度</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,8 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gpg on syui.cf</title><link>https://syui.cf/tags/gpg/</link><description>Recent content in gpg on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/gpg/index.xml" rel="self" type="application/rss+xml"/><item><title>gitlab gpg</title><link>https://syui.cf/blog/post/2019/02/19/gpg/</link><pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/02/19/gpg/</guid><description>いつからだったかわかりませんが、gpg keysがunverifiedだったので、verifiedにするテスト。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpg on syui.cf</title>
+    <link>https://syui.cf/tags/gpg/</link>
+    <description>Recent content in gpg on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gitlab gpg</title>
+      <link>https://syui.cf/blog/post/2019/02/19/gpg/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/02/19/gpg/</guid>
+      <description>いつからだったかわかりませんが、gpg keysがunverifiedだったので、verifiedにするテスト。
 https://gitlab.com/help/user/project/repository/gpg_signed_commits/index.md
 追記 :
 .git/にあるgpgのものとemailが違っただけだった。
-$ git config --local user.email example@example.com</description></item><item><title>gitlab-gpg</title><link>https://syui.cf/blog/post/2017/09/13/gpg/</link><pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/09/13/gpg/</guid><description>いつの間にかGitLabでGPGの検証が来ていましたので設定してみましたが、色々とハマりどころ満載でした。(あくまで個人的事情によりですが)
+$ git config --local user.email example@example.com </description>
+    </item>
+    
+    <item>
+      <title>gitlab-gpg</title>
+      <link>https://syui.cf/blog/post/2017/09/13/gpg/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/09/13/gpg/</guid>
+      <description>いつの間にかGitLabでGPGの検証が来ていましたので設定してみましたが、色々とハマりどころ満載でした。(あくまで個人的事情によりですが)
 https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
 まずGitHubとGitLabでGPGの検証方法がだいぶ異なっているので再設定する羽目になりました。共通するキーを使えなかった。その時のメモ。
 私は、基本的には匿名のメールアドレスで設定していました。具体的にはsyui@users.noreply.github.comのような形のものです。これはGitHubのドキュメントにも書かれていますが、ユーザーのプライバシーを保障するため、GitHubではそういったものを登録できます。
@@ -13,19 +42,50 @@ https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
 この辺りの挙動がだいぶGitHubとLab間で違っているので色々と面倒でした。
 できれば匿名アドレスを使いたいのですが、GitLabでGPGをVerifiedにするにはそれは不可能で、なおかつ.gitconfigに設定したemailとGPGのメールアドレスが不一致を見ると今度はGitHubでUnverifiedになってしまいます。
 これは何が問題なのかというと以下のようにできないのが問題なのです。
-Host Rep GPG Verified GitHub 匿名 匿名 Yes GitHub 匿名 実名 No GitLab 匿名 匿名 No GitLab 匿名 実名 Yes 全部実名で行う場合はどちらもYes.ですが、匿名で行う場合、別々のキーを用意するか、または実名キーを使用するかで面倒が生じます。私は、できれば同一のキーを使いたいと考えていますが、その場合はやはり実名アドレスを使うしかないでしょう。反対にキーを別々にしたとしても、一つは実名アドレスを使用するしか無く、この点において匿名を使用する意義が低下します。キーを調べれば一方に実名アドレスが使われている事がわかるからです。
+   Host Rep GPG Verified     GitHub 匿名 匿名 Yes   GitHub 匿名 実名 No   GitLab 匿名 匿名 No   GitLab 匿名 実名 Yes    全部実名で行う場合はどちらもYes.ですが、匿名で行う場合、別々のキーを用意するか、または実名キーを使用するかで面倒が生じます。私は、できれば同一のキーを使いたいと考えていますが、その場合はやはり実名アドレスを使うしかないでしょう。反対にキーを別々にしたとしても、一つは実名アドレスを使用するしか無く、この点において匿名を使用する意義が低下します。キーを調べれば一方に実名アドレスが使われている事がわかるからです。
 また、もしキーを別々にしたとしても、新しい問題が発生します。それはgit commitを行う場合、つまり、GitHubでVerifiedを維持する方向でコミットを行うにはGitHubのリポジトリでわざわざgit config user.emailする必要があるのです。これは、.gitconfig [email]匿名の場合の話です。
 この辺り、非常に面倒くさくなっているのです。
-ということで、もはやGitHubとLab間でGPG認証を行う場合、匿名アドレスを使用するメリットが失われました。できれば匿名アドレスを使い続けたかったのですが、実名アドレスでキーを発行することにしました。本来なら秘匿アドレスで行うものではないのですが、しかし、そういったやり方ができないというか、やろうとするとかなり面倒なことになるので、少し残念です。</description></item><item><title>gpg-mac</title><link>https://syui.cf/blog/post/2017/06/07/gpg/</link><pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/06/07/gpg/</guid><description>この処理によってパスフレーズを短縮可能。OSによってパスフレーズの短縮手法は異なる。
-$ brew install gpg2 gpg-agent pinentry-mac ~/.gnupg/gpg-agent.conf
-use-standard-socket pinentry-program /usr/local/bin/pinentry-mac</description></item><item><title>gpg-keys-2</title><link>https://syui.cf/blog/post/2017/04/02/gpg/</link><pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/02/gpg/</guid><description>GPGでの失敗談です。
+ということで、もはやGitHubとLab間でGPG認証を行う場合、匿名アドレスを使用するメリットが失われました。できれば匿名アドレスを使い続けたかったのですが、実名アドレスでキーを発行することにしました。本来なら秘匿アドレスで行うものではないのですが、しかし、そういったやり方ができないというか、やろうとするとかなり面倒なことになるので、少し残念です。</description>
+    </item>
+    
+    <item>
+      <title>gpg-mac</title>
+      <link>https://syui.cf/blog/post/2017/06/07/gpg/</link>
+      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/06/07/gpg/</guid>
+      <description>この処理によってパスフレーズを短縮可能。OSによってパスフレーズの短縮手法は異なる。
+$ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
+ use-standard-socket pinentry-program /usr/local/bin/pinentry-mac </description>
+    </item>
+    
+    <item>
+      <title>gpg-keys-2</title>
+      <link>https://syui.cf/blog/post/2017/04/02/gpg/</link>
+      <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/02/gpg/</guid>
+      <description>GPGでの失敗談です。
 一つ目はgpg send-keysした後に、search-keysしたのですが、その時、登録されていなかったみたいだったので、一度、その鍵を削除したあと、再度、searchしてみたら登録されてたという。これ、公開鍵を削除できないパターンなんじゃ&amp;hellip;。
 二つ目はGPG鍵を新しくしたので、古い鍵をGitHubから削除したのですが、過去のコミットがUnverifiedになってしまったという。
 いや、ローカルでは古い鍵は秘密鍵を含め削除してるし。これ、公開鍵をGitHubに再登録できないパターンぽい。コミットをPushした時点でVerifiedであれば、ずっと同じVerifiedだと思ってたのだけど違ってたみたいだ。GitHubでは古い公開鍵も登録したままにしとかないと駄目だったぽい。
 これは一応、GitHubに公開鍵を復元できないか問い合わせしてみた。ローカルには保存されてないし、他のサーバーにもアップしてなかったしで、割りとどうしようもなかった。公開鍵だけでもどっかネット上にアップロードしとけばよかった。
 とりあえずバックアップの重要性を再認識した。
-あと、macのgpgコマンド、なんか挙動がおかしい気がする。</description></item><item><title>gpg-key</title><link>https://syui.cf/blog/post/2017/04/01/gpg/</link><pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/01/gpg/</guid><description>AURにPGP登録したこともあって簡潔に情報をまとめておきます。
+あと、macのgpgコマンド、なんか挙動がおかしい気がする。</description>
+    </item>
+    
+    <item>
+      <title>gpg-key</title>
+      <link>https://syui.cf/blog/post/2017/04/01/gpg/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/01/gpg/</guid>
+      <description>AURにPGP登録したこともあって簡潔に情報をまとめておきます。
 https://aur.archlinux.org/account/syui
 # GPG鍵の作成 $ gpg --gen-key # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?
 $ gpg --keyserver pgp.nic.ad.jp --send-keys D6ABB386 $ gpg --send-keys D6ABB386 $ gpg --search-keys D6ABB386 $ gpg --refresh-keys git commit -Sするとエラーが出るのでハマった。パスフレーズを入力できないことが原因。
-$ echo 'no-tty' &amp;gt;&amp;gt; ~/.gnupg/gpg.conf $ GPG_TTY=$(tty) $ export GPG_TTY</description></item></channel></rss>
+$ echo &#39;no-tty&#39; &amp;gt;&amp;gt; ~/.gnupg/gpg.conf $ GPG_TTY=$(tty) $ export GPG_TTY </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>keybase on syui.cf</title><link>https://syui.cf/tags/keybase/</link><description>Recent content in keybase on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/keybase/index.xml" rel="self" type="application/rss+xml"/><item><title>keybaseにmastodonがやって来ました</title><link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link><pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</guid><description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keybase on syui.cf</title>
+    <link>https://syui.cf/tags/keybase/</link>
+    <description>Recent content in keybase on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>keybaseにmastodonがやって来ました</title>
+      <link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</guid>
+      <description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。
 まず、mastodonがkeybase proofに対応するjsonを出力する実装、その他を行い、keybaseが大手mastodonドメインを自サーバー内に登録することによって、連携が可能になりました。ここで、最も連携に重要だったポイントは、keybaseサーバーに特定のドメインが登録されるということでしたので、タイトルを後者にしました。
 しかし、そんなことはどうでもいいです。ユーザーにとって重要なのは、keybaseが何であるのかや、プロフィールにチェックマーク(認証マーク)が付くことだけですから。
 ここで、keybaseを、可能な限り個人証明に適したサイト、及びサービスのこととしておきましょう。
@@ -10,7 +30,16 @@
 どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが
 $ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。
 keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由
-もっと詳しく</description></item><item><title>keybase.pubを使って、keybaseへのリンクにmastodon認証マークを付ける方法</title><link>https://syui.cf/blog/post/2019/02/27/keybase/</link><pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/02/27/keybase/</guid><description>keybase.pubというものがあります。これは、keybase.ioが提供するweb serverで、index.md,htmlを置くと、web pageを表示できます。
+ もっと詳しく</description>
+    </item>
+    
+    <item>
+      <title>keybase.pubを使って、keybaseへのリンクにmastodon認証マークを付ける方法</title>
+      <link>https://syui.cf/blog/post/2019/02/27/keybase/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/02/27/keybase/</guid>
+      <description>keybase.pubというものがあります。これは、keybase.ioが提供するweb serverで、index.md,htmlを置くと、web pageを表示できます。
 https://keybase.pub
 使い方は簡単で、アプリをインストールして、/keybase/public/${USER}にhtml,mdファイルを置きます。ここがrootになります。そして、domainは、${USER}.keybase.pubになります。
 ファイル一覧は、https://keybase.pub/${USER}になります。
@@ -20,4 +49,8 @@ https://keybase.pub
 追記:
 twitterのlinkって、短縮形なので、そのへんが難しいんじゃないかと思っていたら、できました。
 やったことは、以下。
-1. a rel=&amp;quot;me&amp;quot; href=&amp;quot;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;quot;https://mstdn.syui.cf/@syui&amp;quot;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description></item></channel></rss>
+1. a rel=&amp;quot;me&amp;quot; href=&amp;quot;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;quot;https://mstdn.syui.cf/@syui&amp;quot;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
+    </item>
+    
+  </channel>
+</rss>

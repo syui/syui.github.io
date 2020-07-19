@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>book on syui.cf</title><link>https://syui.cf/tags/book/</link><description>Recent content in book on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 18 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/book/index.xml" rel="self" type="application/rss+xml"/><item><title>漫画描いた2</title><link>https://syui.cf/blog/post/2018/10/18/manga/</link><pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/10/18/manga/</guid><description>syui.gitlab.io/manga-kumo
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>book on syui.cf</title>
+    <link>https://syui.cf/tags/book/</link>
+    <description>Recent content in book on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 18 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>漫画描いた2</title>
+      <link>https://syui.cf/blog/post/2018/10/18/manga/</link>
+      <pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/10/18/manga/</guid>
+      <description>syui.gitlab.io/manga-kumo
 前回の続きをちょっと描いてみました。
 下書き状態。売り物でもないし、仕上げるのめんどくさいしということで、絵はかなり雑なんですけどね。
 お気づきの方、いるかもしれませんが、私が今まで描いてみたイラストを物語化してみようということで、そこから話を適当に考えています。
@@ -15,4 +35,8 @@
 で、ファイヤウォールを切ったり、調整したりすればいいんですが、わざわざそういうことやりたくないなって。
 となると、パソコンに保存してから文字を入れていくことになるんですけど、私はペンタブすら持っていないので、面倒だなって。
 そもそも全部の作業をタブレットでやりたいし、そこで完結しないと、やっぱり面倒になって、やる気が維持されないって感じなので、心もとないタブレットのNexus7でなんとか作業を完結させたい。
-ともあれ、文字くらいちゃんとしろってことですよね&amp;hellip;がんばります。</description></item></channel></rss>
+ともあれ、文字くらいちゃんとしろってことですよね&amp;hellip;がんばります。</description>
+    </item>
+    
+  </channel>
+</rss>

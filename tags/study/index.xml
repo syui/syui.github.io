@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>study on syui.cf</title><link>https://syui.cf/tags/study/</link><description>Recent content in study on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 01 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/study/index.xml" rel="self" type="application/rss+xml"/><item><title>憲法の私人間効力など</title><link>https://syui.cf/blog/post/2017/03/01/study/</link><pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/03/01/study/</guid><description>前回、(1)憲法は国王の権力を制限するために考えられた、(2)法解釈は条文が明確であっても、それが多くの人の幸福につながらないなら意味を読み替えて解釈されることもある、みたいな話をしました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>study on syui.cf</title>
+    <link>https://syui.cf/tags/study/</link>
+    <description>Recent content in study on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 01 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/study/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>憲法の私人間効力など</title>
+      <link>https://syui.cf/blog/post/2017/03/01/study/</link>
+      <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/03/01/study/</guid>
+      <description>前回、(1)憲法は国王の権力を制限するために考えられた、(2)法解釈は条文が明確であっても、それが多くの人の幸福につながらないなら意味を読み替えて解釈されることもある、みたいな話をしました。
 それと関連がありそうなのが、憲法の私人間効力の話です。法学という名の法の解釈学において「なぜ法を解釈するのか?」ではなく「どのように法を解釈するのか?」という話になってきます。ただ、なぜ法を解釈するのかという理由については、法解釈する上では通常、その都度説明しなければならないので、一応、まずはそれについて説明します。
 簡単には、憲法は本来的には国家権力を制限するためのものですが、それが私人間(例えば民事訴訟)の紛争解決に使われる場合があります。理由としては、私人間でも人権侵害があれば、憲法を適用しない理由はないというような感じです。法の目的は「個人の尊重」であり「多くの人の幸福」ですので、自然にそうなります。ここまでは前回も説明した話でしたね。
 ここからが「どのように法を解釈するのか?」という話になってきます。
@@ -8,7 +28,16 @@
 これは会社法とか他の法律とかでも同じですね。まあ、会社法自体、民法の幾つかの条文の趣旨を持ってきて解釈、適用することも多いのですが。
 ただ、注意点としては、上記の説明はあくまで例外的なものです。
 他の条文を使っても説明が困難であり、かつ妥当な結論が導けない場合に限り、このような方法で法の解釈がなされることも稀にあるという感じの話なので、あまり一般的なものではありません。
-以上</description></item><item><title>法治主義など</title><link>https://syui.cf/blog/post/2017/02/28/study/</link><pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/02/28/study/</guid><description>はじめに、適当の意味 まず、私がこのブログで書いている内容は、基本、すごく適当です。よく(適当)と表示されていますよね。
+以上</description>
+    </item>
+    
+    <item>
+      <title>法治主義など</title>
+      <link>https://syui.cf/blog/post/2017/02/28/study/</link>
+      <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/02/28/study/</guid>
+      <description>はじめに、適当の意味 まず、私がこのブログで書いている内容は、基本、すごく適当です。よく(適当)と表示されていますよね。
 ここで「適当」という言葉の意味は文字通りで、私は文章を書く際に何かを参照することはほとんどないためです。
 私は思いついたことを思いついたまま書き連ねていく方式を採用していて、その意味ですごい適当なのです。
 文章を書く際、検索エンジンを使うことも、資料を読むことも、本を読むこともありません。なので、その点については注意してください。
@@ -52,7 +81,16 @@ http://www.ab.cyberhome.ne.jp/~shiva/
 なぜ法治主義から法の支配に発展したのかというと、法治主義を根拠に多くの人権侵害が行われたからです。これは、法治主義が適用される主体を行政権に限定したことで、それ以外の機関からなら人権侵害は可能だと捉えられてしまったのです。また、法に書いてさえあれば、どんな人権侵害も許されると解釈されてしまったことによっても、法治主義を人権侵害の抗弁に利用、悪用されてしまう危険がありました。
 そんなこともあり、法の支配の概念は、対象を限定せず、かつ法律に書いてあってもできないことはあるということを明確にしたものへと発展したと考えられています。日本で採用されているのは、法治主義ではなく、どちらかというと法の支配であり、その根拠はいくつかの憲法上の条文から導かれていると考えられています(通説的には)。
 めちゃくちゃ適当な内容ですが、こんな感じのことを適当に思いました。(あまりテキスト問題集読んでなかった&amp;hellip;)
-以上</description></item><item><title>当事者主義など</title><link>https://syui.cf/blog/post/2017/02/27/study/</link><pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/02/27/study/</guid><description>当事者主義 これは民事訴訟でも刑事訴訟でも同じなのですけど、裁判というのは、大抵、当事者主義を採用しています。当事者というのは、訴えまたは訴えられることによって判決の名宛人になる人のことです。
+以上</description>
+    </item>
+    
+    <item>
+      <title>当事者主義など</title>
+      <link>https://syui.cf/blog/post/2017/02/27/study/</link>
+      <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/02/27/study/</guid>
+      <description>当事者主義 これは民事訴訟でも刑事訴訟でも同じなのですけど、裁判というのは、大抵、当事者主義を採用しています。当事者というのは、訴えまたは訴えられることによって判決の名宛人になる人のことです。
 ここで、当事者主義というのは何なのかというと、紛争は当事者間で法的に解決すべき問題だという感じのものです。
 例えば、翻訳結果の使用に関しての権利主張があったとして(権利主張があるまでは法的な問題は発生しない)、それは、第三者が当事者に向かって法的主張を行う問題ではなく、あくまで権利を侵害された者が、その権利を侵害したとされる者、被告(人)に対して訴訟を提起し、その権利の回復を求める問題なのだと思います。
 なぜ当事者主義が採用されているのかというと、例えば、刑事訴訟では当事者が真実究明に熱心であること及び、裁判所や第三者に主導権を与えても、裁判所や第三者の負担が増大するだけでなく、真実の発見が遠のくのではないかと考えられているからです。刑事訴訟の目的の一つは真実の発見であることから、そうなっていますが、しかし、その根拠は、一部で民事訴訟にも通じるものではあるんじゃないかなーと思います(そう感じるだけ)。
@@ -73,4 +111,8 @@ http://www.ab.cyberhome.ne.jp/~shiva/
 何かあった時に「訴えてやる、損賠賠償だ!」と言うのは簡単かもしれませんが、裁判所は無駄な訴訟を減らすなどのため、当事者適格や訴訟要件などを厳格に審査し、それらの条件を満たしている場合に限り訴訟が開始されるようになっています。
 そのため、確かに訴訟リスクはゼロではありませんが、訴訟の乱用や乱発を防ぐための法律(主に手続法)が幾つかあるので、そのリスクを過剰なまでに考慮すべきではないのかもしれません。と私はそんなことを思いました。
 以上
-(ストック切れかけていたし、ついでに同テーマで適当に続けていこう&amp;hellip;)</description></item></channel></rss>
+(ストック切れかけていたし、ついでに同テーマで適当に続けていこう&amp;hellip;)</description>
+    </item>
+    
+  </channel>
+</rss>

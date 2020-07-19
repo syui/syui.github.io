@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>video on syui.cf</title><link>https://syui.cf/tags/video/</link><description>Recent content in video on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/video/index.xml" rel="self" type="application/rss+xml"/><item><title>ffmpegでPSP用のmp4に変換する</title><link>https://syui.cf/blog/post/2018/12/12/psp/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/12/12/psp/</guid><description>PSPは、なかなか動画が再生できません。とても苦労します。
-path : ./xxx.mp4, ./t.zsh
-./t.zsh
-#!/bin/zsh d=${0:a:h} dd=$d/out mkdir -p $dd for f in *.mp4; do ffmpeg -y -i $f -flags +bitexact -vcodec libx264 -profile:v baseline -level 3.0 -s 480x272 -r 29.97 -b:v 384k -acodec aac -b:a 96k -ar 48000 -f psp -strict -2 $dd/${f%.*}_psp.MP4 ffmpeg -i $f -f image2 -ss 5 -vframes 1 -s 160x120 $dd/${f%.*}_psp.THM done $ chmod +x ./t.zsh;./t.zsh</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>video on syui.cf</title>
+    <link>https://syui.cf/tags/video/</link>
+    <description>Recent content in video on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ffmpegでPSP用のmp4に変換する</title>
+      <link>https://syui.cf/blog/post/2018/12/12/psp/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/12/12/psp/</guid>
+      <description>PSPは、なかなか動画が再生できません。とても苦労します。
+ path : ./xxx.mp4, ./t.zsh
+  ./t.zsh
+ #!/bin/zsh d=${0:a:h} dd=$d/out mkdir -p $dd for f in *.mp4; do ffmpeg -y -i $f -flags +bitexact -vcodec libx264 -profile:v baseline -level 3.0 -s 480x272 -r 29.97 -b:v 384k -acodec aac -b:a 96k -ar 48000 -f psp -strict -2 $dd/${f%.*}_psp.MP4 ffmpeg -i $f -f image2 -ss 5 -vframes 1 -s 160x120 $dd/${f%.*}_psp.THM done  $ chmod +x ./t.zsh;./t.zsh
+ </description>
+    </item>
+    
+  </channel>
+</rss>

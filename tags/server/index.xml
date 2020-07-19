@@ -1,19 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>server on syui.cf</title><link>https://syui.cf/tags/server/</link><description>Recent content in server on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sat, 16 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/server/index.xml" rel="self" type="application/rss+xml"/><item><title>google-cloud-kubernetes</title><link>https://syui.cf/blog/post/2017/09/16/server/</link><pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/09/16/server/</guid><description>AWS(Amazon Web Service)の対抗であるGoogle Cloud PlatformのContainer Engineがかなり便利なのですが、注意点があるので、それについて。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>server on syui.cf</title>
+    <link>https://syui.cf/tags/server/</link>
+    <description>Recent content in server on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 16 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>google-cloud-kubernetes</title>
+      <link>https://syui.cf/blog/post/2017/09/16/server/</link>
+      <pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/09/16/server/</guid>
+      <description>AWS(Amazon Web Service)の対抗であるGoogle Cloud PlatformのContainer Engineがかなり便利なのですが、注意点があるので、それについて。
 Google Cloud Platform(以降、GCP)は、無料枠で使うにしてもまずクレジットカードの登録が必要です。プリペイドカード(V-プリカなど)での登録は不可能です。
 また、無料枠で使うにはコツがいります。具体的にはデフォルトの設定では一定期間後に多大な料金が課金されるような仕組みになっていると思うので注意が必要な感じです。
 ここで、Google Container Engine(以降、GKE)の無料枠で使用できるのは最小インスタンスx1(f1-micro)とストレージ5GBのようです。その辺を注意して使いましょう。また、固定IPを取得できるのですが、サーバーを消し上でこれを削除する必要があります。
-Google Cloud Platform を使い始めた頃は、無料トライアル期間の300ドルのクレジットがあったので、サーバーを作りまくって色々試しました。作成したサーバーをトライアル期間終了前にしっかり削除したのところまでは良かったのですが、固定IPアドレスをそのままにして痛い目をみたことがありました(^^;)
+ Google Cloud Platform を使い始めた頃は、無料トライアル期間の300ドルのクレジットがあったので、サーバーを作りまくって色々試しました。作成したサーバーをトライアル期間終了前にしっかり削除したのところまでは良かったのですが、固定IPアドレスをそのままにして痛い目をみたことがありました(^^;)
 このような目にあわないように、サーバーを削除したら不要な固定IPアドレスは必ず削除しましょう。
-https://blog.apar.jp/web/6966/
+ https://blog.apar.jp/web/6966/
 通常、固定IPを取得するには結構な費用が必要で、GCPが提供するそれ自体は相当に安いと思うのですが、元々固定IPの維持費は高いので、その辺は注意が必要だと思います。
 f1-microというのは、ようは自分の端末から常時接続できるIaaSのインスタンスです。これが無料であることは非常に頼もしいというか、お得なことです。通常はレンタルサーバーを有料で借りて接続したり、またはPaaSへのデプロイやrunをするわけですが、PaaSの場合はSSHで直接操作できるわけではありません。この辺の違いにおいて、痒いところにも手が届きやすくなったと言えるでしょう。しかし、注意も必要で、SSHで接続できるようになったということは、セキュリティ上のリスクが上昇したとも言えます。SSH総当たり攻撃などによってトラフィックが増加し、そのために課金が増えるなんてこともありえるかもしれません。
 で、どんな感じでGKEを使えばいいだろうというと、個人的にはGitLabでAuto DevOpsが登場しましたので、そちらの方で利用していきたいなと思っています。GitLabのAuto DevOpsはクラスタ構成が利用可能な場合、現在のアプリケーションをKubernetesにデプロイするものです。Kubernetesのデプロイ先はGKEを利用します。多分、そんな感じで使っていくのがオススメなのではないかなと。
-# git repoのrootにDockerfileとapplication.codeを置く $ ls Dockerfile server.rb $ git init $ git remote add origin git@gitlab.com:$USER/$REPO_NAME $ git add . $ git commit -m &amp;#39;first demo&amp;#39; $ git push -u origin master or fork : git@gitlab.com:gitlab-examples/minimal-ruby-app.git # 必要なものセットアップ $ brew install caskroom/cask/brew-cask $ brew cask install google-cloud-sdk $ gcloud components install kubectl $ gcloud auth login # Connect to the cluster $ gcloud container clusters get-credentials ruby-autodeploy --zone europe-west2-c --project api-project-XXXXXXX $ kubectl proxy # Kubernetes &amp;gt; Secrets under the Config &amp;gt; ca.</description></item><item><title>cloudflare</title><link>https://syui.cf/blog/post/2017/04/14/server/</link><pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/14/server/</guid><description>現在、freenomで取得したドメインからsyui.gitlab.ioへリダイレクトして繋いでるんだけど、そのためのネームサーバー及びSSLの設定に使ってるCloudFlareが522 Errorを吐きまくるので、接続が安定しない問題があった。
+# git repoのrootにDockerfileとapplication.codeを置く $ ls Dockerfile server.rb $ git init $ git remote add origin git@gitlab.com:$USER/$REPO_NAME $ git add . $ git commit -m &amp;#39;first demo&amp;#39; $ git push -u origin master or fork : git@gitlab.com:gitlab-examples/minimal-ruby-app.git # 必要なものセットアップ $ brew install caskroom/cask/brew-cask $ brew cask install google-cloud-sdk $ gcloud components install kubectl $ gcloud auth login # Connect to the cluster $ gcloud container clusters get-credentials ruby-autodeploy --zone europe-west2-c --project api-project-XXXXXXX $ kubectl proxy # Kubernetes &amp;gt; Secrets under the Config &amp;gt; ca.</description>
+    </item>
+    
+    <item>
+      <title>cloudflare</title>
+      <link>https://syui.cf/blog/post/2017/04/14/server/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/14/server/</guid>
+      <description>現在、freenomで取得したドメインからsyui.gitlab.ioへリダイレクトして繋いでるんだけど、そのためのネームサーバー及びSSLの設定に使ってるCloudFlareが522 Errorを吐きまくるので、接続が安定しない問題があった。
 https://support.cloudflare.com/hc/en-us/articles/200171906-Error-522
 https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/
 調べてみると、これはGitLabで以下の変更があったためだった。
-Update: GitLab Pages IP address on GitLab.com has changed from 104.208.235.32 to 52.167.214.135. Updated by Marcia Ramos on 2017/03/06.
-なので、CloudFlareでDNS A recordを104.208.235.32から52.167.214.135に変更。Firewallのwhite listにも追加されていることを確認。
+ Update: GitLab Pages IP address on GitLab.com has changed from 104.208.235.32 to 52.167.214.135. Updated by Marcia Ramos on 2017/03/06.
+ なので、CloudFlareでDNS A recordを104.208.235.32から52.167.214.135に変更。Firewallのwhite listにも追加されていることを確認。
 3/6から522 Errorでsyui.cfにアクセスできない(リダイレクトされない)状態だったみたいなので辛い。
 追記 :
-この問題に対処してから1日後にGitLabからメールのお知らせが来た&amp;hellip;遅いよ!</description></item></channel></rss>
+この問題に対処してから1日後にGitLabからメールのお知らせが来た&amp;hellip;遅いよ!</description>
+    </item>
+    
+  </channel>
+</rss>

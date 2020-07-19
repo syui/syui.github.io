@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>running on syui.cf</title><link>https://syui.cf/tags/running/</link><description>Recent content in running on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Thu, 02 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/running/index.xml" rel="self" type="application/rss+xml"/><item><title>久しぶりに12kmを走った</title><link>https://syui.cf/blog/post/2018/08/02/running/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/08/02/running/</guid><description>私は、毎日、日課として、筋トレとランニングをやってるんですが、いつもは6kmくらい走ってるだけなんですよね。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>running on syui.cf</title>
+    <link>https://syui.cf/tags/running/</link>
+    <description>Recent content in running on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 02 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/running/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>久しぶりに12kmを走った</title>
+      <link>https://syui.cf/blog/post/2018/08/02/running/</link>
+      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/08/02/running/</guid>
+      <description>私は、毎日、日課として、筋トレとランニングをやってるんですが、いつもは6kmくらい走ってるだけなんですよね。
 一時期、12km走ってたことあったけど、きつすぎてやめました。
 でも、1週間に一度くらいは、いいかもねと思って、たまに12kmコースも走りました。
 とは言え、本音として、日課、つらいです。
@@ -12,4 +32,8 @@
 一応、ちょっと調べてみると、1年くらい前にタイムを測ってみたことがあったぽくて、えっと、21km試しに走ってみたことがあったんですが、ハーフマラソンって言う感じなんでしょうか。で、1時間27分とかかってるんですよね。正直、タイムとか見てもよくわかんないんですが、詳しい人が見たら一発で「え&amp;hellip;そんな遅く走れるものなの!?」ということがバレてしまうと思う。
 やっぱり、含蓄(がんちく)がある人の含蓄(がんちく)がある言葉は、事実を的確に現していて、耳がちょっとだけ痛いなー。
 そんな感じで思ったことが最近あったりしました。
-以上。</description></item></channel></rss>
+以上。</description>
+    </item>
+    
+  </channel>
+</rss>

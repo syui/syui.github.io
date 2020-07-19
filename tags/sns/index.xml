@@ -1,23 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sns on syui.cf</title><link>https://syui.cf/tags/sns/</link><description>Recent content in sns on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/sns/index.xml" rel="self" type="application/rss+xml"/><item><title>Herokuで立てる分散SNS</title><link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid><description>今回は、Herokuで立てる分散SNSの話です。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sns on syui.cf</title>
+    <link>https://syui.cf/tags/sns/</link>
+    <description>Recent content in sns on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/sns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Herokuで立てる分散SNS</title>
+      <link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid>
+      <description>今回は、Herokuで立てる分散SNSの話です。
 アドベントカレンダーに参加しています。
-Heroku Advent Calendar 2019
-分散SNS Advent Calendar 2019
-Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
+  Heroku Advent Calendar 2019
+  分散SNS Advent Calendar 2019
+  Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
 Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPaaSだと思っています。今までOpenShiftやIBM Cloud(Bluemix)など様々なサービスを試してきましたが、その中では総合的に見てHerokuが一番でした。(あくまで個人的見解
 さて、そんなHerokuですが、サービスとしての認知度は高く、定評があり、人気もあるので、知っている人は多いかと思います。
 ですが、Herokuがどういった会社なのかを知る人は少ないと思うので、今回は少しだけそのへんを考えてみたいと思います。
 まず下のページを読んでみてください。
-Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description></item><item><title>mastdon-heroku-build</title><link>https://syui.cf/blog/post/2017/05/26/sns/</link><pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/05/26/sns/</guid><description>古くからHeroku DeployしているUserはheroku buildpackが入ってないので以下のErrorがでると思われ、それをDeployできるようにした。
+ Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description>
+    </item>
+    
+    <item>
+      <title>mastdon-heroku-build</title>
+      <link>https://syui.cf/blog/post/2017/05/26/sns/</link>
+      <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/05/26/sns/</guid>
+      <description>古くからHeroku DeployしているUserはheroku buildpackが入ってないので以下のErrorがでると思われ、それをDeployできるようにした。
 $ git push heroku master Gem::Ext::BuildError: ERROR: Failed to build gem native extension. https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt
 $ heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt $ heroku run bash -a apt-pg-test # heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git $ echo libpq-dev &amp;gt;&amp;gt; Aptfile $ git add Aptfile $ git commit -m &amp;#34;add : aptfile libpq-dev&amp;#34; URL :
 http://tooky.co.uk/using-charklock_holmes-on-heroku/
 なお、mastodon(master)はfileの場所がコロコロ変わるし継続してmergeする状況ではないため、custom(original)はやめることにした。
-現在の最新は1.4.0, 使用は1.3.2です。</description></item><item><title>Mastodonの画像キャッシュやタイムライン</title><link>https://syui.cf/blog/post/2017/04/26/sns/</link><pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/26/sns/</guid><description>Mastodonの購読は少し複雑になっていて、/lib/tasksにあるスクリプトによって処理するよう管理者に促されており、cronで定期的に実行するような感じ。
+現在の最新は1.4.0, 使用は1.3.2です。</description>
+    </item>
+    
+    <item>
+      <title>Mastodonの画像キャッシュやタイムライン</title>
+      <link>https://syui.cf/blog/post/2017/04/26/sns/</link>
+      <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/26/sns/</guid>
+      <description>Mastodonの購読は少し複雑になっていて、/lib/tasksにあるスクリプトによって処理するよう管理者に促されており、cronで定期的に実行するような感じ。
 https://github.com/tootsuite/mastodon/blob/master/lib/tasks/mastodon.rake
 Herokuの場合はSchedulerというものがあって、これで定期的に処理を実行可能なので設定する。
 $ heroku addons:add scheduler:standard $ heroku addons:open scheduler &amp;gt; rake mastodon:daily Streaming APIとかの情報もあって気になる。
 https://github.com/zunda/mastodon/wiki/CreateInstanceOnHeroku
-https://github.com/tootsuite/documentation/blob/master/Using-the-API/Streaming-API.md</description></item><item><title>Mastodonのインスタンにオートスクロールなどを付けた</title><link>https://syui.cf/blog/post/2017/04/25/sns/</link><pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/25/sns/</guid><description>機能としては、ユーザーのパブリックページにjk移動やオートスクロールを付けた。 /@syui
+https://github.com/tootsuite/documentation/blob/master/Using-the-API/Streaming-API.md</description>
+    </item>
+    
+    <item>
+      <title>Mastodonのインスタンにオートスクロールなどを付けた</title>
+      <link>https://syui.cf/blog/post/2017/04/25/sns/</link>
+      <pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/25/sns/</guid>
+      <description>機能としては、ユーザーのパブリックページにjk移動やオートスクロールを付けた。 /@syui
 ハマりどころが多すぎて何から解説していいのかわからないけど、覚えている限りで適当に書いてく。
 まず、/publicに置いたファイルが更新されてなかったのでハマりまくった。ソースからスクリプトを見てみると、デプロイしたにも関わらず変更されてない箇所があった。
 自動アップデートも含め、かなり複雑な手順を踏んでデプロイしているため、正直、何が原因でそうなってるのかの特定が面倒だった。最初はそのコード自体が危険で、あまり順当でないやり方で書いたためビルド段階でコードが排除されたのではないかと考えた。プロテクトやLint関連かなとか思った。デプロイが上手くいってるのにコードが一部消されているというのはそういうことだと思った。
@@ -30,7 +77,25 @@ https://mstdn.syui.cf/@syui/589
 オートスクロールで使ったプラグインに手を入れて、そのあたりスムーズになるように調整できるかもしれないので、やる気があればやるかもしれない。
 https://github.com/gilbitron/Infiniscroll
 Mastodon本体を変更すれば速いんだけど、しかし、あまり変更しすぎると、今度は自動アップデートが失敗するというか、自分が変更したファイルがきっかけで動かない可能性が高まるので、できる限りユーザー設定ぽいコード以外の箇所は変更したくないなというのはある。
-以上</description></item><item><title>MastodonのEmoji</title><link>https://syui.cf/blog/post/2017/04/18/sns/</link><pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/18/sns/</guid><description>:emoji:みたいな短縮で書いたのだけど、モバイルのブラウザではテキストをコピーしないと表示されなかった。</description></item><item><title>Heroku+Mastodon</title><link>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</link><pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</guid><description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。herokuで立ててみたので、その運営に関するまとめです。
+以上</description>
+    </item>
+    
+    <item>
+      <title>MastodonのEmoji</title>
+      <link>https://syui.cf/blog/post/2017/04/18/sns/</link>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/18/sns/</guid>
+      <description>:emoji:みたいな短縮で書いたのだけど、モバイルのブラウザではテキストをコピーしないと表示されなかった。</description>
+    </item>
+    
+    <item>
+      <title>Heroku&#43;Mastodon</title>
+      <link>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</guid>
+      <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。herokuで立ててみたので、その運営に関するまとめです。
 https://mstdn.syui.cf/
 TwitterとMastodon Twitterには前から不穏な空気はあって、主に経営が云々という理由などからですが、一体どこに移転しようかということを思っていたユーザーは多かったのではないでしょうか。
 私は、Twitterは結構好きで、アイコンとかアプリとかすごいよくできていて面白いし、ユーザーも多いし、シンプルだし色々素晴らしいのですが、しかし、経営があまりうまくいってないみたいな話があって。
@@ -57,4 +122,8 @@ https://mstdn.syui.cf/
 mastodonの使い方だけど、基本的にはdockerで動かす形になる。
 簡単に言うとこちらのリポジトリtootsuite/mastodonを見ながら使用されている技術などを読み解きながらHeroku Deployして色々やる。
 まずは確認から。なんとなく使われてる技術、どうやって動いてるのかなどをゆるく把握する。
-# https://github.com/tootsuite/mastodon/blob/master/README.md $ docker-compose build $ docker-compose run --rm web rake secret ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行 $ cp .env.production.sample .env.production $ vim !$ ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。 $ docker-compose run --rm web rails db:migrate $ docker-compose run --rm web rails assets:precompile $ docker-compose up # LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する) $ curl localhost:3000 次に、Heroku Deployを実行してみる。簡単に.</description></item></channel></rss>
+# https://github.com/tootsuite/mastodon/blob/master/README.md $ docker-compose build $ docker-compose run --rm web rake secret ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行 $ cp .env.production.sample .env.production $ vim !$ ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。 $ docker-compose run --rm web rails db:migrate $ docker-compose run --rm web rails assets:precompile $ docker-compose up # LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する) $ curl localhost:3000 次に、Heroku Deployを実行してみる。簡単に.</description>
+    </item>
+    
+  </channel>
+</rss>

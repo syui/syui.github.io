@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nmap on syui.cf</title><link>https://syui.cf/tags/nmap/</link><description>Recent content in nmap on syui.cf</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><copyright>&amp;copy; 2019. All rights reserved.</copyright><lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/nmap/index.xml" rel="self" type="application/rss+xml"/><item><title>macでnmapを試してみよう</title><link>https://syui.cf/blog/post/2018/07/30/nmap/</link><pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate><guid>https://syui.cf/blog/post/2018/07/30/nmap/</guid><description>この前、nmapでport scanする機会があったので、その時の話。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nmap on syui.cf</title>
+    <link>https://syui.cf/tags/nmap/</link>
+    <description>Recent content in nmap on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/nmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>macでnmapを試してみよう</title>
+      <link>https://syui.cf/blog/post/2018/07/30/nmap/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/07/30/nmap/</guid>
+      <description>この前、nmapでport scanする機会があったので、その時の話。
 portというのは、ネットワークの通信番号のことで、通常はこの番号を指定して通信のやり取りが行われる。firewallは、どの番号を閉じ、どの番号を開けるのか指定できたりする。
 で、nmapでscanすると、どのportが開いてるのかを調べられたりするんですけど、不要なportは閉じておいたほうがいいし、backdoorなどが設置されてる場合、管理者に覚えがないportが勝手に開けられてたりすることがある。
 この前、macをnmapしてみると、こんな感じだった。
@@ -6,4 +26,8 @@ $ nmap localhost PORT STATE SERVICE 111/tcp open rpcbind 631/tcp open ipp 1021/t
 具体的には、macは/System/Library/{LaunchDaemons,LaunchAgents}で起動プロセスが設定されてるらしい。ちなみに、管理者とユーザーでは異なるprocが起動するので、両方チェックする必要がある。
 使わないアプリが勝手に起動し、特定のportを開けている現状は望ましくない。この辺は商用OS?なので、archlinuxなどとは違い、面倒くささがあるなと思った。自分でそういったprocをkillしていかないといけないわけですね。
 procについて調べるには以下のようなコマンドでやる。
-$ lsof -i tcp:49163 rapportd 402 syui 3u xxxx TCP *:49158 (LISTEN) # proc 402をkill $ lsof -p 402 $ codesign -dv --verbose=4 /usr/libexec/rapportd $ otool -L /usr/libexec/rapportd $ launchctl list | grep 402 $ launchctl stop com.</description></item></channel></rss>
+$ lsof -i tcp:49163 rapportd 402 syui 3u xxxx TCP *:49158 (LISTEN) # proc 402をkill $ lsof -p 402 $ codesign -dv --verbose=4 /usr/libexec/rapportd $ otool -L /usr/libexec/rapportd $ launchctl list | grep 402 $ launchctl stop com.</description>
+    </item>
+    
+  </channel>
+</rss>
