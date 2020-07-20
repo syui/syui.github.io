@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>イラストを修正してみた</title>
+      <link>https://syui.cf/blog/post/2020/07/21/illust/</link>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/07/21/illust/</guid>
+      <description>過去のイラストを整理したついでに、納得いかないイラストを書き直したりしてた。
+/imgall</description>
+    </item>
     
     <item>
       <title>イラスト描いてみた29</title>
