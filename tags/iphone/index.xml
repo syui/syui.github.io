@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iphone on syui.cf</title>
+    <link>https://syui.cf/tags/iphone/</link>
+    <description>Recent content in iphone on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://syui.cf/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iphone seを修理した</title>
+      <link>https://syui.cf/blog/post/2020/07/22/iphone/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/07/22/iphone/</guid>
+      <description>iphone seのバッテリーがおかしいので、何度か新しいバッテリーに付け替えてみたのだけど充電してるのに増えない現象が直らなかった。原因はバッテリーでもコードでもなく、本体やソフトウェアかなと思ってる。
+増えたり、増えなかったり、充電してても減ったり、と状態がすごく不安定。
+そして、何度も分解してると、両面テープが剥がれてきて、それが原因でディスプレイの細いコードが切れてしまって、ディスプレイが映らなくなってしまった。
+使っていないiphone 5sのディスプレイに付け替えてみたら、互換性があったようで、seのディスプレイが直った。
+seと5sは互換性のある部品を使い回せるのはいいね。
+とはいえ、バッテリーは直ってないので、新しいスマホを注文することにした。
+結果として、5sは使えない状態になり、seは使えるけどバッテリー問題ありの状態になってる。
+https://jp.ifixit.com/Teardown/iPhone+5s+Teardown/17383#s52361</description>
+    </item>
+    
+  </channel>
+</rss>
