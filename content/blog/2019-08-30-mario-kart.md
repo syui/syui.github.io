@@ -10,8 +10,6 @@ slug = "switch"
 
 今回は、バナナコースをクリアしてみました。しかし、ひどい走りだ...。
 
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube-nocookie.com/embed/L99TZyZeC54?rel=0&amp;controls=0&amp;showinfo=0&amp;ecver=2" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
-
 ## マリオカートは運
 
 マリオカートは運です。運が良ければ勝てるし、悪ければ負けます。マリオカート8は更に運要素が強くなった気がする。
