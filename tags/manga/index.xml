@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/tags/manga/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>漫画を2話まで仕上げてみた</title>
+      <link>https://syui.cf/blog/post/2020/08/14/manga/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/08/14/manga/</guid>
+      <description>漫画を2話まで書き直してみました。2話は戦いの話です。
+/manga
+全部で44ページになりました。ページ数は少し増えた気がする。ブログを見ると8/5から書き直しを開始、8/14で44ページほぼ全部を書き直したので、少し多めに見積もって9日間で約40ページあげた計算になります。
+もちろん、元になる下書き？あってのことですが、気に入らなくて下書き全削除した箇所も結構多かった。
+感想としては、楽しかったのと、きつかったの半々くらいかな。</description>
+    </item>
     
     <item>
       <title>漫画のrewriteを継続中</title>
