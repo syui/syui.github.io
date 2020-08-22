@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>やっと3話まで完成した</title>
+      <link>https://syui.cf/blog/post/2020/08/22/manga/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/08/22/manga/</guid>
+      <description>以前描いた漫画をrewriteしててやっと既存の3話まで完成しました。
+読み直してみて、完璧に納得してるわけではないですけど、前よりはいいものに仕上がったのではないかと思います。
+これからはもう少し丁寧に描こうと思ったのでした。以上。</description>
+    </item>
     
     <item>
       <title>ポケマス、最近の進捗</title>
