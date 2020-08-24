@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>manga</title>
+      <link>https://syui.cf/tags/manga/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/manga/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>illust</title>
@@ -18,15 +27,6 @@
       <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/illust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>manga</title>
-      <link>https://syui.cf/tags/manga/</link>
-      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/manga/</guid>
       <description></description>
     </item>
     
