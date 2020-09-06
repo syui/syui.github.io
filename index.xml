@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ポケモンGo、シーズン3</title>
+      <link>https://syui.cf/blog/post/2020/09/06/pogo/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/09/06/pogo/</guid>
+      <description>何かのはずみでランク9に到達しちゃいました。
+これ運ゲーなので運が良かっただけなんですけどね。</description>
+    </item>
     
     <item>
       <title>イラスト描いてみた38</title>
