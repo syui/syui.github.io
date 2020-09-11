@@ -36,6 +36,7 @@ jobs:
            cp -rf ./dist/*.js ./static/manga
            cp -rf ./dist/*.css ./static/manga
            cp -rf ./dist/*.map ./static/manga
+           hugo version
            TZ=Asia/Tokyo hugo
            touch ./public/.nojekyll
            cp ./CNAME ./public/
