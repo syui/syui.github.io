@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pokemon</title>
+      <link>https://syui.cf/tags/pokemon/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pokemon/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>illust</title>
@@ -18,15 +27,6 @@
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/illust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pokemon</title>
-      <link>https://syui.cf/tags/pokemon/</link>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pokemon/</guid>
       <description></description>
     </item>
     
