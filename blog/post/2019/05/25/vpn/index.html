@@ -120,26 +120,26 @@ $ sudo docker-compose up -d
 </code></pre></div><blockquote>
 <p>docker-compose.yml</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">network</span>:
-  <span style="color:#66d9ef">image</span>: busybox
-  <span style="color:#66d9ef">ports</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">network</span>:
+  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox</span>
+  <span style="color:#f92672">ports</span>:
     - <span style="color:#e6db74">&#34;9700:443&#34;</span>
     - <span style="color:#e6db74">&#34;1194:1194/udp&#34;</span>
-  <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">tty</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">mongo</span>:
-  <span style="color:#66d9ef">image</span>: mongo
-  <span style="color:#66d9ef">volumes</span>:
-    - ./mongo:/data/db
-  <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">net</span>: container:network
-<span style="color:#66d9ef">pritunl</span>:
-  <span style="color:#66d9ef">image</span>: fridus/pritunl
-  <span style="color:#66d9ef">privileged</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">environment</span>:
-    - MONGO_URI=mongodb://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">27017</span>/pritunl
-  <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">net</span>: container:network
+  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+  <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">mongo</span>:
+  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
+  <span style="color:#f92672">volumes</span>:
+    - <span style="color:#ae81ff">./mongo:/data/db</span>
+  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
+<span style="color:#f92672">pritunl</span>:
+  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">fridus/pritunl</span>
+  <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">environment</span>:
+    - <span style="color:#ae81ff">MONGO_URI=mongodb://127.0.0.1:27017/pritunl</span>
+  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
 </code></pre></div><p>もしくは<a href="https://hub.docker.com/r/jippi/pritunl/">jippi/pritunl</a>を使います。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>

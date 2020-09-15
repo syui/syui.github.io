@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/pc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>protonmail</title>
       <link>https://syui.cf/blog/post/2017/02/02/pc/</link>
@@ -194,10 +190,10 @@ https://developers.google.com/speed/pagespeed/insights/?hl=ja
 スクリプトの読み込みはasyncを付けます。
 HTMLを最適化するためにhtml-minifierを使います。
 以下のような感じでビルドすればよいでしょう。
-image: publysher/hugo before_script: - apt-get update -qq &amp;amp;&amp;amp; apt-get install -y -qq git zsh curl - apt-get update -qq - curl -sL https://deb.nodesource.com/setup_6.x | bash - - apt-get install -y nodejs - curl -L https://npmjs.org/install.sh | sh pages: script: - hugo - npm i html-minifier - ./bin/html-minifier.sh artifacts: paths: - public only: - master Dockerのpublysher/hugoはDebianらしいので、Node.jsのインストールが面倒くさいです。個人的にDocker ImageはArch Linux, Alpine Linuxなどを使って欲しさはある。
+image: publysher/hugo before_script: - apt-get update -qq &amp;amp;&amp;amp; apt-get install -y -qq git zsh curl - apt-get update -qq - curl -sL https://deb.nodesource.com/setup_6.x | bash - - apt-get install -y nodejs - curl -L https://npmjs.org/install.sh | sh  pages: script: - hugo - npm i html-minifier - ./bin/html-minifier.sh artifacts: paths: - public only: - master Dockerのpublysher/hugoはDebianらしいので、Node.jsのインストールが面倒くさいです。個人的にDocker ImageはArch Linux, Alpine Linuxなどを使って欲しさはある。
 https://nodejs.org/en/download/package-manager/
  bin/html-minifier.sh
- #!/bin/zsh d=${0:a:h:h} h=${0:a:h} cp $d/public/index.</description>
+ #!</description>
     </item>
     
     <item>

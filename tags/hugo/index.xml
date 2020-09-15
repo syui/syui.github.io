@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>タグを表示するようにしてみた</title>
       <link>https://syui.cf/blog/post/2020/05/27/hugo/</link>

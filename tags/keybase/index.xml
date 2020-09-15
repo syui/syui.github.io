@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>keybaseにmastodonがやって来ました</title>
       <link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link>
@@ -43,7 +39,7 @@ keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&
 https://keybase.pub
 使い方は簡単で、アプリをインストールして、/keybase/public/${USER}にhtml,mdファイルを置きます。ここがrootになります。そして、domainは、${USER}.keybase.pubになります。
 ファイル一覧は、https://keybase.pub/${USER}になります。
-ここで、mastodonは、profileのlink先にrel=&amp;quot;me&amp;quot;が付いている場合、verify(認証マークが付く)します。
+ここで、mastodonは、profileのlink先にrel=&amp;ldquo;me&amp;quot;が付いている場合、verify(認証マークが付く)します。
 よって、keybase.pubを使って、keybaseをmastodon認証してみました。ちょっと迂遠なやり方ですけどね。linkがkeybase.io/${USER}でないため。
 もし、twitterのlinkをmastodon verifyする方法、知ってる人いたら教えてください。srcをイジらなくてもやる方法あるんでしょうか?
 追記:

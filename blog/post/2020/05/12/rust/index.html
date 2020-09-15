@@ -243,57 +243,57 @@ help
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build
 $ ./target/debug/udrs
 </code></pre></div><p>バイナリの配布は、travis-ciでbuildして、github releasesにdeployします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.travis.yml" data-lang="yml:.travis.yml"><span style="color:#66d9ef">dist</span>: trusty
-<span style="color:#66d9ef">language</span>: rust
-<span style="color:#66d9ef">services</span>: docker
-<span style="color:#66d9ef">rust</span>:
-  - stable
-<span style="color:#66d9ef">sudo</span>: required
-<span style="color:#66d9ef">env</span>:
-  <span style="color:#66d9ef">global</span>:
-    - NAME=udrs
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.travis.yml" data-lang="yml:.travis.yml"><span style="color:#f92672">dist</span>: <span style="color:#ae81ff">trusty</span>
+<span style="color:#f92672">language</span>: <span style="color:#ae81ff">rust</span>
+<span style="color:#f92672">services</span>: <span style="color:#ae81ff">docker</span>
+<span style="color:#f92672">rust</span>:
+  - <span style="color:#ae81ff">stable</span>
+<span style="color:#f92672">sudo</span>: <span style="color:#ae81ff">required</span>
+<span style="color:#f92672">env</span>:
+  <span style="color:#f92672">global</span>:
+    - <span style="color:#ae81ff">NAME=udrs</span>
 
-<span style="color:#66d9ef">matrix</span>:
-  <span style="color:#66d9ef">include</span>:
-    - <span style="color:#66d9ef">env</span>: TARGET=x86_64-unknown-linux-musl
-    - <span style="color:#66d9ef">env</span>: TARGET=x86_64-apple-darwin
-      <span style="color:#66d9ef">os</span>: osx
-    - <span style="color:#66d9ef">env</span>: TARGET=x86_64-pc-windows-gnu
+<span style="color:#f92672">matrix</span>:
+  <span style="color:#f92672">include</span>:
+    - <span style="color:#f92672">env</span>: <span style="color:#ae81ff">TARGET=x86_64-unknown-linux-musl</span>
+    - <span style="color:#f92672">env</span>: <span style="color:#ae81ff">TARGET=x86_64-apple-darwin</span>
+      <span style="color:#f92672">os</span>: <span style="color:#ae81ff">osx</span>
+    - <span style="color:#f92672">env</span>: <span style="color:#ae81ff">TARGET=x86_64-pc-windows-gnu</span>
 
-<span style="color:#66d9ef">before_install</span>:
-  - rustup self update
+<span style="color:#f92672">before_install</span>:
+  - <span style="color:#ae81ff">rustup self update</span>
 
-<span style="color:#66d9ef">install</span>:
-  - source ~/.cargo/env
-  - cargo install --force cross
+<span style="color:#f92672">install</span>:
+  - <span style="color:#ae81ff">source ~/.cargo/env</span>
+  - <span style="color:#ae81ff">cargo install --force cross</span>
 
-<span style="color:#66d9ef">script</span>:
-  - cross test --target $TARGET --release
+<span style="color:#f92672">script</span>:
+  - <span style="color:#ae81ff">cross test --target $TARGET --release</span>
 
-<span style="color:#66d9ef">before_deploy</span>:
-  - cross build --target $TARGET --release
-  - bin=$NAME
-  - if [[ $TARGET = <span style="color:#e6db74">&#34;x86_64-pc-windows-gnu&#34;</span> ]]; then bin=$NAME.exe; fi
-  - tar czf $NAME-$TRAVIS_TAG-$TARGET.tar.gz -C target/$TARGET/release $bin
+<span style="color:#f92672">before_deploy</span>:
+  - <span style="color:#ae81ff">cross build --target $TARGET --release</span>
+  - <span style="color:#ae81ff">bin=$NAME</span>
+  - <span style="color:#ae81ff">if [[ $TARGET = &#34;x86_64-pc-windows-gnu&#34; ]]; then bin=$NAME.exe; fi</span>
+  - <span style="color:#ae81ff">tar czf $NAME-$TRAVIS_TAG-$TARGET.tar.gz -C target/$TARGET/release $bin</span>
 
-<span style="color:#66d9ef">deploy</span>:
-  <span style="color:#66d9ef">api_key</span>:
-    <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;xxx&#34;</span>
-  <span style="color:#66d9ef">file_glob</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">file</span>: $NAME-$TRAVIS_TAG-$TARGET.*
-  <span style="color:#66d9ef">on</span>:
-    <span style="color:#66d9ef">tags</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">provider</span>: releases
-  <span style="color:#66d9ef">skip_cleanup</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">deploy</span>:
+  <span style="color:#f92672">api_key</span>:
+    <span style="color:#f92672">secure</span>: <span style="color:#e6db74">&#34;xxx&#34;</span>
+  <span style="color:#f92672">file_glob</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">file</span>: <span style="color:#ae81ff">$NAME-$TRAVIS_TAG-$TARGET.*</span>
+  <span style="color:#f92672">on</span>:
+    <span style="color:#f92672">tags</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">provider</span>: <span style="color:#ae81ff">releases</span>
+  <span style="color:#f92672">skip_cleanup</span>: <span style="color:#66d9ef">true</span>
 
-<span style="color:#66d9ef">cache</span>: cargo
-<span style="color:#66d9ef">before_cache</span>:
-  - chmod -R a+r $HOME/.cargo
+<span style="color:#f92672">cache</span>: <span style="color:#ae81ff">cargo</span>
+<span style="color:#f92672">before_cache</span>:
+  - <span style="color:#ae81ff">chmod -R a+r $HOME/.cargo</span>
 
-<span style="color:#66d9ef">branches</span>:
-  <span style="color:#66d9ef">only</span>:
-    - /^v?\d+\.\d+\.\d+.<span style="color:#75715e">*$/</span>
-    - master
+<span style="color:#f92672">branches</span>:
+  <span style="color:#f92672">only</span>:
+    - <span style="color:#ae81ff">/^v?\d+\.\d+\.\d+.*$/</span>
+    - <span style="color:#ae81ff">master</span>
 </code></pre></div><p><code>secure: &quot;xxx&quot;</code>は、<code>travis</code>コマンドで発行します。<code>github-access-token</code>をgetして以下のコマンドを実行。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i travis
 $ travis login

@@ -129,12 +129,12 @@ $ heroku config
 $ vim .config/default.yml
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.config/default.yml" data-lang="yml:.config/default.yml"><span style="color:#75715e"># postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
 <span style="color:#75715e"># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
-  <span style="color:#66d9ef">disableCache</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">drive</span>:
-  <span style="color:#66d9ef">storage</span>: <span style="color:#e6db74">&#39;fs&#39;</span>
-<span style="color:#66d9ef">disableHsts</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">clusterLimit</span>: <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;aid&#39;</span>
+  <span style="color:#f92672">disableCache</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">drive</span>:
+  <span style="color:#f92672">storage</span>: <span style="color:#e6db74">&#39;fs&#39;</span>
+<span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;aid&#39;</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">  <span style="color:#e6db74">&#34;engines&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
     <span style="color:#f92672">&#34;node&#34;</span>: <span style="color:#e6db74">&#34;11.7.0&#34;</span>,
     <span style="color:#f92672">&#34;npm&#34;</span>: <span style="color:#e6db74">&#34;6.13.0&#34;</span>

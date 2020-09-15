@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 04 Apr 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/pleroma/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 04 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pleroma/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pleromaをherokuで立てる</title>
       <link>https://syui.cf/blog/post/2019/04/04/pleroma/</link>

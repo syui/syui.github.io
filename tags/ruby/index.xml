@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 13 Apr 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 13 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>octopress-wercker</title>
       <link>https://syui.cf/blog/post/2017/04/13/ruby/</link>
@@ -20,7 +16,7 @@
       <guid>https://syui.cf/blog/post/2017/04/13/ruby/</guid>
       <description>OctopressをWerckerでビルド、デプロイしようとした時にハマった話(何度目?)。
 (1) なぜかdeployのworkflowsを作らないとbuild(rake gen)が通らない、原因不明(意味不明)
-(2) `autodetect&amp;rsquo;: Could not find a JavaScript runtime.
+(2) `autodetect&#39;: Could not find a JavaScript runtime.
  Gemfile
  gem &#39;therubyracer&#39;, :platforms =&amp;gt; :ruby (3) Liquid Exception: invalid byte sequence in US-ASCII in foo.html
  wercker.yml

@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://syui.cf/tags/pwsh/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pwsh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pwsh v7がreleasesされてたので使ってみた</title>
       <link>https://syui.cf/blog/post/2019/11/28/pwsh/</link>

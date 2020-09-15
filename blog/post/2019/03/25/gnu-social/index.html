@@ -160,8 +160,8 @@ $ open -a Google<span style="color:#ae81ff">\ </span>Chrome http://localhost:800
 <span style="color:#75715e"># 	DB name : C</span>
 <span style="color:#75715e"># 	user : A</span>
 <span style="color:#75715e"># 	password : B</span>
-<span style="color:#75715e"># $config[&#39;site&#39;][&#39;path&#39;] = false;</span> 
-<span style="color:#75715e"># $config[&#39;site&#39;][&#39;ssl&#39;] = &#39;never&#39;;</span> 
+<span style="color:#75715e"># $config[&#39;site&#39;][&#39;path&#39;] = false; </span>
+<span style="color:#75715e"># $config[&#39;site&#39;][&#39;ssl&#39;] = &#39;never&#39;; </span>
 <span style="color:#75715e"># $config[&#39;site&#39;][&#39;fancy&#39;] = false;</span>
 
 <span style="color:#75715e"># 初期設定が完了したらlocalhost:8000で一度、/index.php/well-known/host-metaを確認して、投稿し、/index.php/well-known/webfinger?resourece=acct:user@localhost:8000を確認しておくといいかも</span>
@@ -234,8 +234,8 @@ $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site
 <p><a href="https://git.gnu.io/dansup/gnu-social/blob/composer-autoloading/socialfy-another-domain/README.txt">https://git.gnu.io/dansup/gnu-social/blob/composer-autoloading/socialfy-another-domain/README.txt</a></p>
 <p>しかし、heroku + nginxでは、/.well-known以下が403になります。</p>
 <p>これは、heroku nginx_app.confの設定でアクセスできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">location ^~ /.well-known/ {
-    allow all;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">location</span> <span style="color:#f92672">^~</span> <span style="color:#f92672">/.</span><span style="color:#a6e22e">well</span><span style="color:#f92672">-</span><span style="color:#a6e22e">known</span><span style="color:#f92672">/</span> {
+    <span style="color:#a6e22e">allow</span> <span style="color:#a6e22e">all</span>;
 }
 </code></pre></div><p><a href="https://github.com/heroku/heroku-buildpack-php/issues/218">https://github.com/heroku/heroku-buildpack-php/issues/218</a></p>
 <p>自分の場合は、以下のような感じ。 (nginxでrewriteを設定してない場合)</p>
@@ -316,14 +316,14 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <blockquote>
 <p>Nokogiri::XML::XPath::SyntaxError: ERROR: Undefined namespace prefix: //xmlns:Subject</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$f = $u . &#34;.xml&#34;;
-//$f = $u . &#34;.json&#34;;
-
-if (file_exists($f)) {
-  header(&#39;Content-Disposition: attachment; filename=&#34;&#39;.urlencode($f).&#39;&#34;&#39;);
-  header(&#39;Content-type: application/xrd+xml&#39;);
-  //header(&#39;Content-type: application/json&#39;);
-  echo file_get_contents($f);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$f <span style="color:#f92672">=</span> $u <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;.xml&#34;</span>;
+<span style="color:#75715e">//$f = $u . &#34;.json&#34;;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file_exists</span>($f)) {
+  <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Content-Disposition: attachment; filename=&#34;&#39;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">urlencode</span>($f)<span style="color:#f92672">.</span><span style="color:#e6db74">&#39;&#34;&#39;</span>);
+  <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Content-type: application/xrd+xml&#39;</span>);
+  <span style="color:#75715e">//header(&#39;Content-type: application/json&#39;);
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">file_get_contents</span>($f);
 }
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;subject&#34;</span>: <span style="color:#e6db74">&#34;acct:syui@gnu-social.herokuapp.com&#34;</span>,

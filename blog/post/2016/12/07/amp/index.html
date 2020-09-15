@@ -163,16 +163,16 @@ enableRobotsTXT = true
 </code></pre><p><a href="https://cdn.ampproject.org/">https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p>
 <p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p>
 <p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="color:#66d9ef">image</span>: publysher/hugo
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
 
-<span style="color:#66d9ef">pages</span>:
-  <span style="color:#66d9ef">script</span>:
-  - hugo
-  <span style="color:#66d9ef">artifacts</span>:
-    <span style="color:#66d9ef">paths</span>:
-    - public
-  <span style="color:#66d9ef">only</span>:
-  - master
+<span style="color:#f92672">pages</span>:
+  <span style="color:#f92672">script</span>:
+  - <span style="color:#ae81ff">hugo</span>
+  <span style="color:#f92672">artifacts</span>:
+    <span style="color:#f92672">paths</span>:
+    - <span style="color:#ae81ff">public</span>
+  <span style="color:#f92672">only</span>:
+  - <span style="color:#ae81ff">master</span>
 </code></pre></div><p><code>content/post</code>はまるごとコピーしておきましょう。</p>
 <p>これで<code>amp.syui.cf</code>がampのコンテンツアドレスになります。したがって、<a href="https://syui.cf/2016/10/26/web-app/">https://syui.cf/2016/10/26/web-app/</a> = <a href="https://amp.syui.cf/2016/10/26/web-app/">https://amp.syui.cf/2016/10/26/web-app/</a>です。</p>
 <p><code>post = &quot;/:year/:month/:day/:slug&quot;</code>は2つの<code>config.toml</code>で一致させます。本来なら<code>post = &quot;/post/:slug&quot;</code>などのpermlinkを設定したかったのですが、コメントシステムの対応が面倒だったので、日付を入れることにしました。</p>

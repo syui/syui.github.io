@@ -128,15 +128,15 @@ $ git push origin gh-pages
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># fork</span>
 $ curl -sL https://syui.github.io/personal-website
 </code></pre></div><p>url,baseurlをsetすると、cssがhttps protocolになった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">$ vim _config.yml
-<span style="color:#66d9ef">url</span>: https://mbahack2.syui.cf
-<span style="color:#66d9ef">baseurl</span>: personal-website
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ae81ff">$ vim _config.yml</span>
+<span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://mbahack2.syui.cf</span>
+<span style="color:#f92672">baseurl</span>: <span style="color:#ae81ff">personal-website</span>
 
-$ vim _includes/header.html
-// https://jekyllrb.com/news/<span style="color:#ae81ff">2016</span>/<span style="color:#ae81ff">10</span>/<span style="color:#ae81ff">06</span>/jekyll<span style="color:#ae81ff">-3-3</span>-is-here/
-By default, baseurl is set to <span style="color:#e6db74">&#34;&#34;</span> and therefore yields (never set to <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#66d9ef">)</span>:
-{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> | absolute_url }} =&gt; https://jekyllrb.com/myproject/docs/assets
-{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> | relative_url }} =&gt; /myproject/docs/assets
+<span style="color:#ae81ff">$ vim _includes/header.html</span>
+<span style="color:#ae81ff">// https://jekyllrb.com/news/2016/10/06/jekyll-3-3-is-here/</span>
+<span style="color:#ae81ff">By default, baseurl is set to &#34;&#34; and therefore yields (never set to &#34;/&#34;):</span>
+{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| absolute_url }} =&gt; https://jekyllrb.com/myproject/docs/assets</span>
+{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| relative_url }} =&gt; /myproject/docs/assets</span>
 </code></pre></div><p>ちなみに、dirではなくrootに置く場合は、<code>repo</code>を<code>${user}.github.io</code>にする。</p>
 
        			 		

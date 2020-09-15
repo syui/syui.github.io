@@ -126,22 +126,22 @@ deploy:
   api_key:
     secure: <span style="color:#e6db74">&#34;xxx&#34;</span>
 </code></pre></div><p>makefileでtaskの自動化</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">LOG_LEVEL := debug
-APP_ARGS  := <span style="color:#e6db74">&#34;foo%20bar&#34;</span>
-export RUST_LOG=url=$(LOG_LEVEL)
-PREFIX := $(HOME)/.cargo
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">LOG_LEVEL := debug</span>
+<span style="color:#ae81ff">APP_ARGS  := &#34;foo%20bar&#34;</span>
+<span style="color:#ae81ff">export RUST_LOG=url=$(LOG_LEVEL)</span>
+<span style="color:#ae81ff">PREFIX := $(HOME)/.cargo</span>
 
-<span style="color:#66d9ef">run</span>:
-	cargo run $(APP_ARGS)
+<span style="color:#f92672">run</span>:
+	<span style="color:#ae81ff">cargo run $(APP_ARGS)</span>
 
-<span style="color:#66d9ef">test</span>:
-	cargo test
+<span style="color:#f92672">test</span>:
+	<span style="color:#ae81ff">cargo test</span>
 
-<span style="color:#66d9ef">check</span>:
-	cargo check $(OPTION)
+<span style="color:#f92672">check</span>:
+	<span style="color:#ae81ff">cargo check $(OPTION)</span>
 
-<span style="color:#66d9ef">install</span>:
-	cargo install --force --root $(PREFIX) --path .
+<span style="color:#f92672">install</span>:
+	<span style="color:#ae81ff">cargo install --force --root $(PREFIX) --path .</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make test
 </code></pre></div><p>base64のencodeを追加してみることにしました。cliは<code>seahorse</code>がおすすめです。</p>
 <p><a href="https://qiita.com/KeisukeToyota/items/996a09b10c462ee94cc8">https://qiita.com/KeisukeToyota/items/996a09b10c462ee94cc8</a></p>

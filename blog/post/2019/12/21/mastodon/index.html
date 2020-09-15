@@ -115,52 +115,52 @@
 <p>仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。</p>
 <p><a href="https://github.blog/jp/2019-08-21-github-actions-now-supports-ci-cd/">GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能</a></p>
 <p>gh-actionsでcron:m15を回して、mastodonはapiから投稿を取得、twitterタグがついてれば、jqで投稿を抜き出し、<code>date(unix-time)</code>で15分前のtimeとmastodonの投稿時間を比較し、大きければ新しい投稿と判断して、<a href="https://github.com/syui/twg/releases">syui/twg</a>からtwitterに投稿するという感じ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.github/workflows/main.yml" data-lang="sh:.github/workflows/main.yml"><span style="color:#66d9ef">name</span>: mastodon tweet
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.github/workflows/main.yml" data-lang="sh:.github/workflows/main.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">mastodon tweet</span>
 
-<span style="color:#66d9ef">on</span>:
-  <span style="color:#66d9ef">push</span>:
-    <span style="color:#66d9ef">branches</span>:
-      - master
-  <span style="color:#66d9ef">schedule</span>:
-    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;*/15 * * * *&#39;</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">master</span>
+  <span style="color:#f92672">schedule</span>:
+    - <span style="color:#f92672">cron</span>:  <span style="color:#e6db74">&#39;*/15 * * * *&#39;</span>
 
-<span style="color:#66d9ef">jobs</span>:
-  <span style="color:#66d9ef">build</span>:
-    <span style="color:#66d9ef">runs-on</span>: ubuntu-latest
-    <span style="color:#66d9ef">steps</span>:
-    - <span style="color:#66d9ef">uses</span>: actions/checkout@master
-    - <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">        job_time=15</span>
-        export GOPATH=$HOME/go
-        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-        curl -sL https://github.com/syui/twg/releases/download/<span style="color:#ae81ff">0.3</span>/linux_amd64_twg -o twg
-        chmod +x twg
-        mkdir -p ~/.config/twg
-        cat .config/twg/user.json| jq <span style="color:#e6db74">&#34;.|=. + {\&#34;Token\&#34;:\&#34;${{ secrets.TWITTER_TOKEN }}\&#34;,\&#34;Secret\&#34;:\&#34;${{ secrets.TWITTER_SECRET }}\&#34;}&#34;</span> &gt; t
-        mv t ~/.config/twg/user.json
-        url=https://mstdn.syui.cf/api/v1
-        j=mastodon.json
-        user_id=<span style="color:#ae81ff">1</span>
-        url=<span style="color:#e6db74">&#34;$url/accounts/$user_id/statuses?limit=40&#34;</span>
-        curl -sSL <span style="color:#e6db74">&#34;$url&#34;</span> -H <span style="color:#e6db74">&#34;Authorization: Bearer ${{ secrets.MASTODON_ACCESS_TOKEN }}&#34;</span> &gt; $j
-        post=`cat $j|jq -r <span style="color:#e6db74">&#34;.[]|select(.tags != [])|select(.tags|.[].name == \&#34;twitter\&#34;)|.content&#34;</span>|sed -e <span style="color:#e6db74">&#39;s/&lt;[^&gt;]*&gt;//g&#39;</span> -e <span style="color:#e6db74">&#39;s/#twitter//g&#39;</span>`
-        if [ -z <span style="color:#e6db74">&#34;$post&#34;</span> ];then
-                echo no tag post
-                exit
-        fi
-        date=`cat $j|jq -r <span style="color:#e6db74">&#34;.[]|select(.tags != [])|select(.tags|.[].name == \&#34;twitter\&#34;)|.created_at&#34;</span>`
-        now=`date +%s -d <span style="color:#e6db74">&#34;$job_time minutes ago&#34;</span>`
-        for (( i=<span style="color:#ae81ff">1</span>;i&lt;=`echo <span style="color:#e6db74">&#34;$date&#34;</span>|wc -l`;i++ ))
-        do
-                date_t=`echo <span style="color:#e6db74">&#34;$date&#34;</span>|awk <span style="color:#e6db74">&#34;NR==${i}&#34;</span>`
-                date_t=`date --date=<span style="color:#e6db74">&#34;$date_t&#34;</span> +%s`
-                post_t=`echo <span style="color:#e6db74">&#34;$post&#34;</span>|awk <span style="color:#e6db74">&#34;NR==${i}&#34;</span>`
-                if [ <span style="color:#e6db74">&#34;$date_t&#34;</span> -gt <span style="color:#e6db74">&#34;$now&#34;</span> ];then
-                        echo $post_t
-                        ./twg p <span style="color:#e6db74">&#34;$post_t&#34;</span>
-                fi
-        done
-</code></pre></div><p>twgはlocalで使えるようにして<code>~/.config/twg/user.json</code>からtoken,secretを抜き出し、github-repo-settingにてprivateな環境変数に登録しておく。mastodonも同じような感じで。</p>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
+    - <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        job_time=15
+</span><span style="color:#e6db74">        export GOPATH=$HOME/go
+</span><span style="color:#e6db74">        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+</span><span style="color:#e6db74">        curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg
+</span><span style="color:#e6db74">        chmod +x twg
+</span><span style="color:#e6db74">        mkdir -p ~/.config/twg
+</span><span style="color:#e6db74">        cat .config/twg/user.json| jq &#34;.|=. + {\&#34;Token\&#34;:\&#34;${{ secrets.TWITTER_TOKEN }}\&#34;,\&#34;Secret\&#34;:\&#34;${{ secrets.TWITTER_SECRET }}\&#34;}&#34; &gt; t
+</span><span style="color:#e6db74">        mv t ~/.config/twg/user.json
+</span><span style="color:#e6db74">        url=https://mstdn.syui.cf/api/v1
+</span><span style="color:#e6db74">        j=mastodon.json
+</span><span style="color:#e6db74">        user_id=1
+</span><span style="color:#e6db74">        url=&#34;$url/accounts/$user_id/statuses?limit=40&#34;
+</span><span style="color:#e6db74">        curl -sSL &#34;$url&#34; -H &#34;Authorization: Bearer ${{ secrets.MASTODON_ACCESS_TOKEN }}&#34; &gt; $j
+</span><span style="color:#e6db74">        post=`cat $j|jq -r &#34;.[]|select(.tags != [])|select(.tags|.[].name == \&#34;twitter\&#34;)|.content&#34;|sed -e &#39;s/&lt;[^&gt;]*&gt;//g&#39; -e &#39;s/#twitter//g&#39;`
+</span><span style="color:#e6db74">        if [ -z &#34;$post&#34; ];then
+</span><span style="color:#e6db74">                echo no tag post
+</span><span style="color:#e6db74">                exit
+</span><span style="color:#e6db74">        fi
+</span><span style="color:#e6db74">        date=`cat $j|jq -r &#34;.[]|select(.tags != [])|select(.tags|.[].name == \&#34;twitter\&#34;)|.created_at&#34;`
+</span><span style="color:#e6db74">        now=`date +%s -d &#34;$job_time minutes ago&#34;`
+</span><span style="color:#e6db74">        for (( i=1;i&lt;=`echo &#34;$date&#34;|wc -l`;i++ ))
+</span><span style="color:#e6db74">        do
+</span><span style="color:#e6db74">                date_t=`echo &#34;$date&#34;|awk &#34;NR==${i}&#34;`
+</span><span style="color:#e6db74">                date_t=`date --date=&#34;$date_t&#34; +%s`
+</span><span style="color:#e6db74">                post_t=`echo &#34;$post&#34;|awk &#34;NR==${i}&#34;`
+</span><span style="color:#e6db74">                if [ &#34;$date_t&#34; -gt &#34;$now&#34; ];then
+</span><span style="color:#e6db74">                        echo $post_t
+</span><span style="color:#e6db74">                        ./twg p &#34;$post_t&#34;
+</span><span style="color:#e6db74">                fi
+</span><span style="color:#e6db74">        done
+</span></code></pre></div><p>twgはlocalで使えるようにして<code>~/.config/twg/user.json</code>からtoken,secretを抜き出し、github-repo-settingにてprivateな環境変数に登録しておく。mastodonも同じような感じで。</p>
 <p>twgは、releasesからダウンロードしないと、appのコンシューマキーなどがバイナリに含まれないので、その場合、自身でtwitter devからappを作成、コンシューマなどをゲット後にbuildする必要があります。</p>
 <p>また、ci上のtimeとmastodon-server上のtimeが合っているかは気にしなければいけません。合っていなければ調整する必要あり。unix-timeに変換するのは単純に比較演算するため。</p>
 <p>これは本来のciの使い方じゃないけど、gh-actions、便利。</p>

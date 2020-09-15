@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>docs-slate</title>
+		<title>イラスト描いてみた44</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="docs-slate" />
+		<meta property="og:title" content="イラスト描いてみた44" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -109,40 +109,8 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>docs-slate</h2>
-       			 		<p>ドキュメントは何で書いていますか?</p>
-<p><a href="https://github.com/sphinx-doc/sphinx">sphinx</a>とか定番です。</p>
-<p>でも<a href="https://github.com/lord/slate">slate</a>とか先駆的なのでオススメです(と言っても若干古い)。</p>
-<pre><code class="bash">
-$ git clone https://github.com/lord/slate
-$ cd !$:t
-$ bundle install
-$ bundle exec middleman server
-</code></pre>
-<p>見た目のカスタマイズには<code>source/layouts/layout.erb</code>とかを編集します。<code>html</code>でなく<code>erb</code>で書きます。<code>css</code>は<code>scss</code>で書きますので、<code>source/stylesheets/_foo.scss</code>を用意して、<code>source/stylesheets/{print.css.scss,screen.css.scss}</code>などからインポートします。</p>
-<p><code>gitlab-ci</code>でdeployする場合は<code>middleman</code>を使いまので、以下のような感じ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">ruby:2.3</span>
-
-<span style="color:#f92672">pages</span>:
-  <span style="color:#f92672">script</span>:
-  - <span style="color:#ae81ff">apt-get update -yqqq</span>
-  - <span style="color:#ae81ff">apt-get install -y nodejs</span>
-  - <span style="color:#ae81ff">bundle install</span>
-  - <span style="color:#ae81ff">bundle exec middleman build</span>
-  <span style="color:#f92672">artifacts</span>:
-    <span style="color:#f92672">paths</span>:
-    - <span style="color:#ae81ff">public</span>
-  <span style="color:#f92672">only</span>:
-  - <span style="color:#ae81ff">master</span>
-</code></pre></div><p>これはハマりポイントなのですが、GitLab Pagesは、<code>paths</code>を<code>public</code>で指定しないとDeployに何故か失敗します。</p>
-<p>更に、<code>Middleman</code>は<code>build</code>ディレクトリにビルドされるのがデフォルトで、これを設定ファイルである<code>config.rb</code>にて指定しなければなりません。</p>
-<pre><code class="yml">
-configure :build do
-  set :build_dir, 'public'
-end
-</code></pre>
-<p>それと、<code>bundle</code>は<code>nodejs</code>をインストールしなければ使えなかった気がします。インストールしないと<code>bundle</code>がないと言われるし、<code>gem i bundler</code>でインストールすると、<code>middleman build</code>が何故か失敗するような感じだった覚えがあります。正直、よく分からん&hellip;。</p>
-<p>個人的には、<code>Middleman</code>はもう使いたくないのですが、他のDoc Genよりはマシということで。</p>
+				        <h2>イラスト描いてみた44</h2>
+       			 		<p><img src="/img/yui_44.png" alt=""></p>
 
        			 		
 
@@ -151,10 +119,6 @@ end
     
 
     
-    <a href="https://syui.cf/blog/post/2016/06/17/gitlab-docker-build/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-right"></i> gitlab-docker-build
-    </a>
-    
 </nav>
 
 
@@ -162,7 +126,7 @@ end
 								
 								
 								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/pc/">pc</a>
+								    <a href="https://syui.cf/tags/illust/">illust</a>
 					<div class="utterances">
 						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 					</div>

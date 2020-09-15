@@ -156,31 +156,31 @@ $ vim default.yml
 <p>default.yml</p>
 </blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># Final accessible URL seen by a user.</span>
-<span style="color:#66d9ef">url</span>: https://$APP_NAME.herokuapp.com
+<span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://$APP_NAME.herokuapp.com</span>
 <span style="color:#75715e">#url: http://localhost</span>
-<span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">80</span>
+<span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
 <span style="color:#75715e">#port: 8000</span>
 
 <span style="color:#75715e"># mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
-<span style="color:#66d9ef">mongodb</span>:
-  <span style="color:#66d9ef">host</span>: $DB_HOST
-  <span style="color:#66d9ef">port</span>: $DB_PORT
-  <span style="color:#66d9ef">db</span>: $DB_NAME
-  <span style="color:#66d9ef">user</span>: $DB_USER
-  <span style="color:#66d9ef">pass</span>: $DB_PASS
+<span style="color:#f92672">mongodb</span>:
+  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$DB_HOST</span>
+  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$DB_PORT</span>
+  <span style="color:#f92672">db</span>: <span style="color:#ae81ff">$DB_NAME</span>
+  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">$DB_USER</span>
+  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$DB_PASS</span>
 
-<span style="color:#66d9ef">drive</span>:
-  <span style="color:#66d9ef">storage</span>: <span style="color:#e6db74">&#39;db&#39;</span>
+<span style="color:#f92672">drive</span>:
+  <span style="color:#f92672">storage</span>: <span style="color:#e6db74">&#39;db&#39;</span>
 
 <span style="color:#75715e"># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
-<span style="color:#66d9ef">redis</span>:
-  <span style="color:#66d9ef">host</span>: $REDIS_HOST
-  <span style="color:#66d9ef">port</span>: $REDIS_PORT
-  <span style="color:#66d9ef">pass</span>: $REDIS_PASS
+<span style="color:#f92672">redis</span>:
+  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$REDIS_HOST</span>
+  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$REDIS_PORT</span>
+  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$REDIS_PASS</span>
 
-<span style="color:#66d9ef">autoAdmin</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">disableHsts</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">clusterLimit</span>: <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">autoAdmin</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># repo rootに移動</span>
 $ cd ..
 

@@ -113,19 +113,19 @@
        			 		<p><a href="https://github.com/go-gitea/gitea">gitea</a>は、golangで書かれたgit serverで、ワンバイナリで起動します。</p>
 <p>Dockerfileも用意されており、簡単に環境を構築できます。</p>
 <p>設定ファイルは、<code>./custom/conf/app.ini</code>にあります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">web</span>:
-    <span style="color:#66d9ef">image</span>: gitea/gitea:latest
-    <span style="color:#66d9ef">volumes</span>:
-      - ./gitea-data:/data
-    <span style="color:#66d9ef">ports</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">web</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./gitea-data:/data</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
       - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
-    <span style="color:#66d9ef">environment</span>:
-      - TZ=Japan
-      - SSH_PORT=<span style="color:#ae81ff">10022</span>
-    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">TZ=Japan</span>
+      - <span style="color:#ae81ff">SSH_PORT=10022</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p><a href="https://docs.gitea.io/en-us/install-with-docker/">https://docs.gitea.io/en-us/install-with-docker/</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># serverの初期設定</span>
 $ docker-compose up -d
@@ -155,11 +155,11 @@ $ git push -u origin master
 COPY ./gitea-data/gitea/conf/app.ini /data/gitea/conf/app.ini
 VOLUME [&quot;/data&quot;]
 </code></pre><p>herokuにあげる場合は、<code>heroku.yml</code>に書いて、Dockerfileを調整します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#66d9ef">build</span>:
-  <span style="color:#66d9ef">docker</span>:
-    <span style="color:#66d9ef">web</span>: ./Dockerfile
-<span style="color:#66d9ef">run</span>:
-  <span style="color:#66d9ef">web</span>: gitea web -p $PORT
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
+  <span style="color:#f92672">docker</span>:
+    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
+<span style="color:#f92672">run</span>:
+  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT</span>
   <span style="color:#75715e">#web: echo RUN_USER=$USER &gt;&gt; /data/gitea/conf/app.ini; echo &#34;[server]\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:gitea/conf/app.ini" data-lang="yml:gitea/conf/app.ini"><span style="color:#66d9ef">[database]</span>
 <span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>

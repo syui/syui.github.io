@@ -114,30 +114,30 @@
 <p>デプロイすると、<code>${user}.github.io</code>のリポジトリの場合、masterにhtmlが置かれます。(privateなら見えないようにできる)</p>
 <p>しかし、この前、ちょっと裏技ぽいものを発見したのでメモ。</p>
 <p>以下でmasterの内容がgh-pagesに反映されなかった。おそらく、githubのpage-buildが走ってないからだと思う。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/deploy.yml" data-lang="yml:.github/workflows/deploy.yml"><span style="color:#66d9ef">name</span>: github pages deploy
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/deploy.yml" data-lang="yml:.github/workflows/deploy.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">github pages deploy</span>
 
-<span style="color:#66d9ef">on</span>:
-  <span style="color:#66d9ef">page_build</span>:
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">page_build</span>:
 
-<span style="color:#66d9ef">jobs</span>:
-  <span style="color:#66d9ef">build</span>:
-    <span style="color:#66d9ef">runs-on</span>: ubuntu<span style="color:#ae81ff">-18.04</span>
-    <span style="color:#66d9ef">steps</span>:
-    - <span style="color:#66d9ef">uses</span>: actions/checkout@v2
-      <span style="color:#66d9ef">with</span>:
-        <span style="color:#66d9ef">branch</span>: <span style="color:#e6db74">&#39;master&#39;</span>
-        <span style="color:#66d9ef">run</span>: git checkout master
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-18.04</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">branch</span>: <span style="color:#e6db74">&#39;master&#39;</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">git checkout master</span>
       
-    - <span style="color:#66d9ef">uses</span>: ad-m/github-push-action@master
-      <span style="color:#66d9ef">with</span>:
-        <span style="color:#66d9ef">branch</span>: <span style="color:#e6db74">&#39;master&#39;</span>
-        <span style="color:#66d9ef">force</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#66d9ef">github_token</span>: ${{ secrets.GITHUB_TOKEN }}
-        <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">           git config --local user.email &#34;action@github.com&#34;</span>
-           git config --local user.name <span style="color:#e6db74">&#34;GitHub Action&#34;</span>
-           GIT_SEQUENCE_EDITOR=<span style="color:#e6db74">&#34;sed -ie &#39;2 s/^pick /f /g&#39;&#34;</span> git rebase -i --root
-</code></pre></div><p><a href="https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#">https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#</a></p>
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">ad-m/github-push-action@master</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">branch</span>: <span style="color:#e6db74">&#39;master&#39;</span>
+        <span style="color:#f92672">force</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+        <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">           git config --local user.email &#34;action@github.com&#34;
+</span><span style="color:#e6db74">           git config --local user.name &#34;GitHub Action&#34;
+</span><span style="color:#e6db74">           GIT_SEQUENCE_EDITOR=&#34;sed -ie &#39;2 s/^pick /f /g&#39;&#34; git rebase -i --root
+</span></code></pre></div><p><a href="https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#">https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#</a></p>
 <p>やりたいことは、masterのcommitをfixupしてcommit削減なんだけど、実際に実行された内容は、branch:srcの内容をmasterに<code>psuh -f</code>するみたいな感じになってる。つまり、srcがmasterにコピーされたのに、ページが表示されていました。</p>
 <p>ただし、何度も連続でcommitして、このアクションが2回連続実行されたりするとページが消えてしまう危険があります。</p>
 <p>おそらく、gh-pagesのbuildが走るのはworkflow中に一回で、連動している場合、同workflow内でmasterにpushされても<code>page_build</code>が走らないため、最新のmasterの内容がページに反映されていないんだと思う。もしくは、<code>on:page_build</code>のアクションには<code>page_build</code>は実行されないとか。</p>
