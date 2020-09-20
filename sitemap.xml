@@ -4,21 +4,31 @@
   
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/game/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/blog/post/2020/09/20/game/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/tags/pokemon/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -292,11 +302,6 @@
   <url>
     <loc>https://syui.cf/blog/post/2020/07/07/pokemon/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/tags/game/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
