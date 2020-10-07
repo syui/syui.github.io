@@ -140,11 +140,11 @@
         <span style="color:#f92672">ISSUE_PAYLOAD</span>: <span style="color:#ae81ff">${{ toJson(github.event.issue) }}</span>
         <span style="color:#f92672">ISSUE_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.issue.number }}</span>
         <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-      <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">        labels=$(echo &#34;${ISSUE_PAYLOAD}&#34; | jq &#39;.labels[]|.name&#39; | jq -s . | jq -c &#39;.|.+[&#34;COMMENT&#34;]|unique&#39;)
-</span><span style="color:#e6db74">        curl -X PATCH -d &#39;{&#34;labels&#34;: &#39;${labels}&#39;}&#39; -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}
-</span><span style="color:#e6db74">      if: startsWith(github.event.comment.body, &#39;/com&#39;)
-</span></code></pre></div><p>これでissues上で<code>/com</code>を投稿すると、自動で<code>COMMENT</code>のラベルが付きます。</p>
+</span><span style="color:#e6db74">        curl -X PATCH -d &#39;{&#34;labels&#34;: &#39;${labels}&#39;}&#39; -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}</span>        
+      <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.event.comment.body, &#39;/com&#39;)</span>
+</code></pre></div><p>これでissues上で<code>/com</code>を投稿すると、自動で<code>COMMENT</code>のラベルが付きます。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/github_issues_chatops_comment.png" alt=""></p>
 <p>参考 : <a href="https://qiita.com/shmurata/items/db66a4e8d5fabb545f11">https://qiita.com/shmurata/items/db66a4e8d5fabb545f11</a></p>
 

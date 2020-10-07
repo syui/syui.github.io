@@ -370,13 +370,13 @@ $ yarn build
   },
 }
 </code></pre></div><p>私の場合は、非常にシンプルに、こんな感じになります。これはhugoを使っている場合で少し特殊ですが、ようは、VUE_APP_XXXに自動で画像ファイル数を入れる処理を書いて、build後に出力される必要なファイルを必要な場所にコピーしています。もちろん、buildオプションを指定して直接置くようにしてもいいです。その場合、コピー処理は不要です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml">      <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml">      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">           echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` &gt; .env
 </span><span style="color:#e6db74">           yarn build
 </span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/manga
 </span><span style="color:#e6db74">           cp -rf ./dist/*.css ./static/manga
-</span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/manga
-</span></code></pre></div><p>私は、hugoを使っているので、以下のように構成しています。</p>
+</span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/manga</span>           
+</code></pre></div><p>私は、hugoを使っているので、以下のように構成しています。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:content/manga.md" data-lang="md:content/manga.md">---
 title: &#34;yui | MANGA&#34;
 type: manga

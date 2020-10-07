@@ -20,7 +20,7 @@ https://github.com/syui/reviewbot
 詳しくはこちらのファイルを見てください。
 https://github.com/syui/reviewbot/tree/master/.github/workflows
 条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。
-on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: | ## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
+on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: |## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
     </item>
     
     <item>

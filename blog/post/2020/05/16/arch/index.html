@@ -208,7 +208,7 @@ $ htmllint index.html
         <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
         <span style="color:#f92672">URL</span>: <span style="color:#ae81ff">${{ github.event.pull_request.comments_url }}</span>
         <span style="color:#f92672">GITHUB_PR_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.pull_request.number }}</span>
-      <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">        # setup
 </span><span style="color:#e6db74">        pull_number=$(jq --raw-output .pull_request.number &#34;$GITHUB_EVENT_PATH&#34;)
 </span><span style="color:#e6db74">        npm i -D htmllint-cli -s
@@ -300,8 +300,8 @@ $ htmllint index.html
 </span><span style="color:#e6db74">        curl -X POST \
 </span><span style="color:#e6db74">           -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; \
 </span><span style="color:#e6db74">           -d &#34;{\&#34;body\&#34;: \&#34;${lint_body}\&#34;}&#34; \
-</span><span style="color:#e6db74">           ${URL}
-</span></code></pre></div>
+</span><span style="color:#e6db74">           ${URL}</span>        
+</code></pre></div>
        			 		
 
 

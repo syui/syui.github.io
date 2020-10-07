@@ -1555,7 +1555,7 @@ https://github.com/syui/reviewbot
 詳しくはこちらのファイルを見てください。
 https://github.com/syui/reviewbot/tree/master/.github/workflows
 条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。
-on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: | ## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
+on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: |## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
     </item>
     
     <item>
@@ -3745,7 +3745,7 @@ Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPa
 仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。
 GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能
 gh-actionsでcron:m15を回して、mastodonはapiから投稿を取得、twitterタグがついてれば、jqで投稿を抜き出し、date(unix-time)で15分前のtimeとmastodonの投稿時間を比較し、大きければ新しい投稿と判断して、syui/twgからtwitterに投稿するという感じ。
-name: mastodon tweet on: push: branches: - master schedule: - cron: &amp;#39;*/15 * * * *&amp;#39; jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@master - run: | job_time=15 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg chmod +x twg mkdir -p ~/.config/twg cat .config/twg/user.json| jq &amp;#34;.|=. + {\&amp;#34;Token\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_TOKEN }}\&amp;#34;,\&amp;#34;Secret\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_SECRET }}\&amp;#34;}&amp;#34; &amp;gt; t mv t ~/.config/twg/user.json url=https://mstdn.syui.cf/api/v1 j=mastodon.json user_id=1 url=&amp;#34;$url/accounts/$user_id/statuses?limit=40&amp;#34; curl -sSL &amp;#34;$url&amp;#34; -H &amp;#34;Authorization: Bearer ${{ secrets.</description>
+name: mastodon tweet on: push: branches: - master schedule: - cron: &amp;#39;*/15 * * * *&amp;#39; jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@master - run: |job_time=15 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg chmod +x twg mkdir -p ~/.config/twg cat .config/twg/user.json| jq &amp;#34;.|=. + {\&amp;#34;Token\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_TOKEN }}\&amp;#34;,\&amp;#34;Secret\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_SECRET }}\&amp;#34;}&amp;#34; &amp;gt; t mv t ~/.config/twg/user.json url=https://mstdn.syui.cf/api/v1 j=mastodon.json user_id=1 url=&amp;#34;$url/accounts/$user_id/statuses?limit=40&amp;#34; curl -sSL &amp;#34;$url&amp;#34; -H &amp;#34;Authorization: Bearer ${{ secrets.</description>
     </item>
     
     <item>
@@ -3843,7 +3843,7 @@ $ sudo fdisk -l .../dev/sdbが表示されない $ sudo parted -l エラー: /de
 デプロイすると、${user}.github.ioのリポジトリの場合、masterにhtmlが置かれます。(privateなら見えないようにできる)
 しかし、この前、ちょっと裏技ぽいものを発見したのでメモ。
 以下でmasterの内容がgh-pagesに反映されなかった。おそらく、githubのpage-buildが走ってないからだと思う。
-name: github pages deploy on: page_build: jobs: build: runs-on: ubuntu-18.04 steps: - uses: actions/checkout@v2 with: branch: &amp;#39;master&amp;#39; run: git checkout master - uses: ad-m/github-push-action@master with: branch: &amp;#39;master&amp;#39; force: true github_token: ${{ secrets.GITHUB_TOKEN }} run: | git config --local user.email &amp;#34;action@github.com&amp;#34; git config --local user.name &amp;#34;GitHub Action&amp;#34; GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/^pick /f /g&amp;#39;&amp;#34; git rebase -i --root https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#
+name: github pages deploy on: page_build: jobs: build: runs-on: ubuntu-18.04 steps: - uses: actions/checkout@v2 with: branch: &amp;#39;master&amp;#39; run: git checkout master - uses: ad-m/github-push-action@master with: branch: &amp;#39;master&amp;#39; force: true github_token: ${{ secrets.GITHUB_TOKEN }} run: |git config --local user.email &amp;#34;action@github.com&amp;#34; git config --local user.name &amp;#34;GitHub Action&amp;#34; GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/^pick /f /g&amp;#39;&amp;#34; git rebase -i --root https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#
 やりたいことは、masterのcommitをfixupしてcommit削減なんだけど、実際に実行された内容は、branch:srcの内容をmasterにpsuh -fするみたいな感じになってる。つまり、srcがmasterにコピーされたのに、ページが表示されていました。
 ただし、何度も連続でcommitして、このアクションが2回連続実行されたりするとページが消えてしまう危険があります。
 おそらく、gh-pagesのbuildが走るのはworkflow中に一回で、連動している場合、同workflow内でmasterにpushされてもpage_buildが走らないため、最新のmasterの内容がページに反映されていないんだと思う。もしくは、on:page_buildのアクションにはpage_buildは実行されないとか。
@@ -3909,7 +3909,7 @@ https://github.com/utterance/utterances
 &amp;lt;script src=&amp;#34;https://utteranc.es/client.js&amp;#34; repo=&amp;#34;[ENTER REPO HERE]&amp;#34; issue-term=&amp;#34;pathname&amp;#34; theme=&amp;#34;github-light&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34; async&amp;gt; &amp;lt;/script&amp;gt; コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。
 github actionsを使ったChatOpsでラベルを付ける ChatOpsと連携すると便利かもということで、やってみました。
 自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。
-name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: | labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description>
+name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: |labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description>
     </item>
     
     <item>
@@ -4743,7 +4743,7 @@ peaceiris/actions-hugo
 まず、branch:gh-pagesで実行する場合、そのままいけましたが、titleにスペースを入れるとなぜか失敗してた記憶があります。が、今は問題なさそうな感じでした。
 次に、branch:masterで実行する場合、これはgithub側の問題ですが、githubが自動で実行するjekyll-deployなどが成功するも、なぜかページが上手く表示されないという現象が起こりました。index.htmlには全く問題がありませんし、ステータスはokになってるのですが、なぜ。
 なので、こんな感じのコマンドを実行し、jekyll-buildを停止。あと一応、CNAMEの問題かもしれないので置きました(自前でpushした場合は無くてもいけてた気がするけど)。
-- name: Build run: | hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description>
+- name: Build run: |hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description>
     </item>
     
     <item>

@@ -129,7 +129,7 @@
     <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
     <span style="color:#f92672">steps</span>:
     - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
-    - <span style="color:#f92672">run</span>: <span style="color:#e6db74">|
+    - <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">        job_time=15
 </span><span style="color:#e6db74">        export GOPATH=$HOME/go
 </span><span style="color:#e6db74">        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -159,8 +159,8 @@
 </span><span style="color:#e6db74">                        echo $post_t
 </span><span style="color:#e6db74">                        ./twg p &#34;$post_t&#34;
 </span><span style="color:#e6db74">                fi
-</span><span style="color:#e6db74">        done
-</span></code></pre></div><p>twgはlocalで使えるようにして<code>~/.config/twg/user.json</code>からtoken,secretを抜き出し、github-repo-settingにてprivateな環境変数に登録しておく。mastodonも同じような感じで。</p>
+</span><span style="color:#e6db74">        done</span>        
+</code></pre></div><p>twgはlocalで使えるようにして<code>~/.config/twg/user.json</code>からtoken,secretを抜き出し、github-repo-settingにてprivateな環境変数に登録しておく。mastodonも同じような感じで。</p>
 <p>twgは、releasesからダウンロードしないと、appのコンシューマキーなどがバイナリに含まれないので、その場合、自身でtwitter devからappを作成、コンシューマなどをゲット後にbuildする必要があります。</p>
 <p>また、ci上のtimeとmastodon-server上のtimeが合っているかは気にしなければいけません。合っていなければ調整する必要あり。unix-timeに変換するのは単純に比較演算するため。</p>
 <p>これは本来のciの使い方じゃないけど、gh-actions、便利。</p>
