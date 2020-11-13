@@ -9,13 +9,17 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>macをupgradeした[big sur]</title>
+      <title>macをbig surにupgradeした</title>
       <link>https://syui.cf/blog/post/2020/11/13/mac/</link>
       <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2020/11/13/mac/</guid>
       <description>delete : ~/Library/Developer/CoreSimulator
-install : command line tool for xcode 12.2</description>
+install : command line tool for xcode 12.2
+big surの不具合 現在確認してる不具合
+ 外部ディスプレイを一度でも接続すると日本語入力が激重になる  通常でもかなり遅く、SMCリセットなど様々な方法、設定を見直してみるものの直らない。Google日本語入力の再インストールも試してみた。
+この現象は、以前のOSにアップグレードしたときに発生した起動がうまく行かなかったとき、再起動すると日本語入力が遅くなる現象に似てる気がする。なお、また再起動をかけると以前は直ってた。
+ auto loginできなくなってる  </description>
     </item>
     
     <item>
