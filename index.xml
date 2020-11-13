@@ -7,7 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 02 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macをupgradeした[big sur]</title>
+      <link>https://syui.cf/blog/post/2020/11/13/mac/</link>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/13/mac/</guid>
+      <description>delete : ~/Library/Developer/CoreSimulator
+install : command line tool for xcode 12.2</description>
+    </item>
+    
+    <item>
+      <title>2FAをgoogleからmicrosoftに移行した</title>
+      <link>https://syui.cf/blog/post/2020/11/12/app/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/12/app/</guid>
+      <description>microsoftの2FAアプリはinport, exportができるのでいいですね。
+https://support.microsoft.com/ja-jp/office/microsoft-authenticator-9783c865-0308-42fb-a519-8cf666fe0acc
+https://support.google.com/accounts/answer/1066447</description>
+    </item>
+    
+    <item>
+      <title>イラストを描いてみた46-49</title>
+      <link>https://syui.cf/blog/post/2020/11/11/illust/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/11/illust/</guid>
+      <description>/imgall</description>
+    </item>
+    
+    <item>
+      <title>ポケモンGo、最近の進捗</title>
+      <link>https://syui.cf/blog/post/2020/11/08/pogo/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/08/pogo/</guid>
+      <description>https://news.denfaminicogamer.jp/column01/201013a
+https://app.famitsu.com/20201103_1719132/</description>
+    </item>
+    
     <item>
       <title>イラストを修正してみた3</title>
       <link>https://syui.cf/blog/post/2020/11/02/illust/</link>

@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2FAをgoogleからmicrosoftに移行した</title>
+      <link>https://syui.cf/blog/post/2020/11/12/app/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/12/app/</guid>
+      <description>microsoftの2FAアプリはinport, exportができるのでいいですね。
+https://support.microsoft.com/ja-jp/office/microsoft-authenticator-9783c865-0308-42fb-a519-8cf666fe0acc
+https://support.google.com/accounts/answer/1066447</description>
+    </item>
+    
     <item>
       <title>iphone5s(ios 12.4.7)をjailbreakしてみた</title>
       <link>https://syui.cf/blog/post/2020/06/10/ios-jb/</link>

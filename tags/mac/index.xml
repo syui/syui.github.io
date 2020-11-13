@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 24 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macをupgradeした[big sur]</title>
+      <link>https://syui.cf/blog/post/2020/11/13/mac/</link>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/11/13/mac/</guid>
+      <description>delete : ~/Library/Developer/CoreSimulator
+install : command line tool for xcode 12.2</description>
+    </item>
+    
     <item>
       <title>macをupdateしたらelectronで作ってたアプリが動かなくなったので調べた(System Eventsでエラーが起きました: osascriptには補助アクセスは許可されません)</title>
       <link>https://syui.cf/blog/post/2019/01/24/mac/</link>
