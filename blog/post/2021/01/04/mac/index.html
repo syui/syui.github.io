@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.80.0" />
-		<title>syui.cf</title>
+		<title>mac big surをクリーンインストールしてみた</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="mac big surをクリーンインストールしてみた" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,17 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
 		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +42,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	        <script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +72,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,63 +106,47 @@
 			
 		</header>
 
-<div class="content-top">
- <p style="text-align:right;"><a href="/sitemap/"><i class="fas fa-bars"></i></a></p>
- <blockquote>
-	<p>
-	<div class="footer-link">
-	 <a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-	 <a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-	 <a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
- </blockquote>
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/01/04/mac/">mac big surをクリーンインストールしてみた</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/01/03/illust/">イラスト描いてみた60</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/01/02/pokemas/">ポケマス、正月リーリエは引くべきか</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/01/01/illust/">イラスト描いてみた59</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2020/12/31/pogo/">ポケモンGo、TL47</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2020/12/30/illust/">イラスト描いてみた58</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2020/12/28/pokemas/">ポケマス、マジコスリーフ6EX</a>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
- <p><a href="https://mstdn.syui.cf/@syui">@syui@syui.cf</a></p>
-</div>
+       			<article>
+       			 	<div class="content">
+				        <h2>mac big surをクリーンインストールしてみた</h2>
+       			 		<p>upgrade後に日本語入力と起動が遅くなっていたので、macのbig surをクリーンインストールしてみました。</p>
+<p>原因を調べましたが、どうやらapfsフォーマットに強制的に変更させられた人にこの不都合が多く出ていると思ったので、内蔵ディスクをapfsに再フォーマット後、macをインストールするれば直るんじゃないかと考えました。</p>
+<p>実は、macは、osのupbradeにより、一度、hfs+からapfsへディスクのフォーマットを変更しています。フォーマットをどうやって強制的に変更したんだと思われるかもしれませんが、これは様々な方法が考えられます。例えば、空き領域をボリュームABに分けて、片方をapfsフォーマット後、元のボリュームからバックアップを復元し、その後、分けられていた領域を統合(拡張)したのかもしれません。</p>
+<p>それは置いといて、hfs+からapfsに変更された人が遅くなってるんじゃないかということで、内蔵ディスクをapfsに再フォーマット後、macをインストールしてみたところ、この症状が治りました。具体的には、起動が早くなり、日本語入力の遅延がなくなりました。</p>
+<p>インストール中はパソコンいじれないので、絵を描いてました。</p>
+<p><img src="/img/yui_61.png" alt="">
+<a href="/imgall">/imgall</a></p>
+
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/01/03/illust/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> イラスト描いてみた60
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tags:</strong>
+								    <a href="https://syui.cf/tags/mac/">mac</a>, <a href="https://syui.cf/tags/illust/">illust</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
-
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">©syui</footer>
-
 
 	</body>
 </html>

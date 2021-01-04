@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mac big surをクリーンインストールしてみた</title>
+      <link>https://syui.cf/blog/post/2021/01/04/mac/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/01/04/mac/</guid>
+      <description>upgrade後に日本語入力と起動が遅くなっていたので、macのbig surをクリーンインストールしてみました。
+原因を調べましたが、どうやらapfsフォーマットに強制的に変更させられた人にこの不都合が多く出ていると思ったので、内蔵ディスクをapfsに再フォーマット後、macをインストールするれば直るんじゃないかと考えました。
+実は、macは、osのupbradeにより、一度、hfs+からapfsへディスクのフォーマットを変更しています。フォーマットをどうやって強制的に変更したんだと思われるかもしれませんが、これは様々な方法が考えられます。例えば、空き領域をボリュームABに分けて、片方をapfsフォーマット後、元のボリュームからバックアップを復元し、その後、分けられていた領域を統合(拡張)したのかもしれません。
+それは置いといて、hfs+からapfsに変更された人が遅くなってるんじゃないかということで、内蔵ディスクをapfsに再フォーマット後、macをインストールしてみたところ、この症状が治りました。具体的には、起動が早くなり、日本語入力の遅延がなくなりました。
+インストール中はパソコンいじれないので、絵を描いてました。
+/imgall</description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた60</title>
       <link>https://syui.cf/blog/post/2021/01/03/illust/</link>
