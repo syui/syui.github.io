@@ -42,10 +42,19 @@
     "url": "https://syui.cf/music/yume.mp3",
     "url": "https://syui.cf/music/yume_renri.mp3"
   },
+	{
+    "id": "8",
+    "title": "yuki",
+    "url": "https://syui.cf/music/yuki.mp3"
+  },
+		{
+    "id": "9",
+    "title": "kira",
+    "url": "https://syui.cf/music/kira.mp3"
+  },
   {
     "id": "album",
     "title": "music.zip",
-    "url": "https://syui.cf/music/music.zip",
-    "checksum":"1d536c5fdae95dfd7e41842e207b2b95"
+    "url": "https://syui.cf/music/music.zip"
   }
 ]
