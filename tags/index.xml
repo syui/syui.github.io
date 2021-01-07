@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mac</title>
       <link>https://syui.cf/tags/mac/</link>
-      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vocaloid</title>
+      <link>https://syui.cf/tags/vocaloid/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/vocaloid/</guid>
       <description></description>
     </item>
     
@@ -23,15 +32,6 @@
       <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vocaloid</title>
-      <link>https://syui.cf/tags/vocaloid/</link>
-      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/vocaloid/</guid>
       <description></description>
     </item>
     

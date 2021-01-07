@@ -7,7 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>マイクと音声変換</title>
+      <link>https://syui.cf/blog/post/2021/01/07/voice/</link>
+      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/01/07/voice/</guid>
+      <description>この前、youtubeを見てて、うまく音声変換してる人を見かけたんですが、すごいなあ、どうやってやるんだろうとちょっと思ったので、やってみることにしました。
+
+結論から言うと、voidolとかより、macのgaragebandを使ったほうがうまく変換できました。
+出力にマイクを当て、
+プラグインのpitch -&amp;gt; vocal transformerを追加。
+音声ファイルを書き込むには、共有 -&amp;gt; 曲をディスクに書き出すからできます。
+これをimovieなどを使って動画に挿入し、適時、文字を入れていくと、動画の完成。(いうほど簡単ではないと思う
+このとき、音声にブツ切り音などが入ってる場合、削除するといいかも。
+youtuberって、案外、バカにされがち？なんですけど、トークも動画編集もすごくて、すごいクリエイターなのだと思います。やってみると難しいことって案外多い気がする。</description>
+    </item>
+    
+    <item>
+      <title>big surとvocaloid3</title>
+      <link>https://syui.cf/blog/post/2021/01/06/vocaloid/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/01/06/vocaloid/</guid>
+      <description>昨日、big surでstudio one2(+piapro studio vsti)が激重とか書きましたが、いつの間にか、問題が解決していて、そこまでの遅延が発生しない状態になってたので、そのことについて。
+まず、よくわからない用語の解説です。
+mac osのbig surと、studio oneはDTMアプリのことで、piapro studioというのはstudio oneのプラグインのこと。vstiはstudio oneのプラグイン表記、piapro studioがどのようなプラグインかというと、vocaloid editorのようなもので、私が使ってる音声ライブラリはvocaloid3、と理解しておけば良さそう。
+正直、私もよくわかってません。DTM関連もややこしい。
+ここでは、わかりやすさ重視のため、タイトルにはvocaloid3を使用。また、studio one2もアプリ名はstudio one2ですが、私が使ってるのは正確には、studio one artist OEMというらしい。
+さて、この前、作曲しててアプリもプラグインも重かったんですが、プラグインのほうが重かった感じでした。
+で、アプリ自体はbig surの日本語入力、起動遅延の問題からクリーンインストール(windowsでいうリカバリ相当)後にバックアップから復元したものを使い、プラグインは新しくインストールしたものを使いました。ここで復元アプリからファイルを作って、それを編集していました。
+しかし、激遅いなあとか思って、復元アプリを消し、イチからアプリをインストールしてみます。
+ですが、やっぱり激遅い。
+しかし、今回、アプリで新しいファイルを開き、それを編集してみると、この問題は解消していました。そこまでの遅延は見られない状態です。
+この状況から察するに、復元アプリでファイルを作成したのが良くなかったような気がしてる。イチからアプリを再インストールした上でファイル作成、編集すべきでした。
+よくわからんが、たすかった。これで普通に作曲できるぞー！(能力的にはできない
+なお、私のpiapro studio(vocaloid3)はかなり古く、すでにサポートされてない感じで、現在サポートされているpiapro studio NT(vocaloid5)を使ったほうがいいかもしれません。
+  Piapro Studio 2.0.4.10
+  Piapro Studio NT 3.0.1.3
+  macOS11 Big Sur への対応につきまして
+  </description>
+    </item>
+    
     <item>
       <title>作曲してみた9</title>
       <link>https://syui.cf/blog/post/2021/01/05/music/</link>
