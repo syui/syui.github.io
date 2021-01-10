@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>vmlinuz linux not found</title>
+		<title>vmlinuz linux not found | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -109,7 +109,7 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>vmlinuz linux not found</h2>
+													<h2>vmlinuz linux not found</h2>
        			 		<p>起動したら<code>vmlinuz linux not found</code>が出る。これは、/boot/以下に置かれるlinux imgで、usbからアクセスしてみると、確かにない。自身の環境では、<code>/boot/grub/grub.cfg</code>とかで読み込んでるのでないと、当然起動しない。ということで、linuxをインストールし直してみた。<code>systemd-boot</code>とかが怪しいのか、アップデート時に間違って別の場所にインストールされたとか?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ arch-chroot /mnt
 $ pacman -S linux

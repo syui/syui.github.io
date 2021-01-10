@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>mastodon-heroku-db-reset</title>
+		<title>mastodon-heroku-db-reset | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -109,7 +109,7 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>mastodon-heroku-db-reset</h2>
+													<h2>mastodon-heroku-db-reset</h2>
        			 		<p>herokuのdbがlimitに近づいてきたのでバックアップしていたものをリストアして対応した。</p>
 <p><a href="https://devcenter.heroku.com/articles/heroku-postgres-import-export">https://devcenter.heroku.com/articles/heroku-postgres-import-export</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pg_restore --verbose --clean --no-acl --no-owner -h $HOST -U $USERNAME -d $DATABASE ./$filename

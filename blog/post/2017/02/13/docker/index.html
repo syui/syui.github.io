@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Dockerイメージの最適化</title>
+		<title>Dockerイメージの最適化 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -109,7 +109,7 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>Dockerイメージの最適化</h2>
+													<h2>Dockerイメージの最適化</h2>
        			 		<p>通常、dockerfileからbuildしたイメージが最も最適化されている状態なのだけど、commitなどしていくと、差分関係などいろいろあって肥大化するらしい。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-squash -from $id -i input -o output
 $ docker export &lt;container id&gt; | docker import - &lt;new image name&gt;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>hugoでちょっとハマったところ</title>
+		<title>hugoでちょっとハマったところ | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -109,7 +109,7 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>hugoでちょっとハマったところ</h2>
+													<h2>hugoでちょっとハマったところ</h2>
        			 		<p>content/post以下の記事一覧を表示したいけど、<code>content/post/_index.html</code>のリンクは表示したくない<code>.mainSections</code>のと、古い順<code>.Reverse</code>に表示したい場合。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ range first 100 (where site.RegularPages.Reverse &#34;Type&#34; &#34;in&#34; site.Params.mainSections) }}
 </code></pre></div><p>なんか、次の記事へのリンクが<code>.Paginate</code>とか<code>.Paginator.HasPrev</code>で取得できず、エラーがgolangのバグっぽかったので、<code>.PrevInSection .NextInSection</code>を使った。</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Linuxでメモリ解放をユーザー権限で行う方法</title>
+		<title>Linuxでメモリ解放をユーザー権限で行う方法 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -109,7 +109,7 @@
 
        			<article>
        			 	<div class="content">
-				        <h2>Linuxでメモリ解放をユーザー権限で行う方法</h2>
+													<h2>Linuxでメモリ解放をユーザー権限で行う方法</h2>
        			 		<p><code>/etc/sudoers</code>に以下の文を追加してShellに<code>alias p=&quot;sync &amp;&amp; echo 3 | sudo tee /proc/sys/vm/drop_caches&quot;</code>を追加。</p>
 <pre><code>%wheel ALL=(ALL) NOPASSWD: /usr/bin/tee /proc/sys/vm/drop_caches
 </code></pre><pre><code>$ p
