@@ -1,5 +1,5 @@
 ---
-title: "sitemap"
+title: "sitemap | syui.cf"
 type: sitemap
 ---
 

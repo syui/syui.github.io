@@ -1,5 +1,5 @@
 ---
-title: "item"
+title: "item | syui.cf"
 type: item
 ---
 

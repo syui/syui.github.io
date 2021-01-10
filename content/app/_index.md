@@ -1,4 +1,4 @@
 ---
-title: app
+title: app | syui.cf
 ---
 

@@ -1,4 +1,4 @@
 ---
-title: blog
+title: blog | syui.cf
 ---
 
