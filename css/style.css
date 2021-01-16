@@ -205,17 +205,17 @@ ins.adsbygoogle {
 	font-size: 20px;
 }
 
-span.navbar-nav-left-title {
-	padding:0 20px 0 20px;
-	font-size:20px;
-}
-span.navbar-nav-left-icon {
-    position: absolute;
-}
-span.navbar-nav-left-icon span.icon-syui {
-	font-size:30px;
+
+.navbar-nav > a > span.icon-syui {
+    font-size: 1.5rem;
+    padding: 15px;
 }
 
-span.navbar-nav-left-text {
-    padding-left: 40px;
+.navbar-nav > span.navbar-title-text {
+    padding: 0 20px 0 20px;
+}
+
+.navbar-nav > span.navbar-title-text > a.navbar-title {
+    font-size: 25px;
+    margin-bottom: 8px;
 }
