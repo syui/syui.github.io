@@ -204,3 +204,18 @@ ins.adsbygoogle {
 .top-sns-header span.icon-moon {
 	font-size: 20px;
 }
+
+span.navbar-nav-left-title {
+	padding:0 20px 0 20px;
+	font-size:20px;
+}
+span.navbar-nav-left-icon {
+    position: absolute;
+}
+span.navbar-nav-left-icon span.icon-syui {
+	font-size:30px;
+}
+
+span.navbar-nav-left-text {
+    padding-left: 40px;
+}
