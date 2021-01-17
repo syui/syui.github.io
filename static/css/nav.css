@@ -519,7 +519,7 @@ a.navbar-brand {
 
 }
 
-@media (max-width: 850px) {
+@media (max-width: 650px) {
     nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 	display:none;
     }
