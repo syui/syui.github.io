@@ -122,6 +122,7 @@
        			<article>
        			 	<div class="content">
 													<h2>macをupdateしたらelectronで作ってたアプリが動かなくなったので調べた(System Eventsでエラーが起きました: osascriptには補助アクセスは許可されません)</h2>
+													<div class="post-time-date">2019/01/24</div>
        			 		<p>問題 : 「System Eventsでエラーが起きました: osascriptには補助アクセスは許可されません」というエラーが出る</p>
 <p>結論 : 設定, セキュリティとプライバシー, プライバシーのアクセシビリティから<code>System Events.app</code>のチェックをOFF/ONする</p>
 <p>electronもnodeもyarnも関係なく、単なるbackgroundで使ってるSystem Eventsが原因ですけど、<code>yarn start</code>でアプリを立ち上げて、GUIはelectronで用意しているというアプリです。</p>

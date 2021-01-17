@@ -122,6 +122,7 @@
        			<article>
        			 	<div class="content">
 													<h2>mastodon-1.5</h2>
+													<div class="post-time-date">2017/08/20</div>
        			 		<p>mastodon 1.5r2の話だけど、heroku buildする際に<code>gem install idn-ruby -v '0.1.0'</code>みたいなerrorがでて、それは、<code>libidn11-dev</code>というパッケージのインストールが必要みたいで、<code>wget</code>するんだけど、しかし、<a href="https://mastodon.zunda.ninja/@zundan/131068">herokuには元々libidnが入っている</a>ぽいのでよくわからない感じになって、<code>.buildpacks</code>を見てみると、URLがあるんだけど、それを<code>heroku buildpacks:add</code>するんだけど、やっぱり出来なくて、<code>Aptfile</code>を見てもlibidnは<code>heroku-buildpack-apt</code>でインストールする感じになっていて、よくわからない。</p>
 <p>ちなみに、Aptfileはherokuのbuildpacksでインストールするパッケージを記述するファイル。herokuのbuildpacksは追加するとそれでビルドすることになる。必要なものは<code>.bildpacks</code>に書いてあるので、それを<code>heroku buildpacks:add</code>で追加すると有効になる。</p>
 <p>結論として、<code>libidn11-dev</code>の行をAptfileから削除して<code>git push heroku master</code>したらいけた。</p>

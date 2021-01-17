@@ -122,6 +122,7 @@
        			<article>
        			 	<div class="content">
 													<h2>画像URLから画像をダウンロードできない場合の対処法</h2>
+													<div class="post-time-date">2018/11/17</div>
        			 		<p>自分の場合、画像を自動ダウンロードして、暇がある時に、定期的にチェックしたりしてるんだけど(みんなやってるよね)、この前、スクリプトが動いてなかったので、見てみた。</p>
 <p>具体的には、nginxにある条件が追加されてて、意図としては、ブラウザでしか開けないようにしているんだろうというか、正確には、ダウンローダーのような直接、画像URLを取得して画像をダウンロードする的な行為を無効化したいんだろうなとか思った。そういうときは、こんな感じで。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sLO https://db.example.com/file/01.jpg -H <span style="color:#e6db74">&#34;Referer: https://example.com&#34;</span>
