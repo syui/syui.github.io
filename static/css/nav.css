@@ -512,7 +512,7 @@ a.navbar-brand {
     color:#EF454A;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 1099px) {
     .navbar-nav-right{
 	display:none;
     }
