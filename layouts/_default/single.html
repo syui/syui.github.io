@@ -5,6 +5,7 @@
        			<article>
        			 	<div class="content">
 													<h2>{{ .Title }}</h2>
+													<div class="post-time-date">{{ .Date.Local.Format "2006/01/02" }}</div>
        			 		{{ .Content }}
        			 		{{ partial "prev_next_post.html" . }}
 

@@ -205,3 +205,8 @@ ins.adsbygoogle {
 	font-size: 20px;
 }
 
+.post-time-date{
+	text-align: right;
+	color: #EF454A;
+	padding:5px 0 5px 0;
+}
