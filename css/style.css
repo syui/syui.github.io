@@ -205,15 +205,3 @@ ins.adsbygoogle {
 	font-size: 20px;
 }
 
-.navbar-nav > a > span.icon-syui {
-    font-size: 1.5rem;
-    padding: 15px;
-}
-
-.navbar-nav > span.navbar-title-text {
-    padding: 0 40px 0 40px;
-}
-
-.navbar-nav > span.navbar-title-text > a.navbar-title {
-    font-size: 26px;
-}
