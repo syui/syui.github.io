@@ -533,17 +533,19 @@ a.navbar-brand {
 	.navbar-nav-right{
 		display:none;
 	}
-
 }
 
 @media (max-width: 650px) {
 	.navbar-nav-left{
 		display:none;
 	}
-	.navbar-nav > span.navbar-title-text {
-		padding: 0 5px 0 10px;
-	}
 	.navbar-nav > span.navbar-title-icon {
 		margin:0 0 0 auto;
+	}
+	.navbar {
+		padding: 0.5rem 0rem 0.3rem 0rem;
+	}
+	.navbar-expand-lg .navbar-collapse {
+		padding: 0 10px 0 10px;
 	}
 }
