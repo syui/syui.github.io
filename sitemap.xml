@@ -4,21 +4,36 @@
   
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-01-17T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2021-01-17T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/mac/</loc>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/blog/post/2021/01/19/shell/</loc>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/tags/shell/</loc>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2021-01-17T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/tags/pokemon/</loc>
     <lastmod>2021-01-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -60,11 +75,6 @@
   <url>
     <loc>https://syui.cf/blog/post/2021/01/08/pogo/</loc>
     <lastmod>2021-01-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/tags/mac/</loc>
-    <lastmod>2021-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -3254,11 +3264,6 @@
   
   <url>
     <loc>https://syui.cf/blog/post/2017/05/03/shell/</loc>
-    <lastmod>2017-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/tags/shell/</loc>
     <lastmod>2017-05-03T00:00:00+00:00</lastmod>
   </url>
   

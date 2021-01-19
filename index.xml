@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macでtimeコマンドを使ってみる</title>
+      <link>https://syui.cf/blog/post/2021/01/19/shell/</link>
+      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/01/19/shell/</guid>
+      <description>coreutilsになかったのですが、gnu-timeでインストールできます。
+mac標準は、/usr/bin/timeにありますが、ほとんどのオプションが機能せず、あまり使えません。
+$ brew install gnu-time $ gtime -f &amp;#34;%e&amp;#34; read これによって、ストップウォッチとして使えますし、任意のタイミングで実行時間を計測して記録できるので、色々と便利です。
+例えば、任意のコマンドを指定した間隔で実行してみます。
+#/bin/zsh time=time.txt json=command.json echo &amp;#34;[s]ave, [l]oad&amp;#34; case $1 in s) if [ -f $json ];then rm $json fi echo &amp;#34;[&amp;#34; &amp;gt;&amp;gt; $json while : do echo &amp;#34;command?, [s]top&amp;#34; read key case $key in s) echo &amp;#34;{\&amp;#34;command\&amp;#34;:\&amp;#34;\&amp;#34;,\&amp;#34;time\&amp;#34;:\&amp;#34;\&amp;#34;}]&amp;#34; &amp;gt;&amp;gt; $json exit ;; *) echo &amp;#34;time enter&amp;#34; gtime -f &amp;#34;%e&amp;#34; -o $time read cti=`cat $time` echo &amp;#34;{\&amp;#34;command\&amp;#34;:\&amp;#34;$key\&amp;#34;,\&amp;#34;time\&amp;#34;:\&amp;#34;$cti\&amp;#34;},&amp;#34; &amp;gt;&amp;gt; $json ;; esac done ;; l) if !</description>
+    </item>
+    
     <item>
       <title>ポケモンGo、TL50のプラチナメダル40個</title>
       <link>https://syui.cf/blog/post/2021/01/18/pogo/</link>
