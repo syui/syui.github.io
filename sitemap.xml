@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2021-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/tags/pokemon/</loc>
+    <lastmod>2021-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://syui.cf/blog/post/2021/02/18/pokemas/</loc>
+    <lastmod>2021-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://syui.cf/tags/note/</loc>
     <lastmod>2021-02-17T00:00:00+00:00</lastmod>
   </url>
@@ -13,23 +38,8 @@
   </url>
   
   <url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-02-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/tags/</loc>
-    <lastmod>2021-02-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://syui.cf/archive/note/11/</loc>
     <lastmod>2021-02-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-02-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -40,11 +50,6 @@
   <url>
     <loc>https://syui.cf/blog/post/2021/02/07/illust/</loc>
     <lastmod>2021-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2021-02-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
