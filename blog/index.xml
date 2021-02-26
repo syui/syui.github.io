@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>skebとfanbox(pixiv)でidを取ってみた</title>
+      <link>https://syui.cf/blog/post/2021/02/26/illust/</link>
+      <pubDate>Fri, 26 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/02/26/illust/</guid>
+      <description>skeb.jpが買収された話をきっかけに、skebとかに登録してidを取ってみました。
+https://jp.techcrunch.com/2021/02/19/skeb-buyout
+skebのユーザーページで404が表示される場合 idを取れたのが特にうれしかったです。手遅れかもとちょっと思ってました。
+ただ、skebでは、twitterからログインして、ユーザーページを作成するんですけど、idをsyuiに変更して、一応、ページはできたように見えるのですが、リロードすると404になってしまい、つまり、publicにページが作成されていない状態でした。
+docsなどを読んだんですけど、あまり仕様が把握できなくて、よくわからなくて、放置してたら、いつの間にか、ページができていました。
+つまり、デプロイ処理されてなかっただけなのかもしれません。コスト等の関係で、h1やh2で回るようにしてるのかもとか思いましたが、実際のところはわかりません。
+したがって、登録したあとは、ユーザーページが公開されるまで、404でもしばらく待つとよいかもしれません。
+この辺、検索してもなかなか情報が出てこなくてハマりました。
+skebとfanbox 個人的には、skebの方針のほうが好きです。
+https://skeb.jp/@syui
+依頼について あまり、いらっしゃらないと思いますが、もし依頼したいと考えてくださる人がいた場合の文章です。
+skebでは依頼を受け付けています。
+一次創作しかやりませんので、こんなキャラを描いてと言われた場合、新しいキャラを作成することになります。
+また、私が気に入れば、後に自分の作品に使われる可能性があります。
+名前は私がつけますので、クライアントは命名できませんが、別に名前の要望があっても気にしません。
+どんな依頼があっても、気にすることはないと思うので、気軽に依頼してください。どんな依頼をしてもらっても構いません。
+ただ、完全に要望に答えられるわけではなく、あくまで要望に答える努力をしながらも、自由にやるつもり。
+また、依頼を受けたときの個人方針として「画力向上のため、できる限り努力して仕上げること」を目標にしたいと思っています。
+よって、今まで描いてきた絵とは多少異なってくる可能性があるかもしれません。
+とはいえ、イラスト自体の特徴や方向性を変えるつもりはなく、変わるのは、おそらく、微妙な線の入れ方や塗り方とかかなと思われます。
+とりあえず、もし依頼があれば、がんばります。
+以上です。</description>
+    </item>
+    
     <item>
       <title>ポケマス、注目の1.5周年でやるべきこと</title>
       <link>https://syui.cf/blog/post/2021/02/25/pokemas/</link>
