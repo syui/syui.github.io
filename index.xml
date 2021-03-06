@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 02 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ポケモンGo、今プレイしておくといいかもしれない理由</title>
+      <link>https://syui.cf/blog/post/2021/03/06/pogo/</link>
+      <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/03/06/pogo/</guid>
+      <description>「ソフトとハードの未来を探求」ということで以下の記事が出ています。面白そうだったので、ちょっと紹介します。
+We’re thrilled to collaborate with @microsoft &amp;amp; @hololens on new experiences that will weave together the digital and physical world. Check out this proof-of-concept demo, built on our planet-scale platform, and the amazing possibilities that could await. https://t.co/ig0bQUIQ8b pic.twitter.com/gGk5djVayC
+&amp;mdash; Niantic, Inc. (@NianticLabs) March 2, 2021  https://nianticlabs.com/blog/microsoft-ignite-2021
+https://www.businessinsider.jp/post-230729
+動画を見てみると、現実の空間を把握した上でゴーグルにコンテンツを配置する技術を使いARを実現するものかなって思いました。
+この場合、ゴーグルがハードで、ゴーグルに内蔵されるソフトを通じて動く感じになりそう。
+また、動画の終盤では、ゴーグルの前に手を掲げると、ゴーグル装着者しか見えない操作ウィンドウが開き、手の動きで操作しているように見えます。
+操作ウィンドウを出すには、まず人の手のひらの形、あるいは手相、もしくは指紋をカメラで読み取りソフトが認識するのかわかりませんが、とりあえず一定の手順を踏むと操作ウィンドウが表示できるようです。
+操作ウィンドウを表示したあとは、手の動きに応じ、選択・決定のフェイズに移行するみたい。空中で手を動かすだけでゴーグルに内蔵されているソフトを操作できるように見えます。
+ポケモンGoを運営するNianticは、結構前からこのような技術を率先して開発していて、これからの変化がとても楽しみです。
+興味がある人は、今のうちにポケモンGoをプレイしてポケモンを捕まえとくといいかもよ。
+もちろん、将来的にポケモンGoと連動するかはわかりませんし、こういったものがリリースされたとしても最初のうちは「え？こんなもん？」と感じるような、言ってしまえばあまり出来が良いとは思えないものかもしれませんが、さらにそこから数年後は、結構すごいことになってたりするかもしれませんよ。
+ポケモンGoは、たくさんの可能性があって、ワクワクしてます。</description>
+    </item>
+    
     <item>
       <title>ポケモンGo、リモートパスの使い所</title>
       <link>https://syui.cf/blog/post/2021/03/02/pogo/</link>
