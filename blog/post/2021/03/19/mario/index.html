@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.81.0" />
-		<title>syui.cf</title>
+		<title>マリオが難しかったので解説してみる | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="マリオが難しかったので解説してみる" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,17 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
 		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +42,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	        <script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +72,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,23 +106,7 @@
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><span class="icon-moon"></span></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
-
-
-<div class="content-top">
-
-	<div class="google-ads">
+<div class="google-ads">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<ins class="adsbygoogle"
 						style="display:block"
@@ -142,51 +119,82 @@
 	</script>
 </div>
 
+       			<article>
+       			 	<div class="content">
+													<h2>マリオが難しかったので解説してみる</h2>
+													<div class="post-time-date">2021/03/19</div>
+       			 		<p>マリオ3Dワールドを2,3日プレイしてたんですけど、最近のマリオ、ちょっと難しすぎません？</p>
+<p>と、そんなどうでもいい話は置いといて、検索しても有効な攻略法が見当たらなかったので、難しかったコースを自分なりに解説してみます。</p>
+<p>簡単そうに見えますけど、意外と難しいかもしれない。</p>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/KvBnDXZabVk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<h2 id="ステージ1">ステージ1</h2>
+<p>最初は少し右にずれると砲弾をかわせる。詳しくは動画にて。</p>
+<p>この細切れの橋は、タヌキで滑走すると乗れる確率が高い。ただし、自信がある場合は任意のタイミングで離してもOK。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031901.png" alt=""></p>
+<h2 id="ステージ2">ステージ2</h2>
+<p>消える台座は、どこに乗るか決めておく。階段の連なりは、一つ目をジャンプ後にタヌキで空中に留まる。ピーチを使うと長く留まれる。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031902.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031903.png" alt=""></p>
+<h2 id="ステージ3">ステージ3</h2>
+<p>魔法使いは、三角形を描くように、真ん中を中心にジャンプしながら倒す。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031904.png" alt=""></p>
+<p>黄色い台座は、乗った直後にジャンプ、着地後にしゃがむ。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031905.png" alt=""></p>
+<p>縦線を意識、その直線状に待機して、タイミングが合えばジャンプ。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031906.png" alt=""></p>
+<p>トゲトゲが通り過ぎた直後にダッシュしてジャンプ。黒虫も飛び越えられる。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031907.png" alt=""></p>
+<p>黄色い台座が来るまで待機。待機場所も予め決めておく。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031908.png" alt=""></p>
+<p>黄色い台座は一つ乗れば、あとはタヌキで飛び越えられる。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031909.png" alt=""></p>
+<h2 id="ステージ4">ステージ4</h2>
+<p>壁虫はジャンプして目視しないと通りてこない。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031910.png" alt=""></p>
+<p>パックンは、ジャンプ後に踏みつけたあと、Bボタンを離して、Aを押しっぱなしにする。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031911.png" alt=""></p>
+<p>水のところは、2秒待ってから入る。すると、透明ドカンに入りやすい。
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031912.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031913.png" alt=""></p>
+<h2 id="ステージ5">ステージ5</h2>
+<p>熱線が手前で消えたあと、2秒を数えてから入る。すると、熱線を避けてジャンプしやすい。大体どの部分を走り、どの部分に着地するのか決めておくといい。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031914.png" alt="">
+グリーンスターのところは熱線が交差する直前になるので、取ったあとにギリギリのところでジャンプ。すると、しばらく熱線が来ない。この時間を利用して中央のハテナを取る。ちなみに、熱線は中央が一番危険なので、長く待機しない。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031915.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031916.png" alt=""></p>
+<p>あとはタヌキとピーチで空中にとどまりつつ、ハテナを取っていくとクリア。奇跡的にノーダメでクリアしました。</p>
+<p>ただ、この熱戦地帯、ダメージ後の無敵状態を利用してハテナを取っていく方法も考えてた。もしタヌキが余ってる場合は中央に置いとこうかなとかも考えてた。(試してないので有効かわからないけど</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/switch_mario_3d_world_2021031917.png" alt=""></p>
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/19/mario/">マリオが難しかったので解説してみる</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/18/pogo/">ポケマス、アイリス(アナザー)とクッキー</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/12/pogo/">ポケマス、ダンデと展望</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/09/pogo/">ポケモンGo、TL50</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/06/pogo/">ポケモンGo、今プレイしておくといいかもしれない理由</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/02/pogo/">ポケモンGo、リモートパスの使い所</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/03/01/photo/">絵を飾ろうとして失敗した話</a>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
-</div>
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/03/18/pogo/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> ポケマス、アイリス(アナザー)とクッキー
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/game/">game</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
-
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>
