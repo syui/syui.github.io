@@ -5,9 +5,17 @@ title = "ポケモンGoの動画制作、昨日の問題点を踏まえ改善し
 slug = "pokemongo"
 +++
 
-今回は、トークを入れてみました。
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/o-6BrbLSOuQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/SsVPFTke-Kg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+### 追記
+
+その後、やっぱりうまくできていないということで、音声部分を削除しました。
+
+もう少し自然にできるといいんですけど、難しい。
+
+### 動画
+
+今回はトークを入れてみました。
 
 トークは難しくて、個人的には全く向いてないと思う。
 
