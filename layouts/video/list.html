@@ -1,0 +1,22 @@
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+			<div id="container">
+			    <div class="outer">
+			<p>動画を作ります</p>
+				<div id="blog-archives" class="category">
+				    <ul class="cp_list">
+					{{ range .Pages.Reverse }}
+					<li>
+					    <a href="{{.Permalink}}">{{.Title}}</a>
+  							{{ .Summary }}
+					</li>
+					{{ end }}
+				    </ul>
+				</div>
+			    </div>
+			</div>
+		</div>
+		{{ partial "footer" . }}
+</body>
+</html>
