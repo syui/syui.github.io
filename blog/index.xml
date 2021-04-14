@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>youtubeのヘッダーやアイコンを作ってみた</title>
+      <link>https://syui.cf/blog/post/2021/04/14/icon/</link>
+      <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/04/14/icon/</guid>
+      <description>気がついたら作ってたので、こういうこと好きなのかもしれない。ちなみに、アイコンはポケモンのオオタチからインスピレーションを得たのかもしれない(いいかた)。文字作るのが一番大変だった。</description>
+    </item>
+    
     <item>
       <title>ポケモンGoのチャンネルを開設してみた</title>
       <link>https://syui.cf/blog/post/2021/04/09/pokemongo/</link>
