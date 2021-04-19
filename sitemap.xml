@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/04/19/illust/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/archive/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/tags/private/</loc>
-    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/04/18/archive/</loc>
@@ -25,9 +31,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/04/16/archive/</loc>
     <lastmod>2021-04-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2021-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/04/15/illust/</loc>
     <lastmod>2021-04-15T00:00:00+00:00</lastmod>
