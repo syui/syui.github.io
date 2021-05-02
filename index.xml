@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>イラスト描いてみた78,79</title>
+      <link>https://syui.cf/blog/post/2021/05/01/illust/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/01/illust/</guid>
+      <description>/imgall</description>
+    </item>
+    
+    <item>
+      <title>usbにarchをインストールする方法</title>
+      <link>https://syui.cf/blog/post/2021/04/30/arch/</link>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/04/30/arch/</guid>
+      <description>基本的には、macbookでもbootできるarch usbの作成方法です。
+grub まずbootですが、私はmacbook-airの内蔵diskにarchをインストールしてることもあって、そこから持ってくることになりました。
+grub-installは成功するんだけど、なぜかうまく動かない。また、archのインストールディスクからgrubがなくなってるのと、現在のインストールディスクがmacbookで認識しなくなってました。supportはずされたのか、それ以外の問題か。なんにせよ最新のgrub-installで作成されるefiではbootできないし、最新のインストールディスクはmacbookから起動できません。(私の環境では)
+なので、基本的には、usbにlinuxをインストールして、archが動いてるdiskの/boot(linux-img以外)及び/dev/sda1のディレクトリ構成をコピーすればokです。
+$ pacman -S linux $ mount /dev/sdb2 ./mnt $ cp -rf /boot/efi ./mnt/boot/ $ cp -rf /boot/grub ./mnt/boot/ $ mount /dev/sdb1 ./boot $ mount /dev/sda1 ./boot2 $ cp -rf ./boot2/* ./boot/ $ grub-mkconfig -o /boot/grub/grub.cfg ちなみに、grub-installは以下のコマンドで成功(動かないけど)。
+$ arch-chroot ./mnt $ mount /dev/sdb1 ./boot/efi $ grub-install --efi-directory=/boot/efi /dev/sdb linux macbookは2台あるんですけど、archがすんなり起動したやつとしなかったやつがありました。
+macbookによってはlinux起動時に以下のようなerrorが出てlinuxが起動しない場合があって、uuidが見つからないと言われてるんだけど、普通にusbのuuidは一致してるので、fstab, grubの問題ではなく、linux kernelの問題でした。
+ ERROR: device &amp;lsquo;UUID=xxx&amp;rsquo; not found. Skipping fsck. mount: /new_root: can&amp;rsquo;t find UUID=xxx.</description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた77</title>
       <link>https://syui.cf/blog/post/2021/04/28/illust/</link>
