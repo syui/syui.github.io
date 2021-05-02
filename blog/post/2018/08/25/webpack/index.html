@@ -263,10 +263,10 @@ $ npm update
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;production&#39;</span>,
   <span style="color:#a6e22e">entry</span><span style="color:#f92672">:</span> [
-    <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;./client/js/app.js&#39;</span>)
+    <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#ae81ff">__</span><span style="color:#a6e22e">dirname</span>, <span style="color:#e6db74">&#39;./client/js/app.js&#39;</span>)
   ],
   <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;./priv/static/js&#39;</span>),
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#ae81ff">__</span><span style="color:#a6e22e">dirname</span>, <span style="color:#e6db74">&#39;./priv/static/js&#39;</span>),
     <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app.js&#39;</span>,
     <span style="color:#a6e22e">publicPath</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
   },
@@ -335,7 +335,7 @@ $ npm update
   },
 
   <span style="color:#a6e22e">devServer</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">contentBase</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;./client&#39;</span>),
+    <span style="color:#a6e22e">contentBase</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#ae81ff">__</span><span style="color:#a6e22e">dirname</span>, <span style="color:#e6db74">&#39;./client&#39;</span>),
     <span style="color:#a6e22e">inline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
     <span style="color:#a6e22e">open</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
   },
