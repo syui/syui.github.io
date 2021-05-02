@@ -227,7 +227,22 @@ XTerm*background:          black
 XTerm*foreground:          white
 xterm*faceName:            ricomoon
 XTerm*faceSize:            <span style="color:#ae81ff">13</span>
-</code></pre></div><h3 id="vpn">vpn</h3>
+</code></pre></div><p>terminalの透過は、picomで実現します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/arch_20210430.png" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S picom
+$ sudo cp /etc/xdg/picom.conf ~/.config/picom/
+$ sudo vim ~/.config/picom/picom.conf
+</code></pre></div><pre><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
+  &quot;90:class_g = 'URxvt' &amp;&amp; focused&quot;,
+  &quot;60:class_g = 'URxvt' &amp;&amp; !focused&quot;,
+  &quot;90:class_g = 'xterm' &amp;&amp; focused&quot;,
+  &quot;60:class_g = 'xterm' &amp;&amp; !focused&quot;,
+  &quot;90:class_g = 'tilix' &amp;&amp; focused&quot;,
+  &quot;60:class_g = 'tilix' &amp;&amp; !focused&quot;
+];
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ picom &amp;
+</code></pre></div><p>あとは、<code>~/.xinitrc</code>にでも書けばいいでしょう。</p>
+<h3 id="vpn">vpn</h3>
 <p>usbを外のパソコンに挿して、ssh先でvpnを起動し、local networkに入ってリモートすることはよくあるので、vpnの構築方法とclientでの接続方法を紹介。</p>
 <p>vpnはserverもclientもpritunlが便利すぎるので、そちらを使います。</p>
 <p><a href="https://github.com/Fridus/docker-pritunl">https://github.com/Fridus/docker-pritunl</a></p>
