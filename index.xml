@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>herokuのredis 6に移行する</title>
+      <link>https://syui.cf/blog/post/2021/05/04/heroku/</link>
+      <pubDate>Tue, 04 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/04/heroku/</guid>
+      <description>heroku redis 4,5が廃止になるらしい。6にupgradeしなければ、6/30に自動でupgradeされるらしいので、heroku redis 6にupgradeしてみます。
+ Users that do not proactively upgrade their add-on to version 6 will be automatically upgraded after the deadline of June 30, 2021.
+ https://devcenter.heroku.com/articles/heroku-redis-hobby-deprecation
+# redis urlの取得 $ heroku config:get REDIS_URL -a ${app} # redis addonを作成 $ heroku addons:create heroku-redis:hobby-dev --fork `heroku config:get REDIS_URL -a ${app}` -a ${app} # 進捗の確認 $ heroku redis:info redis-xxxx -a ${app} # 完了すればappが使用するredisを変更 $ heroku redis:promote redis-xxxx -a ${app} # appを確認後に古いredisを削除 $ heroku redis:info -a ${app} $ heroku addons -a ${app} $ heroku addons:destroy redis-xxxx -a ${app} </description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた78,79</title>
       <link>https://syui.cf/blog/post/2021/05/01/illust/</link>
