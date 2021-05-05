@@ -7,7 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>heroku stackをheroku-20に移行する</title>
+      <link>https://syui.cf/blog/post/2021/05/06/heroku/</link>
+      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/06/heroku/</guid>
+      <description>elixir+phoenixで作ってるappが古いstack:heroku-16で動いてて、versionを上げろと言われてたので、heroku-20にしてみた。
+ The Heroku-16 stack is end-of-life This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 2021. Apps using Heroku-16 no longer receive security updates, and from June 1st, 2021, builds will be disabled. Please upgrade your app to a newer Heroku stack. Visit here to learn more
+ https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq
+$ heroku git:clone -a $app $ cd $app $ heroku buildpacks:set hashnuke/elixir elixir_version=1.9.0 release=true これでpushしても以下のエラーが出るけど、cacheを削除すると動きます。
+ /app/.</description>
+    </item>
+    
+    <item>
+      <title>heroku stackをheroku-20に移行する</title>
+      <link>https://syui.cf/blog/post/2021/05/05/heroku/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/05/heroku/</guid>
+      <description>elixir+phoenixで作ってるappが古いstack:heroku-16で動いてて、versionを上げろと言われてたので、heroku-20にしてみた。
+ The Heroku-16 stack is end-of-life This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 2021. Apps using Heroku-16 no longer receive security updates, and from June 1st, 2021, builds will be disabled. Please upgrade your app to a newer Heroku stack. Visit here to learn more
+ https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq
+$ heroku git:clone -a $app $ cd $app $ heroku buildpacks:set hashnuke/elixir elixir_version=1.9.0 release=true これでpushしても以下のエラーが出るけど、cacheを削除すると動きます。
+ /app/.</description>
+    </item>
+    
     <item>
       <title>herokuのredis 6に移行する</title>
       <link>https://syui.cf/blog/post/2021/05/04/heroku/</link>
