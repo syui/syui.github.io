@@ -9,7 +9,7 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>mastodon v3.4.0をruby v3.0.1に対応する方法</title>
+      <title>mastodon v3.4.0をruby v3.0.1でdeployしてみた</title>
       <link>https://syui.cf/blog/post/2021/05/09/mastodon/</link>
       <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
