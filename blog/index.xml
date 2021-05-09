@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodon v3.4.0をruby v3.0.1に対応する方法</title>
+      <link>https://syui.cf/blog/post/2021/05/09/mastodon/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/09/mastodon/</guid>
+      <description>mastodon v3.4.0のpre-verがmasterにcommitされています。
+heroku-20はruby v3.0.1に対応していて、mastodon v3.4.0はruby &amp;lt; v3.1.0なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。
+ Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
+2.6.7, Rubygems: 3.0.3.1
+2.7.3, Rubygems: 3.1.6
+3.0.1, Rubygems: 3.2.15
+ https://devcenter.heroku.com/articles/ruby-support#ruby-versions
+$ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:remote -a $app $ rbenv install 3.</description>
+    </item>
+    
     <item>
       <title>ランニングアプリを入れてみた</title>
       <link>https://syui.cf/blog/post/2021/05/08/running/</link>
@@ -38,7 +54,7 @@ libvpx5 以下のエラーが出てしまいますが、これは、heroku-20で
 https://github.com/tootsuite/mastodon/pull/15591
 ruby v2.7.3 heroku-20は、最も古いのがruby v2.5.9です。したがって、Gemfile.lockを変更する必要があります。
 https://devcenter.heroku.com/articles/ruby-support
-$ cd ./mastodon $ yay -S rbenv ruby-build $ rbenv init $ rbenv install 2.7.3 $ rbenv local 2.7.3 $ gem i bundler $ bundle $ git push -f heroku master bundleを実行するのは何でもいいですけど、archで実行後にGemfile.lockをcpしてgit-pushしました。
+$ cd ./mastodon $ yay -S rbenv ruby-build $ rbenv init $ rbenv install 2.7.3 $ rbenv local 2.7.3 $ gem i bundler $ bundle # git push -f heroku main  $ git push -f heroku master bundleを実行するのは何でもいいですけど、archで実行後にGemfile.lockをcpしてgit-pushしました。
 mastodon v3.3.0 SKIP_POST_DEPLOYMENT_MIGRATIONS=trueは特殊だけど、他はいつも通りのコマンド。
 $ heroku run RAILS_ENV=production bin/tootctl cache clear $ heroku run SKIP_POST_DEPLOYMENT_MIGRATIONS=true RAILS_ENV=production bundle exec rails db:migrate $ heroku run RAILS_ENV=production bundle exec rails assets:precompile https://github.</description>
     </item>

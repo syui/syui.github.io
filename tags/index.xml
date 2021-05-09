@@ -7,22 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>heroku</title>
+      <link>https://syui.cf/tags/heroku/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mastodon</title>
+      <link>https://syui.cf/tags/mastodon/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>private</title>
       <link>https://syui.cf/tags/private/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/private/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>heroku</title>
-      <link>https://syui.cf/tags/heroku/</link>
-      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/heroku/</guid>
       <description></description>
     </item>
     
@@ -374,15 +383,6 @@
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/sns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mastodon</title>
-      <link>https://syui.cf/tags/mastodon/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/mastodon/</guid>
       <description></description>
     </item>
     
