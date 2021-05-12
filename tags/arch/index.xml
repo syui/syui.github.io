@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 30 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xtermとsixelでterminalに画像を表示する</title>
+      <link>https://syui.cf/blog/post/2021/05/12/xterm/</link>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/12/xterm/</guid>
+      <description>sixelを使えば、terminalに画像を表示することができるようになります。ただし、端末がsixelに対応していなければなりませんし、sixelはvte対応だったかな。vteの問題があるterminalでは難しかったと思いますので、注意。
+例えば、xtermでは、以下のような感じで画像を簡単に表示できます。
+$ yay -S libsixel $ xterm -ti vt340 $ img2sixel test.png </description>
+    </item>
+    
     <item>
       <title>usbにarchをインストールする方法</title>
       <link>https://syui.cf/blog/post/2021/04/30/arch/</link>
