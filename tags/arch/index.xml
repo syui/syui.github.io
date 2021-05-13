@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i3でおすすめのvnc clientであるremmina</title>
+      <link>https://syui.cf/blog/post/2021/05/13/vnc/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/13/vnc/</guid>
+      <description>vnc clinetは色々ありますが、個人的には、remminaが最もおすすめです。linuxでは主にこちらを使っています。
+remminaは、非常に柔軟性のあるvnc clientで、i3でも普通に動作すると思います。また、コマンドオプションも豊富です。
+$ sudo pacman -S remmina $ remmina -c vnc://${user}:${password}@192.168.xx.xxx https://wiki.archlinux.jp/index.php/Remmina</description>
+    </item>
+    
     <item>
       <title>xtermとsixelでterminalに画像を表示する</title>
       <link>https://syui.cf/blog/post/2021/05/12/xterm/</link>
