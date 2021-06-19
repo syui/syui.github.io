@@ -146,7 +146,7 @@ csvReader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.<
 next(csvReader)
 
 <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> csvReader:
-    <span style="color:#66d9ef">print</span>(row[<span style="color:#ae81ff">3</span>], row[<span style="color:#ae81ff">5</span>])  <span style="color:#75715e"># Time stamp and actual tweet</span>
+    print(row[<span style="color:#ae81ff">3</span>], row[<span style="color:#ae81ff">5</span>])  <span style="color:#75715e"># Time stamp and actual tweet</span>
     api<span style="color:#f92672">.</span>DestroyStatus(row[<span style="color:#ae81ff">0</span>])
 </code></pre></div>
        			 		
