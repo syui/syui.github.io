@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>sitemap | syui.cf</title>
+		<title>herokuでgiteaが動かなくなってた | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="sitemap | syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="herokuでgiteaが動かなくなってた" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -23,24 +23,17 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
 		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -49,7 +42,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	        <script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -78,13 +72,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -112,55 +106,59 @@
 			
 		</header>
 
+<div class="google-ads">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<ins class="adsbygoogle"
+						style="display:block"
+						data-ad-format="fluid"
+						data-ad-layout-key="-f7+6b-2g-5t+jt"
+						data-ad-client="ca-pub-7486046788071230"
+						data-ad-slot="6066812769"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
 
-			<h3><i class="far fa-question-circle"></i> このサイトについて</h3>
-			<blockquote>
-			<p><a href="/syui">syui</a>の個人ページです。</p>
-			<p>サイト名は<code>syui.cf</code>です。</p>
-			<p>サイトのテーマカラーは朱色(しゅいろ)です。</p>
-			</blockquote>
+       			<article>
+       			 	<div class="content">
+													<h2>herokuでgiteaが動かなくなってた</h2>
+													<div class="post-time-date">2021/06/27</div>
+       			 		<p>$USERではなく、<code>whoami</code>で取るようにしました。</p>
+<p>herokuはUSERとPORTが変動しますので、仕組みに応じて環境変数を書き換える必要があります。今回もgiteaのdockerfileを使用します。</p>
+<p><a href="https://git.syui.cf/syui/gitea">https://git.syui.cf/syui/gitea</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
+  <span style="color:#f92672">docker</span>:
+    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
+<span style="color:#f92672">run</span>:
+  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini;mkdir -p /home/`whoami`;HOME=/home/`whoami`; echo &#34;[server]\nPROTOCOL=http\nSSH_DOMAIN=git.syui.cf;DOMAIN=git.syui.cf\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</code></pre></div><p>ちなみに、herokuは、1日おきに生成されたファイルをリセットしますので、例えば、webにpushするにしても<code>gitea/git</code>に生成されたファイルは時間が経つと削除されてしまうので、localにpushする必要があり、生成された<code>gitea/git</code>をgit-heroku-repoに含めてheroku-dockerにcopyしなければならず、herokuでのgitea運用は実用的ではありません。</p>
+<p>参照 : <a href="https://syui.cf/blog/post/2019/12/06/gitea/">https://syui.cf/blog/post/2019/12/06/gitea/</a></p>
 
-			<h3><a href="/about"><span class="icon-syui"></span> プロフィール</a></h3>
-			<p>syuiの自己紹介です。</p>
+       			 		
 
-			<h3><a href="/blog"><i class="fas fa-rss-square"></i> ブログ</a></h3>
-			<p>ブログを書いています。ゲーム、アニメ関連が多いです。</p>
 
-			<h3><a href="/icon"><i class="fas fa-dice-d6"></i> デザイン</a></h3>
-			<p>デザインを作ります。作ったアイコンを載せています。</p>
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/06/26/illust/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> イラスト描いてみた87
+    </a>
+    
 
-			<h3><a href="/img"><i class="fas fa-palette"></i> イラスト</a></h3>
-			<p>絵を描きます。今までに描いた絵を載せています。</p>
+		
+</nav>
 
-			<h3><a href="/music"><i class="fas fa-music"></i> ミュージック</a></h3>
-			<p>作曲します。今までに作った曲の一覧を載せています。</p>
 
-			<h3><a href="/app"><i class="fas fa-rocket"></i> アプリ</a></h3>
-			<p>アプリを作ります。作ったアプリを紹介しています。</p>
 
-			<h3><a href="/imgame"><i class="fas fa-gamepad"></i> ゲーム</a></h3>
-			<p>ノベルゲームを作ります。作ったゲームを紹介しています。</p>
-
-			<h3><a href="/manga"><i class="fas fa-pen-nib"></i> マンガ</a></h3>
-			<p>マンガを描きます。</p>
-
-			<h3><a href="/novel"><i class="fas fa-bookmark"></i> ノベル</a></h3>
-			<p>小説を書きます。</p>
-
-			<h3><a href="/archive"><i class="fas fa-star"></i> アイデア</a></h3>
-			<p>思ったことを書きます。哲学的です。</p>
-
-			<h3><a href="/item"><i class="fas fa-shopping-bag"></i> アイテム</a></h3>
-			<p>私が使っているアイテム一覧です。</p>
-			<h3><a href="https://mstdn.syui.cf/@syui"><i class="fab fa-mastodon"></i> メッセージ</a></h3>
-			<p>メッセージは<a href="https://mstdn.syui.cf/@syui">@syui@syui.cf</a>へ送れます。</p>
-
-			<h3><a href="https://git.syui.cf/syui"><i class="fab fa-git-alt"></i> コード</a></h3>
-			<p>コードを書きます。好きな言語は<code>shellscript</code>, <code>go</code>, <code>rust</code>, <code>elixir</code>, <code>vue.js</code>です。</p>
-
-			<h3><a href="https://github.com/sponsors/syui/" target="_blank"><i class="fab fa-github"> スポンサー</i></a></h3>
-			<p>スポンサーはGitHubの<a href="https://github.com/sponsors/syui/">sponsors/syui</a>からお願いします。</p>
-			</div>
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/heroku/">heroku</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
+		</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
