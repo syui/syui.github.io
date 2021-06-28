@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>androidで動いてたarch-armが壊れた</title>
+      <link>https://syui.cf/blog/post/2021/06/28/android-armv7-arch/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/06/28/android-armv7-arch/</guid>
+      <description>android上で動かしてるarch-armのupdateを怠っていたのでpacmanがupdateできない状態、もしくは無理にupdateすると壊れる状態になってしまってたので、ほぼ詰みかけてた話です。
+通常、archlinuxはpacmanが壊れてもpacman-staticのbinaryをdlしてくればいいんですけど、armにはそういうのがなかったので、pacmanが壊れると、ほぼどうしようもない感じだった。
+ただ、armv7hのpackage-binaryを公開してくれてる人がいたので、とても助かりました。
+https://mirror.yandex.ru/archlinux-arm/armv7h/core/
+http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/
+基本的に更新を怠ってたarch-armは、最初にpacman -Sy base-develします。これで一応、必要なpackageをupdateできるはずなんですが、今回はそれでもpacmanが壊れてる状態だったので、必要なものをftpから持ってきてbinaryを置き換えます。ちなみに、解凍とか面倒ならzarchiverってアプリを使いますが、便利です。
+$ pacman -Sy base-devel $ pacman --version error : archive_entry_digest # libarchive $ curl -sLO http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/libarchive-3.5.1-1-armv7h.pkg.tar.xz $ aunpack libarchive-3.5.1-1-armv7h.pkg.tar.xz $ cp -rf ./libarchive-3.5.1-1-armv7h.pkg.tar/* / $ pacman --version error libraries : libarchive.so.13 file too short $ cd /etc/lib/libarch* $ ln -s /usr/lib/libarchive.so.13.15.1 /usr/lib/libarchive.so.13 $ pacman --version pacman v6.0.0, libalpm v13.0.0 $ pacman -Syu とりあえず直ったのでよかった。
+とはいえ、backup(2019)のarch-imgがあったので、次にやるなら、おそらく、それをadb pushすると思います。
+$ adb push arch-arm-back-2019.img /sdcard/ # 以下はあくまでイメージです、実際に実行できるコマンドではありません $ chroot /sdcard/arch-arm-back-2019.</description>
+    </item>
+    
     <item>
       <title>herokuでgiteaが動かなくなってた</title>
       <link>https://syui.cf/blog/post/2021/06/27/heroku-gitea/</link>

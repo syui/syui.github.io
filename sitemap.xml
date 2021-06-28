@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/android/</loc>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/06/28/android-armv7-arch/</loc>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-06-27T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/heroku/</loc>
     <lastmod>2021-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/06/27/heroku-gitea/</loc>
-    <lastmod>2021-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/illust/</loc>
@@ -680,9 +686,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2020/05/27/hugo/</loc>
     <lastmod>2020-05-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/android/</loc>
-    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/05/25/app/</loc>
     <lastmod>2020-05-25T00:00:00+00:00</lastmod>
