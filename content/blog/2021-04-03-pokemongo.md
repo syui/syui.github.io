@@ -7,10 +7,6 @@ slug = "pokemongo"
 
 youtuberの人はすごいなーと前から思ってたので、今回は自分でも動画を作ってみることにしました。
 
-作ったのはこちらです。
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/zChtXIX8t3E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 おそらく、はじめての撮影や動画編集には、様々な困難が予想されるはずです。また、完成した動画の質の違いにも驚かされることになるでしょうね。
 
 で、自分でもやってみると、結果的に予想通りだったので、それを踏まえ、良かった点や悪かった点を挙げていければなあと思います。
