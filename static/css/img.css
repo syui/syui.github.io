@@ -1,13 +1,14 @@
 .containerx {
-	padding: 0 60px;
+	padding: 0 20px;
 	width: auto;
+
 }
 
 .containerx p img {
     width: 300px;
 }
 
-.containerx > .img-new {
+.containerx {
     text-align: center;
 }
 
