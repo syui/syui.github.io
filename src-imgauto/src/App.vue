@@ -1,5 +1,5 @@
 <template>
-<div class="containerx">
+<div class="containerx-vue">
 <div class="img-new"><p><img :src="'/img/yui_' + lid + '.png'" /></p></div>
 <p>
 <img v-for="(n,index) of id" :key="n" :src="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'" />
@@ -21,14 +21,11 @@ id: Number(process.env.VUE_APP_IMGNUMBER - 2),
 .containerx {
 padding: 0 60px;
 width: auto;
+text-align: center;
 }
 
 .containerx p img {
 width: 300px;
-}
-
-.containerx > .img-new {
-	text-align: center;
 }
 
 @media screen and (max-width:1000px) { 
