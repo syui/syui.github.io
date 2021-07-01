@@ -5,7 +5,6 @@ page_image : "https://syui.cf/favicon.png"
 description: "illust"
 ---
 
-<div class="containerx">
 <div id=app></div>
 <script src=/imgauto/chunk-vendors.js></script>
 <script src=/imgauto/app.js></script>
@@ -87,5 +86,4 @@ p><h3>アイテム</h3></p>
 	<img src="/img/game/f_ma_zen.png">
 </p>
 
-</div>
 

@@ -44,7 +44,6 @@ jobs:
            yarn install 
            yarn build
            cp -rf ./dist/*.js ../static/imgauto
-           cp -rf ./dist/*.css ../static/imgauto
            cp -rf ./dist/*.map ../static/imgauto
            cd ../
 
