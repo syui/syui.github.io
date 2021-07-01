@@ -1,22 +1,26 @@
 <template>
 <div class="containerx">
 <div class="img-new">
-<p><img :src="'/img/yui_' + lid + '.png'" /></p>
+<p><a :href=lurl><img :src="'/img/yui_' + lid + '.png'" /></a></p>
 </div>
 <div class="img-old">
 <p>
-<img v-for="(n,index) of id" :key="n" :src="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+<a v-for="(n,index) of id" :key="n" :href="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'">
+<img :src="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+</a>
 </p>
 </div>
 </div>
 </template>
 
 <script>
+var e = Number(process.env.VUE_APP_IMGNUMBER - 2);
 export default {
 	data () {
 		return {
-id: Number(process.env.VUE_APP_IMGNUMBER - 2),
-					lid: Number(process.env.VUE_APP_IMGNUMBER - 2)
+id: e,
+					lid: e,
+					lurl: '/img/yui_' + e + '.png'
 		}
 	}
 }
