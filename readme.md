@@ -13,3 +13,15 @@ $ hugo serve
 ## update
 
 vue-cli 4
+
+## vue illust view
+
+```sh
+$ cd ./src-imgauto
+$ yarn install
+$ yarn serve
+$ ../run.sh
+
+$ vim ../content/imgall.md
+```
+
