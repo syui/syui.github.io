@@ -1,0 +1,7 @@
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
+{{ $utcFormat := "2006-01-02T15:04:05Z07:00" }}
+{{- $.Scratch.Add "index" slice -}}
+{{- range .Site.RegularPages -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "description" .Description "categories" .Params.categories "contents" .Plain "href" .Permalink "utc_time" (.Date.Format $utcFormat) "formated_time" (.Date.Format $dateFormat)) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

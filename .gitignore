@@ -18,3 +18,8 @@ nyan-cat
 particles.js
 .env
 dist
+search/dist
+search/node_modules
+search/yarn-error.log
+search/yarn.lock
+

@@ -25,3 +25,6 @@ paginate = 10000
 
 [taxonomies]
 	tag = "tags"
+
+[outputs]
+  home = ["JSON", "HTML"]
