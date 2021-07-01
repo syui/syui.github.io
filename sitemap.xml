@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/note/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/post/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/archive/note/13/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/android/</loc>
     <lastmod>2021-06-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,12 +24,6 @@
     <lastmod>2021-06-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-06-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/heroku/</loc>
@@ -277,12 +286,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/02/21/illust/</loc>
     <lastmod>2021-02-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/note/</loc>
-    <lastmod>2021-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/post/</loc>
-    <lastmod>2021-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/02/19/pogo/</loc>
     <lastmod>2021-02-19T00:00:00+00:00</lastmod>
