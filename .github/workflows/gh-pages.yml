@@ -36,6 +36,18 @@ jobs:
            cp -rf ./dist/*.js ./static/manga
            cp -rf ./dist/*.css ./static/manga
            cp -rf ./dist/*.map ./static/manga
+
+           touch ./src-imgauto/.env
+           rm -r ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBER=`ls ./static/img/yui_*.png|wc -l` > ./src-imgauto/.env
+           cd ./src-imgauto
+           yarn install 
+           yarn build
+           cp -rf ./dist/*.js ../static/imgauto
+           cp -rf ./dist/*.css ../static/imgauto
+           cp -rf ./dist/*.map ../static/imgauto
+           cd ../
+
            hugo version
            TZ=Asia/Tokyo hugo
            touch ./public/.nojekyll

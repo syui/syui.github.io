@@ -22,4 +22,8 @@ search/dist
 search/node_modules
 search/yarn-error.log
 search/yarn.lock
+src-imgauto/dist
+src-imgauto/node_modules
+src-imgauto/yarn-error.log
+src-imgauto/yarn.lock
 
