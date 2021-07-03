@@ -39,7 +39,12 @@ jobs:
 
            touch ./src-imgauto/.env
            rm -r ./src-imgauto/.env
-           echo VUE_APP_IMGNUMBER=`ls ./static/img/yui_*.png|wc -l` > ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBER=`ls ./static/img/yui_*.png|wc -l` >> ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBERA=`ls ./static/img/ai_*.png|wc -l` >> ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBERC=`ls ./static/img/c_*.png|wc -l` >> ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBERO=`ls ./static/img/octo_*.png|wc -l` >> ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBERI=`ls ./static/img/item_*.png|wc -l` >> ./src-imgauto/.env
+           echo VUE_APP_IMGNUMBERF=`ls ./static/img/f_*.png|wc -l` >> ./src-imgauto/.env
            cd ./src-imgauto
            yarn install 
            yarn build
