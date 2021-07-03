@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.84.4" />
-		<title>syui.cf</title>
+		<title>hugoでsearchするやつ付けてみた | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="hugoでsearchするやつ付けてみた" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,17 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
 		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +42,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	        <script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +72,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,23 +106,7 @@
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
-
-
-<div class="content-top">
-
-	<div class="google-ads">
+<div class="google-ads">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<ins class="adsbygoogle"
 						style="display:block"
@@ -142,51 +119,59 @@
 	</script>
 </div>
 
+       			<article>
+       			 	<div class="content">
+													<h2>hugoでsearchするやつ付けてみた</h2>
+													<div class="post-time-date">2021/07/02</div>
+       			 		<p><a href="/search">/search</a></p>
+<p>記事を検索したい場合、自分はcontent/postをgrepするだけなので、あまり使わないのですが、一応、webにも検索フォームを付けてみました。</p>
+<p>hugo + vue + lunr.jsです。</p>
+<p>ただ、日本語はおそらく対応してない。対応するには日本語対応するためのlibを追加で読み込む必要がありそう。</p>
+<p>lunrに渡すdataは、hugoがjson出力できるので、それを使います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputs</span>]
+  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;HTML&#34;</span>]
+</code></pre></div><p>jsはこんな感じで(要点記述だけですが)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:static/script.js" data-lang="js:static/script.js"><span style="color:#a6e22e">axios</span>(<span style="color:#e6db74">&#39;/index.json&#39;</span>)
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/07/03/vue-img/">お絵かきの枚数が増えてきたので自動表示してみた</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/07/02/hugo-search/">hugoでsearchするやつ付けてみた</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/06/28/android-armv7-arch/">androidで動いてたarch-armが壊れた</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/06/27/heroku-gitea/">herokuでgiteaが動かなくなってた</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/06/26/illust/">イラスト描いてみた87</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/06/24/illust/">イラスト描いてみた86</a>
-	 </li>
-	 
-	 <li>
-		<a href="https://syui.cf/blog/post/2021/06/20/genshin/">原神をプレイしはじめて1週間が経過した</a>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
-</div>
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">searchIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lunr</span>(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;href&#39;</span>)
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#39;contents&#39;</span>)
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#39;title&#39;</span>)
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#39;tags&#39;</span>)
+  <span style="color:#a6e22e">documents</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">doc</span> =&gt; {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">doc</span>)
+  })
+}
+</code></pre></div>
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/06/28/android-armv7-arch/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> androidで動いてたarch-armが壊れた
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/hugo/">hugo</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
-
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>

@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>お絵かきの枚数が増えてきたので自動表示してみた</title>
+      <link>https://syui.cf/blog/post/2021/07/03/vue-img/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/03/vue-img/</guid>
+      <description>今まで新しい絵を追加するたびに、手動でhtmlを書き換えてたんですが、面倒だなあと思いつつ、しかし、載せるタイミングは操作できるので別にいいかと思っていたのですが、流石に枚数が増えてきたので自動化しました。
+&amp;lt;template&amp;gt; &amp;lt;div class=&amp;#34;chara&amp;#34;&amp;gt; &amp;lt;p&amp;gt; &amp;lt;a v-for=&amp;#34;(n,index) of cid&amp;#34; :key=&amp;#34;n&amp;#34; :href=&amp;#34;&amp;#39;/img/c_&amp;#39;+ ( &amp;#39;00&amp;#39; + index ).slice( -2 ) +&amp;#39;.png&amp;#39;&amp;#34;&amp;gt; &amp;lt;img :src=&amp;#34;&amp;#39;/img/c_&amp;#39;+ ( &amp;#39;00&amp;#39; + index ).slice( -2 ) +&amp;#39;.png&amp;#39;&amp;#34; /&amp;gt; &amp;lt;/a&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; var c = Number(process.env.VUE_APP_IMGNUMBERC); export default { data () { return { cid: c } } } &amp;lt;/script&amp;gt; import Vue from &amp;#39;vue&amp;#39; import App from &amp;#39;./App.vue&amp;#39; new Vue({ render: h =&amp;gt; h(App) }).$mount(&amp;#39;#app&amp;#39;) module.exports = { configureWebpack: { output: { filename: &amp;#39;[name].</description>
+    </item>
+    
+    <item>
+      <title>hugoでsearchするやつ付けてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/02/hugo-search/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/02/hugo-search/</guid>
+      <description>/search
+記事を検索したい場合、自分はcontent/postをgrepするだけなので、あまり使わないのですが、一応、webにも検索フォームを付けてみました。
+hugo + vue + lunr.jsです。
+ただ、日本語はおそらく対応してない。対応するには日本語対応するためのlibを追加で読み込む必要がありそう。
+lunrに渡すdataは、hugoがjson出力できるので、それを使います。
+[outputs] home = [&amp;#34;JSON&amp;#34;, &amp;#34;HTML&amp;#34;] jsはこんな感じで(要点記述だけですが)。
+axios(&amp;#39;/index.json&amp;#39;) this.searchIndex = lunr(function () { this.ref(&amp;#39;href&amp;#39;) this.field(&amp;#39;contents&amp;#39;) this.field(&amp;#39;title&amp;#39;) this.field(&amp;#39;tags&amp;#39;) documents.forEach(doc =&amp;gt; { this.add(doc) }) } </description>
+    </item>
+    
     <item>
       <title>androidで動いてたarch-armが壊れた</title>
       <link>https://syui.cf/blog/post/2021/06/28/android-armv7-arch/</link>
