@@ -166,16 +166,12 @@
 }
 </code></pre></div><p>pngは<code>static/img/c_0x.png</code>に置くと仮定して、自動化にはgh-actionsなどを活用してください。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ln -s ./static ./src/public
-$ echo VUE_APP_IMGNUMBERC<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/c_*.png|wc -l<span style="color:#e6db74">`</span> &gt;&gt; ./src/.env
-$ cd src/
+$ echo VUE_APP_IMGNUMBERC<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/c_*.png|wc -l<span style="color:#e6db74">`</span> &gt;&gt; .env
 $ yarn add vue
 $ yarn serve
 $ yarn build
 </code></pre></div><p>hugoに対応させるため、以下のファイルを用意します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># hugo root dir</span>
-$ cd ../
-
-$ mkdir -p static/img
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p static/img
 $ cp -r src/dist/*.js static/img/ 
 $ cp -r src/dist/*.map static/img/
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:content/img.md" data-lang="html:content/img.md">---
