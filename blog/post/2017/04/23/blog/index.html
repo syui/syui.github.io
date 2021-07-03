@@ -121,8 +121,9 @@
 
        			<article>
        			 	<div class="content">
+													<div class="post-time-date">2017-04-23 / <a href="/syui">@syui</a></div>
 													<h2>このブログにサブドメインを設定した</h2>
-													<div class="post-time-date">2017/04/23</div>
+													
        			 		<p><a href="https://blog.syui.cf/">https://blog.syui.cf/</a></p>
 <p>GitLabのアドレスとどちらでもアクセスできます。やり方はDNSを<code>blog A 52.167.214.135</code>で設定(GitLabのSettingも同様のDomain設定が必要かも)。</p>
 <p>あとは、Page RulesのURL/Descriptionとかで好みの設定をして、gitlab.ioへのアクセスをリダイレクトするには、Jekyllとかならconfigに<code>redirect_from:</code>とか書いたり、それ以外なら<code>.htaccess</code>とかやるのでしょうけど、後者はサーバー管理者でないと無理だし(サーバーはGitLabから提供されてるものを使ってるので無理)、前者は微妙なので、私は設定していません。</p>

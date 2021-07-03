@@ -123,11 +123,15 @@ nav#article-nav {
 	margin: 30px 0px;
 }
 
-ul.cp_list {
-	position: relative;
-	padding: 0;
-	list-style-type: none;
+ul {
+  list-style-type: none;
+  display: list-item;
 }
+
+ul.cp_list {
+	padding: 0;
+}
+
 ul.cp_list li {
 	padding: 0.5em 0.5em 0.6em 0.5em;
 	margin-bottom: 5px;
@@ -137,8 +141,16 @@ ul.cp_list li {
 	border-radius: 0px 0px 0px 0px;
 	color: #444;
 }
+
+ul.cp_list li > p > a {
+	font-size:20px;	
+}
+
+ul.cp_list li > span.icon-moon {
+	color: #EF454A;		
+}
+
 ul.cp_list li::before {
-	display:inline-block;
 	vertical-align: middle;
 	content:'';
 	margin-right: 8px;
@@ -146,7 +158,6 @@ ul.cp_list li::before {
 	height: 1em;
 	background: #EF454A;
 	border-radius: 50%;
-
 }
 
 h3 span.icon-phoenix-world {
@@ -207,6 +218,5 @@ ins.adsbygoogle {
 
 .post-time-date {
 	text-align:right;
-	color:#EF454A;
-	padding:5px 0 5px 0;
+	padding:15px 0 15px 0;
 }

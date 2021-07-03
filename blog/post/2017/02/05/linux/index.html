@@ -121,8 +121,9 @@
 
        			<article>
        			 	<div class="content">
+													<div class="post-time-date">2017-02-05 / <a href="/syui">@syui</a></div>
 													<h2>Linuxでメモリ解放をユーザー権限で行う方法</h2>
-													<div class="post-time-date">2017/02/05</div>
+													
        			 		<p><code>/etc/sudoers</code>に以下の文を追加してShellに<code>alias p=&quot;sync &amp;&amp; echo 3 | sudo tee /proc/sys/vm/drop_caches&quot;</code>を追加。</p>
 <pre><code>%wheel ALL=(ALL) NOPASSWD: /usr/bin/tee /proc/sys/vm/drop_caches
 </code></pre><pre><code>$ p

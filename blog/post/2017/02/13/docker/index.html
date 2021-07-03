@@ -121,8 +121,9 @@
 
        			<article>
        			 	<div class="content">
+													<div class="post-time-date">2017-02-13 / <a href="/syui">@syui</a></div>
 													<h2>Dockerイメージの最適化</h2>
-													<div class="post-time-date">2017/02/13</div>
+													
        			 		<p>通常、dockerfileからbuildしたイメージが最も最適化されている状態なのだけど、commitなどしていくと、差分関係などいろいろあって肥大化するらしい。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-squash -from $id -i input -o output
 $ docker export &lt;container id&gt; | docker import - &lt;new image name&gt;

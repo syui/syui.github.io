@@ -121,8 +121,9 @@
 
        			<article>
        			 	<div class="content">
+													<div class="post-time-date">2019-12-21 / <a href="/syui">@syui</a></div>
 													<h2>mastodonからtwitterに投稿する</h2>
-													<div class="post-time-date">2019/12/21</div>
+													
        			 		<p>この前、golangで使ってるlibがv2にupdateしたとかで書き直さなきゃいけなくて、面倒だと思ってたんだけど、mastodonとtwitter連携が面白そうだったので、それをネタにツールを書き直して、ついでに仕組みを作ってみました。</p>
 <p>具体的には、mastodonにtwitterタグを付けて投稿すると、twitterにも投稿されるようにしてみる。</p>
 <p>仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。</p>
