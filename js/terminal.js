@@ -4,7 +4,7 @@ $(function() {
 	var greetings = "";
 	var origin_songs = [];
 	var file_full = [];
-	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search"];
+	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/"];
 	var pacman_option = "-Syu";
 	var ip_list = "";
 
@@ -98,7 +98,7 @@ $(function() {
 			term.echo(file_list);
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
-		} else if (inputs[0] === 'search') {
+		} else if (inputs[0] === 'search' || inputs[0] === '/') {
 			origin_index_json.forEach(function(v,index) {
 				if ( v.contents.indexOf(inputs[1]) != -1){
 					s = v.title + " "  + v.href;
