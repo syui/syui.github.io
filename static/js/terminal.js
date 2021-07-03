@@ -7,6 +7,7 @@ $(function() {
 	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/"];
 	var pacman_option = "-Syu";
 	var ip_list = "";
+	var	tags = [];
 
 	axios.get('https://syui.cf/json/keybase.json')
 		.then(function (response) {
@@ -23,7 +24,16 @@ $(function() {
 		.then(function (response) {
 			index_json = JSON.stringify(response.data,null,"\t");
 			origin_index_json = JSON.parse(index_json);
+			origin_index_json.forEach(function(v,index) {
+				if ( tags.indexOf(v.tags) == -1) {
+					tags.push(v.tags)};
+			});
+			tags = tags.join(',').split(',');
+			tags = tags.filter(function (x, i, self) {
+				return self.indexOf(x) === i;
+			});
 		})
+
 	axios.get('https://syui.cf/json/file.json', { 'Content-Type': 'application/json' })
 		.then(function (response) {
 			file_list = JSON.stringify(response.data,null,"\t");
@@ -98,6 +108,22 @@ $(function() {
 			term.echo(file_list);
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
+		} else if (inputs[0] === 'search' && inputs[1] === '-l' || inputs[0] === 'search' && inputs[1] === undefined) {
+			for (i = 0; i <= 5; i++) {
+				s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n\n';
+				term.echo(s);
+			};
+		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
+			if (tags.indexOf(inputs[2]) != -1) {
+				s = 'https://syui.cf/tags/' + inputs[2];
+				term.echo(s);
+			} else {
+				term.echo("none tag!");
+			};
+		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] === undefined) {
+			term.echo(tags);
+			term.echo('>> https://syui.cf/tags/');
+			term.echo('ex: $ search -t hugo');
 		} else if (inputs[0] === 'search' || inputs[0] === '/') {
 			origin_index_json.forEach(function(v,index) {
 				if ( v.contents.indexOf(inputs[1]) != -1){
@@ -162,6 +188,9 @@ $(function() {
 				term.clear();
 			} else if (t.match(/mpv/)) {
 				callback(origin_songs);
+			} else if (t.match(/search/)) {
+				callback(tags);
+				term.clear();
 			} else if (t.match(/help/)){
 				callback(command_all);
 			} else {
