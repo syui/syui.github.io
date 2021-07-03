@@ -49,7 +49,7 @@
 </template>
 
 <script>
-var e = Number(process.env.VUE_APP_IMGNUMBER - 2);
+var e = Number(process.env.VUE_APP_IMGNUMBER - 1);
 var a = Number(process.env.VUE_APP_IMGNUMBERA);
 var c = Number(process.env.VUE_APP_IMGNUMBERC);
 var o = Number(process.env.VUE_APP_IMGNUMBERO);
