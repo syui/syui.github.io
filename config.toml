@@ -16,6 +16,7 @@ paginate = 10000
 [params]
     date_format = "2006-01-02"
     mainSections = ["post"]
+				img_yui = 87
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -28,3 +29,4 @@ paginate = 10000
 
 [outputs]
   home = ["JSON", "HTML"]
+
