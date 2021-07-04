@@ -104,8 +104,8 @@ $(function() {
 		} else if (inputs[0] === 'cat' && inputs[1] === '/json/file.json') {
 			term.echo(file_list);
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
-			term.echo("slow okay?\n[Y]run next command.\nex: $ curl -sL https://syui.cf/index.json");
-			term.insert("curl -sL https://syui.cf/index.json");
+			term.echo("slow okay?\n[Y]run next command.\nex: $ curl https://syui.cf/index.json");
+			term.insert("curl https://syui.cf/index.json");
 		}	else if (inputs[0] === 'curl' && inputs[1] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === 'https://syui.cf/index.json'){
 			term.echo(index_json);
 		}	else if (inputs[0] === 'curl' && inputs[1] === 'ipapi.co'){
