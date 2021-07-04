@@ -1,56 +1,8 @@
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
-			<link rel="stylesheet" href="/css/img.css" />
-			<div class="img-new">
-			<p>絵を描きます</p>
- 		<p style="text-align:right;"><a href="/imgall/"><i class="fas fa-bars"></i></a></p>
-			<p>
-				<a href="/img/yui_11.png"><img src="/img/yui_11.png"></a>
-				<a href="/img/yui_15.png"><img src="/img/yui_15.png"></a>
-				<a href="/img/yui_28.png"><img src="/img/yui_28.png"></a>
-				<a href="/img/yui_59.png"><img src="/img/yui_59.png"></a>
-			</p>
-			<p>
-				<a href="/img/yui_76.png"><img src="/img/yui_76.png"></a>
-				<a href="/img/yui_77.png"><img src="/img/yui_77.png"></a>
-				<a href="/img/yui_85.png"><img src="/img/yui_85.png"></a>
-				<a href="/img/yui_59.png"><img src="/img/yui_88.png"></a>
-			</p>
-			</div>
-			
-			<p><h3>フィールド</h3></p>
-
-			<p>
-				<img src="/img/game/i_hosi_00.png">
-				<img src="/img/game/f_kumo.png">
-				<img src="/img/game/f_plan.png">
-				<img src="/img/game/f_kori.png">
-			</p>		
-
-			<p>
-				<img src="/img/game/f_yama.png">
-				<img src="/img/game/f_kumo_2.png">
-				<img src="/img/game/f_oka.png">
-				<img src="/img/game/f_uchusenta.png">
-			</p>		
-
-		<p><h3>キャラクター</h3></p>
-			<p>
-				<img src="/img/game/c_yui_tensi.png">
-				<img src="/img/game/c_kyousuke.png">
-				<img src="/img/game/c_ponta.png">
-				<img src="/img/game/c_zen.png">
-			</p>
-
-			<p>
-				<img src="/img/game/c_ponta_papa.png">
-				<img src="/img/game/c_octo_ou.png">
-				<img src="/img/game/c_plan.png">
-				<img src="/img/game/c_ripo.png">
-			</p>
-
- 	<p style="text-align:center;"><a href="/imgall/"><i class="fas fa-bars"></i></a></p>
+{{ partial "img.html" . }}
+		{{ .Content }}
 		</div>
 		{{ partial "footer.html" . }}
 </body>
