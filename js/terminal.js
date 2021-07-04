@@ -7,10 +7,8 @@ $(function() {
 	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/", "curl"];
 	var pacman_option = "-Syu";
 	var user_ip;
-	var pacman_json;
 	var	tags = [];
 
-	console.log(pacman_json);
 	axios.get('https://syui.cf/json/keybase.json')
 		.then(function (response) {
 			gpg_link = JSON.stringify(response.data,null,"\t");
