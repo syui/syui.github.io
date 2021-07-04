@@ -111,6 +111,8 @@ $(function() {
 			term.insert("curl -sL https://syui.cf/index.json");
 		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
 			term.echo(index_json);
+		}	else if (inputs[0] === 'curl'){
+			term.echo("ex : $ curl -sL https://syui.cf/index.json");
 		} else if (inputs[0] === 'cat') {
 			term.echo("ex : cat /json/link.json");
 			term.insert("cat /json/link.json");
