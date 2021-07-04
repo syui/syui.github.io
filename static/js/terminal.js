@@ -6,7 +6,7 @@ $(function() {
 	var file_full = [];
 	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/", "curl"];
 	var pacman_option = "-Syu";
-	var ip_list = "";
+	var user_ip;
 	var	tags = [];
 
 	axios.get('https://syui.cf/json/keybase.json')
@@ -50,7 +50,6 @@ $(function() {
 				file_full.push(file_all[i][a]);
 			};
 		})
-
 
 	function print_slowly(term, paragraph, callback) {
 		var foo, i, lines;
@@ -107,78 +106,82 @@ $(function() {
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
 			term.echo("slow okay?\n[Y]run next command.\nex: $ curl -sL https://syui.cf/index.json");
 			term.insert("curl -sL https://syui.cf/index.json");
-		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
+		}	else if (inputs[0] === 'curl' && inputs[1] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === 'https://syui.cf/index.json'){
 			term.echo(index_json);
-		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'ipapi.co'){
+		}	else if (inputs[0] === 'curl' && inputs[1] === 'ipapi.co'){
+			$.ajaxSetup({async: false});
 			$.getJSON('https://ipapi.co/json/', function(data) {
 				term.echo(JSON.stringify(data,null,"\t"));
-			});
-		}	else if (inputs[0] === 'curl'){
-			term.echo("$ curl -sL syui.cf/index.json\n$ curl -sL ipapi.co");
-		} else if (inputs[0] === 'cat') {
-			term.echo("ex : cat /json/link.json");
-		} else if (inputs[0] === 'help') {
-			term.echo(command_all);
-		} else if (inputs[0] === 'search' && inputs[1] === '-l') {
-			for (i = 0; i <= 5; i++) {
-				s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
-				term.echo(s);
-			};
-		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
-			if (tags.indexOf(inputs[2]) != -1) {
-				s = 'tag : https://syui.cf/tags/' + inputs[2];
-				term.echo(s);
-			} else {
-				term.echo("none tag!");
-			};
-			origin_index_json.forEach(function(v,index) {
-				if ( v.tags != null && v.tags.indexOf(inputs[2]) != -1) {
-					term.echo(v.title + '\n' + v.href);
-				} 
-			});
-		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] === undefined) {
-			term.echo(tags);
-			term.echo('>> https://syui.cf/tags/');
-			term.echo('ex: $ search -t hugo');
-		} else if (inputs[0] === 'search' && inputs[1] === '-a') {
-			origin_index_json.forEach(function(v,index) {
-				s = v.title + " "  + v.href;
-				term.echo(s);
-			});
-		} else if (inputs[0] === 'search' && inputs[1] != undefined || inputs[0] === '/') {
-			origin_index_json.forEach(function(v,index) {
-				if ( v.contents.indexOf(inputs[1]) != -1){
+				user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
+			});$.ajaxSetup({async: true});
+				console.log(user_ip);
+				this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.cf] ~$ ");
+			}	else if (inputs[0] === 'curl'){
+				term.echo("$ curl syui.cf/index.json\n$ curl ipapi.co");
+			} else if (inputs[0] === 'cat') {
+				term.echo("ex : cat /json/link.json");
+			} else if (inputs[0] === 'help') {
+				term.echo(command_all);
+			} else if (inputs[0] === 'search' && inputs[1] === '-l') {
+				for (i = 0; i <= 5; i++) {
+					s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
+					term.echo(s);
+				};
+			} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
+				if (tags.indexOf(inputs[2]) != -1) {
+					s = 'tag : https://syui.cf/tags/' + inputs[2];
+					term.echo(s);
+				} else {
+					term.echo("none tag!");
+				};
+				origin_index_json.forEach(function(v,index) {
+					if ( v.tags != null && v.tags.indexOf(inputs[2]) != -1) {
+						term.echo(v.title + '\n' + v.href);
+					} 
+				});
+			} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] === undefined) {
+				term.echo(tags);
+				term.echo('>> https://syui.cf/tags/');
+				term.echo('ex: $ search -t hugo');
+			} else if (inputs[0] === 'search' && inputs[1] === '-a') {
+				origin_index_json.forEach(function(v,index) {
 					s = v.title + " "  + v.href;
 					term.echo(s);
-				}
-			});
-		} else if (inputs[0] === 'search') {
-			term.echo("$ search ${keyword}\n-a : all post\n-l : latest post\n-t : search tag");
-		} else if (inputs[0] === 'mpv' && origin_songs.indexOf(inputs[1]) != -1 && inputs[1] != undefined) {
-			music = new Audio(inputs[1]);
-			music.play();
-			term.insert("mpv quit");
-		} else if (/mpv quit/.test(input)) {
-			music.pause();
-			music.currentTime = 0;
-		} else if (inputs[0] === 'mpv'|| inputs[0] === 'mpv' && inputs[1] === undefined) {
-			term.echo("ex : $ mpv /music/xxx.mp3\n");
-			term.echo(origin_songs);
-		} else if (/nyancat/.test(input)) {
-			term.echo("/nyancat");
-			window.location.href = '/nyancat';
-		} else if (/top/.test(input)) {
-			window.location.href = '/';
-		} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
-			print_slowly(term, pacman_update_pre, function(){
-			});
-		} else if (/(cd)/.test(command)) {
-			bash(inputs, term);
-		} else if (/ls/.test(input)) {
-			term.echo(file_full);
-		} else {
-			term.error(command + " is not a valid command");
-		}
+				});
+			} else if (inputs[0] === 'search' && inputs[1] != undefined || inputs[0] === '/') {
+				origin_index_json.forEach(function(v,index) {
+					if ( v.contents.indexOf(inputs[1]) != -1){
+						s = v.title + " "  + v.href;
+						term.echo(s);
+					}
+				});
+			} else if (inputs[0] === 'search') {
+				term.echo("$ search ${keyword}\n-a : all post\n-l : latest post\n-t : search tag");
+			} else if (inputs[0] === 'mpv' && origin_songs.indexOf(inputs[1]) != -1 && inputs[1] != undefined) {
+				music = new Audio(inputs[1]);
+				music.play();
+				term.insert("mpv quit");
+			} else if (/mpv quit/.test(input)) {
+				music.pause();
+				music.currentTime = 0;
+			} else if (inputs[0] === 'mpv'|| inputs[0] === 'mpv' && inputs[1] === undefined) {
+				term.echo("ex : $ mpv /music/xxx.mp3\n");
+				term.echo(origin_songs);
+			} else if (/nyancat/.test(input)) {
+				term.echo("/nyancat");
+				window.location.href = '/nyancat';
+			} else if (/top/.test(input)) {
+				window.location.href = '/';
+			} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
+				print_slowly(term, pacman_update_pre, function(){
+				});
+			} else if (/(cd)/.test(command)) {
+				bash(inputs, term);
+			} else if (/ls/.test(input)) {
+				term.echo(file_full);
+			} else {
+				term.error(command + " is not a valid command");
+			}
 	}
 
 	function bash(inputs, term) {
