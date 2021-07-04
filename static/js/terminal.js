@@ -153,6 +153,9 @@ $(function() {
 		} else if (/mpv quit/.test(input)) {
 			music.pause();
 			music.currentTime = 0;
+		} else if (inputs[0] === 'mpv') {
+			term.echo("ex : $ mpv /music/xxx.mp3\n");
+			term.echo(origin_songs);
 		} else if (/nyancat/.test(input)) {
 			term.echo("/nyancat");
 			window.location.href = '/nyancat';
