@@ -110,29 +110,34 @@ $(function() {
 			term.echo("slow okay?\n[Y]run next command.\nex: $ curl -sL https://syui.cf/index.json");
 			term.insert("curl -sL https://syui.cf/index.json");
 		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
-				term.echo(index_json);
+			term.echo(index_json);
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
 		} else if (inputs[0] === 'search' && inputs[1] === '-l' || inputs[0] === 'search' && inputs[1] === undefined) {
 			for (i = 0; i <= 5; i++) {
-				s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n\n';
+				s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
 				term.echo(s);
 			};
 		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
 			if (tags.indexOf(inputs[2]) != -1) {
-				s = 'https://syui.cf/tags/' + inputs[2];
+				s = 'tag : https://syui.cf/tags/' + inputs[2];
 				term.echo(s);
 			} else {
 				term.echo("none tag!");
 			};
+			origin_index_json.forEach(function(v,index) {
+				if ( v.tags != null && v.tags.indexOf(inputs[2]) != -1) {
+					term.echo(v.title + '\n' + v.href);
+				} 
+			});
 		} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] === undefined) {
 			term.echo(tags);
 			term.echo('>> https://syui.cf/tags/');
 			term.echo('ex: $ search -t hugo');
 		} else if (inputs[0] === 'search' && inputs[1] === '-a') {
 			origin_index_json.forEach(function(v,index) {
-					s = v.title + " "  + v.href;
-					term.echo(s);
+				s = v.title + " "  + v.href;
+				term.echo(s);
 			});
 		} else if (inputs[0] === 'search' || inputs[0] === '/') {
 			origin_index_json.forEach(function(v,index) {
