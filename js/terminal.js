@@ -113,7 +113,7 @@ $(function() {
 			term.echo(index_json);
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
-		} else if (inputs[0] === 'search' && inputs[1] === '-l' || inputs[0] === 'search' && inputs[1] === undefined) {
+		} else if (inputs[0] === 'search' && inputs[1] === '-l') {
 			for (i = 0; i <= 5; i++) {
 				s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
 				term.echo(s);
@@ -139,21 +139,16 @@ $(function() {
 				s = v.title + " "  + v.href;
 				term.echo(s);
 			});
-		} else if (inputs[0] === 'search' || inputs[0] === '/') {
-			origin_index_json.forEach(function(v,index) {
-				if ( v.contents.indexOf(inputs[1]) != -1){
-					s = v.title + " "  + v.href;
-					term.echo(s);
-				}
-			});
-		} else if (inputs[0] === 'mpv' && origin_songs.includes(inputs[1])) {
+		} else if (inputs[0] === 'search' || inputs[0] === '/' || inputs[0] === 'search' && inputs[1] === undefined) {
+			term.echo("$ search ${keyword}\n-a : all post\n-l : latest post\n-t : search tag");
+		} else if (inputs[0] === 'mpv' && origin_songs.indexOf(inputs[1]) != -1 && inputs[1] != undefined) {
 			music = new Audio(inputs[1]);
 			music.play();
 			term.insert("mpv quit");
 		} else if (/mpv quit/.test(input)) {
 			music.pause();
 			music.currentTime = 0;
-		} else if (inputs[0] === 'mpv') {
+		} else if (inputs[0] === 'mpv'|| inputs[0] === 'mpv' && inputs[1] === undefined) {
 			term.echo("ex : $ mpv /music/xxx.mp3\n");
 			term.echo(origin_songs);
 		} else if (/nyancat/.test(input)) {
