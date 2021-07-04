@@ -4,7 +4,7 @@ $(function() {
 	var greetings = "";
 	var origin_songs = [];
 	var file_full = [];
-	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/"];
+	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/", "curl"];
 	var pacman_option = "-Syu";
 	var ip_list = "";
 	var	tags = [];
@@ -106,6 +106,11 @@ $(function() {
 			term.echo(gpg_link);
 		} else if (inputs[0] === 'cat' && inputs[1] === '/json/file.json') {
 			term.echo(file_list);
+		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
+			term.echo("slow okay?\n[Y]run next command.\nex: $ curl -sL https://syui.cf/index.json");
+			term.insert("curl -sL https://syui.cf/index.json");
+		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
+				term.echo(index_json);
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
 		} else if (inputs[0] === 'search' && inputs[1] === '-l' || inputs[0] === 'search' && inputs[1] === undefined) {
@@ -124,6 +129,11 @@ $(function() {
 			term.echo(tags);
 			term.echo('>> https://syui.cf/tags/');
 			term.echo('ex: $ search -t hugo');
+		} else if (inputs[0] === 'search' && inputs[1] === '-a') {
+			origin_index_json.forEach(function(v,index) {
+					s = v.title + " "  + v.href;
+					term.echo(s);
+			});
 		} else if (inputs[0] === 'search' || inputs[0] === '/') {
 			origin_index_json.forEach(function(v,index) {
 				if ( v.contents.indexOf(inputs[1]) != -1){
