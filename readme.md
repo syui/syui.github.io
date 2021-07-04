@@ -25,3 +25,9 @@ $ ../run.sh
 $ vim ../content/imgall.md
 ```
 
+## pacman
+
+```
+$ curl -sL "https://archlinux.org/packages/search/json/?q=cursor&repo=Community&repo=Extra"|jq ".results|.[]|select(.last_update |match(\"^2021-07-04*\"))|.pkgname,.installed_size,.last_update"
+```
+

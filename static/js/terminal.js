@@ -178,6 +178,17 @@ $(function() {
 				bash(inputs, term);
 			} else if (/ls/.test(input)) {
 				term.echo(file_full);
+			} else if (command == 'login'){
+				term.login(function(user, password, callback) {
+					if (user == 'syui' && password == 'syui') {
+						callback('SECRET TOKEN');
+						this.set_prompt("[[b;#d33682;]" + "syui" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+					} else {
+						callback(null);
+					}
+				});
+				//} else if (term.token()) {
+				//	term.echo("token");
 			} else {
 				term.error(command + " is not a valid command");
 			}
