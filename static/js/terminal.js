@@ -114,7 +114,6 @@ $(function() {
 				term.echo(JSON.stringify(data,null,"\t"));
 				user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
 			});$.ajaxSetup({async: true});
-				console.log(user_ip);
 				this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.cf] ~$ ");
 			}	else if (inputs[0] === 'curl'){
 				term.echo("$ curl syui.cf/index.json\n$ curl ipapi.co");
