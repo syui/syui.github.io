@@ -139,7 +139,14 @@ $(function() {
 				s = v.title + " "  + v.href;
 				term.echo(s);
 			});
-		} else if (inputs[0] === 'search' || inputs[0] === '/' || inputs[0] === 'search' && inputs[1] === undefined) {
+		} else if (inputs[0] === 'search' && inputs[1] != undefined || inputs[0] === '/') {
+			origin_index_json.forEach(function(v,index) {
+				if ( v.contents.indexOf(inputs[1]) != -1){
+					s = v.title + " "  + v.href;
+					term.echo(s);
+				}
+			});
+		} else if (inputs[0] === 'search') {
 			term.echo("$ search ${keyword}\n-a : all post\n-l : latest post\n-t : search tag");
 		} else if (inputs[0] === 'mpv' && origin_songs.indexOf(inputs[1]) != -1 && inputs[1] != undefined) {
 			music = new Audio(inputs[1]);
