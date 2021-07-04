@@ -50,9 +50,7 @@ $(function() {
 				file_full.push(file_all[i][a]);
 			};
 		})
-	//$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
-	//    ip_list = JSON.stringify(data.geobytesipaddress, null, 2);
-	//});
+
 
 	function print_slowly(term, paragraph, callback) {
 		var foo, i, lines;
@@ -109,13 +107,16 @@ $(function() {
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
 			term.echo("slow okay?\n[Y]run next command.\nex: $ curl -sL https://syui.cf/index.json");
 			term.insert("curl -sL https://syui.cf/index.json");
-		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
+		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'https://syui.cf/index.json'){
 			term.echo(index_json);
+		}	else if (inputs[0] === 'curl' && inputs[1] === '-sL' && inputs[2] === 'ipapi.co'){
+			$.getJSON('https://ipapi.co/json/', function(data) {
+				term.echo(JSON.stringify(data,null,"\t"));
+			});
 		}	else if (inputs[0] === 'curl'){
-			term.echo("ex : $ curl -sL https://syui.cf/index.json");
+			term.echo("$ curl -sL syui.cf/index.json\n$ curl -sL ipapi.co");
 		} else if (inputs[0] === 'cat') {
 			term.echo("ex : cat /json/link.json");
-			term.insert("cat /json/link.json");
 		} else if (inputs[0] === 'help') {
 			term.echo(command_all);
 		} else if (inputs[0] === 'search' && inputs[1] === '-l') {
