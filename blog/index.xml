@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 06 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nexus7をandroid 11にupgradeしてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/07/android/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/07/android/</guid>
+      <description>nexus7はかなり長く使っていて、はじめて体験するandroidとしては、とてもよい体験だったと思います。公式romはandroid 6.xがlatestで、私もそれを使用していました。
+しかし、nexus7は、custom romがandroid 10までありますし、lineage(android 11)もインストールが可能なので、最新のandroidを試してみることにします。
+lineage(android 11 base) 今回は、android 11ベースのlineageをインストールします。
+twrp : https://twrp.me/asus/asusnexus72013wifi.html
+lineage os 18.1 : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/
+sysrepart_1280_120.zip : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/
+opengapps(android 11) : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/
+$ adb reboot-bootloader $ fastboot flash recovery twrp.img $ fastboot boot twrp.img $ adb push sysrepart.zip /sdcard/ # twrp -&amp;gt; install -&amp;gt; sysrepart $ adb push lineageos.zip /sdcard/ $ adb push opengaaps.zip /sdcard/ # twrp -&amp;gt; install -&amp;gt; lineage, opengaaps magisk root root化は現在、magiskが一般的らしい。
+$ adb install magisk.</description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた88</title>
       <link>https://syui.cf/blog/post/2021/07/06/illust/</link>
