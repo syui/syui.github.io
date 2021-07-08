@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>androidでlocal terminalを使ってみる</title>
+      <link>https://syui.cf/blog/post/2021/07/08/android/</link>
+      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/08/android/</guid>
+      <description>aospではdev modeでterminalが含まれるようになっており、local terminalという名前でterm appが使えるっぽいので試してみました。
+アイコンは公式なのでかっこいいんですけど、設定できないので使いづらかった。
+私はrootで使うことが多く、androidはrootの$HOMEを/に設定されており、これだとrootfsでinitramfsを採用することから、例えば、/.bashrcというファイルをtwrpとかremountとかして置いたとしても、再起動後に消えてしまうので、事実上、root shellの設定ファイルが使えないようになってます。
+したがって、仮にroot shellをcustomするとなると、imgをbuildして、fastboot flash systemするしかありません。
+今まではandroid terminal emulatorの設定で色々と工夫して、aliasみたいなものを設定して使ってました。
+archlinuxのbootは、magiskでbusyboxのmoduleをinstallしたあと、/data/adb/magisk/busyboxから起動することにしました。busyboxを/system/binに入れても、そのうち消えるので。
+このへん、もう忘れてしまってるんですが、supersuでは/system/bin/がrwでmountされてた気がする。magiskは一時的にpath解決するだけなのではないかと。
+この回避策として思い浮かぶのは、chainfire氏のcf-auto-rootでexploitする際、imgにbusyboxを含めることで/system/binに書き込めそうだと思いましたが、magiskで管理したほうがbusyboxのupdateに対応しやすいので、こちらを採用しました。</description>
+    </item>
+    
     <item>
       <title>nexus7をandroid 11にupgradeしてみた</title>
       <link>https://syui.cf/blog/post/2021/07/07/android/</link>
