@@ -37,6 +37,19 @@ jobs:
            cp -rf ./dist/*.css ./static/manga
            cp -rf ./dist/*.map ./static/manga
 
+           touch ./src-manga-en/.env
+           rm -r ./src-manga-en/.env
+           touch ./static/manga/en/build.js*
+           rm -r ./static/manga/en/build.js*
+           echo VUE_APP_PAGE=`ls ./static/manga/en/*.png|wc -l` >> ./src-manga-en/.env
+           cd ./src-manga-en
+           yarn install 
+           yarn build
+           cp -rf ./dist/*.js ../static/manga/en/
+           cp -rf ./dist/*.css ../static/manga/en/
+           cp -rf ./dist/*.map ../static/manga/en/
+
+           cd ../
            touch ./src-imgauto/.env
            rm -r ./src-imgauto/.env
            echo VUE_APP_IMGNUMBER=`ls ./static/img/yui_*.png|wc -l` >> ./src-imgauto/.env
