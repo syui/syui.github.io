@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.85.0" />
-		<title>syui.cf</title>
+		<title>フィギュアを作ってみる3 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="フィギュアを作ってみる3" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,17 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
 		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +42,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	        <script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +72,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,23 +106,7 @@
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
-
-
-<div class="content-top">
-
-	<div class="google-ads">
+<div class="google-ads">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<ins class="adsbygoogle"
 						style="display:block"
@@ -142,51 +119,56 @@
 	</script>
 </div>
 
+       			<article>
+       			 	<div class="content">
+													<div class="post-time-date">2021-07-19 / <a href="/syui">@syui</a></div>
+													<h2>フィギュアを作ってみる3</h2>
+													
+       			 		<p>フィギュア一体くらい欲しいなと思ったので、自作フィギュアに挑戦してみることに。</p>
+<p>今回は、フィギュア製作、3日目の様子を紹介します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/figure_make_06.png" alt=""></p>
+<p>今日は夜に2時間ほど、こねこねこねこね&hellip;。(今日はやるつもり無かったけど</p>
+<p>昨日のやつ、やっぱり納得いってなくて、ほぼ全部修正することになりました。</p>
+<p>こねてる石粉粘土、そろそろ寿命なんじゃないってくらい水分を与えても早くに崩れてしまうようになってしまったけれど、やれるだけやるつもりでやった。</p>
+<p>どうせダメなら試したいこと試したほうがいいよね。(よくない</p>
+<p>今回試したかったのは主に3つ。1つ目は全体のバランス修正。主に削りました。実は前回、削ってなかった。完成したものが崩れるのが怖かった。</p>
+<p>ですが、ダメなものはダメなので、今回は全部ぶっ潰して作り直した。</p>
+<p>2つ目に試したかったのは髪に動きをつけること。</p>
+<p>やっぱりフィギュアって髪の毛の動きが相当なポイントだと思ったので。</p>
+<p>3つ目は服にシワをつけること。前回のはぼってりしてた。なぜなら凹凸がなく、色が単一だからです。これは絵にも言えることですが、影がない絵ってのはぼってりします。ですから、3Dであるフィギュアにも影をつけなければならないわけですが、どうやってつけるのか。２つの方法があると思っていて、一つは塗りです。もう一つは凹凸をつけることで自然の影をつける方法です。やっぱりフィギュアは2Dの絵とは違いますから、色で無理やり影をつけるのは良くないと思ったので、シワをつけることで、影をつけていくのがいいかなって思いました。</p>
+<p>服のシワについては、三角で切ったやつを服に貼り付けてくといい感じになるのではと思ってて、それを試してみたかった。なので、試しに1つだけ付けてみました。服の下のほう左から右にかけて。</p>
+<p>それ以外、今回修正して良かったところは、前はバランス悪くて何度か倒れる事故を起こしてたんだけど、修正後は簡単に倒れなくなったところ。</p>
+<p>大変だったけど、修正してよかったです。</p>
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-19<p><a href="https://syui.cf/blog/post/2021/07/19/figure/">フィギュアを作ってみる3</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-18<p><a href="https://syui.cf/blog/post/2021/07/18/figure/">フィギュアを作ってみる2</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-17<p><a href="https://syui.cf/blog/post/2021/07/17/figure/">フィギュアを作ってみる1</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-16<p><a href="https://syui.cf/blog/post/2021/07/16/windows/">windows 11にupgradeしてみた</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-14<p><a href="https://syui.cf/blog/post/2021/07/14/illust/">イラスト描いてみた90</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-13<p><a href="https://syui.cf/blog/post/2021/07/13/illust/">絵を飾ってみた</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-11<p><a href="https://syui.cf/blog/post/2021/07/11/manga/">漫画描いてみた</a></p>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
-</div>
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/07/18/figure/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> フィギュアを作ってみる2
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/figure/">figure</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
-
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>
