@@ -7,7 +7,7 @@
 			    <div class="outer">
 				<div id="blog-archives" class="category">
 				    <ul class="cp_list">
-					{{ range .Pages }}
+					{{ range .Data.Pages.ByDate.Reverse }}
 					<li><span class="icon-moon"></span>
 						{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}">{{.Title}}</a></p>
 					</li>
