@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>private</title>
+      <link>https://syui.cf/tags/private/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/private/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>figure</title>
       <link>https://syui.cf/tags/figure/</link>
@@ -185,15 +194,6 @@
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/mastodon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>private</title>
-      <link>https://syui.cf/tags/private/</link>
-      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/private/</guid>
       <description></description>
     </item>
     
