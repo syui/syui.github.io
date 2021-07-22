@@ -128,7 +128,9 @@ $(function() {
 				};
 				term.read("jump number?[0-5] : ", function(s) {
 					s = Number(s);
-					window.location.href = origin_index_json[s].href;
+					if (!isNaN(s)){
+						window.location.href = origin_index_json[s].href;
+					}
 				}).then(function(s) {
 					s.charCodeAt(0);
 				});
@@ -158,7 +160,7 @@ $(function() {
 					s = v.title + " "  + v.href;
 					term.echo(s);
 				});
-			} else if (inputs[0] === 'search' && inputs[1] != undefined || inputs[0] === '/') {
+			} else if (inputs[0] === 'search' && inputs[1] != undefined) {
 				origin_index_json.forEach(function(v,index) {
 					if ( v.contents.indexOf(inputs[1]) != -1){
 						s = v.title + " "  + v.href;
