@@ -128,9 +128,9 @@
 <p><img src="https://github.com/syui/comic.page/raw/master/vue-sample-manga-page-slide-0.gif" alt=""></p>
 <p><a href="https://github.com/syui/comic.page">https://github.com/syui/comic.page</a></p>
 <p>使ったのは<code>hooper</code>と<code>vue-cli 4</code>です。<code>vue-cli</code>は古いバージョンに比べ格段に使いやすくなっていて、webpackを使わなくて済みました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add hooper
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add hooper
 </code></pre></div><p>vueはこんな感じで書きます。hooperは<code>slide {content}</code>みたいな構成でhtmlを書きます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
      &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
@@ -190,7 +190,7 @@
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
 </code></pre></div><p>vueとhooperのexampleをもう少しだけ。例えば、指定のコンテンツを配置するとしたら下記のような感じです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(item, index) in items&#34;</span>&gt;
     {{ <span style="color:#a6e22e">index</span> }} <span style="color:#960050;background-color:#1e0010">-</span> {{ <span style="color:#a6e22e">item.message</span> }}

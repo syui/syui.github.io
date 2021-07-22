@@ -129,7 +129,7 @@
 <p>まずbootですが、私はmacbook-airの内蔵diskにarchをインストールしてることもあって、そこから持ってくることになりました。</p>
 <p>grub-installは成功するんだけど、なぜかうまく動かない。また、archのインストールディスクからgrubがなくなってるのと、現在のインストールディスクがmacbookで認識しなくなってました。supportはずされたのか、それ以外の問題か。なんにせよ最新のgrub-installで作成されるefiではbootできないし、最新のインストールディスクはmacbookから起動できません。(私の環境では)</p>
 <p>なので、基本的には、usbにlinuxをインストールして、archが動いてるdiskの<code>/boot(linux-img以外)</code>及び<code>/dev/sda1</code>のディレクトリ構成をコピーすればokです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S linux
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S linux
 
 $ mount /dev/sdb2 ./mnt
 $ cp -rf /boot/efi ./mnt/boot/
@@ -141,7 +141,7 @@ $ cp -rf ./boot2/* ./boot/
 
 $ grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre></div><p>ちなみに、grub-installは以下のコマンドで成功(動かないけど)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ arch-chroot ./mnt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ arch-chroot ./mnt
 $ mount /dev/sdb1 ./boot/efi
 
 $ grub-install --efi-directory<span style="color:#f92672">=</span>/boot/efi /dev/sdb
@@ -159,7 +159,7 @@ sh: can&rsquo;t access tty: job control turned off</p>
 </code></pre><pre><code>$ mkinitcpio -p linux
 </code></pre><h3 id="icns">icns</h3>
 <p>macのbootloaderはosを読み込む際にアイコンを設定できます。boot領域の<code>/</code>に.volumeicon.icnsを置きます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount /dev/sdb1 ./boot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount /dev/sdb1 ./boot
 $ cp .volumeicon.icns ./boot/
 </code></pre></div><p>ちなみに、同じアイコンでも表示されないことがあって、権限等の可能性があるかも。正直、よくわかりませんし、icnsもめんどくさすぎる。</p>
 <p><a href="https://qiita.com/syui/items/76aebb2e39f40d8cd1e9">https://qiita.com/syui/items/76aebb2e39f40d8cd1e9</a></p>
@@ -174,12 +174,12 @@ blacklist brcm80211
 blacklist brcmfmac
 blacklist brcmsmac
 blacklist ssb
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -Syu linux-headers broadcom-wl-dkms
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -Syu linux-headers broadcom-wl-dkms
 $ mkinitcpio -p linux
 </code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759">https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759</a></p>
 <h3 id="network">network</h3>
 <p>ip固定するので伝統的な名前、eth0とかにする。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ln -s /dev/null /etc/systemd/network/99-default.link
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ln -s /dev/null /etc/systemd/network/99-default.link
 </code></pre></div><p>今回はnetworkmanagerを入れることにしたんだけど、便利。ただ、自動設定とかは接続は、systemd-networkで書いてる。</p>
 <h3 id="xorg">xorg</h3>
 <p>ディスプレイがoffにならないようにする設定。よく忘れる。<code>xset dpms force off</code>が効かないことある。ただ、これらの設定によってi3が起動しなくなる事があるので注意。</p>
@@ -209,7 +209,7 @@ mod4        Super_L (0x85),  Zenkaku_Hankaku (0x86),  Super_L (0xce),  Hyper_L (
 mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
 </code></pre><h3 id="gtk">gtk</h3>
 <p>gtk-themeはnumixを採用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S numix-gtk-theme numix-icon-theme-git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S numix-gtk-theme numix-icon-theme-git
 $ vim /usr/share/gtk-x.0/
 
 $ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
@@ -220,7 +220,7 @@ $ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
 <p>その他の環境としては、i3, xterm, tilix, pcmanfm, chromium, fcitx, yayなどを採用。</p>
 <p>xtermも設定が面倒だけど、アイコンとかもフォントを指定すれば使える。</p>
 <p><code>.Xdefaults</code>,<code>.Xresources</code>に書く。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">XTerm*termName:            xterm-256color
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">XTerm*termName:            xterm-256color
 XTerm*locale:              true
 XTerm*selectToClipboard:   true
 XTerm*saveLines:           <span style="color:#ae81ff">2000</span>
@@ -230,7 +230,7 @@ xterm*faceName:            ricomoon
 XTerm*faceSize:            <span style="color:#ae81ff">13</span>
 </code></pre></div><p>terminalの透過は、picomで実現します。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/arch_20210430.png" alt=""></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S picom
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S picom
 $ sudo cp /etc/xdg/picom.conf ~/.config/picom/
 $ sudo vim ~/.config/picom/picom.conf
 </code></pre></div><pre><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
@@ -241,14 +241,14 @@ $ sudo vim ~/.config/picom/picom.conf
   &quot;90:class_g = 'tilix' &amp;&amp; focused&quot;,
   &quot;60:class_g = 'tilix' &amp;&amp; !focused&quot;
 ];
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ picom &amp;
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ picom &amp;
 </code></pre></div><p>あとは、<code>~/.xinitrc</code>にでも書けばいいでしょう。</p>
 <h3 id="vpn">vpn</h3>
 <p>usbを外のパソコンに挿して、ssh先でvpnを起動し、local networkに入ってリモートすることはよくあるので、vpnの構築方法とclientでの接続方法を紹介。</p>
 <p>vpnはserverもclientもpritunlが便利すぎるので、そちらを使います。</p>
 <p><a href="https://github.com/Fridus/docker-pritunl">https://github.com/Fridus/docker-pritunl</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">network</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">network</span>:
   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox</span>
   <span style="color:#f92672">ports</span>:
     - <span style="color:#e6db74">&#34;9700:443&#34;</span>
@@ -278,7 +278,7 @@ $ sudo vim ~/.config/picom/picom.conf
   <span style="color:#f92672">environment</span>:
     <span style="color:#f92672">STAGE</span>: <span style="color:#e6db74">&#39;local&#39;</span>
     <span style="color:#f92672">DOMAINS</span>:  <span style="color:#e6db74">&#39;localhost =&gt; https://0.0.0.0:9700&#39;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker-compose up -d
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker-compose up -d
 </code></pre></div><p>で、設定方法は、<code>https://localhost:9700</code>にアクセスしてwebから行います。user,passwordは<code>pritunl</code>です。</p>
 <p>基本的にはorg,userを作成して、start serverすればokです。userからはprofile(example.vpn)をダウンロードできますが、それを使います。これはopenvpnでも使用できる形式のものです。ただし、localで構築してることもあって、使用する際はdefaultのip,portが異なります。settingから変更した上で、profileをダウンロードすればいいのですけど、<code>.vpn</code>を修正したほうが早いです。</p>
 <p>ここでは、vpn serverのlocal ipを<code>192.168.11.4</code>とし、global ipを<code>207.97.227.253</code>とします。wan(外部)からserverにアクセスするにはrouteでポートフォワーディングなどを設定すればいいでしょう。</p>
@@ -288,7 +288,7 @@ $ sudo vim ~/.config/picom/picom.conf
 <p><a href="https://client.pritunl.com/">https://client.pritunl.com/</a></p>
 <p><a href="https://docs.pritunl.com/docs/command-line-interface">https://docs.pritunl.com/docs/command-line-interface</a></p>
 <p>基本的には、GUIでprofileをimportしたあと、gotunlで接続操作すればいいでしょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo tee -a /etc/pacman.conf <span style="color:#e6db74">&lt;&lt; EOF
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo tee -a /etc/pacman.conf <span style="color:#e6db74">&lt;&lt; EOF
 </span><span style="color:#e6db74">[pritunl]
 </span><span style="color:#e6db74">Server = https://repo.pritunl.com/stable/pacman
 </span><span style="color:#e6db74">EOF</span>

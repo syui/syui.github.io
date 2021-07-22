@@ -128,7 +128,7 @@
 <p><a href="https://github.com/PowerShell">https://github.com/PowerShell</a></p>
 <p><a href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
 <p>default shellとして設定するには、以下のコマンド。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/PowerShell/Win32-OpenSSH/wiki/DefaultShell</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/PowerShell/Win32-OpenSSH/wiki/DefaultShell</span>
 $ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;c:\program files\powershell\7\pwsh.exe&#34;</span> -PropertyType String -Force
 
 $ echo $PSVersionTable

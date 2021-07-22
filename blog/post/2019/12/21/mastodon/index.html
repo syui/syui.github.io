@@ -129,7 +129,7 @@
 <p>仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。</p>
 <p><a href="https://github.blog/jp/2019-08-21-github-actions-now-supports-ci-cd/">GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能</a></p>
 <p>gh-actionsでcron:m15を回して、mastodonはapiから投稿を取得、twitterタグがついてれば、jqで投稿を抜き出し、<code>date(unix-time)</code>で15分前のtimeとmastodonの投稿時間を比較し、大きければ新しい投稿と判断して、<a href="https://github.com/syui/twg/releases">syui/twg</a>からtwitterに投稿するという感じ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.github/workflows/main.yml" data-lang="sh:.github/workflows/main.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">mastodon tweet</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.github/workflows/main.yml" data-lang="sh:.github/workflows/main.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">mastodon tweet</span>
 
 <span style="color:#f92672">on</span>:
   <span style="color:#f92672">push</span>:

@@ -133,13 +133,13 @@
 <p>今回、ほとんどはCLIからの操作では問題は解決しませんでした。したがって、基本的には<code>Pantheon</code>, <code>Drupal</code>の管理画面にてエラーを見て、修正していきます。</p>
 <h2 id="pantheonにホストデプロイする場合は初期設定は必要ありません">Pantheonにホスト、デプロイする場合は初期設定は必要ありません</h2>
 <p>Pantheonにホスト、デプロイする場合は初期設定は必要ありません。いくら<code>config.sh</code>で設定してもそのままでは有効にならないし、ユーザー設定はブラウザの<code>Pantheon -&gt; Drupal</code>管理画面から行うことになるからです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp default.config.sh config.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp default.config.sh config.sh
 $ ./install
 $ cd www
 $ git init
 $ ...git push
 </code></pre></div><p>remoteを設定するの自体が面倒なので、<code>Connection Info</code>のclone情報をコピーし、<code>.git</code>を<code>www/.git</code>に置くと良いでしょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone ssh://foo.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone ssh://foo.git
 $ cp -rf foo/.git www/
 $ cd www
 $ git add .
@@ -151,29 +151,29 @@ $ git push
 <p>本来は<code>live</code>で開発は<code>dev</code>と使い分けます。</p>
 <p>ただ、面倒な場合(使う人が少ない場合)は、すべて<code>dev</code>で開発、公開してもよいでしょう。</p>
 <p>ここで、特に必要な情報は、<code>Drupal</code>の初期設定にて必要になるDBの認証情報です。具体的には以下。Pantheon, Drupal(MYSQL)で多少項目名が異なりますが、ある程度推測してください。DBは<code>MYSQL</code>を使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Database
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Database
 	Host
 	Username
 	Password
 	Port
 	DB Name
 </code></pre></div><h2 id="pantheonのモジュールがないと言われる">Pantheonのモジュールがないと言われる</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/pantheon-systems/drops-7/tree/master/modules/pantheon</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/pantheon-systems/drops-7/tree/master/modules/pantheon</span>
 $ cp -rf drops-7/modules/pantheon www/modules/
 $ ...git push
 </code></pre></div><p>モジュールはブラウザの管理画面にて有効にしたり、アップデートしたりします。</p>
 <h2 id="drupal-coreが無効のcoreで上書きされたと言われる">Drupal Coreが無効のCoreで上書きされたと言われる</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp -rf drops-7/* www/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp -rf drops-7/* www/
 $ ...git push
 </code></pre></div><h2 id="settingsphpが読めないと言われる">Settings.phpが読めないと言われる</h2>
 <p>管理画面から<code>Git -&gt; SFTP</code>に変更し、サーバーにアクセスします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sftp ...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sftp ...
 &gt; chmod <span style="color:#ae81ff">644</span> code/sites/default/settings.php
 &gt; quit
 </code></pre></div><h2 id="なぜかgithub-pagesからの認証後にロードされたままページが表示されない">なぜかGitHub Pagesからの認証後にロードされたままページが表示されない</h2>
 <p>とりあえず、管理画面にて重要な警告(赤)をすべて修正した後に、<code>Drupal</code>でログインした後、Publicのコンテンツを作成する。これは必要なかったかもしれませんが、自分の場合はコンテンツを作成したら行けたような気がします。</p>
 <h2 id="それぞれのコマンド操作">それぞれのコマンド操作</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># エイリアスを有効にする</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># エイリアスを有効にする</span>
 $ terminus sites aliases
 $ drush sa
 

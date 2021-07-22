@@ -158,7 +158,7 @@
 <p>それに、Herokuのデザインセンスはとてもいいですし、ドキュメントも充実していて、わかりやすいです。</p>
 <p>また、Herokuのdocsでは、コードを記述する際のシンタックスハイライト以外にもコマンドプロンプトを示す<code>$</code>がコピーされないようになっています。芸が細かいっ！(早速、真似してみた</p>
 <p><a href="https://devcenter.heroku.com/articles/go-sessions">https://devcenter.heroku.com/articles/go-sessions</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -u github.com/heroku-examples/go-sessions-demo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -u github.com/heroku-examples/go-sessions-demo
 $ cd $GOPATH/src/github.com/heroku-examples/go-sessions-demo
 </code></pre></div><p>Herokuは、デザインも素晴らしいですが、こういう細部のこだわりもすごいと思っています。また、しっかりと日本語ページも用意されていて、そんなHerokuが私は大好きです。</p>
 <h3 id="herokuで分散snsを立ててみた">Herokuで分散SNSを立ててみた</h3>
@@ -225,10 +225,10 @@ $ cd $GOPATH/src/github.com/heroku-examples/go-sessions-demo
 <p>私は、2年以上、継続して<code>ぼっちインスタンス(お一人様インスタンス)</code>を運営してきましたが、今までにかかった費用は<code>$0</code>です。しかし、この運用にはいろいろな工夫が必要でした。これはHerokuを含めた様々なサービスのおかげです。感謝しかない。</p>
 <p>Mastodonは、初期の頃、Heroku上でもかなりの高負担でした。特に、DBのレコード増加量が半端なかった。したがって、初期の頃は1ヶ月に一度ほどDBをリセット(正確にはリストア)しなければなりませんでした。</p>
 <p>DBに関しては、Adminアカウントを作って初期設定を終えた時点のものを<code>バックアップ</code>してます。そして、DBがいっぱいになった時点で、そこにリストアします。なので、アカウントの同一性は保持されている状態(ただし齟齬は発生します)。Mastodon自体はDBと関係なくアップデートしているので、リストア後はマイグレーションを実行します。リストア後に問題がなければ、そのDBをバックアップして古いものは削除します。この流れを繰り返します。これによって、<code>年間 $0 運用</code>を達成しています。この一連の流れは、スクリプトにしているので、それほど大変ではありません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $usern -d $database ./backup_db.dump
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $usern -d $database ./backup_db.dump
 $ heroku run rake db:migrate -a $app
 </code></pre></div><p>また、メディアサーバーをGitHub Repoに切り替えて運用していました。画像の投稿もAPIを使って行います。こちらも以下のような流れでコマンドを作っているため、それほど不便ではありません。(あまり画像を投稿しないというのもある)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:メディアサーバー運用.txt" data-lang="sh:メディアサーバー運用.txt"># メディアサーバーをGitHub rawにする
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:メディアサーバー運用.txt" data-lang="sh:メディアサーバー運用.txt"># メディアサーバーをGitHub rawにする
 heroku config:set PAPERCLIP_ROOT_PATH=https://raw.githubusercontent.com/$USER/$REPO/master/img/mastodon
 
 # 画像ファイルを投稿して画像IDを取得する, IMG_ID

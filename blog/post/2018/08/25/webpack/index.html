@@ -134,7 +134,7 @@
 <p>今回は、exchatのfrontendの方を少しだけ見ていこうかなと思います。</p>
 <h2 id="webpack">webpack</h2>
 <p>buildされたものは、<code>./priv/static/app.js</code>に置かれるようですね。しかし、.gitignoreに書かれていますので、pushしません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat webpack.config.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat webpack.config.js
 
 $ mix deps.get
 
@@ -157,7 +157,7 @@ $ mix phx.server
 <blockquote>
 <p>Warning: It looks like you&rsquo;re using a minified copy of the development build of React. When deploying React apps to production, make sure to use the production build which skips development warnings and is faster. See <a href="https://fb.me/react-minification">https://fb.me/react-minification</a> for more details.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ./compile 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ./compile 
 info <span style="color:#e6db74">&#34;Building Phoenix static assets&#34;</span>
 NODE_ENV<span style="color:#f92672">=</span>production webpack -p
 mix phoenix.digest
@@ -167,11 +167,11 @@ $ bash ./compile
 <h2 id="heroku">heroku</h2>
 <p>./clientを書き換えて、heroku pushしても、全く変更が反映されずにおかしいなと思っていましたが、heroku cacheが効いていたのかもしれません。</p>
 <p><code>./priv/static/js/app.js</code>を<code>./client/js/app.js</code>に置き換えることで何故か対応できましたが、errorが色々出るので。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku plugins:install heroku-repo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku plugins:install heroku-repo
 $ heroku repo:purge_cache
 </code></pre></div><h2 id="update">update</h2>
 <p>色々なパッケージをupdateしていきます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm list --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> | grep webpack
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm list --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> | grep webpack
 
 <span style="color:#75715e"># package.json update</span>
 $ npm install -g npm-check-updates
@@ -186,13 +186,13 @@ $ npm update
 <blockquote>
 <p>package.json</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">&#34;react-router&#34;</span> : <span style="color:#e6db74">&#34;git:https://github.com/syui/react-router#v2.8.2&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">&#34;react-router&#34;</span> : <span style="color:#e6db74">&#34;git:https://github.com/syui/react-router#v2.8.2&#34;</span>
 </code></pre></div><p>追記終わり。</p>
 <p>では、updateした設定ファイルを見ていきます。</p>
 <blockquote>
 <p>.babelrc</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;presets&#34;</span>: [<span style="color:#e6db74">&#34;react&#34;</span>, <span style="color:#e6db74">&#34;es2015&#34;</span>, <span style="color:#e6db74">&#34;stage-2&#34;</span>],
   <span style="color:#f92672">&#34;plugins&#34;</span>: [
     <span style="color:#e6db74">&#34;transform-function-bind&#34;</span>
@@ -201,7 +201,7 @@ $ npm update
 </code></pre></div><blockquote>
 <p>package.json</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;exchat&#34;</span>,
   <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;2.0.0&#34;</span>,
   <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;phx chat&#34;</span>,
@@ -259,7 +259,7 @@ $ npm update
 </code></pre></div><blockquote>
 <p>webpack.config.js</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;production&#39;</span>,
@@ -354,7 +354,7 @@ $ npm update
 }
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mix deps.get
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mix deps.get
 $ npm i
 
 $ cat ./compile
@@ -372,8 +372,8 @@ $ mix phx.server
 <blockquote>
 <p>./client/js/app.js</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;react-select/dist/react-select.css&#39;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mix deps.update postgrex
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;react-select/dist/react-select.css&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mix deps.update postgrex
 $ bash ./compile
 $ mix phx.server
 </code></pre></div><h3 id="prop-types">prop-types</h3>
@@ -381,7 +381,7 @@ $ mix phx.server
 <p>React.PropTypes.func : Uncaught ReferenceError: Component is not defined</p>
 </blockquote>
 <p><a href="https://github.com/brigand/babel-plugin-flow-react-proptypes/issues/187">https://github.com/brigand/babel-plugin-flow-react-proptypes/issues/187</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">PropTypes</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">PropTypes</span>, <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 <span style="color:#f92672">+</span> <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 <span style="color:#f92672">+</span> <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;prop-types&#34;</span>;
 
@@ -394,7 +394,7 @@ $ mix phx.server
 <blockquote>
 <p>Warning: Accessing PropTypes via the main React package is deprecated, and will be removed in  React v16.0. Use the latest available v15.x prop-types package from npm instead. For info on usage, compatibility, migration and more, see <a href="https://fb.me/prop-types-docs">https://fb.me/prop-types-docs</a></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm install -g jscodeshift
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm install -g jscodeshift
 $ git clone https://github.com/reactjs/react-codemod.git
 $ echo <span style="color:#e6db74">`</span>pwd<span style="color:#e6db74">`</span>/react-codemod/transforms/React-PropTypes-to-prop-types.js | pbcopy
 $ find ./client/js -name <span style="color:#e6db74">&#34;*.js&#34;</span> | xargs jscodeshift -t <span style="color:#e6db74">&#34;`pbpaste`&#34;</span>
@@ -417,7 +417,7 @@ $ npm i react react-dom prop-types
 <blockquote>
 <p>redux-logger : ^2.x -&gt; ^3.x</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span>  <span style="color:#a6e22e">createLogger</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux-logger&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#66d9ef">import</span>  <span style="color:#a6e22e">createLogger</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux-logger&#39;</span>
 <span style="color:#f92672">+</span> <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createLogger</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux-logger&#39;</span>
 </code></pre></div><blockquote>
 <p>TypeError: Cannot read property &lsquo;listen&rsquo; of undefined</p>
@@ -425,7 +425,7 @@ $ npm i react react-dom prop-types
 <blockquote>
 <p>unsubscribeFromHistory = history.listen(handleLocationChange);</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">&#34;react-router&#34;</span>: <span style="color:#e6db74">&#34;^3.0.5&#34;</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">&#34;react-router&#34;</span>: <span style="color:#e6db74">&#34;^3.0.5&#34;</span>,
 <span style="color:#e6db74">&#34;react-router-redux&#34;</span>: <span style="color:#e6db74">&#34;^4.0.8&#34;</span>,
 </code></pre></div><p>ただし、<code>react-router@2.x</code>でないと<code>npm i -S prop-types</code>に対応したcodeはうまく動作しない。</p>
 <h3 id="react-dom-redux-logger">react-dom, redux-logger</h3>

@@ -126,7 +126,7 @@
 													
        			 		<p><a href="https://github.com/CachetHQ/Cachet">CachetHQ/Cachet</a> on <a href="https://console.au-syd.bluemix.net">bluemix</a>(ibm cloud).</p>
 <p>cachetというappをibm cloudで動かす手順を記録します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/CachetHQ/Cachet
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/CachetHQ/Cachet
 <span style="color:#75715e"># masterでは、bootstrap/autoload.phpのerrorが出るため特定のcommitまで戻す。おそらく原因は、secrity updateの&#34;Bump bootstrap-sass from 3.4.0 to 3.4.1&#34;です</span>
 $ git reset --hard b82651f7943619ebc9df46dd5ebbe14f809791d8
 
@@ -219,7 +219,7 @@ $ cf push $APP_NAME_BLUEMIX
 <h3 id="bluemix上でmigrateが失敗する">bluemix上でmigrateが失敗する</h3>
 <p>おそらく、<code>PHP_EXTENSIONS&quot;: [ &quot;mysqli&quot;, &quot;pdo_mysql ]</code>あたりを追加すると行けると思います。</p>
 <h3 id="問題を調査する">問題を調査する</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># buildpackを使ってdeployは正常に完了する場合</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># buildpackを使ってdeployは正常に完了する場合</span>
 $ cf ssh $APP_NAME_BLUEMIX
 $ HOME<span style="color:#f92672">=</span>/home/vcap/app source app/.profile.d/finalize_bp_env_vars.sh
 $ php -v
@@ -239,7 +239,7 @@ $ ibmcloud app env-set cachet BP_DEBUG true
 <p><a href="https://github.com/cloudfoundry/php-buildpack/issues/295">https://github.com/cloudfoundry/php-buildpack/issues/295</a></p>
 <h3 id="phpini">php.ini</h3>
 <p>おそらく、このあたりが参考になると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cf ssh $APP_NAME_BLUEMIX
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cf ssh $APP_NAME_BLUEMIX
 $ vi ~/app/php/etc/php.ini
 </code></pre></div><p><a href="https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini">https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini</a></p>
 

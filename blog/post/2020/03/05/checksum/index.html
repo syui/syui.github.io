@@ -128,14 +128,14 @@
 <p>それを前提に話をすると、webやserverに置かれたファイルというのは、改ざんされている可能性があるため、特にインストール時や実行権限を得られるディレクトリにバイナリを置く際などはファイルの同一性をチェックし、偽装されていないかなどを確認することがよくあります。また、ファイル破損などのチェックにも有効なので、通常は、ファイルをダウンロードする時などに自動チェックされることが多いと思います。ブラウザやダウンローダーもハッシュ値チェックは行っているでしょう。</p>
 <p>通常、checksumには、<code>sha1sum</code>,<code>md5sum</code>などのコマンドを使います。</p>
 <p>で、ファイルを比較するとか、ハッシュ値とファイルを比較するとかになると、普通は、shellscriptを書くことになると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;da39a3ee5e6b4b0d3255bfef95601890afd80709&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`sha1sum ~/.bashrc |cut -d &#39; &#39; -f 1`&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;da39a3ee5e6b4b0d3255bfef95601890afd80709&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;`sha1sum ~/.bashrc |cut -d &#39; &#39; -f 1`&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span> 
 	echo ok
 <span style="color:#66d9ef">fi</span>
 
 <span style="color:#75715e">#こちらは通常、サーバーからの結果や所定形式のテキストをダウンロードしてのチェックになります、つまりパイプ前を変更する必要</span>
 sha1sum ~/.zshrc ~/.bashrc |sha1sum -c --quiet
 </code></pre></div><p>しかし、今回はワンバイナリで使えるchecksumツールをgolangで作ってみました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get github.com/syui/shasumgo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get github.com/syui/shasumgo
 
 $ shasumgo ~/.bashrc ~/.bashrc
 ok
@@ -143,11 +143,11 @@ $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc
 ok
 </code></pre></div><p>こんな感じで使えます。</p>
 <p>また、shellscriptにも使いやすいようコマンド成功時の出力をなしにするオプションもつけました。成功すると出力なし。失敗するとハッシュ値が出力されます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ shasumgo c ~/.bashrc ~/.bashrc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ shasumgo c ~/.bashrc ~/.bashrc
 $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc
 </code></pre></div><p>最近、gh-actionsを使っていると、やっぱり、go-binaryは使いやすいなーと思ったので。</p>
 <p>もしworkflowを書くときchecksumが必要なら<code>go get github.com/syui/shasumgo</code>して<code>shasumgo</code>コマンドで処理を書くのも便利そうと思ったりしてます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:example.sh" data-lang="sh:example.sh"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;`shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc`&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:example.sh" data-lang="sh:example.sh"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;`shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc`&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
 	echo ok
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>今日は、ゲーム(小説)の続き書こうと思ってたんだけど、なぜかこれ作ってた。</p>

@@ -142,10 +142,10 @@
 <h2 id="softethervpn-serverの設定">softethervpn serverの設定</h2>
 <p>ここでは<code>IPsec / L2TP</code>で接続できるようにします。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/archlinux_softethervpn_server_01.png" alt=""></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S dhclient --noconfirm
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S dhclient --noconfirm
 
 $ yay -S softethervpn
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start softethervpn-server
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start softethervpn-server
 $ sudo systemctl status softethervpn-server
 
 $ vpncmd /server
@@ -178,7 +178,7 @@ $ ip a
 <p>で、設定ができたらあとは、clientから接続するわけですが、mac/ios/androidの場合は、<code>IPsec / L2TP</code>ならnetwork設定から簡単に設定できます。winはやったことないので知りません。なんかソフトが必要?</p>
 <p>archだと<code> xl2tpd</code>, <code>openswan</code>が必要みたいな感じです。</p>
 <p><code>softethervpn</code>のclientを利用する場合は、以下のよう感じだと思いますが、良く分かりません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vpncmd /client
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vpncmd /client
 AccountCreate test /SERVER:localhost:500 /HUB:DEFAULT /USERNAME:user /NICNAME:user /PASSWORD:xxx /TYPE:standard
 
 AccountConnect test

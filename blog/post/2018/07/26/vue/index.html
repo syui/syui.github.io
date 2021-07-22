@@ -141,7 +141,7 @@
 <blockquote>
 <p>package.json</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;vue-sample&#34;</span>,
   <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.0.1&#34;</span>,
   <span style="color:#f92672">&#34;author&#34;</span>: <span style="color:#e6db74">&#34;syui &lt;syui@syui.cf&gt;&#34;</span>,
@@ -182,7 +182,7 @@
 </code></pre></div><blockquote>
 <p>webpack.config.js</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">var path <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;path&#39;</span><span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">var path <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;path&#39;</span><span style="color:#f92672">)</span>;
 var webpack <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webpack&#39;</span><span style="color:#f92672">)</span>;
 var ExtractTextPlugin <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;extract-text-webpack-plugin&#39;</span><span style="color:#f92672">)</span>;
 var HtmlWebpackPlugin <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;html-webpack-plugin&#39;</span><span style="color:#f92672">)</span>;
@@ -292,7 +292,7 @@ module.exports <span style="color:#f92672">=</span> <span style="color:#f92672">
   <span style="color:#f92672">])</span>;
 <span style="color:#f92672">}</span>
 </code></pre></div><p>ここでビルドやプレビューに必要なものをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn install
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn install
 </code></pre></div><p>インストールできたら先程作った<code>webpack</code>の設定ファイルに沿って、vueのコードを書いていきます。</p>
 <blockquote>
 <p>src/main.js</p>
@@ -439,7 +439,7 @@ var status = new Vue({
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>あとは、プレビューで確認してみましょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn dev
 </code></pre></div><h2 id="hugomilligram">hugo+milligram</h2>
 <p>この<code>vue</code>と静的サイトジェネレーターである<code>hugo</code>、cssフレームワークである<code>milligram</code>を組み合わせて、簡単にブログを作ってみました。</p>
 <p>何でかと言うと、<code>vue</code>って、トップページやWebアプリを作るのには向いていると思うんですが、ブログを作るのには向いてないと思うんですよね。まず、各種ページを作ってmarkdownで書く体裁を作るのがめんどくさそう。ということで、ここは慣れたhugoを使うことに。あと、cssも書くの面倒ですからね。milligramというやつを使って設定することに。</p>

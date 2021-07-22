@@ -134,14 +134,14 @@
 <blockquote>
 <p>/su/su.d/06suhide</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/su/bin/sush
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/su/bin/sush
 </span><span style="color:#75715e"></span>mount -o rw,remount rootfs /
 chmod <span style="color:#ae81ff">0751</span> /
 mount -o ro,remount rootfs /
 </code></pre></div><blockquote>
 <p>/su/su.d/99venom</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setenforce <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setenforce <span style="color:#ae81ff">1</span>
 </code></pre></div><p><code>chmod 0700 $file</code>も忘れずに。あと、06はアップデートファイル名とかぶると思われるので、将来的にsuhide v06が来てアップデートする場合、削除する必要がありそう。その辺考慮したインストールスクリプトが書かれるのであれば話は別だけど。</p>
 <p>まあ、こんな感じで。</p>
 <p>実際は試してないけど、全体の手順は非常に面倒で、Root系すべて削除するかデフォルトのboot.imgをflashするかした後に、recoveryで<code>echo 'SYSTEMLESS=true' &gt; /data/.supersu</code>した後にsupersu, suhideをインストール後、再起動してxposedをインストールするらしい。で<code>/su/su.d</code>に幾つかのスクリプトを追加して再起動という感じだと思われます(Root Switcherを使わない場合)。</p>

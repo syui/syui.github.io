@@ -126,11 +126,11 @@
 													
        			 		<p><code>coreutils</code>になかったのですが、<code>gnu-time</code>でインストールできます。</p>
 <p>mac標準は、<code>/usr/bin/time</code>にありますが、ほとんどのオプションが機能せず、あまり使えません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install gnu-time
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install gnu-time
 $ gtime -f <span style="color:#e6db74">&#34;%e&#34;</span> read
 </code></pre></div><p>これによって、ストップウォッチとして使えますし、任意のタイミングで実行時間を計測して記録できるので、色々と便利です。</p>
 <p>例えば、任意のコマンドを指定した間隔で実行してみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#/bin/zsh</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#/bin/zsh</span>
 time<span style="color:#f92672">=</span>time.txt
 json<span style="color:#f92672">=</span>command.json
 echo <span style="color:#e6db74">&#34;[s]ave, [l]oad&#34;</span>
@@ -174,7 +174,7 @@ echo <span style="color:#e6db74">&#34;[s]ave, [l]oad&#34;</span>
 	;;
 <span style="color:#66d9ef">esac</span>
 </code></pre></div><p>例えば、このスクリプトを<code>command.zsh</code>で保存したとして、<code>ls</code>, <code>which cat</code>を一定の時間間隔で実行してみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ./tmp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ./tmp
 $ cd ./tmp
 $ chmod +x command.zsh
 
@@ -213,7 +213,7 @@ command.json    command.zsh     time.txt
 /bin/cat
 </code></pre></div><p>指定したコマンドが記録された間隔で実行されました。</p>
 <p>もし永続化したいなら、<code>zsh repeat</code>を使うか、新しいオプションを付けてみてください。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ll<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ll<span style="color:#f92672">)</span>
 	<span style="color:#66d9ef">if</span> ! cat $json|jq;<span style="color:#66d9ef">then</span>
 		exit
 	<span style="color:#66d9ef">fi</span>

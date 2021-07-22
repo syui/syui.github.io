@@ -130,7 +130,7 @@
 <p><a href="https://mirror.yandex.ru/archlinux-arm/armv7h/core/">https://mirror.yandex.ru/archlinux-arm/armv7h/core/</a></p>
 <p><a href="http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/">http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/</a></p>
 <p>基本的に更新を怠ってたarch-armは、最初に<code>pacman -Sy base-devel</code>します。これで一応、必要なpackageをupdateできるはずなんですが、今回はそれでも<code>pacman</code>が壊れてる状態だったので、必要なものをftpから持ってきてbinaryを置き換えます。ちなみに、解凍とか面倒なら<code>zarchiver</code>ってアプリを使いますが、便利です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -Sy base-devel
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -Sy base-devel
 $ pacman --version
 error : archive_entry_digest
 
@@ -151,7 +151,7 @@ $ pacman -Syu
 </code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/android_archlinux_armv7h_pacman_6.0.png" alt=""></p>
 <p>とりあえず直ったのでよかった。</p>
 <p>とはいえ、backup(2019)のarch-imgがあったので、次にやるなら、おそらく、それを<code>adb push</code>すると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb push arch-arm-back-2019.img /sdcard/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb push arch-arm-back-2019.img /sdcard/
 <span style="color:#75715e"># 以下はあくまでイメージです、実際に実行できるコマンドではありません</span>
 $ chroot /sdcard/arch-arm-back-2019.img
 $ pacman -S libarchive base-devel

@@ -128,7 +128,7 @@
 <p>今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。</p>
 <p>iconの取得はmailから<code>gravatar.com</code>を使ってるんじゃないですかね(知りませんが)。コード読めという話ですね。</p>
 <p>さて、ではrepoのcloneからいきましょー。今回もexample chatみたいな感じのやつです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tony612/exchat
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tony612/exchat
 
 $ cd !$:t
 
@@ -150,7 +150,7 @@ $ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://git
 <blockquote>
 <p>mix.exs</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">applications: [:bamboo]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">applications: [:bamboo]
 
 defp deps do
   [{:phoenix, <span style="color:#e6db74">&#34;~&gt; 1.3.3&#34;</span>},
@@ -160,7 +160,7 @@ defp deps do
 </code></pre></div><blockquote>
 <p>config/prod.ex</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">config :exchat, Exchat.Mailer,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">config :exchat, Exchat.Mailer,
        adapter: Bamboo.SMTPAdapter,
        server: <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
        port: <span style="color:#ae81ff">587</span>,
@@ -173,13 +173,13 @@ defp deps do
 <blockquote>
 <p>lib/mailer.ex</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Mailer do
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Mailer do
   use Bamboo.Mailer, otp_app: :exchat
 <span style="color:#66d9ef">end</span>
 </code></pre></div><blockquote>
 <p>lib/mail.ex</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Email do
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Email do
   use Bamboo.Phoenix, view: Exchat.EmailView
 
   def hello_email(email) do
@@ -194,7 +194,7 @@ defp deps do
 <blockquote>
 <p>web/controllers/api_auth.ex</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">  def login_by_email_pass(conn, email, pass, opts) do
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">  def login_by_email_pass(conn, email, pass, opts) do
     repo <span style="color:#f92672">=</span> Keyword.fetch<span style="color:#f92672">!</span>(opts, :repo)
     user <span style="color:#f92672">=</span> repo.get_by(User, email: email)
 
@@ -215,13 +215,13 @@ defp deps do
 <h2 id="mailgun">mailgun</h2>
 <p>一応、mailgunの書き方も掲載しておきます。</p>
 <p><code>mailgun</code>: 使用する上での注意点としては、freeの場合は、sandboxでしかapi/v3からmailの送信はできません。しかも、認証済みのmail addressにしか送れず、よって、<code>lib/mail.ex</code>を書き換えて、to:verify-email, from:sandbox.domain, text_body:emailというようにしなければなりません。つまり、login userに送信(通知)するのではなく誰かがloginした時に管理者に通知する役割しか担えませんので注意です。freeでない場合はapiから普通に送れますので大丈夫ですが。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang"><span style="color:#960050;background-color:#1e0010">#</span> In config<span style="color:#f92672">/</span>config.exs, <span style="color:#f92672">or</span> config.prod.exs, etc.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang"><span style="color:#960050;background-color:#1e0010">#</span> In config<span style="color:#f92672">/</span>config.exs, <span style="color:#f92672">or</span> config.prod.exs, etc.
 config :my_app, MyApp.Mailer,
   adapter: Bamboo.MailgunAdapter,
   api_key: <span style="color:#e6db74">&#34;my_api_key&#34;</span>,
   domain: <span style="color:#e6db74">&#34;your.domain&#34;</span>
 </code></pre></div><p>mailgun(MailgunAdapter)を使う場合の<code>new_email</code>の値はこちらを参考に。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -s --user <span style="color:#e6db74">&#39;api:YOUR_API_KEY&#39;</span> <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -s --user <span style="color:#e6db74">&#39;api:YOUR_API_KEY&#39;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -F from<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Excited User &lt;mailgun@YOUR_DOMAIN_NAME&gt;&#39;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -F to<span style="color:#f92672">=</span>YOU@YOUR_DOMAIN_NAME <span style="color:#ae81ff">\

@@ -126,7 +126,7 @@
 													
        			 		<p>hugoでampに対応したthemeが公開されています。私のサイトはhugoで構築されていますので、hugoのcontentをそのままビルドできるので便利です。</p>
 <p><a href="https://github.com/wildhaber/gohugo-amp">https://github.com/wildhaber/gohugo-amp</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir themes
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir themes
 $ cd themes
 $ git clone https://github.com/wildhaber/gohugo-amp.git
 $ rm -rf gohugo-amp/.git
@@ -177,7 +177,7 @@ enableRobotsTXT = true
 </code></pre><p><a href="https://cdn.ampproject.org/">https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p>
 <p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p>
 <p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
 
 <span style="color:#f92672">pages</span>:
   <span style="color:#f92672">script</span>:
@@ -192,7 +192,7 @@ enableRobotsTXT = true
 <p><code>post = &quot;/:year/:month/:day/:slug&quot;</code>は2つの<code>config.toml</code>で一致させます。本来なら<code>post = &quot;/post/:slug&quot;</code>などのpermlinkを設定したかったのですが、コメントシステムの対応が面倒だったので、日付を入れることにしました。</p>
 <p>あと、ちょっと気になったのはAnalyticsを設定してないと文字が表示されてしまうことでした。したがって、<code>themes/gohugo-amp/layouts/partials/amp/google-analytics.html</code>を編集。</p>
 <p>検証は<code>npm i amphtml-validator -g</code>で行います。または、<a href="https://validator.ampproject.org/">https://validator.ampproject.org/</a>です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ amphtml-validator https://amp.syui.cf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ amphtml-validator https://amp.syui.cf
 The tag <span style="color:#e6db74">&#39;img&#39;</span> may only appear as a descendant of tag <span style="color:#e6db74">&#39;noscript&#39;</span>. Did you mean <span style="color:#e6db74">&#39;amp-img&#39;</span>?
 </code></pre></div><p>どうやら<code>![](/favicon.png)</code>などの記述では問題がでるようです。</p>
 

@@ -125,7 +125,7 @@
 													<h2>windowsの必須ツールをupdateしてみる</h2>
 													
        			 		<p>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install curl 7z
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install curl 7z
 
 <span style="color:#75715e"># powershell 7.0.1</span>
 <span style="color:#75715e"># https://github.com/PowerShell/PowerShell/releases</span>
@@ -148,11 +148,11 @@ $ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundl
 <h3 id="winget">winget</h3>
 <p>今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。</p>
 <p><a href="https://github.com/microsoft/winget-cli">https://github.com/microsoft/winget-cli</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
 $ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
 $ winget
 </code></pre></div><p>なお、ssh経由では、wingetは使用できない感じでした。アクセス権関連ぽい気がする。これは採用しづらい&hellip;。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install which
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install which
 $ which winget
 c:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\A</span>ppData<span style="color:#ae81ff">\L</span>ocal<span style="color:#ae81ff">\M</span>icrosoft<span style="color:#ae81ff">\W</span>indowsApps<span style="color:#ae81ff">\w</span>inget.EXE
 </code></pre></div><p>issue : <a href="https://github.com/microsoft/winget-cli/issues/256">https://github.com/microsoft/winget-cli/issues/256</a></p>

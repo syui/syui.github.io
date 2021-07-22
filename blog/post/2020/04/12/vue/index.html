@@ -125,15 +125,15 @@
 													<h2>vueでapexchartsを使いチャートを作ってみた</h2>
 													
        			 		<p>chart.jsが有名みたいで、ちょっと触ってチャートを表示してみたのですが、非常に操作しづらかったので、apexchartsを使ってみました。個人的には、こちらのほうがオススメかも。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/apexcharts/vue-apexcharts</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/apexcharts/vue-apexcharts</span>
 $ yarn add apexcharts vue-apexcharts
 </code></pre></div><p>今回作ったのは、vue+apexcharts+axiosという構成で、毎日更新されてるぽいcovid-19のjsonがあるのですが、値をとってきてチャートで表示することにしてみました。</p>
 <p><a href="https://syui.cf/covid-vue-chart">https://syui.cf/covid-vue-chart</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/covid-vue-chart
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/covid-vue-chart
 $ cd !$:t
 $ yarn install
 $ yarn serve
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">VueAxios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-axios&#39;</span>
@@ -148,7 +148,7 @@ $ yarn serve
 }).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
 </code></pre></div><p>内容は非常にシンプルで以下のような書き方になりました。axiosでjsonを取ってきて配列に入れてあげる感じ。あと、type:lineがやりたくてoptionかなあと思ったのですが、vue-apexchartは、htmlで<code>type=&quot;line&quot;</code>みたいです。</p>
 <p>チャートを作成するときは、jsonのkeyやら確認する必要がありますので、<code>this.items = res.data</code>して表示してます。これはなくてもいい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
 	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;covid19&#34;</span>&gt;
 		&lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">covid19</span>&lt;/<span style="color:#f92672">h1</span>&gt;
 		&lt;<span style="color:#f92672">div</span>&gt;

@@ -126,9 +126,9 @@
 													
        			 		<p>今回は、pull-reqが来たときgh-actionsを実行してlintでreviewやらreview-supportをするbotを作ってみた話。突然やる気になって作り始めてしまったという。</p>
 <p>sql lintは、<code>sqlint</code>を使いました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i sqlint
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i sqlint
 $ sqlint index.sql
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
   <span style="color:#f92672">pull_request</span>:
     <span style="color:#f92672">types</span>: <span style="color:#ae81ff">opened</span>
 <span style="color:#75715e">#on:</span>
@@ -169,9 +169,9 @@ $ sqlint index.sql
 </code></pre></div><p>ここでは、<code>sqlint views/news/index.sql</code>をcheckして、結果をgithub-pullreq-commentにpostしています。</p>
 <p>sqlintの実行結果がなかなか厄介で、ifを使わないとerrorになってしまい、かつ<code>export</code>や<code>/dev/null 2&gt;&amp;1</code>で回避できませんでした。</p>
 <p>次に、gh-actionsで<code>htmllint-cli</code>でhtmlの文法をチェックする方法です。htmllint-cliの実行結果も改行コードや空行などがgithub-apiを使ったpostに邪魔になることがあるので注意です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm i -g htmllint-cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm i -g htmllint-cli
 $ htmllint index.html
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
   <span style="color:#f92672">pull_request</span>:
     <span style="color:#f92672">types</span>: <span style="color:#ae81ff">opened</span>
 <span style="color:#75715e">#on:</span>
@@ -201,7 +201,7 @@ $ htmllint index.html
 		-<span style="color:#ae81ff">d &#34;{\&#34;body\&#34;: \&#34;${lint_body}\&#34;}&#34; \</span>
 		<span style="color:#ae81ff">${URL}</span>
 </code></pre></div><p>最終的に完成したやつを載せておきます。<code>raw_url</code>は本来いらなくて、curlではなく直接pathを通せばいいんだけど、なにかに使えるかもと思って残してる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
   <span style="color:#f92672">pull_request</span>:
     <span style="color:#f92672">types</span>: <span style="color:#ae81ff">opened</span>
 

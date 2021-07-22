@@ -129,12 +129,12 @@
 <p>しかし、VPNはなかなか面倒で一番良いのは、サービスにインストールして使えるようにすることですが、費用がかかります。</p>
 <p>今回は、Web UIから設定が行える<a href="https://github.com/pritunl/pritunl">pritunl</a>を使ってLocal NetworkにVPN Serverを立ててみようと思います。</p>
 <p><a href="https://github.com/Fridus/docker-pritunl">https://github.com/Fridus/docker-pritunl</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir mongo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir mongo
 $ sudo docker-compose up -d
 </code></pre></div><blockquote>
 <p>docker-compose.yml</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">network</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">network</span>:
   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox</span>
   <span style="color:#f92672">ports</span>:
     - <span style="color:#e6db74">&#34;9700:443&#34;</span>
@@ -155,7 +155,7 @@ $ sudo docker-compose up -d
   <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
   <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
 </code></pre></div><p>もしくは<a href="https://hub.docker.com/r/jippi/pritunl/">jippi/pritunl</a>を使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 datadir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>readlink -f <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">/data&#34;</span>
 echo <span style="color:#e6db74">&#34;datadir=</span>$datadir<span style="color:#e6db74">&#34;</span>
@@ -176,7 +176,7 @@ sudo docker run <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -p xxxxxx:xxxxx/tcp <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    jippi/pritunl
 </code></pre></div><p>次に、web UIから設定を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ifconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ifconfig
 192.168.1.4
 
 $ chromium https://192.168.1.4:9700
@@ -190,10 +190,10 @@ $ chromium https://localhost:9700
 </code></pre></div><p>SSLのエラーが出る場合などは、Portを443から80にする、Safariでアクセスすると回避できるかも。</p>
 <p>あとは、clientをインストールして、DLしたprofileをインポートするだけです。clientは、Tunnelblickでもpritunlでもどちらでもいいです。osによっていろいろなものがあります。</p>
 <p>WANからアクセスする際は、ルーターにてポートフォワーディングなどをします。例えば、ルーターのGlobal IPが1.1.1.1だったとしましょう。そこで、1.1.1.1への特定のポートのアクセスを、ローカルネットワークの特定のポートに転送する設定です。(なお、現実では1.1.1.1はcloudflareのdnsです)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># global ipを調べる</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># global ipを調べる</span>
 $ curl -sL ipinfo.io
 </code></pre></div><p>ただ、downloadしたprofile(xxx.opvn)は、Local IPを指定していますので、設定ファイルを書き直さなければなりません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aunpack default.tar
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aunpack default.tar
 $ vim vpn_default.ovpn
 - remote 192.168.1.4 <span style="color:#ae81ff">1194</span> udp
 + remote 1.1.1.1 xxxxxx udp
@@ -208,19 +208,19 @@ $ vim vpn_default.ovpn
 <blockquote>
 <p>~/.ssh/config</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
     HostName 192.168.1.33
     Port <span style="color:#ae81ff">22</span>
     IdentityFile ~/.ssh/usb
     User syui
 </code></pre></div><p>通常、WAN側からSSHするには、以下のような内容になります。わざわざ自宅のルータIP(Global IP)をHostNameに変更して、ポート転送の設定までしなければなりません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
     HostName 1.1.1.1 <span style="color:#75715e"># Global IP</span>
     Port <span style="color:#ae81ff">22222</span> <span style="color:#75715e"># ポート転送のポート番号(22222 -&gt; 192.168.1.33:22)</span>
     IdentityFile ~/.ssh/usb
     User syui
 </code></pre></div><p>なお、DDNSを利用している場合は別です。DDNSは、例えばルータ(自宅)のGlobal IP(変動する数字)を特定のドメイン名(固定の文字列)に変換します。よって、HostNameにはDDNSを書けばいいだけになります。VPNの設定ファイルでも同じ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Host usb
     HostName github.com.ddns.syui <span style="color:#75715e"># DDNS</span>
     Port <span style="color:#ae81ff">22222</span> <span style="color:#75715e"># ポート転送のポート番号(22222 -&gt; 192.168.1.33:22)</span>
     IdentityFile ~/.ssh/usb
@@ -228,7 +228,7 @@ $ vim vpn_default.ovpn
 </code></pre></div><blockquote>
 <p>xxx.opvn</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- remote 1.1.1.1 <span style="color:#ae81ff">1194</span> udp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- remote 1.1.1.1 <span style="color:#ae81ff">1194</span> udp
 + remote github.com.ddns.syui <span style="color:#ae81ff">22222</span> udp
 </code></pre></div><p>しかし、DDNSサービスは有料であることも多いので、私はGlobal IPを使うことが多いです。Global IPの変動は、privateのチャンネルなどを用意し、IPの変動があれば教えるようなcronを実行しておけばいいでしょう。</p>
 <h2 id="ddns">DDNS</h2>

@@ -130,7 +130,7 @@
 This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 2021. Apps using Heroku-16 no longer receive security updates, and from June 1st, 2021, builds will be disabled. Please upgrade your app to a newer Heroku stack.  Visit here to learn more</p>
 </blockquote>
 <p><a href="https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq">https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku git:clone -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku git:clone -a $app
 $ cd $app
 $ heroku buildpacks:set hashnuke/elixir
 </code></pre></div><pre><code class="language-sh:elixir_buildpack.conf" data-lang="sh:elixir_buildpack.conf">elixir_version=1.9.0
@@ -140,7 +140,7 @@ release=true
 <p>/app/.platform_tools/erlang/erts-10.6.4/bin/beam.smp: error while loading shared libraries: libtinfo.so.5: cannot open shared object file: No such file or directory</p>
 </blockquote>
 <p><a href="https://github.com/HashNuke/heroku-buildpack-elixir/issues/197">https://github.com/HashNuke/heroku-buildpack-elixir/issues/197</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku plugins:install
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku plugins:install
 $ heroku plugins
 $ heroku builds:cache:purge
 $ git push heroku master

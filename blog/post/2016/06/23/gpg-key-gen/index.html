@@ -127,16 +127,16 @@
        			 		<p>GitHubがGPGでの署名にバッジを付けるようにしたようです。</p>
 <p><a href="https://help.github.com/articles/signing-commits-using-gpg/">https://help.github.com/articles/signing-commits-using-gpg/</a></p>
 <p>したがって、<code>~/.gitconfig</code>に設定してみます。鍵は基本的にデフォルトでOKです。長ければ長いだけGitHubの処理能力を奪いますので、特にこだわりがなければデフォルトで。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install gpg2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install gpg2
 $ alias gpg<span style="color:#f92672">=</span>gpg2
 $ gpg --gen-key
 $ gpg --list-keys
 </code></pre></div><p>ここで、<code>pub foo/XXX 20160101</code>の<code>XXX</code>の部分がIDになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --armor --export $ID | pbcopy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --armor --export $ID | pbcopy
 </code></pre></div><p>コピーした公開鍵をGitHubのSSH, GPGのところで設定します。</p>
 <p><a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 <p>あとはGitの設定です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git config --global gpg.program gpg2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git config --global gpg.program gpg2
 $ git config --global user.signingkey $ID
 $ git config --global commit.gpgsign true
 </code></pre></div>

@@ -125,10 +125,10 @@
 													<h2>mastdon-heroku-build</h2>
 													
        			 		<p>古くからHeroku DeployしているUserはheroku buildpackが入ってないので以下のErrorがでると思われ、それをDeployできるようにした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push heroku master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push heroku master
 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 </code></pre></div><p><a href="https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt">https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
 $ heroku run bash -a apt-pg-test
 <span style="color:#75715e"># heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git</span>
 $ echo libpq-dev &gt;&gt; Aptfile

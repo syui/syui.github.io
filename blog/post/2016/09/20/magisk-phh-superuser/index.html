@@ -129,7 +129,7 @@
 <li>mount -t ext4,ext3,ext2などが失敗する</li>
 </ul>
 <p>理由はよくわからないけど、これらのコマンドが使えなくなってしまうので、イメージをマウントできなくなる問題があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
 mount: Invalid argument
 failed: Invalid argument
 <span style="color:#75715e"># mount | grep loop</span>

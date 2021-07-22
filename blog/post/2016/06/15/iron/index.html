@@ -127,7 +127,7 @@
        			 		<p>よく<a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html">Lambda</a>と<a href="https://www.iron.io/">Iron</a>が比較されていますが、後者のほうを使ってみました。</p>
 <p>Free Planはアカウント作成から15日間になります。</p>
 <p>基本的には、Iron CLIをインストールして、Dockerでテストして、アップロードするという流れ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p iron/test
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p iron/test
 $ cd !$
 $ curl -sSL https://cli.iron.io/install | sh
 $ echo <span style="color:#e6db74">&#39;
@@ -150,7 +150,7 @@ $ zip -r hello_worker.zip .
 $ iron worker upload --zip hello_worker.zip --name hello_worker iron/go ./hello_worker
 </code></pre></div><p>仮にここまでをWorkerの作成とします。</p>
 <p>そして、先ほど作成したWorkerをQueue(キュー)に追加します。Queueはスケジュールタスクになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ iron worker queue --wait hello_worker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ iron worker queue --wait hello_worker
 </code></pre></div><p>これとCIを組み合わせることで色々と出来そうです。</p>
 
        			 		

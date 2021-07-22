@@ -141,7 +141,7 @@
 <blockquote>
 <p>main.go</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;flag&#34;</span>
@@ -256,7 +256,7 @@
 	<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Args</span>)
 }
 </code></pre></div><p>コードに<code>consume_key</code>, <code>consume_secret_key</code>を入れた後、これをビルドして、できたバイナリを実行してみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go build
 $ ./main
 </code></pre></div><p>多分、認証のためブラウザが開くと同時に、PINの入力を求められると思いますが、端末に戻ってPINコードを入力すると、twitter apiのhome_timelineで得られる出力が表示されると思います。</p>
 <h3 id="コードの整理">コードの整理</h3>
@@ -268,7 +268,7 @@ $ ./main
 <blockquote>
 <p>./twg.go</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;os&#34;</span>
@@ -301,7 +301,7 @@ $ ./main
 <blockquote>
 <p>./cmd/cmd.go</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">cmd</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">cmd</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;github.com/urfave/cli&#34;</span>
@@ -315,7 +315,7 @@ $ ./main
 </code></pre></div><blockquote>
 <p>./oauth/oauth.go</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">oauth</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">oauth</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;flag&#34;</span>
@@ -407,9 +407,9 @@ $ ./main
 <p>必要な機能(関数)は、<a href="https://github.com/ChimeraCoder/anaconda">github.com/ChimeraCoder/anaconda</a>を使いましたので、こちらのコードを読んで判断していく感じです。</p>
 <p>最初、このパッケージは認証のために使うだけで、各種機能を自前で用意していた時代もありましたが、コード整理の時、コードを短くする一環として、<code>anaconda</code>が用意してくれてる関数を素直に使うようにしました。それでもいくつか不足してたり、探しきれなかったりした部分でわざわざ自前でやってしまったこともありましたが。</p>
 <p>ちなみに、自前でやる場合は、twitter apiの出力を<code>gojson</code>で持ってきて、それを使うと良いです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ~/.config/twg/verify.json | jq . | gojson
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ~/.config/twg/verify.json | jq . | gojson
 </code></pre></div><p>で、かなり省略してますが、それを<code>type</code>に定義して、コードはこんな感じで。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserVerifyCredentials</span> <span style="color:#66d9ef">struct</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserVerifyCredentials</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#a6e22e">Verified</span>       <span style="color:#66d9ef">bool</span>        <span style="color:#e6db74">`json:&#34;verified&#34;`</span>
 }
 
@@ -424,7 +424,7 @@ $ ./main
 <p>気付いてはいたんですが、デフォルトでは、出力が割とあれなんですよね。Twitter Webからみて正確ではないと言うかそんな感じなんです。</p>
 <p>なので、基本的には<code>v.Set(&quot;tweet_mode&quot;, &quot;extended&quot;)</code>したものを使います。モードを<code>extended</code>に指定してるわけですね。</p>
 <p>出力を色々と調整したサンプルコードを見てみてください。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">search</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">search</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>

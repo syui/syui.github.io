@@ -130,7 +130,7 @@
 <h2 id="phx-chat">phx-chat</h2>
 <p>さて、chatというと、elixirのphx(phoenix)が便利です。これは、作る場合という話ですが、exampleでも機能はないけど、シンプルなものができます。</p>
 <p>herokuの場合、なかなか面倒ですけど、<a href="https://github.com/dwyl/phoenix-chat-example">dwyl/phoenix-chat-example</a>を使えば、割と簡単にできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dwyl/phoenix-chat-example
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dwyl/phoenix-chat-example
 
 $ cd !$:t
 
@@ -178,7 +178,7 @@ $ git push heroku master
 <blockquote>
 <p>config/prod.exs</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">use Mix.Config
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">use Mix.Config
 
 config :pleroma, Pleroma.Web.Endpoint,
  http: <span style="color:#f92672">[</span>port: <span style="color:#f92672">{</span>:system, <span style="color:#e6db74">&#34;PORT&#34;</span><span style="color:#f92672">}]</span>,
@@ -206,12 +206,12 @@ config :pleroma, :media_proxy,
 <p>ということで、<code>media_proxy</code>を設定してみてどうにかならないかなってことでやってみましたが、どうにもなりませんでした。</p>
 <p>これに関しては、srcの<code>lib/pleroma/upload.ex</code>をいじって対応しています。けど、やりたいこと事自体は単純なので上記の設定でなんとなく分かると思います(それ自体は有効ではないけど)。</p>
 <p>heroku webは、アクセスがないとM30ごとに落ちます。多分そんな感じ。立ち上がるまで結構時間がかかるので、<code>scheduler</code>を設定してみたわけですが、<code>heroku logs</code>みてみると、<code>Stopping all processes with SIGTERM</code>したことがありました。なのでやめといたほうがいいですね。特に<code>process-scheduler</code>です。herokuに負担がかかりすぎるみたい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:add process-scheduler -a $APP_NAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:add process-scheduler -a $APP_NAME
 $ heroku addons:create scheduler:standard -a $APP_NAME
 $ heroku addons:open process-scheduler -a $APP_NAME
 $ heroku addons:open scheduler -a $APP_NAME
 </code></pre></div><p>こちらは、pleromaの初期コマンド等です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># sing up</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># sing up</span>
 <span style="color:#75715e"># example : $ heroku run &#34;mix register_user syui syui user@github.com . password123&#34; -a pleroma</span>
 $ heroku run <span style="color:#e6db74">&#34;mix register_user &lt;name&gt; &lt;username&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;&#34;</span> -a $APP_NAME
 
@@ -229,7 +229,7 @@ $ vim config/config.exs
 <p><a href="https://git.gnu.io/gnu/gnu-social">gnu-social</a>はphpで書かれていて、しかもcomposerすらないので、つらい感じでした。</p>
 <p>ということで、composerを用意してるrepo(branch)から持ってくることにしました。それをカスタマイズしてheroku deployという感じですね。</p>
 <p>なお、composer.lockもcommitする必要があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.gnu.io/dansup/gnu-social
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.gnu.io/dansup/gnu-social
 $ cd !$:t
 $ git checkout composer-autoloading
 
@@ -283,7 +283,7 @@ $ open -a Google<span style="color:#ae81ff">\ </span>Chrome $APP_NAME.herokuapp.
 <p>ということで、srcにconfig.phpを用意して、deployする必要があるわけなんですけど(.gitignoreに注意)、config.phpの内容がわからないんですよね。そもそも<code>heroku run bash -a $APP_NAME</code>してもconfig.phpが見つからないし、権限を考慮してもやっぱり見当たらないので、herokuの仕組み的なものなんだと思いますが、私は、dockerでpreviewして、そのときに作成したconfig.phpをdocker cpして持ってくることを考えました。</p>
 <p>install.phpのINSTALLDIRで設定されているはずなんですが、<code>lib/installer.php</code>の<code>chmod 644</code>を書き直したり、INSTALLDIRを<code>/app</code>にしたりしたのですが、heroku runでは見つけられなかった。</p>
 <p>ということで、dockerを使って簡潔に行きましょー。こんな感じで持ってきます。一応、CONFIGUREを読んでもいいんですけど、これ読んでやってるほうが時間かかると思う。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker run -p 8000:80 rudism/gnu-social /root/start
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker run -p 8000:80 rudism/gnu-social /root/start
 $ open -a Google<span style="color:#ae81ff">\ </span>Chrome http://localhost:8000/install.php
 
 $ sudo docker ps -q
@@ -304,7 +304,7 @@ $ sudo docker cp xxx:/var/www/gnu-social/config.php .
 <blockquote>
 <p>config.php</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&lt;?php
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&lt;?php
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!defined<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;GNUSOCIAL&#39;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span> exit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>; <span style="color:#f92672">}</span>
 $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gnusocial&#39;</span>;
 $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;server&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;app.herokuapp.com&#39;</span>;
@@ -328,16 +328,16 @@ $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#
 <blockquote>
 <p>nginx_app.conf</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">location @rewriteapp <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">location @rewriteapp <span style="color:#f92672">{</span>
     <span style="color:#75715e"># rewrite all to index.php</span>
     rewrite ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ /index.php/$1 last;
 <span style="color:#f92672">}</span>
 </code></pre></div><blockquote>
 <p>Procfile</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: vendor/bin/heroku-php-nginx -C nginx_app.conf 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: vendor/bin/heroku-php-nginx -C nginx_app.conf 
 </code></pre></div><p>メモ</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">fancy urls <span style="color:#f92672">=</span> index.php 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">fancy urls <span style="color:#f92672">=</span> index.php 
 ex : /index.php/api/user -&gt; /api/user 
 https://github.com/hannesmannerheim/qvitter/issues/256
 
@@ -358,7 +358,7 @@ https://devcenter.heroku.com/articles/custom-php-settings
 <p><span class="red"></span> <a href="https://pleroma.syui.cf">https://pleroma.syui.cf</a></p>
 <p><span class="red"></span> <a href="http://qvitter.herokuapp.com">http://qvitter.herokuapp.com</a></p>
 <p><span class="red"></span> <a href="http://syui-chat.herokuapp.com">http://syui-chat.herokuapp.com</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
 span.blue {
     display: inline-block;
     width: 10px;

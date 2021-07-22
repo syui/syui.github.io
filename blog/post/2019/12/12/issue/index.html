@@ -128,7 +128,7 @@
 <p>基本的には<a href="https://utteranc.es/">utteranc.es</a>にアクセスして、GitHubにアプリをインストールします。</p>
 <p><a href="https://github.com/utterance/utterances">https://github.com/utterance/utterances</a></p>
 <p>そして、コメントを載せたい場所にコードを貼り付ければOKです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://utteranc.es/client.js&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://utteranc.es/client.js&#34;</span>
         <span style="color:#a6e22e">repo</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[ENTER REPO HERE]&#34;</span>
         <span style="color:#a6e22e">issue-term</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pathname&#34;</span>
         <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;github-light&#34;</span>
@@ -139,7 +139,7 @@
 <h2 id="github-actionsを使ったchatopsでラベルを付ける">github actionsを使ったChatOpsでラベルを付ける</h2>
 <p>ChatOpsと連携すると便利かもということで、やってみました。</p>
 <p>自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/com.yml" data-lang="yml:.github/workflows/com.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/com.yml" data-lang="yml:.github/workflows/com.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
 <span style="color:#f92672">on</span>:
   <span style="color:#f92672">issue_comment</span>:
     <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">created, edited]</span>

@@ -127,7 +127,7 @@
        			 		<p>mastodon 1.5r2の話だけど、heroku buildする際に<code>gem install idn-ruby -v '0.1.0'</code>みたいなerrorがでて、それは、<code>libidn11-dev</code>というパッケージのインストールが必要みたいで、<code>wget</code>するんだけど、しかし、<a href="https://mastodon.zunda.ninja/@zundan/131068">herokuには元々libidnが入っている</a>ぽいのでよくわからない感じになって、<code>.buildpacks</code>を見てみると、URLがあるんだけど、それを<code>heroku buildpacks:add</code>するんだけど、やっぱり出来なくて、<code>Aptfile</code>を見てもlibidnは<code>heroku-buildpack-apt</code>でインストールする感じになっていて、よくわからない。</p>
 <p>ちなみに、Aptfileはherokuのbuildpacksでインストールするパッケージを記述するファイル。herokuのbuildpacksは追加するとそれでビルドすることになる。必要なものは<code>.bildpacks</code>に書いてあるので、それを<code>heroku buildpacks:add</code>で追加すると有効になる。</p>
 <p>結論として、<code>libidn11-dev</code>の行をAptfileから削除して<code>git push heroku master</code>したらいけた。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## mastodon 1.5</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## mastodon 1.5</span>
 $ heroku run <span style="color:#e6db74">&#39;dpkg -l&#39;</span>
 $ cat .buildpacks
 $ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt

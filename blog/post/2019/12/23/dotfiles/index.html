@@ -131,7 +131,7 @@
 <p>今回は、dotfilesに<a href="https://docs.ansible.com/">Ansible</a>を導入してみると便利かもしれないという話をします。</p>
 <h3 id="自動化スクリプトが動かなくなってた話">自動化スクリプトが動かなくなってた話</h3>
 <p>私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -L git.io/air|zsh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -L git.io/air|zsh
 </code></pre></div><p>ですが、最近実行してみると、やっぱり動かなくなっていたのです！</p>
 <h3 id="dotfilesのメンテもいつの間にかやらなくなる話">dotfilesのメンテもいつの間にかやらなくなる話</h3>
 <p>dotfilesも同じく、最初はちゃんとpushするんですが、そのうち、commitがめんどくさくなってしまい、いつの間にかメンテナンスしなくなっていました。</p>
@@ -145,15 +145,15 @@
 <h3 id="packer--vagrantでarchlinuxの仮想環境を構築">Packer + VagrantでArchLinuxの仮想環境を構築</h3>
 <p>ArchLinuxは、なかなか良さげのVagrantイメージがありませんでした。ということで、Packerで作ることにします。</p>
 <p>まずは必要なものをインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install packer
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install packer
 $ brew cask install vagrant
 </code></pre></div><p>続いて、Packerの設定ファイルを取ってきて、PackerでVagrantイメージを作ります(今回のために作った)。</p>
 <p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/arch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/arch
 $ cd arch/packer
 $ packer build arch.json
 </code></pre></div><p>作ったVagrantイメージをクラウドに保存して、ダウンロード起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vagrant login
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vagrant login
 $ vagrant box add syui/arch arch.box --force
 
 $ vim vagrantfile
@@ -179,7 +179,7 @@ $ su arch
 $ cd
 </code></pre></div><h3 id="dotfilesからansibleを適用する">dotfilesからAnsibleを適用する</h3>
 <p>最後に、Ansibleを適用してデスクトップを構築します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/elnappo/dotfiles</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/elnappo/dotfiles</span>
 $ cd dotfiles/init
 $ ./setup.sh
 

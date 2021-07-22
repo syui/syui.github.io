@@ -126,7 +126,7 @@
 													
        			 		<p>xqはxmlをjsonに変換するコマンドラインツールです。必要があったので必要な分だけ作ったやつ。</p>
 <p><a href="https://github.com/syui/xq">https://github.com/syui/xq</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -v -u github.com/syui/xq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -v -u github.com/syui/xq
 $ xq -v
 xq version 0.3.4
 
@@ -135,7 +135,7 @@ $ curl -sLO https://syui.cf/blog/index.xml
 $ xq ./index.xml | jq .
 </code></pre></div><p>ですが、今回、その名の通り<code>[q]uery</code>できるようにしてみました、一部ですが。</p>
 <p>具体的には、latestのデータをsub-commandで抽出できるようになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ xq l l ./index.xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ xq l l ./index.xml
 https://syui.cf/blog/post/2019/12/24/music/
 
 $ xq p ./index.xml

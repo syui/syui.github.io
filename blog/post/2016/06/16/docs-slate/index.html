@@ -135,7 +135,7 @@ $ bundle exec middleman server
 </code></pre>
 <p>見た目のカスタマイズには<code>source/layouts/layout.erb</code>とかを編集します。<code>html</code>でなく<code>erb</code>で書きます。<code>css</code>は<code>scss</code>で書きますので、<code>source/stylesheets/_foo.scss</code>を用意して、<code>source/stylesheets/{print.css.scss,screen.css.scss}</code>などからインポートします。</p>
 <p><code>gitlab-ci</code>でdeployする場合は<code>middleman</code>を使いまので、以下のような感じ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">ruby:2.3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">ruby:2.3</span>
 
 <span style="color:#f92672">pages</span>:
   <span style="color:#f92672">script</span>:

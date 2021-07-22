@@ -128,7 +128,7 @@
 <p><a href="https://github.dev">https://github.dev</a></p>
 <p>source : <a href="https://github.com/github/personal-website">https://github.com/github/personal-website</a></p>
 <p>deploy : <a href="https://mbahack2.syui.cf/personal-website">https://mbahack2.syui.cf/personal-website</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/github/personal-website
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/github/personal-website
 $ personal-website
 $ rvm install 2.6.1
 $ rvm --default use 2.6.1
@@ -136,13 +136,13 @@ $ gem install jekyll bundler
 $ bundle
 $ bundle exec jekyll serve
 </code></pre></div><p>repoを作って、branch:gh-pagesにpushすると、開発者っぽいabout pagesがdeployされる。url:<code>https://syui.github.io/personal-website</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git branch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git branch
 $ git checkout -b gh-pages
 $ git push origin gh-pages
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># fork</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># fork</span>
 $ curl -sL https://syui.github.io/personal-website
 </code></pre></div><p>url,baseurlをsetすると、cssがhttps protocolになった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ae81ff">$ vim _config.yml</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ae81ff">$ vim _config.yml</span>
 <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://mbahack2.syui.cf</span>
 <span style="color:#f92672">baseurl</span>: <span style="color:#ae81ff">personal-website</span>
 

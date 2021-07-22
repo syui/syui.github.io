@@ -127,25 +127,25 @@
        			 		<p>pleroma on heroku.</p>
 <p>herokuでpleromaを動かします。動いた環境を記録します。</p>
 <h2 id="heroku-info">heroku info</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">remote:        * Stack heroku-18
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">remote:        * Stack heroku-18
 remote:        * Erlang 21.2
 remote:        * Elixir 1.7
 </code></pre></div><p>src : <a href="https://git.pleroma.social/pleroma/pleroma">https://git.pleroma.social/pleroma/pleroma</a> , <code>fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8</code></p>
 <p>buildpack : <a href="https://github.com/syui/heroku-buildpack-elixir">https://github.com/syui/heroku-buildpack-elixir</a></p>
 <p>こちらの<a href="https://github.com/HashNuke/heroku-buildpack-elixir">HashNuke/heroku-buildpack-elixir</a>で<code>${build_path}</code>からmixを実行できないので、それを修正したもの。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
 remote: -----&gt; Fetching app dependencies with mix
 remote: fatal: not a git repository <span style="color:#f92672">(</span>or any parent up to mount point /<span style="color:#f92672">)</span>
 remote: Stopping at filesystem boundary <span style="color:#f92672">(</span>GIT_DISCOVERY_ACROSS_FILESYSTEM not set<span style="color:#f92672">)</span>.
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
 </code></pre></div><blockquote>
 <p>Procfile</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: mix phx.server
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: mix phx.server
 </code></pre></div><blockquote>
 <p>elixir_buildpack.config</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlang_version<span style="color:#f92672">=</span>21.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlang_version<span style="color:#f92672">=</span>21.2
 elixir_version<span style="color:#f92672">=</span>1.7
 always_rebuild<span style="color:#f92672">=</span>false
 runtime_path<span style="color:#f92672">=</span>/app
@@ -154,7 +154,7 @@ hook_pre_fetch_dependencies<span style="color:#f92672">=</span><span style="colo
 <span style="color:#75715e">#hook_post_compile=&#34;pwd&#34;</span>
 </code></pre></div><p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9">Pleroma Install Wiki</a></p>
 <h2 id="example">example</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.pleroma.social/pleroma/pleroma
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.pleroma.social/pleroma/pleroma
 $ cd !$:t
 $ git checkout -b master
 

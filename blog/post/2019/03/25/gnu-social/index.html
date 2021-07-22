@@ -124,7 +124,7 @@
 													<div class="post-time-date">2019-03-25 / <a href="/syui">@syui</a></div>
 													<h2>herokuでgnu-socialを立てるときにハマった話</h2>
 													
-       			 		<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.gnu.io/dansup/gnu-social
+       			 		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.gnu.io/dansup/gnu-social
 $ cd !$:t
 $ git checkout composer-autoloading
 
@@ -225,11 +225,11 @@ $ vim .htaccess
 </code></pre></div><p>では、なぜ、Dockerを使って/install.phpを実行したあと、config.phpを取得する必要があるのでしょう。</p>
 <p>一つは、config.phpの内容です。これは、lib/installer.phpを見れば大体の推測が可能です。しかし、二つ目の理由が重要で、config.phpの保存場所の指定にあります。/install.phpを実行後、config.phpが書き込まれますが、保存場所はDBに送られます。これは、実行したサーバーの状況に応じてのことですが、herokuの場合は、/app以下でしょうか。しかし、herokuの場合、web serverに保存されたファイルはリセットされてしまいます。したがって、まずはconfig.phpの位置情報をDB内に指定させたあとに、その/config.phpをpushしなければなりません。</p>
 <p>また、dockerからの/install.phpでないと、./well-known(webfinger)が動作しないことを確認しました。これが動作しないと、mastodonとのやり取りができません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># URLはindex.phpが必要かも -&gt; /index.php/.well-known/xxx</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># URLはindex.phpが必要かも -&gt; /index.php/.well-known/xxx</span>
 $ curl https://gnu-social.herokuapp.com/.well-known/host-meta
 $ curl <span style="color:#e6db74">&#34;https://gnu-social.herokuapp.com/.well-known/webfinger?resource=acct:syui@gnu-social.herokuapp.com&#34;</span>
 </code></pre></div><p>もし失敗した場合は、DBを消してから、再度、作り直します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:remove cleardb -a $APP_NAME --confirm $APP_NAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:remove cleardb -a $APP_NAME --confirm $APP_NAME
 $ heroku addons:add cleardb:ignite -a $APP_NAME
 $ heroku config -a $APP_NAME
 </code></pre></div><h2 id="その他の情報">その他の情報</h2>
@@ -239,7 +239,7 @@ $ heroku config -a $APP_NAME
 <blockquote>
 <p>config.php</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">//$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;ssl&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;never&#39;</span>; 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">//$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;ssl&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;never&#39;</span>; 
 $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;ssl&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;always&#39;</span>;
 $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;sslproxy&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> true; 
 $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;fancy&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> true;
@@ -248,12 +248,12 @@ $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site
 <p><a href="https://git.gnu.io/dansup/gnu-social/blob/composer-autoloading/socialfy-another-domain/README.txt">https://git.gnu.io/dansup/gnu-social/blob/composer-autoloading/socialfy-another-domain/README.txt</a></p>
 <p>しかし、heroku + nginxでは、/.well-known以下が403になります。</p>
 <p>これは、heroku nginx_app.confの設定でアクセスできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">location</span> <span style="color:#f92672">^~</span> <span style="color:#f92672">/.</span><span style="color:#a6e22e">well</span><span style="color:#f92672">-</span><span style="color:#a6e22e">known</span><span style="color:#f92672">/</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">location</span> <span style="color:#f92672">^~</span> <span style="color:#f92672">/.</span><span style="color:#a6e22e">well</span><span style="color:#f92672">-</span><span style="color:#a6e22e">known</span><span style="color:#f92672">/</span> {
     <span style="color:#a6e22e">allow</span> <span style="color:#a6e22e">all</span>;
 }
 </code></pre></div><p><a href="https://github.com/heroku/heroku-buildpack-php/issues/218">https://github.com/heroku/heroku-buildpack-php/issues/218</a></p>
 <p>自分の場合は、以下のような感じ。 (nginxでrewriteを設定してない場合)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -H <span style="color:#e6db74">&#34;Accept: application/xrd+xml&#34;</span> <span style="color:#e6db74">&#34;https://gnu-social.herokuapp.com/.well-known/webfinger/index.php?resource=acct:syui@gnu-social.herokuapp.com&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -H <span style="color:#e6db74">&#34;Accept: application/xrd+xml&#34;</span> <span style="color:#e6db74">&#34;https://gnu-social.herokuapp.com/.well-known/webfinger/index.php?resource=acct:syui@gnu-social.herokuapp.com&#34;</span>
 
 <span style="color:#75715e"># この設定でindex.phpを除けます</span>
 $ vim nginx_app.conf
@@ -270,7 +270,7 @@ $ curl -H <span style="color:#e6db74">&#34;Accept: application/xrd+xml&#34;</spa
 <p>Download : <a href="https://git.pleroma.social/pleroma/pleroma-fe/pipelines">https://git.pleroma.social/pleroma/pleroma-fe/pipelines</a></p>
 <p>Downloadして、dist/index.htmlをdist/pleroma.htmlにrenameしたあとにrootに置く。そして、/pleroma.htmlからアクセスする</p>
 <h3 id="qvitter">qvitter</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd plugin/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd plugin/
 $ git clone https://git.gnu.io/h2p/Qvitter
 $ cd !$:t
 $ rm -rf .git
@@ -278,7 +278,7 @@ $ vim config.php
 addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Qvitter&#39;</span><span style="color:#f92672">)</span>;
 $ php scripts/checkschema.php
 </code></pre></div><h3 id="activtypub">activtypub</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd plugin/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd plugin/
 $ git clone https://git.gnu.io/dansup/ActivityPub
 $ cd !$:t
 $ git checkout dev
@@ -292,7 +292,7 @@ $ php scripts/checkschema.php
 <p>config.php</p>
 </blockquote>
 <p>おそらくデフォルトで有効になっているが、一応</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;OStatus&#39;</span><span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;OStatus&#39;</span><span style="color:#f92672">)</span>;
 addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;WebFinger&#39;</span><span style="color:#f92672">)</span>;
 addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;LRDD&#39;</span><span style="color:#f92672">)</span>;
 
@@ -303,7 +303,7 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;ActivityModeration&#39;</span><span style="color:#f92672">)</span>;
 </code></pre></div><h3 id="attachments">attachments</h3>
 <p><code>admin -&gt; paths -&gt; attachments -&gt; path,dir</code>を空にして保存すると、web UIがうまく動作しなくなる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ php scripts/checkschema.php
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ php scripts/checkschema.php
 </code></pre></div><blockquote>
 <p>PHP Warning:  mkdir(): Permission denied, Could not create directory for &lsquo;thumbnail&rsquo;: &lsquo;/thumb&rsquo;</p>
 </blockquote>
@@ -313,7 +313,7 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <blockquote>
 <p>lib/gnusocial.php</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!mkdir<span style="color:#f92672">(</span>$dir<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!mkdir<span style="color:#f92672">(</span>$dir<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
 -                throw new ConfigException<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Could not create directory for &#39;</span>._ve<span style="color:#f92672">(</span>$description<span style="color:#f92672">)</span>.<span style="color:#e6db74">&#39;: &#39;</span>._ve<span style="color:#f92672">(</span>$dir<span style="color:#f92672">))</span>;
 -            <span style="color:#f92672">}</span>
 -            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!chmod<span style="color:#f92672">(</span>$dir, 0775<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
@@ -323,14 +323,14 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <p><a href="https://github.com/foocorp/gnu-social/blob/master/INSTALL">https://github.com/foocorp/gnu-social/blob/master/INSTALL</a></p>
 <h3 id="mysql">mysql</h3>
 <p>herokuのmysqlにアクセス。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysql --host<span style="color:#f92672">=</span>$HOST --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD --reconnect $DB_NAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysql --host<span style="color:#f92672">=</span>$HOST --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD --reconnect $DB_NAME
 </code></pre></div><h3 id="webfingeruserjson">webfinger:user.json</h3>
 <p>通常、webfingerが出力するのは、xmlじゃなくjsonっぽい気がしているので、jsonにしたあとに、webfinger/index.phpを編集する。</p>
 <p>user fileをjsonにして使うと、mastodonではnokogiriがerrorを吐く。</p>
 <blockquote>
 <p>Nokogiri::XML::XPath::SyntaxError: ERROR: Undefined namespace prefix: //xmlns:Subject</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$f <span style="color:#f92672">=</span> $u <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;.xml&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$f <span style="color:#f92672">=</span> $u <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;.xml&#34;</span>;
 <span style="color:#75715e">//$f = $u . &#34;.json&#34;;
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file_exists</span>($f)) {
@@ -339,7 +339,7 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
   <span style="color:#75715e">//header(&#39;Content-type: application/json&#39;);
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">file_get_contents</span>($f);
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;subject&#34;</span>: <span style="color:#e6db74">&#34;acct:syui@gnu-social.herokuapp.com&#34;</span>,
   <span style="color:#f92672">&#34;aliases&#34;</span>: [
     <span style="color:#e6db74">&#34;https://gnu-social.herokuapp.com/syui&#34;</span>,
@@ -400,7 +400,7 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <blockquote>
 <p>./well-known/host-meta</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;links&#34;</span>: [
     {
       <span style="color:#f92672">&#34;rel&#34;</span>: <span style="color:#e6db74">&#34;lrdd&#34;</span>,
@@ -435,7 +435,7 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <p>/.well-known/webfinger?resource={uri}</p>
 </blockquote>
 <p>ここで気になるのが、public-keyで、おそらくDBにはsecret-keyが保存されていて、これが個人認証に使われているのだと思われる。heroku上で実行するwebfingerは動いていない気がするので、この処理を行うのは難しい。どうすればこの問題を回避できるのかわからない。dockerからwebfingerによって作成される<code>./well-known</code>を持ってくるといいかもしれない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    {
       <span style="color:#f92672">&#34;rel&#34;</span>: <span style="color:#e6db74">&#34;magic-public-key&#34;</span>,
       <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;data:application/magic-public-key,${magic-public-key}&#34;</span>
     }<span style="color:#960050;background-color:#1e0010">,</span>
@@ -451,19 +451,19 @@ addPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Ac
 <p>1 dockerから/install.phpを実行する、DBに送った情報をもとに、dockerにあるconfig.phpをherokuにpushする</p>
 <p>2 config.phpを書き換え、pushする</p>
 <p>3 うまく動作するのを確認したあと、DBをdumpする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysqldump --host<span style="color:#f92672">=</span>$HOST $DB_NAME --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD &gt;! dump.sql
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mysqldump --host<span style="color:#f92672">=</span>$HOST $DB_NAME --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD &gt;! dump.sql
 </code></pre></div><p>4 dockerのprofile domainがlocalhostになっているので、本来のdomainに修正したあと、mysqlのdumpを書き換え、restoreする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># tableを確認</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># tableを確認</span>
 $ mysql --host<span style="color:#f92672">=</span>$HOST --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD $DB_NAME
 mysql &gt; <span style="color:#66d9ef">select</span> * from user;
 
 $ vim dump.sql
 <span style="color:#75715e"># 修正</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># restore</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># restore</span>
 $ mysql --host<span style="color:#f92672">=</span>$HOST --user<span style="color:#f92672">=</span>$USER_NAME --password<span style="color:#f92672">=</span>$PASSWORD $DB_NAME &lt; dump.sql
 </code></pre></div><p>一応、heroku-mysql dashboardでもbackupを作成してdlしておく</p>
 <p>5 apache2で以下の設定を行う</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim Profile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim Profile
 web: vendor/bin/heroku-php-apache2
 
 $ vim .htaccess
@@ -503,7 +503,7 @@ $ vim .htaccess
 <p><a href="https://muziyoshiz.hatenablog.com/entry/2017/04/30/143632">https://muziyoshiz.hatenablog.com/entry/2017/04/30/143632</a></p>
 <h3 id="nginx">nginx</h3>
 <p>nginxで404が出る場合は、以下。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim nginx_app.conf location / <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim nginx_app.conf location / <span style="color:#f92672">{</span>
     try_files $uri @rewriteapp;
 <span style="color:#f92672">}</span>
 location @rewriteapp <span style="color:#f92672">{</span>

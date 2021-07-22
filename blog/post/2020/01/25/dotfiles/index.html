@@ -132,7 +132,7 @@
 <p><a href="https://github.com/syui/ricomoon">https://github.com/syui/ricomoon</a></p>
 <p>zshのprompt(powerline.zsh)を調整しています。昔から不満のあったオリジナルアイコンの位置などを修正しました。昔からちょっと上にズレてたんですよね、気になってたんですが、放置してたのです。</p>
 <p>icomoonで作ったやつは以下の調整でいけた。ただし、基本とするフォントにもよる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/fontforge -script
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/fontforge -script
 </span><span style="color:#75715e"></span>Open<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;./font/icomoon.ttf&#34;</span><span style="color:#f92672">)</span>
 SelectAll<span style="color:#f92672">()</span>
 foreach
@@ -143,10 +143,10 @@ Close<span style="color:#f92672">()</span>
 </code></pre></div><p>またgitlabやheroku(に似ている)アイコンをプラスしました。昔はfont-awesome(bland)に入ってなかった。ただ、省略したアイコンも多く、最初は必要なものにとどめました。</p>
 <p>フォントに関しては、<code>SF Mono</code>が<a href="https://qiita.com/delphinus/items/f472eb04ff91daf44274">いいらしい</a>。そのうち時間があれば見てみようかなと思っています。ただ、フォントやアイコン周りを久しぶりに触ることになりましたが、たいへん。<code>fontforge</code>なんもわからん。</p>
 <p><code>zstyle ':vcs_info:git:*' formats</code>とかで表示する情報にコミット数を追加してみたりした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git --no-pager shortlog -sn |tr -d <span style="color:#e6db74">&#39; &#39;</span>|cut -f <span style="color:#ae81ff">1</span> | head -n <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git --no-pager shortlog -sn |tr -d <span style="color:#e6db74">&#39; &#39;</span>|cut -f <span style="color:#ae81ff">1</span> | head -n <span style="color:#ae81ff">1</span>
 </code></pre></div><h3 id="zsh-notify">zsh-notify</h3>
 <p><code>zsh-notify</code>入れたら端末がおかしくなったような気がしたので、アンインストールした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e">#zsh-notify</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e">#zsh-notify</span>
 <span style="color:#75715e">#commandを実行してもpromptが動かなくなることがある</span>
 zinit light marzocchi/zsh-notify
 zstyle <span style="color:#e6db74">&#39;:notify:*&#39;</span> error-title <span style="color:#e6db74">&#34;Command failed&#34;</span>
@@ -158,7 +158,7 @@ zstyle <span style="color:#e6db74">&#39;:notify:*&#39;</span> command-complete-t
 <p><code>git add</code>するときにdiffを<code>fzf --preview</code>で確認する<code>^g</code></p>
 <p><code>unbuffer</code>を使うので、ない場合は、<code>$ brew install expect</code>で入ります。</p>
 <p>念の為に<code>bindkey -s</code>扱いにした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e"># git addするときにdiff</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e"># git addするときにdiff</span>
 <span style="color:#66d9ef">function</span> gadd<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 	selected<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>unbuffer git status -s | fzf -m --ansi --preview<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;echo {} | awk &#39;{print \$2}&#39; | xargs git diff --color&#34;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span>
 	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$selected<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
@@ -170,7 +170,7 @@ zle -N gadd
 bindkey <span style="color:#e6db74">&#39;^g&#39;</span> gadd
 </code></pre></div><h3 id="vimで直前のカーソル位置からファイルを開く">vimで直前のカーソル位置からファイルを開く</h3>
 <p>この設定は必須。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim:~/.vimrc" data-lang="vim:~/.vimrc"><span style="color:#75715e">&#34; 直前のカーソル位置で開く</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim:~/.vimrc" data-lang="vim:~/.vimrc"><span style="color:#75715e">&#34; 直前のカーソル位置で開く</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">augroup</span> <span style="color:#a6e22e">vimrcEx</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#a6e22e">au</span> <span style="color:#a6e22e">BufRead</span> * <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &gt; <span style="color:#ae81ff">0</span> &amp;&amp; <span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &lt;= <span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;$&#34;</span>) |<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>  \ <span style="color:#a6e22e">exe</span> <span style="color:#e6db74">&#34;normal g`\&#34;&#34;</span> | <span style="color:#66d9ef">endif</span><span style="color:#960050;background-color:#1e0010">

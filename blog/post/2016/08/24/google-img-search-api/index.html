@@ -125,11 +125,11 @@
 													<h2>GoogleImgAPIを久しぶりに使ってみたら動かなくなっていた件</h2>
 													
        			 		<h2 id="google-img-apiを久しぶりに使ってみたら動かなくなっていた件">Google Img APIを久しぶりに使ってみたら動かなくなっていた件</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -e http://www.my-ajax-site.com <span style="color:#e6db74">&#39;http://ajax.googleapis.com/ajax/services/search/web?v=1.0&amp;q=riot&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -e http://www.my-ajax-site.com <span style="color:#e6db74">&#39;http://ajax.googleapis.com/ajax/services/search/web?v=1.0&amp;q=riot&#39;</span>
 <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;responseData&#34;</span>: null, <span style="color:#e6db74">&#34;responseDetails&#34;</span>: <span style="color:#e6db74">&#34;The Google Web Search API is no longer available. Please migrate to the Google Custom Search API (https://developers.google.com/custom-search/)&#34;</span>, <span style="color:#e6db74">&#34;responseStatus&#34;</span>: 403<span style="color:#f92672">}</span>
 </code></pre></div><p>なるほど。Google Custom Searchを使えと。</p>
 <p>あと、Google Img Searchを有効にするには、Google APIで有効にする必要があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;カバネリ&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;カバネリ&#34;</span>
 SEARCH_WORDS<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">${</span>title<span style="color:#e6db74">}</span> | ruby -r cgi -ne <span style="color:#e6db74">&#39;puts CGI.escape $_.chomp&#39;</span><span style="color:#e6db74">`</span>
 
 <span style="color:#75715e"># https://cse.google.com/cse/all</span>

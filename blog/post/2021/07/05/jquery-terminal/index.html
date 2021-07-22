@@ -125,7 +125,7 @@
 													<h2>jquery.terminalで検索機能とか付けてみた</h2>
 													
        			 		<p>追加した機能とかを簡単に紹介します。これくらい設定したら自分でも使うかも。こういうのは楽しければいいって思ってたんですが、まあまあ便利そうになってしまった気がする。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 通常検索、contentから</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 通常検索、contentから</span>
 $ search arch
 or
 $ / arch
@@ -138,7 +138,7 @@ $ search -l
 
 <span style="color:#75715e"># user ipでloginします(promptをipに変えてるだけ</span>
 $ curl ipapi.co
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:term.js" data-lang="js:term.js"><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;https://syui.cf/index.json&#39;</span>, { <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span> })
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:term.js" data-lang="js:term.js"><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;https://syui.cf/index.json&#39;</span>, { <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span> })
 .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">response</span>) {
 	<span style="color:#a6e22e">index_json</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>,<span style="color:#66d9ef">null</span>,<span style="color:#e6db74">&#34;\t&#34;</span>);
 	<span style="color:#a6e22e">origin_index_json</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">index_json</span>);

@@ -137,7 +137,7 @@
 <p>とりあえず、rocketから触ってみることに。</p>
 <p><a href="https://github.com/SergioBenitez/Rocket/tree/master/examples/json">https://github.com/SergioBenitez/Rocket/tree/master/examples/json</a></p>
 <p>api server立てるっぽいやつを動かしてみる。ここでコードの内容も見ていく。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rustc -V
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rustc -V
 $ cargo -V
 
 $ git clone https://github.com/SergioBenitez/Rocket
@@ -157,7 +157,7 @@ $ curl -H <span style="color:#e6db74">&#39;Content-Type:application/json&#39;</s
 <span style="color:#75715e"># get</span>
 $ curl localhost:8000/message/1
 </code></pre></div><p>次は、dbを組み合わせた感じのものを見ていきます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku create $APP_NAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku create $APP_NAME
 $ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
 $ heroku config -a $APP_NAME
 
@@ -169,10 +169,10 @@ $ curl localhost:3000/api
 or
 $ wrk -t12 -c400 -d30s http://localhost:3000/api
 </code></pre></div><p>この場合は、<code>./web</code>がfrontendで<code>./api_server</code>がbackendになります。つまり、<code>./api_server</code>がrustで書かれています。herokuなどにdeployする場合は、Procfileに以下のように記述すればいいでしょう。frontendはnpmするだけのものが多いので、特にありません。react使ってる人が多い印象。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build --release
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build --release
 $ echo <span style="color:#e6db74">&#34;ROCKET_ENV=prod target/release/api_server&#34;</span> &gt;&gt; Procfile
 </code></pre></div><p>重要なのはreadmeにも書いてますけど、<code>diesel</code>になります。大抵、repoに<code>./migrations</code>が用意されてますので、<code>diesel migration run</code>すればpreviewはできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo install diesel_cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo install diesel_cli
 $ echo <span style="color:#e6db74">&#34;DATABASE_URL=postgres://user:pass@localhost/name&#34;</span> &gt; .env
 $ diesel migration generate name
 $ diesel migration run

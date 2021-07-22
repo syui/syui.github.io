@@ -126,11 +126,11 @@
 													
        			 		<p>archでpackageをdowngradeするには、いろいろな方法があります。</p>
 <p>一つは<code>downgrader</code>をinstallして実行する方法です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S downgrader
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S downgrader
 $ downgrader wine-mono
 </code></pre></div><p>しかし、パッケージによっては、古いバージョンが見つからないことがあります。</p>
 <p>そのような場合は、git.archlinux.orgからPKGBUILDを持ってきて対応したりします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/wine-mono</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/wine-mono</span>
 $ vim PKGBUILD
 pkgname<span style="color:#f92672">=</span>wine-mono
 pkgver<span style="color:#f92672">=</span>4.7.x
@@ -146,12 +146,12 @@ package<span style="color:#f92672">()</span> <span style="color:#f92672">{</span
   install -Dm644 $pkgname-$pkgver.msi <span style="color:#e6db74">&#34;</span>$pkgdir<span style="color:#e6db74">&#34;</span>/usr/share/wine/mono/$pkgname-$pkgver.msi
 <span style="color:#f92672">}</span>
 </code></pre></div><p>こんな感じのPKGBUILDを用意して、内容を書き換えます。この場合は、pkgverとsha512sumですね。内容を見て判断してください。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># http://dl.winehq.org/wine/wine-mono/</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># http://dl.winehq.org/wine/wine-mono/</span>
 $ curl -sLO http://dl.winehq.org/wine/wine-mono/4.7.2/wine-mono-4.7.2.msi
 $ sha512sums wine-mono-4.7.2.msi
 <span style="color:#ae81ff">1234</span> wine-mono-4.7.2.msi
 </code></pre></div><p>あとは、<code>makgepkg</code>を実行して<code>pkg.tar.xz</code>を作り、それをpacmanでインスールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat PKGBUILD
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat PKGBUILD
 pkgver<span style="color:#f92672">=</span>4.7.2
 sha512sums<span style="color:#f92672">=(</span><span style="color:#e6db74">&#39;1234&#39;</span><span style="color:#f92672">)</span>
 

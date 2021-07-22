@@ -127,14 +127,14 @@
        			 		<p>問題 : 「System Eventsでエラーが起きました: osascriptには補助アクセスは許可されません」というエラーが出る</p>
 <p>結論 : 設定, セキュリティとプライバシー, プライバシーのアクセシビリティから<code>System Events.app</code>のチェックをOFF/ONする</p>
 <p>electronもnodeもyarnも関係なく、単なるbackgroundで使ってるSystem Eventsが原因ですけど、<code>yarn start</code>でアプリを立ち上げて、GUIはelectronで用意しているというアプリです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd ./electron-app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd ./electron-app
 $ yarn install
 $ yarn start
 </code></pre></div><p>index.htmlはこんな感じです。大体、やってることはわかると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;window.<span style="color:#a6e22e">$</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">jQuery</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;jquery&#39;</span>);&lt;/<span style="color:#f92672">script</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;window.<span style="color:#a6e22e">$</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">jQuery</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;jquery&#39;</span>);&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./bower_components/jquery.hotkeys/jquery.hotkeys.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./main-process.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn start
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn start
 src file: ./main-process.js, system eventsでエラーが起きました: osascriptには補助アクセスは許可されません。
 </code></pre></div><blockquote>
 <p>System Eventsでエラーが起きました: osascriptには補助アクセスは許可されません。</p>

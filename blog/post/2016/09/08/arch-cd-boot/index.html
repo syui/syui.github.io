@@ -132,25 +132,25 @@
 <p>ここでUSBブートも, DVDブートもダメとなると、選択肢は限られてくる。</p>
 <p>幸運にも私はUSB接続するタイプのDVD外付けドライブを持っていたので、そちらからArchインストールディスクをブートすることにした。</p>
 <p>ブートは成功したものの幾つかのエラーが出ていてArch Linux自体は起動しなかった。外部ドライブ先である<code>/dev/sr1</code>からエラーが出ていたので、以下のコマンドでも問題解決には至らなかった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
 Waiting <span style="color:#ae81ff">30</span> seconds <span style="color:#66d9ef">for</span> device /dev/disk/ARCH_201609
 $ ln -sf /dev/sr1 /dev/disk/by-label/ARCH_201609
 $ exit
 </code></pre></div><p>したがって、USBを接続して、そちらに入れてあるArch Linuxを使うことにした。これは、要求されているラベルを書き換えることで使うことができた。DVDブートが要求しているラベルは<code>ARCH_201609</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
 $ cd /dev/disk/by-label/
 $ ls 
 ARCH_201608...USB
 $ mv ARCH_201608 ARCH_201609
 $ exit
 </code></pre></div><p>これでArch Linuxが無事起動した。ここまでくれば後は問題ないと思っていたが、HDDをマウントできない問題が発生した。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
 $ mkfs.ext4 /dev/sda2
 $ mount /dev/sda2 /mnt
 mount: unknown filesystem type <span style="color:#e6db74">&#39;ext4&#39;</span>
 </code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?id=215432">https://bbs.archlinux.org/viewtopic.php?id=215432</a></p>
 <p>他のフォーマットを試したけど無駄ぽい。マウントできないというのは割りとどうしようもないので、USBの起動イメージを変えてみることにした。具体的にはArch Linuxのイメージを少し古くしてみたらいけた。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
 $ cd /dev/disk/by-label/
 $ ls 
 ARCH_201508...USB
@@ -161,7 +161,7 @@ $ mkfs.ext4 /dev/sda2
 $ mount /dev/sda2 /mnt
 </code></pre></div><p>ただ、そこでも<code>pacman-key --refresh-keys</code>などでのエラーに手こずった。(Archは古いイメージを使うとすぐこうなるから嫌だったんだよ。)</p>
 <p>でも以下のようにしたらいけた。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
 $ pacstrap /mnt base
 warning: Public keyring not found; have you run <span style="color:#e6db74">&#39;pacman-key --init&#39;</span>?
 error: packege_name: key <span style="color:#e6db74">&#34;****************&#34;</span> is unknown

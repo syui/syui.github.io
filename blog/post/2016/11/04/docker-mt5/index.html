@@ -128,7 +128,7 @@
 <blockquote>
 <p>dockerfile</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM ubuntu:16.10
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM ubuntu:16.10
 
 RUN dpkg --add-architecture i386
 
@@ -147,7 +147,7 @@ RUN echo -e <span style="color:#e6db74">&#34;#!/bin/sh
 
 ENV HOME /root
 CMD /bin/zsh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t ubuntu:base .
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t ubuntu:base .
 $ sudo docker run -ti --rm <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    ubuntu:base
@@ -164,7 +164,7 @@ $ sudo docker run -ti --rm <span style="color:#ae81ff">\
 <blockquote>
 <p>dockerfile</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM alpine:latest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM alpine:latest
 
 ENV DISPLAY :0
 <span style="color:#75715e">#ENV WINEARCH win32</span>
@@ -183,7 +183,7 @@ USER wineuser
 
 RUN cd <span style="color:#f92672">&amp;&amp;</span> curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
 CMD /bin/zsh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t alpine:base .
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t alpine:base .
 $ sudo docker run -ti --rm <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    alpine:base

@@ -126,21 +126,21 @@
 													
        			 		<p>vue 2.x + webpack 4.x 系でenvを使うのにハマったのでメモ。</p>
 <p>結論として<code>dotenv-webpack</code>を使えばいけました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="color:#e6db74">&#34;page=4&#34;</span> &gt;&gt; .env
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="color:#e6db74">&#34;page=4&#34;</span> &gt;&gt; .env
 $ yarn add dotenv-webpack
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:webpack.config.js" data-lang="js:webpack.config.js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Dotenv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;dotenv-webpack&#39;</span>);
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:webpack.config.js" data-lang="js:webpack.config.js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Dotenv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;dotenv-webpack&#39;</span>);
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
     <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Dotenv</span>(<span style="color:#e6db74">&#39;./.env&#39;</span>)
 	]
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
   <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [...Array(Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">page</span>)).<span style="color:#a6e22e">keys</span>()]
   }
 })
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json"><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json"><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
   <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;cross-env NODE_ENV=production webpack --progress --hide-modules&#34;</span>
 }
 </code></pre></div>

@@ -128,7 +128,7 @@
 <p>まず、fishは他のshellとの互換性を完全に捨ててる。考慮もあんまりしてない感じだけど、それ故に可読性は良いと思う。が、shellの強みって一貫した書き方だったりするわけで、その点では触っていてめんどくささはかなりある。まあ、これをshellと見ること無く、アプリとか言語の一つとかとして見る場合は普通なんだけど、そんな感じです。これは何が問題なのかというと、例えば、他のアプリがshell変数なんかをあてにしてたりする場合、fishを使うことによって思わぬ動作不良を招くことも多いため、あくまで嗜好品とか、楽しんで使うアプリとしてみるほうが良いのかもしれません。</p>
 <p>fishはあまり設定書かなくても使える。補完とかプロンプトだったり。あと、プラグインが読みやすいし、オリジナルの設定を書きやすい、改変しやすい感じ。但し、補完も書かないと不便なところは多くて、それは例えば特殊文字の扱いとか色々なんだけど、zshのほうが便利な部分もある。</p>
 <p>最初に嵌りそうな点は以下。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># export a=&#34;word&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># export a=&#34;word&#34;</span>
 set a <span style="color:#e6db74">&#34;word&#34;</span>
 
 <span style="color:#75715e"># a=`echo word`</span>
@@ -176,13 +176,13 @@ end
 <span style="color:#75715e"># fishは設定を再度読み込むより再起動したほうがいい事が多い</span>
 exec fish
 </code></pre></div><p>いろんなものをインストール。よく使うのは<code>z, fzf, ghq, hub, tmux</code>なのでそれらと連携するプラグインなど。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 $ fisher fzf z edc/bass omf/thefuck omf/theme-bobthefish decors/fish-ghq
 </code></pre></div><p>fishでは<code>~/.config/fish/config.fish</code>に書いたバインドは有効になる場合とならない場合があり、基本的には有効になるが、<code>~/.config/fish/functions/</code>以下に置いた<code>fish_user_key_bindings</code>関数が無効になる。つまり、fish_user_key_bindings関数に書くのが順当であり、かつその関数ファイルは<code>functions/</code>に置くのが一般的。内容によっては<code>commandline -f repaint</code>を入れないとプロンプトでEnterを押す必要が出てくるので必要な場合あり。</p>
 <blockquote>
 <p>~/.config/fish/functions/fish_user_key_bindings.fish</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> fish_user_key_bindings
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> fish_user_key_bindings
 	bind <span style="color:#ae81ff">\c</span>f peco_select_ghq_repository
 	bind <span style="color:#ae81ff">\c</span>k __fish_cd_up
 	bind <span style="color:#ae81ff">\c</span>s __fzf_find_file
@@ -199,7 +199,7 @@ end
 end
 </code></pre></div><p>注意ですが、bindの後ろは￥(半角)を入れてください。例えば、<code>bind ￥cf pecoとか</code>になります。</p>
 <p>補完などはインストール時についてくるファイルを利用したりとか色々。PATHを通してもいいし、補完を作成したり、<code>~/.config/fish/completions</code>に置いてもいい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/github/hub/blob/master/etc/hub.fish_completion</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/github/hub/blob/master/etc/hub.fish_completion</span>
 $ brew install hub
 ls /usr/local/bin/share/fish/completions/
 $ fish_update_completions
@@ -215,7 +215,7 @@ $ hub
 <blockquote>
 <p>config.fish</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> test $TERM !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;screen&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> test $TERM !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;screen&#34;</span>
  tmux new-session
  and exit
 end
@@ -223,12 +223,12 @@ end
 <blockquote>
 <p>~/.config/fish/config.fish</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set -U Z_CMD <span style="color:#e6db74">&#34;j&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set -U Z_CMD <span style="color:#e6db74">&#34;j&#34;</span>
 set -U Z_DATA <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.z&#34;</span>
 </code></pre></div><blockquote>
 <p>~/.config/fish/functions/fish_user_key_bindings.fish</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> peco_z
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> peco_z
  set -l query <span style="color:#f92672">(</span>commandline<span style="color:#f92672">)</span>
 
  <span style="color:#66d9ef">if</span> test -n $query

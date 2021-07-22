@@ -127,7 +127,7 @@
        			 		<p>weechatというCLIのIRC Clientがあります。今回は、weechatでslackを使うwee-slackというpluginの紹介です。</p>
 <p><a href="https://github.com/wee-slack/wee-slack">https://github.com/wee-slack/wee-slack</a></p>
 <h2 id="install">install</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># install</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># install</span>
 $ sudo pacman -S python-websocket-client weechat
 $ mkdir -p ~/.weechat/python/autoload
 $ cd ~/.weechat/python
@@ -150,13 +150,13 @@ portion of
 the URL to  &quot;code&quot; portion of the URL to your clipboard
 5) Return to weechat and run `/slack register [code]`
 </code></pre><p>ブラウザを開いてリダイレクトされたurlのうち<code>code=xxxxxxx</code>のxxxの部分がregister番号になります。これを<code>/slack register xxx</code>で実行します。また、<code>https://${my}.slack.com/apps/A1HSZ9V8E-wee-slack</code>を開いて、wee-slackのアプリを許可します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/slack register xxx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/slack register xxx
 /python reload slack
 </code></pre></div><h2 id="use">use</h2>
 <p>これでslackに接続できたと思います。続いて、weechatの使い方です。</p>
 <p>weechatはまず<code>Ctrl + x</code>でbufferを移動します。user-nameである<code>[syui]</code>みたいに表示されたところがslackです。上にアクセス元も表示されます。<code>xxx.slack.com</code></p>
 <p>補完も効くので、よく使いそうなコマンドを挙げます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># channelに入る</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># channelに入る</span>
 /join <span style="color:#75715e">#randam</span>
 /join syui
 

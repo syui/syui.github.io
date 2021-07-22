@@ -126,7 +126,7 @@
 													
        			 		<p>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつを<a href="https://mastodon.zunda.ninja/@zundan">zunda</a>さんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuでは<code>SOURCE_VERSION</code>からhashを取れるっぽい。</p>
 <p><a href="https://github.com/zunda/mastodon/pull/27/files">https://github.com/zunda/mastodon/pull/27/files</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/tasks/version.rake" data-lang="ruby:lib/tasks/version.rake">namespace <span style="color:#e6db74">:source</span> <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/tasks/version.rake" data-lang="ruby:lib/tasks/version.rake">namespace <span style="color:#e6db74">:source</span> <span style="color:#66d9ef">do</span>
   desc <span style="color:#e6db74">&#39;Record source version&#39;</span>
   task <span style="color:#e6db74">:version</span> <span style="color:#66d9ef">do</span>
     hash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;SOURCE_VERSION&#39;</span><span style="color:#f92672">]</span>  <span style="color:#75715e"># available on Heroku while build</span>
@@ -165,7 +165,7 @@
 task <span style="color:#e6db74">&#39;assets:precompile&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;source:version&#39;</span><span style="color:#f92672">]</span>
 </code></pre></div><p><code>rake assets:precompile</code>で<code>config/initializers/version.rb</code>が生成される仕組みで、表示はこの<code>version.rb</code>を参照します。形式は以下のような感じ。</p>
 <p><a href="https://github.com/tootsuite/mastodon/blob/main/lib/mastodon/version.rb">https://github.com/tootsuite/mastodon/blob/main/lib/mastodon/version.rb</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/mastodon/version.rb" data-lang="ruby:lib/mastodon/version.rb"><span style="color:#75715e"># frozen_string_literal: true</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/mastodon/version.rb" data-lang="ruby:lib/mastodon/version.rb"><span style="color:#75715e"># frozen_string_literal: true</span>
 
 <span style="color:#66d9ef">module</span> Mastodon
   <span style="color:#66d9ef">module</span> Version

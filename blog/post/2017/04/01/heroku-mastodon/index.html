@@ -154,7 +154,7 @@
 <p>mastodonの使い方だけど、基本的にはdockerで動かす形になる。</p>
 <p>簡単に言うとこちらのリポジトリ<a href="https://github.com/tootsuite/mastodon">tootsuite/mastodon</a>を見ながら使用されている技術などを読み解きながらHeroku Deployして色々やる。</p>
 <p>まずは確認から。なんとなく使われてる技術、どうやって動いてるのかなどをゆるく把握する。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/tootsuite/mastodon/blob/master/README.md</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/tootsuite/mastodon/blob/master/README.md</span>
 $ docker-compose build
 $ docker-compose run --rm web rake secret
 ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行
@@ -172,7 +172,7 @@ $ curl localhost:3000
 </code></pre></div><p>次に、Heroku Deployを実行してみる。簡単に.envに書いた値などをGUIに入れてく。</p>
 <p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md</a></p>
 <p>example  :</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">LOCAL_DOMAIN<span style="color:#f92672">=</span>appname.herokuapp.com
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">LOCAL_DOMAIN<span style="color:#f92672">=</span>appname.herokuapp.com
 LOCAL_HTTPS<span style="color:#f92672">=</span>true
 
 <span style="color:#75715e"># Amazonは使わないのでHerokuのworkerをONにすることで画像などを保存できるようになる(が永続化するかは不安定という予想)</span>
@@ -186,7 +186,7 @@ SMTP_FROM_ADDRESS<span style="color:#f92672">=</span>username@gmail.com
 </code></pre></div><p>通知はGmailを使う。2FAを設定している場合はアプリパスワードを発行する。</p>
 <p>立ち上げた後は<code>https://appname.herokuapp.com/about</code>にてサインアップ。</p>
 <p>次に以下のコマンドなどを実行し、サインアップしたユーザーを管理者に昇格させる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku git:clone -a appname
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku git:clone -a appname
 $ cd appname
 $ heroku run rails db:migrate
 $ heroku rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>yourUsername
@@ -197,7 +197,7 @@ $ heroku config:add SINGLE_USER_MODE<span style="color:#f92672">=</span>true
 <p>heroku : sub.main.com appname.herokuapp.com</p>
 <p>cloudflare : CNAME mastodon appname.herokuapp.com</p>
 <p>アクセスできることを確認後に<code>LOCAL_DOMAIN</code>を変更することで、多分だけど<code>@user@sub.main.com</code>を使えるようになる(ちょっと時間をおかなければならない)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:add LOCAL_DOMAIN<span style="color:#f92672">=</span>sub.main.com
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:add LOCAL_DOMAIN<span style="color:#f92672">=</span>sub.main.com
 </code></pre></div><p>あとは、こちらに登録することで補完とかでるようになるのかも(フォローしたりやり取りをすると補完は出るようになる)。登録しなくても使える。</p>
 <p><a href="https://instances.mastodon.xyz/list">https://instances.mastodon.xyz/list</a></p>
 <p>コードを編集したい場合は元のリポジトリなどからフォークとかクローンしたものを<code>heroku push</code>すればOKです。私もちょっと手を加えています。主にレイアウト関連ですが。</p>
@@ -211,7 +211,7 @@ $ heroku config:add SINGLE_USER_MODE<span style="color:#f92672">=</span>true
 <h2 id="mastodon-on-heroku">Mastodon on Heroku</h2>
 <p><a href="https://dashboard.heroku.com/new?button-url=https://github.com/tootsuite/mastodon&amp;template=https://github.com/tootsuite/mastodon"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a></p>
 <h2 id="mastodon-install-docker">Mastodon Install (Docker)</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tootsuite/mastodon.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tootsuite/mastodon.git
 $ cd mastodon
 
 <span style="color:#75715e"># db, redis:volumes uncomment</span>
@@ -277,31 +277,31 @@ $ docker-compose run --rm web rails mastodon:make_admin USERNAME<span style="col
 <p>Mastodonを立ち上げ管理者でログインした直後にDBをバックアップして、そのデータを保存しておく必要があります。この際、dbとの整合性を維持するためmastodonのversionを合わせる必要があるかもしれません。</p>
 <p>今回は、そのリストア方法になります。</p>
 <p>Mastodonは<code>psql</code>を利用しています。よって、以下のような感じでdumpしたデータをリストアできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># リセット(要注意)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># リセット(要注意)</span>
 $ heroku pg:reset -a $appname
 <span style="color:#75715e"># リストア</span>
 $ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $username -d $database ./$filename.dump
 </code></pre></div><p>エラーが出るようなら<code>heroku pg:psql</code>して修正するか若しくは、mastodonのversionをバックアップ時のものにダウングレードする必要があります。</p>
 <h2 id="2faを無効にする">2FAを無効にする</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku pg:psql
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku pg:psql
 UPDATE users SET otp_required_for_login<span style="color:#f92672">=</span>false WHERE email<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user@example.com&#39;</span>;
 </code></pre></div><h2 id="500が出て投稿できない動かない">500が出て投稿できない、動かない</h2>
 <p>v 1.4からは以下のコマンドを実行する必要があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
 $ heroku run rake assets:precompile -a $app
 $ heroku ps:restart -a $app
 </code></pre></div><p>それ以外では以下のコマンドで解決する場合があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake webpacker:compile -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake webpacker:compile -a $app
 </code></pre></div><h2 id="your-slug-size-exceeds-our-soft-limit-3xx-mb-which-may-affect-boot-time">Your slug size exceeds our soft limit (3XX MB) which may affect boot time.</h2>
 <p>上記のようなエラーがデプロイ時に出た場合はプラグインをインストールしてキャッシュなどを削除します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku plugins:install heroku-repo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku plugins:install heroku-repo
 $ heroku repo:purge_cache -a $app
 </code></pre></div><h2 id="dbmigrateでエラーが出る場合">db:migrateでエラーが出る場合</h2>
 <p>以下を実行するとエラーが出る場合があります。エラー内容によって必要な処理が異なります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
 </code></pre></div><h2 id="pgforeignkeyviolation">PG::ForeignKeyViolation</h2>
 <p>v1.4.1からv1.4.2の間に、外部キーが導入されたのでそれに関するエラーです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
 PG::ForeignKeyViolation
 
 $ heroku run rake mastodon:maintenance:prepare_for_foreign_keys -a $app
@@ -311,7 +311,7 @@ $ heroku ps:restart -a $app
 </code></pre></div><h2 id="pgduplicatetable-error">PG::DuplicateTable: ERROR</h2>
 <p>エラー内容には<code>PG::DuplicateTable: ERROR</code>のみならず<code>Index name 'index_accounts_on_uri' on table 'accounts' already exists</code>を含みます。</p>
 <p>これは<code>v 1.3 -&gt; v 1.4</code>にした時にでたエラーです。ただし、ダウングレードを数回行っているため、そこで入ったDBの値が悪さをしていたのかもしれません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
 PG::DuplicateTable: ERROR
 	account_domain_blocks
 	conversations
@@ -331,26 +331,26 @@ DROP INDEX index_accounts_on_uri;
 $ heroku run rake db:migrate -a $app
 $ heroku ps:restart -a $app
 </code></pre></div><h3 id="error-massage-sample">Error massage (Sample)</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
 &gt; ActiveRecord::StatementInvalid: PG::DuplicateTable: ERROR:  relation <span style="color:#e6db74">&#34;conversations&#34;</span> already exists
 &gt; : CREATE TABLE <span style="color:#e6db74">&#34;conversations&#34;</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span> bigserial NOT NULL PRIMARY KEY, <span style="color:#e6db74">&#34;uri&#34;</span> character varying DEFAULT NULL, <span style="color:#e6db74">&#34;created_at&#34;</span> timestamp NOT NULL, <span style="color:#e6db74">&#34;updated_at&#34;</span> timestamp NOT NULL<span style="color:#f92672">)</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate:reset -a $app
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate:reset -a $app
 &gt; ActiveRecord::ProtectedEnvironmentError: You are attempting to run a destructive action against your <span style="color:#e6db74">&#39;production&#39;</span> database.
 &gt; If you are sure you want to <span style="color:#66d9ef">continue</span>, run the same command with the environment variable:
 &gt; DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
 &gt; Index name <span style="color:#e6db74">&#39;index_accounts_on_uri&#39;</span> on table <span style="color:#e6db74">&#39;accounts&#39;</span> already exists
 </code></pre></div><h2 id="個人用インスタンス">個人用インスタンス</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md</span>
 $ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
 </code></pre></div><h2 id="bulidpacks">.bulidpacks</h2>
 <p>v 1.3からは必要なパッケージがいくつか増えています。Herokuサーバーにそれをインストールしてやる必要があります。Herokuでは<code>buildpacks</code>に<code>apt</code>を追加することでパッケージのインストールが可能になります。インストールするパッケージは<code>Aptfile</code>に書きます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat .buildpacks
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat .buildpacks
 $ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
 </code></pre></div><h2 id="gem-install-idn-ruby">gem install idn-ruby</h2>
 <p>v 1.5では、<code>Aptfile</code>に<code>libidn11-dev</code>(centosなどではlibidn-develというパッケージ名)が追加されています。これは<code>wget</code>でダウンロードされ、<code>idn-ruby</code>が依存しています。しかし、Herokuではこのパッケージが元から入っているためか、Aptfileから<code>libidn11-dev</code>の行を削除しないと<code>gem install idn-ruby</code>がインストールできずビルドが完了しませんでした。</p>
 <p><code>v 1.5 rc1 - v 1.5 rc3</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run <span style="color:#e6db74">&#34;dpkg -l&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run <span style="color:#e6db74">&#34;dpkg -l&#34;</span>
 $ vim Aptfile
 libidn11-dev という行を削除
 </code></pre></div><p>現在は<code>branch:master</code>にて<a href="https://github.com/tootsuite/mastodon/commit/161f72cce3547fabc945b002599880b137d970db">fix</a>されているので、<code>libidn11-dev</code>の行を削除する必要はありません。(Heroku)</p>
@@ -360,10 +360,10 @@ libidn11-dev という行を削除
 <pre><code>+ libidn11
 libidn11-dev
 </code></pre><h2 id="gem-install-cld3">gem install cld3</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat Aptfile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat Aptfile
 $ echo protobuf-lite-devel &gt;&gt; Aptfile
 </code></pre></div><h2 id="gem-install-charlock_holmes">gem install charlock_holmes</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/rcaught/heroku-buildpack-cmake 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/rcaught/heroku-buildpack-cmake 
 </code></pre></div><blockquote>
 <p>Aptfile</p>
 </blockquote>
@@ -372,14 +372,14 @@ libicu-dev
 </code></pre><p><a href="https://github.com/brianmario/charlock_holmes/wiki/Installing-charlock-holmes-and-libicu-dev-on-heroku">https://github.com/brianmario/charlock_holmes/wiki/Installing-charlock-holmes-and-libicu-dev-on-heroku</a></p>
 <h2 id="generate_vapid_key">generate_vapid_key</h2>
 <p>v 1.5から<code>generate_vapid_key</code>を発行できるようになりました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
 $ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
 $ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
 </code></pre></div><h2 id="sidekiqのスレッド数を減らす">Sidekiqのスレッド数を減らす</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set SIDEKIQ_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set SIDEKIQ_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
 </code></pre></div><h2 id="push-rejected-failed-to-compile-nodejs-app">Push rejected, failed to compile Node.js app.</h2>
 <p>HerokuにDeployする際、以下のエラーが出る場合は、<code>package.json</code>にバージョンを指定することで回避できます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
 &gt; ! Push rejected, failed to compile Node.js app.
 </code></pre></div><blockquote>
 <p>package.json</p>
@@ -393,11 +393,11 @@ $ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX
 </code></pre><p><a href="https://github.com/react-boilerplate/react-boilerplate/issues/1779">https://github.com/react-boilerplate/react-boilerplate/issues/1779</a></p>
 <h2 id="tootがdeleteできなくなった">tootがdeleteできなくなった</h2>
 <p>1.6(6c81f9d)でtootが削除できない状態でしたが、以下の手順で解決しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:remove https://github.com/rcaught/heroku-buildpack-cmake
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:remove https://github.com/rcaught/heroku-buildpack-cmake
 $ git merge : master<span style="color:#f92672">(</span>efec5072<span style="color:#f92672">)</span>
 $ heroku repo:purge_cache -a $app
 $ heroku config:set MAX_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">## tootを削除したはずなのに残ってる</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">## tootを削除したはずなのに残ってる</span>
 <span style="color:#75715e">## 1.6(6c81f9d)</span>
 $ url<span style="color:#f92672">=</span>https://mstdn.syui.cf/api/v1/statuses/473
 $ curl -X DELETE $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span>
@@ -430,10 +430,10 @@ $ curl -X GET $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </s
 </code></pre></div><p><a href="https://github.com/tootsuite/mastodon/issues/4928">https://github.com/tootsuite/mastodon/issues/4928</a></p>
 <h2 id="custom-emojiでsslのエラーが出る時">custom emojiでSSLのエラーが出る時</h2>
 <p>以下のようなエラーが出る場合があります。なぜなら、<code>img src=http://</code>となっているからです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Mixed</span> <span style="color:#a6e22e">Content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">page</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">xxx</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">loaded</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">requested</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">insecure</span> <span style="color:#a6e22e">video</span> <span style="color:#a6e22e">xxxx</span>. <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">content</span> <span style="color:#a6e22e">should</span> <span style="color:#a6e22e">also</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">served</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Mixed</span> <span style="color:#a6e22e">Content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">page</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">xxx</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">loaded</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">requested</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">insecure</span> <span style="color:#a6e22e">video</span> <span style="color:#a6e22e">xxxx</span>. <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">content</span> <span style="color:#a6e22e">should</span> <span style="color:#a6e22e">also</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">served</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>.
 </code></pre></div><p>Find and fix mixed content <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content">https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content</a></p>
 <p>しかし、以下のように設定するとうまく動作しました。知らずにPRを出してしまいました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set CDN_HOST<span style="color:#f92672">=</span>https://<span style="color:#e6db74">${</span>emojiが置いてある場所<span style="color:#e6db74">}</span> -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set CDN_HOST<span style="color:#f92672">=</span>https://<span style="color:#e6db74">${</span>emojiが置いてある場所<span style="color:#e6db74">}</span> -a $app
 </code></pre></div><p><a href="https://github.com/tootsuite/mastodon/pull/5033">https://github.com/tootsuite/mastodon/pull/5033</a></p>
 <h2 id="16でのherokufree運用メモ">1.6でのHeroku(Free)運用メモ</h2>
 <ul>
@@ -456,11 +456,11 @@ $ curl -X GET $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </s
 <p>大体、<code>1500</code>tootでDBのレコードを<code>8000</code>程度消費しました。無料枠は<code>10000</code>なのでこのくらいになるとDBをリセットする必要が出てきます。この消費量はタイムラインに表示されるtootなどにも影響を及ぼします。そのため私は、フォロー0にしています。私の場合、<code>2ヶ月ほど</code>でDBをリセットする必要が出てきました。</p>
 <p>DBレコードの消費量はMastodonのVersion、フォローしている人のtoot頻度(TLの流れの速さ)、インスタンスの接続数などによっても変動してくると思われます。</p>
 <h2 id="react-infinite-scroller">react-infinite-scroller</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add react-infinite-scroller
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add react-infinite-scroller
 </code></pre></div><blockquote>
 <p>mastodon/app/javascript/mastodon/features/public_timeline/index.js</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">InfiniteScroll</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-infinite-scroll-component&#39;</span>;
@@ -593,7 +593,7 @@ $ curl -X GET $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </s
 <p>リセット前と同じidのアカウント作ったり、またはdbをrestoreすると、リモートフォロー、通知、メインTLなどが流れない現象が確認できました。</p>
 <p>この際、<code>db:restore</code>後に<code>db:reset</code>と<code>db:migrate</code>, <code>redis:cli</code>にて設定することでこの問題を解消することができるかもしれません。</p>
 <p>なお、<code>db:reset</code>するためまたid(user)を最初から作り直さなければなりません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1 -a $app</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1 -a $app</span>
 $ heroku pg:reset -a $app
 $ heroku redis:cli -a $app
 	FLUSHALL
@@ -611,16 +611,16 @@ $ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=
 $ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$USER -a $app
 $ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app 
 </code></pre></div><p>その他:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> SAFETY_ASSURED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> SAFETY_ASSURED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
 
 or 
 
 <span style="color:#75715e"># db:migrate:reset</span>
 $ heroku run rake db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
 </code></pre></div><h2 id="cache-clear">cache clear</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:media:remove_remote -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:media:remove_remote -a $app
 </code></pre></div><h2 id="daily">daily</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:daily -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:daily -a $app
 
 or 
 
@@ -629,7 +629,7 @@ $ heroku run rake mastodon:media:clear -a $app
 $ heroku run rake mastodon:users:clear -a $app
 $ heroku run rake mastodon:push:refresh -a $app
 </code></pre></div><h2 id="sing-up-admin">sing up (admin)</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app
 
 <span style="color:#75715e"># まずbrowserでsing upします。そして、以下のコマンドを叩きます。$email=&#34;入力したメールアドレス&#34;, $username=&#34;入力したユーザー名&#34;</span>
 $ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email -a $app
@@ -637,13 +637,13 @@ $ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</spa
 
 $ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
 </code></pre></div><h2 id="list-of-rake-tasks">List-of-Rake-tasks</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/List-of-Rake-tasks.md</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/List-of-Rake-tasks.md</span>
 $ heroku run rake mastodon:push:clear -a $app
 $ heroku run rake mastodon:feeds:clear_all -a $app
 $ heroku run rake mastodon:feeds:build -a $app
 $ heroku run rake mastodon:webpush:generate_vapid_key -a $app
 </code></pre></div><h2 id="アップデート時にやっといたほうが良いコマンド">アップデート時にやっといたほうが良いコマンド</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
 $ heroku run rake assets:precompile -a $app
 $ heroku run rake mastodon:daily -a $app
 <span style="color:#75715e"># heroku run rake mastodon:media:remove_remote -a $app</span>
@@ -658,7 +658,7 @@ $ heroku run rake mastodon:daily -a $app
 <p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md</a></p>
 <h3 id="herokuでは完全に無料でsslを使用することは不可能">Herokuでは完全に無料でSSLを使用することは不可能</h3>
 <p>SSL証明書を登録できるアプリはhobbyからなので、freeでは不可能です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
 $ cd /etc/letsencrypt/live
 $ ls
 README          chain.pem       privkey.pem
@@ -672,9 +672,9 @@ $ heroku certs:add fullchain.pem privkey.pem -a $app --type sni
 </blockquote>
 <h3 id="cloudflareを利用することで見た目上のhttpsは実現可能">CloudFlareを利用することで見た目上のhttpsは実現可能</h3>
 <p>CloudFlareのCNAMEを設定することで見た目上のhttpsは実現可能です。しかし、この場合、LOCAL_DOMAINを<code>mstdn.syui.cf</code>みたいな形にした上でLOCAL_HTTPSを<code>false</code>にしなければならないので、色々な問題が生じる可能性があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># cloudflare</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># cloudflare</span>
 CNAME mstdn appname.herokuapp.com
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku</span>
 $ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>www.example.com -a $app
 $ heroku config:set LOCAL_HTTPS<span style="color:#f92672">=</span>false -a $app
 </code></pre></div><h3 id="無料で証明書を手動更新する方法">無料で証明書を手動更新する方法</h3>
@@ -685,7 +685,7 @@ $ heroku config:set LOCAL_HTTPS<span style="color:#f92672">=</span>false -a $app
 <blockquote>
 <p>Herokuは、有料のdynosで動作するすべてのアプリケーションに対して、無料の自動証明書管理（ACM）を提供します。ACMを使用すると、Herokuは自動的にSSL証明書をプロビジョニングし、更新します。独自の証明書を手動でアップロードする場合は、この記事の手順に従ってください。</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 証明書の発行はLet&#39;s Encryptを使用</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 証明書の発行はLet&#39;s Encryptを使用</span>
 $ brew install certbot
 $ sudo certbot certonly --manual
 -------------------------------------------------
@@ -696,7 +696,7 @@ $ git add ./public/.well-known
 $ git commit -m <span style="color:#e6db74">&#34;upload file&#34;</span>
 $ git push heroku master
 </code></pre></div><p>これによって公開鍵と秘密鍵が作成されましたので、それをHerokuの方に登録します。登録にはhobby以上の料金設定が必要です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
 $ cd /etc/letsencrypt/live
 $ ls
 README          chain.pem       privkey.pem
@@ -710,7 +710,7 @@ $ curl -vI https://www.example.com
 </blockquote>
 <p>2016年5月18日 : <a href="https://blog.heroku.com/announcing_heroku_free_ssl_beta_and_flexible_dyno_hours">https://blog.heroku.com/announcing_heroku_free_ssl_beta_and_flexible_dyno_hours</a></p>
 <p>2016年9月22日 : <a href="https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos">https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># これらのコマンドは現在必要ありません</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># これらのコマンドは現在必要ありません</span>
 $ heroku labs:enable http-sni -a &lt;your app&gt;
 $ heroku plugins:install heroku-certs
 <span style="color:#75715e"># Use the --type sni flag if you have an SSL Endpoint add-on on your application already.</span>
@@ -718,24 +718,24 @@ $ heroku certs:add example.crt example.key -a &lt;your app&gt;
 </code></pre></div><p><a href="https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries">https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries</a></p>
 <p><a href="https://medium.com/should-designers-code/how-to-set-up-ssl-with-lets-encrypt-on-heroku-for-free-266c185630db">https://medium.com/should-designers-code/how-to-set-up-ssl-with-lets-encrypt-on-heroku-for-free-266c185630db</a></p>
 <h3 id="lets-encrypt">Let&rsquo;s Encrypt</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install certbot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install certbot
 $ sudo certbot certonly --manual
 $ sudo heroku certs:add /etc/letsencrypt/live/plumfeed.com/fullchain.pem /etc/letsencrypt/keys/0000_key-certbot.pem
 $ curl -vI https://plumfeed.com
 </code></pre></div><p><a href="http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt">http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -des3 -out server.pass.key <span style="color:#ae81ff">2048</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -des3 -out server.pass.key <span style="color:#ae81ff">2048</span>
 $ openssl rsa -in server.pass.key -out server.key
 $ openssl req -nodes -new -key server.key -out server.csr
 </code></pre></div><p><a href="https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate">https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate</a></p>
 <p><a href="https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos#feedback">https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos#feedback</a></p>
 <h3 id="lets-encrypt--dmathieusabayon">Let’s encrypt + dmathieu/sabayon</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dmathieu/sabayon.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dmathieu/sabayon.git
 $ cd sabayon
 $ heroku create letsencrypt-app-for-&lt;name&gt;
 $ git push heroku
 </code></pre></div><p><a href="https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/">https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/</a></p>
 <h3 id="有料で証明書を自動更新する方法">有料で証明書を自動更新する方法</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># こちらはweb=hobbyです, 有料設定なので気をつけてください</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># こちらはweb=hobbyです, 有料設定なので気をつけてください</span>
 $ heroku ps:resize web<span style="color:#f92672">=</span>hobby
 $ heroku certs:auto:enable
 </code></pre></div><p><a href="https://devcenter.heroku.com/articles/automated-certificate-management">https://devcenter.heroku.com/articles/automated-certificate-management</a></p>
@@ -743,11 +743,11 @@ $ heroku certs:auto:enable
 <h3 id="enable-streaming-on-heroku">Enable streaming on heroku</h3>
 <p>PR : <a href="https://github.com/tootsuite/mastodon/pull/5158">https://github.com/tootsuite/mastodon/pull/5158</a></p>
 <p>issue : <a href="https://github.com/tootsuite/mastodon/issues/1119">https://github.com/tootsuite/mastodon/issues/1119</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set NODE_ENV<span style="color:#f92672">=</span>production -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set NODE_ENV<span style="color:#f92672">=</span>production -a $app
 $ heroku config:set PGSSLMODE<span style="color:#f92672">=</span>require -a $app
 </code></pre></div><h3 id="sub-domain">Sub Domain</h3>
 <p>サブドメインに設定する場合は、<code>WEB_DOMAIN</code>を使用すると、<code>@user@sub.main.com</code>のような形ではなく<code>@user@main.com</code>という形でアドレスがサブを除くトップドメインを利用できる形になります。但し、<a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md">ドキュメント</a>にもあるように様々な問題を発生させます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set WEB_DOMAIN<span style="color:#f92672">=</span>mstdn.syui.cf -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set WEB_DOMAIN<span style="color:#f92672">=</span>mstdn.syui.cf -a $app
 $ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>syui.cf -a $app
 
 $ curl -O mstdn.syui.cf/.well-known/host-meta
@@ -762,7 +762,7 @@ $ git push -u origin gh-pages
 </code></pre></div><blockquote>
 <p>.well-known/host-meta</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
 &lt;<span style="color:#f92672">XRD</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://docs.oasis-open.org/ns/xri/xrd-1.0&#34;</span>&gt;
   &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lrdd&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application/xrd+xml&#34;</span> <span style="color:#a6e22e">template</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://mstdn.syui.cf/.well-known/webfinger?resource={uri}&#34;</span>/&gt;
 &lt;/<span style="color:#f92672">XRD</span>&gt;
@@ -790,7 +790,7 @@ $ git push -u origin gh-pages
 <h3 id="local_httpsfalse">LOCAL_HTTPS=false</h3>
 <p>現在の状況(不都合)をまとめます。これらが通知、リモートフォロー、TLが流れない問題に影響を及ぼしているかどうかは不明。個人的には無関係であり、db:reset, db:restoreなどの実行が影響したものだと考えていますが、複合的要因があるかもしれません。</p>
 <p>herokuがhobby以上でないと無料でSSL証明書を登録できませんので、LOCAL_HTTPS=falseにしています。これによって動作不良が起こる可能性を否定できません。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku certs:add fullchain.pem privkey.pem -a app --type sni
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku certs:add fullchain.pem privkey.pem -a app --type sni
  ▸    You need to be running on either Hobby or Professional dynos to be
  ▸    able to use SNI SSL.
 </code></pre></div><h3 id="streaming-not-working">Streaming not working</h3>
@@ -865,7 +865,7 @@ $ git push -u origin gh-pages
 <p>私は、AWS S3を使っていませんので、別途ストレージを用意する必要があります。</p>
 <p>例えば、ユーザーアイコンの扱いについてですが、これは基本的にRails側(Herokuの場合, /var/lib/mastodon/public-system)に保存されると思われます。Heroku Railsのストレージは定期的に再起動し、再起動されるとストレージに保存されたファイルを削除します。</p>
 <p>ここで<code>PAPERCLIP_ROOT_URL</code>などを使うことによって保存先を指定することができます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># インスタンス内で表示するaccounts/の保存先を指定する</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># インスタンス内で表示するaccounts/の保存先を指定する</span>
 $ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
 <span style="color:#75715e"># 他インスタンスで参照されるaccounts/の保存先を指定する</span>
 $ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
@@ -873,14 +873,14 @@ $ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/
 <p><code>PAPERCLIP_ROOT_URL</code>を設定することでこれが変更されます。</p>
 <p><code>heroku run pwd -a $app</code> : <code>/app/public</code></p>
 <p><code>root</code> : <code>/home/mastodon/live/public</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose run --rm web rails mastodon:media:remove_remote NUM_DAYS<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose run --rm web rails mastodon:media:remove_remote NUM_DAYS<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 <span style="color:#75715e"># 画像を再ダウンロードし、画像URLも変更される</span>
 $ docker-compose run --rm web rails mastodon:media:redownload_avatars
 </code></pre></div><p>ここで、APIを使ってデフォルトと設定後のユーザー情報を引き出してみました。</p>
 <blockquote>
 <p>デフォルトの設定</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
   <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
   <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
@@ -900,7 +900,7 @@ $ docker-compose run --rm web rails mastodon:media:redownload_avatars
 </code></pre></div><blockquote>
 <p>PAPERCLIP_ROOT_PATH=/app/public, PAPERCLIP_ROOT_ROOT=https://syui.gitlab.io/img/mastodon</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
   <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
   <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
@@ -924,7 +924,7 @@ $ docker-compose run --rm web rails mastodon:media:redownload_avatars
 }
 </code></pre></div><p>一度、他インスタンスで画像が認識, ダウンロードされてしまうとなかなかその設定が変更されません(情報によるとリモート時などに更新されるらしい)。<code>mastodon:daily</code>などが関係しているのかもしれませんが、よくわかっていません。</p>
 <p>私のインスタンスユーザーは他インスタンス上でアイコンが表示されなかった問題があったのですが、以下のコマンドでいけたような気がします。色々やってた時、タイミングよく<code>mastodon:daily</code>(他インスタンス上で)などが発動された可能性とかもあるので、まだ確定ではありませんが。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
 $ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
 </code></pre></div><p>私は画像URLを調べてGitLab Pagesの<code>/public/img/mastodon</code>にアップロードし、なおかつMastodonのリポジトリにある/publicにaccoutns/をコピーし、git push heroku masterします。</p>
 <p>example img url: <code>accounts/avatars/000/000/001/original/xxx.png</code></p>
@@ -941,7 +941,7 @@ $ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/
 <p>heroku deployをしてuser設定をする, アイコンなどを設定する</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LOCAL_DOMAIN<span style="color:#f92672">=</span>xxx.herokuapp.com
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LOCAL_DOMAIN<span style="color:#f92672">=</span>xxx.herokuapp.com
 LOCAL_HTTPS<span style="color:#f92672">=</span>false
 
 $ app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;heroku app name&#34;</span>
@@ -950,7 +950,7 @@ $ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</spa
 </code></pre></div><ul>
 <li>envを変更して、updateする, 画像アイコンなどのURLはページからコピーしておく(同じディレクトリ構造でPAPERCLIP_ROOT_URL, PAPERCLIP_ROOT_PATHに置くため)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
 $ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
 
 $ cp -rf accounts mastodn/public/
@@ -969,7 +969,7 @@ $ heroku ps:restart -a $app
 </code></pre></div><ul>
 <li>cloudflareで以下の構成で設定する</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">DNS : syui.cf xxx.herokuapp.com
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">DNS : syui.cf xxx.herokuapp.com
 DNS : www xxx.xx.herokudns.com
 SSL : Flexible
 	HTTP Strict Transport Security <span style="color:#f92672">(</span>HSTS<span style="color:#f92672">)</span>
@@ -989,7 +989,7 @@ Firewall :
 <p>現在、画像ファイルの保存、読み込みを行うサーバーにgitlab.io(具体的には、GitLab Pages)を利用しています。</p>
 <p>しかし、このサーバーは反応が遅いので、できれば、GitHubの方に移行するか、若しくはアップロードや管理がしやすい他のサーバーに移行することを考えています。</p>
 <p>どうやってアップロードするのかというと、これは手動(自動化は可能)になるのですが、以下の方法が最も適切です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">host_meta<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.well-known//webfinger?resource&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">host_meta<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.well-known//webfinger?resource&#34;</span>
 
 surl<span style="color:#f92672">=</span>$protocol://$host/$api_url/accounts/1/followers
 sjson<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL $surl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">`</span>
@@ -1048,7 +1048,7 @@ gn<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <
 <p>しかし、このサイレント(silence)は一括して実行するコマンドがありません。管理者画面で操作するしかなさそうな感じなので、そのあたりが辛い。</p>
 <h2 id="keybaseio">keybase.io</h2>
 <p>この度、keybase.ioでsyui.cfのドメインを認証しました。管理者の場合はドキュメントに従ってファイルをアップロードするわけですが、ユーザーの場合は以下のように署名メッセージをtootすればいいでしょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ keybase sign -m <span style="color:#e6db74">&#34;Hi! I&#39;m @syui@syui.cf on Mastodon.&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ keybase sign -m <span style="color:#e6db74">&#34;Hi! I&#39;m @syui@syui.cf on Mastodon.&#34;</span>
 $ echo <span style="color:#e6db74">&#34;BEGIN KEYBASE SALTPACK SIGNED MESSAGE. kXR7VktZdyH7rvq v5weRa0zkUoNUqZ OqTECTjU1QiHAv4 xzoy3uHNorgXQOG 8NRRqG1wSjpk1ty ibQ3OlfRNMpV1Cf badGHr1vJQZbAuE KVGaeoWXBTeOxLk gu1tp0ukOw2Xkg5 KdKa0J90MTq7C5J LeEdPwW9j1LFKa8 59LLeCUIq6kBIki HhsAMggwl33bcy8 hlNaQLwskpC98fi Yhb4C0iqjFXx9uI NAj6QuM. END KEYBASE SALTPACK SIGNED MESSAGE.&#34;</span> | keybase verify
 </code></pre></div><h2 id="dbresetの弊害">db:resetの弊害</h2>
 <blockquote>
@@ -1056,7 +1056,7 @@ $ echo <span style="color:#e6db74">&#34;BEGIN KEYBASE SALTPACK SIGNED MESSAGE. k
 </blockquote>
 <p>一旦、db:resetしてアカウントを作成し直すと通知などが以前接続していた先に届かなくなります。つまり、やり取りができなくなるということですが、これを回避する方法が分かりません。</p>
 <p>db:reset前の<code>generate_vapid_key</code>を保存しておいて、これを使用することでもしかしたらやり取りができるようになるかもしれません。(結論として無理でした)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
 $ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
 </code></pre></div><p>その他、<code>SECRET_KEY_BASE</code>, <code>PAPERCLIP_SECRET</code>や<code>PROCESS_SCHEDULER_URL</code>, <code>OTP_SECRET</code>なるものがあります。これらを保存しておいて、作り直す際は、これらを使用することで、もしかしたら他インスタンスとの接続において以前の状態を復元できるかもしれません。</p>
 <p>ここで特に重要になりそうなのが<code>SECRET_KEY_BASE</code>, <code>PAPERCLIP_SECRET</code>, <code>OTP_SECRET</code> ,<code>VAPID_PRIVATE_KEY</code>, <code>VAPID_PUBLIC_KEY</code>です。</p>
@@ -1078,7 +1078,7 @@ $ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX
 <p>間を置いてやり取り可能になっているというのは、期限が切れたものを再取得する際に更新される情報が鍵なのかもしれません。つまり、dailyやsidekiqで期限切れを起こさない限り以前のインスタンス接続情報が有効になるので、新しく作った同じアドレスのアカウントではやり取りができないということです。一度期限切れを起こすことで、初めてやり取りが可能になるのかもしれません。あと、復活させるまでアドレスは完全にない状態で404でした。その辺も関係してくるのだろうか。</p>
 <p><a href="http://cryks.hateblo.jp/entry/2017/04/18/125351">http://cryks.hateblo.jp/entry/2017/04/18/125351</a></p>
 <h3 id="とりあえず実行したコマンド一覧">とりあえず実行したコマンド一覧</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">heroku run rake db:migrate -a $app
 heroku run rake db:seed -a $app
 heroku run rake assets:precompile -a $app
 heroku run rake mastodon:daily -a $app
@@ -1090,7 +1090,7 @@ heroku run rake mastodon:feeds:build -a $app
 heroku repo:purge_cache -a $app
 heroku ps:restart -a $app
 </code></pre></div><h3 id="とりあえずsidekiqで色々と手動実行する">とりあえずsidekiqで色々と手動実行する</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 管理 -&gt; sidekiq</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 管理 -&gt; sidekiq</span>
 <span style="color:#75715e"># heroku run rake mastodon:push:refresh -a $app</span>
 <span style="color:#75715e"># スケジュールに設定されている項目を手動実行してみます</span>
 </code></pre></div><ul>
@@ -1105,7 +1105,7 @@ heroku ps:restart -a $app
 </li>
 </ul>
 <h3 id="cannot-run-more-than-1-free-size-dynos">Cannot run more than 1 Free size dynos.</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
 Cannot run more than <span style="color:#ae81ff">1</span> Free size dynos. 
 
 $ git status

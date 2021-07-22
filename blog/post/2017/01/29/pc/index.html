@@ -128,7 +128,7 @@
 <p>それぞれの事案に対処できるかどうかわからないけど、nasneなHDDが故障しているケースが多いのでそれに対する一般的な処置について書きます。十分調査した上で開始してください。ここに書いてあることはあくまで参考程度にし、理解した上で実行してください。</p>
 <p>まず分解して、HDDを取り出します。nasneの構成は<code>sdb1:ext3(boot), sdb2:ext3, sdb3:xfs</code>です。システムがHDD(sdb1,2)にはいっており、sdb3がユーザー領域でフォーマットしてもかまわない領域だと考えられます。</p>
 <p>とりあえずバックアップした後に色々やります(私のケースでは主に新しいHDDに換装)。私のケースではHDDが死にかけているためバックアップが非常に困難(時間がかかる)。この場合、エラーがsys1,2にクリティカルヒットし、かつそれが起動に必要なものであり修復できない場合、多分ですがリストアしてもnasneが起動できないかもしれません。なので、クリティカルしてないことを祈るしかない&hellip;。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo fdisk -l
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo fdisk -l
 
 <span style="color:#75715e"># バックアップ</span>
 $ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb of<span style="color:#f92672">=</span>~/nasne.img bs<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">2623488</span>

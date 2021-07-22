@@ -125,7 +125,7 @@
 													<h2>arch-pacaur</h2>
 													
        			 		<p>AURヘルパーには<code>pacaur</code>がいいと言う情報を得て移行しましたので、メモ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># falconindy/cower の人のキーを登録</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># falconindy/cower の人のキーを登録</span>
 $ git clone https://github.com/falconindy/cower
 $ cd cower
 $ git log --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;%an %ae&#34;</span> | sort | uniq | grep <span style="color:#e6db74">&#34;Dave Reisner&#34;</span>
@@ -136,7 +136,7 @@ $ gpg --recv-keys XXXXXXXXX
 <span style="color:#75715e"># インストール</span>
 $ yaourt -S pacaur
 </code></pre></div><p>それ以外ではリポジトリから直接持ってくるというのでも良さそうですね。これだとアップデートとか困難になりそうですが。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/falconindy/cower
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/falconindy/cower
 $ cd cower
 $ echo $PATH
 $ cp pacaur /usr/local/bin

@@ -127,7 +127,7 @@
        			 		<h2 id="gitバージョンアップでrebaseでエラーが出るようになった">gitバージョンアップでrebaseでエラーが出るようになった</h2>
 <p>権限エラーっぽいのが出るようになった時の話。</p>
 <p>例えば、コミットログを一括削除するには以下のような感じいける。面倒になった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git checkout --orphan newroot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git checkout --orphan newroot
 $ git rm -rf .
 $ git commit --allow-empty -m <span style="color:#e6db74">&#39;root commit&#39;</span>
 $ git rebase --onto newroot --root master

@@ -132,14 +132,14 @@
 <p><a href="https://ubiteku.oinker.me/2016/11/28/elixir-phoenix-and-elm/">https://ubiteku.oinker.me/2016/11/28/elixir-phoenix-and-elm/</a></p>
 <p><a href="https://github.com/cotoami/cotoami">https://github.com/cotoami/cotoami</a></p>
 <p>これを見る限りでは<code>cotoami</code>というプロジェクトがあって、何やらmd共有とチャットサービスみたいなものが実験的に稼働しているみたいな感じなのかな。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/cotoami/cotoami
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/cotoami/cotoami
 $ cd cotoami
 $ npm i
 $ mix deps.get
 $ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
 $ mix phoenix.server
 </code></pre></div><p>それぞれのバージョン。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mix -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mix -v
 Mix 1.5.0-dev
 
 $ mix phoenix.new -v
@@ -162,14 +162,14 @@ $ elm -v
 <blockquote>
 <p>FATAL: lock file &ldquo;postmaster.pid&rdquo; already exists</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm /usr/local/var/postgres/postmaster.pid
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm /usr/local/var/postgres/postmaster.pid
 $ launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 $ ps aux | grep postgres
 </code></pre></div><p>以下はプロセスのKILLのワンライナー</p>
 <pre><code>$ ps aux | grep postgres | sed 's/  //g' | cut -d ' ' -f 2|sed '1d' | xargs kill 
 </code></pre><p>起動など。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ initdb /usr/local/var/postgres -E utf8
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ initdb /usr/local/var/postgres -E utf8
 $ pg_ctl -D /usr/local/var/postgres -l logfile start
 $ createuser -P -d postgres
 $ psql -l

@@ -125,7 +125,7 @@
 													<h2>kubernetesを使ってみた</h2>
 													
        			 		<h2 id="kubernetesを使ってみた">kubernetesを使ってみた</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.6.0/minikube-darwin-amd64 <span style="color:#f92672">&amp;&amp;</span> chmod +x minikube <span style="color:#f92672">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.6.0/minikube-darwin-amd64 <span style="color:#f92672">&amp;&amp;</span> chmod +x minikube <span style="color:#f92672">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
 $ curl -k -o kubectl https://kuar.io/darwin/kubectl <span style="color:#f92672">&amp;&amp;</span> chmod +x kubectl <span style="color:#f92672">&amp;&amp;</span> sudo mv kubectl /usr/local/bin/
 $ minikube start
 </code></pre></div><blockquote>
@@ -147,7 +147,7 @@ spec:
       image: django
       ports:
         - containerPort: 8000
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create -f ./redis-django.yaml
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create -f ./redis-django.yaml
 $ kubectl get pods
 $ kubectl get nodes
 $ eval <span style="color:#66d9ef">$(</span>minikube docker-env<span style="color:#66d9ef">)</span>

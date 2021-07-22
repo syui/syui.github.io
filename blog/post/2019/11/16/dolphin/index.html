@@ -128,7 +128,7 @@
 <p>今回、misskeyというmastodonに似たプロジェクトがあるのですが、その姉妹プロジェクトであるdolphinがシングルユーザー、つまり、お一人様インスタンスと呼ばれるサーバーに特化しているようなので、herokuで立ててみました。</p>
 <p>以前、misskeyを触ったこともあり、ハマりどころは特になし。</p>
 <p><a href="https://github.com/syuilo/dolphin">https://github.com/syuilo/dolphin</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone -b master git://github.com/syuilo/dolphin.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone -b master git://github.com/syuilo/dolphin.git
 $ cd dolphin
 $ cp .config/example.yml .config/default.yml
 $ npm i
@@ -141,7 +141,7 @@ $ heroku addons:create heroku-postgresql:hobby-dev --version<span style="color:#
 $ heroku addons:create heroku-redis:hobby-dev
 $ heroku config
 $ vim .config/default.yml
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.config/default.yml" data-lang="yml:.config/default.yml"><span style="color:#75715e"># postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.config/default.yml" data-lang="yml:.config/default.yml"><span style="color:#75715e"># postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
 <span style="color:#75715e"># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
   <span style="color:#f92672">disableCache</span>: <span style="color:#66d9ef">true</span>
 <span style="color:#f92672">drive</span>:
@@ -149,11 +149,11 @@ $ vim .config/default.yml
 <span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
 <span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
 <span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;aid&#39;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">  <span style="color:#e6db74">&#34;engines&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">  <span style="color:#e6db74">&#34;engines&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
     <span style="color:#f92672">&#34;node&#34;</span>: <span style="color:#e6db74">&#34;11.7.0&#34;</span>,
     <span style="color:#f92672">&#34;npm&#34;</span>: <span style="color:#e6db74">&#34;6.13.0&#34;</span>
   }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim Procfile
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim Procfile
 web: NODE_ENV<span style="color:#f92672">=</span>production npm run init <span style="color:#f92672">&amp;&amp;</span> npm start
 
 $ cat ~/.gitignore

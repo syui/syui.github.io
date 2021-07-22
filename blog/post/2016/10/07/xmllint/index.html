@@ -126,7 +126,7 @@
 													
        			 		<p>Web RSSからデータを取るには<code>xmllint</code>などを使えば便利ですが、使いこなすにはちょっとしたコツが必要です。</p>
 <p>主に以下のオプション, Exampleを知れば、そこそこ使えると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -sL https://syui.gitlab.io/blog/index.xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -sL https://syui.gitlab.io/blog/index.xml
 $ curl -sL !$ | xmllint --format - &gt;! index.xml
 $ echo <span style="color:#e6db74">&#39;cat /rss/channel/item[0]/title&#39;</span> | xmllint --shell index.xml
 $ xmllint --xpath <span style="color:#e6db74">&#39;/rss/channel/item[1]/title/text()&#39;</span> index.xml

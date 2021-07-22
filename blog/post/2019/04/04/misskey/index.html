@@ -126,7 +126,7 @@
 													
        			 		<p><a href="https://github.com/syuilo/misskey">misskey</a> on <a href="https://heroku.com">heroku</a>.</p>
 <p><code>misskey</code>という分散snsをherokuというpaasで動かしてみた記録です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">remote:        * Stack heroku-18
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">remote:        * Stack heroku-18
 
 remote:        NPM_CONFIG_LOGLEVEL<span style="color:#f92672">=</span>error
 remote:        NODE_ENV<span style="color:#f92672">=</span>production
@@ -140,7 +140,7 @@ remote:        Using default npm version: 6.4.1
 remote:        &gt; misskey@10.98.3 install 
 </code></pre></div><p>misskeyをherokuで動作させるポイントとしては、<code>.config/default.yml</code>と<code>heroku $PORT</code>です。</p>
 <p>herokuは、deployする度にPORTが変動し、その値は、PORTの環境変数に入っています。しかし、misskeyのsource codeはそれに対応していないようなので、少しだけcodeをPaaS向きに書き換える必要があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syuilo/misskey
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syuilo/misskey
 $ cd !$:t
 
 <span style="color:#75715e"># git reset --hard 551d1b7f8624d2e9c19a99dd80aaf49f096ce836</span>
@@ -169,7 +169,7 @@ $ vim default.yml
 </code></pre></div><blockquote>
 <p>default.yml</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># Final accessible URL seen by a user.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># Final accessible URL seen by a user.</span>
 <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://$APP_NAME.herokuapp.com</span>
 <span style="color:#75715e">#url: http://localhost</span>
 <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
@@ -195,7 +195,7 @@ $ vim default.yml
 <span style="color:#f92672">autoAdmin</span>: <span style="color:#66d9ef">true</span>
 <span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
 <span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># repo rootに移動</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># repo rootに移動</span>
 $ cd ..
 
 $ heroku config

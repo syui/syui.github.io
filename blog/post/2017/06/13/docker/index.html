@@ -125,7 +125,7 @@
 													<h2>windows-virtualbox-docker</h2>
 													
        			 		<p>現在、Windows上で<code>shell:startup</code>してバックグラウンドで起動したVirtualBoxのイメージをSSHしているんだけど、そこでDockerを動かそうとしてエラーが出る。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">standard_init_linux.go:178: exec user process caused <span style="color:#e6db74">&#34;exec format error&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">standard_init_linux.go:178: exec user process caused <span style="color:#e6db74">&#34;exec format error&#34;</span>
 </code></pre></div><p>Dockerは32bitに対応していないという記述を見つけた。</p>
 <p><a href="https://github.com/moby/moby/issues/7924">https://github.com/moby/moby/issues/7924</a></p>
 

@@ -130,7 +130,7 @@
 <p>スクリプトの読み込みは<code>async</code>を付けます。</p>
 <p>HTMLを最適化するために<code>html-minifier</code>を使います。</p>
 <p>以下のような感じでビルドすればよいでしょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
 
 <span style="color:#f92672">before_script</span>:
   - <span style="color:#ae81ff">apt-get update -qq &amp;&amp; apt-get install -y -qq git zsh curl</span>
@@ -153,7 +153,7 @@
 <blockquote>
 <p>bin/html-minifier.sh</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/zsh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/zsh
 </span><span style="color:#75715e"></span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h:h<span style="color:#e6db74">}</span>
 h<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
 
@@ -162,7 +162,7 @@ $d/node_modules/.bin/html-minifier -c $h/html-minifier.conf $h/index.html -o $d/
 </code></pre></div><blockquote>
 <p>bin/html-minifier.conf</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;removeComments&#34;</span>: <span style="color:#66d9ef">true</span>,
   <span style="color:#f92672">&#34;removeCommentsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,
   <span style="color:#f92672">&#34;removeCDATASectionsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,

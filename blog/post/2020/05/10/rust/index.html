@@ -131,7 +131,7 @@
 <p>rustで作ったcli tool(そのまんま) :</p>
 <p><a href="https://github.com/syui/udrs">https://github.com/syui/udrs</a></p>
 <p>travis-ciでgithub-releasesにupload</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i travis
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i travis
 $ travis login
 $ travis encrypt $GITHUB_ACCESS_TOKEN
 
@@ -140,7 +140,7 @@ deploy:
   api_key:
     secure: <span style="color:#e6db74">&#34;xxx&#34;</span>
 </code></pre></div><p>makefileでtaskの自動化</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">LOG_LEVEL := debug</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">LOG_LEVEL := debug</span>
 <span style="color:#ae81ff">APP_ARGS  := &#34;foo%20bar&#34;</span>
 <span style="color:#ae81ff">export RUST_LOG=url=$(LOG_LEVEL)</span>
 <span style="color:#ae81ff">PREFIX := $(HOME)/.cargo</span>
@@ -156,12 +156,12 @@ deploy:
 
 <span style="color:#f92672">install</span>:
 	<span style="color:#ae81ff">cargo install --force --root $(PREFIX) --path .</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make test
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make test
 </code></pre></div><p>base64のencodeを追加してみることにしました。cliは<code>seahorse</code>がおすすめです。</p>
 <p><a href="https://qiita.com/KeisukeToyota/items/996a09b10c462ee94cc8">https://qiita.com/KeisukeToyota/items/996a09b10c462ee94cc8</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml"><span style="color:#a6e22e">base64</span> = <span style="color:#e6db74">&#34;0.9.2&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml"><span style="color:#a6e22e">base64</span> = <span style="color:#e6db74">&#34;0.9.2&#34;</span>
 <span style="color:#a6e22e">seahorse</span> = <span style="color:#e6db74">&#34;0.6.2&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
 <span style="color:#66d9ef">use</span> seahorse::{App, Command, Context};
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
@@ -184,7 +184,7 @@ deploy:
     <span style="color:#66d9ef">let</span> b64 <span style="color:#f92672">=</span> base64::encode(<span style="color:#f92672">&amp;</span>c.args[<span style="color:#ae81ff">0</span>]);
     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, b64);
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ udrs b64 <span style="color:#e6db74">&#34;hello&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ udrs b64 <span style="color:#e6db74">&#34;hello&#34;</span>
 </code></pre></div>
        			 		
 

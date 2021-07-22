@@ -125,10 +125,10 @@
 													<h2>archlinux-network-macbook</h2>
 													
        			 		<p>MacBookにインストールしたArchLinuxのネットワークの調子がここ最近おかしかったのですが、どうやらドライバのアップデートが来て直った模様。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S broadcom-wl-dkms
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S broadcom-wl-dkms
 $ sudo pacman -S linux-headers
 </code></pre></div><p>あと、色々触っているうちに<code>netctl</code>をやめて<code>ip</code>を使ったネットワーク設定などをやってみたり。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># デバイス名を自動設定する機能をOFFにする, これでeth0, wlan0になります</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># デバイス名を自動設定する機能をOFFにする, これでeth0, wlan0になります</span>
 $ sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
 
 <span style="color:#75715e"># ipの場合、通常こんな感じで接続します, netctlよりも相当に面倒です</span>

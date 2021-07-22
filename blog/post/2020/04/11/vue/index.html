@@ -130,14 +130,14 @@
 <h3 id="前提">前提</h3>
 <p>今回使用するのは、vue-cli4とhooperです。</p>
 <p>まず、vue-cli4を使えるようにします。最新を入れればいいですが、この情報が古くなった場合、4です。次に、hooperをpackage.jsonに追加します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global add @vue/cli
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global add @vue/cli
 $ vue create sample-vue-project
 $ cd sample-vue-project
 $ yarn add hooper
 
 $ cat package.json
 </code></pre></div><p>package.jsonはこんな感じです。コピーして、<code>yarn install</code>してもいいです。これで<code>yarn install</code>とかすると、依存関係がインストールできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">{
   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;sample-vue-project&#34;</span>,
   <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>,
   <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
@@ -183,14 +183,14 @@ $ cat package.json
 </code></pre></div><h3 id="vue">vue</h3>
 <p>まず、vueの使い方を簡単に説明します。</p>
 <p>vueは<code>src/main.js</code>と<code>src/App.vue</code>,<code>src/index.html</code>などを書いてbuildします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn serve
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn serve
 $ yarn build
 </code></pre></div><p>デフォルトでは、<code>dist</code>にファイルが置かれます。なお、root pathは<code>public</code>になっています。例えば、<code>https://example.com/path/to/img.png</code>を使いたければ、<code>public/path/to/img.png</code>にファイルを置いて、App.vueには<code>/path/to/img.png</code>と記述します。</p>
 <p>次に、vue-cliですが、env(環境変数)を使う際は、<code>.env</code>に<code>VUE_APP_XXX=10</code>などと書いて、App.vueなどには<code>process.env.VUE_APP_XXX</code>とすることで環境変数を使えます。</p>
 <h3 id="hooper">hooper</h3>
 <p><a href="https://baianat.github.io/hooper/">https://baianat.github.io/hooper/</a></p>
 <p>docsのexampleがわかりやすいですね。最小構成は以下です。大体わかると思いますが、オプションなども用意されていますので、そのあたりは後述します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="color:#75715e">// https://baianat.github.io/hooper/examples.html#default-example
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="color:#75715e">// https://baianat.github.io/hooper/examples.html#default-example
 </span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span>&gt;
     &lt;<span style="color:#f92672">slide</span>&gt;
@@ -218,7 +218,7 @@ $ yarn build
   }
 }
 &lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/mani.js" data-lang="js:src/mani.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/mani.js" data-lang="js:src/mani.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
 
 <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">productionTip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
@@ -228,7 +228,7 @@ $ yarn build
 }).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
 </code></pre></div><h4 id="hooperでの実装例">hooperでの実装例</h4>
 <p>私の場合は、画像をスライドさせているので以下のような感じになりました。後で個別に解説します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
      &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
@@ -289,7 +289,7 @@ $ yarn build
 &lt;/<span style="color:#f92672">style</span>&gt;
 </code></pre></div><h4 id="hooperのslideをloopで書く">hooperのslideをloopで書く</h4>
 <p>わざわざslideを一つずつ用意するのは面倒ですので、通常はfor,bindなどでloop処理を書くことになると思います。あるいは配列を持ってくるなど。以下は必要な部分の記述です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
      &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
@@ -314,7 +314,7 @@ $ yarn build
 <p>v-forは<code>(n,index) of products</code>のように書きますが、(n,index)の部分は、<code>n of products</code>でもいいです。indexにも数が入ってます。ここで<code>n,</code>に続く記述はvueのオプション(vueが用意する変数)のようなものです。</p>
 <h4 id="hooperのoption">hooperのoption</h4>
 <p>hooperには様々なbarなどが用意されています。基本的にはこんな感じで使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     <span style="color:#75715e">// 上の全体位置を示すバー
 </span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
@@ -335,7 +335,7 @@ $ yarn build
 </code></pre></div><h4 id="hooperのslideにて指定コンテンツを使う">hooperのslideにて指定コンテンツを使う</h4>
 <p>この場合のスライド出力は、0 - Foo, 1 - Barとなります。<code>data{items}</code>を変更すればいいでしょう。vueのexampleを参考にしましょう。</p>
 <p><a href="https://jp.vuejs.org/v2/guide/list.html">https://jp.vuejs.org/v2/guide/list.html</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
   &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
     &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(item, index) in items&#34;</span>&gt;
     {{ <span style="color:#a6e22e">index</span> }} <span style="color:#960050;background-color:#1e0010">-</span> {{ <span style="color:#a6e22e">item.message</span> }}
@@ -369,7 +369,7 @@ $ yarn build
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h3 id="gh-pages--hugoとの連携">gh-pages + hugoとの連携</h3>
 <p>build後のファイルはデフォルトでハッシュ値をつけるので、<code>vue.config.js</code>で固定したあとに、gh-actionsを書いていきます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>,
@@ -384,14 +384,14 @@ $ yarn build
   },
 }
 </code></pre></div><p>私の場合は、非常にシンプルに、こんな感じになります。これはhugoを使っている場合で少し特殊ですが、ようは、VUE_APP_XXXに自動で画像ファイル数を入れる処理を書いて、build後に出力される必要なファイルを必要な場所にコピーしています。もちろん、buildオプションを指定して直接置くようにしてもいいです。その場合、コピー処理は不要です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml">      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml">      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">           echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` &gt; .env
 </span><span style="color:#e6db74">           yarn build
 </span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/manga
 </span><span style="color:#e6db74">           cp -rf ./dist/*.css ./static/manga
 </span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/manga</span>           
 </code></pre></div><p>私は、hugoを使っているので、以下のように構成しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:content/manga.md" data-lang="md:content/manga.md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:content/manga.md" data-lang="md:content/manga.md">---
 title: &#34;yui | MANGA&#34;
 type: manga
 page_image : &#34;https://syui.cf/icon/ai.png&#34;
@@ -401,7 +401,7 @@ description: &#34;惑星で暮らすドラゴンと少女のお話&#34;
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/manga/single.html" data-lang="html:layouts/manga/single.html">{{ partial &#34;head-blog.html&#34; . }}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/manga/single.html" data-lang="html:layouts/manga/single.html">{{ partial &#34;head-blog.html&#34; . }}
 {{ partial &#34;header.html&#34; . }}
 {{ partial &#34;manga-css.html&#34; . }}
 		&lt;<span style="color:#f92672">main</span>&gt;
@@ -411,7 +411,7 @@ description: &#34;惑星で暮らすドラゴンと少女のお話&#34;
 		{{ partial &#34;footer.html&#34; . }}
 	&lt;/<span style="color:#f92672">body</span>&gt;
 &lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/partials/manga-css.html" data-lang="html:layouts/partials/manga-css.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/partials/manga-css.html" data-lang="html:layouts/partials/manga-css.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;

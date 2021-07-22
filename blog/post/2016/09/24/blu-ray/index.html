@@ -126,13 +126,13 @@
 													
        			 		<h2 id="blu-rayをマウントしたかったけどできなかった">Blu-rayをマウントしたかったけどできなかった</h2>
 <p>ドライブがBlu-rayに対応している場合、通常は以下のようにディスク・ドライブ<code>/dev/sr0</code>をマウントすればいいだけなんだけど、何故かマウントされない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mkdir -p /mnt/tmp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mkdir -p /mnt/tmp
 $ sudo mount -o loop,ro /dev/srX /mnt/tmp
 or
 $ sudo mount -t udf /dev/srX /mnt/tmp
 </code></pre></div><p>また、makemkvと言うものがあるらしく、そちらはGUIなので分かりやすい。使ってみた所、やっぱり読み込まない。</p>
 <p>なんかパッケージが必要なのかと思い、インストールするもすべては無駄だった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S libaacs libbluray 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S libaacs libbluray 
 $ cd ~/.config/aacs/ <span style="color:#f92672">&amp;&amp;</span> wget http://vlc-bluray.whoknowsmy.name/files/KEYDB.cfg
 $ sudo mount /dev/sr0 /media/blurays
 </code></pre></div><p>vukも試したけど無理。</p>

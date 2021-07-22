@@ -128,7 +128,7 @@
 <p>portというのは、ネットワークの通信番号のことで、通常はこの番号を指定して通信のやり取りが行われる。firewallは、どの番号を閉じ、どの番号を開けるのか指定できたりする。</p>
 <p>で、nmapでscanすると、どのportが開いてるのかを調べられたりするんですけど、不要なportは閉じておいたほうがいいし、backdoorなどが設置されてる場合、管理者に覚えがないportが勝手に開けられてたりすることがある。</p>
 <p>この前、macをnmapしてみると、こんな感じだった。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nmap localhost
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nmap localhost
 PORT      STATE SERVICE
 111/tcp   open  rpcbind
 631/tcp   open  ipp
@@ -142,7 +142,7 @@ $ sudo nmap -sU localhost
 <p>具体的には、macは<code>/System/Library/{LaunchDaemons,LaunchAgents}</code>で起動プロセスが設定されてるらしい。ちなみに、管理者とユーザーでは異なるprocが起動するので、両方チェックする必要がある。</p>
 <p>使わないアプリが勝手に起動し、特定のportを開けている現状は望ましくない。この辺は商用OS?なので、archlinuxなどとは違い、面倒くささがあるなと思った。自分でそういったprocをkillしていかないといけないわけですね。</p>
 <p>procについて調べるには以下のようなコマンドでやる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsof -i tcp:49163
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsof -i tcp:49163
 rapportd <span style="color:#ae81ff">402</span> syui    3u  xxxx      TCP *:49158 <span style="color:#f92672">(</span>LISTEN<span style="color:#f92672">)</span>
 <span style="color:#75715e"># proc 402をkill</span>
 $ lsof -p <span style="color:#ae81ff">402</span>
@@ -153,7 +153,7 @@ $ otool -L /usr/libexec/rapportd
 $ launchctl list | grep <span style="color:#ae81ff">402</span>
 $ launchctl stop com.apple.rapportd
 </code></pre></div><p>macは、こんな感じのコマンドでprocをdisable, stopできる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ launchctl unload -w /System/Library/LaunchAgents/com.apple.rapportd-user.plist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ launchctl unload -w /System/Library/LaunchAgents/com.apple.rapportd-user.plist
 $ launchctl stop com.apple.rapportd
 
 .
@@ -169,7 +169,7 @@ $ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder
 <blockquote>
 <p>~/.config/karabiner/karabiner.json</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;rules&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;rules&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
                     {
                         <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+1でFinderを開く&#34;</span>,
                         <span style="color:#f92672">&#34;manipulators&#34;</span>: [

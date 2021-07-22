@@ -127,7 +127,7 @@
        			 		<h2 id="phh-superuserに切り替えたらarch-linuxが起動しなくなった">PHH-SuperUserに切り替えたらArch Linuxが起動しなくなった</h2>
 <p>理由はSELinux関連かと思ったら違った。<code>mount -t ext4</code>が上手く実行されない。</p>
 <p>まず、エラーの内容から。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
 <span style="color:#75715e"># cd /magisk/local/system/xbin</span>
 <span style="color:#75715e"># ./busybox losetup -d /dev/block/loop255</span>
 <span style="color:#75715e"># ./busybox losetup /dev/block/loop255 /sdcard/arch/arch.img</span>

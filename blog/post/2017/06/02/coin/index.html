@@ -130,10 +130,10 @@
 <p>補足を述べておくと鉱山というのを利用して、マイニングの効率をあげます。</p>
 <p><a href="https://www.zcashcommunity.com/mining/mining-pools/">https://www.zcashcommunity.com/mining/mining-pools/</a></p>
 <p>基本的には、Linux(CPU)なら以下のような感じでマイニングできるというようになっています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nheqminer -l example.com:3333 -u <span style="color:#e6db74">${</span>T_ADDR<span style="color:#e6db74">}</span>.worker1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nheqminer -l example.com:3333 -u <span style="color:#e6db74">${</span>T_ADDR<span style="color:#e6db74">}</span>.worker1
 </code></pre></div><p><code>nheqminer</code>自体のインストールが非常に面倒です。私は、poolに<code>suprnova.cc</code>を利用することにしました。</p>
 <p>基本的にOSの準備が整えば、特に<code>cuda(libcuda.so)</code>が必要になりますが、それが終われば以下のコマンドで動作します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -Syu nvidia-304xx-utils --noconfirm
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -Syu nvidia-304xx-utils --noconfirm
 $ sudo docker pull syui/docker-nheqminer
 $ sudo docker run -v /usr/lib/nvidia/libcuda.so:/usr/lib/x86_64-linux-gnu/libcuda.so -v /usr/lib/nvidia/libcuda.so.1:/usr/lib/x86_64-linux-gnu/libcuda.so.1 -it $IMAGE_NAME nheqminer -l zec.suprnova.cc:2142 -u <span style="color:#e6db74">${</span>Z_USER<span style="color:#e6db74">}</span>.<span style="color:#e6db74">${</span>Z_WORK<span style="color:#e6db74">}</span> -p <span style="color:#e6db74">${</span>Z_PASS<span style="color:#e6db74">}</span> -t <span style="color:#e6db74">${</span>Z_CORE<span style="color:#e6db74">}</span>
 </code></pre></div><p>現時点ではArch Linuxとmac上で動作しました。macは<code>cuda</code>の必要なファイルを準備するのが面倒ですが。macの場合は、<code>libcuda.so.1</code>をDocker Archなどから持ってくればOKです。</p>

@@ -129,11 +129,11 @@
 <p>ただ、最近は、rustが人気みたい。理由としては、高速で、サイズが小さく、安全であることが挙げられます。デメリットはコンパイルが遅いこと。</p>
 <p>しかし、rustも非常に魅力なので、<code>base64 {encode,decode}</code>などをcli tool化しながら、rustを学んでいこうという記事です。</p>
 <p>まず、テンプレを作成します。<code>src/main.rs</code>が本体になります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo new udrs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo new udrs
 $ cd udrs
 $ vim src/main.rs
 </code></pre></div><p>ここで、cli optionなどを書きやすくするframeworkの<a href="https://github.com/ksk001100/seahorse">seahorse</a>を導入します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
 <span style="color:#66d9ef">use</span> seahorse::{App, Command, Context};
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
@@ -156,15 +156,15 @@ $ vim src/main.rs
 	<span style="color:#66d9ef">let</span> t <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello world.&#34;</span>;
 	println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>,t);
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml">[<span style="color:#a6e22e">dependencies</span>]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml">[<span style="color:#a6e22e">dependencies</span>]
 <span style="color:#a6e22e">seahorse</span> = <span style="color:#e6db74">&#34;0.7.1&#34;</span>
 </code></pre></div><p>では、実行してみましょう。ここでは、オプションを<code>t</code>で指定しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run t
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run t
 hello world.
 </code></pre></div><p>次に、引数をbase64でencode, decodeするオプションを実装してみようと思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml">[<span style="color:#a6e22e">dependencies</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:Cargo.toml" data-lang="toml:Cargo.toml">[<span style="color:#a6e22e">dependencies</span>]
 <span style="color:#a6e22e">base64</span> = <span style="color:#e6db74">&#34;0.9.2&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
 <span style="color:#66d9ef">use</span> seahorse::{App, Command, Context};
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
@@ -214,14 +214,14 @@ hello world.
 }
 
 </code></pre></div><p>これで、<code>e,d</code>オプションが追加されました。base64でencodeしてみましょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run e <span style="color:#e6db74">&#34;hello world.&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run e <span style="color:#e6db74">&#34;hello world.&#34;</span>
 aGVsbG8gd29ybGQu
 </code></pre></div><p>次は、decodeしてみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run d <span style="color:#e6db74">&#34;aGVsbG8gd29ybGQu&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo run d <span style="color:#e6db74">&#34;aGVsbG8gd29ybGQu&#34;</span>
 hello world.
 </code></pre></div><p>うまくいきました。</p>
 <p>testも追加してみましょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs">...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs">...
 
 <span style="color:#75715e">#[cfg(test)]</span>
 <span style="color:#66d9ef">mod</span> tests {
@@ -232,10 +232,10 @@ hello world.
         assert_eq<span style="color:#f92672">!</span>(expected, actual);
     }
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo test
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo test
 test tests::base64_encode ... ok
 </code></pre></div><p>面倒なコマンドは、makefile化することもできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile">LOG_LEVEL <span style="color:#f92672">:=</span> debug
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile">LOG_LEVEL <span style="color:#f92672">:=</span> debug
 APP_ARGS  <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello world.&#34;</span>
 <span style="color:#66d9ef">export </span>RUST_LOG<span style="color:#f92672">=</span>url<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>LOG_LEVEL<span style="color:#66d9ef">)</span>
 PREFIX <span style="color:#f92672">:=</span> <span style="color:#66d9ef">$(</span>HOME<span style="color:#66d9ef">)</span>/.cargo
@@ -251,13 +251,13 @@ PREFIX <span style="color:#f92672">:=</span> <span style="color:#66d9ef">$(</spa
 
 <span style="color:#a6e22e">install</span><span style="color:#f92672">:</span>
 	cargo install --force --root <span style="color:#66d9ef">$(</span>PREFIX<span style="color:#66d9ef">)</span> --path .
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make run
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make run
 help
 </code></pre></div><p>runだけでなく、buildしてコマンドの挙動を確認してみましょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build
 $ ./target/debug/udrs
 </code></pre></div><p>バイナリの配布は、travis-ciでbuildして、github releasesにdeployします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.travis.yml" data-lang="yml:.travis.yml"><span style="color:#f92672">dist</span>: <span style="color:#ae81ff">trusty</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.travis.yml" data-lang="yml:.travis.yml"><span style="color:#f92672">dist</span>: <span style="color:#ae81ff">trusty</span>
 <span style="color:#f92672">language</span>: <span style="color:#ae81ff">rust</span>
 <span style="color:#f92672">services</span>: <span style="color:#ae81ff">docker</span>
 <span style="color:#f92672">rust</span>:
@@ -309,7 +309,7 @@ $ ./target/debug/udrs
     - <span style="color:#ae81ff">/^v?\d+\.\d+\.\d+.*$/</span>
     - <span style="color:#ae81ff">master</span>
 </code></pre></div><p><code>secure: &quot;xxx&quot;</code>は、<code>travis</code>コマンドで発行します。<code>github-access-token</code>をgetして以下のコマンドを実行。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i travis
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo gem i travis
 $ travis login
 $ travis encrypt $GITHUB_ACCESS_TOKEN
 
@@ -318,7 +318,7 @@ deploy:
   api_key:
     secure: <span style="color:#e6db74">&#34;xxx&#34;</span>
 </code></pre></div><p>tagをpushすると、travisが走ります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git add .
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git add .
 $ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
 $ git push origin master
 

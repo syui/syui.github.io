@@ -127,7 +127,7 @@
        			 		<p>ゲームのシナリオを書こうと思ったけど、やる気でないので、こういうときは他のことしたほうがいいと思って、カオスになってた開発環境の整理をはじめました。</p>
 <p>以前から整理しようと思っていたgithubの<code>dotfiles</code>のbranchを切らず、自前のgit-serverで整理していこうかなと思っています。別に移行するわけではありませんが、今は整理されてないリポジトリ群を見たくない&hellip;。</p>
 <p><a href="https://git.syui.cf/syui/dotfiles">https://git.syui.cf/syui/dotfiles</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.syui.cf/syui/dotfiles
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.syui.cf/syui/dotfiles
 </code></pre></div><h3 id="zpluginとvim-plug">zpluginとvim-plug</h3>
 <p>まずはplugin-managerを入れました。</p>
 <p><a href="https://github.com/zdharma/zinit">https://github.com/zdharma/zinit</a></p>
@@ -139,7 +139,7 @@
 <p><a href="https://github.com/syui/powerline.zsh">https://github.com/syui/powerline.zsh</a></p>
 <p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/098/small/3dff96dbe383b9d3.png" alt=""></p>
 <p>git-repoにcdするとき劇遅になるので、<code>zle reset-prompt</code>して必要があれば<code>cd .</code>で表示します。このあたり改善したいのですが、今のところ放置。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e"># z + peco</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="color:#75715e"># z + peco</span>
 <span style="color:#75715e"># 入力があれば移動履歴から補完、なければ移動</span>
 <span style="color:#66d9ef">function</span> peco-z-search <span style="color:#f92672">(){</span>
 	zdirselect<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>z | sort -g -r | peco | cut -d  <span style="color:#e6db74">&#39; &#39;</span> -f 2- | sed <span style="color:#e6db74">&#39;s/ //g&#39;</span><span style="color:#e6db74">`</span>
@@ -158,7 +158,7 @@ bindkey <span style="color:#e6db74">&#39;^f&#39;</span> peco-z-search
 <p><a href="https://github.com/relastle/pmy">https://github.com/relastle/pmy</a></p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pmy.gif" alt=""></p>
 <p>以下のような設定を書くことで連携できます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:~/.pmy/rules/pmy_rules.yml" data-lang="yml:~/.pmy/rules/pmy_rules.yml">- <span style="color:#f92672">description</span>: <span style="color:#ae81ff">フォルダならtree ファイルなら中身をbatしながらパスの補完</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:~/.pmy/rules/pmy_rules.yml" data-lang="yml:~/.pmy/rules/pmy_rules.yml">- <span style="color:#f92672">description</span>: <span style="color:#ae81ff">フォルダならtree ファイルなら中身をbatしながらパスの補完</span>
   <span style="color:#f92672">regexp-left</span>: <span style="color:#ae81ff">^(?P&lt;body&gt;.*?)(?P&lt;path&gt;(~/){0,1}(\S*/)+)(?P&lt;query&gt;\S*)$</span>
   <span style="color:#f92672">cmd-groups</span>:
     - <span style="color:#f92672">stmt</span>: <span style="color:#ae81ff">command ls -anlhF &lt;path&gt;</span>
@@ -170,7 +170,7 @@ bindkey <span style="color:#e6db74">&#39;^f&#39;</span> peco-z-search
 <h3 id="iterm2-color">iterm2 color</h3>
 <p>今回は、<code>Japanesque</code>というカラーを参考にしました。</p>
 <p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/099/small/012ca602b3051afd.png" alt=""></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sLO https://git.syui.cf/syui/dotfiles/raw/branch/master/syui.itermcolors
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sLO https://git.syui.cf/syui/dotfiles/raw/branch/master/syui.itermcolors
 </code></pre></div><h3 id="感想">感想</h3>
 <p>イチから環境構築をやり直すと、最初はものすごく不便ですが、少しずつ便利にしていきたい。</p>
 <p>その過程で新しい使い方を身につけたり、新しいツールを使ったりできるので、いいですね。</p>

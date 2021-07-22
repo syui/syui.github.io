@@ -126,7 +126,7 @@
 													
        			 		<p>location mapをcliからqueryして表示したいと思ったので、調べてみたら、面白そうなツールがいくつか見つかりました。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/cli_mapscii_01.png" alt=""></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ whois example.com
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ whois example.com
 $ nslookup exmaple.com
 8.8.8.8 <span style="color:#75715e">#google dns server</span>
 
@@ -142,7 +142,7 @@ $ mapscii
 <blockquote>
 <p>blessed-contrib/examples/map-query-location.js</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">blessed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;blessed&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">blessed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;blessed&#39;</span>)
   , <span style="color:#a6e22e">contrib</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../&#39;</span>)
   , <span style="color:#a6e22e">screen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">blessed</span>.<span style="color:#a6e22e">screen</span>()
   , <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">contrib</span>.<span style="color:#a6e22e">map</span>({<span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;World Map&#39;</span>})
