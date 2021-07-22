@@ -121,6 +121,17 @@ $(function() {
 				term.echo("ex : cat /json/link.json");
 			} else if (inputs[0] === 'help') {
 				term.echo(command_all);
+			} else if (inputs[0] === '/') {
+				for (i = 0; i <= 5; i++) {
+					s = "[" + i + "]" + origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
+					term.echo(s);
+				};
+				term.read("jump number?[0-5] : ", function(s) {
+					s = Number(s);
+					window.location.href = origin_index_json[s].href;
+				}).then(function(s) {
+					s.charCodeAt(0);
+				});
 			} else if (inputs[0] === 'search' && inputs[1] === '-l') {
 				for (i = 0; i <= 5; i++) {
 					s = origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
@@ -167,8 +178,13 @@ $(function() {
 				term.echo("ex : $ mpv /music/xxx.mp3\n");
 				term.echo(origin_songs);
 			} else if (/nyancat/.test(input)) {
-				term.echo("/nyancat");
-				window.location.href = '/nyancat';
+				term.read("jump page?[y] : ", function(s) {
+					if (s === "y") {
+						window.location.href = '/nyancat';
+					}
+				}).then(function(s) {
+					s.charCodeAt(0);
+				});
 			} else if (/top/.test(input)) {
 				window.location.href = '/';
 			} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
