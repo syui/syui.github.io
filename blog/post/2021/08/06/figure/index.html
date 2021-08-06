@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.87.0" />
-		<title>syui.cf</title>
+		<title>フィギュアを作ってみる3-2 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="フィギュアを作ってみる3-2" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,16 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +41,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +71,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,23 +105,7 @@
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
-
-
-<div class="content-top">
-
-	<div class="google-ads">
+<div class="google-ads">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<ins class="adsbygoogle"
 						style="display:block"
@@ -142,51 +118,81 @@
 	</script>
 </div>
 
+       			<article>
+       			 	<div class="content">
+													<div class="post-time-date">2021-08-06 / <a href="/syui">@syui</a></div>
+													<h2>フィギュアを作ってみる3-2</h2>
+													
+       			 		<p>昨日のやつを修正しました。目が大きすぎると思ったので、小さくして、下の方に移動させた。(無理やり</p>
+<p><a href="https://raw.githubusercontent.com/syui/img/master/other/figure_make_27.jpg"><img src="https://raw.githubusercontent.com/syui/img/master/other/figure_make_27.jpg" alt="ai-figure"/></a></p>
+<p>ここらへんで完成ということにしたいです。あまり修正入れて壊れちゃってもあれなので。</p>
+<p>最後に自作フィギュアについて、ちょっと思ってることを書いていきたいと思います。</p>
+<h3 id="自作フィギュアのおすすめ度">自作フィギュアのおすすめ度</h3>
+<p>作ってみたい人は作ってみるといいと思います。</p>
+<p>ですが、客観的なデータに基づいても、主観的にも、あまりおすすめできるものではありません。</p>
+<p>まずは客観的なデータというか、これまでにかかった費用を計算してみます。</p>
+<ul>
+<li>
+<p>スカルピーx2 = JPY 6,000</p>
+</li>
+<li>
+<p>スパチュラ = JPY 3,000</p>
+</li>
+<li>
+<p>100円ショップで買った色々 = JPY 1,000</p>
+</li>
+<li>
+<p>絵の具等 = JYP 2,000</p>
+</li>
+</ul>
+<p>その他にも色々と必要なものは出てくると思います。例えば、ドリルだったり、台座だったり。</p>
+<p>したがって、10,000円は余裕で超えてくると思われます。</p>
+<p>もちろん、費用を抑えようと思えばできると思います。例えば、スカルピーではなく、石粉粘土を使ったり、スパチュラを他のもので代用したり。</p>
+<p>私も1回目は金額的にそこまで消費したわけではありません。1回目は1,000円くらいだったんじゃないかな。ですが、それで納得行くものが作れず、結局はスカルピーという粘土を購入しています。</p>
+<p>かっこいいフィギュアはいくらでも売ってて、10,000もあれば買えると思いますので、それ買ったほうがいい。わざわざ、時間と労力、心をすり減らしてまで、できの悪いフィギュアなんて作らなくていいと思います。何度も作業するので、都度、片付けや掃除もかなり大変でした。これが、自作フィギュアをやってみたうえでの正直な感想です。</p>
+<p>あ、フィギュア作ってると、何度も挫けそうになったので、挫けない心みたいなのも重要だと思いました。</p>
+<p>ですから、自作フィギュアは、結論として、あまりおすすめできるものではない、ということになります。</p>
+<h3 id="自作フィギュアやってよかったと思う点">自作フィギュア、やってよかったと思う点</h3>
+<p>それでも、作りたいものがあったり、欲しい物が売ってなかったりとかする場合は、やってみると面白いかもしれません。</p>
+<p>私自身、自作フィギュアから得られたものも多かった。</p>
+<p>例えば、裸体を作ってるとき、各部分で立体的に意識しなければなりませんし、また、こねてると、要所が見えてくることがあります。</p>
+<p>そこを中心に、そこを起点として形作っていく作業は、例えば、イラストだったりに活かせそうに思います。</p>
+<p>私、絵を練習したり、デッサンしたりした覚え全くないんですけど、でも、デッサンするより、粘土こねたほうがよっぽどいいのではって思いました。(実際、わかりませんが</p>
+<h3 id="今後の自作フィギュア">今後の自作フィギュア</h3>
+<p>まだ納得できる完成度ではないので、気が向いたら作りはじめるかもしれません。</p>
+<p>例えば、今回、首を大きく作りすぎたので、もう少し小さくすればよかったとか、眺めてると、色々と思うところが多いです。</p>
+<p>ですが、しばらく、粘土は、こねたくありません。</p>
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-06<p><a href="https://syui.cf/blog/post/2021/08/06/figure/">フィギュアを作ってみる3-2</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-05<p><a href="https://syui.cf/blog/post/2021/08/05/figure/">フィギュアを作ってみる3-1</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-01<p><a href="https://syui.cf/blog/post/2021/08/01/pogo/">ポケモンボックスのスライドを作ってみた</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-31<p><a href="https://syui.cf/blog/post/2021/07/31/food/">ピザを作ってみる</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-28<p><a href="https://syui.cf/blog/post/2021/07/28/illust/">イラスト描いてみた91</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-27<p><a href="https://syui.cf/blog/post/2021/07/27/figure/">フィギュアを作ってみる2-3</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-07-26<p><a href="https://syui.cf/blog/post/2021/07/26/figure/">フィギュアを作ってみる2-2</a></p>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
-</div>
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/08/05/figure/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> フィギュアを作ってみる3-1
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/figure/">figure</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
 
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>
