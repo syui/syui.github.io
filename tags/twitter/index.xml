@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 25 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>twg v0.4.5 [twitter clinet on go]</title>
+      <link>https://syui.cf/blog/post/2021/08/09/twitter/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/09/twitter/</guid>
+      <description>twitter上でのやり取りが不便だったので、自分で使ってるtwgというclientをupdateしました。あと、imageをtweetする機能もつけました。
+app keyが入れてあるので、releaseからdlしてください。twitter apiのconsumer_key, consumer_secret_keyを持っている人は、srcをbuildして使えます。
+https://github.com/syui/twg/releases
+ciはtravisからgh-actionsに移行しましたが、またハマりました。
+goxでbuildする際に、darwin/386はunsupoortのerrが出るので、optionで出力を指定してやらなければなりません。1.14からunsupoortで1.16では戻ったみたいですけど、errが出ます。
+その他、tagからverを抜き出すのは、env: REF=${{ github.ref }}, ${REF##*/}がいいです。
+on: push: branches: - master create: tags: - v*.*.* jobs: release: # job_id name: Build runs-on: ubuntu-latest steps: - name: Set up Go 1.16 uses: actions/setup-go@v1 with: version: 1.16 id: go - name: Check out code into the Go module directory uses: actions/checkout@master - name: Build env: GO111MODULE: on GOPATH: /home/runner/work/ GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.</description>
+    </item>
+    
     <item>
       <title>twgというtwitter clientを作った</title>
       <link>https://syui.cf/blog/post/2018/07/25/twitter/</link>
