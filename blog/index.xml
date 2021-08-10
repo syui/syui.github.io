@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ポケマス、ライヤー引いた</title>
+      <link>https://syui.cf/blog/post/2021/08/10/pokemas/</link>
+      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/10/pokemas/</guid>
+      <description>役割が明確なキャラ引いてる気がする。</description>
+    </item>
+    
     <item>
       <title>twg v0.4.5 [twitter clinet on go]</title>
       <link>https://syui.cf/blog/post/2021/08/09/twitter/</link>
