@@ -11,7 +11,7 @@ https://bitwarden.com
 
 bitwardenはossのcloud pass managerみたいなものだと思われます。web domainを使ってdbにアクセスし、そっから情報を読み込みます。
 
-つまり、passwordにアクセスルルには、networkにつながっていなければなりません。また、bitwardenのdomainではなく、自分でserverを作りdbを管理する方法ではupdateなどの手間がかかります。
+つまり、passwordにアクセスするには、networkにつながっていなければなりません。また、bitwardenのdomain(address)ではなく、自分のserverでdbを管理する場合、updateなどの手間がかかります。
 
 ですが、その手段が採れるというのはいいですね。
 
@@ -36,15 +36,17 @@ env:
   HEROKU_CREATE_OPTIONS: ${{ secrets.HEROKU_CREATE_OPTIONS }}
 ```
 
-bitwarden-serverを立ち上げたあとは、即座にwebからアクセスし、管理者アカウントを作成します。それを使って、bitwarden-clientからpass管理、例えば、自動入力だったり登録だったりを行います。もちろん、pass管理はwebからもできます。
+bitwarden-serverを立ち上げたあとは、webからアクセスし、管理者アカウントを作成します。
 
-ですが、多くの人の目当ては、自動入力なので、clientは必要になるかと思われます。
+そのserver(address)を使って、bitwarden-clientからpass管理や自動入力を行います。もちろん、pass管理はwebからもできます。
 
-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。
+ですが、多くの人の目当ては、やはり自動入力だと思うので、clientは必要になると思われます。
+
+bitwardenのclientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。
 
 例えば、chromeからtwitterに自動入力したい場合は、`twitter.com/login`にアクセスして、chromeアドオンのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。
 
-使ってた感想ですが、自動入力も便利ですが、登録とかも便利だった。
+使ってた感想ですが、自動入力も便利ですが、登録とかも便利でした。
 
 ですが、そのためにcloudに情報を置くのはちょっとオーバーだなと思った場合、やっぱり、不便でもkeepassを使い続けると思います。
 
