@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bitwarden</title>
+      <link>https://syui.cf/tags/bitwarden/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/bitwarden/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://syui.cf/tags/github/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://syui.cf/tags/heroku/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keepass</title>
+      <link>https://syui.cf/tags/keepass/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/keepass/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>figure</title>
       <link>https://syui.cf/tags/figure/</link>
@@ -149,15 +185,6 @@
       <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/note/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>heroku</title>
-      <link>https://syui.cf/tags/heroku/</link>
-      <pubDate>Sun, 27 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/heroku/</guid>
       <description></description>
     </item>
     
@@ -311,15 +338,6 @@
       <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>https://syui.cf/tags/github/</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/github/</guid>
       <description></description>
     </item>
     
