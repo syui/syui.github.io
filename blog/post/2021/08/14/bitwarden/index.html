@@ -186,7 +186,7 @@ every10min $curl https://$APP_NAME.herokuapp.com
 <p>逆に、copy/pasteはnetworkにつながっていないofflineでも利用できます。network接続を切れば、そもそも外部からはアクセスできません。もちろん、offlineでもcopy/paste領域には端末の占有者が情報にアクセスできます。bitwarden-cloudはできません。</p>
 <p>次に、copy/paste領域におけるexploitの可能性について考えてみます。これについては、公開されているserverよりも明らかに低いと考えられます。</p>
 <p>まず、使用可能なexploitが限定的で、大抵の場合、osに依存します。つまり、cloudは、osまたはsoftwareのどちらかのexploitで攻撃が成功する可能性があるのに対し、copy/pasteはos+softwareの両方を必要とするexploitが必要になる可能性が高い。</p>
-<p>そのため、bitwardenのほうが便利ですが、例えば、copy/pasteを使用して使うようなkeepassに比べ、安全性は低いと思います。</p>
+<p>そのため、bitwardenのほうが便利ですが、例えば、copy/pasteを使用するようなkeepassに比べ、安全性は低いと思います。</p>
 <p>これは当然の帰結だと思います。便利であればあるほど、つまり、networkにつながってると便利なわけですが、危険も高くなる、ということです。</p>
 <p>そのため、offlineで使うもの、使えるもののほうが、一般的には安全です。offlineで使うもの、使えるものは、共有やらなんやらのことを考えると、不便ではあります。不便さの解消に、例えば、key-fileやmaster-fileなどを共有するとなると、危険性も増します。</p>
 <p>個人的には、入力頻度などを考慮した上で、結論を出すと良いと思います。</p>
