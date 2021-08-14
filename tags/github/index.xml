@@ -26,7 +26,7 @@ env: AUTOBUS_ENABLE: 1 CREATE_APP_NAME: ${{ secrets.HEROKU_APP_NAME }} DUO_ENABL
 そのserver(address)を使って、bitwarden-clientからpass管理や自動入力を行います。もちろん、pass管理はwebからもできます。
 ですが、多くの人がやりたいのは自動入力だと思うので、やはり、bitwarden-clientは必要になると思われます。
 bitwarden-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。
-例えば、chromeからtwitterに自動入力したい場合は、twitter.com/loginにアクセスして、chromeアドオンのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。
+例えば、chromeからtwitterに自動入力したい場合は、twitter.com/loginにアクセスして、chrome addonのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。
 使ってみた感想ですが、自動入力も便利ですが、登録とかも便利でした。
 ですが、そのためにcloudに情報を置くのはちょっとオーバーだなと思いました。self-hostする場合、bitwarden-serverの運用や管理、維持も必要になってきます。
 現在の運用段階 現在の運用では、dbに保存するpassを制限し、つまり、流出してもあまり問題なさそうなアカウントのみで登録を行い、運用テストしています。

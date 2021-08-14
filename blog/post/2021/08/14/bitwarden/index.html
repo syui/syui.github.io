@@ -146,7 +146,7 @@
 <p>ですが、多くの人がやりたいのは自動入力だと思うので、やはり、bitwarden-clientは必要になると思われます。</p>
 <p>bitwarden-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/bitwarden_01.png" alt=""></p>
-<p>例えば、chromeからtwitterに自動入力したい場合は、<code>twitter.com/login</code>にアクセスして、chromeアドオンのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。</p>
+<p>例えば、chromeからtwitterに自動入力したい場合は、<code>twitter.com/login</code>にアクセスして、chrome addonのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。</p>
 <p>使ってみた感想ですが、自動入力も便利ですが、登録とかも便利でした。</p>
 <p>ですが、そのためにcloudに情報を置くのはちょっとオーバーだなと思いました。self-hostする場合、bitwarden-serverの運用や管理、維持も必要になってきます。</p>
 <h3 id="現在の運用段階">現在の運用段階</h3>
@@ -173,7 +173,7 @@ $ heroku addons:open scheduler -a <span style="color:#e6db74">&#34;</span>$APP_N
 every10min $curl https://$APP_NAME.herokuapp.com
 </code></pre></div><p>感想としては、bitwardenは便利です。主に登録と自動入力が便利で、これに慣れてしまうと、keepass時代のcopy/pasteはつらさがあります。</p>
 <p>ですが、入力頻度がそれほどない場合は、私のことですが、keepassでいいんじゃないかという気もしてます。</p>
-<p>bitwarden-serverの運用や管理、維持する手間、危険性などを考えると、安全なのは、間違いなくkeepassのcopy/pasteです。</p>
+<p>bitwarden-serverの運用や管理、維持する手間、危険性などを考えると、安全なのは、間違いなくkeepassのcopy/pasteだと思います。とはいえ、状況にもよりますが、基本的には。</p>
 <h3 id="bitwarden-cloudとcopypasteの安全性">bitwarden-cloudとcopy/pasteの安全性</h3>
 <p>例えば、bitwarden-cloudは、必ずnetwork上のaddressを持ちます。</p>
 <p>だからこそ、そのaddressからuser accountにloginできるわけです。それぞれのclientも動作するにはこの情報を必要とします。</p>
