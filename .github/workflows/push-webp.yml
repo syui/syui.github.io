@@ -12,7 +12,6 @@ jobs:
       env:
         WORKFLOW_FILE_PATH: ${{ github.workflow }}
         GITHUB_REPOSITORY: ${{ github.repository }}
-        GITHUB_SHA: ${{ steps.vars.outputs.sha_short }}
 
       run: |
         npm i -g @squoosh/cli
