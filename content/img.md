@@ -7,7 +7,7 @@ type: img
 
 絵を描きます
 
-<p class="img-fa-bars"><a href="/img/minall/"><i class="fas fa-bars"></i></a></p>
+<p class="img-fa-bars"><a href="/imgall"><i class="fas fa-bars"></i></a></p>
 
 ![/img/min/yui_11.webp](/img/min/yui_11.webp)
 ![/img/min/yui_15.webp](/img/min/yui_15.webp)
@@ -45,5 +45,5 @@ type: img
 ![/img/min/c_07.webp](/img/min/c_07.webp)
 
 
-<a href="/img/minall/"><i class="fas fa-bars"></i></a>
+<a href="/imgall/"><i class="fas fa-bars"></i></a>
 
