@@ -1,7 +1,7 @@
 <template>
 	<div class="containerx">
 		<div class="img-new">
-			<p><a :href=lurl><img :src="'/img/yui_' + lid + '.png'" /></a></p>
+			<p><a :href=lurl><img :src="'/img/min/yui_' + lid + '.webp'" /></a></p>
 	</div>
 	<div class="img-old">
 		<p>
