@@ -20,6 +20,9 @@ jobs:
       run: |
         s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
         echo $s
+        if [ -z "$s" ];then
+        exit
+        fi
         for i in $s 
         do
         squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:300,height:400}' $i
