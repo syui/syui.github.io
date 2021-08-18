@@ -7,43 +7,43 @@ type: img
 
 絵を描きます
 
-<p class="img-fa-bars"><a href="/imgall/"><i class="fas fa-bars"></i></a></p>
+<p class="img-fa-bars"><a href="/img/minall/"><i class="fas fa-bars"></i></a></p>
 
-![/img/yui_11.png](/img/yui_11.png)
-![/img/yui_15.png](/img/yui_15.png)
-![/img/yui_28.png](/img/yui_28.png)
-![/img/yui_59.png](/img/yui_59.png)
+![/img/min/yui_11.webp](/img/min/yui_11.webp)
+![/img/min/yui_15.webp](/img/min/yui_15.webp)
+![/img/min/yui_28.webp](/img/min/yui_28.webp)
+![/img/min/yui_59.webp](/img/min/yui_59.webp)
 
-![/img/yui_76.png](/img/yui_76.png)
-![/img/yui_77.png](/img/yui_77.png)
-![/img/yui_85.png](/img/yui_85.png)
-![/img/yui_88.png](/img/yui_88.png)
+![/img/min/yui_76.webp](/img/min/yui_76.webp)
+![/img/min/yui_77.webp](/img/min/yui_77.webp)
+![/img/min/yui_85.webp](/img/min/yui_85.webp)
+![/img/min/yui_88.webp](/img/min/yui_88.webp)
 
 
 ### フィールド
 
-![/img/f_02.png](/img/f_02.png)
-![/img/f_04.png](/img/f_04.png)
-![/img/f_05.png](/img/f_05.png)
-![/img/f_06.png](/img/f_06.png)
+![/img/min/f_02.webp](/img/min/f_02.webp)
+![/img/min/f_04.webp](/img/min/f_04.webp)
+![/img/min/f_05.webp](/img/min/f_05.webp)
+![/img/min/f_06.webp](/img/min/f_06.webp)
 
-![/img/f_07.png](/img/f_07.png)
-![/img/f_08.png](/img/f_08.png)
-![/img/f_09.png](/img/f_09.png)
-![/img/f_13.png](/img/f_13.png)
+![/img/min/f_07.webp](/img/min/f_07.webp)
+![/img/min/f_08.webp](/img/min/f_08.webp)
+![/img/min/f_09.webp](/img/min/f_09.webp)
+![/img/min/f_13.webp](/img/min/f_13.webp)
 
 ### キャラクター
 
-![/img/ai_01.png](/img/ai_01.png)
-![/img/c_01.png](/img/c_01.png)
-![/img/c_02.png](/img/c_02.png)
-![/img/c_03.png](/img/c_03.png)
+![/img/min/ai_01.webp](/img/min/ai_01.webp)
+![/img/min/c_01.webp](/img/min/c_01.webp)
+![/img/min/c_02.webp](/img/min/c_02.webp)
+![/img/min/c_03.webp](/img/min/c_03.webp)
 
-![/img/c_04.png](/img/c_04.png)
-![/img/c_05.png](/img/c_05.png)
-![/img/c_06.png](/img/c_06.png)
-![/img/c_07.png](/img/c_07.png)
+![/img/min/c_04.webp](/img/min/c_04.webp)
+![/img/min/c_05.webp](/img/min/c_05.webp)
+![/img/min/c_06.webp](/img/min/c_06.webp)
+![/img/min/c_07.webp](/img/min/c_07.webp)
 
 
-<a href="/imgall/"><i class="fas fa-bars"></i></a>
+<a href="/img/minall/"><i class="fas fa-bars"></i></a>
 

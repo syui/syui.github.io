@@ -6,42 +6,42 @@
 	<div class="img-old">
 		<p>
 			<a v-for="(n,index) of id" :key="n" :href="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/yui_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
 	<div class="img-chara">
 		<p>
 			<a v-for="(n,index) of cid" :key="n" :href="'/img/c_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/c_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/c_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
 	<div class="img-ai">
 		<p>
 			<a v-for="(n,index) of aid" :key="n" :href="'/img/ai_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/ai_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/ai_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
 	<div class="img-octo">
 		<p>
 			<a v-for="(n,index) of oid" :key="n" :href="'/img/octo_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/octo_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/octo_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
 	<div class="img-item">
 		<p>
 			<a v-for="(n,index) of iid" :key="n" :href="'/img/item_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/item_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/item_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
 	<div class="img-field">
 		<p>
 			<a v-for="(n,index) of fid" :key="n" :href="'/img/f_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/f_'+ ( '00' + index ).slice( -2 ) +'.png'" />
+				<img :src="'/img/min/f_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
 			</a>
 		</p>
 	</div>
