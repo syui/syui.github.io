@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>squoosh-cliとgh-actionsで画像表示を高速化してみる</title>
+      <link>https://syui.cf/blog/post/2021/08/18/github/</link>
+      <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/18/github/</guid>
+      <description>squoosh-cliは、google製の画像圧縮ツールらしい。
+$ npm i -g @squoosh/cli $ squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:75,&amp;#34;target_size&amp;#34;:0,&amp;#34;target_PSNR&amp;#34;:0,&amp;#34;method&amp;#34;:0,&amp;#34;sns_strength&amp;#34;:50,&amp;#34;filter_strength&amp;#34;:60,&amp;#34;filter_sharpness&amp;#34;:0,&amp;#34;filter_type&amp;#34;:1,&amp;#34;partitions&amp;#34;:0,&amp;#34;segments&amp;#34;:4,&amp;#34;pass&amp;#34;:1,&amp;#34;show_compressed&amp;#34;:0,&amp;#34;preprocessing&amp;#34;:0,&amp;#34;autofilter&amp;#34;:0,&amp;#34;partition_limit&amp;#34;:0,&amp;#34;alpha_compression&amp;#34;:1,&amp;#34;alpha_filtering&amp;#34;:1,&amp;#34;alpha_quality&amp;#34;:100,&amp;#34;lossless&amp;#34;:0,&amp;#34;exact&amp;#34;:0,&amp;#34;image_hint&amp;#34;:0,&amp;#34;emulate_jpeg_size&amp;#34;:0,&amp;#34;thread_level&amp;#34;:0,&amp;#34;low_memory&amp;#34;:0,&amp;#34;near_lossless&amp;#34;:100,&amp;#34;use_delta_palette&amp;#34;:0,&amp;#34;use_sharp_yuv&amp;#34;:0}&amp;#39; -d out-dir img.jpg size的にはjpgのほうがいいのですが、webpじゃないとpng透過が保存されないので、webpを使います。
+resizeは300x400だとスマホで見たとき粗くなってしまうため、600x800にしました。
+git-diffにcommit-hashを指定し、更新ファイルがあれば、squooshを実行します。gh-actionsはpush:pathsからトリガーできます。
+パラメータ、特にqualityは適時、調整してください。
+on: push: paths: - &amp;#39;static/img/*.png&amp;#39; jobs: comment: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: install squoosh env: WORKFLOW_FILE_PATH: ${{ github.workflow }} GITHUB_REPOSITORY: ${{ github.repository }} run: | npm i -g @squoosh/cli - name: convert webp run: |s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep &amp;#34;static/img/&amp;#34;|grep &amp;#34;\.png&amp;#34;` echo $s if [ -z &amp;#34;$s&amp;#34; ];then exit fi for i in $s do squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:100}&amp;#39; -d .</description>
+    </item>
+    
     <item>
       <title>bitwardenをself-hostで試してみた</title>
       <link>https://syui.cf/blog/post/2021/08/14/bitwarden/</link>

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.87.0" />
-		<title>syui.cf</title>
+		<title>squoosh-cliとgh-actionsで画像表示を高速化してみる | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="squoosh-cliとgh-actionsで画像表示を高速化してみる" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,16 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,7 +41,8 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/js/highlight-prompt.js"></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,13 +71,13 @@
 
 
 
- 
-<body>
+
+<body onload="highlight_prompt()">
 
 	<div class="containerx">
 		<header id="header">
 		        
-			<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+			<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -113,23 +105,7 @@
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
-
-
-<div class="content-top">
-
-	<div class="google-ads">
+<div class="google-ads">
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<ins class="adsbygoogle"
 						style="display:block"
@@ -142,51 +118,91 @@
 	</script>
 </div>
 
+       			<article>
+       			 	<div class="content">
+													<div class="post-time-date">2021-08-18 / <a href="/syui">@syui</a></div>
+													<h2>squoosh-cliとgh-actionsで画像表示を高速化してみる</h2>
+													
+       			 		<p>squoosh-cliは、google製の画像圧縮ツールらしい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm i -g @squoosh/cli
+$ squoosh-cli --webp <span style="color:#e6db74">&#39;{&#34;quality&#34;:75,&#34;target_size&#34;:0,&#34;target_PSNR&#34;:0,&#34;method&#34;:0,&#34;sns_strength&#34;:50,&#34;filter_strength&#34;:60,&#34;filter_sharpness&#34;:0,&#34;filter_type&#34;:1,&#34;partitions&#34;:0,&#34;segments&#34;:4,&#34;pass&#34;:1,&#34;show_compressed&#34;:0,&#34;preprocessing&#34;:0,&#34;autofilter&#34;:0,&#34;partition_limit&#34;:0,&#34;alpha_compression&#34;:1,&#34;alpha_filtering&#34;:1,&#34;alpha_quality&#34;:100,&#34;lossless&#34;:0,&#34;exact&#34;:0,&#34;image_hint&#34;:0,&#34;emulate_jpeg_size&#34;:0,&#34;thread_level&#34;:0,&#34;low_memory&#34;:0,&#34;near_lossless&#34;:100,&#34;use_delta_palette&#34;:0,&#34;use_sharp_yuv&#34;:0}&#39;</span> -d out-dir img.jpg
+</code></pre></div><p>size的にはjpgのほうがいいのですが、webpじゃないとpng透過が保存されないので、webpを使います。</p>
+<p>resizeは300x400だとスマホで見たとき粗くなってしまうため、600x800にしました。</p>
+<p>git-diffにcommit-hashを指定し、更新ファイルがあれば、squooshを実行します。gh-actionsはpush:pathsからトリガーできます。</p>
+<p>パラメータ、特に<code>quality</code>は適時、調整してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/push-webp.yml" data-lang="yml:.github/workflows/push-webp.yml"><span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">paths</span>:
+      - <span style="color:#e6db74">&#39;static/img/*.png&#39;</span>
 
- <div id="blog-archives" class="category">
-	<ul class="cp_list">
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-18<p><a href="https://syui.cf/blog/post/2021/08/18/github/">squoosh-cliとgh-actionsで画像表示を高速化してみる</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-14<p><a href="https://syui.cf/blog/post/2021/08/14/bitwarden/">bitwardenをself-hostで試してみた</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-13<p><a href="https://syui.cf/blog/post/2021/08/13/figure/">フィギュアを作ってみる3-6</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-12<p><a href="https://syui.cf/blog/post/2021/08/12/figure/">フィギュアを作ってみる3-5</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-11<p><a href="https://syui.cf/blog/post/2021/08/11/pokemas/">原神、最近の進捗</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-10<p><a href="https://syui.cf/blog/post/2021/08/10/pokemas/">ポケマス、ライヤー引いた</a></p>
-	 </li>
-	 
-	 <li><span class="icon-moon"></span>
-						2021-08-09<p><a href="https://syui.cf/blog/post/2021/08/09/twitter/">twg v0.4.5 [twitter clinet on go]</a></p>
-	 </li>
-	 
-	</ul>
- <p style="text-align:center;"><a href="/blog/"><i class="fas fa-bars"></i></a></p>
- </div>
-</div>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">comment</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">install squoosh</span>
+      <span style="color:#f92672">env</span>:
+        <span style="color:#f92672">WORKFLOW_FILE_PATH</span>: <span style="color:#ae81ff">${{ github.workflow }}</span>
+        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
+
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        </span>        <span style="color:#ae81ff">npm i -g @squoosh/cli</span>
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">convert webp</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep &#34;static/img/&#34;|grep &#34;\.png&#34;`
+</span><span style="color:#e6db74">        echo $s
+</span><span style="color:#e6db74">        if [ -z &#34;$s&#34; ];then
+</span><span style="color:#e6db74">        exit
+</span><span style="color:#e6db74">        fi
+</span><span style="color:#e6db74">        for i in $s 
+</span><span style="color:#e6db74">        do
+</span><span style="color:#e6db74">        squoosh-cli --webp &#39;{&#34;quality&#34;:100}&#39; -d ./static/img/min --resize &#39;{width:600,height:800}&#39; $i
+</span><span style="color:#e6db74">        done
+</span><span style="color:#e6db74">        git config --local user.email &#34;action@github.com&#34;
+</span><span style="color:#e6db74">        git config --local user.name &#34;GitHub Action&#34;
+</span><span style="color:#e6db74">        if [ -z &#34;`git status -s`&#34; ];then
+</span><span style="color:#e6db74">          exit
+</span><span style="color:#e6db74">        fi
+</span><span style="color:#e6db74">        git add ./static/img/min
+</span><span style="color:#e6db74">        git commit -m &#34;push webp&#34;</span>        
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push changes</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">ad-m/github-push-action@master</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+        <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">src</span>
+</code></pre></div>
+       			 		
 
 
+<nav id="article-nav">
+    
+    <a href="https://syui.cf/blog/post/2021/08/14/bitwarden/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> bitwardenをself-hostで試してみた
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/github/">github</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
 		</div>
 
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>
