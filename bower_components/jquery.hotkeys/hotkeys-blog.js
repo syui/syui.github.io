@@ -1,18 +1,16 @@
 $(function(){
 
-$("a").closest("li").find("a.lmove")[0].focus();
 	$(document).bind('keydown','ctrl+return',
 		function(){
 			window.location.href = '/blog';
 		})
-
 
 	$(document).bind('keydown', 'Shift+j',
 		function(){      
 			if (document.activeElement !== document.body){
 				$(".lmove:focus").closest("li").next().find("a.lmove").focus();
 			} else {
-   	$('#fmove').focus();
+				$('#fmove').focus();
 			}
 		}
 	)
@@ -21,7 +19,7 @@ $("a").closest("li").find("a.lmove")[0].focus();
 			if (document.activeElement !== document.body){
 				$(".lmove:focus").closest("li").prev().find("a.lmove").focus();
 			} else {
-   	$('#fmove').focus();
+				$('#fmove').focus();
 			}
 		}
 	)
