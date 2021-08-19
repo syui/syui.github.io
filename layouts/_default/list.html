@@ -2,28 +2,32 @@
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
 
-			<div id="container">
-  					{{ partial "google-ads-post.html" . }}
-			    <div class="outer">
-				<div id="blog-archives" class="category">
-				    <ul class="cp_list">
-					{{ range .Data.Pages.ByDate.Reverse }}
-					<li><span class="icon-moon"></span>
-						{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}">{{.Title}}</a></p>
-					</li>
+<div id="container">
+	{{ partial "google-ads-post.html" . }}
+	<div class="outer">
+		<div id="blog-archives" class="category">
+			<ul class="cp_list">
+				{{ range $index,$value := .Data.Pages.ByDate.Reverse }}
+				<li><span class="icon-moon"></span>
+					{{ if not $index }}
+					{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}" id="fmove" class="lmove">{{.Title}}</a></p>
+					{{ else }}
+					{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}" class="lmove">{{.Title}}</a></p>
 					{{ end }}
-				    </ul>
-				</div>
-				{{ $s := path.Dir (.Permalink | relURL) }}
-				{{ $t := index (split $s "/") 1 }}
-				{{ if eq $t "tags" }}
-				  {{- range $termName, $index := .Site.Taxonomies.tags }}
-					<span class="tag"><a href="{{ "/tags/" | relLangURL }}{{ $termName | urlize }}">{{ $termName }}</a></span>
-				  {{- end }}
+				</li>
 				{{ end }}
-			    </div>
-			</div>
+			</ul>
 		</div>
-		{{ partial "footer" . }}
+		{{ $s := path.Dir (.Permalink | relURL) }}
+		{{ $t := index (split $s "/") 1 }}
+		{{ if eq $t "tags" }}
+		{{- range $termName, $index := .Site.Taxonomies.tags }}
+		<span class="tag"><a href="{{ "/tags/" | relLangURL }}{{ $termName | urlize }}">{{ $termName }}</a></span>
+		{{- end }}
+		{{ end }}
+	</div>
+</div>
+</div>
+{{ partial "footer" . }}
 </body>
 </html>
