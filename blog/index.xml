@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 20 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gh-actionsでpushしたとき指定のworkflowを実行する</title>
+      <link>https://syui.cf/blog/post/2021/08/21/github-workflow/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/21/github-workflow/</guid>
+      <description>この前、画像を圧縮してpushするaction(workflow)を作ったんだけど、workflowでpushしても、gh-actionsのon:pushが動作しなかったので、どうやらworkflowでpushしたやつには反応したいみたい。
+このブログの場合、画像を圧縮してpushしてもhugo-buildを通さないとweb server(gh-pages)にdeployされないので、build+deployのworkflowに以下を追加すると、ちゃんと動いてくれるので便利になります。
+on: workflow_run: workflows: - push webp branches: src types: - &amp;#34;completed&amp;#34; こんな感じで書いて、pushするworkflowはnameを設定します。
+name: push webp </description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた92</title>
       <link>https://syui.cf/blog/post/2021/08/20/illust/</link>
