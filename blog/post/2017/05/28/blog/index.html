@@ -159,16 +159,16 @@
 </code></pre></div><p>Ref :</p>
 <p><a href="http://memo.brdr.jp/post/90340762216/middleman-blog%E3%81%A7%E6%AC%A1%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92ajax%E3%81%A7%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80">http://memo.brdr.jp/post/90340762216/middleman-blog%E3%81%A7%E6%AC%A1%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92ajax%E3%81%A7%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80</a></p>
 <p>これでもscroll.jsのread時にhttpsではないので<code>http://example.com/page/2/</code>とかなってハマる。<code>set :relative_links, true</code>をsetしている場合は<code>false</code>にするといい。</p>
-<pre><code>Mixed Content: The page at 'https://blogm.syui.cf/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://blogm.syui.cf/page/2/'. This request has been blocked; the content must be served over HTTPS.
+<pre tabindex="0"><code>Mixed Content: The page at 'https://blogm.syui.cf/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://blogm.syui.cf/page/2/'. This request has been blocked; the content must be served over HTTPS.
 </code></pre><blockquote>
 <p>config.rb</p>
 </blockquote>
-<pre><code>configure :build do
+<pre tabindex="0"><code>configure :build do
   activate :asset_host, :host =&gt; 'https://example.com'
   activate :asset_hash
   #set :relative_links, true
 end
-</code></pre><pre><code>- &quot;./page/#{page_number+1}&quot; 
+</code></pre><pre tabindex="0"><code>- &quot;./page/#{page_number+1}&quot; 
 + &quot;/page/#{page_number+1}&quot; 
 </code></pre>
        			 		

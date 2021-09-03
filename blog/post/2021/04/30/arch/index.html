@@ -158,8 +158,8 @@ You are now being dropped into an emergency shell.
 sh: can&rsquo;t access tty: job control turned off</p>
 </blockquote>
 <p>これは、kernel更新する際、<code>block</code>を<code>autodetect</code>の前に置くと起動するようになりました。</p>
-<pre><code class="language-sh:/etc/mkinitcpio.conf" data-lang="sh:/etc/mkinitcpio.conf">HOOKS=&quot;base udev block autodetect modconf filesystems keyboard fsck&quot;
-</code></pre><pre><code>$ mkinitcpio -p linux
+<pre tabindex="0"><code class="language-sh:/etc/mkinitcpio.conf" data-lang="sh:/etc/mkinitcpio.conf">HOOKS=&quot;base udev block autodetect modconf filesystems keyboard fsck&quot;
+</code></pre><pre tabindex="0"><code>$ mkinitcpio -p linux
 </code></pre><h3 id="icns">icns</h3>
 <p>macのbootloaderはosを読み込む際にアイコンを設定できます。boot領域の<code>/</code>に.volumeicon.icnsを置きます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount /dev/sdb1 ./boot
@@ -169,7 +169,7 @@ $ cp .volumeicon.icns ./boot/
 <h3 id="wifi">wifi</h3>
 <p>wifi-deviceがない状態なのでdrive, kernelあたりの問題だと思われます。</p>
 <p>b43などmodprobeのblacklistに入れてkernelを更新すると、wifi-deviceが立ち上がりました。</p>
-<pre><code class="language-sh:/mnt/etc/modprobe.d/broadcom-wl-dkms.conf" data-lang="sh:/mnt/etc/modprobe.d/broadcom-wl-dkms.conf">blacklist b43
+<pre tabindex="0"><code class="language-sh:/mnt/etc/modprobe.d/broadcom-wl-dkms.conf" data-lang="sh:/mnt/etc/modprobe.d/broadcom-wl-dkms.conf">blacklist b43
 blacklist b43legacy
 blacklist bcm43xx
 blacklist bcma
@@ -186,7 +186,7 @@ $ mkinitcpio -p linux
 </code></pre></div><p>今回はnetworkmanagerを入れることにしたんだけど、便利。ただ、自動設定とかは接続は、systemd-networkで書いてる。</p>
 <h3 id="xorg">xorg</h3>
 <p>ディスプレイがoffにならないようにする設定。よく忘れる。<code>xset dpms force off</code>が効かないことある。ただ、これらの設定によってi3が起動しなくなる事があるので注意。</p>
-<pre><code class="language-sh:/etc/X11/xorg.conf.d/10-monitor.conf" data-lang="sh:/etc/X11/xorg.conf.d/10-monitor.conf">Section &quot;Monitor&quot;
+<pre tabindex="0"><code class="language-sh:/etc/X11/xorg.conf.d/10-monitor.conf" data-lang="sh:/etc/X11/xorg.conf.d/10-monitor.conf">Section &quot;Monitor&quot;
     Option &quot;DPMS&quot; &quot;false&quot;
 EndSection
 
@@ -200,7 +200,7 @@ EndSection
 </code></pre><p><a href="https://wiki.archlinux.jp/index.php/Display_Power_Management_Signaling">https://wiki.archlinux.jp/index.php/Display_Power_Management_Signaling</a></p>
 <h3 id="keyboard">keyboard</h3>
 <p>xmodmapとかで設定するといいです。xevを使います。訳あってmacbook-airのusを使ってます。本当はjisのほうがいい。</p>
-<pre><code>xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
+<pre tabindex="0"><code>xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
 
 shift       Shift_L (0x32),  Delete (0x3e)
 lock      
@@ -236,7 +236,7 @@ XTerm*faceSize:            <span style="color:#ae81ff">13</span>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S picom
 $ sudo cp /etc/xdg/picom.conf ~/.config/picom/
 $ sudo vim ~/.config/picom/picom.conf
-</code></pre></div><pre><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
+</code></pre></div><pre tabindex="0"><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
   &quot;90:class_g = 'URxvt' &amp;&amp; focused&quot;,
   &quot;60:class_g = 'URxvt' &amp;&amp; !focused&quot;,
   &quot;90:class_g = 'xterm' &amp;&amp; focused&quot;,
@@ -285,7 +285,7 @@ $ sudo vim ~/.config/picom/picom.conf
 </code></pre></div><p>で、設定方法は、<code>https://localhost:9700</code>にアクセスしてwebから行います。user,passwordは<code>pritunl</code>です。</p>
 <p>基本的にはorg,userを作成して、start serverすればokです。userからはprofile(example.vpn)をダウンロードできますが、それを使います。これはopenvpnでも使用できる形式のものです。ただし、localで構築してることもあって、使用する際はdefaultのip,portが異なります。settingから変更した上で、profileをダウンロードすればいいのですけど、<code>.vpn</code>を修正したほうが早いです。</p>
 <p>ここでは、vpn serverのlocal ipを<code>192.168.11.4</code>とし、global ipを<code>207.97.227.253</code>とします。wan(外部)からserverにアクセスするにはrouteでポートフォワーディングなどを設定すればいいでしょう。</p>
-<pre><code class="language-sh:example.vpn" data-lang="sh:example.vpn">- remote 192.168.1.4 1194 udp
+<pre tabindex="0"><code class="language-sh:example.vpn" data-lang="sh:example.vpn">- remote 192.168.1.4 1194 udp
 + remote 207.97.227.253 ${routeで設定した192.168.11.4:1194に繋がるwan側のport} udp
 </code></pre><p>次に、pritunl clientの話になります。mac,linux,windowsがあります。cliもありますが、cliはちょっと壊れている気がするし、そこまで柔軟でもないので、<a href="https://github.com/cghdev/gotunl">gotunl</a>を使います。</p>
 <p><a href="https://client.pritunl.com/">https://client.pritunl.com/</a></p>

@@ -131,7 +131,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir output
 <span style="color:#75715e"># https://github.com/pokemongo-dev-contrib/pokemongo-json-pokedex</span>
 $ sudo docker run -v <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span><span style="color:#e6db74">/output:/var/lib/pokemongo-json-pokedex/output&#34;</span> brunnerlivio/pokemongo-json-pokedex:latest
-</code></pre></div><pre><code>
+</code></pre></div><pre tabindex="0"><code>
 #!/bin/zsh
 
 d=${0:a:h}
@@ -151,7 +151,7 @@ do
 done
 </code></pre><p>日本語の名前がなかったので追加した。</p>
 <p>あとは、vue.jsとかでuploadしたjsonを読み込み必要な項目を表示。</p>
-<pre><code>var demo = new Vue({
+<pre tabindex="0"><code>var demo = new Vue({
 	el: '#demo',
 	data: {
 		searchQuery: '',
@@ -168,7 +168,7 @@ done
 			});
 	}
 });
-</code></pre><pre><code>&lt;div id=&quot;demo&quot;&gt;
+</code></pre><pre tabindex="0"><code>&lt;div id=&quot;demo&quot;&gt;
   &lt;demo-grid :data=&quot;gridData&quot; :columns=&quot;gridColumns&quot;&gt; &lt;/demo-grid&gt;
 &lt;/div&gt;
 </code></pre><p>ということで、最近の進捗。Gen4の伝説が増えてきてうれしい。</p>

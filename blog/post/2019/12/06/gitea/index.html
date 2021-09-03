@@ -168,7 +168,7 @@ $ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
 $ git remote add origin ssh://git@localhost:10022/syui/test.git
 $ git push -u origin master
 </code></pre></div><p><code>/install</code>実行後に保存される設定ファイルは<code>./gitea-data/gitea/conf/app.ini</code>にあります。その他の保全情報は<code>./gitea-data/gitea/</code>です。例えば、Dockerfileで以下のようにして、Hostingできます。</p>
-<pre><code class="language-yml:Dockerfile" data-lang="yml:Dockerfile">ENV GITEA_CUSTOM /data/gitea
+<pre tabindex="0"><code class="language-yml:Dockerfile" data-lang="yml:Dockerfile">ENV GITEA_CUSTOM /data/gitea
 COPY ./gitea-data/gitea/conf/app.ini /data/gitea/conf/app.ini
 VOLUME [&quot;/data&quot;]
 </code></pre><p>herokuにあげる場合は、<code>heroku.yml</code>に書いて、Dockerfileを調整します。</p>

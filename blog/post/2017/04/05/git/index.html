@@ -129,7 +129,7 @@
 													
        			 		<p><code>git fixup</code>が便利だった件。</p>
 <p>こちらは<code>commit fixup</code>でrebaseを書き換える場合</p>
-<pre><code>$ GIT_SEQUENCE_EDITOR=&quot;sed -ie '2 s/pick/fixup/g'&quot; git rebase -i --root
+<pre tabindex="0"><code>$ GIT_SEQUENCE_EDITOR=&quot;sed -ie '2 s/pick/fixup/g'&quot; git rebase -i --root
 </code></pre><p>こうやると1行目のコミットに2行目のコミットが統合される。</p>
 <p>あと、<code>~/.gitconfig</code>に書いておくのも便利そう(上記とは内容が異なる)。</p>
 <blockquote>

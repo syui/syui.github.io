@@ -170,7 +170,7 @@ $ launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 $ ps aux | grep postgres
 </code></pre></div><p>以下はプロセスのKILLのワンライナー</p>
-<pre><code>$ ps aux | grep postgres | sed 's/  //g' | cut -d ' ' -f 2|sed '1d' | xargs kill 
+<pre tabindex="0"><code>$ ps aux | grep postgres | sed 's/  //g' | cut -d ' ' -f 2|sed '1d' | xargs kill 
 </code></pre><p>起動など。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ initdb /usr/local/var/postgres -E utf8
 $ pg_ctl -D /usr/local/var/postgres -l logfile start
@@ -180,7 +180,7 @@ $ psql -l
 <p>[error] Failed to connect to Redis</p>
 </blockquote>
 <p>多分、<code>npm i</code>でredisはインストールされてれると思うけど一応。</p>
-<pre><code>$ npm i redis
+<pre tabindex="0"><code>$ npm i redis
 $ redis-server
 $ mix phoenix.server
 </code></pre><p>というか、ここまでやってみて、Erlang、かなりつらいです。Rubyといい勝負というか、そんな感じで。また、PhoenixもRailsのような辛さが見え隠れしている印象で、最近、Golangを触っていたせいか、正直、ErlangやRubyなどの言語はGolangと比較してなんとなく辛いというか、そう感じるところがあったりして、しかし、サーバーサイドやデータベースなどを考慮するなら、こちらの選択もありだと思うので、慣れていきたいなと思いつつ、やっぱり慣れの問題なのかもしれませんね。おわり。</p>

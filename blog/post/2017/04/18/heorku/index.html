@@ -139,7 +139,7 @@
 <p><a href="https://devcenter.heroku.com/articles/custom-php-settings#using-htaccess">https://devcenter.heroku.com/articles/custom-php-settings#using-htaccess</a></p>
 <p>具体的には、アプリルートに<code>apache_app.conf</code>を作成し、<code>Procfile</code>に<code>web: vendor/bin/heroku-php-apache2 -C apache_app.conf</code>を記述。これによってApacheの設定ファイルを指定してサーバーを起動し、<code>.htaccess</code>を使えるようにできるみたいな感じなのではないかと思います。</p>
 <p>で<code>.htaccess</code>を有効にすれば画像リダイレクトなどが可能。</p>
-<pre><code>RewriteRule /system/accounts/avatars/paht/to/icon.png https://example.com/images/$1 [R=301,L]
+<pre tabindex="0"><code>RewriteRule /system/accounts/avatars/paht/to/icon.png https://example.com/images/$1 [R=301,L]
 </code></pre><p>CloudFlareのPage Rulesは無料枠3つまでなので、何か追加したい場合、こっちの方法も試してみるかも(今のところ必要ないけど)。</p>
 <p>しかし、上記はあくまで自分のアバターを表示する方法(他のインスタンス含め)、Mastodonは他のユーザーアイコンもストレージにダウンロードして表示するため、古いユーザーのアイコンが表示されなくなる問題があります。</p>
 

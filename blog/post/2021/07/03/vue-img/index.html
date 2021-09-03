@@ -186,7 +186,7 @@ type: img
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><p>なお、cssを追加したい場合、App.vueの<code>&lt;style&gt;</code>に追加してbuild後に<code>src/dist/*.css</code>をhugoのdir、ここでは<code>static/img</code>ですが、そこにcpします。読み込む必要があるのでapp.jsを読み込むところに追記すればいいでしょう。</p>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/img/app.css&quot; /&gt;
+<pre tabindex="0"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/img/app.css&quot; /&gt;
 </code></pre><p>最後に、<code>content/</code>で指定した場所に<code>single.html</code>を用意します。なお、contentに書かず、こちらに直接書いたり、<code>partial</code>に置いて読み込んでもいいです。ただ、私の場合、なにか追加で載せたいことがあるので、こちらのほうがわかりやすいと思いました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html">{{ partial &#34;head.html&#34; . }}
 {{ partial &#34;navbar.html&#34; . }}
@@ -266,7 +266,7 @@ type: img
 src/dist
 public
 </code></pre></div><p>vueのindentは<a href="https://github.com/leafOfTree/vim-vue-plugin">leafOfTree/vim-vue-plugin</a>が便利。</p>
-<pre><code class="language-vim:" data-lang="vim:">Plug 'leafOfTree/vim-vue-plugin'
+<pre tabindex="0"><code class="language-vim:" data-lang="vim:">Plug 'leafOfTree/vim-vue-plugin'
 
 let g:vim_vue_plugin_config = { 
       \'syntax': {

@@ -279,13 +279,13 @@ echo <span style="color:#e6db74">&#39;
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><h3 id="音が出ない">音が出ない</h3>
 <p>m4aにすると音が出るようになる。ただし、m4aは、tyranorider(web-browser)では出ないので、webでは使えなそう。mp3と同時に書く、連続して書く方法もあるらしい。</p>
-<pre><code>[playbgm storage=00.m4a]
+<pre tabindex="0"><code>[playbgm storage=00.m4a]
 </code></pre><h3 id="ボタン位置の調整">ボタン位置の調整</h3>
 <p><code>x=0, width=350</code>にする</p>
-<pre><code>[glink storage=&quot;s02.ks&quot; text=&quot;続きを読む&quot; size=20 width=&quot;350&quot; x=0 y=230 color=gray font_color=black graphic=more.png clickse=yes.m4a]
+<pre tabindex="0"><code>[glink storage=&quot;s02.ks&quot; text=&quot;続きを読む&quot; size=20 width=&quot;350&quot; x=0 y=230 color=gray font_color=black graphic=more.png clickse=yes.m4a]
 </code></pre><h3 id="画面調整">画面調整</h3>
 <p>背景画像のサイズを<code>400x700</code>に変換する, メッセージウィンドウと<code>data/system/Config.tjs</code>の調整。</p>
-<pre><code>[freeimage layer=1]
+<pre tabindex="0"><code>[freeimage layer=1]
 [position layer=message0 width=395 height=400 top=350]
 [position layer=message0 page=fore frame=&quot;frame.png&quot; title=&quot;test&quot; margint=&quot;55&quot; marginl=&quot;30&quot; marginr=&quot;30&quot; marginb=&quot;30&quot;]
 [ptext name=&quot;chara_name_area&quot; layer=message0 width=400 color=black x=20 y=365 size=26]

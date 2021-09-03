@@ -131,7 +131,7 @@
 <p><a href="https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html">https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html</a></p>
 <p><a href="https://gitlab.com/gitlab-com/support-forum/issues/1698">https://gitlab.com/gitlab-com/support-forum/issues/1698</a></p>
 <p>とりあえずテスト投稿ということで。</p>
-<pre><code>image: publysher/hugo
+<pre tabindex="0"><code>image: publysher/hugo
 
 test:
   stage: test
@@ -158,7 +158,7 @@ pages:
 <ul>
 <li>このリポジトリだけそのままではデプロイが実行されず、<code>stage: deploy</code>を追加しないと2つのJobが走らない。通常は以下のymlで2つのjobが走っていた。</li>
 </ul>
-<pre><code>image: publysher/hugo
+<pre tabindex="0"><code>image: publysher/hugo
 
 pages:
   script:

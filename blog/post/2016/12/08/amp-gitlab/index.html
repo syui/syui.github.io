@@ -130,7 +130,7 @@
        			 		<h2 id="amp対応は面倒くさい">amp対応は面倒くさい</h2>
 <p>一応、<code>psuh</code>すればampも更新されるやり方を考えてみました。</p>
 <p><code>.gitlab-ci.yml</code></p>
-<pre><code>  script:
+<pre tabindex="0"><code>  script:
   - git config --global user.email &quot;${GITLAB_MAIL}&quot;
   - git config --global user.name &quot;${USER}&quot;
   - git push https://${GITLAB_API_TOKEN}@gitlab.com/syui/amp.git

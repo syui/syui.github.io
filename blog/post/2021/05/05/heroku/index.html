@@ -136,7 +136,7 @@ This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 202
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku git:clone -a $app
 $ cd $app
 $ heroku buildpacks:set hashnuke/elixir
-</code></pre></div><pre><code class="language-sh:elixir_buildpack.conf" data-lang="sh:elixir_buildpack.conf">elixir_version=1.9.0
+</code></pre></div><pre tabindex="0"><code class="language-sh:elixir_buildpack.conf" data-lang="sh:elixir_buildpack.conf">elixir_version=1.9.0
 release=true
 </code></pre><p>これでpushしても以下のエラーが出るけど、cacheを削除すると動きます。</p>
 <blockquote>

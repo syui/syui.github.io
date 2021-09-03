@@ -129,7 +129,7 @@
 													
        			 		<p>私の場合、dbをreset, restoreした後に<code>mastodon 1.4 -&gt; down 1.2 -&gt; up 1.3 -&gt; up 1.4 -&gt; up 1.5</code>という手順を踏むことにした。</p>
 <p>しかし、1.3から1.4のアップデートすると、heroku serverに<code>rake db:migrate</code>した時点で<code>PG::DuplicateTable: ERROR</code>などが出るので、結果として500で投稿(toot)などが出来ない問題の対処法。</p>
-<pre><code>$ heroku run rake db:migrate -a $APP_NAME
+<pre tabindex="0"><code>$ heroku run rake db:migrate -a $APP_NAME
 PG::DuplicateTable: ERROR
 	account_domain_blocks
 	conversation

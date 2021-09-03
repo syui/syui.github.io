@@ -139,12 +139,12 @@ $ gpg --armor --export XXXXXX
 <span style="color:#75715e"># フィンガープリントのリスト</span>
 $ gpg --fingerprint
 </code></pre></div><p>外部のサーバーに登録する。デフォルトでは<code>keys.gnupg.net</code>な感じ?</p>
-<pre><code>$ gpg --keyserver pgp.nic.ad.jp --send-keys D6ABB386
+<pre tabindex="0"><code>$ gpg --keyserver pgp.nic.ad.jp --send-keys D6ABB386
 $ gpg --send-keys D6ABB386
 $ gpg --search-keys D6ABB386
 $ gpg --refresh-keys
 </code></pre><p><code>git commit -S</code>するとエラーが出るのでハマった。パスフレーズを入力できないことが原因。</p>
-<pre><code>$ echo 'no-tty' &gt;&gt; ~/.gnupg/gpg.conf
+<pre tabindex="0"><code>$ echo 'no-tty' &gt;&gt; ~/.gnupg/gpg.conf
 $ GPG_TTY=$(tty)
 $ export GPG_TTY
 </code></pre>
