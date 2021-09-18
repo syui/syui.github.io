@@ -1,5 +1,5 @@
 $(function() {
-	var prompt = "[[b;#d33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
+	var prompt = "[[b;#D33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
 	var test_help = "Press [[b;#d33682;]<Tab>]";
 	var greetings = "";
 	var origin_songs = [];
@@ -92,7 +92,6 @@ $(function() {
 	";
 
 	function interpreter(input, term) {
-
 		var command, inputs;
 		inputs = input.split(/ +/)
 		command = inputs[0];
@@ -106,6 +105,8 @@ $(function() {
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
 			term.echo("slow okay?\n[Y]run next command.\nex: $ curl https://syui.cf/index.json");
 			term.insert("curl https://syui.cf/index.json");
+		} else if (inputs[0] === 'exit') {
+			this.set_prompt("[[b;#D33682;]" + "user" + "]@[[b;#6c71c4;]syui.cf] ~# ");
 		}	else if (inputs[0] === 'curl' && inputs[1] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === 'https://syui.cf/index.json'){
 			term.echo(index_json);
 		}	else if (inputs[0] === 'curl' && inputs[1] === 'ipapi.co'){
@@ -196,65 +197,76 @@ $(function() {
 				bash(inputs, term);
 			} else if (/ls/.test(input)) {
 				term.echo(file_full);
-			} else if (command == 'login'){
+			} else if (command == 'login' || command == 'su'){
 				term.login(function(user, password, callback) {
 					if (user == 'syui' && password == 'syui') {
 						callback('SECRET TOKEN');
-						this.set_prompt("[[b;#d33682;]" + "syui" + "]@[[b;#6c71c4;]syui.cf] ~# ");
-					} else {
+						this.set_prompt("[[b;#EF454A;]" + "syui" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+					} else if (user == 'root' && password == 'ai') {
+						callback('SECRET TOKEN');
+						term.echo("\ncongratulations!\n" + "you are hacker level.\n");
+						this.set_prompt("[[b;#008000;]" + "root" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+					} else if (user == 'root') {
 						callback(null);
-					}
+					} else {
+						callback('SECRET TOKEN');
+						$.ajaxSetup({async: false});
+						$.getJSON('https://ipapi.co/json/', function(data) {
+							user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
+						});$.ajaxSetup({async: true});
+							this.set_prompt("[[b;#008080;]" + user + "(" + user_ip + ")" + "]@[[b;#6c71c4;]syui.cf] ~$ ");
+							//callback(null);
+						}
 				});
-				//} else if (term.token()) {
-				//	term.echo("token");
-			} else {
-				term.error(command + " is not a valid command");
-			}
+	} else {
+		term.error(command + " is not a valid command");
 	}
+}
 
-	function bash(inputs, term) {
-		var argument, echo, insert;
-		echo = term.echo;
-		insert = term.insert;
-		if (!inputs[1]) {
-			//return console.log("none");
+function bash(inputs, term) {
+	var argument, echo, insert;
+	echo = term.echo;
+	insert = term.insert;
+	if (!inputs[1]) {
+		//return console.log("none");
+	} else {
+		argument = inputs[1];
+		if (/^\.\./.test(argument)) {
+			return echo("-bash: cd: " + argument + ": Permission denied");
 		} else {
-			argument = inputs[1];
-			if (/^\.\./.test(argument)) {
-				return echo("-bash: cd: " + argument + ": Permission denied");
-			} else {
-				return echo("-bash: cd: " + argument + ": No such file or directory");
-			}
+			return echo("-bash: cd: " + argument + ": No such file or directory");
 		}
 	}
+}
 
-	$('#terminal').terminal(interpreter, {
-		prompt: prompt,
-		name: 'test',
-		greetings: greetings,
-		height: 450,
-		onInit: function(term) {
-			term.echo(command_all);
-		},
-		completion: function(term, string, callback) {
-			var t = $(term[0]).text();
-			if (t.match(/none/)) {
-				term.clear();
-			} else if (t.match(/cat/)) {
-				callback(file_full);
-				term.clear();
-			} else if (t.match(/mpv/)) {
-				callback(origin_songs);
-			} else if (t.match(/search/)) {
-				callback(tags);
-				term.clear();
-			} else if (t.match(/help/)){
-				callback(command_all);
-			} else {
-				callback(command_all);
-				term.history().clear();
-			}
-		},
-		tabcompletion: true
-	});
+$('#terminal').terminal(interpreter, {
+	prompt: prompt,
+	name: 'test',
+	greetings: greetings,
+	exit: false,
+	height: 450,
+	onInit: function(term) {
+		term.echo(command_all);
+	},
+	completion: function(term, string, callback) {
+		var t = $(term[0]).text();
+		if (t.match(/none/)) {
+			term.clear();
+		} else if (t.match(/cat/)) {
+			callback(file_full);
+			term.clear();
+		} else if (t.match(/mpv/)) {
+			callback(origin_songs);
+		} else if (t.match(/search/)) {
+			callback(tags);
+			term.clear();
+		} else if (t.match(/help/)){
+			callback(command_all);
+		} else {
+			callback(command_all);
+			term.history().clear();
+		}
+	},
+	tabcompletion: true
+});
 });
