@@ -7,7 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>syui.cfの歩き方</title>
+      <link>https://syui.cf/blog/post/2021/09/19/blog/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/09/19/blog/</guid>
+      <description>syui.cfは、このサイト(ブログ)のタイトルです。
+このサイトには、いくつかの隠し機能があり、今回はそれらを使って、このサイトを便利に閲覧しちゃおうという内容です。
+といっても、ほとんどが遊び機能。
+ 環境 : safari, chrome
+動作するには、browserのcookie, javascriptをenableに、adblockなどpluginをdisableにする必要があるかもしれません
+ j, kで移動 ブログ記事へのリンク間をshift + j, shift + kで移動できるようになっています。
+shiftを選択している理由は、このような設定はkeybindを奪うことにもなり、不便が生じるかもしれないので、あまり使われなさそうなshiftにしています。
+terminalの呼び出し ctrl + enterでterminalを呼び出すことができます。主に/と2階層目くらいまでは呼び出せるようなってることが多いかな。
+このterminalにより、サイト上の色々な機能にアクセスしやすくなってます。
+現在使える便利機能をいくつか紹介します。
+ ただし、個別記事である/blog/foo上ではterminalは呼び出せず、代わりに/blogに移動するようになっています。/blogからは従来通りterminalを呼び出すことができます。
+ / コマンドで個別記事に飛ぶ $ / /コマンドを使うと最新記事の中から個別記事に飛ぶことができます。飛びたい番号を入力します。
+search コマンドでタグを検索する $ search -t hugo search -t $tagでタグを検索することができます。オプションなしだと通常検索です。補完機能があるので&amp;lt;tab&amp;gt;でタグ補完できます。
+login コマンドで自分の名前を表示する $ login login : test password : test 適当な遊びコマンドですが、自分のusernameとip addressをこのサイト上に表示することができます。ちなみに、個人情報がこのサイトの管理人に送信されることはありません。あと、passwordは何でもいいです。
+また、遊びの一環としてroot loginに挑戦してみるのも面白いかもしれません。ちゃんとpasswordが設定されてますので、ぜひ、突破してみてください。
+その他 その他にも面白おかしいコマンドがいくつかあります。是非、遊んでみてください。</description>
+    </item>
+    
     <item>
       <title>ポケモンカード</title>
       <link>https://syui.cf/blog/post/2021/09/18/pogo/</link>
