@@ -3,6 +3,7 @@
 {{ if or .PrevInSection .NextInSection }}
 <nav id="article-nav">
     {{ if .PrevInSection }}
+
     <a href="{{ .PrevInSection.Permalink }}" id="article-nav-older" class="article-nav-link-wrap">
 <i class="{{ $next }}"></i> {{ .PrevInSection.Title }}
     </a>
