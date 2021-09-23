@@ -127,7 +127,9 @@
 													<div class="post-time-date">2021-09-23 / <a href="/syui">@syui</a></div>
 													<h2>windowsの使い方</h2>
 													
-       			 		<h3 id="openssh">openssh</h3>
+       			 		<h3 id="local-account">local account</h3>
+<p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
+<h3 id="openssh">openssh</h3>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
 <p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublic-keyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
@@ -139,10 +141,17 @@
 <p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
 <p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
 <p>したがって、exeやstartup(shell:startup)は、<code>プロパティ &gt; 管理者としてこのプログラムを実行する</code>にチェックを入れます。</p>
+<p>また、場合によっては<code>nusrmgr.cpl</code>から<code>制御設定の変更</code>が必要になるかもしれません。</p>
 <h3 id="virtualbox">virtualbox</h3>
+<p><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
 <p>virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:startup/vm-arch.bat" data-lang="sh:startup/vm-arch.bat"><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
-</code></pre></div>
+</code></pre></div><h3 id="auto-login">auto-login</h3>
+<p>起動時のパスワードを省略する設定です。</p>
+<p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
+<p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>
+<p><a href="https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon">https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</a></p>
+
        			 		
 
 
