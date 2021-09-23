@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/m/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/m/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/windows/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/m/post/windows/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,12 +27,6 @@
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/09/22/ios/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/illust/</loc>
@@ -199,9 +211,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/17/figure/</loc>
     <lastmod>2021-07-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/windows/</loc>
-    <lastmod>2021-07-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/16/windows/</loc>
     <lastmod>2021-07-16T00:00:00+00:00</lastmod>
