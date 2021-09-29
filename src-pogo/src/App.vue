@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      products: 8,
+      products: 9,
       hooperSettings: {
         itemsToShow: 1,
         centerMode: true
