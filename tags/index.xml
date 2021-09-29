@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>private</title>
+      <link>https://syui.cf/tags/private/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/private/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>running</title>
+      <link>https://syui.cf/tags/running/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/running/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pogo</title>
       <link>https://syui.cf/tags/pogo/</link>
@@ -113,15 +131,6 @@
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/desktop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>private</title>
-      <link>https://syui.cf/tags/private/</link>
-      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/private/</guid>
       <description></description>
     </item>
     
@@ -905,15 +914,6 @@
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/scoop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>running</title>
-      <link>https://syui.cf/tags/running/</link>
-      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/running/</guid>
       <description></description>
     </item>
     
