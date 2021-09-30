@@ -19,6 +19,10 @@ type: img
 ![/img/min/yui_85.webp](/img/min/yui_85.webp)
 ![/img/min/yui_88.webp](/img/min/yui_88.webp)
 
+![/img/min/yui_90.webp](/img/min/yui_90.webp)
+![/img/min/yui_97.webp](/img/min/yui_97.webp)
+![/img/min/yui_89.webp](/img/min/yui_89.webp)
+![/img/min/yui_100.webp](/img/min/yui_100.webp)
 
 ### フィールド
 
