@@ -3,11 +3,16 @@
 		<div class="img-new">
 			<p><a :href=lurl><img :src="'/img/min/yui_' + lid + '.webp'" /></a></p>
 	</div>
-	<div class="img-old">
+	<div class="img-old" >
 		<p>
-			<a v-for="(n,index) of id" :key="n" :href="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'">
-				<img :src="'/img/min/yui_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
-			</a>
+			<span v-for="(n,index) of id" :key="n">
+				<a v-if="n < 102" :href="'/img/yui_'+ ( '00' + index ).slice( -2 ) +'.png'">
+					<img :src="'/img/min/yui_'+ ( '00' + index ).slice( -2 ) +'.webp'" />
+				</a>
+				<a v-if="n > 100" :href="'/img/yui_'+ index +'.png'">
+					<img :src="'/img/min/yui_'+ index +'.webp'" />
+				</a>
+			</span>
 		</p>
 	</div>
 	<div class="img-chara">
