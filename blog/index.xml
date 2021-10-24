@@ -7,7 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 21 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugoのresourceを使ってみた</title>
+      <link>https://syui.cf/blog/post/2021/10/24/hugo/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/10/24/hugo/</guid>
+      <description>今回、写真が増えてきたので、ページを作ったのですが、その際、hugoのresourceを使ってみました。
+/photo
+dir構造は以下の通り。content/photo/以下に画像を置きます。
+content/photo ├── figure.jpg ├── illust.jpg ├── index.md ├── pokecard.jpg └── sticker.jpg --- title: &amp;#34;photo | syui.cf&amp;#34; resources: - src: &amp;#39;*.jpg&amp;#39; type: &amp;#34;photo&amp;#34; --- それをlayout/photo/single.htmlでresourceを使って取得。
+{{ with .Resources.Match &amp;#34;*.jpg&amp;#34; }} &amp;lt;div class=&amp;#34;Carousel__slide&amp;#34;&amp;gt; &amp;lt;p&amp;gt; {{ range . }} &amp;lt;a href=&amp;#34;{{ .RelPermalink }}&amp;#34;&amp;gt;&amp;lt;img src=&amp;#34;{{ .RelPermalink }}&amp;#34; width=&amp;#34;480&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; {{ end }} &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; {{ end }} 以下のような感じで取得してもいいらしい。
+{{ .Resources.ByType &amp;#34;image&amp;#34; }} {{ .Page.Resources.ByType &amp;#34;image&amp;#34; }} でも、正直、分かりづらかったり、思ったように動かなかったりするかも。
+https://gohugo.io/content-management/page-resources/</description>
+    </item>
+    
+    <item>
+      <title>イラスト描いてみた102</title>
+      <link>https://syui.cf/blog/post/2021/10/23/illust/</link>
+      <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/10/23/illust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>原神、聖遺物の厳選なし</title>
       <link>https://syui.cf/blog/post/2021/10/21/genshin/</link>

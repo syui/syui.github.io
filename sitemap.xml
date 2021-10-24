@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/hugo/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/10/24/hugo/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2021-10-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/10/23/illust/</loc>
+    <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/game/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
@@ -11,17 +29,8 @@
     <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
-    <lastmod>2021-10-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2021/10/21/genshin/</loc>
     <lastmod>2021-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2021-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/10/14/illust/</loc>
     <lastmod>2021-10-14T00:00:00+00:00</lastmod>
@@ -99,9 +108,6 @@
     <lastmod>2021-09-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/blog/</loc>
-    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/hugo/</loc>
     <lastmod>2021-09-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/09/19/blog/</loc>
@@ -3507,6 +3513,8 @@
     <loc>https://syui.cf/music/</loc>
   </url><url>
     <loc>https://syui.cf/nyancat/</loc>
+  </url><url>
+    <loc>https://syui.cf/photo/</loc>
   </url><url>
     <loc>https://syui.cf/sitemap/</loc>
   </url><url>
