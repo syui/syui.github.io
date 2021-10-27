@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pokemon</title>
+      <link>https://syui.cf/tags/pokemon/</link>
+      <pubDate>Wed, 27 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pokemon/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>hugo</title>
       <link>https://syui.cf/tags/hugo/</link>
@@ -59,15 +68,6 @@
       <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/pokemas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pokemon</title>
-      <link>https://syui.cf/tags/pokemon/</link>
-      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pokemon/</guid>
       <description></description>
     </item>
     
