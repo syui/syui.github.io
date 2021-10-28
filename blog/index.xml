@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 27 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iosの写真ウィジェット</title>
+      <link>https://syui.cf/blog/post/2021/10/28/ios/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/10/28/ios/</guid>
+      <description>結論から言うと、手動で設定するにはgoogleフォトがいいです。
+デフォルトの写真アプリでやっても「コンテンツがありません」と表示され続けるので。</description>
+    </item>
+    
     <item>
       <title>ポケマス、からておう</title>
       <link>https://syui.cf/blog/post/2021/10/27/pokemas/</link>
