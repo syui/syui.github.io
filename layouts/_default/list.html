@@ -8,7 +8,7 @@
 		<div id="blog-archives" class="category">
 			<ul class="cp_list">
 				{{ range $index,$value := .Data.Pages.ByDate.Reverse }}
-				<li><span class="icon-moon"></span>
+				<li>
 					{{ if not $index }}
 					{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}" id="fmove" class="lmove">{{.Title}}</a></p>
 					{{ else }}

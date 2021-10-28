@@ -6,7 +6,7 @@
 	<div id="blog-archives" class="category">
 		<ul class="cp_list">
 			{{ range $index,$value := first 7 (where $.Site.RegularPages.ByDate.Reverse "Section" "blog") }}
-			<li><span class="icon-moon"></span>
+			<li>
 				{{ if not $index }}
 				{{ .Date.Local.Format "2006-01-02" }}<p><a id="fmove" href="{{.Permalink}}" class="lmove">{{.Title}}</a></p>
 				{{ else }}
