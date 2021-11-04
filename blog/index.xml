@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>miiで輪っかを再現してみた</title>
+      <link>https://syui.cf/blog/post/2021/11/04/pikmin/</link>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/11/04/pikmin/</guid>
+      <description>miiでアイの輪っかを再現してみた。金髪である以上、輪があるか輪(剣)を持つかしないといけないので。
+色んなパターンを作ってみたものの、最終的には、これに落ち着きました。pikminbloomで見たとき比較的違和感が少ないものを選択。</description>
+    </item>
+    
     <item>
       <title>pikmin bloomとmii</title>
       <link>https://syui.cf/blog/post/2021/11/03/pikmin/</link>
