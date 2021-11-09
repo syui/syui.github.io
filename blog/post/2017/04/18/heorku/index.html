@@ -131,7 +131,7 @@
 <p>そのためMastodonではAWS S3をストレージとして使用する方法が推奨されていますが、個人利用の場合、AWSを使いたくありません。</p>
 <p>よって、とりあえずCloudFlareのPage Rulesで対応してみました。自分のアバターのみですが。</p>
 <p>こんな感じで設定していきます。</p>
-<p>Forwarding URL : /system/accounts/avatars/paht/to/icon.png?XXXXXX <a href="https://gitlab.com/uploads/user/avatar/..">https://gitlab.com/uploads/user/avatar/..</a>.</p>
+<p>Forwarding URL : /system/accounts/avatars/paht/to/icon.png?XXXXXX <a href="https://gitlab.com/uploads/user/avatar/">https://gitlab.com/uploads/user/avatar/</a>&hellip;</p>
 <p>Mastodonはユーザーアイコンなどのアバター画像はインスタンスサーバーに保存されます。つまり、私で言うところのHerokuストレージ上です。なので、タイムラインとか色々表示されなかったりするわけですが、一旦読み込めば表示されるようになるのでそれほど不便はありません。あとは、フォローしてくれる人用に、自分のアイコンだけを確実にリダイレクトなどしておけば良さそうな気がします。</p>
 <p>これでうまくいくかどうかしばらく見てみようかなと思ってます。駄目というのは、他インスタンスサーバーがどのように画像をダウンロードしているかの処理に関係していて、リダイレクト先をダウンロードしてくれるのかどうか分かりません。駄目なら他の方法を考えます。</p>
 <p>一応、表示の確認はできました。Herokuのサーバーの画像は空であるにも関わらず表示されているようです。あと、他のインスタンスサーバーで確認してみたところでも一応はダウンロードされている感じではあります(このあたりの確認の信頼性はあまりないけど)。</p>
