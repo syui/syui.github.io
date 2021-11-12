@@ -9,16 +9,16 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Thu, 11 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>goodreaderからopnessh(fstp)にpublic-keyでアクセスする</title>
+      <title>goodreaderからopenssh(fstp)にpublic-keyでアクセスする</title>
       <link>https://syui.cf/blog/post/2021/11/11/goodreader/</link>
       <pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2021/11/11/goodreader/</guid>
-      <description>goodreader(latest)でopenssh 8.7に対応
+      <description>goodreader(latest)がopenssh 8.7に対応
  iosには昔からgoodreaderという便利なアプリがあります。
 これがずっと便利で(遥か昔から今日に至るまでiosには他に便利なアプリがあまりなかったとも言う)、このアプリ、すごく基本的なことができるのです。
 androidでは普通にできるようなことができ、例えば、ssh(sftp) serverにpublic-key方式でアクセスしたりできるんですけど、一時期からupdateが滞り、openssh verによっては、public-keyなどによるアクセスが使えなくなっていました。
-しかし、ここ最近のupdateでopenssh 8.7(openssl 1.1.1)ならpublic-keyでも接続可能になりました。</description>
+しかし、ここ最近のgoodreaderのupdateでopenssh 8.7(openssl 1.1.1)ならpublic-keyでも接続可能になりました。</description>
     </item>
     
     <item>
