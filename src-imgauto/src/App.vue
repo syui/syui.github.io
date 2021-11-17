@@ -1,5 +1,6 @@
 <template>
 	<div class="containerx">
+		<p>過去のイラスト</p>
 		<div class="img-new">
 			<p><a :href=lurl><img :src="'/img/min/yui_' + lid + '.webp'" /></a></p>
 	</div>
