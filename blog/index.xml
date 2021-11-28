@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>アイのアイコンを作った</title>
+      <link>https://syui.cf/blog/post/2021/11/28/icon/</link>
+      <pubDate>Sun, 28 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/11/28/icon/</guid>
+      <description>/ai こっちはinkscapeでsvgを作ったんだけど、このアプリ、毎度触るたびによくわからんってなってる。</description>
+    </item>
+    
     <item>
       <title>qiitaバッジもらった</title>
       <link>https://syui.cf/blog/post/2021/11/22/qiita/</link>
