@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/mastodon/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/12/05/mastodon/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/ff7fs/</loc>
     <lastmod>2021-12-03T00:00:00+00:00</lastmod>
@@ -12,12 +24,6 @@
     <lastmod>2021-12-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/game/</loc>
-    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-12-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/pokemon/</loc>
@@ -481,9 +487,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/05/11/pogo/</loc>
     <lastmod>2021-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/mastodon/</loc>
-    <lastmod>2021-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/05/10/mastodon/</loc>
     <lastmod>2021-05-10T00:00:00+00:00</lastmod>

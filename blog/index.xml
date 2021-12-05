@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodonをruby-3.0.3で動かしてみた</title>
+      <link>https://syui.cf/blog/post/2021/12/05/mastodon/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/12/05/mastodon/</guid>
+      <description>今までrbenvでversion管理してたんだけど、archlinuxにruby-3.0.3が来ていたので、これがmastodonのgemfileと合いそうだったので上げてみた。heroku-runtimeも3.0.3ですし、今だとrbenvは必要ありません。
+$ cd mastodon $ rbenv local system $ ruby -v 3.0.3 $ sudo gem i bundler $ export PATH=&amp;#34;$HOME/.gem/ruby/3.0.0/bin:$PATH&amp;#34; $ rm Gemfile.lock $ bundle あとはGemfile.lockをherokuにcommit, deployすればいいです。
+また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
+&amp;#34;engines&amp;#34;: { &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34; }, https://devcenter.heroku.com/ja/articles/ruby-support
+https://devcenter.heroku.com/ja/articles/nodejs-support</description>
+    </item>
+    
     <item>
       <title>ff7fsでモーグリのスキンを集めた</title>
       <link>https://syui.cf/blog/post/2021/12/03/ff7fs/</link>
