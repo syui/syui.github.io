@@ -19,7 +19,7 @@ $ cd mastodon $ rbenv local system $ ruby -v 3.0.3 $ sudo gem i bundler $ export
 また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
 &amp;#34;engines&amp;#34;: { &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34; }, 最新のmastodonではkeybaseのリンクが消滅しています。下記の事情があったみたいです。したがって、当該commitをrevertすることでリンク(認証)を残すことができます。
 https://github.com/mastodon/mastodon/issues/13670
- その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
+$ git revert 7de0ee7ab  その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
 https://devcenter.heroku.com/ja/articles/nodejs-support
 https://docs.joinmastodon.org/user/contacts/</description>
     </item>
