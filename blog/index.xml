@@ -17,7 +17,9 @@
       <description>今までrbenvでversion管理してたんだけど、archlinuxにruby-3.0.3が来ていたので、これがmastodonのgemfileと合いそうだったので上げてみた。heroku-runtimeも3.0.3ですし、今だとrbenvは必要ありません。
 $ cd mastodon $ rbenv local system $ ruby -v 3.0.3 $ sudo gem i bundler $ export PATH=&amp;#34;$HOME/.gem/ruby/3.0.0/bin:$PATH&amp;#34; $ rm Gemfile.lock $ bundle あとはGemfile.lockをherokuにcommit, deployすればいいです。
 また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
-&amp;#34;engines&amp;#34;: { &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34; }, https://devcenter.heroku.com/ja/articles/ruby-support
+&amp;#34;engines&amp;#34;: { &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34; }, 最新のmastodonではkeybaseのリンクが消滅しています。下記の事情があったみたいです。したがって、当該commitをrevertすることでリンク(認証)を残すことができます。
+https://github.com/mastodon/mastodon/issues/13670
+ その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
 https://devcenter.heroku.com/ja/articles/nodejs-support</description>
     </item>
     
