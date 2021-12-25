@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/game/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/game/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/game/genshin/</loc>
+    <lastmod>2021-12-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
     <lastmod>2021-12-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,15 +27,6 @@
     <lastmod>2021-12-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/12/19/ff7fs/</loc>
-    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/game/</loc>
-    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2021-12-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/pokemon/</loc>
@@ -73,9 +82,6 @@
   </url><url>
     <loc>https://syui.cf/tags/ios/</loc>
     <lastmod>2021-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2021-11-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/11/07/genshin/</loc>
     <lastmod>2021-11-07T00:00:00+00:00</lastmod>

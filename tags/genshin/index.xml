@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/genshin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/genshin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神</title>
+      <link>https://syui.cf/game/genshin/</link>
+      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/game/genshin/</guid>
+      <description>.containerx p img { width: 100%; padding: 0; }     
+https://shinshin.moe/</description>
+    </item>
+    
     <item>
       <title>原神、武器と育成方針</title>
       <link>https://syui.cf/blog/post/2021/11/07/genshin/</link>
