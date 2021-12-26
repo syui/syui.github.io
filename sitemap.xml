@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/games/ff7fs/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/ff7fs/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/game/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -36,9 +42,6 @@
     <lastmod>2021-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/ff7fs/</loc>
     <lastmod>2021-12-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/12/19/ff7fs/</loc>
@@ -3601,6 +3604,8 @@
     <loc>https://syui.cf/ai/</loc>
   </url><url>
     <loc>https://syui.cf/archive/</loc>
+  </url><url>
+    <loc>https://syui.cf/games/</loc>
   </url><url>
     <loc>https://syui.cf/icon/</loc>
   </url><url>
