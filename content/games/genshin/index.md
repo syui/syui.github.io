@@ -12,6 +12,10 @@ slug = "genshin"
 }
 </style>
 
+原神をプレイしています。
+
+すばらしく美しい世界で旅ができるので、おすすめです。
+
 ### 基本的な考え
 
 原神で会心率、会心ダメが重要だと思うのは、なぜでしょう。
@@ -40,7 +44,7 @@ slug = "genshin"
 
 ### 育成中のキャラ
 
-<a href="/genshin/genshin_klee.png"><img src="/genshin/genshin_klee.png"></a>
+<a href="/games/genshin/genshin_klee.png"><img src="/games/genshin/genshin_klee.png"></a>
 
 一番好きなクレー。原神を始めたきっかけ。
 
@@ -50,21 +54,21 @@ slug = "genshin"
 
 時計だけは、スコア50超えだったので満足してる。
 
-<a href="/genshin/genshin_raiden.png"><img src="/genshin/genshin_raiden.png"></a>
+<a href="/games/genshin/genshin_raiden.png"><img src="/games/genshin/genshin_raiden.png"></a>
 
 雷電は、チャージ効率重視。これは、雷電自身の特性と聖遺物の特性から。
 
 ただ、武器の護摩を装備すると、会心系は目標値に到達する。けど、実戦では、チャージ効率のほうが総合的に見て強いと思う。
 
-<a href="/genshin/genshin_noelle.png"><img src="/genshin/genshin_noelle.png"></a>
+<a href="/games/genshin/genshin_noelle.png"><img src="/games/genshin/genshin_noelle.png"></a>
 
 ノエルは、2000~8000くらいのダメージを出せるので、アタッカーが死んだとき、なんとか乗り切れるようになってる。
 
-<a href="/genshin/genshin_barbara.png"><img src="/genshin/genshin_barbara.png"></a>
+<a href="/games/genshin/genshin_barbara.png"><img src="/games/genshin/genshin_barbara.png"></a>
 
 海染で爆発が14000くらいのダメージ入る。武器も金泊なので相性がいいと思う。
 
-https://shinshin.moe/
+https://shinshin.moe
 
 ### 今後引き当てていきたいキャラ
 
@@ -98,9 +102,11 @@ https://shinshin.moe/
 |炎|ベネット|
 |氷|甘雨 or 神里|
 
-2021/12現在、`21,000`の原石が貯まっています。
+2021/12現在、`22,000`の原石が貯まっています。
 
 行秋とベネットを省くとして、7,000x4=`28,000`の原石が必要となる計算です。
+
+https://genshin.gg
 
 ### 最強キャラ
 
@@ -112,5 +118,5 @@ https://shinshin.moe/
 
 また、元素爆発は、ゲーム内で最も強力な必殺技を意味します。したがって、PTのそれを連発できる雷電の特性は、やはり、PTとしても最強と表現できるものだと思います。元素爆発は攻撃からサポートまで多種多様で、これからも増え、広がっていくと考えられます。
 
-ということで、`雷電`が最強だと思います。
+ということで、今の所、`雷電`が最強だと思います。
 
