@@ -7,13 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 25 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>game</title>
       <link>https://syui.cf/tags/game/</link>
-      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pokemas</title>
+      <link>https://syui.cf/tags/pokemas/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pokemas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pokemon</title>
+      <link>https://syui.cf/tags/pokemon/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pokemon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pokemongo</title>
+      <link>https://syui.cf/tags/pokemongo/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pokemongo/</guid>
       <description></description>
     </item>
     
@@ -32,15 +59,6 @@
       <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/ff7fs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pokemon</title>
-      <link>https://syui.cf/tags/pokemon/</link>
-      <pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pokemon/</guid>
       <description></description>
     </item>
     
@@ -122,15 +140,6 @@
       <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/private/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pokemas</title>
-      <link>https://syui.cf/tags/pokemas/</link>
-      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pokemas/</guid>
       <description></description>
     </item>
     
@@ -356,15 +365,6 @@
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/archive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pokemongo</title>
-      <link>https://syui.cf/tags/pokemongo/</link>
-      <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pokemongo/</guid>
       <description></description>
     </item>
     

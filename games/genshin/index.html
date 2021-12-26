@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>原神 | syui.cf</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="原神" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.cf/favicon.png" />
+		<meta property="og:url" content="https://syui.cf" />
+		<meta property="og:site_name" content="syui.cf" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "name": "syui.cf",
+			  "url": "https://syui.cf/"
+			}
+		</script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/js/highlight-prompt.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/axios/dist/axios.min.js"></script>
+		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a class="navbar-title" href="/">syui.cf</a></span>
+			<span class="navbar-title-icon"><a href="/syui"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/icon">デザイン</a>
+				<a class="navbar-brand" href="/img">イラスト</a>
+				<a class="navbar-brand" href="/music">ミュージック</a>
+				<a class="navbar-brand" href="/app">アプリ</a>
+				<a class="navbar-brand" href="/imgame">ゲーム</a>
+				<a class="navbar-brand" href="/manga">マンガ</a>
+				<a class="navbar-brand" href="/novel">ノベル</a>
+				<a class="navbar-brand" href="/archive">アイデア</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+			<a href="https://mstdn.syui.cf/@syui" target="_blank"><i class="fab fa-mastodon"></i></a>
+			<a href="https://git.syui.cf/syui" target="_blank"><i class="fab fa-git-alt"></i></a>
+			<a href="/blog/index.xml" target="_blank"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+ 
+	<body>
+		
+		<div class="containerx">
+			<header id="header">
+				
+				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+</svg>
+ </a> </div>
+				
+			</header>
+
+<div class="google-ads">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<ins class="adsbygoogle"
+						style="display:block"
+						data-ad-format="fluid"
+						data-ad-layout-key="-f7+6b-2g-5t+jt"
+						data-ad-client="ca-pub-7486046788071230"
+						data-ad-slot="6066812769"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+       			<article>
+       			 	<div class="content">
+													<div class="post-time-date">2021-12-25 / <a href="/syui">@syui</a></div>
+													<h2>原神</h2>
+													
+       			 		<style>
+.containerx p img {
+    width: 100%;
+    padding: 0;
+}
+</style>
+<p>原神をプレイしています。</p>
+<p>すばらしく美しい世界で旅ができるので、おすすめです。</p>
+<h3 id="基本的な考え">基本的な考え</h3>
+<p>原神で会心率、会心ダメが重要だと思うのは、なぜでしょう。</p>
+<p>これは、会心系がチームによるバフを期待できないからだと考えます。</p>
+<p>では、他のステータスも重要なのに、攻撃やダメージが重視される理由はなぜでしょう。</p>
+<p>これは、鍾離による突破されることのないシールドなどによって、死ぬことがなくなったからだと考えられます。</p>
+<p>では、最もダメージを出せる基本的な考えはどういったものになるのでしょう。</p>
+<p>これは、チームの組み合わせによる元素反応、及び、バフ、デバフ効果。そして、基本となるのが、アタッカーの攻撃と会心系のバランスだと考えられます。</p>
+<p>しかし、攻撃はバフで盛れるため、会心系をステータスで盛る必要が出てきます。</p>
+<h3 id="聖遺物の選び方">聖遺物の選び方</h3>
+<p>基本的には、会心率と会心ダメがサブステータスに入っている必要があります。冠でどちらかがメインの場合、片方がサブに入ってなければいけません。</p>
+<p>強化によって会心系の値を伸ばしていくことが基本となります。</p>
+<p>なお、良い聖遺物は、サブで会心率15%、または会心ダメ30%が目安となります。</p>
+<p>合計で会心率60%, 会心ダメ150%が目標値となります。武器で補完できる場合は、補完します。</p>
+<h3 id="育成中のキャラ">育成中のキャラ</h3>
+<p><a href="/games/genshin/genshin_klee.png"><img src="/games/genshin/genshin_klee.png"></a></p>
+<p>一番好きなクレー。原神を始めたきっかけ。</p>
+<p>クレーは、冠のメインで会心率を当てたいと思ってる。けど、なかなか出ない。</p>
+<p>それ以外の聖遺物も厳しいスコアだけど、チャージ効率が上がってるので悪くないと思ってる。</p>
+<p>時計だけは、スコア50超えだったので満足してる。</p>
+<p><a href="/games/genshin/genshin_raiden.png"><img src="/games/genshin/genshin_raiden.png"></a></p>
+<p>雷電は、チャージ効率重視。これは、雷電自身の特性と聖遺物の特性から。</p>
+<p>ただ、武器の護摩を装備すると、会心系は目標値に到達する。けど、実戦では、チャージ効率のほうが総合的に見て強いと思う。</p>
+<p><a href="/games/genshin/genshin_noelle.png"><img src="/games/genshin/genshin_noelle.png"></a></p>
+<p>ノエルは、2000~8000くらいのダメージを出せるので、アタッカーが死んだとき、なんとか乗り切れるようになってる。</p>
+<p><a href="/games/genshin/genshin_barbara.png"><img src="/games/genshin/genshin_barbara.png"></a></p>
+<p>海染で爆発が14000くらいのダメージ入る。武器も金泊なので相性がいいと思う。</p>
+<p><a href="https://shinshin.moe">https://shinshin.moe</a></p>
+<h3 id="今後引き当てていきたいキャラ">今後引き当てていきたいキャラ</h3>
+<p>今後引き当てていきたいキャラは、基本的には、各元素で考えています。</p>
+<p>各元素につき1体は<a href="https://genshin.gg/tier-list">SS+</a>のキャラを育てていきたい。</p>
+<p>無課金なので2体は狙わないし、凸も狙わないこととします。</p>
+<p>1体につき原石が7000(期待値)くらいかかります。</p>
+<p>ただ、行秋とベネットは星4なので、すり抜けで狙う予定。それ目当てでガチャを回すことは予定していません。</p>
+<p>炎、氷元素のキャラは、各国の実装時期が遅めなので、優先順位は上がります。近く実装予定の草国は神を待てばいいのですが、最後に実装される氷国は今、氷元素キャラを確保しても後悔は少ないでしょう。</p>
+<p>反対に、既に実装済みの国は神との比較ができるのでわかりやすいです。</p>
+<p>例えば、神属性のウェンティとカズハを比較し、カズハのほうが評価が高ければ、カズハを引いても問題ないということになります。しかし、神属性持ちのキャラを揃えたい、唯一無二の性能を評価するというのであれば、ウェンティを引いたほうがいいと思います。</p>
+<p>以上を前提に、個人的には以下のキャラを狙っています。</p>
+<p>持っているキャラは★です。神属性のキャラは☆です。</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>キャラ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>風</td>
+<td>ウェンティ(☆) or カズハ</td>
+</tr>
+<tr>
+<td>岩</td>
+<td>鍾離(☆)</td>
+</tr>
+<tr>
+<td>雷</td>
+<td>雷電(☆★)</td>
+</tr>
+<tr>
+<td>草</td>
+<td>(草神☆)</td>
+</tr>
+<tr>
+<td>水</td>
+<td>行秋</td>
+</tr>
+<tr>
+<td>炎</td>
+<td>ベネット</td>
+</tr>
+<tr>
+<td>氷</td>
+<td>甘雨 or 神里</td>
+</tr>
+</tbody>
+</table>
+<p>2021/12現在、<code>22,000</code>の原石が貯まっています。</p>
+<p>行秋とベネットを省くとして、7,000x4=<code>28,000</code>の原石が必要となる計算です。</p>
+<p><a href="https://genshin.gg">https://genshin.gg</a></p>
+<h3 id="最強キャラ">最強キャラ</h3>
+<p>現時点では、<code>雷電</code>か<code>鍾離</code>だと思います。</p>
+<p>仮に課金するとしたら、この二人を凸してたと思います。</p>
+<p>個としては雷電が最強で、PT(サポート)としては鍾離が最強だと思いますが、最強という概念からすると、やはり、個としての性質が強いため、<code>雷電</code>が最強ということになりそうです。</p>
+<p>また、元素爆発は、ゲーム内で最も強力な必殺技を意味します。したがって、PTのそれを連発できる雷電の特性は、やはり、PTとしても最強と表現できるものだと思います。元素爆発は攻撃からサポートまで多種多様で、これからも増え、広がっていくと考えられます。</p>
+<p>ということで、今の所、<code>雷電</code>が最強だと思います。</p>
+
+       			 		
+
+
+<nav id="article-nav">
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tags:</strong>
+								    <a href="https://syui.cf/tags/genshin/">genshin</a>, <a href="https://syui.cf/tags/game/">game</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
+		</div>
+
+		
+<script type="text/javascript" src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>

@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 14 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pokemongo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pokemongo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pokemon GO</title>
+      <link>https://syui.cf/games/pogo/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/games/pogo/</guid>
+      <description>.containerx p img { width: 100%; padding: 0; }  Pokemon GOをプレイしています。
+ポケモンをいつもポケットに持ち運べるというのは最高です。
+現実のトレーナーになった気分でプレイできます。
+ゲームの枠を超えたゲームだと思います。
+長くプレイしていると徐々に価値が出てきますが、面白いゲームというわけではありません。
+わざわざ外に出てポケモンを捕まえたり、タスクをこなしたりするのは、正直言って、苦行に近い。
+しかし、自分が現実世界で捕まえたポケモンたちがいつも一緒というのは、心強くもあり、日頃の気分がちょっとだけいい、それだけだと思います。</description>
+    </item>
+    
     <item>
       <title>youtubeのヘッダーやアイコンを作ってみた</title>
       <link>https://syui.cf/blog/post/2021/04/14/icon/</link>
