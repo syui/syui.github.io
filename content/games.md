@@ -1,0 +1,3 @@
+---
+title: "games | syui.cf"
+---
