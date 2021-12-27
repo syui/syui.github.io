@@ -11,4 +11,21 @@ span#box.play {
   100%{ transform:rotate(360deg); }
 }
 
+a {
+    color:  #99892b;
+}
+a:hover {
+    color: #EF454A;
+}
 
+.navbar-light .navbar-brand {
+    color:  #99892b;
+}
+a.navbar-brand {
+    color:  #99892b;
+}
+
+.navbar-nav-right a span.icon-syui {
+    color: #EF454A;
+    font-size: 33px;
+}
