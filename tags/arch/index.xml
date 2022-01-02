@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxの`could not fully load metadata for package`のerror</title>
+      <link>https://syui.cf/blog/post/2022/01/02/arch/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/02/arch/</guid>
+      <description>archlinux-armの方なんだけど、goがcould not fully load metadata for packageのerrorでupdateできなかった。
+packageのdesc, filesあたりを消して破損したmetadataは削除後にインストールしました。
+$ touch /var/lib/pacman/local/go-xxx/desc $ touch /var/lib/pacman/local/go-xxx/files $ pacman -S go --overwrite &amp;#39;*&amp;#39; 修正する過程で面白そうなブログ見つけた
+https://jeffreytse.net/</description>
+    </item>
+    
     <item>
       <title>i3でおすすめのvnc clientであるremmina</title>
       <link>https://syui.cf/blog/post/2021/05/13/vnc/</link>

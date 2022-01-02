@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>FF7FS | syui.cf</title>
+		<title>archlinuxの`could not fully load metadata for package`のerror | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="FF7FS" />
+		<meta property="og:title" content="archlinuxの`could not fully load metadata for package`のerror" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -74,13 +74,13 @@
 
 
 
- 
-	<body>
-		
+
+<body onload="highlight_prompt()">
+	
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -122,20 +122,16 @@
 
        			<article>
        			 	<div class="content">
-													<div class="post-time-date">2021-12-26 / <a href="/syui">@syui</a></div>
-													<h2>FF7FS</h2>
+													<div class="post-time-date">2022-01-02 / <a href="/syui">@syui</a></div>
+													<h2>archlinuxの`could not fully load metadata for package`のerror</h2>
 													
-       			 		<style>
-.containerx p img {
-    width: 100%;
-    padding: 0;
-}
-</style>
-<p>はじめてのFPSとして少しの間だけプレイしました。</p>
-<p>面白かったです。忍者を使ってました。</p>
-<p><img src="/games/ff7fs/ff7fs_00.jpg" alt="">
-<img src="/games/ff7fs/ff7fs_01.png" alt="">
-<img src="/games/ff7fs/ff7fs_02.png" alt=""></p>
+       			 		<p>archlinux-armの方なんだけど、goが<code>could not fully load metadata for package</code>のerrorでupdateできなかった。</p>
+<p>packageのdesc, filesあたりを消して破損したmetadataは削除後にインストールしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ touch /var/lib/pacman/local/go-xxx/desc
+$ touch /var/lib/pacman/local/go-xxx/files
+$ pacman -S go --overwrite <span style="color:#e6db74">&#39;*&#39;</span>
+</code></pre></div><p>修正する過程で面白そうなブログ見つけた</p>
+<p><a href="https://jeffreytse.net/">https://jeffreytse.net/</a></p>
 
        			 		
 
@@ -143,8 +139,8 @@
 <nav id="article-nav">
     
 
-    <a href="https://syui.cf/games/pogo/" id="article-nav-older" class="article-nav-link-wrap">
-<i class="fa fa-chevron-right"></i> Pokemon GO
+    <a href="https://syui.cf/blog/post/2022/01/01/illust/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> イラスト描いてみた107
     </a>
     
 
@@ -155,8 +151,8 @@
 
 								
 								
-								    <strong>tags:</strong>
-								    <a href="https://syui.cf/tags/ff7fs/">ff7fs</a>, <a href="https://syui.cf/tags/game/">game</a>
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/arch/">arch</a>
 					<div class="utterances">
 						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 					</div>
