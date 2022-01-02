@@ -1,0 +1,28 @@
+<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
+<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
+<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
+<div id="example-b"></div>
+<script type="text/javascript">
+	var cal = new CalHeatMap();
+	cal.init({
+			itemSelector: "#example-b",
+			domain: "month",
+			data: "/json/cal.json",
+			start: new Date(2021, 0),
+			cellSize: 9,
+			range: 15,
+			previousSelector: "#example-b-PreviousDomain-selector",
+			nextSelector: "#example-b-NextDomain-selector",
+			legend: [2, 4, 6, 8]
+		});
+
+</script>
+<style>
+div#example-b{
+	margin-right: auto;
+	margin-left: auto;
+}
+.cal-heatmap-container {
+	width: 100%;
+}
+</style>
