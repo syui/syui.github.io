@@ -1,12 +1,11 @@
 name: push github contribution json
-
-on:
-  schedule:
-    - cron:  '00 00 * * 0'
+  
 on:
   push:
     branches:
-    - src
+      - src
+  schedule:
+    - cron:  '00 00 * * 0'
 
 jobs:
   comment:
