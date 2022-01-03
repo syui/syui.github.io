@@ -11,6 +11,7 @@ paginate = 10000
     blog = "/blog/post/:year/:month/:day/:slug"
     novel = "/novel/yui/:slug"
     app = "/app/dev/:filename"
+				ai = "/ai/i/:filename"
 
 [author]
 	name = "syui"
