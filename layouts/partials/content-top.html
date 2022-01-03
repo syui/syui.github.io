@@ -1,8 +1,6 @@
 
 <div class="content-top">
 
-	{{ partial "google-ads-post.html" . }}
-
 	<div id="blog-archives" class="category">
 		<ul class="cp_list">
 			{{ range $index,$value := first 7 (where $.Site.RegularPages.ByDate.Reverse "Section" "blog") }}
