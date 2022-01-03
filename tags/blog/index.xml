@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 19 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blogのlayoutを変更した</title>
+      <link>https://syui.cf/blog/post/2022/01/03/hugo/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/03/hugo/</guid>
+      <description>blogのlayoutをちょっとだけ変更しました。
+変更点を簡単に説明します。
+まず上のメニューですが、項目が多すぎたので減らしたかったので、減らしました。
+全部を/aiに放り投げました。
+できる限りシンプルなサイトにしようと思っていて、かつてこのサイトのテーマカラーの朱色のみでしたが、snsアイコンの追加により少しだけカラフルになりました。緑が足りないので、githubの芝を追加しました。
+本当はmastodonのアイコンも追加したかったけど、twitterと青色がかぶるのでやめました。色もそうですが、アイコンも多すぎるとシンプルじゃないので。
+自己紹介やサイトマップ、ヒントの文字数も減らしました。</description>
+    </item>
+    
     <item>
       <title>syui.cfの歩き方</title>
       <link>https://syui.cf/blog/post/2021/09/19/blog/</link>

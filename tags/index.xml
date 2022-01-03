@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://syui.cf/tags/blog/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://syui.cf/tags/hugo/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>arch</title>
       <link>https://syui.cf/tags/arch/</link>
@@ -144,15 +162,6 @@
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://syui.cf/tags/hugo/</link>
-      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>private</title>
       <link>https://syui.cf/tags/private/</link>
       <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
@@ -194,15 +203,6 @@
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://syui.cf/tags/blog/</link>
-      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/blog/</guid>
       <description></description>
     </item>
     

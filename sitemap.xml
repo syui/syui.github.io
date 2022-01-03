@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/blog/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/01/03/hugo/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/hugo/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-01-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/arch/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/01/02/arch/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2022/01/02/github/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/github/</loc>
-    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/illust/</loc>
@@ -155,9 +164,6 @@
     <loc>https://syui.cf/blog/post/2021/10/27/pokemas/</loc>
     <lastmod>2021-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/hugo/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2021/10/24/hugo/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -232,9 +238,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/09/20/illust/</loc>
     <lastmod>2021-09-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/blog/</loc>
-    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/help/</loc>
     <lastmod>2021-09-19T00:00:00+00:00</lastmod>
@@ -3623,6 +3626,8 @@
     <loc>https://syui.cf/contribution/</loc>
   </url><url>
     <loc>https://syui.cf/icon/</loc>
+  </url><url>
+    <loc>https://syui.cf/imgai/</loc>
   </url><url>
     <loc>https://syui.cf/img/</loc>
   </url><url>
