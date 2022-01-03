@@ -138,10 +138,10 @@
 $ curl -sL https://cal-heatmap.com/datas-years.json
 
 $ bower install cal-heatmap
-</code></pre></div><p>使い方は見ての通りですが、exampleを紹介します。ただし、表示速度などの問題からbowerなどで同web-server上にインストールしたほうがいいでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/d3/d3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.css&#34;</span> /&gt;
+</code></pre></div><p>使い方は見ての通りですが、exampleを紹介します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//d3js.org/d3.v3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css&#34;</span> /&gt;
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example-b&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
 	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CalHeatMap</span>();
@@ -167,6 +167,10 @@ $ bower install cal-heatmap
 	<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><p>ただし、表示速度などの問題からbowerなどで同web-server上にインストールしたほうがいいでしょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/d3/d3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.css&#34;</span> /&gt;
 </code></pre></div><p>jsonは以下のように形成すればよさそう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sL https://github-contributions-api.deno.dev/$USER.json|jq <span style="color:#e6db74">&#34;.|del(.totalContributions)|.[]|.[]|.[]|{(.date+\&#34;T00:00:00Z\&#34;|fromdate|tostring):(.contributionCount)}&#34;</span>|jq -n <span style="color:#e6db74">&#39;[inputs] | add&#39;</span>
 <span style="color:#f92672">{</span>
@@ -176,7 +180,8 @@ $ bower install cal-heatmap
   <span style="color:#e6db74">&#34;1641081600&#34;</span>: <span style="color:#ae81ff">2</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>これは<code>cal-heatmap</code>の仕様だと思いますが、dateがunixtimeなのと、keyにdateを入れるフォーマットに注意。</p>
-<p>もし更新が必要なら、定期にgh-actionsを回せば良さそう。更新頻度が高くなければ、hugo build時でもいいですが、更新頻度が高く、かつ最新にこだわらなくていいなら、1週間とか3日とかの間隔でいいかもしれません。常時だとapiやgh-actions側の負担になりますので。</p>
+<p>もし更新が必要なら、定期にgh-actionsを回せば良さそう。更新頻度が高くなければ、hugo build時でもいいですが、更新頻度が高く、かつ最新にこだわらないなら、1週間とか3日とかの間隔でいいかもしれません。常時だとapiやgh-actions側の負担になりますので。</p>
+<p><code>./static/json/cal.json</code>と<code>${{github.actor}}</code>に注意してください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:gh-actions.yml" data-lang="yml:gh-actions.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">push json github contribution</span>
   
 <span style="color:#f92672">on</span>:
@@ -217,8 +222,7 @@ $ bower install cal-heatmap
         <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
         <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">src</span>
 
-</code></pre></div><p><code>./static/json/cal.json</code>と<code>${{github.actor}}</code>に注意してください。</p>
-
+</code></pre></div>
        			 		
 
 
