@@ -1,31 +1,44 @@
 span#box.play {
-  display:inline-block;
-	}
+	display:inline-block;
+}
 span#box.play {
-  animation:10s linear infinite rotation;
+	animation:10s linear infinite rotation;
 }
 
 @keyframes rotation{
-  0%{ transform:rotate(0);}
-  50%{ transform:rotate(180deg);}
-  100%{ transform:rotate(360deg); }
+	0%{ transform:rotate(0);}
+	50%{ transform:rotate(180deg);}
+	100%{ transform:rotate(360deg); }
 }
 
 a {
-    color:  #99892b;
+	color:  #99892b;
 }
 a:hover {
-    color: #EF454A;
+	color: #EF454A;
 }
 
 .navbar-light .navbar-brand {
-    color:  #99892b;
+	color:  #99892b;
 }
 a.navbar-brand {
-    color:  #99892b;
+	color:  #99892b;
 }
 
 .navbar-nav-right a span.icon-syui {
-    /*color: #EF454A;*/
-    font-size: 33px;
+	/*color: #EF454A;*/
+	font-size: 33px;
+}
+
+.sns-bottom-ai {
+	display:none;
+}
+.top-sns-header {
+	padding: 10px;
+}
+
+@media (max-width: 650px) {
+	.sns-bottom-ai {
+		display:block;
+	}
 }
