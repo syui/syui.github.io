@@ -18,6 +18,9 @@ jobs:
         ref: src
         submodules: true
         fetch-depth: 0
+      env:
+        WORKFLOW_FILE_PATH: ${{ github.workflow }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
     - run: |
            yarn install
            npm i -g @squoosh/cli
@@ -25,11 +28,8 @@ jobs:
       with:
         hugo-version:
         # extended: true
-
+        
     - name: webp push
-      env:
-        WORKFLOW_FILE_PATH: ${{ github.workflow }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
       run: |
            s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
            echo $s
