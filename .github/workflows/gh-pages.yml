@@ -19,9 +19,8 @@ jobs:
         submodules: true
         fetch-depth: 0
     - run: |
-      yarn install
-      npm i -g @squoosh/cli
-
+           yarn install
+           npm i -g @squoosh/cli
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
