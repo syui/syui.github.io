@@ -11,39 +11,31 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12
-        ref: src
-        submodules: true
-        fetch-depth: 0
+
+    - uses: actions/checkout@v1
+    - name: install squoosh
       env:
         WORKFLOW_FILE_PATH: ${{ github.workflow }}
         GITHUB_REPOSITORY: ${{ github.repository }}
-    - run: |
-           yarn install
-           npm i -g @squoosh/cli
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version:
-        # extended: true
-        
-    - name: webp push
+
       run: |
-           s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
-           echo $s
-           if [ -n "$s" ];then
-           for i in $s 
-           do
-           squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' $i
-           done
-           git config --local user.email "action@github.com"
-           git config --local user.name "GitHub Action"
-           git status -s
-           fi
-           git add ./static/img/min
-           git commit -m "push webp"
+        npm i -g @squoosh/cli
+
+    - name: convert webp
+      run: |
+        git pull
+        s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
+        echo $s
+        if [ -n "$s" ];then
+        for i in $s 
+        do
+        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' $i
+        done
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ./static/img/min
+        git commit -m "push webp"
+        fi
 
     - name: Push changes
       uses: ad-m/github-push-action@master
@@ -51,11 +43,27 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: src
 
+
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+        ref: src
+        submodules: true
+        fetch-depth: 0
+    - run: yarn install
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version:
+        # extended: true
+
     - name: Build
       env: 
         TZ: "Asia/Tokyo"
       run: |
-           sleep 5
+           sleep 10 
            git pull
            rm -r ./static/manga/build.js*
            echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` > .env
@@ -64,18 +72,18 @@ jobs:
            cp -rf ./dist/*.css ./static/manga
            cp -rf ./dist/*.map ./static/manga
 
-           # touch ./src-manga-en/.env
-           # rm -r ./src-manga-en/.env
-           # touch ./static/manga/en/build.js*
-           # rm -r ./static/manga/en/build.js*
-           # echo VUE_APP_PAGE=`ls ./static/manga/en/*.png|wc -l` >> ./src-manga-en/.env
-           # cd ./src-manga-en
-           # yarn install 
-           # yarn build
-           # cp -rf ./dist/*.js ../static/manga/en/
-           # cp -rf ./dist/*.css ../static/manga/en/
-           # cp -rf ./dist/*.map ../static/manga/en/
-           # cd ../
+           #touch ./src-manga-en/.env
+           #rm -r ./src-manga-en/.env
+           #touch ./static/manga/en/build.js*
+           #rm -r ./static/manga/en/build.js*
+           #echo VUE_APP_PAGE=`ls ./static/manga/en/*.png|wc -l` >> ./src-manga-en/.env
+           #cd ./src-manga-en
+           #yarn install 
+           #yarn build
+           #cp -rf ./dist/*.js ../static/manga/en/
+           #cp -rf ./dist/*.css ../static/manga/en/
+           #cp -rf ./dist/*.map ../static/manga/en/
+           #cd ../
 
            touch ./src-imgauto/.env
            rm -r ./src-imgauto/.env
@@ -103,4 +111,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: master
-
