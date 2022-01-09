@@ -23,7 +23,6 @@ jobs:
 
     - name: convert webp
       run: |
-        git pull
         s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
         echo $s
         if [ -n "$s" ];then
@@ -42,7 +41,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: src
-
 
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
@@ -63,8 +61,8 @@ jobs:
       env: 
         TZ: "Asia/Tokyo"
       run: |
-           sleep 10 
            git pull
+           yarn build
            rm -r ./static/manga/build.js*
            echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` > .env
            yarn build
