@@ -20,6 +20,7 @@ jobs:
 
     - name: convert webp
       run: |
+        git pull
         s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
         echo $s
         if [ -z "$s" ];then
