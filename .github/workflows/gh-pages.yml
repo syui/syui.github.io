@@ -25,7 +25,9 @@ jobs:
       run: |
         s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
         echo $s
-        if [ -n "$s" ];then
+        if [ -z "$s" ];then
+        exit
+        fi
         for i in $s 
         do
         squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' $i
@@ -34,7 +36,6 @@ jobs:
         git config --local user.name "GitHub Action"
         git add ./static/img/min
         git commit -m "push webp"
-        fi
 
     - name: Push changes
       uses: ad-m/github-push-action@master
