@@ -7,42 +7,11 @@ on:
   schedule:
   - cron: "00 9 * * *"
 
+
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-
-    - uses: actions/checkout@v1
-    - name: install squoosh
-      env:
-        WORKFLOW_FILE_PATH: ${{ github.workflow }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-
-      run: |
-        npm i -g @squoosh/cli
-
-    - name: convert webp
-      run: |
-        s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
-        echo $s
-        if [ -z "$s" ];then
-        exit
-        fi
-        for i in $s 
-        do
-        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' $i
-        done
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add ./static/img/min
-        git commit -m "push webp"
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: src
-
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
       with:
@@ -62,8 +31,6 @@ jobs:
       env: 
         TZ: "Asia/Tokyo"
       run: |
-           git pull
-           yarn build
            rm -r ./static/manga/build.js*
            echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` > .env
            yarn build

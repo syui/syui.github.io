@@ -4,6 +4,12 @@ on:
   push:
     paths:
       - 'static/img/*.png'
+  workflow_run:
+    workflows: 
+      - github pages
+    branches: src
+    types:
+      - "completed"
 
 jobs:
   comment:
