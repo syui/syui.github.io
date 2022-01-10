@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
     - name: install squoosh
       env:
         WORKFLOW_FILE_PATH: ${{ github.workflow }}
