@@ -4,9 +4,13 @@ on:
   push:
     branches:
     - src
-  schedule:
-  - cron: "00 9 * * *"
-
+  workflow_run:
+    workflows: 
+      - push imgdiff
+      - push webp
+    branches: src
+    types:
+      - "completed"
 
 jobs:
   build-deploy:
