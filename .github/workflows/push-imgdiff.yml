@@ -17,11 +17,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: install squoosh
-      env:
-        WORKFLOW_FILE_PATH: ${{ github.workflow }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
+    - uses: actions/checkout@v2
 
     - name: convert json
       run: |
