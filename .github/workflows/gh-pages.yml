@@ -66,6 +66,7 @@ jobs:
            cp -rf ./dist/*.map ../static/imgauto
            cd ../
 
+           cp -rf ./static/json/img.json ./src-imgdiff/static/json/
            cd ./src-imgdiff
            yarn install 
            yarn build
