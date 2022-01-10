@@ -25,26 +25,42 @@
   },
   {
     "id": "7",
-    "file": "/img/yui_101.png"
+    "file": "/img/ai_24.png"
   },
   {
     "id": "8",
-    "file": "/img/yui_102.png"
+    "file": "/img/ai_25.png"
   },
   {
     "id": "9",
-    "file": "/img/yui_106.png"
+    "file": "/img/yui_101.png"
   },
   {
     "id": "10",
-    "file": "/img/yui_107.png"
+    "file": "/img/yui_102.png"
   },
   {
     "id": "11",
-    "file": "/img/yui_92.png"
+    "file": "/img/yui_106.png"
   },
   {
     "id": "12",
+    "file": "/img/yui_107.png"
+  },
+  {
+    "id": "13",
+    "file": "/img/yui_82.png"
+  },
+  {
+    "id": "14",
+    "file": "/img/yui_83.png"
+  },
+  {
+    "id": "15",
+    "file": "/img/yui_92.png"
+  },
+  {
+    "id": "16",
     "file": "/img/yui_93.png"
   }
 ]
