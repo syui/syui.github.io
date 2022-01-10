@@ -27,13 +27,14 @@ jobs:
     - name: convert webp
       run: |
         s=`git --no-pager log -n 1 --name-status | grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
-        echo $s
         if [ -z "$s" ];then
         exit
         fi
-        for i in $s 
+        n=`echo "$s"|wc -l`
+        for ((i=1;i<=$n;i++))
         do
-        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' $i
+        t=`echo "$s"|awk "NR==$i"`
+        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' ./static/img/$t
         done
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
