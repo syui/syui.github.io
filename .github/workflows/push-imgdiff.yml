@@ -13,8 +13,8 @@ jobs:
 
     - name: convert json
       run: |
-        git --no-pager log --since=1.weeks --name-status |grep "static/img/"|grep "\.png"|cut -d / -f 3
-        s=`git --no-pager log --since=1.weeks --name-status |grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        git --no-pager log --since="1 weeks" --name-status |grep "static/img/"|grep "\.png"|cut -d / -f 3
+        s=`git --no-pager log --since="1 weeks" --name-status |grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq`
         echo "$s"
         if [ -z "$s" ];then
         exit
