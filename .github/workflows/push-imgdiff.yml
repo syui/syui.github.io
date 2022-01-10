@@ -1,9 +1,11 @@
-name: push webp
+name: push imgdiff
 
 on:
   push:
     paths:
       - 'static/img/*.png'
+    branches:
+    - src
   workflow_run:
     workflows: 
       - github pages
@@ -21,28 +23,28 @@ jobs:
         WORKFLOW_FILE_PATH: ${{ github.workflow }}
         GITHUB_REPOSITORY: ${{ github.repository }}
 
+    - name: convert json
       run: |
-        npm i -g @squoosh/cli
-
-    - name: convert webp
-      run: |
-        s=`git --no-pager log -n 1 --name-status | grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        s=`git --no-pager log --since=1.weeks --name-status |grep -e "A\t" -e "M\t" |grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq`
         if [ -z "$s" ];then
         exit
         fi
+        rm ./static/json/img.json
+        echo '[]' >> ./static/json/img.json
         n=`echo "$s"|wc -l`
         for ((i=1;i<=$n;i++))
         do
         t=`echo "$s"|awk "NR==$i"`
-        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' ./static/img/$t
+        cat ./static/json/img.json|jq ".+[{\"id\":\"$i\",\"file\": \"/img/$t\"}]" >> ./static/json/img.tmp
+        mv ./static/json/img.tmp ./static/json/img.json
         done
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         if [ -z "`git status -s`" ];then
         exit
         fi
-        git add ./static/img/min
-        
+        git add ./static/json/img.json
+        git commit -m "push imgdiff"
 
     - name: Push changes
       uses: ad-m/github-push-action@master
