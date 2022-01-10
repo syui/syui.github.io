@@ -2,8 +2,6 @@ name: push imgdiff
 
 on:
   push:
-    paths:
-      - 'static/img/*.png'
     branches:
     - src
 
