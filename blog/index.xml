@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 09 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vueで過去絵の修正を1週間単位で表示してみた</title>
+      <link>https://syui.cf/blog/post/2022/01/10/vue%E3%81%A7%E9%81%8E%E5%8E%BB%E7%B5%B5%E3%81%AE%E4%BF%AE%E6%AD%A3%E3%82%921%E9%80%B1%E9%96%93%E5%8D%98%E4%BD%8D%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/10/vue%E3%81%A7%E9%81%8E%E5%8E%BB%E7%B5%B5%E3%81%AE%E4%BF%AE%E6%AD%A3%E3%82%921%E9%80%B1%E9%96%93%E5%8D%98%E4%BD%8D%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>前々から修正した絵の一覧があれば便利だなあと思ってたことから、色々と追加。
+最近修正した絵をcommit logから拾うようにしました。terminalの$ ai cコマンド(オプション)から飛べるようにしました。
+$ ai c jsonからimg pathを取ってきてvueで表示する方針でやります。以下は、簡単なexmapleです。
+import Vue from &amp;#39;vue&amp;#39; import App from &amp;#39;./App.vue&amp;#39; Vue.config.productionTip = false new Vue({ render: h =&amp;gt; h(App) }).$mount(&amp;#39;#app&amp;#39;) &amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;p&amp;gt;1week commit /static/img/&amp;lt;/p&amp;gt; &amp;lt;div v-for=&amp;#34;item in items&amp;#34; :key=&amp;#34;item.id&amp;#34;&amp;gt; &amp;lt;p&amp;gt;&amp;lt;a :href=&amp;#34;item.file&amp;#34;&amp;gt;&amp;lt;img :src=&amp;#34;item.file&amp;#34; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import items from &amp;#39;/static/json/img.json&amp;#39;; export default { data() { return { items } } } &amp;lt;/script&amp;gt; /static/json/img.jsonはこんな感じで作成。
+$ git --no-pager log --since=1.weeks --name-status |grep &amp;#34;\.</description>
+    </item>
+    
     <item>
       <title>ポケマス、ドラゴン装備</title>
       <link>https://syui.cf/blog/post/2022/01/09/pokemas/</link>
