@@ -6,22 +6,17 @@ on:
       - 'static/img/*.png'
     branches:
     - src
-  workflow_run:
-    workflows: 
-      - github pages
-    branches: src
-    types:
-      - "completed"
 
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: convert json
       run: |
         s=`git --no-pager log --since=1.weeks --name-status |grep -e "A\t" -e "M\t" |grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        echo "$s"
         if [ -z "$s" ];then
         exit
         fi
@@ -31,6 +26,7 @@ jobs:
         for ((i=1;i<=$n;i++))
         do
         t=`echo "$s"|awk "NR==$i"`
+        cat ./static/json/img.json|jq ".+[{\"id\":\"$i\",\"file\": \"/img/$t\"}]"
         cat ./static/json/img.json|jq ".+[{\"id\":\"$i\",\"file\": \"/img/$t\"}]" >> ./static/json/img.tmp
         mv ./static/json/img.tmp ./static/json/img.json
         done
