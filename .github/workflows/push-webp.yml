@@ -23,8 +23,9 @@ jobs:
 
     - name: convert webp
       run: |
-        git --no-pager diff -n 1 --name-status| grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq
-        s=`git --no-pager diff -n 1 --name-status| grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        git --no-pager log -n 1 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq
+        s=`git --no-pager log -n 1 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        echo "$s"
         if [ -z "$s" ];then
         exit
         fi
