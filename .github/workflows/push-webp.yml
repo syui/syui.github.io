@@ -41,7 +41,6 @@ jobs:
         if [ -z "`git status -s`" ];then
         exit
         fi
-        
         git add ./static/img/min
         git commit -m "push webp"
 
