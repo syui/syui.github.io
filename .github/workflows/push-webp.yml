@@ -51,7 +51,7 @@ jobs:
         mv ./static/json/img.tmp ./static/json/img.json
         done
         git add ./static/img/min
-        git add ./static/jsin/img.json
+        git add ./static/json/img.json
         git commit -m "push webp"
 
     - name: Push changes
