@@ -9,7 +9,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: install squoosh
       env:
         WORKFLOW_FILE_PATH: ${{ github.workflow }}
@@ -20,7 +20,8 @@ jobs:
 
     - name: convert webp
       run: |
-        s=`git --no-pager log -n 1 --name-status | grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        git --no-pager diff -n 1 --name-status| grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq
+        s=`git --no-pager diff -n 1 --name-status| grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
         if [ -z "$s" ];then
         exit
         fi
