@@ -26,7 +26,7 @@ jobs:
 
     - name: convert webp
       run: |
-        s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep "static/img/"|grep "\.png"`
+        s=`git --no-pager log -n 1 --name-status | grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq -u`
         echo $s
         if [ -z "$s" ];then
         exit
@@ -38,7 +38,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         if [ -z "`git status -s`" ];then
-          exit
+        exit
         fi
         rm ./static/json/img.json
         echo '[]' >> ./static/json/img.json
