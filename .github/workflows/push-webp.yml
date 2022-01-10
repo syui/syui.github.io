@@ -40,7 +40,18 @@ jobs:
         if [ -z "`git status -s`" ];then
           exit
         fi
+        rm ./static/json/img.json
+        echo '[]' >> ./static/json/img.json
+        s=`git --no-pager log --since=1.weeks --name-status |grep -e "A\t" -e "M\t" |grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq -u`
+        n=`echo "$s"|wc -l`
+        for ((i=1;i<=$n;i++))
+        do
+        t=`echo "$s"|awk "NR==$i"`
+        cat ./static/json/img.json|jq ".+[{\"id\":\"$i\",\"file\": \"/img/$t\"}]" >> ./static/json/img.tmp
+        mv ./static/json/img.tmp ./static/json/img.json
+        done
         git add ./static/img/min
+        git add ./static/jsin/img.json
         git commit -m "push webp"
 
     - name: Push changes

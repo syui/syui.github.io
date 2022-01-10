@@ -66,6 +66,13 @@ jobs:
            cp -rf ./dist/*.map ../static/imgauto
            cd ../
 
+           cd ./src-imgdiff
+           yarn install 
+           yarn build
+           cp -rf ./dist/*.js ../static/imgdiff
+           cp -rf ./dist/*.map ../static/imgdiff
+           cd ../
+
            hugo version
            TZ=Asia/Tokyo hugo
            touch ./public/.nojekyll

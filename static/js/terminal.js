@@ -233,6 +233,10 @@ var ascii_archjp = "\n\n\
 				}).then(function(s) {
 					s.charCodeAt(0);
 				});
+			} else if (inputs[0] === 'ai' && inputs[1] === 'c') {
+						window.location.href = '/imgdiff';
+			} else if (inputs[0] === 'ai' && inputs[1] === 'i') {
+						window.location.href = '/imgall';
 			} else if (/ai/.test(input)) {
 				term.echo(ascii_ai);
 				term.read("jump page?[y] : ", function(s) {
@@ -242,6 +246,7 @@ var ascii_archjp = "\n\n\
 				}).then(function(s) {
 					s.charCodeAt(0);
 				});
+
 			} else if (/top/.test(input)) {
 				window.location.href = '/';
 			} else if (inputs[0] === 'pacman' || inputs[0] === 'pacman' && inputs[1] === '-Syu') {
