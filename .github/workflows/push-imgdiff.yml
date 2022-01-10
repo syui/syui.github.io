@@ -15,7 +15,8 @@ jobs:
 
     - name: convert json
       run: |
-        git --no-pager diff --name-only "@{7 days ago}"|grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq
+        git --no-pager diff --name-only '@{7 days ago}'|grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq
+        git --no-pager log --since="1 weeks" --name-status |grep static/img|sort|uniq
         s=`git --no-pager diff --name-only "@{7 days ago}"|grep "static/img/"|grep "\.png"|cut -d / -f 3|sort|uniq`
         echo "$s"
         if [ -z "$s" ];then
