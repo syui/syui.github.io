@@ -61,22 +61,26 @@
   },
   {
     "id": "16",
-    "file": "/img/yui_73.png"
+    "file": "/img/yui_71.png"
   },
   {
     "id": "17",
-    "file": "/img/yui_82.png"
+    "file": "/img/yui_73.png"
   },
   {
     "id": "18",
-    "file": "/img/yui_83.png"
+    "file": "/img/yui_82.png"
   },
   {
     "id": "19",
-    "file": "/img/yui_92.png"
+    "file": "/img/yui_83.png"
   },
   {
     "id": "20",
+    "file": "/img/yui_92.png"
+  },
+  {
+    "id": "21",
     "file": "/img/yui_93.png"
   }
 ]
