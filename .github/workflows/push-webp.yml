@@ -26,8 +26,8 @@ jobs:
     - name: convert webp
       run: |
         git pull https://github.com/syui/syui.github.io.git src
-        git --no-pager log -n 1 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq
-        s=`git --no-pager log -n 1 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
+        git --no-pager log -n 3 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq
+        s=`git --no-pager log -n 3 --name-status|grep "static/img"|grep "\.png"|cut -d / -f 3|sort|uniq`
         echo "$s"
         if [ -z "$s" ];then
         exit
