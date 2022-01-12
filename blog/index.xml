@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>過去絵を修正してみた</title>
+      <link>https://syui.cf/blog/post/2022/01/12/illust/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/12/illust/</guid>
+      <description>過去のイラストを見ていて、あまりうまく描けなかったやつを修正しました。
+何度かお絵かきをしていると、うまくかけたやつと、うまくかけなかったやつが出てきます。
+修正においては、過去にうまくかけたやつを参考にすると、比較的、楽にできます。
+参考になりそうなポーズ(構図)もいくつか追加できたので良かった。</description>
+    </item>
+    
     <item>
       <title>vueで過去絵の修正を1週間単位で表示してみた</title>
       <link>https://syui.cf/blog/post/2022/01/10/vue%E3%81%A7%E9%81%8E%E5%8E%BB%E7%B5%B5%E3%81%AE%E4%BF%AE%E6%AD%A3%E3%82%921%E9%80%B1%E9%96%93%E5%8D%98%E4%BD%8D%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>

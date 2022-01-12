@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2022-01-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
-    <lastmod>2022-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/01/12/illust/</loc>
+    <lastmod>2022-01-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/vue/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
@@ -58,9 +64,6 @@
   </url><url>
     <loc>https://syui.cf/tags/github/</loc>
     <lastmod>2022-01-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/01/01/illust/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
