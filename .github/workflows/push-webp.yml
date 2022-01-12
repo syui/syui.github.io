@@ -1,9 +1,6 @@
 name: push webp
 
 on:
-  push:
-    paths:
-      - 'static/img/*.png'
   workflow_run:
     workflows: 
       - push imgdiff
