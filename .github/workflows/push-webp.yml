@@ -4,7 +4,12 @@ on:
   push:
     paths:
       - 'static/img/*.png'
-
+  workflow_run:
+    workflows: 
+      - push imgdiff
+    branches: src
+    types:
+      - "completed"
 jobs:
   comment:
     runs-on: ubuntu-latest
