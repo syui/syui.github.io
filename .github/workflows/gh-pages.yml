@@ -4,7 +4,12 @@ on:
   push:
     branches:
     - src
-
+  workflow_run:
+    workflows: 
+      - push webp
+    branches: src
+    types:
+      - "completed"
 
 jobs:
   build-deploy:
