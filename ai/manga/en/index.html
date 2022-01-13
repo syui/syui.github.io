@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ai</title>
+		<title>ai | manga</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,9 +13,9 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="ai" />
+		<meta property="og:title" content="ai | manga" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="a tale of girl and dragon living on a planet" />
 		<meta property="og:image" content="https://syui.cf/icon/ai.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -50,7 +50,6 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-<link rel="alternate" type="application/rss+xml" href="https://syui.cf/ai/index.xml" title="syui.cf" />
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -108,32 +107,15 @@
 			</header>
 
 
-<script>
-function changeImage() {
-	var element = document.getElementById('box');
-	if( element.classList.contains('pause') == true ){
-		element.className = "play";
-		//element.firstElementChild.src = "/ai/ai_circle.png";
-	} else {
-		element.className = "pause";
-		//element.firstElementChild.src = "/ai/ai_circle_pause.png";
-	}
-}
-var playing = false;
-
-function action() {
-	var audio = document.getElementById("audio");
-	if (playing === false) {
-		audio.play();
-		playing = true;
-	} else {
-		audio.pause();
-		playing = false;
-	}
-}
-</script>
-<p><span id="box" class="pause"><img id="player" onclick="action();changeImage();" src="/ai/ai_circle.png" /></span>
-<audio id="audio" src="/music/tuki.mp3" loop autoloop></audio></p>
+<link href=/manga/app.css rel=preload as=style>
+<link href=/manga/app.js rel=preload as=script>
+<link href=/manga/chunk-vendors.css rel=preload as=style>
+<link href=/manga/chunk-vendors.js rel=preload as=script>
+<link href=/manga/chunk-vendors.css rel=stylesheet>
+<link href=/manga/app.css rel=stylesheet>
+<div id=app></div>
+<script src=/manga/en/chunk-vendors.js></script>
+<script src=/manga/en/app.js></script>
 
 		</div>
 

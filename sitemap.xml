@@ -1069,13 +1069,15 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2020/06/03/pogo/</loc>
   </url><url>
-    <loc>https://syui.cf/novel/</loc>
+    <loc>https://syui.cf/ai/</loc>
   </url><url>
-    <loc>https://syui.cf/novel/yui/06/</loc>
+    <loc>https://syui.cf/ai/novel/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/novel/06/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/06/01/win/</loc>
   </url><url>
-    <loc>https://syui.cf/novel/yui/05/</loc>
+    <loc>https://syui.cf/ai/novel/05/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/05/31/pogo/</loc>
   </url><url>
@@ -1155,20 +1157,20 @@
     <loc>https://syui.cf/blog/post/2020/04/28/novel-04/</loc>
     <lastmod>2020-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/novel/yui/04/</loc>
+    <loc>https://syui.cf/ai/novel/04/</loc>
   </url><url>
-    <loc>https://syui.cf/novel/yui/03/</loc>
+    <loc>https://syui.cf/ai/novel/03/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/04/27/novel-03/</loc>
   </url><url>
-    <loc>https://syui.cf/novel/yui/02/</loc>
+    <loc>https://syui.cf/ai/novel/02/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/04/26/novel-02/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/04/25/illust/</loc>
     <lastmod>2020-04-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/novel/yui/01/</loc>
+    <loc>https://syui.cf/ai/novel/01/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/04/25/novel-01/</loc>
   </url><url>
@@ -3637,15 +3639,29 @@
   </url><url>
     <loc>https://syui.cf/syui/</loc>
   </url><url>
-    <loc>https://syui.cf/ai/</loc>
+    <loc>https://syui.cf/ai/game/chara/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/game/docs/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/game/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/img/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/img/all/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/img/diff/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/manga/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/manga/en/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/tarot/</loc>
   </url><url>
     <loc>https://syui.cf/archive/</loc>
   </url><url>
     <loc>https://syui.cf/contribution/</loc>
   </url><url>
     <loc>https://syui.cf/icon/</loc>
-  </url><url>
-    <loc>https://syui.cf/imgai/</loc>
   </url><url>
     <loc>https://syui.cf/img/</loc>
   </url><url>
@@ -3659,20 +3675,6 @@
   </url><url>
     <loc>https://syui.cf/sitemap/</loc>
   </url><url>
-    <loc>https://syui.cf/imgall/</loc>
-  </url><url>
-    <loc>https://syui.cf/imgdiff/</loc>
-  </url><url>
     <loc>https://syui.cf/search/</loc>
-  </url><url>
-    <loc>https://syui.cf/gamechara/</loc>
-  </url><url>
-    <loc>https://syui.cf/gamedoc/</loc>
-  </url><url>
-    <loc>https://syui.cf/imgame/</loc>
-  </url><url>
-    <loc>https://syui.cf/manga/</loc>
-  </url><url>
-    <loc>https://syui.cf/mangaen/</loc>
   </url>
 </urlset>
