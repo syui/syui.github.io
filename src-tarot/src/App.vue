@@ -1,9 +1,14 @@
 <template>
 	<div id="app">
 		<button @click="picker"><i class="far fa-play-circle"></i> START</button>
-		<p><img :src="chosenName.file" /> <img :src="cnt.file" /></p>
-	<p>{{ chosenName.p }}</p>
-	<p>{{ cnt.p }}</p>
+		<p v-if="chosenName.file"><img :src="chosenName.file" /> <img :src="cnt.file" /></p>
+  <p v-else><img :src="tarotz" /></p>
+		<p></p>
+	<blockquote>
+		<p v-if="chosenName.p">{{ chosenName.p }}</p>
+  <p v-else>タロットカード</p>
+		<p>{{ cnt.p }}</p>
+	</blockquote>
 </div>
 	</div>
 
@@ -17,7 +22,8 @@ export default {
 		return {
 			items,
 			chosenName: "",
-			cnt: ""
+			cnt: "",
+			tarotz:"/ai/tarot/tarot_card_00.png"
 		}
 	},
 	methods: {

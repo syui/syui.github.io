@@ -37,26 +37,26 @@
   },
 		{
     "id": "7",
-				"h":"音楽",
+				"h":"太陽",
     "file": "/ai/tarot/tarot_card_07.png",
 				"p":"気分や雰囲気"
   },
 		{
     "id": "8",
-				"h":"原子",
+				"h":"玉",
     "file": "/ai/tarot/tarot_card_08.png",
-				"p":"科学と身の回りのもの"
+				"p":"元気や身の回りのもの"
   },
 		{
     "id": "9",
 				"h":"白雪",
     "file": "/ai/tarot/tarot_card_09.png",
-				"p":"真っ白な純粋"
+				"p":"真っ白や純粋"
   },
 		{
     "id": "10",
 				"h":"雷帝",
     "file": "/ai/tarot/tarot_card_10.png",
-				"p":"雷と怒り"
+				"p":"雷と衝撃"
   }
 ]
