@@ -234,9 +234,9 @@ var ascii_archjp = "\n\n\
 					s.charCodeAt(0);
 				});
 			} else if (inputs[0] === 'ai' && inputs[1] === 'c') {
-						window.location.href = '/imgdiff';
+						window.location.href = '/ai/img/diff';
 			} else if (inputs[0] === 'ai' && inputs[1] === 'i') {
-						window.location.href = '/imgall';
+						window.location.href = '/ai/img/all';
 			} else if (/ai/.test(input)) {
 				term.echo(ascii_ai);
 				term.read("jump page?[y] : ", function(s) {
