@@ -6,7 +6,7 @@
 		<p></p>
 	<blockquote>
 		<p v-if="chosenName.p">{{ chosenName.p }}</p>
-  <p v-else>タロットカード</p>
+		<p v-else><strong>タロットカード</strong></p>
 		<p>{{ cnt.p }}</p>
 	</blockquote>
 </div>
@@ -35,6 +35,8 @@ export default {
 				var cn = Math.floor(Math.random() * items.length);
 			};
 			this.cnt = items[cn];
+			var list_element = document.querySelector("button");
+			list_element.remove();
 		}
 	}
 }
