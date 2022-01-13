@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>雰囲気タロット占い</title>
+      <link>https://syui.cf/blog/post/2022/01/13/illust/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/13/illust/</guid>
+      <description>雰囲気タロット占い作りました。
+/ai/tarot
+解釈やルールは皆様におまかせします。1日1回占ってみてはどうでしょう(適当)。
+ちなみに、私は占いをやったことも、してもらったことも一度もなくて、タロットカードも全然知りませんが、雰囲気で作りました。
+あと、この前から気になってたこのサイトのディレクトリ問題を一部解消しました(ついでに)。
+前はroot下においてたgame, manga関連をすべて/ai直下に変更しました。hugoではindex.mdと_index.mdの挙動が異なります。index.mdはディレクトリが作れませんが_index.mdは作れますので。
+ただ、リンクが変わったので、どこかでリンク切れを起こしてる危険があり、aliasを設定しといたほうがいいかも(やってない)。</description>
+    </item>
+    
     <item>
       <title>過去絵を修正してみた</title>
       <link>https://syui.cf/blog/post/2022/01/12/illust/</link>
