@@ -5,11 +5,13 @@
 }
 
 .containerx p img {
-    width: 300px;
+	width: 300px;
 }
-
+.tarot-card-list p img {
+	border-radius: 8px;
+}
 .containerx {
-    text-align: center;
+	text-align: center;
 }
 
 @media screen and (max-width:1000px) { 
@@ -28,11 +30,17 @@
 		word-break: break-all;
 	}
 	.containerx p img {
-	    width: 100%;
+		width: 100%;
 	}
 }
 
-
 p.img-fa-bars {
-    text-align: right;
+	text-align: right;
+}
+
+.tarot-card-list button {
+	margin: 10px 0px 20px 0px;
+	font-size: 20px;
+	padding: 5px 15px 5px 15px;
+	color:#99892b;
 }
