@@ -1,6 +1,5 @@
 <template>
 	<div id="app">
-		<p>1week commit /static/img/</p>
 		<div v-for="item in items" :key="item.id">
 			<p><a :href="item.file"><img :src="item.file" /></a></p>
 		</div>

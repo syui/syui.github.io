@@ -1,5 +1,5 @@
 ---
-title: "yui | NOVEL"
+title: "ai | novel"
 type: novel
 ---
 

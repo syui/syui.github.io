@@ -1,0 +1,46 @@
++++
+title = "ai | charactor"
+slug = "chara"
+aliases = "chara"
++++
+
+<p><h3>CHARACTOR</h3></p>
+<blockquote>
+<h4>アイ (AI)</h4>
+<p> <img src="/img/game/c_yui.png"> </p>
+<p>本名は月見唯(つきみ・ゆい)。通称、アイ。</p>
+<p>名前を持たなかったが一人称はなぜかアイ。そのためキョウスケたちにアイと呼ばれるようになる。その後、国籍を手に入れ、本名は月見唯である。</p>
+</blockquote>
+<p></p>
+<p></p>
+<p></p>
+
+<blockquote>
+<h4>キョウスケ (KYOUSUKE)</h4>
+<p> <img src="/img/game/c_kyousuke.png"> </p>
+<p>忍者好きの少年。よくポンタと遊んでいる。キャンプが得意。</p>
+</blockquote>
+<p></p>
+<p></p>
+<p></p>
+
+<blockquote>
+<h4>ポンタ (PONTA)</h4>
+<p> <img src="/img/game/c_ponta.png"> </p>
+<p>サッカー好きの獣族犬系。特にキーパーが好きらしい。</p>
+</blockquote>
+<p></p>
+<p></p>
+<p></p>
+
+<blockquote>
+<h4>王様 (OCTOOU)</h4>
+<p> <img src="/img/game/c_octo_ou.png"> </p>
+<p>オクト星に住むオクトカットという種族、その中でも王様と呼ばれるオクト星人。本人は予言者のつもり。</p>
+</blockquote>
+<p></p>
+<p></p>
+<p></p>
+
+<p><a href="/ai/game/docs">秘密の資料</a></p>
+
