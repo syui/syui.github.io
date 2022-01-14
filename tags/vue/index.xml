@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vueでloadingを作る</title>
+      <link>https://syui.cf/blog/post/2022/01/14/vue/</link>
+      <pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/14/vue/</guid>
+      <description>$ yarn add vue-loading-template https://github.com/jkchao/vue-loading
+demo : https://jkchao.github.io/vue-loading/
+ローディング処理はv-showで変数を指定すればOKです。
+今回はボタンをクリックするとnameに文字列を入れる処理が入るのですが、その処理まで1.2s待機するようにしています。その間、ローディングが表示される仕組み。
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;Loading v-show=&amp;#34;loading&amp;#34;&amp;gt; &amp;lt;vue-loading type=&amp;#34;barsCylon&amp;#34; color=&amp;#34;#99892b&amp;#34; :size=&amp;#34;{ width: &amp;#39;50px&amp;#39;, height: &amp;#39;50px&amp;#39; }&amp;#34;&amp;gt;&amp;lt;/vue-loading&amp;gt;  &amp;lt;/Loading&amp;gt; &amp;lt;button @click=&amp;#34;picker&amp;#34; &amp;gt;start&amp;lt;/button&amp;gt; &amp;lt;p v-show=&amp;#34;!loading&amp;#34;&amp;gt;{{ name }}&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import { VueLoading } from &amp;#39;vue-loading-template&amp;#39;; export default { data() { return { name:&amp;#34;&amp;#34;, loading: false } }, components: { VueLoading }, methods: { picker: function(){ this.loading = true; setTimeout(() =&amp;gt; { // ここに処理		var name = &amp;#34;test&amp;#34;; this.</description>
+    </item>
+    
     <item>
       <title>vueで過去絵の修正を1週間単位で表示してみた</title>
       <link>https://syui.cf/blog/post/2022/01/10/vue%E3%81%A7%E9%81%8E%E5%8E%BB%E7%B5%B5%E3%81%AE%E4%BF%AE%E6%AD%A3%E3%82%921%E9%80%B1%E9%96%93%E5%8D%98%E4%BD%8D%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
