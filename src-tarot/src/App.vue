@@ -6,13 +6,13 @@
 			</Loading>
 			<button @click="picker" ><i class="far fa-play-circle"></i> START</button>
 
-			<p v-if="chosenName.file">
-				<img v-show="!loading" :src="chosenName.file" />   <img :src="cnt.file" />
+			<p v-if="cName.file">
+				<img v-show="!loading" :src="cName.file + '.webp'" />   <img :src="cnt.file + '.webp'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
 
 		<blockquote>
-			<p v-if="chosenName.p">{{ chosenName.p }}</p>
+			<p v-if="cName.p">{{ cName.p }}</p>
 			<p v-else><strong>タロットカード</strong></p>
 			<p>{{ cnt.p }}</p>
 		</blockquote>
@@ -28,10 +28,10 @@ export default {
 	data() {
 		return {
 			items,
-			chosenName: "",
+			cName: "",
 			cnt: "",
 			loading: false,
-			tarotz:"/ai/tarot/tarot_card_00.png"
+			tarotz:"/ai/tarot/tarot_00.webp"
 		}
 	},
 	components: {
@@ -41,10 +41,10 @@ export default {
 		picker: function(){
 			this.loading = true;
 			setTimeout(() => {
-				var chosenNumber = Math.floor(Math.random() * items.length);
+				var cNumber = Math.floor(Math.random() * items.length);
 				var cn = Math.floor(Math.random() * items.length);
-				this.chosenName = items[chosenNumber];
-				while (chosenNumber ===  cn) {
+				this.cName = items[cNumber];
+				while (cNumber ===  cn) {
 					var cn = Math.floor(Math.random() * items.length);
 				};
 				this.cnt = items[cn];
