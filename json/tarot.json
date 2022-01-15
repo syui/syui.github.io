@@ -2,115 +2,134 @@
   {
     "id": "1",
     "h": "夢",
-    "file": "/ai/tarot/tarot_card_01.png",
+    "file": "/ai/tarot/tarot_01",
+				"src": "100",
     "p": "願いと成就"
   },
   {
     "id": "2",
     "h": "忍者",
-    "file": "/ai/tarot/tarot_card_02.png",
+    "file": "/ai/tarot/tarot_02",
+				"src": "93",
     "p": "忍耐や隠匿"
   },
   {
     "id": "3",
     "h": "昼寝",
-    "file": "/ai/tarot/tarot_card_03.png",
+    "file": "/ai/tarot/tarot_03",
+				"src": "73",
     "p": "休憩や休息"
   },
   {
     "id": "4",
     "h": "無心",
-    "file": "/ai/tarot/tarot_card_04.png",
+    "file": "/ai/tarot/tarot_04",
+				"src": "95",
     "p": "無我や境地"
   },
   {
     "id": "5",
     "h": "天界",
-    "file": "/ai/tarot/tarot_card_05.png",
+    "file": "/ai/tarot/tarot_05",
+				"src": "71",
     "p": "環境や居心地"
   },
   {
     "id": "6",
     "h": "金",
-    "file": "/ai/tarot/tarot_card_06.png",
+    "file": "/ai/tarot/tarot_06",
+				"src": "79",
     "p": "富と名声"
   },
   {
     "id": "7",
     "h": "太陽",
-    "file": "/ai/tarot/tarot_card_07.png",
+    "file": "/ai/tarot/tarot_07",
+				"src": "59",
     "p": "気分や明るさ"
   },
   {
     "id": "8",
     "h": "玉",
-    "file": "/ai/tarot/tarot_card_08.png",
+    "file": "/ai/tarot/tarot_08",
+				"src": "88",
     "p": "元気と力"
   },
   {
     "id": "9",
     "h": "白雪",
-    "file": "/ai/tarot/tarot_card_09.png",
+    "file": "/ai/tarot/tarot_09",
+				"src": "15",
     "p": "純粋や純真"
   },
   {
     "id": "10",
     "h": "雷帝",
-    "file": "/ai/tarot/tarot_card_10.png",
+    "file": "/ai/tarot/tarot_10",
+				"src": "30",
     "p": "衝動や衝撃"
   },
   {
     "id": "11",
     "h": "破壊",
-    "file": "/ai/tarot/tarot_card_11.png",
+    "file": "/ai/tarot/tarot_11",
+				"src": "87",
     "p": "始まりと終わり"
   },
   {
     "id": "12",
     "h": "光",
-    "file": "/ai/tarot/tarot_card_12.png",
+    "file": "/ai/tarot/tarot_12",
+				"src": "101",
     "p": "希望や期待"
   },
   {
     "id": "13",
     "h": "成功",
-    "file": "/ai/tarot/tarot_card_13.png",
+    "file": "/ai/tarot/tarot_13",
+				"src": "76",
     "p": "勝利や確信"
   },
   {
     "id": "14",
     "h": "投球",
-    "file": "/ai/tarot/tarot_card_14.png",
+    "file": "/ai/tarot/tarot_14",
+				"src": "106",
     "p": "積極性や主体性"
   },
   {
     "id": "15",
     "h": "時間",
-    "file": "/ai/tarot/tarot_card_15.png",
+    "file": "/ai/tarot/tarot_15",
+				"src": "83",
     "p": "過去、現在、未来のどれか"
   },
   {
     "id": "16",
     "h": "箱",
-    "file": "/ai/tarot/tarot_card_16.png",
+    "file": "/ai/tarot/tarot_16",
+				"src": "78",
     "p": "感謝や恩返し"
   },
   {
     "id": "17",
     "h": "創造",
-    "file": "/ai/tarot/tarot_card_17.png",
+    "file": "/ai/tarot/tarot_17",
+				"src": "89",
     "p": "好きなこと、楽しいこと"
   },
   {
     "id": "18",
     "h": "水",
-    "file": "/ai/tarot/tarot_card_18.png",
+    "file": "/ai/tarot/tarot_18",
+				"src": "23",
     "p": "形のないものや変化"
   },
   {
     "id": "19",
     "h": "剣士",
-    "file": "/ai/tarot/tarot_card_19.png",
+    "file": "/ai/tarot/tarot_19",
+				"src": "103",
     "p": "闘争や競争"
   }
 ]
