@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/private/</loc>
-    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/blog/post/2022/01/22/mail/</loc>
+    <lastmod>2022-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/mail/</loc>
+    <lastmod>2022-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/private/</loc>
     <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/01/21/badge/</loc>
@@ -2016,9 +2022,6 @@
   </url><url>
     <loc>https://syui.cf/tags/webpack/</loc>
     <lastmod>2018-08-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/mail/</loc>
-    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/phx/</loc>
     <lastmod>2018-08-24T00:00:00+00:00</lastmod>

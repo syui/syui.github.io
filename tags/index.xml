@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mail</title>
+      <link>https://syui.cf/tags/mail/</link>
+      <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/mail/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>private</title>
       <link>https://syui.cf/tags/private/</link>
@@ -932,15 +941,6 @@
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/webpack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mail</title>
-      <link>https://syui.cf/tags/mail/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/mail/</guid>
       <description></description>
     </item>
     
