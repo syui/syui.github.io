@@ -24,7 +24,7 @@
 で、色々と試している際、cloudflare mailがβ版で登場しており、これは予約制ですが、たまたま通ったので使ってみることにしました。
 https://blog.cloudflare.com/ja-jp/introducing-email-routing-ja-jp/
 これはmailgunでも簡単にできるrouting(受信)を可能にするものです。ただし、smtpなどは今のところなく、送信元にすることはできません。
-ですから、今のところcloudflare-mailで受信、mailgunで送信を設定していこうかなと思っています。
+なので、しばらくはcloudflare-mailで受信、mailgunで送信を設定していこうかなと思っています。
 なお、gmailでmailgunのsmtpを設定する方法は、gmail mailgun smtpとかで検索すれば良さそう。この設定に関するgoogle(gmail)の公式docsがどこにあるのかちょっとわからなかった。</description>
     </item>
     
