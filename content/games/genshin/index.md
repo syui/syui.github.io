@@ -64,11 +64,13 @@ slug = "genshin"
 
 なお、良い聖遺物は、サブで会心率15%、または会心ダメ30%が目安となります。
 
-合計で会心率60%, 会心ダメ150%が目標値となります。武器で補完できる場合は、補完します。
+合計で会心率60%, 会心ダメ120%が目標値となります。武器で補完できる場合は、補完します。
 
 ### 育成中のキャラ
 
-<a href="/games/genshin/genshin_klee.png"><img src="/games/genshin/genshin_klee.png"></a>
+#### クレー
+
+<a href="/games/genshin/genshin_chara_klee.png"><img src="/games/genshin/genshin_chara_klee.png"></a>
 
 一番好きなクレー。原神を始めたきっかけ。
 
@@ -78,19 +80,59 @@ slug = "genshin"
 
 時計だけは、スコア50超えだったので満足してる。
 
-<a href="/games/genshin/genshin_raiden.png"><img src="/games/genshin/genshin_raiden.png"></a>
+#### 雷電
+
+<a href="/games/genshin/genshin_chara_raiden.png"><img src="/games/genshin/genshin_chara_raiden.png"></a>
 
 雷電は、チャージ効率重視。これは、雷電自身の特性と聖遺物の特性から。
 
 ただ、武器の護摩を装備すると、会心系は目標値に到達する。けど、実戦では、チャージ効率のほうが総合的に見て強いと思う。
 
-<a href="/games/genshin/genshin_noelle.png"><img src="/games/genshin/genshin_noelle.png"></a>
+#### ノエル
+
+<a href="/games/genshin/genshin_chara_noelle.png"><img src="/games/genshin/genshin_chara_noelle.png"></a>
 
 ノエルは、2000~8000くらいのダメージを出せるので、アタッカーが死んだとき、なんとか乗り切れるようになってる。
 
-<a href="/games/genshin/genshin_barbara.png"><img src="/games/genshin/genshin_barbara.png"></a>
+#### バーバラ
+
+<a href="/games/genshin/genshin_chara_barbara.png"><img src="/games/genshin/genshin_chara_barbara.png"></a>
 
 海染で爆発が14000くらいのダメージ入る。武器も金泊なので相性がいいと思う。
+
+#### 香菱
+
+<a href="/games/genshin/genshin_chara_xiangling.png"><img src="/games/genshin/genshin_chara_xiangling.png"></a>
+
+4凸が強すぎる。ただ、スキルが弱く、かつ爆発のクールタイムは長いため、最強キャラとは言えないのかもしれない。
+
+#### 鍾離
+
+<a href="/games/genshin/genshin_chara_zhongli.png"><img src="/games/genshin/genshin_chara_zhongli.png"></a>
+
+鍾離は、ガチャのピックアップで3人目に引いたキャラ。今まで回したガチャは`1:クレー, 2:雷電, 3:鍾離`となっている。
+
+無凸でも破格の性能で、なおかつシールドは腐ることがないと考えます。シールドが腐ること、それは岩元素が腐ることと等しく、仮にそのような状況に至るなら、それは原神に配信されているコンテンツに間違いがあるのだと思う。なぜなら、原神のコンセプトが全元素の活躍にあると思うから。
+
+したがって、この場合、コンテンツのバランス調整が間違っているということになると思う。そして、それは後々修正される可能性が高いものになりそう。
+
+#### 甘雨
+
+<a href="/games/genshin/genshin_chara_ganyu.png"><img src="/games/genshin/genshin_chara_ganyu.png"></a>
+
+甘雨は、自分にとって2人目のアタッカー。会心率70%, 会心ダメ200以上が目標で、破魔の弓でも20,000以上のダメージを出せる計算。
+
+#### 行秋
+
+<a href="/games/genshin/genshin_chara_xingqiu.png"><img src="/games/genshin/genshin_chara_xingqiu.png"></a>
+
+初めて完凸したのキャラは行秋だったので、その意味で愛着がある。適当な聖遺物でも強い。元素チャージ効率を重視。
+
+#### ベネット
+
+<a href="/games/genshin/genshin_chara_bennett.png"><img src="/games/genshin/genshin_chara_bennett.png"></a>
+
+最強のバッファー、ヒラー。多数の役割をこなすキャラは強いし、ベネットも例外ではない。
 
 https://shinshin.moe
 

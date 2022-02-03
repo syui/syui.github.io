@@ -35,3 +35,5 @@ src-*/dist
 src-*/yarn-error.log
 src-*/yarn.lock
 src-*/public
+src-*
+src-**
