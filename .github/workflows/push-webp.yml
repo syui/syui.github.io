@@ -38,8 +38,8 @@ jobs:
         for ((i=1;i<=$n;i++))
         do
         t=`echo "$s"|awk "NR==$i"`
-        if [ ! -f ../static/img/$t ];then
-        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' 
+        if [ ! -f ./static/img/$t ];then
+        squoosh-cli --webp '{"quality":100}' -d ./static/img/min --resize '{width:600,height:800}' ./static/img/$t
         fi
         done
         git config --local user.email "action@github.com"
