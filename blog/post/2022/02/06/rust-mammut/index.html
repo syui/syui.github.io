@@ -119,7 +119,7 @@
 </span><span style="color:#e6db74">		\&#34;password\&#34;: \&#34;</span>$password<span style="color:#e6db74">\&#34;,
 </span><span style="color:#e6db74">		\&#34;scope\&#34;: \&#34;</span>$scope<span style="color:#e6db74">\&#34;
 </span><span style="color:#e6db74">	}&#34;</span>
-</code></pre></div><p>mammutでは<code>Data</code>として必要なまとめられてますので、各種要素を入れて<code>Mastodon::from_data(data)</code>すると認証できます。</p>
+</code></pre></div><p>mammutでは<code>Data</code>として認証に必要な要素まとめられてますので、各種要素を入れて<code>Mastodon::from_data(data)</code>すると認証できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="color:#66d9ef">use</span> std::env;
 <span style="color:#66d9ef">use</span> mammut::{Data, Mastodon};
 
@@ -135,7 +135,7 @@
     println!(<span style="color:#e6db74">&#34;{:?}&#34;</span>, mastodon.get_home_timeline()<span style="color:#f92672">?</span>.initial_items);
     Ok(())
 }
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.env" data-lang="sh:.env">port TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.env" data-lang="sh:.env">export TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 export CLIENT_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 export CLIENT_SECRET<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 export REDIRECT<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
