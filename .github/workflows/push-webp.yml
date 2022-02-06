@@ -3,10 +3,11 @@ name: push webp
 on:
   workflow_run:
     workflows: 
-      - push imgdiff
+      - github pages
     branches: src
     types:
       - "completed"
+
 jobs:
   comment:
     runs-on: ubuntu-latest
