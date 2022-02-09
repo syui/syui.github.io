@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tarot-cardを追加した</title>
+      <link>https://syui.cf/blog/post/2022/02/09/vue/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/09/vue/</guid>
+      <description>この前、イラストを描いたやつをtarot-cardに追加したいなって思って、現在の仕組は、以下のようなscriptでcardを生成し、その情報を記述したjsonをvueでimportしてたんですが、毎回buildするのが面倒だと思ったので、jsonの更新のみで対応することにしました。
+この程度のことはブログに書こうか迷いましたが、どんな些細なことでも、できる限り書いてく方針なので。
+#!/bin/zsh d=${0:a:h} dd=${0:a:h:h} n=`cat $d/static/json/tarot.json|jq &amp;#34;length&amp;#34;` n=`expr $n - 1` bg=$dd/static/img/tarot_bg.png br=$dd/static/img/tarot_br.png font=&amp;#34;/System/Library/Font/ToppanBunkyuGothicPr6N.ttc&amp;#34; for ((i=0;i&amp;lt;=$n;i++)) do p=`cat $d/static/json/tarot.json|jq -r &amp;#34;.[$i].p&amp;#34;` h=`cat $d/static/json/tarot.json|jq -r &amp;#34;.[$i].h&amp;#34;` s=`cat $d/static/json/tarot.json|jq -r &amp;#34;.[$i].src&amp;#34;` s=$dd/static/img/yui_$s.png o=$dd/content`cat $d/static/json/tarot.json|jq -r &amp;#34;.[$i].file&amp;#34;`.png echo &amp;#34;$s-&amp;gt; $o&amp;#34; composite -gravity north -geometry +0+160 -compose over $s $bg $o.back composite -gravity north -geometry +0+0 -compose over $br $o.back $o rm $o.back if [ `echo $h|wc -m` -eq 2 ];then mogrify -font &amp;#34;$font&amp;#34; -fill white -pointsize 200 -annotate +930+2570 &amp;#34;$h&amp;#34; $o else mogrify -font &amp;#34;$font&amp;#34; -fill white -pointsize 200 -annotate +830+2570 &amp;#34;$h&amp;#34; $o fi squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:100}&amp;#39; -d $dd/content/ai/tarot/ --resize &amp;#39;{width:400,height:550}&amp;#39; $o done s=$dd/static/img/tarot.</description>
+    </item>
+    
     <item>
       <title>mammutのexampleをまとめてみる</title>
       <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>
