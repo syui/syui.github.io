@@ -1,6 +1,5 @@
 <template>
 	<div id="app">
-		{{ items }}
 		<div class="tarot-card-list">
 			<Loading v-show="loading">
 				<vue-loading type="barsCylon" color="#99892b" :size="{ width: '50px', height: '50px' }"></vue-loading>    
@@ -49,7 +48,6 @@ export default {
 			this.loading = true;
 			setTimeout(() => {
 				var cNumber = Math.floor(Math.random() * this.items.length);
-				console.log(this.items.length);
 				var cn = Math.floor(Math.random() * this.items.length);
 				this.cName = this.items[cNumber];
 				while (cNumber ===  cn) {
