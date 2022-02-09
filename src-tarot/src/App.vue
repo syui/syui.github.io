@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		{{ items }}
 		<div class="tarot-card-list">
 			<Loading v-show="loading">
 				<vue-loading type="barsCylon" color="#99892b" :size="{ width: '50px', height: '50px' }"></vue-loading>    
@@ -22,17 +23,23 @@
 </template>
 
 <script>
-import items from '/static/json/tarot.json';
+//import items from '/static/json/tarot.json';
+import axios from 'axios'
 import { VueLoading } from 'vue-loading-template';
 export default {
 	data() {
 		return {
-			items,
+			items: null,
 			cName: "",
 			cnt: "",
 			loading: false,
 			tarotz:"/ai/tarot/tarot_00.webp"
 		}
+	},
+	mounted() {
+		axios
+			.get('https://syui.cf/json/tarot.json')
+			.then(response => (this.items = response.data))
 	},
 	components: {
 		VueLoading
@@ -41,13 +48,14 @@ export default {
 		picker: function(){
 			this.loading = true;
 			setTimeout(() => {
-				var cNumber = Math.floor(Math.random() * items.length);
-				var cn = Math.floor(Math.random() * items.length);
-				this.cName = items[cNumber];
+				var cNumber = Math.floor(Math.random() * this.items.length);
+				console.log(this.items.length);
+				var cn = Math.floor(Math.random() * this.items.length);
+				this.cName = this.items[cNumber];
 				while (cNumber ===  cn) {
-					var cn = Math.floor(Math.random() * items.length);
+					var cn = Math.floor(Math.random() * this.items.length);
 				};
-				this.cnt = items[cn];
+				this.cnt = this.items[cn];
 				var list_element = document.querySelector("button");
 				list_element.remove();
 				this.loading = false;
