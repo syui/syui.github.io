@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>app | syui.cf</title>
+		<title>msr | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="app | syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="msr" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="| rustで書かれたmastodon client" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -23,24 +23,16 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -49,8 +41,13 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-<link rel="alternate" type="application/rss+xml" href="https://syui.cf/app/index.xml" title="syui.cf" />
-</head>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/js/highlight-prompt.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/axios/dist/axios.min.js"></script>
+		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -79,7 +76,7 @@
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/app"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -103,84 +100,72 @@
 </g>
 </svg>
  </a> </div>
+
 				
 			</header>
 
-			<p>アプリを作ります</p>
-			<div id="container">
-			    <div class="outer">
-				<div id="blog-archives" class="category">
-				    <ul class="cp_list">
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/xq/">xq</a> | goで書かれたxmlをjsonに変換するツール
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/twg/">twg</a> | goで書かれたtwitter client
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/mstdn/">mstdn.zsh</a> | zshで書かれたmastodon client
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/medigo/">medigo</a> | mediumの投稿や編集するアプリ
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/exchat/">exchat</a> | herokuで立てられるchatアプリ
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/comic-page/">comic.page</a> | vueで書かれたシンプルな画像ページ
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/airsave/">airsave.vim</a> | vimの自動保存を可能にするplugin
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/shasumgo/">shasumgo</a> | goで書かれたchecksumのcliツール
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/covid-vue-chart/">covid-vue-chart</a> | vueで書かれたcovid-19のチャート
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/udrs/">udrs</a> | rustで書かれたurl支援するツール
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/reviewbot/">reviewbot</a> | pull-reqをlintでreviewするbot
-					</li>
-					
-					
-					<li>
-					    <a href="https://syui.cf/app/dev/msr/">msr</a> | rustで書かれたmastodon client
-					</li>
-					
-				    </ul>
-				</div>
-			    </div>
-			</div>
+       			<article>
+       			 	<div class="content">
+				    <h2>msr | syui.cf</h2>
+       			 		<p><code>msr</code>は、rustで書かれたシンプルなmastodon clientです。</p>
+<p><a href="https://github.com/syui/msr/releases">Download</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># mac</span>
+$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc
+$ mv msr-x86_64-apple-darwin msr
+$ chmod +x msr
+$ ./msr
+<span style="color:#75715e"># security setting</span>
+<span style="color:#75715e"># macの場合、ここで設定-&gt;セキュリティにてファイルを開くを選択します</span>
+
+<span style="color:#75715e"># linux</span>
+$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu
+$ mv msr-x86_64-unknown-linux-gnu msr
+$ chmod +x msr
+$ ./msr
+</code></pre></div><h3 id="build">build</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/msr
+$ cd msr/
+$ cargo build
+$ ./target/debug/msr
+</code></pre></div><h3 id="use">use</h3>
+<p>mastodonの<code>開発</code>からappを発行してください。権限は必要最小限で構いません。名前は<code>msr</code>でredirect-urlは<code>localhost</code>(なんでもいい)です。</p>
+<p><code>~/.config/msr/config.toml</code>にtokenなどの情報を記述してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/.config/msr
+$ cp config.toml.example ~/.config/msr/config.toml
+$ vim ~/.config/msr/config.toml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:~/.config/msr/config.toml" data-lang="toml:~/.config/msr/config.toml"><span style="color:#a6e22e">token</span> = <span style="color:#e6db74">&#34;アクセストークン&#34;</span>
+<span style="color:#a6e22e">client_id</span> = <span style="color:#e6db74">&#34;クライアントキー&#34;</span>
+<span style="color:#a6e22e">client_secret</span> = <span style="color:#e6db74">&#34;クライアントシークレット&#34;</span>
+<span style="color:#a6e22e">redirect</span> = <span style="color:#e6db74">&#34;localhost&#34;</span>
+<span style="color:#a6e22e">base</span> = <span style="color:#e6db74">&#34;https://mastodon.social&#34;</span>
+</code></pre></div><p>なお、<code>~/.config/msr/setting.toml</code>を置くことで、簡単にaccountの切り替えができるようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a -d
+</code></pre></div><p>基本的には、<code>a</code> option後にfile-pathを指定することで、accountを切り替えられます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a ~/.config/msr/social.toml
+</code></pre></div><p>その他の使い方は、command <code>help</code>を見てください。</p>
+
+       			 		
+
+
+<nav id="article-nav">
+    
+
+    <a href="https://syui.cf/app/dev/reviewbot/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> reviewbot
+    </a>
+    
+
+		
+</nav>
+
+
+       			 	</div>
+       			</article>
 		</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
 
-</body>
+	</body>
 </html>

@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>msr</title>
+      <link>https://syui.cf/app/dev/msr/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/app/dev/msr/</guid>
+      <description>msrは、rustで書かれたシンプルなmastodon clientです。
+Download
+# mac $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc $ mv msr-x86_64-apple-darwin msr $ chmod +x msr $ ./msr # security setting # macの場合、ここで設定-&amp;gt;セキュリティにてファイルを開くを選択します # linux $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu $ mv msr-x86_64-unknown-linux-gnu msr $ chmod +x msr $ ./msr build $ git clone https://github.com/syui/msr $ cd msr/ $ cargo build $ ./target/debug/msr use mastodonの開発からappを発行してください。権限は必要最小限で構いません。名前はmsrでredirect-urlはlocalhost(なんでもいい)です。
+~/.config/msr/config.tomlにtokenなどの情報を記述してください。
+$ mkdir -p ~/.config/msr $ cp config.toml.example ~/.config/msr/config.toml $ vim ~/.config/msr/config.toml token = &amp;#34;アクセストークン&amp;#34; client_id = &amp;#34;クライアントキー&amp;#34; client_secret = &amp;#34;クライアントシークレット&amp;#34; redirect = &amp;#34;localhost&amp;#34; base = &amp;#34;https://mastodon.</description>
+    </item>
+    
     <item>
       <title>reviewbot</title>
       <link>https://syui.cf/app/dev/reviewbot/</link>

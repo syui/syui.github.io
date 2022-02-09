@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/app/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/app/dev/msr/</loc>
     <lastmod>2022-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
@@ -1150,9 +1156,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2020/05/25/app/</loc>
     <lastmod>2020-05-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/app/</loc>
-    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/app/dev/reviewbot/</loc>
     <lastmod>2020-05-24T00:00:00+00:00</lastmod>
