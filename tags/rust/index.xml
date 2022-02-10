@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>github actionsでrustのcross compile</title>
+      <link>https://syui.cf/blog/post/2022/02/10/github/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/10/github/</guid>
+      <description>opensslのerrorが出る場合はsudo apt-get install -y -qq pkg-config libssl-devするといいらしい。
+windowsのbuildやuploadは、同じ内容でも、うまく行ったり行かなかったりしたので、そのうち動かなくなりそう。
+name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release binary strategy: matrix: include: - os: macos-latest artifact_prefix: macos target: x86_64-apple-darwin artifact_name: msr asset_name: msr-x86_64-apple-darwin - os: ubuntu-latest artifact_prefix: linux target: x86_64-unknown-linux-gnu artifact_name: msr asset_name: msr-x86_64-unknown-linux-gnu - os: windows-latest artifact_prefix: windows  target: x86_64-pc-windows-msvc artifact_name: msr.exe asset_name: msr-x86_64-pc-windows-msvc runs-on: ${{ matrix.os }} steps: - uses: actions/checkout@v1 - name: installing rust toolchain uses: actions-rs/toolchain@v1 with: profile: minimal toolchain: stable override: true components: rustfmt, clippy - name: installing needed macos dependencies if: matrix.</description>
+    </item>
+    
     <item>
       <title>mammutのexampleをまとめてみる</title>
       <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>
