@@ -65,4 +65,29 @@ $ msr a -d
 $ msr a ~/.config/msr/social.toml
 ```
 
+### icon
+
+macはiterm2の`imgcat`を使い、linuxはmltermなどで`img2sixel`を使ってアイコンを表示します。
+
+```sh
+$ msr i
+```
+
+windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。scoopでmsys2をinstallする場合のpathは`~/scoop/apps/msys2/current`になります。
+
+```sh
+$ scoop install msys2
+$ msys2
+$ cd
+$ git clone https://github.com/saitoha/libsixel
+$ cd libsixel
+$ pacman -S make gcc
+$ ./configure
+$ make
+$ make install
+
+$ mintty
+$ img2sixel test.png
+```
+
 その他の使い方は、command `help`を見てください。
