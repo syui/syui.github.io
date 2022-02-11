@@ -142,6 +142,22 @@ $ vim ~/.config/msr/config.toml
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a -d
 </code></pre></div><p>基本的には、<code>a</code> option後にfile-pathを指定することで、accountを切り替えられます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a ~/.config/msr/social.toml
+</code></pre></div><h3 id="icon">icon</h3>
+<p>macはiterm2の<code>imgcat</code>を使い、linuxはmltermなどで<code>img2sixel</code>を使ってアイコンを表示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr i
+</code></pre></div><p>windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。scoopでmsys2をinstallする場合のpathは<code>~/scoop/apps/msys2/current</code>になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install msys2
+$ msys2
+$ cd
+$ git clone https://github.com/saitoha/libsixel
+$ cd libsixel
+$ pacman -S make gcc
+$ ./configure
+$ make
+$ make install
+
+$ mintty
+$ img2sixel test.png
 </code></pre></div><p>その他の使い方は、command <code>help</code>を見てください。</p>
 
        			 		
