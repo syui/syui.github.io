@@ -8,7 +8,7 @@ n=`expr $n - 1`
 bg=$dd/static/img/tarot_bg.png
 br=$dd/static/img/tarot_br.png
 font="/System/Library/AssetsV2/com_apple_MobileAsset_Font6/5ef536f846908ec81f4b37caef397b3cb050b64e.asset/AssetData/ToppanBunkyuGothicPr6N.ttc"
-for ((i=0;i<=$n;i++))
+for ((i=20;i<=$n;i++))
 do
 	p=`cat $d/static/json/tarot.json|jq -r ".[$i].p"`
 	h=`cat $d/static/json/tarot.json|jq -r ".[$i].h"`
