@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>archのvmをi3からswayに移行してみた | syui.cf</title>
+		<title>archのwmをi3からswayに移行してみた | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="archのvmをi3からswayに移行してみた" />
+		<meta property="og:title" content="archのwmをi3からswayに移行してみた" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -106,9 +106,9 @@
        			<article>
        			 	<div class="content">
 													<div class="post-time-date">2022-02-13 / <a href="/syui">@syui</a></div>
-													<h2>archのvmをi3からswayに移行してみた</h2>
+													<h2>archのwmをi3からswayに移行してみた</h2>
 													
-       			 		<p>移行自体はi3を使っていたこともあり簡単でした。</p>
+       			 		<p>移行自体はwm(window manager)のi3を使っていたこともあり簡単でした。</p>
 <p>基本的には、dm(display manager)をwayland対応のものにすることと、swayを呼び出すことくらいです。slimから呼び出すと問題が発生します。</p>
 <p>今回はdmをlightdmにしました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S sway xorg-xwayland qt5-wayland
@@ -148,9 +148,16 @@ bar <span style="color:#f92672">{</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>今回は、こちらをもとに設定しました。</p>
 <p><a href="https://github.com/201dreamers/sway-config">https://github.com/201dreamers/sway-config</a></p>
-<p><code>blueman-applet</code>や<code>nm-applet</code>, <code>pavucontrol(on-clik-right)</code>などを表示、クリックできます。</p>
+<p><code>blueman-applet</code>や<code>nm-applet</code>, <code>pavucontrol</code>などを表示、クリックできます。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/arch_sway_20220213_0001.png" alt=""></p>
-<p>x11vncが使えなくなったのがつらかったけど、それ以外は今のところ問題ありませんでした。そのうち、keybindあたり不満が出てきそうだけど&hellip;。</p>
+<p>あと、rofi-greenclipを入れて、keybindとiconを設定したりしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;custom/clipboard&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+	<span style="color:#f92672">&#34;format&#34;</span>: <span style="color:#e6db74">&#34;{} &#34;</span>,
+		<span style="color:#f92672">&#34;on-click&#34;</span>: <span style="color:#e6db74">&#34;rofi -modi &#39;clipboard:greenclip print&#39; -show clipboard -run-command &#39;{cmd}&#39;&#34;</span>
+}
+
+<span style="color:#960050;background-color:#1e0010">bindsym</span> <span style="color:#960050;background-color:#1e0010">$mod+Shift+x</span> <span style="color:#960050;background-color:#1e0010">exec</span> <span style="color:#960050;background-color:#1e0010">rofi</span> <span style="color:#960050;background-color:#1e0010">-modi</span> <span style="color:#e6db74">&#34;clipboard:greenclip print&#34;</span> <span style="color:#960050;background-color:#1e0010">-show</span> <span style="color:#960050;background-color:#1e0010">clipboard</span> <span style="color:#960050;background-color:#1e0010">-run-command</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>{<span style="color:#960050;background-color:#1e0010">cmd</span>}<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</code></pre></div><p>x11vncが使えなくなったのがつらかったけど、それ以外は今のところ問題ありませんでした。そのうち、keybindあたり不満が出てきそうだけど&hellip;。</p>
 <p>wayvncを試してみたけど、今使ってるclientが対応してないっぽい。</p>
 
        			 		

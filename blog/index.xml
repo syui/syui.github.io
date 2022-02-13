@@ -9,12 +9,12 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>archのvmをi3からswayに移行してみた</title>
+      <title>archのwmをi3からswayに移行してみた</title>
       <link>https://syui.cf/blog/post/2022/02/13/sway/</link>
       <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2022/02/13/sway/</guid>
-      <description>移行自体はi3を使っていたこともあり簡単でした。
+      <description>移行自体はwm(window manager)のi3を使っていたこともあり簡単でした。
 基本的には、dm(display manager)をwayland対応のものにすることと、swayを呼び出すことくらいです。slimから呼び出すと問題が発生します。
 今回はdmをlightdmにしました。
 $ sudo pacman -S sway xorg-xwayland qt5-wayland $ sudo pacman -S lightdm lightdm-gtk-greeter $ sudo systemctl disable slim $ sudo systemctl enable lightdm $ cp -rf ~/.config/i3 ~/.config/sway $ cp -rf ~/.xinitr ~/.xprofile # groupadd -r autologin # gpasswd -a USERNAME autologin  /etc/lightdm/lightdm.conf
