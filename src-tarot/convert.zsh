@@ -2,7 +2,9 @@
 d=${0:a:h}
 dd=${0:a:h:h}
 unset good
-#good="true"
+if [ -n $1 ];then
+	good="true"
+fi
 n=`cat $d/static/json/tarot.json|jq "length"`
 n=`expr $n - 1`
 bg=$dd/static/img/tarot_bg.png
@@ -36,7 +38,7 @@ do
 	p=`cat $d/static/json/tarot.json|jq -r ".[$i].p"`
 	h=`cat $d/static/json/tarot.json|jq -r ".[$i].h"`
 	s=`cat $d/static/json/tarot.json|jq -r ".[$i].src"`
-	sss=$s
+	sss=`cat $d/static/json/tarot.json|jq -r ".[$i].file"`
 	s=$dd/static/img/yui_$s.png
 	o=$dd/content`cat $d/static/json/tarot.json|jq -r ".[$i].file"`.png
 	echo "$s -> $o"
@@ -68,6 +70,7 @@ if [ "$good" = "true" ];then
 	s=$goods
 	h=$goodh
 	o=$goodo
+	echo $ss
 	for ((ii=0;ii<=9;ii++))
 	do
 		title=$dd/content/ai/tarot/null
@@ -85,8 +88,8 @@ if [ "$good" = "true" ];then
 	done
 	cd $dd/content/ai/tarot/
 	convert -layers optimize -loop 0 -delay 100 null_*.png test.gif
-	cp $dd/content/ai/tarot/tarot_${ss}.webp $dd/content/ai/tarot/tarot_${ss}.back.webp
-	mv test.gif $dd/content/ai/tarot/tarot_${ss}.webp
+	cp $dd/content${ss}.webp $dd/content${ss}.back.webp
+	mv test.gif $dd/content${ss}.webp
 	rm null_*
 	cd $dd
 fi
