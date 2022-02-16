@@ -1,0 +1,45 @@
+name: github pages cron
+on:
+  push:
+    branches:
+    - src
+  schedule:
+    - cron:  '0 0 * * *'
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 0
+    - name: install squoosh zsh
+      env:
+        WORKFLOW_FILE_PATH: ${{ github.workflow }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      run: |
+        npm i -g @squoosh/cli
+        sudo apt-get install -y -qq zsh
+    - name: Build
+      run: |
+           ./src-tarot/convrt.zsh
+           hugo
+           touch ./public/.nojekyll
+           cp ./CNAME ./public/
+           git config --local user.email "action@github.com"
+           git config --local user.name "GitHub Action"
+           if [ -z "`git status -s`" ];then
+           exit
+           fi
+           git add ./content/ai/
+           git commit -m "push tarot"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: src
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        publish_branch: master
