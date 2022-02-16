@@ -37,3 +37,4 @@ src-*/yarn.lock
 src-*/public
 src-*
 src-**
+*.ttf
