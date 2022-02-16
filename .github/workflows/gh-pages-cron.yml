@@ -19,7 +19,9 @@ jobs:
       run: |
         npm i -g @squoosh/cli
         sudo apt-get install -y -qq zsh
-    - name: Build
+    - name: setup hugo
+      uses: peaceiris/actions-hugo@v2
+    - name: build
       run: |
            ./src-tarot/convert.zsh 
            hugo
@@ -32,12 +34,12 @@ jobs:
            fi
            git add ./content/ai/
            git commit -m "push tarot"
-    - name: Push changes
+    - name: push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: src
-    - name: Deploy
+    - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
