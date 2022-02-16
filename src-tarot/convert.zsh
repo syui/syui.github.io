@@ -8,7 +8,11 @@ bg=$dd/static/img/tarot_bg.png
 br=$dd/static/img/tarot_br.png
 bbr=$br
 kr=$dd/static/img/tarot_kr.png
-font="/System/Library/AssetsV2/com_apple_MobileAsset_Font6/5ef536f846908ec81f4b37caef397b3cb050b64e.asset/AssetData/ToppanBunkyuGothicPr6N.ttc"
+if [ ! -f /System/Library/AssetsV2/com_apple_MobileAsset_Font6/5ef536f846908ec81f4b37caef397b3cb050b64e.asset/AssetData/ToppanBunkyuGothicPr6N.ttc ];then
+	font="/System/Library/AssetsV2/com_apple_MobileAsset_Font6/5ef536f846908ec81f4b37caef397b3cb050b64e.asset/AssetData/ToppanBunkyuGothicPr6N.ttc"
+else
+	font="$dd/migmix-2p-bold.ttf"
+fi
 random=$(($RANDOM % $n))
 echo kira $random
 for ((i=0;i<=$n;i++))

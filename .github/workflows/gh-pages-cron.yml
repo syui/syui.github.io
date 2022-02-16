@@ -18,11 +18,12 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
       run: |
         npm i -g @squoosh/cli
-        sudo apt-get install -y -qq zsh
+        sudo apt-get install -y -qq zsh fonts-noto fonts-noto-cjk-extra curl
     - name: setup hugo
       uses: peaceiris/actions-hugo@v2
     - name: build
       run: |
+           curl -sL "https://github.com/yousan/gss-hagaki/blob/master/fonts/migmix-2p-bold.ttf?raw=true" -o ./migmix-2p-bold.ttf
            ./src-tarot/convert.zsh 
            hugo
            touch ./public/.nojekyll
