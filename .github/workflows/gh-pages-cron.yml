@@ -1,8 +1,5 @@
 name: github pages cron
 on:
-  push:
-    branches:
-    - src
   schedule:
     - cron:  '0 0 * * *'
 jobs:
