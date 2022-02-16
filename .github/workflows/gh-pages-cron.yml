@@ -21,7 +21,7 @@ jobs:
         sudo apt-get install -y -qq zsh
     - name: Build
       run: |
-           ./src-tarot/convrt.zsh
+           ./src-tarot/convert.zsh 
            hugo
            touch ./public/.nojekyll
            cp ./CNAME ./public/
