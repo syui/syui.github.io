@@ -13,7 +13,7 @@
 
 		<blockquote>
 			<p v-if="cName.p">{{ cName.p }}</p>
-			<p v-else><strong>タロットカード</strong></p>
+			<p v-else><strong>カード</strong></p>
 			<p>{{ cnt.p }}</p>
 		</blockquote>
 
