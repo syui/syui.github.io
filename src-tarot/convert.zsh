@@ -118,10 +118,10 @@ if [ "$good" = "true" ];then
 			fi
 			squoosh-cli --webp '{"quality":100}' -d $dir --resize '{width:400,height:550}' $o
 		done
+		convert -layers optimize -loop 0 -delay 100 $dir/null_*.webp $good_cache_gif
+		cp $good_cache_gif $dd/content${ss}.webp
+		rm -f $dir/null_*
 	fi
-	convert -layers optimize -loop 0 -delay 100 $dir/null_*.webp $good_cache_gif
-	cp $good_cache_gif $dd/content${ss}.webp
-	rm -f $dir/null_*
 fi
 
 if [ ! -f $dir/tarot_00.webp ];then
