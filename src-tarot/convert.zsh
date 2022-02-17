@@ -9,6 +9,8 @@ dd=${0:a:h:h}
 cache=$dd/static/img/cache
 dir=$dd/content/ai/tarot
 static=$dd/static/img
+json=$dd/static/json/tarot.json
+jsons=$d/static/json/tarot.json
 
 unset good
 unset goodh
@@ -60,10 +62,12 @@ do
 	sss=`cat $d/static/json/tarot.json|jq -r ".[$i].file"`
 	file_s=${sss##*/}
 	file_c=${cache}/${file_s}.png
-	file_g=${cache}/${file_s}.gif
+	file_g=$dir/${file_s}.gif
 	s=$dd/static/img/yui_$s.png
 	o=$dd/content`cat $d/static/json/tarot.json|jq -r ".[$i].file"`.png
 	if [ $i -eq $random ];then
+		jq_s=$i
+		jq_i=$file_s
 		good_cache_gif=$file_g
 		good_png=$dir/${file_s}.png
 		good_webp=$dir/${file_s}.webp
@@ -121,6 +125,10 @@ if [ "$good" = "true" ];then
 		convert -layers optimize -loop 0 -delay 100 $dir/null_*.webp $good_cache_gif
 		cp $good_cache_gif $dd/content${ss}.webp
 		rm -f $dir/null_*
+		ja=`cat $json|jq ".[$jq_s]|.+{\"gif\":\"true\"}" |jq -s ".|= .+[]"`
+		jb=`cat $json|jq "del(.[$jq_s])"`
+		echo $ja $jb | jq -s add > $d/t.json
+		mv $d/t.json $json
 	fi
 fi
 

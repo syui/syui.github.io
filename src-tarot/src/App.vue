@@ -5,8 +5,10 @@
 				<vue-loading type="barsCylon" color="#99892b" :size="{ width: '50px', height: '50px' }"></vue-loading>    
 			</Loading>
 			<button @click="picker" ><i class="far fa-play-circle"></i> START</button>
-
-			<p v-if="cName.file">
+			<p v-if="random === 1 && cName.gif === 'true' && cnt.gif === 'true'">
+				<img v-show="!loading" :src="cName.file + '.gif'" />   <img :src="cnt.file + '.gif'" />
+			</p>
+			<p v-else-if="cName.file">
 				<img v-show="!loading" :src="cName.file + '.webp'" />   <img :src="cnt.file + '.webp'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
@@ -32,12 +34,13 @@ export default {
 			cName: "",
 			cnt: "",
 			loading: false,
-			tarotz:"/ai/tarot/tarot_00.webp"
+			tarotz:"/ai/tarot/tarot_00.webp",
+			random:null
 		}
 	},
 	mounted() {
 		axios
-			.get('https://syui.cf/json/tarot.json')
+			.get('/json/tarot.json')
 			.then(response => (this.items = response.data))
 	},
 	components: {
@@ -57,6 +60,7 @@ export default {
 				var list_element = document.querySelector("button");
 				list_element.remove();
 				this.loading = false;
+				this.random = 0 + Math.floor(Math.random() * this.items.length);
 			}, 1200);
 		}
 	}
