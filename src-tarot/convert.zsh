@@ -122,7 +122,7 @@ if [ "$good" = "true" ];then
 			fi
 			squoosh-cli --webp '{"quality":100}' -d $dir --resize '{width:400,height:550}' $o
 		done
-		convert -layers optimize -loop 0 -delay 100 $dir/null_*.webp $good_cache_gif
+		convert -layers optimize -loop 0 -delay 40 $dir/null_*.webp $good_cache_gif
 		cp $good_cache_gif $dd/content${ss}.webp
 		rm -f $dir/null_*
 		ja=`cat $json|jq ".[$jq_s]|.+{\"gif\":\"true\"}" |jq -s ".|= .+[]"`
