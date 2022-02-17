@@ -15,13 +15,12 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
       run: |
         npm i -g @squoosh/cli
-        sudo apt-get install -y -qq zsh curl imagemagick
+        sudo apt-get install -y -qq zsh curl imagemagick rsync
     - name: setup hugo
       uses: peaceiris/actions-hugo@v2
     - name: build
       run: |
-           curl -sL "https://github.com/yousan/gss-hagaki/blob/master/fonts/migmix-2p-bold.ttf?raw=true" -o ./migmix-2p-bold.ttf
-           ./src-tarot/convert.zsh 
+           ./src-tarot/convert.zsh -d
            hugo
            touch ./public/.nojekyll
            cp ./CNAME ./public/
@@ -31,6 +30,7 @@ jobs:
            exit
            fi
            git add ./content/ai/
+           git add ./static/img/cache/
            git commit -m "push tarot"
     - name: push changes
       uses: ad-m/github-push-action@master
