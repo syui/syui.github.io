@@ -20,6 +20,13 @@ jobs:
       uses: peaceiris/actions-hugo@v2
     - name: build
       run: |
+           w=`cat ./static/json/tarot.json|jq length`
+           w=`expr $w + 1`
+           e=`ls ./content/ai/tarot/*.gif|wc -l`
+           if [ $e -eq $w ];then
+           echo ok
+           exit
+           fi
            ./src-tarot/convert.zsh -a
            hugo
            touch ./public/.nojekyll
