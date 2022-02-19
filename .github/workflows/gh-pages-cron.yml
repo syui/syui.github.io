@@ -40,7 +40,7 @@ jobs:
            if [ -z "`git status -s`" ];then
            exit
            fi
-           git pull
+           git pull https://github.com/syui/syui.github.io.git src
            git add .
            git commit -m "push tarot"
     - name: push changes
