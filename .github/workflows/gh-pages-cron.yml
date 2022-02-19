@@ -2,9 +2,6 @@ name: github pages cron
 on:
   schedule:
     - cron:  '0 0 * * *'
-  push:
-    branches:
-    - src
 
 jobs:
   build-deploy:
@@ -25,7 +22,6 @@ jobs:
     - name: build
       run: |
            w=`cat ./static/json/tarot.json|jq length`
-           w=`expr $w + 1`
            e=`ls ./content/ai/tarot/*.gif|wc -l`
            if [ $e -eq $w ];then
            echo ok

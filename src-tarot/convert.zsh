@@ -5,6 +5,8 @@ dd=${0:a:h:h}
 # convert.zsh -d : no-run
 # convert.zsh -a : gold
 # convert.zsh -n : normal
+# convert.zsh -a 12 : tarot 13 gold
+echo " $ convert.zsh -a 12 : tarot 13 gold"
 
 cache=$dd/static/img/cache
 dir=$dd/content/ai/tarot
@@ -28,6 +30,11 @@ if [ -f "$dd/migmix-2p-bold.ttf" ];then
 fi
 echo $font
 random=$(($RANDOM % $n))
+
+if [ -n "$2" ];then
+	random=$2
+fi
+
 echo kira $random
 
 if [ 1 -eq $(($RANDOM % 3)) ];then
@@ -127,7 +134,7 @@ if [ "$good" = "true" ];then
 		rm -f $dir/null_*
 		ja=`cat $json|jq ".[$jq_s]|.+{\"gif\":\"true\"}" |jq -s ".|= .+[]"`
 		jb=`cat $json|jq "del(.[$jq_s])"`
-		echo $ja $jb | jq -s add > $d/t.json
+		echo $ja $jb | jq -s add | jq "sort_by(.id)" > $d/t.json
 		mv $d/t.json $json
 	fi
 fi
