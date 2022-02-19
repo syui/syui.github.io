@@ -2,6 +2,10 @@ name: github pages cron
 on:
   schedule:
     - cron:  '0 0 * * *'
+  push:
+    branches:
+    - src
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -36,9 +40,7 @@ jobs:
            if [ -z "`git status -s`" ];then
            exit
            fi
-           git add ./content/ai/*.webp
-           git add ./content/ai/*.gif
-           git add ./static/img/cache/
+           git add .
            git commit -m "push tarot"
     - name: push changes
       uses: ad-m/github-push-action@master

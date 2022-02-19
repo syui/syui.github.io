@@ -37,3 +37,4 @@ src-*/yarn.lock
 src-*/public
 src-*
 src-**
+**hugo_build.lock
