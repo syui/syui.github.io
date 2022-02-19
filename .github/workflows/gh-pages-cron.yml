@@ -2,7 +2,8 @@ name: github pages cron
 on:
   schedule:
     - cron:  '0 0 * * *'
-  tags:        
+  push:
+    tags:
     - card*
 
 jobs:
