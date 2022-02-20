@@ -153,6 +153,17 @@ Name<span style="color:#f92672">=</span>eth0
 Address<span style="color:#f92672">=</span>192.168.1.xx
 Gateway<span style="color:#f92672">=</span>192.168.1.xx
 DNS<span style="color:#f92672">=</span>192.168.1.1
+$ sudo systemctl enable NetworkManager
+$ sudo systemctl enable systemd-networkd
+
+$ vim /etc/lightdm/lightdm.conf 
+<span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
+autologin-user<span style="color:#f92672">=</span>syui
+autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+autologin-session<span style="color:#f92672">=</span>sway
+$ groupadd -r autologin
+$ gpasswd -a USERNAME autologin
+$ sudo systemctl enable lightdm
 
 $ vim /etc/locale.gen
 $ locale-gen
