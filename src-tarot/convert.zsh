@@ -5,8 +5,8 @@ dd=${0:a:h:h}
 # convert.zsh -d : no-run
 # convert.zsh -a : gold
 # convert.zsh -n : normal
-# convert.zsh -a 12 : tarot 13 gold
-echo " $ convert.zsh -a 12 : tarot 13 gold"
+# convert.zsh -a 13 : tarot 13 gold
+echo " $ convert.zsh -a 13 : tarot 13 gold"
 
 cache=$dd/static/img/cache
 dir=$dd/content/ai/tarot
@@ -33,6 +33,7 @@ random=$(($RANDOM % $n))
 
 if [ -n "$2" ];then
 	random=$2
+	random=`expr $2 - 1`
 fi
 
 echo kira $random
@@ -127,10 +128,10 @@ if [ "$good" = "true" ];then
 			else
 				mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
 			fi
-			#squoosh-cli --webp '{"quality":100}' -d $dir --resize '{width:400,height:550}' $o
+			squoosh-cli --webp '{"quality":90}' -d $dir --resize '{width:400,height:550}' $o
 		done
-		convert -layers optimize -loop 0 -delay 40 $dir/null_*.png $good_cache_gif
-		mogrify -resize 400x550 $good_cache_gif
+		convert -layers optimize -loop 0 -delay 40 $dir/null_*.webp $good_cache_gif
+		#mogrify -resize 400x550 $good_cache_gif
 		cp $good_cache_gif $dd/content${ss}.webp
 		rm -f $dir/null_*
 		ja=`cat $json|jq ".[$jq_s]|.+{\"gif\":\"true\"}" |jq -s ".|= .+[]"`
