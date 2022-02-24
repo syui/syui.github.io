@@ -546,7 +546,66 @@ $ ./t
 --------------------
 $ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;title&#34;:&#34;Give ogen and ogent a Star on GitHub&#34;}&#39;</span> localhost:8080/todos
 <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;Give ogen and ogent a Star on GitHub&#34;</span>,<span style="color:#e6db74">&#34;done&#34;</span>:false<span style="color:#f92672">}</span>
-</code></pre></div><p>できました。以上がentでopen-apiを作成する基本的な手順になると思われます。</p>
+</code></pre></div><p>できました。</p>
+<p>次は、userを作成するapiを作ってみます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ entc init Users
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/schema/users.go" data-lang="go:ent/schema/users.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Users</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;user&#34;</span>).
+		<span style="color:#a6e22e">NotEmpty</span>().
+		<span style="color:#a6e22e">Immutable</span>().
+		<span style="color:#a6e22e">MaxLen</span>(<span style="color:#ae81ff">7</span>).
+		<span style="color:#a6e22e">Unique</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;first&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;draw&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;created_at&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>().
+		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+		}),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;updated_at&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>().
+		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+		}),
+
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Edges</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span>{}
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go generate ./...
+$ go run -mod<span style="color:#f92672">=</span>mod main.go
+--------------------
+$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;syui&#34;}&#39;</span> localhost:8080/users
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
+
+$ !!
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;code&#34;</span>:409,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#e6db74">&#34;Conflict&#34;</span>,<span style="color:#e6db74">&#34;errors&#34;</span>:<span style="color:#e6db74">&#34;ent: constraint failed: pq: duplicate key value violates unique constraint \&#34;users_user_key\&#34;&#34;</span><span style="color:#f92672">}</span>
+
+$ curl localhost:8080/users/1
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
+</code></pre></div><p>以上がentでopen-apiを作成する基本的な手順になると思われます。</p>
 <p>entは、最初はとっつきにくいですが、触っているうちに慣れてくると思うので、おすすめです。</p>
 <h4 id="ref-">ref :</h4>
 <ul>
