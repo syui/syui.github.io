@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2022/02/23/golang/</guid>
       <description>最初は、gormを使っていました。
-gorm`は非常に見通しがよく、わかりやすかったです。
+gormは非常に見通しがよく、わかりやすかったです。
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; &amp;#34;os&amp;#34; &amp;#34;aicard/database&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;github.com/labstack/echo/v4&amp;#34; &amp;#34;gorm.io/gorm&amp;#34; ) type User struct { Id int `json:&amp;#34;id&amp;#34; param:&amp;#34;id&amp;#34; gorm:&amp;#34;primary_key&amp;#34;` Name string `json:&amp;#34;name&amp;#34; gorm:&amp;#34;unique,collate:utf8,length:7` CreatedAt time.Time UpdatedAt time.Time DeletedAt gorm.DeletedAt `gorm:&amp;#34;index&amp;#34;` } func hello(c echo.Context) error { return c.String(http.StatusOK, &amp;#34;Hello, World!&amp;#34;) } func getUsers(c echo.Context) error { users := []User{} database.DB.Find(&amp;amp;users) return c.JSON(http.StatusOK, users) } func getUser(c echo.Context) error { user := User{} if err := c.Bind(&amp;amp;user); err !</description>
     </item>
     

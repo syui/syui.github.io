@@ -109,7 +109,7 @@
 													<h2>goのentでapi serverを作ってみた</h2>
 													
        			 		<p>最初は、<a href="https://github.com/go-gorm/gorm">gorm</a>を使っていました。</p>
-<p>gorm`は非常に見通しがよく、わかりやすかったです。</p>
+<p>gormは非常に見通しがよく、わかりやすかったです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
@@ -233,7 +233,7 @@ $ tree .
 │       └── entry.go
 ├── go.mod
 └── go.sum
-</code></pre></div><p>ここで、entの通常の開発手順としては、(1)<code>ent/schema/entry.go</code>を編集する、(2)<code>go generate ./ent</code>を実行する、(3)<code>main.go</code>などのメインファイルからclientを操作する、(4)<code>go run</code>や<code>go build</code>する、という流れになります。</p>
+</code></pre></div><p>ここで、entの通常の開発手順としては、(1)<code>entc init</code>してschemaを作成する、(2)<code>ent/schema/*.go</code>を編集する、(3)<code>go generate ./ent</code>を実行する、(4)<code>main.go</code>などのメインファイルからclientを操作する、(5)<code>go run</code>や<code>go build</code>する、という流れになります。</p>
 <p>ということで、次は<code>ent/schema/entry.go</code>を書きます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/schema/entry.go" data-lang="go:ent/schema/entry.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
 
@@ -251,7 +251,7 @@ $ tree .
             <span style="color:#a6e22e">Default</span>(<span style="color:#e6db74">&#34;unknown&#34;</span>),
     }
 }
-</code></pre></div><p>project-rootから<code>go generate ./ent</code>を実行します。すると、先程、initした名前のファイル、<code>entry*.go</code>が作成されています。これらをimportすることで、開発者は<code>scheme</code>と<code>main</code>の編集に集中できるという感じになります。</p>
+</code></pre></div><p>project-rootから<code>go generate ./ent</code>を実行します。すると、先程、initした名前のファイル、<code>entry*.go</code>が作成されています。これらをimportすることで、開発者は<code>schema</code>と<code>main</code>の編集に集中できるという感じになります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go generate ./ent
 
 $ tree .
