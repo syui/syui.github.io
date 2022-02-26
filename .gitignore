@@ -38,3 +38,5 @@ src-*/public
 src-*
 src-**
 **hugo_build.lock
+*/*node_*
+**node_module*
