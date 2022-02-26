@@ -9,6 +9,10 @@ aliases = "api"
 <script src="/tarot-api/chunk-vendors.js"></script>
 <script src="/tarot-api/app.js"></script>
 
+### card api
+
+draw cards for cli.
+
 ```sh
 # user create
 # username : 7 characters, lower-case letter
