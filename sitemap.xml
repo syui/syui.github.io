@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/api/</loc>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/api/</loc>
     <lastmod>2022-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-02-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/02/27/golang-api-ent/</loc>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/go/</loc>
-    <lastmod>2022-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/blog/post/2022/02/23/golang/</loc>
-    <lastmod>2022-02-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-02-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-02-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/02/23/golang/</loc>
     <lastmod>2022-02-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/arch/</loc>
@@ -2708,9 +2714,6 @@
     <lastmod>2017-04-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2017/04/18/mobile/</loc>
-    <lastmod>2017-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/api/</loc>
     <lastmod>2017-04-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/heorku/</loc>
