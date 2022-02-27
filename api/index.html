@@ -124,7 +124,31 @@ $ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="colo
 <span style="color:#75715e"># card draw</span>
 $ curl -X PUT api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>/d
 $ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span> | jq .
-</code></pre></div>
+</code></pre></div><ul>
+<li>
+<p>あなたは、1日に1回、カードを引くことができます</p>
+</li>
+<li>
+<p>最初のカードがあなた自身となります</p>
+</li>
+<li>
+<p>最初に引いたカードは基本的に変更できません</p>
+</li>
+<li>
+<p>最初のカードと同じカードを引くとレベルが上がります</p>
+</li>
+<li>
+<p>最初のカードを得たとき1/10くらいの確率でレアカードが出ます</p>
+</li>
+<li>
+<p>毎日変わるカードはあなたの今日の運勢を占います</p>
+</li>
+<li>
+<p>毎日変わるカードは1/100くらいの確率でレアカードが出ます</p>
+</li>
+</ul>
+<p>今後の実装予定の遊びについて。vsで既存ユーザーと対戦できると面白そうと思っています。例えば、50%の勝率を基本に、lvを1/10した勝率をプラスします。例えば、lv15で相手がlv5なら1%の勝率がプラスされ、勝率は51%となります。勝利した場合、1/20の確率で相手のカードをfirstに置き換えることができるようにします。また、レアカードが出た場合、lvを+5するなどを考えています。</p>
+
        			 		
 
 
