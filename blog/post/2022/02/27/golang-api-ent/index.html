@@ -121,7 +121,7 @@ $ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="colo
 $ curl -X PUT api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>/d
 $ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span> | jq .
 </code></pre></div><p>ページは <a href="/api">/api</a> に作りました。ここでは自分で引いたやつだけ表示させています。</p>
-<p>apiからデータを取得する際、cross-originのerrが出ましたが、proxy-serverを立てることで回避しています。</p>
+<p>apiからデータを取得する際、cros-originのerrが出ますが、proxy-serverを立てることで無理やり回避。</p>
 <p>なお、heroku webは一定時間アクセスしないとsleepしますので、表示までに時間がかかることがあります。</p>
 
        			 		
