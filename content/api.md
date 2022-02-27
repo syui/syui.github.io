@@ -14,7 +14,7 @@ draw cards for cli.
 
 ```sh
 # user create
-# username : 7 characters, lower-case letter
+# username : [a-z] 7 characters, lower-case letter
 $ curl -X POST -H "Content-Type: application/json" -d '{"user":"${USER}"}' api.syui.cf/users
 
 # user info
