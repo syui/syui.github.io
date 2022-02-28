@@ -69,6 +69,14 @@ password : test
 
 ![](https://raw.githubusercontent.com/syui/img/master/other/hugo_20210918_141510.png)
 
+### api コマンドで api.syui.cf の api を使う
+
+```sh
+$ api 1
+```
+
+[/api](/api)
+
 ### その他
 
 その他にもコマンドがいくつかあります。是非、遊んでみてください。
