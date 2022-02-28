@@ -58,6 +58,12 @@ var ascii_archjp = "\n\n\
 		.then(function (response) {
 			gpg_link = JSON.stringify(response.data,null,"\t");
 		})
+
+	//axios.get('https://api.syui.cf/users')
+	//	.then(function (response) {
+	//		gpg_link = JSON.stringify(response.data,null,"\t");
+	//	})
+
 	//.catch(function (error) {
 	//    //console.log(error);
 	//});
@@ -167,6 +173,17 @@ var ascii_archjp = "\n\n\
 				term.echo("ex : cat /json/link.json");
 			} else if (inputs[0] === 'help') {
 				term.echo(command_all);
+		}	else if (inputs[0] === 'api'){
+			term.echo("$ api {id}");
+			term.echo("curl api.syui.cf/users/{id}/d");
+			$.ajaxSetup({async: false,type: 'PUT'});
+			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.cf/users/' + inputs[1] + "/d", function(data) {
+				term.echo(JSON.stringify(data,null,"\t"));
+			});$.ajaxSetup({async: true});
+			$.ajaxSetup({async: false,type: 'GET'});
+			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.cf/users/' + inputs[1], function(data) {
+				term.echo(JSON.stringify(data,null,"\t"));
+			});$.ajaxSetup({async: true});
 			} else if (inputs[0] === '/') {
 				for (i = 0; i <= 5; i++) {
 					s = "[" + i + "]" + origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
