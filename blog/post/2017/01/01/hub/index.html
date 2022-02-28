@@ -111,11 +111,11 @@
 													
        			 		<h2 id="hub-commandでハマった話">hub commandでハマった話</h2>
 <p>まず、-Fと-mは<code>-m</code>が優先されるというところ。-Fをやるには-mを入れてはダメ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># no</span>
-$ hub pull-request -F file.txt -m <span style="color:#e6db74">&#34;</span>$message<span style="color:#e6db74">&#34;</span> -b $bu:$br -h $au:$ar 
-<span style="color:#75715e"># ok</span>
-$ hub pull-request -F file.txt -b $marge:$branch -h $source:$branch
-</code></pre></div><p>次に、<code>~/.config/hub</code>でハマった点です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># no</span>
+</span></span><span style="display:flex;"><span>$ hub pull-request -F file.txt -m <span style="color:#e6db74">&#34;</span>$message<span style="color:#e6db74">&#34;</span> -b $bu:$br -h $au:$ar 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ok</span>
+</span></span><span style="display:flex;"><span>$ hub pull-request -F file.txt -b $marge:$branch -h $source:$branch
+</span></span></code></pre></div><p>次に、<code>~/.config/hub</code>でハマった点です。</p>
 <p>gitと言うのは基本的にメールアドレスでユーザーやアイコンを設定しています(特にGitホスティングサービス)。したがって、通常、アイコンを指定したい場合はメールを設定します。具体的には、<code>.git</code>のある場所で<code>git config user.mail</code>みたいなことをやります。</p>
 <p>私は、hubは<code>.git</code>以下の設定ファイルを読んでいるのだろうと勝手にそう思っていたのですが、どうやら<code>~/.config/hub</code>を読むようです。</p>
 <p><code>hub</code>は最初にパスワード打ち込んだ時にOAuth Tokenを取得している模様で、https protocolで接続します。</p>

@@ -63,10 +63,10 @@ https://github.com/iH8sn0w/iBoot32Patcher
 https://www.theiphonewiki.com/wiki/OdysseusOTA2
 https://github.com/tihmstar/igetnonce
 https://github.com/xerub/img4lib/
-## Donner 12H321 (iPad3,4) 8.4.1 iBEC.p101.RELEASE.dfu IV: add7db95ab270c16ddd632cdc9a4ebac Key: 77b7990cbb88f3d091aaff10b424ab19c5263f100eb1ee642771500510b0dd42 iBoot.p101.RELEASE.img3 IV: 07d85cc140e348b4d66d2b6d1b88b139 Key: 29f94825bf6e6b0660037bba1a20dd804eb037888b14260f204ee8e54c2e6db3 odysseus-ipad3,4-8.4.1-bundleが存在します。
+## Donner 12H321 (iPad3,4) 8.4.1 iBEC.p101.RELEASE.dfu 	IV: add7db95ab270c16ddd632cdc9a4ebac 	Key: 77b7990cbb88f3d091aaff10b424ab19c5263f100eb1ee642771500510b0dd42 iBoot.p101.RELEASE.img3 	IV: 07d85cc140e348b4d66d2b6d1b88b139 	Key: 29f94825bf6e6b0660037bba1a20dd804eb037888b14260f204ee8e54c2e6db3 odysseus-ipad3,4-8.4.1-bundleが存在します。
 odysseusよりfuturerestoreのほうが良いと思われます。
 jailbreak,downgrade関連ツールのコマンド例です 検索などの取っ掛かりとして。
-$ ipwndfu -p $ idevicerestore -t iPad_32bit_10.3.3_14G60_Restore.ipsw $ unzip -j iPad3,4_10.3.3_Restore.ipsw Firmware/all_flash/all_flash*/iBoot* $ iBoot32Patcher iBoot.n101ap.RELEASE.dec PwnediBoot --rsa --boot-partition $ iBoot64patcher ibss.raw ibss.pwn $ xpwntool iBoot.n101ap.RELEASE.img3 iBoot.n101ap.RELEASE.dec -iv $ tsschecker -d {did} -e {eid} -i 8.4.1 -o -s $ futurerestore -t xxx-iPad3,4-10.</description>
+$ ipwndfu -p $ idevicerestore -t iPad_32bit_10.3.3_14G60_Restore.ipsw $ unzip -j iPad3,4_10.3.3_Restore.ipsw Firmware/all_flash/all_flash*/iBoot* $ iBoot32Patcher iBoot.n101ap.RELEASE.dec PwnediBoot --rsa --boot-partition $ iBoot64patcher ibss.raw ibss.pwn $ xpwntool iBoot.n101ap.RELEASE.img3 iBoot.n101ap.RELEASE.dec -iv $ tsschecker -d {did} -e {eid} -i 8.</description>
     </item>
     
   </channel>

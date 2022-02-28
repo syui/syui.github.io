@@ -111,24 +111,24 @@
 													
        			 		<p><a href="/tags">/tags</a></p>
 <p>タグは表示すると、整理したり、管理したり、付けるのも考えるのも覚えてるのも面倒だったりするので、表示していなかったのですが、他のブログ見てるとき、やっぱりタグあると便利だよなあと思ったので記事中に表示するようにしました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/_default/single.html" data-lang="html:layout/_default/single.html">{{ $taxo := &#34;tags&#34; }}
-{{ with .Param $taxo }}
-	&lt;<span style="color:#f92672">strong</span>&gt;tag{{ if gt (len .) 1 }}s{{ end }}:&lt;/<span style="color:#f92672">strong</span>&gt;
-	{{ range $index, $director := . }}
-		{{- if gt $index 0 }}, {{ end -}}
-			{{ with $.Site.GetPage (printf &#34;/%s/%s&#34; $taxo $director) -}}
-			&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;{{ $director }}&lt;/<span style="color:#f92672">a</span>&gt;
-		{{- end -}}
-	{{- end -}}
-{{ end }}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/_default/list.html" data-lang="html:layout/_default/list.html">{{ $s := path.Dir (.Permalink | relURL) }}
-{{ $t := index (split $s &#34;/&#34;) 1 }}
-{{ if eq $t &#34;tags&#34; }}
-	{{- range $termName, $index := .Site.Taxonomies.tags }}
-		&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ &#34;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">tags</span><span style="color:#960050;background-color:#1e0010">/&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">relLangURL</span> <span style="color:#960050;background-color:#1e0010">}}{{</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">termName</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">urlize</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;{{ $termName }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
-	{{- end }}
-{{ end }}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/_default/single.html" data-lang="html:layout/_default/single.html"><span style="display:flex;"><span>{{ $taxo := &#34;tags&#34; }}
+</span></span><span style="display:flex;"><span>{{ with .Param $taxo }}
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">strong</span>&gt;tag{{ if gt (len .) 1 }}s{{ end }}:&lt;/<span style="color:#f92672">strong</span>&gt;
+</span></span><span style="display:flex;"><span>	{{ range $index, $director := . }}
+</span></span><span style="display:flex;"><span>		{{- if gt $index 0 }}, {{ end -}}
+</span></span><span style="display:flex;"><span>			{{ with $.Site.GetPage (printf &#34;/%s/%s&#34; $taxo $director) -}}
+</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;{{ $director }}&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>		{{- end -}}
+</span></span><span style="display:flex;"><span>	{{- end -}}
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/_default/list.html" data-lang="html:layout/_default/list.html"><span style="display:flex;"><span>{{ $s := path.Dir (.Permalink | relURL) }}
+</span></span><span style="display:flex;"><span>{{ $t := index (split $s &#34;/&#34;) 1 }}
+</span></span><span style="display:flex;"><span>{{ if eq $t &#34;tags&#34; }}
+</span></span><span style="display:flex;"><span>	{{- range $termName, $index := .Site.Taxonomies.tags }}
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ &#34;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">tags</span><span style="color:#960050;background-color:#1e0010">/&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">relLangURL</span> <span style="color:#960050;background-color:#1e0010">}}{{</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">termName</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">urlize</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;{{ $termName }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>	{{- end }}
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div>
        			 		
 
 

@@ -127,47 +127,47 @@
 <h2 id="softethervpn-serverの設定">softethervpn serverの設定</h2>
 <p>ここでは<code>IPsec / L2TP</code>で接続できるようにします。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/archlinux_softethervpn_server_01.png" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S dhclient --noconfirm
-
-$ yay -S softethervpn
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start softethervpn-server
-$ sudo systemctl status softethervpn-server
-
-$ vpncmd /server
-Hub DEFAULT 
-
-GroupCreate
-	default
-
-UserCreate
-	syui
-
-UserPasswordSet
-	xxx
-
-IPsecEnable
-	yes
-	yes
-	yes
-
-SecureNatEnable
-	yes
-
-NatEnable
-	yes
-
-$ ip a
-192.168.11.14
-</code></pre></div><p>なお、<code>Default Virtual HUB in a case of omitting the HUB on the Username:</code>は<code>DEFAULT</code>にしておきます。これがないとclientのアカウント/ユーザー名で<code>user@DEFAULT</code>とかにしないといけない感じかな。分かりませんけど。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S dhclient --noconfirm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ yay -S softethervpn
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo systemctl start softethervpn-server
+</span></span><span style="display:flex;"><span>$ sudo systemctl status softethervpn-server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vpncmd /server
+</span></span><span style="display:flex;"><span>Hub DEFAULT 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GroupCreate
+</span></span><span style="display:flex;"><span>	default
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UserCreate
+</span></span><span style="display:flex;"><span>	syui
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UserPasswordSet
+</span></span><span style="display:flex;"><span>	xxx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IPsecEnable
+</span></span><span style="display:flex;"><span>	yes
+</span></span><span style="display:flex;"><span>	yes
+</span></span><span style="display:flex;"><span>	yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SecureNatEnable
+</span></span><span style="display:flex;"><span>	yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NatEnable
+</span></span><span style="display:flex;"><span>	yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ip a
+</span></span><span style="display:flex;"><span>192.168.11.14
+</span></span></code></pre></div><p>なお、<code>Default Virtual HUB in a case of omitting the HUB on the Username:</code>は<code>DEFAULT</code>にしておきます。これがないとclientのアカウント/ユーザー名で<code>user@DEFAULT</code>とかにしないといけない感じかな。分かりませんけど。</p>
 <p>error 52(権限が不足しています)が出る場合は、<code>quit</code>した直後にまた立ち上げて実行したりすれば、それは出ません。なぜなら、そこは管理者として実行している領域だからです。<code>Hub DEFAULT</code>とかすると、<code>DEFAULT</code>上で実行されますので、その関係において、特定のコマンドが権限上、実行できない場合があるみたいです。</p>
 <p>で、設定ができたらあとは、clientから接続するわけですが、mac/ios/androidの場合は、<code>IPsec / L2TP</code>ならnetwork設定から簡単に設定できます。winはやったことないので知りません。なんかソフトが必要?</p>
 <p>archだと<code> xl2tpd</code>, <code>openswan</code>が必要みたいな感じです。</p>
 <p><code>softethervpn</code>のclientを利用する場合は、以下のよう感じだと思いますが、良く分かりません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vpncmd /client
-AccountCreate test /SERVER:localhost:500 /HUB:DEFAULT /USERNAME:user /NICNAME:user /PASSWORD:xxx /TYPE:standard
-
-AccountConnect test
-</code></pre></div><p>正直、こっちは定番のclientを使ったほうがいい気がしますね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vpncmd /client
+</span></span><span style="display:flex;"><span>AccountCreate test /SERVER:localhost:500 /HUB:DEFAULT /USERNAME:user /NICNAME:user /PASSWORD:xxx /TYPE:standard
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AccountConnect test
+</span></span></code></pre></div><p>正直、こっちは定番のclientを使ったほうがいい気がしますね。</p>
 <p>さて、これを外部から使うとなると、いつもと同じようにルーターのポート転送の設定とか、あとはglobal ip addressの通知、もしくは、ddnsの設定とかする感じですかね。</p>
 <p>おわり。</p>
 

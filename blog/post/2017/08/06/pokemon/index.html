@@ -111,47 +111,47 @@
 													
        			 		<p>2017/7/22(jp:7/23)に伝説が来るというので、私の場合、それよりもちょっと前から<a href="https://github.com/RocketMap/RocketMap">rocketmap</a>をgoogle apiを使いつつprivate(local) server上でpreviewできるよう準備していました。</p>
 <p>なお、使用するユーザーアカウント(ゲームの)はチュートリアルまで進めておきましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## Google API Console : https://console.developers.google.com/</span>
-<span style="color:#75715e">## The google maps api key may either be installed in config/config.ini file, or you can provide it as a command line parameter like -k &#39;your key here&#39;</span>
-- Google Maps Javascript API
-- Google Places API Web Service
-- Google Maps Elevation API
-- Google Maps Geocoding API
-- Google Maps Time Zone API
-
-$ sudo apt-get install -y python python-pip python-dev build-essential git
-$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-
-$ git clone https://github.com/RocketMap/RocketMap
-$ cd RocketMap
-$ sudo easy_install pip
-$ sudo -H pip install -r requirements.txt --upgrade --ignore-installed pyparsing
-$ npm i
-$ cp config/config.ini.example config/config.ini
-$ cp static/css/custom.css.example static/css/custom.css
-$ vim config/config.ini
-	gmaps-key:Asiiemvifirtl_jee-ifdoai385jbaoifs
-	auth-service:ptc
-	username:syui
-	password:Passrocket1!
-	location:35.710169, 139.812854
-	speed-scan:true
-	hash_key:3IIMEIIGJIOIERMDIO_aVIEMFIkdie-8sijeid
-$ python runserver.py -tut
-
-$ open http://localhost:5000
-
-<span style="color:#75715e"># example</span>
-$ python runserver.py -ac accounts.csv -bh -st <span style="color:#ae81ff">5</span> -w <span style="color:#ae81ff">31</span> -l <span style="color:#e6db74">&#34;Nashville, TN&#34;</span>
-vim config/config.ini
-	gym-info
-$ python runserver.py -gi
-</code></pre></div><p><code>browse to http://11.22.33.44:5000/</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Google API Console : https://console.developers.google.com/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## The google maps api key may either be installed in config/config.ini file, or you can provide it as a command line parameter like -k &#39;your key here&#39;</span>
+</span></span><span style="display:flex;"><span>- Google Maps Javascript API
+</span></span><span style="display:flex;"><span>- Google Places API Web Service
+</span></span><span style="display:flex;"><span>- Google Maps Elevation API
+</span></span><span style="display:flex;"><span>- Google Maps Geocoding API
+</span></span><span style="display:flex;"><span>- Google Maps Time Zone API
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo apt-get install -y python python-pip python-dev build-essential git
+</span></span><span style="display:flex;"><span>$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+</span></span><span style="display:flex;"><span>$ sudo apt-get install -y nodejs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/RocketMap/RocketMap
+</span></span><span style="display:flex;"><span>$ cd RocketMap
+</span></span><span style="display:flex;"><span>$ sudo easy_install pip
+</span></span><span style="display:flex;"><span>$ sudo -H pip install -r requirements.txt --upgrade --ignore-installed pyparsing
+</span></span><span style="display:flex;"><span>$ npm i
+</span></span><span style="display:flex;"><span>$ cp config/config.ini.example config/config.ini
+</span></span><span style="display:flex;"><span>$ cp static/css/custom.css.example static/css/custom.css
+</span></span><span style="display:flex;"><span>$ vim config/config.ini
+</span></span><span style="display:flex;"><span>	gmaps-key:Asiiemvifirtl_jee-ifdoai385jbaoifs
+</span></span><span style="display:flex;"><span>	auth-service:ptc
+</span></span><span style="display:flex;"><span>	username:syui
+</span></span><span style="display:flex;"><span>	password:Passrocket1!
+</span></span><span style="display:flex;"><span>	location:35.710169, 139.812854
+</span></span><span style="display:flex;"><span>	speed-scan:true
+</span></span><span style="display:flex;"><span>	hash_key:3IIMEIIGJIOIERMDIO_aVIEMFIkdie-8sijeid
+</span></span><span style="display:flex;"><span>$ python runserver.py -tut
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ open http://localhost:5000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># example</span>
+</span></span><span style="display:flex;"><span>$ python runserver.py -ac accounts.csv -bh -st <span style="color:#ae81ff">5</span> -w <span style="color:#ae81ff">31</span> -l <span style="color:#e6db74">&#34;Nashville, TN&#34;</span>
+</span></span><span style="display:flex;"><span>vim config/config.ini
+</span></span><span style="display:flex;"><span>	gym-info
+</span></span><span style="display:flex;"><span>$ python runserver.py -gi
+</span></span></code></pre></div><p><code>browse to http://11.22.33.44:5000/</code></p>
 <p><a href="https://rocketmap.readthedocs.io/en/develop/extras/external.html">https://rocketmap.readthedocs.io/en/develop/extras/external.html</a></p>
 <p>Dockerを使う場合は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d --name pogomap -p 5000:5000 frostthefox/rocketmap -a ptc -u username -p password -k <span style="color:#e6db74">&#39;your-google-maps-key&#39;</span> -l <span style="color:#e6db74">&#39;lat, lon&#39;</span> -st <span style="color:#ae81ff">5</span>
-</code></pre></div><p><a href="https://rocketmap.readthedocs.io/en/develop/advanced-install/docker.html">https://rocketmap.readthedocs.io/en/develop/advanced-install/docker.html</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name pogomap -p 5000:5000 frostthefox/rocketmap -a ptc -u username -p password -k <span style="color:#e6db74">&#39;your-google-maps-key&#39;</span> -l <span style="color:#e6db74">&#39;lat, lon&#39;</span> -st <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p><a href="https://rocketmap.readthedocs.io/en/develop/advanced-install/docker.html">https://rocketmap.readthedocs.io/en/develop/advanced-install/docker.html</a></p>
 <p>参考 :</p>
 <p><a href="https://github.com/RocketMap/RocketMap">https://github.com/RocketMap/RocketMap</a></p>
 <p><a href="https://console.developers.google.com/">https://console.developers.google.com/</a></p>

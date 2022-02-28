@@ -112,18 +112,18 @@
        			 		<h2 id="phh-superuserに切り替えたらarch-linuxが起動しなくなった">PHH-SuperUserに切り替えたらArch Linuxが起動しなくなった</h2>
 <p>理由はSELinux関連かと思ったら違った。<code>mount -t ext4</code>が上手く実行されない。</p>
 <p>まず、エラーの内容から。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
-<span style="color:#75715e"># cd /magisk/local/system/xbin</span>
-<span style="color:#75715e"># ./busybox losetup -d /dev/block/loop255</span>
-<span style="color:#75715e"># ./busybox losetup /dev/block/loop255 /sdcard/arch/arch.img</span>
-<span style="color:#75715e"># ./busybox mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
-mount: mounting /dev/block/loop255 on /data/local/mnt failed: No such file or directory
-<span style="color:#75715e"># mount | grep loop</span>
-<span style="color:#75715e"># ./busybox dmasg | grep loop255</span>
-EXT4-fs <span style="color:#f92672">(</span>loop255<span style="color:#f92672">)</span>: error: unable to read superblock
-<span style="color:#75715e"># ./busybox fdisk -l /dev/block/loop255</span>
-fdisk: can<span style="color:#e6db74">&#39;t open &#39;</span>/dev/block/loop255<span style="color:#960050;background-color:#1e0010">&#39;</span>: Input/output error
-</code></pre></div><h2 id="追記">追記</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ su
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cd /magisk/local/system/xbin</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox losetup -d /dev/block/loop255</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox losetup /dev/block/loop255 /sdcard/arch/arch.img</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
+</span></span><span style="display:flex;"><span>mount: mounting /dev/block/loop255 on /data/local/mnt failed: No such file or directory
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mount | grep loop</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox dmasg | grep loop255</span>
+</span></span><span style="display:flex;"><span>EXT4-fs <span style="color:#f92672">(</span>loop255<span style="color:#f92672">)</span>: error: unable to read superblock
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox fdisk -l /dev/block/loop255</span>
+</span></span><span style="display:flex;"><span>fdisk: can<span style="color:#e6db74">&#39;t open &#39;</span>/dev/block/loop255<span style="color:#960050;background-color:#1e0010">&#39;</span>: Input/output error
+</span></span></code></pre></div><h2 id="追記">追記</h2>
 <p>色々やってみたついでに、今度はGentoo Linuxを入れてみました。</p>
 <p>参考 :</p>
 <p><a href="http://mobiles-han.blogspot.jp/2011/08/androidubuntu.html">http://mobiles-han.blogspot.jp/2011/08/androidubuntu.html</a></p>

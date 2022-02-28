@@ -111,69 +111,69 @@
 													
        			 		<p><a href="https://github.com/CachetHQ/Cachet">CachetHQ/Cachet</a></p>
 <p>openshiftで作ったことあったのですが、動かなくなったので、今度は、bluemix(ibm cloud)のほうで試してみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/CachetHQ/Cachet
-$ cd Cachet
-$ git checkout v2.4
-
-$ cat manifest.yml
-applications:
-- path: .
-  name: APP_NAME
-  memory: 256M
-  buildpack: https://github.com/cloudfoundry/php-buildpack
-  command: null
-  routes:
-  - route: APP_NAME.mybluemix.net
-
-$ cat .bc-config/options.json
-<span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;COMPOSER_INSTALL_OPTIONS_DEBUG&#34;</span>: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;--no-dev&#34;</span>, <span style="color:#e6db74">&#34;-o&#34;</span><span style="color:#f92672">]</span>,
-    <span style="color:#e6db74">&#34;PHP_VERSION&#34;</span>: <span style="color:#e6db74">&#34;{PHP_71_LATEST}&#34;</span>,
-    <span style="color:#e6db74">&#34;COMPOSER_VENDOR_DIR&#34;</span>: <span style="color:#e6db74">&#34;vendor&#34;</span>,
-    <span style="color:#e6db74">&#34;WEBDIR&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
-    <span style="color:#e6db74">&#34;PHP_EXTENSIONS&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bz2&#34;</span>, <span style="color:#e6db74">&#34;pdo&#34;</span>, <span style="color:#e6db74">&#34;zlib&#34;</span>, <span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;mcrypt&#34;</span>, <span style="color:#e6db74">&#34;mbstring&#34;</span>, <span style="color:#e6db74">&#34;mysqli&#34;</span>, <span style="color:#e6db74">&#34;gd&#34;</span>, <span style="color:#e6db74">&#34;zip&#34;</span>, <span style="color:#e6db74">&#34;pdo_mysql&#34;</span>, <span style="color:#e6db74">&#34;pdo_sqlite&#34;</span>,<span style="color:#e6db74">&#34;iconv&#34;</span>,  <span style="color:#e6db74">&#34;openssl&#34;</span> <span style="color:#f92672">]</span>
-<span style="color:#f92672">}</span>
-
-$ cp .env.example .env
-
-<span style="color:#75715e"># mysqlはherokuのdbを使わせてもらうことに。bluemixでは、free(lite)で使えるdbがdb2(dashDB)とかしかないので、cachet(db:mysql)に対応していない</span>
-$ heroku create $APP_NAME
-$ heroku addons:add cleardb -a $APP_NAME
-$ heroku config -a $APP_NAME
-mysql://<span style="color:#e6db74">${</span>DB_USERNAME<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>DB_PASSWORD<span style="color:#e6db74">}</span>@<span style="color:#f92672">{</span>DB_HOST<span style="color:#f92672">}</span>/<span style="color:#e6db74">${</span>DB_DATABASE<span style="color:#e6db74">}</span>
-
-<span style="color:#75715e"># url, mysqlのuriを入れていく</span>
-$ vim .env
-APP_URL<span style="color:#f92672">=</span>https://APP_NAME.mybluemix.net
-DB_DRIVER<span style="color:#f92672">=</span>mysql
-DB_PREFIX<span style="color:#f92672">=</span>null
-DB_HOST<span style="color:#f92672">=</span>
-DB_DATABASE<span style="color:#f92672">=</span>
-DB_USERNAME<span style="color:#f92672">=</span>
-DB_PASSWORD<span style="color:#f92672">=</span>
-DB_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
-
-<span style="color:#75715e"># vim .env</span>
-CACHE_DRIVER<span style="color:#f92672">=</span>file
-SESSION_DRIVER<span style="color:#f92672">=</span>file
-QUEUE_DRIVER<span style="color:#f92672">=</span>sync
-
-<span style="color:#75715e"># 初期設定</span>
-$ composer install --no-dev -o
-$ php artisan key:generate
-
-<span style="color:#75715e"># bluemixにdeployする</span>
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;support bluemix&#34;</span>
-$ bx cf push $APP_NAME
-
-<span style="color:#75715e"># logを確認</span>
-bx cf logs cachet --recent
-
-<span style="color:#75715e"># sshしてlogを確認</span>
-$ bx cf ssh $APP_NAME
-$ cat app/storage/logs/l*
-</code></pre></div><p>bluemixのライトプランは制限が結構きついです。使えるdb(db2)からmemory:256Mやinstans:1、そして、custom-domain:falseなど。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/CachetHQ/Cachet
+</span></span><span style="display:flex;"><span>$ cd Cachet
+</span></span><span style="display:flex;"><span>$ git checkout v2.4
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat manifest.yml
+</span></span><span style="display:flex;"><span>applications:
+</span></span><span style="display:flex;"><span>- path: .
+</span></span><span style="display:flex;"><span>  name: APP_NAME
+</span></span><span style="display:flex;"><span>  memory: 256M
+</span></span><span style="display:flex;"><span>  buildpack: https://github.com/cloudfoundry/php-buildpack
+</span></span><span style="display:flex;"><span>  command: null
+</span></span><span style="display:flex;"><span>  routes:
+</span></span><span style="display:flex;"><span>  - route: APP_NAME.mybluemix.net
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat .bc-config/options.json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;COMPOSER_INSTALL_OPTIONS_DEBUG&#34;</span>: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;--no-dev&#34;</span>, <span style="color:#e6db74">&#34;-o&#34;</span><span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;PHP_VERSION&#34;</span>: <span style="color:#e6db74">&#34;{PHP_71_LATEST}&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;COMPOSER_VENDOR_DIR&#34;</span>: <span style="color:#e6db74">&#34;vendor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;WEBDIR&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;PHP_EXTENSIONS&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bz2&#34;</span>, <span style="color:#e6db74">&#34;pdo&#34;</span>, <span style="color:#e6db74">&#34;zlib&#34;</span>, <span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;mcrypt&#34;</span>, <span style="color:#e6db74">&#34;mbstring&#34;</span>, <span style="color:#e6db74">&#34;mysqli&#34;</span>, <span style="color:#e6db74">&#34;gd&#34;</span>, <span style="color:#e6db74">&#34;zip&#34;</span>, <span style="color:#e6db74">&#34;pdo_mysql&#34;</span>, <span style="color:#e6db74">&#34;pdo_sqlite&#34;</span>,<span style="color:#e6db74">&#34;iconv&#34;</span>,  <span style="color:#e6db74">&#34;openssl&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cp .env.example .env
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mysqlはherokuのdbを使わせてもらうことに。bluemixでは、free(lite)で使えるdbがdb2(dashDB)とかしかないので、cachet(db:mysql)に対応していない</span>
+</span></span><span style="display:flex;"><span>$ heroku create $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:add cleardb -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku config -a $APP_NAME
+</span></span><span style="display:flex;"><span>mysql://<span style="color:#e6db74">${</span>DB_USERNAME<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>DB_PASSWORD<span style="color:#e6db74">}</span>@<span style="color:#f92672">{</span>DB_HOST<span style="color:#f92672">}</span>/<span style="color:#e6db74">${</span>DB_DATABASE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># url, mysqlのuriを入れていく</span>
+</span></span><span style="display:flex;"><span>$ vim .env
+</span></span><span style="display:flex;"><span>APP_URL<span style="color:#f92672">=</span>https://APP_NAME.mybluemix.net
+</span></span><span style="display:flex;"><span>DB_DRIVER<span style="color:#f92672">=</span>mysql
+</span></span><span style="display:flex;"><span>DB_PREFIX<span style="color:#f92672">=</span>null
+</span></span><span style="display:flex;"><span>DB_HOST<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>DB_DATABASE<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>DB_USERNAME<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>DB_PASSWORD<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>DB_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># vim .env</span>
+</span></span><span style="display:flex;"><span>CACHE_DRIVER<span style="color:#f92672">=</span>file
+</span></span><span style="display:flex;"><span>SESSION_DRIVER<span style="color:#f92672">=</span>file
+</span></span><span style="display:flex;"><span>QUEUE_DRIVER<span style="color:#f92672">=</span>sync
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 初期設定</span>
+</span></span><span style="display:flex;"><span>$ composer install --no-dev -o
+</span></span><span style="display:flex;"><span>$ php artisan key:generate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># bluemixにdeployする</span>
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;support bluemix&#34;</span>
+</span></span><span style="display:flex;"><span>$ bx cf push $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># logを確認</span>
+</span></span><span style="display:flex;"><span>bx cf logs cachet --recent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sshしてlogを確認</span>
+</span></span><span style="display:flex;"><span>$ bx cf ssh $APP_NAME
+</span></span><span style="display:flex;"><span>$ cat app/storage/logs/l*
+</span></span></code></pre></div><p>bluemixのライトプランは制限が結構きついです。使えるdb(db2)からmemory:256Mやinstans:1、そして、custom-domain:falseなど。</p>
 <p><span class="green"></span> <a href="https://cachet.mybluemix.net">https://cachet.mybluemix.net</a></p>
 
        			 		

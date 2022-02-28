@@ -121,38 +121,38 @@
 <p>通常、固定IPを取得するには結構な費用が必要で、GCPが提供するそれ自体は相当に安いと思うのですが、元々固定IPの維持費は高いので、その辺は注意が必要だと思います。</p>
 <p>f1-microというのは、ようは自分の端末から常時接続できるIaaSのインスタンスです。これが無料であることは非常に頼もしいというか、お得なことです。通常はレンタルサーバーを有料で借りて接続したり、またはPaaSへのデプロイやrunをするわけですが、PaaSの場合はSSHで直接操作できるわけではありません。この辺の違いにおいて、痒いところにも手が届きやすくなったと言えるでしょう。しかし、注意も必要で、SSHで接続できるようになったということは、セキュリティ上のリスクが上昇したとも言えます。SSH総当たり攻撃などによってトラフィックが増加し、そのために課金が増えるなんてこともありえるかもしれません。</p>
 <p>で、どんな感じでGKEを使えばいいだろうというと、個人的にはGitLabでAuto DevOpsが登場しましたので、そちらの方で利用していきたいなと思っています。GitLabのAuto DevOpsはクラスタ構成が利用可能な場合、現在のアプリケーションをKubernetesにデプロイするものです。Kubernetesのデプロイ先はGKEを利用します。多分、そんな感じで使っていくのがオススメなのではないかなと。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># git repoのrootにDockerfileとapplication.codeを置く</span>
-$ ls
-Dockerfile
-server.rb
-$ git init
-$ git remote add origin git@gitlab.com:$USER/$REPO_NAME
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#39;first demo&#39;</span>
-$ git push -u origin master
-or fork : git@gitlab.com:gitlab-examples/minimal-ruby-app.git
-
-<span style="color:#75715e"># 必要なものセットアップ </span>
-$ brew install caskroom/cask/brew-cask
-$ brew cask install google-cloud-sdk
-$ gcloud components install kubectl
-$ gcloud auth login
-<span style="color:#75715e"># Connect to the cluster</span>
-$ gcloud container clusters get-credentials ruby-autodeploy --zone europe-west2-c --project api-project-XXXXXXX
-$ kubectl proxy
-<span style="color:#75715e"># Kubernetes &gt;  Secrets under the  Config &gt; ca.crt and token</span>
-<span style="color:#75715e"># GitLab Project &gt; Settings &gt; Integrations &gt; Project services &gt; Kubernetes &gt; ca.crt and token, api(GCP IP Address), name=minimal-ruby-app-xxx</span>
-
-<span style="color:#75715e"># アプリケーションを公開する</span>
-$ brew install kubernetes-helm
-$ helm init
-$ helm install --name ruby-app stable/nginx-ingress
-$ kubectl get svc ruby-app-nginx-ingress-controller -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.status.loadBalancer.ingress[0].ip}&#39;</span>
-
-<span style="color:#75715e"># Auto DevOpsを設定する</span>
-<span style="color:#75715e"># GitLab Project &gt; Settings &gt; CI &gt; Enable Auto DevOps &gt; minimal-ruby-app-staging.&lt;yourdomain&gt;</span>
-$ git push 
-</code></pre></div><p>しかし、AWSやGCP(GKE)を使うにしてもやはり注意が必要で、料金体系の変更や不正アクセスによる莫大な請求が発生する可能性はあります。特に、ユーザーの権限が大きいということは、メリットとして幅広い自由な利用が可能ですが、デメリットとして不正アクセスや攻撃対象として標的(ターゲット)になりやすいことを意味します。よって、やはり一番安心なのは定額制っぽい気がしますね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># git repoのrootにDockerfileとapplication.codeを置く</span>
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>Dockerfile
+</span></span><span style="display:flex;"><span>server.rb
+</span></span><span style="display:flex;"><span>$ git init
+</span></span><span style="display:flex;"><span>$ git remote add origin git@gitlab.com:$USER/$REPO_NAME
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#39;first demo&#39;</span>
+</span></span><span style="display:flex;"><span>$ git push -u origin master
+</span></span><span style="display:flex;"><span>or fork : git@gitlab.com:gitlab-examples/minimal-ruby-app.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 必要なものセットアップ </span>
+</span></span><span style="display:flex;"><span>$ brew install caskroom/cask/brew-cask
+</span></span><span style="display:flex;"><span>$ brew cask install google-cloud-sdk
+</span></span><span style="display:flex;"><span>$ gcloud components install kubectl
+</span></span><span style="display:flex;"><span>$ gcloud auth login
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Connect to the cluster</span>
+</span></span><span style="display:flex;"><span>$ gcloud container clusters get-credentials ruby-autodeploy --zone europe-west2-c --project api-project-XXXXXXX
+</span></span><span style="display:flex;"><span>$ kubectl proxy
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kubernetes &gt;  Secrets under the  Config &gt; ca.crt and token</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GitLab Project &gt; Settings &gt; Integrations &gt; Project services &gt; Kubernetes &gt; ca.crt and token, api(GCP IP Address), name=minimal-ruby-app-xxx</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># アプリケーションを公開する</span>
+</span></span><span style="display:flex;"><span>$ brew install kubernetes-helm
+</span></span><span style="display:flex;"><span>$ helm init
+</span></span><span style="display:flex;"><span>$ helm install --name ruby-app stable/nginx-ingress
+</span></span><span style="display:flex;"><span>$ kubectl get svc ruby-app-nginx-ingress-controller -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.status.loadBalancer.ingress[0].ip}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Auto DevOpsを設定する</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GitLab Project &gt; Settings &gt; CI &gt; Enable Auto DevOps &gt; minimal-ruby-app-staging.&lt;yourdomain&gt;</span>
+</span></span><span style="display:flex;"><span>$ git push 
+</span></span></code></pre></div><p>しかし、AWSやGCP(GKE)を使うにしてもやはり注意が必要で、料金体系の変更や不正アクセスによる莫大な請求が発生する可能性はあります。特に、ユーザーの権限が大きいということは、メリットとして幅広い自由な利用が可能ですが、デメリットとして不正アクセスや攻撃対象として標的(ターゲット)になりやすいことを意味します。よって、やはり一番安心なのは定額制っぽい気がしますね。</p>
 <h3 id="参考">参考</h3>
 <p><a href="https://cloud.google.com/free/">https://cloud.google.com/free/</a></p>
 <p><a href="https://cloud.google.com/free/docs/always-free-usage-limits">https://cloud.google.com/free/docs/always-free-usage-limits</a></p>

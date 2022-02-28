@@ -113,88 +113,88 @@
 <p>詳しくはこちらのファイルを見てください。</p>
 <p><a href="https://github.com/syui/reviewbot/tree/master/.github/workflows">https://github.com/syui/reviewbot/tree/master/.github/workflows</a></p>
 <p>条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="color:#f92672">on</span>:
-  <span style="color:#f92672">pull_request</span>:
-    <span style="color:#f92672">types</span>: <span style="color:#ae81ff">opened</span>
-
-<span style="color:#f92672">jobs</span>:
-  <span style="color:#f92672">reviewbot</span>:
-    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-    <span style="color:#f92672">steps</span>:
-    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Ruby 2.6</span>
-      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-ruby@v1</span>
-      <span style="color:#f92672">with</span>:
-        <span style="color:#f92672">ruby-version</span>: <span style="color:#ae81ff">2.6</span><span style="color:#ae81ff">.x</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">gem i</span>
-      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">gem i sqlint</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">run reviewbot</span>
-      <span style="color:#f92672">env</span>:
-        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
-        <span style="color:#f92672">URL</span>: <span style="color:#ae81ff">${{ github.event.pull_request.comments_url }}</span>
-        <span style="color:#f92672">GITHUB_PR_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.pull_request.number }}</span>
-      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">        ## setup
-</span><span style="color:#e6db74">        pull_n=$(jq --raw-output .pull_request.number &#34;$GITHUB_EVENT_PATH&#34;)
-</span><span style="color:#e6db74">        npm i -D htmllint-cli -s
-</span><span style="color:#e6db74">        ./node_modules/htmllint-cli/bin/cli.js init
-</span><span style="color:#e6db74">        export GOPATH=$HOME/go
-</span><span style="color:#e6db74">        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-</span><span style="color:#e6db74">        go get -v github.com/syui/xq
-</span><span style="color:#e6db74">        ## github-api:pull-req
-</span><span style="color:#e6db74">        p=pull.json
-</span><span style="color:#e6db74">        URL=https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${pull_n}/comments
-</span><span style="color:#e6db74">        curl -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${pull_n}/files &gt; $p
-</span><span style="color:#e6db74">        ## review htmllint
-</span><span style="color:#e6db74">        out=html.txt
-</span><span style="color:#e6db74">        n=`cat $p|jq length`
-</span><span style="color:#e6db74">        n=`expr $n - 1`
-</span><span style="color:#e6db74">        for ((i=0;i&lt;=$n;i++))
-</span><span style="color:#e6db74">        do
-</span><span style="color:#e6db74">        	f=`cat $p|jq -r &#34;.[${i}].filename&#34;`
-</span><span style="color:#e6db74">        	t=${f##*.}
-</span><span style="color:#e6db74">        	if [ &#34;html&#34; = &#34;$t&#34; ];then
-</span><span style="color:#e6db74">        		./node_modules/htmllint-cli/bin/cli.js $f |grep -v &#34;found 0 errors&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">        	fi
-</span><span style="color:#e6db74">        done
-</span><span style="color:#e6db74">        if [ -n &#34;`cat $out`&#34; ];then
-</span><span style="color:#e6db74">          echo &#34;### :exclamation: htmllint ...no&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">        else
-</span><span style="color:#e6db74">          echo &#34;### :white_check_mark: htmllint ...ok&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">        fi
-</span><span style="color:#e6db74">        cat $out
-</span><span style="color:#e6db74">        xq j $out
-</span><span style="color:#e6db74">        curl -X POST \
-</span><span style="color:#e6db74">           -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; \
-</span><span style="color:#e6db74">           -d &#34;`xq j $out`&#34; \
-</span><span style="color:#e6db74">           ${URL}
-</span><span style="color:#e6db74">        ## review sqlint
-</span><span style="color:#e6db74">        out=sql.txt
-</span><span style="color:#e6db74">        n=`cat $p|jq length`
-</span><span style="color:#e6db74">        n=`expr $n - 1`
-</span><span style="color:#e6db74">        for ((i=0;i&lt;=$n;i++))
-</span><span style="color:#e6db74">        do
-</span><span style="color:#e6db74">        	f=`cat $p|jq -r &#34;.[${i}].filename&#34;`
-</span><span style="color:#e6db74">        	t=${f##*.}
-</span><span style="color:#e6db74">        	if [ &#34;sql&#34; = &#34;$t&#34; ];then
-</span><span style="color:#e6db74">            if ! lint_body=`sqlint $f`;then
-</span><span style="color:#e6db74">              echo &#34;$lint_body&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">            fi
-</span><span style="color:#e6db74">        	fi
-</span><span style="color:#e6db74">        done
-</span><span style="color:#e6db74">        if [ -n &#34;`cat $out`&#34; ];then
-</span><span style="color:#e6db74">          echo &#34;### :exclamation: sqlint ...no&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">        else
-</span><span style="color:#e6db74">          echo &#34;### :white_check_mark: sqlint ...ok&#34; &gt;&gt; $out
-</span><span style="color:#e6db74">        fi
-</span><span style="color:#e6db74">        cat $out
-</span><span style="color:#e6db74">        xq j $out
-</span><span style="color:#e6db74">        curl -X POST \
-</span><span style="color:#e6db74">           -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; \
-</span><span style="color:#e6db74">           -d &#34;`xq j $out`&#34; \
-</span><span style="color:#e6db74">           ${URL}</span>        
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/reviewbot.yml" data-lang="yml:.github/workflows/reviewbot.yml"><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">types</span>: <span style="color:#ae81ff">opened</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">reviewbot</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Ruby 2.6</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-ruby@v1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ruby-version</span>: <span style="color:#ae81ff">2.6</span><span style="color:#ae81ff">.x</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">gem i</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">gem i sqlint</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">run reviewbot</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">URL</span>: <span style="color:#ae81ff">${{ github.event.pull_request.comments_url }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_PR_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.pull_request.number }}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ## setup
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        pull_n=$(jq --raw-output .pull_request.number &#34;$GITHUB_EVENT_PATH&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        npm i -D htmllint-cli -s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ./node_modules/htmllint-cli/bin/cli.js init
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        export GOPATH=$HOME/go
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        go get -v github.com/syui/xq
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ## github-api:pull-req
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        p=pull.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        URL=https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${pull_n}/comments
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        curl -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${pull_n}/files &gt; $p
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ## review htmllint
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        out=html.txt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        n=`cat $p|jq length`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        n=`expr $n - 1`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        for ((i=0;i&lt;=$n;i++))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        do
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	f=`cat $p|jq -r &#34;.[${i}].filename&#34;`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	t=${f##*.}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	if [ &#34;html&#34; = &#34;$t&#34; ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        		./node_modules/htmllint-cli/bin/cli.js $f |grep -v &#34;found 0 errors&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        done
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ -n &#34;`cat $out`&#34; ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;### :exclamation: htmllint ...no&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        else
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;### :white_check_mark: htmllint ...ok&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        cat $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        xq j $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        curl -X POST \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           -d &#34;`xq j $out`&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           ${URL}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ## review sqlint
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        out=sql.txt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        n=`cat $p|jq length`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        n=`expr $n - 1`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        for ((i=0;i&lt;=$n;i++))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        do
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	f=`cat $p|jq -r &#34;.[${i}].filename&#34;`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	t=${f##*.}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	if [ &#34;sql&#34; = &#34;$t&#34; ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if ! lint_body=`sqlint $f`;then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              echo &#34;$lint_body&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        	fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        done
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ -n &#34;`cat $out`&#34; ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;### :exclamation: sqlint ...no&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        else
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;### :white_check_mark: sqlint ...ok&#34; &gt;&gt; $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        cat $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        xq j $out
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        curl -X POST \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           -d &#34;`xq j $out`&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           ${URL}</span>        
+</span></span></code></pre></div>
        			 		
 
 

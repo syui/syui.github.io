@@ -110,15 +110,15 @@
 													<h2>archlinuxのdockerimageを作った話</h2>
 													
        			 		<h2 id="archlinuxのdocker-imageを作った話">archlinuxのdocker imageを作った話</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker pull syui/docker-archlinux
-$ docker run -it syui/docker-archlinux /bin/bash
-</code></pre></div><p><code>FORM syui/docker-archlinux</code>+<code>RUN pacman -Syu --noconfirm</code>としておきTravis CIのCron Jobsで定期的に<code>docker push</code>しておくと便利。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker pull syui/docker-archlinux
+</span></span><span style="display:flex;"><span>$ docker run -it syui/docker-archlinux /bin/bash
+</span></span></code></pre></div><p><code>FORM syui/docker-archlinux</code>+<code>RUN pacman -Syu --noconfirm</code>としておきTravis CIのCron Jobsで定期的に<code>docker push</code>しておくと便利。</p>
 <p>Docker for Macの問題</p>
 <ul>
 <li>容量を食い過ぎる(docker rmi image, docker rm ps,古いdockerを消しても依然として)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm -rf ~/Library/Containers/com.docker.docker/Data/*
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rm -rf ~/Library/Containers/com.docker.docker/Data/*
+</span></span></code></pre></div><ul>
 <li>イメージを<code>pacman -Syu</code>してPushするたびにイメージサイズが肥大化している気がする。</li>
 </ul>
 

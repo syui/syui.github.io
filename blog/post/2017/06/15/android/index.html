@@ -113,16 +113,16 @@
 <blockquote>
 <p>ext4 のジャーナルは HDD アクセス速度を大幅に低下させるらしい。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -l /dev/block/platform/sdhci-tegra.3/by-name/
-$ mount -o remount,rw /
-$ vi /fstab
-<span style="color:#75715e"># noatime</span>
-or 
-<span style="color:#75715e"># TWRP</span>
-$ tune2fs -O ^has_journal /dev/block/mmcblk0p11
-$ tune2fs -O ^has_journal /dev/block/mmcblk0p12
-$ tune2fs -O ^has_journal /dev/block/mmcblk0p13
-</code></pre></div><p>ref :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -l /dev/block/platform/sdhci-tegra.3/by-name/
+</span></span><span style="display:flex;"><span>$ mount -o remount,rw /
+</span></span><span style="display:flex;"><span>$ vi /fstab
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># noatime</span>
+</span></span><span style="display:flex;"><span>or 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TWRP</span>
+</span></span><span style="display:flex;"><span>$ tune2fs -O ^has_journal /dev/block/mmcblk0p11
+</span></span><span style="display:flex;"><span>$ tune2fs -O ^has_journal /dev/block/mmcblk0p12
+</span></span><span style="display:flex;"><span>$ tune2fs -O ^has_journal /dev/block/mmcblk0p13
+</span></span></code></pre></div><p>ref :</p>
 <p><a href="https://qtotter.wordpress.com/2016/11/21/amazon-fire-5th-gen%E3%81%8C%E7%88%86%E9%80%9F%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F/">https://qtotter.wordpress.com/2016/11/21/amazon-fire-5th-gen%E3%81%8C%E7%88%86%E9%80%9F%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F/</a></p>
 <p><a href="http://redtiger.tank.jp/wiki/doku.php?id=linux-handling-note:disable-ext4-journal">http://redtiger.tank.jp/wiki/doku.php?id=linux-handling-note:disable-ext4-journal</a></p>
 <p><a href="https://forum.xda-developers.com/showthread.php?t=1739119">https://forum.xda-developers.com/showthread.php?t=1739119</a></p>
@@ -133,7 +133,7 @@ MDA -&gt; Unknown
 MSC -&gt; Misc (bootloader commands and other misc stuff )
 PER -&gt; usually a fat partition containing sensor calibration etc. - per device provisioned.
 SOS -&gt; recovery.img
-UDA -&gt; /data - &quot;user data area&quot;
+UDA -&gt; /data - &#34;user data area&#34;
 USP -&gt; Staging
 </code></pre>
        			 		

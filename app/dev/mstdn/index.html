@@ -111,24 +111,24 @@
 <p><a href="https://github.com/syui/mstdn.zsh">Download</a></p>
 <p><code>curl</code>や<a href="https://stedolan.github.io/jq/">jq</a>, <a href="https://github.com/peco/peco">peco</a>などが必要になる場合があります。</p>
 <p>使い方は、<code>json/user.json</code>にアプリ認証情報を置いて、<code>$ mstdn.zsh a</code>コマンドを実行します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/mstdn.zsh
-$ cd mstdn.zsh
-$ chmod +x mstdn.zsh
-$ ./mstdn.zsh a
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:./json/user.json" data-lang="json:./json/user.json">{
-	<span style="color:#f92672">&#34;host&#34;</span> : <span style="color:#e6db74">&#34;xxxx&#34;</span>,
-	<span style="color:#f92672">&#34;app&#34;</span> : <span style="color:#e6db74">&#34;xxxx&#34;</span>,
-	<span style="color:#f92672">&#34;select_command&#34;</span> : <span style="color:#e6db74">&#34;fzf&#34;</span>
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 投稿</span>
-$ mstdn.zsh p -f <span style="color:#e6db74">&#34;test.&#34;</span>
-
-<span style="color:#75715e"># タイムライン</span>
-$ mstdn.zsh t
-
-<span style="color:#75715e"># ユーザー情報</span>
-$ mstdn.zsh s
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/syui/mstdn.zsh
+</span></span><span style="display:flex;"><span>$ cd mstdn.zsh
+</span></span><span style="display:flex;"><span>$ chmod +x mstdn.zsh
+</span></span><span style="display:flex;"><span>$ ./mstdn.zsh a
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:./json/user.json" data-lang="json:./json/user.json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;host&#34;</span> : <span style="color:#e6db74">&#34;xxxx&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;app&#34;</span> : <span style="color:#e6db74">&#34;xxxx&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;select_command&#34;</span> : <span style="color:#e6db74">&#34;fzf&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 投稿</span>
+</span></span><span style="display:flex;"><span>$ mstdn.zsh p -f <span style="color:#e6db74">&#34;test.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># タイムライン</span>
+</span></span><span style="display:flex;"><span>$ mstdn.zsh t
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ユーザー情報</span>
+</span></span><span style="display:flex;"><span>$ mstdn.zsh s
+</span></span></code></pre></div>
        			 		
 
 

@@ -17,7 +17,7 @@
       <description>Docker Hubには、1つのPrivate Imageしか置けません(Free)。したがって、GitLab.comを使うのが最も良い選択肢です。
 必要なのは、GitLab.comのGit RepositoryとAccess Tokenのみです。
 https://gitlab.com/profile/personal_access_tokens
-# まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。 $ sudo docker login registry.gitlab.com or $ sudo vim ~/.docker/config.json $ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。 $ sudo docker build -t registry.gitlab.com/$USER/repo . $ sudo docker push registry.gitlab.com/$USER/repo https://gitlab.com/help/user/project/container_registry
+# まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。 $ sudo docker login registry.gitlab.com or $ sudo vim ~/.docker/config.json  $ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。 $ sudo docker build -t registry.gitlab.com/$USER/repo . $ sudo docker push registry.gitlab.com/$USER/repo https://gitlab.com/help/user/project/container_registry
 DockerのPrivate Imageは沢山の使い道があります。
 一つは、Git ServerにPushするImageを作れるという点です。これによって、CIを可動させ、それを回す仕組みを作ることができます。
 ただし、セキュリティ上の危険は増大します。なぜなら、Docker Image内にGit Serverへのアクセスに必要なものを置く必要があるからです。
@@ -43,7 +43,7 @@ docker:pleroma github.com/ht164/pleroma-docker-compose
 $ git clone https://github.com/ht164/pleroma-docker-compose $ mkdir -p web/pleroma &amp;amp;&amp;amp; cd web/pleroma $ git clone https://git.pleroma.social/pleroma/pleroma.git . 大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。
 https://git.pleroma.social/pleroma/pleroma/wikis/home
  ./pleroma-docker-compose/web/pleroma
- $ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, adapter: Ecto.Adapters.Postgres, username: &amp;#34;pleroma&amp;#34;, password: &amp;#34;pleroma&amp;#34;, database: &amp;#34;pleroma_dev&amp;#34;, hostname: &amp;#34;db&amp;#34;, pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres $ cd ../.. # ./pleroma-docker-compose $ docker-compose build $ docker-compose up -d $ docker ps 12345678 pleroma/pleroma pleroma-docker-compose_web_1 $ docker exec -it 12345678 /bin/sh &amp;gt; $ mix ecto.</description>
+ $ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, 	adapter: Ecto.Adapters.Postgres, 	username: &amp;#34;pleroma&amp;#34;, 	password: &amp;#34;pleroma&amp;#34;, 	database: &amp;#34;pleroma_dev&amp;#34;, 	hostname: &amp;#34;db&amp;#34;, 	pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres  $ cd .</description>
     </item>
     
     <item>

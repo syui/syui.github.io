@@ -143,9 +143,9 @@
 <p>それに、Herokuのデザインセンスはとてもいいですし、ドキュメントも充実していて、わかりやすいです。</p>
 <p>また、Herokuのdocsでは、コードを記述する際のシンタックスハイライト以外にもコマンドプロンプトを示す<code>$</code>がコピーされないようになっています。芸が細かいっ！(早速、真似してみた</p>
 <p><a href="https://devcenter.heroku.com/articles/go-sessions">https://devcenter.heroku.com/articles/go-sessions</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -u github.com/heroku-examples/go-sessions-demo
-$ cd $GOPATH/src/github.com/heroku-examples/go-sessions-demo
-</code></pre></div><p>Herokuは、デザインも素晴らしいですが、こういう細部のこだわりもすごいと思っています。また、しっかりと日本語ページも用意されていて、そんなHerokuが私は大好きです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get -u github.com/heroku-examples/go-sessions-demo
+</span></span><span style="display:flex;"><span>$ cd $GOPATH/src/github.com/heroku-examples/go-sessions-demo
+</span></span></code></pre></div><p>Herokuは、デザインも素晴らしいですが、こういう細部のこだわりもすごいと思っています。また、しっかりと日本語ページも用意されていて、そんなHerokuが私は大好きです。</p>
 <h3 id="herokuで分散snsを立ててみた">Herokuで分散SNSを立ててみた</h3>
 <p>私は、Heroku上で<code>Mastodon</code>, <code>Misskey</code>, <code>Dolphin</code>, <code>Pleroma</code>, <code>GNU Social</code>などの分散SNSを立ててみたことがあります。</p>
 <p>どれも実験用アカウントなのでMastodon以外のサーバーは費用面の関係で近く停止させると思いますが、以下のようなアカウントを作っていました。</p>
@@ -210,21 +210,21 @@ $ cd $GOPATH/src/github.com/heroku-examples/go-sessions-demo
 <p>私は、2年以上、継続して<code>ぼっちインスタンス(お一人様インスタンス)</code>を運営してきましたが、今までにかかった費用は<code>$0</code>です。しかし、この運用にはいろいろな工夫が必要でした。これはHerokuを含めた様々なサービスのおかげです。感謝しかない。</p>
 <p>Mastodonは、初期の頃、Heroku上でもかなりの高負担でした。特に、DBのレコード増加量が半端なかった。したがって、初期の頃は1ヶ月に一度ほどDBをリセット(正確にはリストア)しなければなりませんでした。</p>
 <p>DBに関しては、Adminアカウントを作って初期設定を終えた時点のものを<code>バックアップ</code>してます。そして、DBがいっぱいになった時点で、そこにリストアします。なので、アカウントの同一性は保持されている状態(ただし齟齬は発生します)。Mastodon自体はDBと関係なくアップデートしているので、リストア後はマイグレーションを実行します。リストア後に問題がなければ、そのDBをバックアップして古いものは削除します。この流れを繰り返します。これによって、<code>年間 $0 運用</code>を達成しています。この一連の流れは、スクリプトにしているので、それほど大変ではありません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $usern -d $database ./backup_db.dump
-$ heroku run rake db:migrate -a $app
-</code></pre></div><p>また、メディアサーバーをGitHub Repoに切り替えて運用していました。画像の投稿もAPIを使って行います。こちらも以下のような流れでコマンドを作っているため、それほど不便ではありません。(あまり画像を投稿しないというのもある)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:メディアサーバー運用.txt" data-lang="sh:メディアサーバー運用.txt"># メディアサーバーをGitHub rawにする
-heroku config:set PAPERCLIP_ROOT_PATH=https://raw.githubusercontent.com/$USER/$REPO/master/img/mastodon
-
-# 画像ファイルを投稿して画像IDを取得する, IMG_ID
-curl -F &#34;file=./test.png&#34; -sS https://$host/api/v1/media -H &#34;Authorization: Bearer $access_token&#34;| jq -r .id
-
-# 画像をgit serverにpushする
-git push -f origin master
-
-# ユーザーから画像を投稿する
-curl -sSL https://$host/api/v1/media/statuses -d &#34;status=#media&amp;media_ids[]=${IMG_ID}&#34; -H &#34;Authorization: Bearer $access_token&#34;
-</code></pre></div><p>しかし、他のサーバーに流れている画像は取得しませんし、表示できません。あくまで自身が投稿する画像のみ表示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $usern -d $database ./backup_db.dump
+</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
+</span></span></code></pre></div><p>また、メディアサーバーをGitHub Repoに切り替えて運用していました。画像の投稿もAPIを使って行います。こちらも以下のような流れでコマンドを作っているため、それほど不便ではありません。(あまり画像を投稿しないというのもある)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:メディアサーバー運用.txt" data-lang="sh:メディアサーバー運用.txt"><span style="display:flex;"><span># メディアサーバーをGitHub rawにする
+</span></span><span style="display:flex;"><span>heroku config:set PAPERCLIP_ROOT_PATH=https://raw.githubusercontent.com/$USER/$REPO/master/img/mastodon
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 画像ファイルを投稿して画像IDを取得する, IMG_ID
+</span></span><span style="display:flex;"><span>curl -F &#34;file=./test.png&#34; -sS https://$host/api/v1/media -H &#34;Authorization: Bearer $access_token&#34;| jq -r .id
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 画像をgit serverにpushする
+</span></span><span style="display:flex;"><span>git push -f origin master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># ユーザーから画像を投稿する
+</span></span><span style="display:flex;"><span>curl -sSL https://$host/api/v1/media/statuses -d &#34;status=#media&amp;media_ids[]=${IMG_ID}&#34; -H &#34;Authorization: Bearer $access_token&#34;
+</span></span></code></pre></div><p>しかし、他のサーバーに流れている画像は取得しませんし、表示できません。あくまで自身が投稿する画像のみ表示します。</p>
 <p>フォローもしない方針です。分散とは、タイムラインに蓄積される情報を各インスタンスが保存する仕組みだからです。</p>
 <p>ドメインは<code>Freenom</code>を利用し、DNSは<code>CloudFlare</code>、メールは<code>Mailgun</code>です。どのサービスも本当にありがとう！</p>
 <p>これからも、そこそこ長くMastodonをやっていけたら嬉しいです。</p>

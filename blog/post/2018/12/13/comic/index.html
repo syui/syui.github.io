@@ -113,76 +113,76 @@
 <blockquote>
 <p>$ ./t.zsh 19</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/zsh
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">case</span> $1 in
-	<span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>	pg<span style="color:#f92672">=</span>18	;;
-	*<span style="color:#f92672">)</span>	pg<span style="color:#f92672">=</span>$1	;;
-<span style="color:#66d9ef">esac</span>
-tl<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get NAME of active tab of first window&#39;</span> | cut -d <span style="color:#e6db74">&#39; &#39;</span> -f -1<span style="color:#e6db74">`</span>
-ul<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get URL of active tab of first window&#39;</span><span style="color:#e6db74">`</span>
-ul<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">${</span>ul:t<span style="color:#e6db74">}</span> | cut -d <span style="color:#f92672">=</span> -f 4-<span style="color:#e6db74">`</span>
-fn<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>tl<span style="color:#e6db74">}</span>_<span style="color:#e6db74">${</span>ul<span style="color:#e6db74">}</span>
-hd<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
-td<span style="color:#f92672">=</span>$hd/$ul
-mkdir -p $td
-echo <span style="color:#e6db74">${</span>fn<span style="color:#e6db74">}</span>
-cd $hd
-
-w<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get the bounds of the first window&#39;</span> | tr -d <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span>
-osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
-id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get id of every window&#39;</span><span style="color:#e6db74">`</span>
-<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>1;i&lt;<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>pg<span style="color:#e6db74">}</span>;i++ <span style="color:#f92672">))</span>
-<span style="color:#66d9ef">do</span>
-	osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
-	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $i -le <span style="color:#ae81ff">9</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-		f<span style="color:#f92672">=</span>$td/0<span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>.png
-	<span style="color:#66d9ef">else</span>
-		f<span style="color:#f92672">=</span>$td/<span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>.png
-	<span style="color:#66d9ef">fi</span>
-	echo $f
-	echo screencapture -R<span style="color:#e6db74">${</span>w<span style="color:#e6db74">}</span> $f
-	screencapture -R<span style="color:#e6db74">${</span>w<span style="color:#e6db74">}</span> $f
-	sleep <span style="color:#ae81ff">1</span>
-	osascript <span style="color:#e6db74">&lt;&lt; EOF &gt; /dev/null 2&gt;&amp;1 
-</span><span style="color:#e6db74">	tell application &#34;Google Chrome&#34;
-</span><span style="color:#e6db74">	    activate
-</span><span style="color:#e6db74">	    tell application &#34;System Events&#34;
-</span><span style="color:#e6db74">	        delay 0.3
-</span><span style="color:#e6db74">	        key code 123
-</span><span style="color:#e6db74">	        --tell application &#34;Terminal&#34;
-</span><span style="color:#e6db74">	        tell application &#34;iTerm&#34;
-</span><span style="color:#e6db74">	            activate
-</span><span style="color:#e6db74">	        end tell
-</span><span style="color:#e6db74">	    end tell
-</span><span style="color:#e6db74">	end tell
-</span><span style="color:#e6db74">EOF</span>
-	sleep <span style="color:#ae81ff">3</span>
-<span style="color:#66d9ef">done</span>
-
-rm -rf $ul/.*
-apack <span style="color:#e6db74">${</span>fn<span style="color:#e6db74">}</span>.zip $ul 
-rm -rf $ul
-</code></pre></div><p>ブラウザのアドレスバーなどが気になるなら、以下のように<code>imagemagick</code>とかでcropすればいい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/zsh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">case</span> $1 in
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>	pg<span style="color:#f92672">=</span>18	;;
+</span></span><span style="display:flex;"><span>	*<span style="color:#f92672">)</span>	pg<span style="color:#f92672">=</span>$1	;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span>tl<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get NAME of active tab of first window&#39;</span> | cut -d <span style="color:#e6db74">&#39; &#39;</span> -f -1<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>ul<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get URL of active tab of first window&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>ul<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">${</span>ul:t<span style="color:#e6db74">}</span> | cut -d <span style="color:#f92672">=</span> -f 4-<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>fn<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>tl<span style="color:#e6db74">}</span>_<span style="color:#e6db74">${</span>ul<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>hd<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>td<span style="color:#f92672">=</span>$hd/$ul
+</span></span><span style="display:flex;"><span>mkdir -p $td
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>fn<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>cd $hd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>w<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get the bounds of the first window&#39;</span> | tr -d <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
+</span></span><span style="display:flex;"><span>id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to get id of every window&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>1;i&lt;<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>pg<span style="color:#e6db74">}</span>;i++ <span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	osascript -e <span style="color:#e6db74">&#39;tell application &#34;Google Chrome&#34; to activate&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $i -le <span style="color:#ae81ff">9</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>		f<span style="color:#f92672">=</span>$td/0<span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>.png
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		f<span style="color:#f92672">=</span>$td/<span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>.png
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>	echo $f
+</span></span><span style="display:flex;"><span>	echo screencapture -R<span style="color:#e6db74">${</span>w<span style="color:#e6db74">}</span> $f
+</span></span><span style="display:flex;"><span>	screencapture -R<span style="color:#e6db74">${</span>w<span style="color:#e6db74">}</span> $f
+</span></span><span style="display:flex;"><span>	sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	osascript <span style="color:#e6db74">&lt;&lt; EOF &gt; /dev/null 2&gt;&amp;1 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	tell application &#34;Google Chrome&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	    activate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	    tell application &#34;System Events&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	        delay 0.3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	        key code 123
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	        --tell application &#34;Terminal&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	        tell application &#34;iTerm&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	            activate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	        end tell
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	    end tell
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	end tell
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>	sleep <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rm -rf $ul/.*
+</span></span><span style="display:flex;"><span>apack <span style="color:#e6db74">${</span>fn<span style="color:#e6db74">}</span>.zip $ul 
+</span></span><span style="display:flex;"><span>rm -rf $ul
+</span></span></code></pre></div><p>ブラウザのアドレスバーなどが気になるなら、以下のように<code>imagemagick</code>とかでcropすればいい。</p>
 <blockquote>
 <p>convert $i -gravity center -crop 555x850+0+20 ${i%%*.}_crop.png</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/zsh
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> f in *.zip; <span style="color:#66d9ef">do</span>
-        aunpack $f
-<span style="color:#66d9ef">done</span>
-rm -rf *.zip
-rm -rf */.*
-<span style="color:#66d9ef">for</span> i in */*.png;<span style="color:#66d9ef">do</span>
-        convert $i -gravity center -crop 555x850+0+20 <span style="color:#e6db74">${</span>i%%*.<span style="color:#e6db74">}</span>_crop.png
-        rm -rf $i
-<span style="color:#66d9ef">done</span>
-
-<span style="color:#66d9ef">for</span> f in *;<span style="color:#66d9ef">do</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t.zsh&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-                apack <span style="color:#e6db74">${</span>f<span style="color:#e6db74">}</span>.zip $f
-        <span style="color:#66d9ef">fi</span>
-<span style="color:#66d9ef">done</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/zsh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> f in *.zip; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        aunpack $f
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>rm -rf *.zip
+</span></span><span style="display:flex;"><span>rm -rf */.*
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in */*.png;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        convert $i -gravity center -crop 555x850+0+20 <span style="color:#e6db74">${</span>i%%*.<span style="color:#e6db74">}</span>_crop.png
+</span></span><span style="display:flex;"><span>        rm -rf $i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> f in *;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t.zsh&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                apack <span style="color:#e6db74">${</span>f<span style="color:#e6db74">}</span>.zip $f
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
        			 		
 
 

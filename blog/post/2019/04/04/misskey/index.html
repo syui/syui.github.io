@@ -111,116 +111,116 @@
 													
        			 		<p><a href="https://github.com/syuilo/misskey">misskey</a> on <a href="https://heroku.com">heroku</a>.</p>
 <p><code>misskey</code>という分散snsをherokuというpaasで動かしてみた記録です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">remote:        * Stack heroku-18
-
-remote:        NPM_CONFIG_LOGLEVEL<span style="color:#f92672">=</span>error
-remote:        NODE_ENV<span style="color:#f92672">=</span>production
-remote:        NODE_MODULES_CACHE<span style="color:#f92672">=</span>true
-remote:        NODE_VERBOSE<span style="color:#f92672">=</span>false
-
-remote:        Resolving node version 10.x...
-remote:        Downloading and installing node 10.15.3...
-remote:        Using default npm version: 6.4.1
-
-remote:        &gt; misskey@10.98.3 install 
-</code></pre></div><p>misskeyをherokuで動作させるポイントとしては、<code>.config/default.yml</code>と<code>heroku $PORT</code>です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>remote:        * Stack heroku-18
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>remote:        NPM_CONFIG_LOGLEVEL<span style="color:#f92672">=</span>error
+</span></span><span style="display:flex;"><span>remote:        NODE_ENV<span style="color:#f92672">=</span>production
+</span></span><span style="display:flex;"><span>remote:        NODE_MODULES_CACHE<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>remote:        NODE_VERBOSE<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>remote:        Resolving node version 10.x...
+</span></span><span style="display:flex;"><span>remote:        Downloading and installing node 10.15.3...
+</span></span><span style="display:flex;"><span>remote:        Using default npm version: 6.4.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>remote:        &gt; misskey@10.98.3 install 
+</span></span></code></pre></div><p>misskeyをherokuで動作させるポイントとしては、<code>.config/default.yml</code>と<code>heroku $PORT</code>です。</p>
 <p>herokuは、deployする度にPORTが変動し、その値は、PORTの環境変数に入っています。しかし、misskeyのsource codeはそれに対応していないようなので、少しだけcodeをPaaS向きに書き換える必要があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syuilo/misskey
-$ cd !$:t
-
-<span style="color:#75715e"># git reset --hard 551d1b7f8624d2e9c19a99dd80aaf49f096ce836</span>
-
-$ git branch
-$ git checkout -b master
-
-$ heroku create $APP_NAME
-$ heroku git:remote -a $APP_NAME
-$ heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs
-<span style="color:#75715e"># heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#v143</span>
-
-<span style="color:#75715e"># gitignoreに注意、.configが入っている可能性</span>
-$ cat .gitignore
-$ cat ~/.gitignore
-
-$ cd .config/
-$ mv example.yml default.yml
-$ mv mongo_initdb_example.js mongo_initdb.js 
-
-$ heroku addons:create mongolab:sandbox
-$ heroku addons:create heroku-redis:hobby-dev
-$ heroku config
-
-$ vim default.yml
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/syuilo/misskey
+</span></span><span style="display:flex;"><span>$ cd !$:t
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># git reset --hard 551d1b7f8624d2e9c19a99dd80aaf49f096ce836</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git branch
+</span></span><span style="display:flex;"><span>$ git checkout -b master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku create $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku git:remote -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#v143</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># gitignoreに注意、.configが入っている可能性</span>
+</span></span><span style="display:flex;"><span>$ cat .gitignore
+</span></span><span style="display:flex;"><span>$ cat ~/.gitignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cd .config/
+</span></span><span style="display:flex;"><span>$ mv example.yml default.yml
+</span></span><span style="display:flex;"><span>$ mv mongo_initdb_example.js mongo_initdb.js 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku addons:create mongolab:sandbox
+</span></span><span style="display:flex;"><span>$ heroku addons:create heroku-redis:hobby-dev
+</span></span><span style="display:flex;"><span>$ heroku config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim default.yml
+</span></span></code></pre></div><blockquote>
 <p>default.yml</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># Final accessible URL seen by a user.</span>
-<span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://$APP_NAME.herokuapp.com</span>
-<span style="color:#75715e">#url: http://localhost</span>
-<span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
-<span style="color:#75715e">#port: 8000</span>
-
-<span style="color:#75715e"># mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
-<span style="color:#f92672">mongodb</span>:
-  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$DB_HOST</span>
-  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$DB_PORT</span>
-  <span style="color:#f92672">db</span>: <span style="color:#ae81ff">$DB_NAME</span>
-  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">$DB_USER</span>
-  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$DB_PASS</span>
-
-<span style="color:#f92672">drive</span>:
-  <span style="color:#f92672">storage</span>: <span style="color:#e6db74">&#39;db&#39;</span>
-
-<span style="color:#75715e"># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
-<span style="color:#f92672">redis</span>:
-  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$REDIS_HOST</span>
-  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$REDIS_PORT</span>
-  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$REDIS_PASS</span>
-
-<span style="color:#f92672">autoAdmin</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># repo rootに移動</span>
-$ cd ..
-
-$ heroku config
-$ cat docs/setup.ja.md
-
-$ mongo <span style="color:#e6db74">${</span>DB_HOST<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>DB_PORT<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>DB_NAME<span style="color:#e6db74">}</span> -u <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> -p <span style="color:#e6db74">${</span>DB_PASS<span style="color:#e6db74">}</span>
- 2. <span style="color:#e6db74">`</span>use misskey<span style="color:#e6db74">`</span> misskeyデータベースを使用
- 3. <span style="color:#e6db74">`</span>db.createUser<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> user: <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">&#34;</span>, pwd: <span style="color:#e6db74">&#34;</span>$PASS<span style="color:#e6db74">&#34;</span>, roles: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> role: <span style="color:#e6db74">&#34;readWrite&#34;</span>, db: <span style="color:#e6db74">&#34;misskey&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">}</span> <span style="color:#f92672">)</span><span style="color:#e6db74">`</span> misskeyユーザーを作成
- 4. <span style="color:#e6db74">`</span>exit<span style="color:#e6db74">`</span> mongoシェルを終了
-
-$ grep -R <span style="color:#e6db74">&#39;config.port&#39;</span> src/
-
-<span style="color:#75715e"># herokuのPORT対応</span>
-<span style="color:#75715e"># default.yml</span>
-$ vim ./src/config/load.ts
-+ config.port <span style="color:#f92672">=</span> process.env.PORT;
-<span style="color:#75715e"># production</span>
-$ vim ./src/server/index.ts
-- server.listen<span style="color:#f92672">(</span>config.port<span style="color:#f92672">)</span>;
-+ server.listen<span style="color:#f92672">(</span>process.env.PORT <span style="color:#f92672">||</span> 8000<span style="color:#f92672">)</span>;
-
-<span style="color:#75715e"># previewするには、`.config/default.yml`の値を`ur:localhost`と`port:8000`にする</span>
-$ npm i
-$ NODE_ENV<span style="color:#f92672">=</span>production npm start
-
-$ vim Procfile
-web: NODE_ENV<span style="color:#f92672">=</span>production npm start
-
-<span style="color:#75715e"># gitignoreに注意、.configが入っている可能性</span>
-$ cat .gitignore
-$ cat ~/.gitignore
-
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-$ git push -u heroku master
-
-<span style="color:#75715e"># 問題の調査</span>
-$ heroku logs
-$ heroku run bash
-</code></pre></div><h2 id="misskeyの管理について">misskeyの管理について</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># Final accessible URL seen by a user.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://$APP_NAME.herokuapp.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#url: http://localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#port: 8000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">mongodb</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$DB_HOST</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$DB_PORT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>: <span style="color:#ae81ff">$DB_NAME</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">$DB_USER</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$DB_PASS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">drive</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">storage</span>: <span style="color:#e6db74">&#39;db&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">redis</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$REDIS_HOST</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$REDIS_PORT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$REDIS_PASS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">autoAdmin</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">disableHsts</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">clusterLimit</span>: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># repo rootに移動</span>
+</span></span><span style="display:flex;"><span>$ cd ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku config
+</span></span><span style="display:flex;"><span>$ cat docs/setup.ja.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mongo <span style="color:#e6db74">${</span>DB_HOST<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>DB_PORT<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>DB_NAME<span style="color:#e6db74">}</span> -u <span style="color:#e6db74">${</span>DB_USER<span style="color:#e6db74">}</span> -p <span style="color:#e6db74">${</span>DB_PASS<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span> 2. <span style="color:#e6db74">`</span>use misskey<span style="color:#e6db74">`</span> misskeyデータベースを使用
+</span></span><span style="display:flex;"><span> 3. <span style="color:#e6db74">`</span>db.createUser<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> user: <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">&#34;</span>, pwd: <span style="color:#e6db74">&#34;</span>$PASS<span style="color:#e6db74">&#34;</span>, roles: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> role: <span style="color:#e6db74">&#34;readWrite&#34;</span>, db: <span style="color:#e6db74">&#34;misskey&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">}</span> <span style="color:#f92672">)</span><span style="color:#e6db74">`</span> misskeyユーザーを作成
+</span></span><span style="display:flex;"><span> 4. <span style="color:#e6db74">`</span>exit<span style="color:#e6db74">`</span> mongoシェルを終了
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ grep -R <span style="color:#e6db74">&#39;config.port&#39;</span> src/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># herokuのPORT対応</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># default.yml</span>
+</span></span><span style="display:flex;"><span>$ vim ./src/config/load.ts
+</span></span><span style="display:flex;"><span>+ config.port <span style="color:#f92672">=</span> process.env.PORT;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># production</span>
+</span></span><span style="display:flex;"><span>$ vim ./src/server/index.ts
+</span></span><span style="display:flex;"><span>- server.listen<span style="color:#f92672">(</span>config.port<span style="color:#f92672">)</span>;
+</span></span><span style="display:flex;"><span>+ server.listen<span style="color:#f92672">(</span>process.env.PORT <span style="color:#f92672">||</span> 8000<span style="color:#f92672">)</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># previewするには、`.config/default.yml`の値を`ur:localhost`と`port:8000`にする</span>
+</span></span><span style="display:flex;"><span>$ npm i
+</span></span><span style="display:flex;"><span>$ NODE_ENV<span style="color:#f92672">=</span>production npm start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim Procfile
+</span></span><span style="display:flex;"><span>web: NODE_ENV<span style="color:#f92672">=</span>production npm start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># gitignoreに注意、.configが入っている可能性</span>
+</span></span><span style="display:flex;"><span>$ cat .gitignore
+</span></span><span style="display:flex;"><span>$ cat ~/.gitignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push -u heroku master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 問題の調査</span>
+</span></span><span style="display:flex;"><span>$ heroku logs
+</span></span><span style="display:flex;"><span>$ heroku run bash
+</span></span></code></pre></div><h2 id="misskeyの管理について">misskeyの管理について</h2>
 <p><code>autoAdmin: true</code>で最初に作成されたユーザーが管理者になります。</p>
 <p><code>/admin</code>にアクセスして、<code>インスタンス -&gt; ユーザー登録を停止する</code></p>
 

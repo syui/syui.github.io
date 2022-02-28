@@ -115,39 +115,39 @@
 <p>このツールは名前の通り、ipinfo.ioを叩く機能と、同時にdarksky.ioで天候や気温などを取得できる感じになっている。</p>
 <p>ちょっと修正して挙動をよりシンプルにした。</p>
 <p>使い方としては基本的にバイナリをダウンロードしてリネーム、実行権限を付与という感じで使う。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd $GOPATH/bin
-$ curl -LO https://github.com/syui/ipinfo/releases/download/0.1/darwin_amd64_ipinfo
-$ mv darwin_amd64_ipinfo ipinfo
-$ chmod +x ipinfo
-$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
-
-
-$ ipinfo
-192.30.252.153  
-
-
-$ ./ipinfo h
-
-COMMANDS:
-     ipinfo, i  ipinfo.io
-                  sub-command : ip<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>, country<span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>, city<span style="color:#f92672">(</span>ci<span style="color:#f92672">)</span>, loc<span style="color:#f92672">(</span>l<span style="color:#f92672">)</span>, org<span style="color:#f92672">(</span>o<span style="color:#f92672">)</span>
-     ip         grobal ip address
-     loc        location gps
-     sky, s     darksky.io
-                  sub-command : info<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
-     all, a     json
-     help, h    Shows a list of commands or help <span style="color:#66d9ef">for</span> one command
-
- 
-$ ./ipinfo s i 
-
-Asia/Tokyo: Clear
-humidity: 0.00
-temperature: 0.00 Celsius
-wind speed: 0.00
-</code></pre></div><p>ビルドして使う場合は、以下のようにする。API Keyをenvで取ってきてたんだけど、バイナリに埋め込む感じにした。バイナリ配布する場合はそのデータから値を取り出すこともできそうなので気をつけたほうがよさそうではある。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd $GOPATH/bin
+</span></span><span style="display:flex;"><span>$ curl -LO https://github.com/syui/ipinfo/releases/download/0.1/darwin_amd64_ipinfo
+</span></span><span style="display:flex;"><span>$ mv darwin_amd64_ipinfo ipinfo
+</span></span><span style="display:flex;"><span>$ chmod +x ipinfo
+</span></span><span style="display:flex;"><span>$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ipinfo
+</span></span><span style="display:flex;"><span>192.30.252.153  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ./ipinfo h
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>COMMANDS:
+</span></span><span style="display:flex;"><span>     ipinfo, i  ipinfo.io
+</span></span><span style="display:flex;"><span>                  sub-command : ip<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>, country<span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>, city<span style="color:#f92672">(</span>ci<span style="color:#f92672">)</span>, loc<span style="color:#f92672">(</span>l<span style="color:#f92672">)</span>, org<span style="color:#f92672">(</span>o<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     ip         grobal ip address
+</span></span><span style="display:flex;"><span>     loc        location gps
+</span></span><span style="display:flex;"><span>     sky, s     darksky.io
+</span></span><span style="display:flex;"><span>                  sub-command : info<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     all, a     json
+</span></span><span style="display:flex;"><span>     help, h    Shows a list of commands or help <span style="color:#66d9ef">for</span> one command
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>$ ./ipinfo s i 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Asia/Tokyo: Clear
+</span></span><span style="display:flex;"><span>humidity: 0.00
+</span></span><span style="display:flex;"><span>temperature: 0.00 Celsius
+</span></span><span style="display:flex;"><span>wind speed: 0.00
+</span></span></code></pre></div><p>ビルドして使う場合は、以下のようにする。API Keyをenvで取ってきてたんだけど、バイナリに埋め込む感じにした。バイナリ配布する場合はそのデータから値を取り出すこともできそうなので気をつけたほうがよさそうではある。</p>
 <pre tabindex="0"><code># https://darksky.net/dev/account
-$ go build -ldflags &quot;-X main.apikey=$apikey&quot;
+$ go build -ldflags &#34;-X main.apikey=$apikey&#34;
 </code></pre><p>golangって多分、main.goはバイナリ配布で、repo.goはrepo_test.goのテスト付けてimportして使うのが一般的だと思うのだけど、codecovを使ってみたかった。</p>
 
        			 		

@@ -112,101 +112,100 @@
        			 		<p>昔、gitlabのを表示していたことがありましたが、apiの変更があったので、今回はgithubの芝を生やしてみました。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/github_contribution.png" alt=""></p>
 <p>現在、githubでは以下のurlにて芝の情報を取得できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sL https://github.com/users/$USER/contributions
-</code></pre></div><p>しかし、データは加工されていない状態で使いづらいので、以下のapiを使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -sL https://github.com/users/$USER/contributions
+</span></span></code></pre></div><p>しかし、データは加工されていない状態で使いづらいので、以下のapiを使います。</p>
 <p><a href="https://github-contributions-api.deno.dev/">https://github-contributions-api.deno.dev/</a></p>
 <p>開発者 : <a href="https://zenn.dev/kawarimidoll/articles/b573f617a51c0b">https://zenn.dev/kawarimidoll/articles/b573f617a51c0b</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sL https://github-contributions-api.deno.dev/$USER.json
-</code></pre></div><p>これを<a href="https://cal-heatmap.com/">cal-heatmap</a>で表示します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># sample date</span>
-$ curl -sL https://cal-heatmap.com/datas-years.json
-
-$ bower install cal-heatmap
-</code></pre></div><p>使い方は見ての通りですが、exampleを紹介します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//d3js.org/d3.v3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css&#34;</span> /&gt;
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example-b&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CalHeatMap</span>();
-	<span style="color:#a6e22e">cal</span>.<span style="color:#a6e22e">init</span>({
-			<span style="color:#a6e22e">itemSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b&#34;</span>,
-			<span style="color:#a6e22e">domain</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;month&#34;</span>,
-			<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/datas-years.json&#34;</span>,
-			<span style="color:#a6e22e">start</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#ae81ff">2021</span>, <span style="color:#ae81ff">0</span>),
-			<span style="color:#a6e22e">cellSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span>,
-			<span style="color:#a6e22e">range</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span>,
-			<span style="color:#a6e22e">previousSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b-PreviousDomain-selector&#34;</span>,
-			<span style="color:#a6e22e">nextSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b-NextDomain-selector&#34;</span>,
-			<span style="color:#a6e22e">legend</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
-		});
-
-&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">style</span>&gt;
-<span style="color:#f92672">div</span>#example-b{
-	<span style="color:#66d9ef">margin-right</span>: <span style="color:#66d9ef">auto</span>;
-	<span style="color:#66d9ef">margin-left</span>: <span style="color:#66d9ef">auto</span>;
-}
-.<span style="color:#a6e22e">cal-heatmap-container</span> {
-	<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
-}
-&lt;/<span style="color:#f92672">style</span>&gt;
-</code></pre></div><p>ただし、表示速度などの問題からbowerなどで同web-server上にインストールしたほうがいいでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/d3/d3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.css&#34;</span> /&gt;
-</code></pre></div><p>jsonは以下のように形成すればよさそう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sL https://github-contributions-api.deno.dev/$USER.json|jq <span style="color:#e6db74">&#34;.|del(.totalContributions)|.[]|.[]|.[]|{(.date+\&#34;T00:00:00Z\&#34;|fromdate|tostring):(.contributionCount)}&#34;</span>|jq -n <span style="color:#e6db74">&#39;[inputs] | add&#39;</span>
-<span style="color:#f92672">{</span>
-  <span style="color:#e6db74">&#34;1640822400&#34;</span>: 18,
-  <span style="color:#e6db74">&#34;1640908800&#34;</span>: 5,
-  <span style="color:#e6db74">&#34;1640995200&#34;</span>: 8,
-  <span style="color:#e6db74">&#34;1641081600&#34;</span>: <span style="color:#ae81ff">2</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>これは<code>cal-heatmap</code>の仕様だと思いますが、dateがunixtimeなのと、keyにdateを入れるフォーマットに注意。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -sL https://github-contributions-api.deno.dev/$USER.json
+</span></span></code></pre></div><p>これを<a href="https://cal-heatmap.com/">cal-heatmap</a>で表示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># sample date</span>
+</span></span><span style="display:flex;"><span>$ curl -sL https://cal-heatmap.com/datas-years.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ bower install cal-heatmap
+</span></span></code></pre></div><p>使い方は見ての通りですが、exampleを紹介します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//d3js.org/d3.v3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example-b&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CalHeatMap</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cal</span>.<span style="color:#a6e22e">init</span>({
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">itemSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">domain</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;month&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/datas-years.json&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">start</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#ae81ff">2021</span>, <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">cellSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">range</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">previousSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b-PreviousDomain-selector&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">nextSelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#example-b-NextDomain-selector&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">legend</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>		});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">div</span>#example-b{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin-right</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin-left</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">cal-heatmap-container</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>ただし、表示速度などの問題からbowerなどで同web-server上にインストールしたほうがいいでしょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/d3/d3.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/bower_components/cal-heatmap/cal-heatmap.css&#34;</span> /&gt;
+</span></span></code></pre></div><p>jsonは以下のように形成すればよさそう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -sL https://github-contributions-api.deno.dev/$USER.json|jq <span style="color:#e6db74">&#34;.|del(.totalContributions)|.[]|.[]|.[]|{(.date+\&#34;T00:00:00Z\&#34;|fromdate|tostring):(.contributionCount)}&#34;</span>|jq -n <span style="color:#e6db74">&#39;[inputs] | add&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;1640822400&#34;</span>: 18,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;1640908800&#34;</span>: 5,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;1640995200&#34;</span>: 8,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;1641081600&#34;</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>これは<code>cal-heatmap</code>の仕様だと思いますが、dateがunixtimeなのと、keyにdateを入れるフォーマットに注意。</p>
 <p>もし更新が必要なら、定期にgh-actionsを回せば良さそう。更新頻度が高くなければ、hugo build時でもいいですが、更新頻度が高く、かつ最新にこだわらないなら、1週間とか3日とかの間隔でいいかもしれません。常時だとapiやgh-actions側の負担になりますので。</p>
 <p><code>./static/json/cal.json</code>と<code>${{github.actor}}</code>に注意してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:gh-actions.yml" data-lang="yml:gh-actions.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">push json github contribution</span>
-  
-<span style="color:#f92672">on</span>:
-  <span style="color:#f92672">push</span>:
-    <span style="color:#f92672">branches</span>:
-      - <span style="color:#ae81ff">src</span>
-  <span style="color:#f92672">schedule</span>:
-    - <span style="color:#f92672">cron</span>:  <span style="color:#e6db74">&#39;00 00 * * 0&#39;</span>
-
-<span style="color:#f92672">jobs</span>:
-  <span style="color:#f92672">comment</span>:
-    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-    <span style="color:#f92672">steps</span>:
-    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">install jq</span>
-      <span style="color:#f92672">env</span>:
-        <span style="color:#f92672">WORKFLOW_FILE_PATH</span>: <span style="color:#ae81ff">${{ github.workflow }}</span>
-        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
-
-      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">        </span>        <span style="color:#ae81ff">sudo apt-get install -y jq curl</span>
-
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">get json</span>
-      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">        curl -sL https://github-contributions-api.deno.dev/${{ github.actor }}.json|jq &#34;.|del(.totalContributions)|.[]|.[]|.[]|{(.date+\&#34;T00:00:00Z\&#34;|fromdate|tostring):(.contributionCount)}&#34;|jq -n &#39;[inputs] | add&#39; &gt;&gt; ./static/json/cal.json.tmp
-</span><span style="color:#e6db74">        mv ./static/json/cal.json.tmp ./static/json/cal.json
-</span><span style="color:#e6db74">        cat ./static/json/cal.json|jq .
-</span><span style="color:#e6db74">        git config --local user.email &#34;action@github.com&#34;
-</span><span style="color:#e6db74">        git config --local user.name &#34;GitHub Action&#34;
-</span><span style="color:#e6db74">        if [ -z &#34;`git status -s`&#34; ];then
-</span><span style="color:#e6db74">          exit
-</span><span style="color:#e6db74">        fi
-</span><span style="color:#e6db74">        git add ./static/json/cal.json
-</span><span style="color:#e6db74">        git commit -m &#34;push json github contribution&#34;</span>        
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push changes</span>
-      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">ad-m/github-push-action@master</span>
-      <span style="color:#f92672">with</span>:
-        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-        <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">src</span>
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:gh-actions.yml" data-lang="yml:gh-actions.yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">push json github contribution</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">src</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">cron</span>:  <span style="color:#e6db74">&#39;00 00 * * 0&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">comment</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">install jq</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">WORKFLOW_FILE_PATH</span>: <span style="color:#ae81ff">${{ github.workflow }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        </span>        <span style="color:#ae81ff">sudo apt-get install -y jq curl</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">get json</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        curl -sL https://github-contributions-api.deno.dev/${{ github.actor }}.json|jq &#34;.|del(.totalContributions)|.[]|.[]|.[]|{(.date+\&#34;T00:00:00Z\&#34;|fromdate|tostring):(.contributionCount)}&#34;|jq -n &#39;[inputs] | add&#39; &gt;&gt; ./static/json/cal.json.tmp
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        mv ./static/json/cal.json.tmp ./static/json/cal.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        cat ./static/json/cal.json|jq .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        git config --local user.email &#34;action@github.com&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        git config --local user.name &#34;GitHub Action&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if [ -z &#34;`git status -s`&#34; ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          exit
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        git add ./static/json/cal.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        git commit -m &#34;push json github contribution&#34;</span>        
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push changes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">ad-m/github-push-action@master</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">src</span>
+</span></span></code></pre></div>
        			 		
 
 

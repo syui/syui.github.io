@@ -45,7 +45,7 @@ https://keybase.pub
 追記:
 twitterのlinkって、短縮形なので、そのへんが難しいんじゃないかと思っていたら、できました。
 やったことは、以下。
-1. a rel=&amp;quot;me&amp;quot; href=&amp;quot;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;quot;https://mstdn.syui.cf/@syui&amp;quot;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
+1. a rel=&amp;#34;me&amp;#34; href=&amp;#34;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;#34;https://mstdn.syui.cf/@syui&amp;#34;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
     </item>
     
   </channel>

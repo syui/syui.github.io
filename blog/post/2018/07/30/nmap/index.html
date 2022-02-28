@@ -113,196 +113,196 @@
 <p>portというのは、ネットワークの通信番号のことで、通常はこの番号を指定して通信のやり取りが行われる。firewallは、どの番号を閉じ、どの番号を開けるのか指定できたりする。</p>
 <p>で、nmapでscanすると、どのportが開いてるのかを調べられたりするんですけど、不要なportは閉じておいたほうがいいし、backdoorなどが設置されてる場合、管理者に覚えがないportが勝手に開けられてたりすることがある。</p>
 <p>この前、macをnmapしてみると、こんな感じだった。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nmap localhost
-PORT      STATE SERVICE
-111/tcp   open  rpcbind
-631/tcp   open  ipp
-1021/tcp  open  exp1
-1023/tcp  open  netvenuechat
-2049/tcp  open  nfs
-49163/tcp open  unknown
-
-$ sudo nmap -sU localhost
-</code></pre></div><p>portを使ってるアプリを調べてみると、macの起動時に動作するプロセスのことが色々把握できた。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ nmap localhost
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE
+</span></span><span style="display:flex;"><span>111/tcp   open  rpcbind
+</span></span><span style="display:flex;"><span>631/tcp   open  ipp
+</span></span><span style="display:flex;"><span>1021/tcp  open  exp1
+</span></span><span style="display:flex;"><span>1023/tcp  open  netvenuechat
+</span></span><span style="display:flex;"><span>2049/tcp  open  nfs
+</span></span><span style="display:flex;"><span>49163/tcp open  unknown
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo nmap -sU localhost
+</span></span></code></pre></div><p>portを使ってるアプリを調べてみると、macの起動時に動作するプロセスのことが色々把握できた。</p>
 <p>具体的には、macは<code>/System/Library/{LaunchDaemons,LaunchAgents}</code>で起動プロセスが設定されてるらしい。ちなみに、管理者とユーザーでは異なるprocが起動するので、両方チェックする必要がある。</p>
 <p>使わないアプリが勝手に起動し、特定のportを開けている現状は望ましくない。この辺は商用OS?なので、archlinuxなどとは違い、面倒くささがあるなと思った。自分でそういったprocをkillしていかないといけないわけですね。</p>
 <p>procについて調べるには以下のようなコマンドでやる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ lsof -i tcp:49163
-rapportd <span style="color:#ae81ff">402</span> syui    3u  xxxx      TCP *:49158 <span style="color:#f92672">(</span>LISTEN<span style="color:#f92672">)</span>
-<span style="color:#75715e"># proc 402をkill</span>
-$ lsof -p <span style="color:#ae81ff">402</span>
-
-$ codesign -dv --verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> /usr/libexec/rapportd
-$ otool -L /usr/libexec/rapportd
-
-$ launchctl list | grep <span style="color:#ae81ff">402</span>
-$ launchctl stop com.apple.rapportd
-</code></pre></div><p>macは、こんな感じのコマンドでprocをdisable, stopできる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ launchctl unload -w /System/Library/LaunchAgents/com.apple.rapportd-user.plist
-$ launchctl stop com.apple.rapportd
-
-.
-.
-.
-$ launchctl unload -w /System/Library/LaunchDaemons/com.apple.jetsamproperties.Mac.plist
-$ launchctl unload -w /System/Library/LaunchAgents/com.apple.sharingd.plist
-$ launchctl unload -w /System/Library/LaunchDaemons/com.apple.netbiosd.plist
-<span style="color:#75715e"># これunloadすると名前解決できなくなるので注意</span>
-$ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-</code></pre></div><p><code>$ open -a Network\ Utility.app</code>を実行して、portscanしてみたけど、こちらのほうが<code>namp</code>より正確。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ lsof -i tcp:49163
+</span></span><span style="display:flex;"><span>rapportd <span style="color:#ae81ff">402</span> syui    3u  xxxx      TCP *:49158 <span style="color:#f92672">(</span>LISTEN<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># proc 402をkill</span>
+</span></span><span style="display:flex;"><span>$ lsof -p <span style="color:#ae81ff">402</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ codesign -dv --verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> /usr/libexec/rapportd
+</span></span><span style="display:flex;"><span>$ otool -L /usr/libexec/rapportd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ launchctl list | grep <span style="color:#ae81ff">402</span>
+</span></span><span style="display:flex;"><span>$ launchctl stop com.apple.rapportd
+</span></span></code></pre></div><p>macは、こんな感じのコマンドでprocをdisable, stopできる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ launchctl unload -w /System/Library/LaunchAgents/com.apple.rapportd-user.plist
+</span></span><span style="display:flex;"><span>$ launchctl stop com.apple.rapportd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>$ launchctl unload -w /System/Library/LaunchDaemons/com.apple.jetsamproperties.Mac.plist
+</span></span><span style="display:flex;"><span>$ launchctl unload -w /System/Library/LaunchAgents/com.apple.sharingd.plist
+</span></span><span style="display:flex;"><span>$ launchctl unload -w /System/Library/LaunchDaemons/com.apple.netbiosd.plist
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># これunloadすると名前解決できなくなるので注意</span>
+</span></span><span style="display:flex;"><span>$ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+</span></span></code></pre></div><p><code>$ open -a Network\ Utility.app</code>を実行して、portscanしてみたけど、こちらのほうが<code>namp</code>より正確。</p>
 <p>ここで<code>BetterTou</code>がportを開けてたので、macのfirewallでブロックした上で、appを削除した。しかし、ショートカットキーが困ったので、<code>karabiner</code>に一本化することにした。</p>
 <blockquote>
 <p>~/.config/karabiner/karabiner.json</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;rules&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+1でFinderを開く&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
-                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;command&#34;</span>
-                                        ],
-                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;any&#34;</span>
-                                        ]
-                                    }
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;finder&#39;&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    },
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Shift+zでiTermを開く&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;z&#34;</span>,
-                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
-                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;command&#34;</span>,
-                                            <span style="color:#e6db74">&#34;shift&#34;</span>
-                                        ],
-                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;any&#34;</span>
-                                        ]
-                                    }
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;iTerm&#39;&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    },
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;ESCキーを押したら強制的にIMEをオフにする&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;j&#34;</span>,
-                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
-                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;control&#34;</span>
-                                        ],
-                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;any&#34;</span>
-                                        ]
-                                    }
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
-                                    },
-                                    {
-                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;japanese_eisuu&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    },
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Escを押したら強制的にIMEをオフにする&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
-                                    },
-                                    {
-                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;japanese_eisuu&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    },
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Alt+GでChromeを開く&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;g&#34;</span>,
-                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
-                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;command&#34;</span>,
-                                            <span style="color:#e6db74">&#34;control&#34;</span>
-                                        ],
-                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;any&#34;</span>
-                                        ]
-                                    }
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;Google Chrome&#39;&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    },
-                    {
-                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Alt+KでKeepassXを開く&#34;</span>,
-                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
-                            {
-                                <span style="color:#f92672">&#34;from&#34;</span>: {
-                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;k&#34;</span>,
-                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
-                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;command&#34;</span>,
-                                            <span style="color:#e6db74">&#34;control&#34;</span>
-                                        ],
-                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
-                                            <span style="color:#e6db74">&#34;any&#34;</span>
-                                        ]
-                                    }
-                                },
-                                <span style="color:#f92672">&#34;to&#34;</span>: [
-                                    {
-                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;KeePassX&#39;&#34;</span>
-                                    }
-                                ],
-                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
-                            }
-                        ]
-                    }
-                ]
-            <span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><p>こんな感じで色々書いてく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;rules&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+1でFinderを開く&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;command&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ],
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;any&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ]
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;finder&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Shift+zでiTermを開く&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;z&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;command&#34;</span>,
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;shift&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ],
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;any&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ]
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;iTerm&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;ESCキーを押したら強制的にIMEをオフにする&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;j&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;control&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ],
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;any&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ]
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
+</span></span><span style="display:flex;"><span>                                    },
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;japanese_eisuu&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Escを押したら強制的にIMEをオフにする&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;escape&#34;</span>
+</span></span><span style="display:flex;"><span>                                    },
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;japanese_eisuu&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Alt+GでChromeを開く&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;g&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;command&#34;</span>,
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;control&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ],
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;any&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ]
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;Google Chrome&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Command+Alt+KでKeepassXを開く&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;k&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;command&#34;</span>,
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;control&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ],
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;optional&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;any&#34;</span>
+</span></span><span style="display:flex;"><span>                                        ]
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        <span style="color:#f92672">&#34;shell_command&#34;</span>: <span style="color:#e6db74">&#34;open -a &#39;KeePassX&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>                                    }
+</span></span><span style="display:flex;"><span>                                ],
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        ]
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                ]
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><p>こんな感じで色々書いてく。</p>
 
        			 		
 

@@ -111,23 +111,23 @@
 													
        			 		<p>タイムスタンプは基本的なものでmtime, atime, ctimeという感じのものがあります。調べてませんし、適当なのでまあそんな感じのものが3つあるということです。作成日時、最終アクセス、更新日時みたいな内容だった記憶ですが、今回はそれらを改竄する方法についてです。</p>
 <p>タイムスタンプは<code>ls</code>や<code>exiftool</code>から簡単に確認できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -l
-$ ls -lc
-$ ls -lu
-$ exiftool $file
-</code></pre></div><p>タイムスタンプにはこれらの3つ以外にも独自フォーマットで保存される事が多く、通常、何らかのソフトを使ってファイルを作成すると、上記以外のタイムスタンプが保存されることがあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -l
+</span></span><span style="display:flex;"><span>$ ls -lc
+</span></span><span style="display:flex;"><span>$ ls -lu
+</span></span><span style="display:flex;"><span>$ exiftool $file
+</span></span></code></pre></div><p>タイムスタンプにはこれらの3つ以外にも独自フォーマットで保存される事が多く、通常、何らかのソフトを使ってファイルを作成すると、上記以外のタイムスタンプが保存されることがあります。</p>
 <p>もし完璧にタイムスタンプの偽装をしたければ、ソフトごとに異なるタイムスタンプにも注意を払わなければなりません。</p>
 <p>しかし、ここで紹介するのは、LinuxやUnixで一般的に使われているもののみです。注意してください。</p>
 <p>mtime, atimeは簡単に偽装できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ touch -d <span style="color:#ae81ff">201601010000</span> *
-</code></pre></div><p>ただ、<code>ctime</code>は少し厄介です。<code>touch</code>では偽装できません。<code>ctime</code>の書き換え方法として一般的に知られているやり方はディスク操作が必要になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ touch -d <span style="color:#ae81ff">201601010000</span> *
+</span></span></code></pre></div><p>ただ、<code>ctime</code>は少し厄介です。<code>touch</code>では偽装できません。<code>ctime</code>の書き換え方法として一般的に知られているやり方はディスク操作が必要になります。</p>
 <p>しかし、ここでは最も簡単なハックのみ紹介します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export now<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#34;%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
-$ echo $now
-$ sudo date --set<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2016-01-01 00:00:00.00&#34;</span>
-$ chmod -R <span style="color:#ae81ff">777</span> .
-$ sudo date --set<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$now<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p><code>ctime</code>の偽装はこんな感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export now<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#34;%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>$ echo $now
+</span></span><span style="display:flex;"><span>$ sudo date --set<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2016-01-01 00:00:00.00&#34;</span>
+</span></span><span style="display:flex;"><span>$ chmod -R <span style="color:#ae81ff">777</span> .
+</span></span><span style="display:flex;"><span>$ sudo date --set<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$now<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p><code>ctime</code>の偽装はこんな感じです。</p>
 <p>このやり方では、ファイル数によっては多少設定時刻がズレるのですが、時刻サーバーから取得して修正すれば直ると思います。</p>
 
        			 		

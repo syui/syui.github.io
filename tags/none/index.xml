@@ -33,7 +33,7 @@
 ただ、最終的には実行してくれる感じなのでWerckerよりは良くなってくのかも。
 あと、Elmのテンプレートが上手くビルドできなかった。gulp buildで引っかかります。ローカルではOK。
 https://github.com/Gizra/elm-hedley
-image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package install -y - npm i - bower install pages: script: - npm i elm@0.16.0 - gulp build artifacts: paths: - serve https://github.com/isRuslan/awesome-elm</description>
+image: node:latest  before_script:  - npm i -g elm@0.16.0 bower gulp  - elm-package install -y  - npm i  - bower install  pages:  script:  - npm i elm@0.16.0  - gulp build  artifacts:  paths:  - serve https://github.com/isRuslan/awesome-elm</description>
     </item>
     
     <item>

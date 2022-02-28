@@ -112,87 +112,87 @@
        			 		<p><a href="https://github.com/go-gitea/gitea">gitea</a>は、golangで書かれたgit serverで、ワンバイナリで起動します。</p>
 <p>Dockerfileも用意されており、簡単に環境を構築できます。</p>
 <p>設定ファイルは、<code>./custom/conf/app.ini</code>にあります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">web</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">./gitea-data:/data</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
-      - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
-    <span style="color:#f92672">environment</span>:
-      - <span style="color:#ae81ff">TZ=Japan</span>
-      - <span style="color:#ae81ff">SSH_PORT=10022</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</code></pre></div><p><a href="https://docs.gitea.io/en-us/install-with-docker/">https://docs.gitea.io/en-us/install-with-docker/</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># serverの初期設定</span>
-$ docker-compose up -d
-$ sudo docker ps
-$ chromium localhost:3000/install
-
-<span style="color:#75715e"># sshでpushできるようにする</span>
-$ ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -f ~/.ssh/gitea
-$ cat ~/.ssh/gitea.pub | pbcopy 
-$ vi gitea-data/gitea/conf/app.ini
-START_SSH_SERVER <span style="color:#f92672">=</span> true
-$ vi ~/.ssh/config
-Host localhost
-  User syui
-  Hostname localhost
-  IdentityFile ~/.ssh/gitea
-$ docker-compose down
-$ docker-compose up -d
-$ touch README.md
-$ git init
-$ git add README.md
-$ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
-$ git remote add origin ssh://git@localhost:10022/syui/test.git
-$ git push -u origin master
-</code></pre></div><p><code>/install</code>実行後に保存される設定ファイルは<code>./gitea-data/gitea/conf/app.ini</code>にあります。その他の保全情報は<code>./gitea-data/gitea/</code>です。例えば、Dockerfileで以下のようにして、Hostingできます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./gitea-data:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=Japan</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SSH_PORT=10022</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span></code></pre></div><p><a href="https://docs.gitea.io/en-us/install-with-docker/">https://docs.gitea.io/en-us/install-with-docker/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># serverの初期設定</span>
+</span></span><span style="display:flex;"><span>$ docker-compose up -d
+</span></span><span style="display:flex;"><span>$ sudo docker ps
+</span></span><span style="display:flex;"><span>$ chromium localhost:3000/install
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sshでpushできるようにする</span>
+</span></span><span style="display:flex;"><span>$ ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -f ~/.ssh/gitea
+</span></span><span style="display:flex;"><span>$ cat ~/.ssh/gitea.pub | pbcopy 
+</span></span><span style="display:flex;"><span>$ vi gitea-data/gitea/conf/app.ini
+</span></span><span style="display:flex;"><span>START_SSH_SERVER <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>$ vi ~/.ssh/config
+</span></span><span style="display:flex;"><span>Host localhost
+</span></span><span style="display:flex;"><span>  User syui
+</span></span><span style="display:flex;"><span>  Hostname localhost
+</span></span><span style="display:flex;"><span>  IdentityFile ~/.ssh/gitea
+</span></span><span style="display:flex;"><span>$ docker-compose down
+</span></span><span style="display:flex;"><span>$ docker-compose up -d
+</span></span><span style="display:flex;"><span>$ touch README.md
+</span></span><span style="display:flex;"><span>$ git init
+</span></span><span style="display:flex;"><span>$ git add README.md
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
+</span></span><span style="display:flex;"><span>$ git remote add origin ssh://git@localhost:10022/syui/test.git
+</span></span><span style="display:flex;"><span>$ git push -u origin master
+</span></span></code></pre></div><p><code>/install</code>実行後に保存される設定ファイルは<code>./gitea-data/gitea/conf/app.ini</code>にあります。その他の保全情報は<code>./gitea-data/gitea/</code>です。例えば、Dockerfileで以下のようにして、Hostingできます。</p>
 <pre tabindex="0"><code class="language-yml:Dockerfile" data-lang="yml:Dockerfile">ENV GITEA_CUSTOM /data/gitea
 COPY ./gitea-data/gitea/conf/app.ini /data/gitea/conf/app.ini
-VOLUME [&quot;/data&quot;]
+VOLUME [&#34;/data&#34;]
 </code></pre><p>herokuにあげる場合は、<code>heroku.yml</code>に書いて、Dockerfileを調整します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
-  <span style="color:#f92672">docker</span>:
-    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
-<span style="color:#f92672">run</span>:
-  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT</span>
-  <span style="color:#75715e">#web: echo RUN_USER=$USER &gt;&gt; /data/gitea/conf/app.ini; echo &#34;[server]\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:gitea/conf/app.ini" data-lang="yml:gitea/conf/app.ini"><span style="color:#66d9ef">[database]</span>
-<span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
-<span style="color:#a6e22e">HOST</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">aws.amazonaws.com:5432</span>
-<span style="color:#a6e22e">NAME</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
-<span style="color:#a6e22e">USER</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
-<span style="color:#a6e22e">PASSWD</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat .gitignore
-$ docker-compose down
-$ sudo heroku container:login
-$ heroku container:push web
-<span style="color:#75715e"># dockerなので動いてるコンテナにはアクセスできず、pushした時の状態にアクセスするのみ</span>
-$ heroku run bash
-$ gitea web -p $PORT --config /data/gitea/conf/app.ini
-
-<span style="color:#75715e"># herokuでも問題は多分この2つ{ port, user }</span>
-$ cat /data/gitea/conf/app.ini
-RUN_USER <span style="color:#f92672">=</span> git
-HTTP_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
-
-$ sudo docker ps -q
-$ sudo docker exec -it xxx /bin/bash
-$ su git;cd
-$ gitea admin create-user --username myname --password asecurepassword --email me@example.com --admin
-$ gitea admin auth list
-</code></pre></div><p><a href="https://docs.gitea.io/en-us/command-line/">https://docs.gitea.io/en-us/command-line/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#web: echo RUN_USER=$USER &gt;&gt; /data/gitea/conf/app.ini; echo &#34;[server]\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:gitea/conf/app.ini" data-lang="yml:gitea/conf/app.ini"><span style="display:flex;"><span><span style="color:#66d9ef">[database]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">HOST</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">aws.amazonaws.com:5432</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NAME</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">USER</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">PASSWD</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">xxxx</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat .gitignore
+</span></span><span style="display:flex;"><span>$ docker-compose down
+</span></span><span style="display:flex;"><span>$ sudo heroku container:login
+</span></span><span style="display:flex;"><span>$ heroku container:push web
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># dockerなので動いてるコンテナにはアクセスできず、pushした時の状態にアクセスするのみ</span>
+</span></span><span style="display:flex;"><span>$ heroku run bash
+</span></span><span style="display:flex;"><span>$ gitea web -p $PORT --config /data/gitea/conf/app.ini
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># herokuでも問題は多分この2つ{ port, user }</span>
+</span></span><span style="display:flex;"><span>$ cat /data/gitea/conf/app.ini
+</span></span><span style="display:flex;"><span>RUN_USER <span style="color:#f92672">=</span> git
+</span></span><span style="display:flex;"><span>HTTP_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo docker ps -q
+</span></span><span style="display:flex;"><span>$ sudo docker exec -it xxx /bin/bash
+</span></span><span style="display:flex;"><span>$ su git;cd
+</span></span><span style="display:flex;"><span>$ gitea admin create-user --username myname --password asecurepassword --email me@example.com --admin
+</span></span><span style="display:flex;"><span>$ gitea admin auth list
+</span></span></code></pre></div><p><a href="https://docs.gitea.io/en-us/command-line/">https://docs.gitea.io/en-us/command-line/</a></p>
 <p>基本的には、<code>/data/gitea/conf/app.ini</code>に書き出した情報が正しければ動きます。herokuで動作させる場合、/installを実行後に、正常に動くapp.iniを持ってきて、それをpush(docker-copy)すると良いと思います。この辺が面倒で、localで動くからと言って、heroku上でも動くとは限りません。portも変動します。ユーザー名も変動します。よって、herokuで動くapp.iniを出力し、それを持ってくる必要があると思います。herokuは定期でディレクトリをリセットします。実質的にファイルの保存ができないからです。</p>
 <p>localからheroku-dbにアクセスするには、<code>require</code>を指定する。登録を停止するには以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>database<span style="color:#f92672">]</span>
-SSL_MODE <span style="color:#f92672">=</span> require
-
-<span style="color:#f92672">[</span>service<span style="color:#f92672">]</span>
-DISABLE_REGISTRATION <span style="color:#f92672">=</span> true
-</code></pre></div><p><a href="https://docs.gitea.io/en-us/config-cheat-sheet/">https://docs.gitea.io/en-us/config-cheat-sheet/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>database<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>SSL_MODE <span style="color:#f92672">=</span> require
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>DISABLE_REGISTRATION <span style="color:#f92672">=</span> true
+</span></span></code></pre></div><p><a href="https://docs.gitea.io/en-us/config-cheat-sheet/">https://docs.gitea.io/en-us/config-cheat-sheet/</a></p>
 <p>また、webは動いたとしても、git-serverとして機能するかというと難しそう。user:gitが上手く動作していない感じですし、sshの設定とかもあります。そもそもheroku webがssh serverの起動を許すとは思えません。したがって、今の所の運用は、localでdockerを立ち上げてheroku-dbに接続して更新する方法です。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/gitea_heroku_deploy_docker_01.png" alt=""></p>
 <p>VPSならそのへんは自由にできるので、giteaは手軽に立てられて便利そうです。</p>

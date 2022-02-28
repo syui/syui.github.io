@@ -111,11 +111,11 @@
 													
        			 		<p>前回の記事の補足として一つのGitハックを紹介します。</p>
 <p>(というか前回の記事に含めて書いてたつもりだったけど確認してみたところなぜか書かれてなかったという&hellip;。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># mac</span>
-$ GIT_SEQUENCE_EDITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sed -i &#39;&#39; -e &#39;2,\$d&#39;&#34;</span> git rebase -i --root
-<span style="color:#75715e"># linux</span>
-$ GIT_SEQUENCE_EDITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sed -i -e &#39;2,\$d&#39;&#34;</span> git rebase -i --root
-</code></pre></div><p>これは最初のコミットへ強制的に戻すコマンドで<code>GIT_EDITOR</code>あたりの変数がポイントになりそう。rebaseの一つの使い方として、このようにcommitを戻して、最新のrepositoryをそこ(./.gitがあるところ)へコピーしcommit, pushすれば、履歴の上書きが可能。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># mac</span>
+</span></span><span style="display:flex;"><span>$ GIT_SEQUENCE_EDITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sed -i &#39;&#39; -e &#39;2,\$d&#39;&#34;</span> git rebase -i --root
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># linux</span>
+</span></span><span style="display:flex;"><span>$ GIT_SEQUENCE_EDITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sed -i -e &#39;2,\$d&#39;&#34;</span> git rebase -i --root
+</span></span></code></pre></div><p>これは最初のコミットへ強制的に戻すコマンドで<code>GIT_EDITOR</code>あたりの変数がポイントになりそう。rebaseの一つの使い方として、このようにcommitを戻して、最新のrepositoryをそこ(./.gitがあるところ)へコピーしcommit, pushすれば、履歴の上書きが可能。</p>
 <p>基本的には<code>cat /usr/local/Cellar/git/$(git --version|cut -d ' ' -f 3)/libexec/git-core/git-rebase*</code>あたり見て色々確認したりするのが面白いかもしれません(実際、やらないけど)。</p>
 <p>あと、上記は<code>/Cellar</code>からもわかるようにmac(brew)。一般的なlinuxの場合は<code>/share</code>とかになりそう(これはpackage managerによる)。</p>
 <p>各種のGit Commandというのはあまり知られてなさそうなことですが、かなりの割合でShell Scriptだという気がしなくもないですね(適当)。</p>

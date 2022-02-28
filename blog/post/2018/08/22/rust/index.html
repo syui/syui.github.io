@@ -122,46 +122,46 @@
 <p>とりあえず、rocketから触ってみることに。</p>
 <p><a href="https://github.com/SergioBenitez/Rocket/tree/master/examples/json">https://github.com/SergioBenitez/Rocket/tree/master/examples/json</a></p>
 <p>api server立てるっぽいやつを動かしてみる。ここでコードの内容も見ていく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rustc -V
-$ cargo -V
-
-$ git clone https://github.com/SergioBenitez/Rocket
-$ cd Rocket/example/json
-$ rustup override set nightly
-
-$ cat Cargo.toml
-$ cargo build
-$ cargo run
-
-$ cat src/main.rs
-
-<span style="color:#75715e"># check</span>
-$ curl localhost:8000/message/1
-<span style="color:#75715e"># post</span>
-$ curl -H <span style="color:#e6db74">&#39;Content-Type:application/json&#39;</span> -d <span style="color:#e6db74">&#39;{ &#34;contents&#34;: &#34;Hello, world!&#34; }&#39;</span> localhost:8000/message/1
-<span style="color:#75715e"># get</span>
-$ curl localhost:8000/message/1
-</code></pre></div><p>次は、dbを組み合わせた感じのものを見ていきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku create $APP_NAME
-$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
-$ heroku config -a $APP_NAME
-
-$ git clone https://github.com/ghotiphud/rust-web-starter
-$ cd !$:t
-$ docker-compose up
-
-$ curl localhost:3000/api
-or
-$ wrk -t12 -c400 -d30s http://localhost:3000/api
-</code></pre></div><p>この場合は、<code>./web</code>がfrontendで<code>./api_server</code>がbackendになります。つまり、<code>./api_server</code>がrustで書かれています。herokuなどにdeployする場合は、Procfileに以下のように記述すればいいでしょう。frontendはnpmするだけのものが多いので、特にありません。react使ってる人が多い印象。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo build --release
-$ echo <span style="color:#e6db74">&#34;ROCKET_ENV=prod target/release/api_server&#34;</span> &gt;&gt; Procfile
-</code></pre></div><p>重要なのはreadmeにも書いてますけど、<code>diesel</code>になります。大抵、repoに<code>./migrations</code>が用意されてますので、<code>diesel migration run</code>すればpreviewはできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cargo install diesel_cli
-$ echo <span style="color:#e6db74">&#34;DATABASE_URL=postgres://user:pass@localhost/name&#34;</span> &gt; .env
-$ diesel migration generate name
-$ diesel migration run
-</code></pre></div><p>コードの内容については、<a href="https://medium.com/p/1867308352d8/">こちら</a>が参考になりそうな感じだった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rustc -V
+</span></span><span style="display:flex;"><span>$ cargo -V
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/SergioBenitez/Rocket
+</span></span><span style="display:flex;"><span>$ cd Rocket/example/json
+</span></span><span style="display:flex;"><span>$ rustup override set nightly
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat Cargo.toml
+</span></span><span style="display:flex;"><span>$ cargo build
+</span></span><span style="display:flex;"><span>$ cargo run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat src/main.rs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># check</span>
+</span></span><span style="display:flex;"><span>$ curl localhost:8000/message/1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># post</span>
+</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#39;Content-Type:application/json&#39;</span> -d <span style="color:#e6db74">&#39;{ &#34;contents&#34;: &#34;Hello, world!&#34; }&#39;</span> localhost:8000/message/1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get</span>
+</span></span><span style="display:flex;"><span>$ curl localhost:8000/message/1
+</span></span></code></pre></div><p>次は、dbを組み合わせた感じのものを見ていきます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku create $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku config -a $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/ghotiphud/rust-web-starter
+</span></span><span style="display:flex;"><span>$ cd !$:t
+</span></span><span style="display:flex;"><span>$ docker-compose up
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ curl localhost:3000/api
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>$ wrk -t12 -c400 -d30s http://localhost:3000/api
+</span></span></code></pre></div><p>この場合は、<code>./web</code>がfrontendで<code>./api_server</code>がbackendになります。つまり、<code>./api_server</code>がrustで書かれています。herokuなどにdeployする場合は、Procfileに以下のように記述すればいいでしょう。frontendはnpmするだけのものが多いので、特にありません。react使ってる人が多い印象。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cargo build --release
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;ROCKET_ENV=prod target/release/api_server&#34;</span> &gt;&gt; Procfile
+</span></span></code></pre></div><p>重要なのはreadmeにも書いてますけど、<code>diesel</code>になります。大抵、repoに<code>./migrations</code>が用意されてますので、<code>diesel migration run</code>すればpreviewはできます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cargo install diesel_cli
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;DATABASE_URL=postgres://user:pass@localhost/name&#34;</span> &gt; .env
+</span></span><span style="display:flex;"><span>$ diesel migration generate name
+</span></span><span style="display:flex;"><span>$ diesel migration run
+</span></span></code></pre></div><p>コードの内容については、<a href="https://medium.com/p/1867308352d8/">こちら</a>が参考になりそうな感じだった。</p>
 <h2 id="感想">感想</h2>
 <p>rustは、依存パッケージでハマると、ものすごく時間を浪費してしまう感じで、その点はつらいですね。</p>
 <p>その分、api serverとかをrustで選択するのは、やりやすそうな感じでした。書けると選択肢広がりそうな言語です。</p>

@@ -111,122 +111,122 @@
 													
        			 		<p><a href="https://github.com/CachetHQ/Cachet">CachetHQ/Cachet</a> on <a href="https://console.au-syd.bluemix.net">bluemix</a>(ibm cloud).</p>
 <p>cachetというappをibm cloudで動かす手順を記録します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/CachetHQ/Cachet
-<span style="color:#75715e"># masterでは、bootstrap/autoload.phpのerrorが出るため特定のcommitまで戻す。おそらく原因は、secrity updateの&#34;Bump bootstrap-sass from 3.4.0 to 3.4.1&#34;です</span>
-$ git reset --hard b82651f7943619ebc9df46dd5ebbe14f809791d8
-
-$ cp .env.example .env
-
-<span style="color:#75715e"># myslqDBが必要になる</span>
-$ heroku create $APP_NAME
-$ heroku addons:add cleardb:ignite -a $APP_NAME
-$ heroku config -a $APP_NAME
-
-$ vim .env
-APP_URL<span style="color:#f92672">=</span>https://$APP_NAME_BLUEMIX.mybluemix.net
-DB_DRIVER<span style="color:#f92672">=</span>mysql
-DB_HOST<span style="color:#f92672">=</span>$DB_HOST
-DB_UNIX_SOCKET<span style="color:#f92672">=</span>null
-DB_DATABASE<span style="color:#f92672">=</span>$DB_NAME
-DB_USERNAME<span style="color:#f92672">=</span>$DB_USER
-DB_PASSWORD<span style="color:#f92672">=</span>$DB_PASS
-DB_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
-DB_PREFIX<span style="color:#f92672">=</span>null
-CACHE_DRIVER<span style="color:#f92672">=</span>file
-SESSION_DRIVER<span style="color:#f92672">=</span>file
-QUEUE_DRIVER<span style="color:#f92672">=</span>sync
-
-$ vim .bp-config/options.json
-<span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;COMPOSER_INSTALL_OPTIONS_DEBUG&#34;</span>: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;--no-dev&#34;</span>, <span style="color:#e6db74">&#34;-o&#34;</span><span style="color:#f92672">]</span>,
-    <span style="color:#e6db74">&#34;PHP_VERSION&#34;</span>: <span style="color:#e6db74">&#34;{PHP_71_LATEST}&#34;</span>,
-    <span style="color:#e6db74">&#34;COMPOSER_VENDOR_DIR&#34;</span>: <span style="color:#e6db74">&#34;vendor&#34;</span>,
-    <span style="color:#e6db74">&#34;WEBDIR&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
-    <span style="color:#e6db74">&#34;PHP_EXTENSIONS&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bz2&#34;</span>, <span style="color:#e6db74">&#34;pdo&#34;</span>, <span style="color:#e6db74">&#34;zlib&#34;</span>, <span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;mcrypt&#34;</span>, <span style="color:#e6db74">&#34;mbstring&#34;</span>, <span style="color:#e6db74">&#34;mysqli&#34;</span>, <span style="color:#e6db74">&#34;gd&#34;</span>, <span style="color:#e6db74">&#34;zip&#34;</span>, <span style="color:#e6db74">&#34;pdo_mysql&#34;</span>, <span style="color:#e6db74">&#34;pdo_sqlite&#34;</span>,<span style="color:#e6db74">&#34;iconv&#34;</span>,  <span style="color:#e6db74">&#34;openssl&#34;</span> <span style="color:#f92672">]</span>
-<span style="color:#f92672">}</span>
-
-$ vim manifest.yml
-applications:
-- path: .
-  name: cachet
-  memory: 256M
-  command: null
-  buildpack: https://github.com/cloudfoundry/php-buildpack
-
-$ mkdir htdocs
-$ mv database htdocs/
-
-$ php -v
-7.1.27
-
-<span style="color:#75715e"># 修正箇所を示します。</span>
-$ vim composer.json
-    <span style="color:#e6db74">&#34;require&#34;</span>: <span style="color:#f92672">{</span>
-        + <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;7.1.27&#34;</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#e6db74">&#34;autoload&#34;</span>: <span style="color:#f92672">{</span>
-        <span style="color:#e6db74">&#34;classmap&#34;</span>: <span style="color:#f92672">[</span>
-            + <span style="color:#e6db74">&#34;htdocs/database&#34;</span>
-        <span style="color:#f92672">]</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#e6db74">&#34;config&#34;</span>: <span style="color:#f92672">{</span>
-        <span style="color:#e6db74">&#34;platform&#34;</span>: <span style="color:#f92672">{</span>
-            + <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;7.1.27&#34;</span>
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-
-$ php artisan key:generate
-$ php artisan migrate --force
-
-$ cf login
-$ cf api https://api.ng.bluemix.net
-$ cf target
-$ cf target -o $USER -s dev
-$ vim .gitignore
-- .env
-
-$ composer install --no-dev -o
-$ composer update
-
-<span style="color:#75715e"># previewする</span>
-$ cd public
-$ php -S localhost:8000
-$ php artisan up
-$ php artisan down
-
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-$ cf push $APP_NAME_BLUEMIX
-</code></pre></div><h2 id="参照">参照</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/CachetHQ/Cachet
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># masterでは、bootstrap/autoload.phpのerrorが出るため特定のcommitまで戻す。おそらく原因は、secrity updateの&#34;Bump bootstrap-sass from 3.4.0 to 3.4.1&#34;です</span>
+</span></span><span style="display:flex;"><span>$ git reset --hard b82651f7943619ebc9df46dd5ebbe14f809791d8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cp .env.example .env
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># myslqDBが必要になる</span>
+</span></span><span style="display:flex;"><span>$ heroku create $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:add cleardb:ignite -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku config -a $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim .env
+</span></span><span style="display:flex;"><span>APP_URL<span style="color:#f92672">=</span>https://$APP_NAME_BLUEMIX.mybluemix.net
+</span></span><span style="display:flex;"><span>DB_DRIVER<span style="color:#f92672">=</span>mysql
+</span></span><span style="display:flex;"><span>DB_HOST<span style="color:#f92672">=</span>$DB_HOST
+</span></span><span style="display:flex;"><span>DB_UNIX_SOCKET<span style="color:#f92672">=</span>null
+</span></span><span style="display:flex;"><span>DB_DATABASE<span style="color:#f92672">=</span>$DB_NAME
+</span></span><span style="display:flex;"><span>DB_USERNAME<span style="color:#f92672">=</span>$DB_USER
+</span></span><span style="display:flex;"><span>DB_PASSWORD<span style="color:#f92672">=</span>$DB_PASS
+</span></span><span style="display:flex;"><span>DB_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>
+</span></span><span style="display:flex;"><span>DB_PREFIX<span style="color:#f92672">=</span>null
+</span></span><span style="display:flex;"><span>CACHE_DRIVER<span style="color:#f92672">=</span>file
+</span></span><span style="display:flex;"><span>SESSION_DRIVER<span style="color:#f92672">=</span>file
+</span></span><span style="display:flex;"><span>QUEUE_DRIVER<span style="color:#f92672">=</span>sync
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim .bp-config/options.json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;COMPOSER_INSTALL_OPTIONS_DEBUG&#34;</span>: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;--no-dev&#34;</span>, <span style="color:#e6db74">&#34;-o&#34;</span><span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;PHP_VERSION&#34;</span>: <span style="color:#e6db74">&#34;{PHP_71_LATEST}&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;COMPOSER_VENDOR_DIR&#34;</span>: <span style="color:#e6db74">&#34;vendor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;WEBDIR&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;PHP_EXTENSIONS&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bz2&#34;</span>, <span style="color:#e6db74">&#34;pdo&#34;</span>, <span style="color:#e6db74">&#34;zlib&#34;</span>, <span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;mcrypt&#34;</span>, <span style="color:#e6db74">&#34;mbstring&#34;</span>, <span style="color:#e6db74">&#34;mysqli&#34;</span>, <span style="color:#e6db74">&#34;gd&#34;</span>, <span style="color:#e6db74">&#34;zip&#34;</span>, <span style="color:#e6db74">&#34;pdo_mysql&#34;</span>, <span style="color:#e6db74">&#34;pdo_sqlite&#34;</span>,<span style="color:#e6db74">&#34;iconv&#34;</span>,  <span style="color:#e6db74">&#34;openssl&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim manifest.yml
+</span></span><span style="display:flex;"><span>applications:
+</span></span><span style="display:flex;"><span>- path: .
+</span></span><span style="display:flex;"><span>  name: cachet
+</span></span><span style="display:flex;"><span>  memory: 256M
+</span></span><span style="display:flex;"><span>  command: null
+</span></span><span style="display:flex;"><span>  buildpack: https://github.com/cloudfoundry/php-buildpack
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mkdir htdocs
+</span></span><span style="display:flex;"><span>$ mv database htdocs/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ php -v
+</span></span><span style="display:flex;"><span>7.1.27
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修正箇所を示します。</span>
+</span></span><span style="display:flex;"><span>$ vim composer.json
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;require&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        + <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;7.1.27&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;autoload&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;classmap&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>            + <span style="color:#e6db74">&#34;htdocs/database&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;config&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;platform&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            + <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;7.1.27&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ php artisan key:generate
+</span></span><span style="display:flex;"><span>$ php artisan migrate --force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cf login
+</span></span><span style="display:flex;"><span>$ cf api https://api.ng.bluemix.net
+</span></span><span style="display:flex;"><span>$ cf target
+</span></span><span style="display:flex;"><span>$ cf target -o $USER -s dev
+</span></span><span style="display:flex;"><span>$ vim .gitignore
+</span></span><span style="display:flex;"><span>- .env
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ composer install --no-dev -o
+</span></span><span style="display:flex;"><span>$ composer update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># previewする</span>
+</span></span><span style="display:flex;"><span>$ cd public
+</span></span><span style="display:flex;"><span>$ php -S localhost:8000
+</span></span><span style="display:flex;"><span>$ php artisan up
+</span></span><span style="display:flex;"><span>$ php artisan down
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+</span></span><span style="display:flex;"><span>$ cf push $APP_NAME_BLUEMIX
+</span></span></code></pre></div><h2 id="参照">参照</h2>
 <p><code>.bp-config/options.json</code> : <a href="https://docs.cloudfoundry.org/buildpacks/php/gsg-php-config.html">https://docs.cloudfoundry.org/buildpacks/php/gsg-php-config.html</a></p>
 <p>cachet docs : <a href="https://docs.cachethq.io/docs/installing-cachet">https://docs.cachethq.io/docs/installing-cachet</a></p>
 <h2 id="ヒント">ヒント</h2>
 <h3 id="bluemix上でmigrateが失敗する">bluemix上でmigrateが失敗する</h3>
 <p>おそらく、<code>PHP_EXTENSIONS&quot;: [ &quot;mysqli&quot;, &quot;pdo_mysql ]</code>あたりを追加すると行けると思います。</p>
 <h3 id="問題を調査する">問題を調査する</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># buildpackを使ってdeployは正常に完了する場合</span>
-$ cf ssh $APP_NAME_BLUEMIX
-$ HOME<span style="color:#f92672">=</span>/home/vcap/app source app/.profile.d/finalize_bp_env_vars.sh
-$ php -v
-
-<span style="color:#75715e"># web server関連のlogを表示する</span>
-$ cf logs $APP_NAME_BLUEMIX --recent
-
-<span style="color:#75715e"># オプションを有効にする</span>
-$ cf set-env $APP_NAME_BLUEMIX OPTIMIZE_MEMORY true
-
-<span style="color:#75715e"># deployする際に、詳細にlogを表示する</span>
-$ cf set-env $APP_NAME_BLUEMIX BP_DEBUG true
-or
-$ ibmcloud app env-set cachet BP_DEBUG true
-</code></pre></div><h3 id="issueを読む">issueを読む</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># buildpackを使ってdeployは正常に完了する場合</span>
+</span></span><span style="display:flex;"><span>$ cf ssh $APP_NAME_BLUEMIX
+</span></span><span style="display:flex;"><span>$ HOME<span style="color:#f92672">=</span>/home/vcap/app source app/.profile.d/finalize_bp_env_vars.sh
+</span></span><span style="display:flex;"><span>$ php -v
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># web server関連のlogを表示する</span>
+</span></span><span style="display:flex;"><span>$ cf logs $APP_NAME_BLUEMIX --recent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># オプションを有効にする</span>
+</span></span><span style="display:flex;"><span>$ cf set-env $APP_NAME_BLUEMIX OPTIMIZE_MEMORY true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deployする際に、詳細にlogを表示する</span>
+</span></span><span style="display:flex;"><span>$ cf set-env $APP_NAME_BLUEMIX BP_DEBUG true
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>$ ibmcloud app env-set cachet BP_DEBUG true
+</span></span></code></pre></div><h3 id="issueを読む">issueを読む</h3>
 <p>問題が発生したとき、こちらにissueを書きました。参考になるかもしれません。</p>
 <p><a href="https://github.com/cloudfoundry/php-buildpack/issues/295">https://github.com/cloudfoundry/php-buildpack/issues/295</a></p>
 <h3 id="phpini">php.ini</h3>
 <p>おそらく、このあたりが参考になると思います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cf ssh $APP_NAME_BLUEMIX
-$ vi ~/app/php/etc/php.ini
-</code></pre></div><p><a href="https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini">https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cf ssh $APP_NAME_BLUEMIX
+</span></span><span style="display:flex;"><span>$ vi ~/app/php/etc/php.ini
+</span></span></code></pre></div><p><a href="https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini">https://github.com/cloudfoundry/php-buildpack/blob/master/defaults/config/php/7.1.x/php.ini</a></p>
 
        			 		
 

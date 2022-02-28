@@ -111,29 +111,29 @@
 													
        			 		<p>medium clientをgolangで書いた。</p>
 <p><a href="https://github.com/syui/medigo">https://github.com/syui/medigo</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd $GOPATH/bin
-$ curl -LO https://github.com/syui/medigo/releases/download/0.1/darwin_amd64_medigo
-$ mv darwin_amd64_medigo medigo
-$ chmod +x medigo
-$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
-
-<span style="color:#75715e"># 最初はOAuth認証のためブラウザが開く</span>
-$ medigo
-
-
-$ medigo h
-
-COMMANDS:
-     post, p     carte post
-                   sub-command : draft<span style="color:#f92672">(</span>d<span style="color:#f92672">)</span>, public<span style="color:#f92672">(</span>p<span style="color:#f92672">)</span>
-     key, k      token json
-                   sub-command : AccessToken<span style="color:#f92672">(</span>a<span style="color:#f92672">)</span>, RefreshToken<span style="color:#f92672">(</span>r<span style="color:#f92672">)</span>, SelfToken<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
-     user, u     user info
-     oauth, o    get oauth-access-token
-     self, s     get self-access-token
-     refresh, r  refresh access-token
-     help, h     Shows a list of commands or help <span style="color:#66d9ef">for</span> one command
-</code></pre></div><p>前回は試せなかったので、設定ファイルから読み込む方法で<code>client_id</code>などを読み込むようにしてみたりとか色々。エディタとかと連携したら面白そうだけどやってない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd $GOPATH/bin
+</span></span><span style="display:flex;"><span>$ curl -LO https://github.com/syui/medigo/releases/download/0.1/darwin_amd64_medigo
+</span></span><span style="display:flex;"><span>$ mv darwin_amd64_medigo medigo
+</span></span><span style="display:flex;"><span>$ chmod +x medigo
+</span></span><span style="display:flex;"><span>$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 最初はOAuth認証のためブラウザが開く</span>
+</span></span><span style="display:flex;"><span>$ medigo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ medigo h
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>COMMANDS:
+</span></span><span style="display:flex;"><span>     post, p     carte post
+</span></span><span style="display:flex;"><span>                   sub-command : draft<span style="color:#f92672">(</span>d<span style="color:#f92672">)</span>, public<span style="color:#f92672">(</span>p<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     key, k      token json
+</span></span><span style="display:flex;"><span>                   sub-command : AccessToken<span style="color:#f92672">(</span>a<span style="color:#f92672">)</span>, RefreshToken<span style="color:#f92672">(</span>r<span style="color:#f92672">)</span>, SelfToken<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     user, u     user info
+</span></span><span style="display:flex;"><span>     oauth, o    get oauth-access-token
+</span></span><span style="display:flex;"><span>     self, s     get self-access-token
+</span></span><span style="display:flex;"><span>     refresh, r  refresh access-token
+</span></span><span style="display:flex;"><span>     help, h     Shows a list of commands or help <span style="color:#66d9ef">for</span> one command
+</span></span></code></pre></div><p>前回は試せなかったので、設定ファイルから読み込む方法で<code>client_id</code>などを読み込むようにしてみたりとか色々。エディタとかと連携したら面白そうだけどやってない。</p>
 <p>OAuthでの認証はBrowserでクリックしないといけないのでCLIとの相性は良くない。MediumにはSelf-access-tokenぽいものがあって、それを利用するとCLIとの相性は良さげなんだけど、これをどういう形でユーザーに取得してもらうのかという問題がある。できる限りコマンド一発で行いたいけど難しそう。</p>
 <p>一応、OAuth認証の実現に向けて試しにコマンドオプション<code>o</code>を追加してみたけど、実際のところブラウザからcodeをコピーして貼り付けなければならないし、MediumはLocalhostの利用を許可していないので、自身のWebサイトにURLにアクセスしてもらうようにしているのだけど、これ自体が信頼に足りないものだし、リフレッシュトークン(OAuthで取得したTokenは期限切れがあるため)の処理が面倒などなどいろいろな理由から対応してない。</p>
 <p>以上</p>

@@ -112,30 +112,30 @@
        			 		<p>gitshというものがあるのですが、zshではそれを使わなくても以下のような感じでいけます。</p>
 <p><a href="https://github.com/thoughtbot/gitsh">https://github.com/thoughtbot/gitsh</a></p>
 <p><a href="http://pocke.hatenablog.com/entry/2015/12/09/000000">http://pocke.hatenablog.com/entry/2015/12/09/000000</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> git-sh<span style="color:#f92672">()</span>
-<span style="color:#f92672">{</span>
-  eval <span style="color:#e6db74">&#34;__precmd_for_git-sh() { print -z &#39;</span>$*<span style="color:#e6db74"> &#39; }&#34;</span>
-  autoload -Uz add-zsh-hook
-  add-zsh-hook precmd <span style="color:#e6db74">&#34;__precmd_for_git-sh&#34;</span>
-<span style="color:#f92672">}</span>  
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git-sh git
-$ git status
-</code></pre></div><p>ただ、注意点としてはzshでは<code>x-x</code>という形式だと空白でもコマンドを発行できるので、思わぬ結果を招くことも。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> git-sh<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  eval <span style="color:#e6db74">&#34;__precmd_for_git-sh() { print -z &#39;</span>$*<span style="color:#e6db74"> &#39; }&#34;</span>
+</span></span><span style="display:flex;"><span>  autoload -Uz add-zsh-hook
+</span></span><span style="display:flex;"><span>  add-zsh-hook precmd <span style="color:#e6db74">&#34;__precmd_for_git-sh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>  
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git-sh git
+</span></span><span style="display:flex;"><span>$ git status
+</span></span></code></pre></div><p>ただ、注意点としてはzshでは<code>x-x</code>という形式だと空白でもコマンドを発行できるので、思わぬ結果を招くことも。</p>
 <blockquote>
 <p>/path/to/git-ci</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git commit -m <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>上記は、こんな感じで便利に使える場合もあります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># git commit -m &#34;add : commit message!&#34;</span>
-<span style="color:#75715e"># ↓</span>
-$ git ci add : commit message!
-</code></pre></div><p>ちなみに<code>fish</code>やるなら以下のような感じ。<code>--description</code>は補完に使う事が多い。但し、そのままでは使えない。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> git --description <span style="color:#e6db74">&#39;ci&#39;</span>
-	<span style="color:#66d9ef">if</span> test <span style="color:#f92672">(</span>count $argv<span style="color:#f92672">)</span> -ge <span style="color:#ae81ff">2</span>
-		git commit -m <span style="color:#e6db74">&#34;</span>$argv<span style="color:#e6db74">[2..-1]&#34;</span>
-	end
-end
-</code></pre></div><p>というか、今度、特定のタグがついた時、本サイトのまとめ記事に追加する仕組み作ろう&hellip;。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>上記は、こんな感じで便利に使える場合もあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># git commit -m &#34;add : commit message!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ↓</span>
+</span></span><span style="display:flex;"><span>$ git ci add : commit message!
+</span></span></code></pre></div><p>ちなみに<code>fish</code>やるなら以下のような感じ。<code>--description</code>は補完に使う事が多い。但し、そのままでは使えない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> git --description <span style="color:#e6db74">&#39;ci&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> test <span style="color:#f92672">(</span>count $argv<span style="color:#f92672">)</span> -ge <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>		git commit -m <span style="color:#e6db74">&#34;</span>$argv<span style="color:#e6db74">[2..-1]&#34;</span>
+</span></span><span style="display:flex;"><span>	end
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>というか、今度、特定のタグがついた時、本サイトのまとめ記事に追加する仕組み作ろう&hellip;。</p>
 
        			 		
 

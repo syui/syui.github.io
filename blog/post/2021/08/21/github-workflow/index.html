@@ -111,16 +111,16 @@
 													
        			 		<p>この前、画像を圧縮してpushするaction(workflow)を作ったんだけど、workflowでpushしても、gh-actionsのon:pushが動作しなかったので、どうやらworkflowでpushしたやつには反応したいみたい。</p>
 <p>このブログの場合、画像を圧縮してpushしてもhugo-buildを通さないとweb server(gh-pages)にdeployされないので、build+deployのworkflowに以下を追加すると、ちゃんと動いてくれるので便利になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">on</span>:
-  <span style="color:#f92672">workflow_run</span>:
-    <span style="color:#f92672">workflows</span>: 
-      - <span style="color:#ae81ff">push webp</span>
-    <span style="color:#f92672">branches</span>: <span style="color:#ae81ff">src</span>
-    <span style="color:#f92672">types</span>:
-      - <span style="color:#e6db74">&#34;completed&#34;</span>
-</code></pre></div><p>こんな感じで書いて、pushするworkflowはnameを設定します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">push webp</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_run</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">workflows</span>: 
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">push webp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: <span style="color:#ae81ff">src</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">types</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;completed&#34;</span>
+</span></span></code></pre></div><p>こんな感じで書いて、pushするworkflowはnameを設定します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">push webp</span>
+</span></span></code></pre></div>
        			 		
 
 

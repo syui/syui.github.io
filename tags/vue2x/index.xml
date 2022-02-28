@@ -16,7 +16,7 @@
       <guid>https://syui.cf/blog/post/2020/03/25/vue2x/</guid>
       <description>vue 2.x + webpack 4.x 系でenvを使うのにハマったのでメモ。
 結論としてdotenv-webpackを使えばいけました。
-$ echo &amp;#34;page=4&amp;#34; &amp;gt;&amp;gt; .env $ yarn add dotenv-webpack const Dotenv = require(&amp;#39;dotenv-webpack&amp;#39;); module.exports = { plugins: [ new Dotenv(&amp;#39;./.env&amp;#39;) ] } var app = new Vue({ data: { products: [...Array(Number(process.env.page)).keys()] } }) &amp;#34;scripts&amp;#34;: { &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack --progress --hide-modules&amp;#34; } </description>
+$ echo &amp;#34;page=4&amp;#34; &amp;gt;&amp;gt; .env $ yarn add dotenv-webpack const Dotenv = require(&amp;#39;dotenv-webpack&amp;#39;);  module.exports = {  plugins: [  new Dotenv(&amp;#39;./.env&amp;#39;) 	] } var app = new Vue({  data: {  products: [...Array(Number(process.env.page)).keys()]  } }) &amp;#34;scripts&amp;#34;: {  &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack --progress --hide-modules&amp;#34; } </description>
     </item>
     
   </channel>

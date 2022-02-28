@@ -114,23 +114,23 @@
 <p>まずbootですが、私はmacbook-airの内蔵diskにarchをインストールしてることもあって、そこから持ってくることになりました。</p>
 <p>grub-installは成功するんだけど、なぜかうまく動かない。また、archのインストールディスクからgrubがなくなってるのと、現在のインストールディスクがmacbookで認識しなくなってました。supportはずされたのか、それ以外の問題か。なんにせよ最新のgrub-installで作成されるefiではbootできないし、最新のインストールディスクはmacbookから起動できません。(私の環境では)</p>
 <p>なので、基本的には、usbにlinuxをインストールして、archが動いてるdiskの<code>/boot(linux-img以外)</code>及び<code>/dev/sda1</code>のディレクトリ構成をコピーすればokです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S linux
-
-$ mount /dev/sdb2 ./mnt
-$ cp -rf /boot/efi ./mnt/boot/
-$ cp -rf /boot/grub ./mnt/boot/
-
-$ mount /dev/sdb1 ./boot
-$ mount /dev/sda1 ./boot2
-$ cp -rf ./boot2/* ./boot/
-
-$ grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre></div><p>ちなみに、grub-installは以下のコマンドで成功(動かないけど)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ arch-chroot ./mnt
-$ mount /dev/sdb1 ./boot/efi
-
-$ grub-install --efi-directory<span style="color:#f92672">=</span>/boot/efi /dev/sdb
-</code></pre></div><h3 id="linux">linux</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S linux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mount /dev/sdb2 ./mnt
+</span></span><span style="display:flex;"><span>$ cp -rf /boot/efi ./mnt/boot/
+</span></span><span style="display:flex;"><span>$ cp -rf /boot/grub ./mnt/boot/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mount /dev/sdb1 ./boot
+</span></span><span style="display:flex;"><span>$ mount /dev/sda1 ./boot2
+</span></span><span style="display:flex;"><span>$ cp -rf ./boot2/* ./boot/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><p>ちなみに、grub-installは以下のコマンドで成功(動かないけど)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ arch-chroot ./mnt
+</span></span><span style="display:flex;"><span>$ mount /dev/sdb1 ./boot/efi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ grub-install --efi-directory<span style="color:#f92672">=</span>/boot/efi /dev/sdb
+</span></span></code></pre></div><h3 id="linux">linux</h3>
 <p>macbookは2台あるんですけど、archがすんなり起動したやつとしなかったやつがありました。</p>
 <p>macbookによってはlinux起動時に以下のようなerrorが出てlinuxが起動しない場合があって、uuidが見つからないと言われてるんだけど、普通にusbのuuidは一致してるので、fstab, grubの問題ではなく、linux kernelの問題でした。</p>
 <blockquote>
@@ -140,13 +140,13 @@ You are now being dropped into an emergency shell.
 sh: can&rsquo;t access tty: job control turned off</p>
 </blockquote>
 <p>これは、kernel更新する際、<code>block</code>を<code>autodetect</code>の前に置くと起動するようになりました。</p>
-<pre tabindex="0"><code class="language-sh:/etc/mkinitcpio.conf" data-lang="sh:/etc/mkinitcpio.conf">HOOKS=&quot;base udev block autodetect modconf filesystems keyboard fsck&quot;
+<pre tabindex="0"><code class="language-sh:/etc/mkinitcpio.conf" data-lang="sh:/etc/mkinitcpio.conf">HOOKS=&#34;base udev block autodetect modconf filesystems keyboard fsck&#34;
 </code></pre><pre tabindex="0"><code>$ mkinitcpio -p linux
 </code></pre><h3 id="icns">icns</h3>
 <p>macのbootloaderはosを読み込む際にアイコンを設定できます。boot領域の<code>/</code>に.volumeicon.icnsを置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount /dev/sdb1 ./boot
-$ cp .volumeicon.icns ./boot/
-</code></pre></div><p>ちなみに、同じアイコンでも表示されないことがあって、権限等の可能性があるかも。正直、よくわかりませんし、icnsもめんどくさすぎる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mount /dev/sdb1 ./boot
+</span></span><span style="display:flex;"><span>$ cp .volumeicon.icns ./boot/
+</span></span></code></pre></div><p>ちなみに、同じアイコンでも表示されないことがあって、権限等の可能性があるかも。正直、よくわかりませんし、icnsもめんどくさすぎる。</p>
 <p><a href="https://qiita.com/syui/items/76aebb2e39f40d8cd1e9">https://qiita.com/syui/items/76aebb2e39f40d8cd1e9</a></p>
 <h3 id="wifi">wifi</h3>
 <p>wifi-deviceがない状態なのでdrive, kernelあたりの問題だと思われます。</p>
@@ -159,25 +159,25 @@ blacklist brcm80211
 blacklist brcmfmac
 blacklist brcmsmac
 blacklist ssb
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -Syu linux-headers broadcom-wl-dkms
-$ mkinitcpio -p linux
-</code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759">https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759</a></p>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -Syu linux-headers broadcom-wl-dkms
+</span></span><span style="display:flex;"><span>$ mkinitcpio -p linux
+</span></span></code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759">https://bbs.archlinux.org/viewtopic.php?pid=1862759#p1862759</a></p>
 <h3 id="network">network</h3>
 <p>ip固定するので伝統的な名前、eth0とかにする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ln -s /dev/null /etc/systemd/network/99-default.link
-</code></pre></div><p>今回はnetworkmanagerを入れることにしたんだけど、便利。ただ、自動設定とかは接続は、systemd-networkで書いてる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ln -s /dev/null /etc/systemd/network/99-default.link
+</span></span></code></pre></div><p>今回はnetworkmanagerを入れることにしたんだけど、便利。ただ、自動設定とかは接続は、systemd-networkで書いてる。</p>
 <h3 id="xorg">xorg</h3>
 <p>ディスプレイがoffにならないようにする設定。よく忘れる。<code>xset dpms force off</code>が効かないことある。ただ、これらの設定によってi3が起動しなくなる事があるので注意。</p>
-<pre tabindex="0"><code class="language-sh:/etc/X11/xorg.conf.d/10-monitor.conf" data-lang="sh:/etc/X11/xorg.conf.d/10-monitor.conf">Section &quot;Monitor&quot;
-    Option &quot;DPMS&quot; &quot;false&quot;
+<pre tabindex="0"><code class="language-sh:/etc/X11/xorg.conf.d/10-monitor.conf" data-lang="sh:/etc/X11/xorg.conf.d/10-monitor.conf">Section &#34;Monitor&#34;
+    Option &#34;DPMS&#34; &#34;false&#34;
 EndSection
 
-Section &quot;ServerLayout&quot;
-    Identifier &quot;ServerLayout0&quot;
-    Option &quot;StandbyTime&quot; &quot;0&quot;
-    Option &quot;SuspendTime&quot; &quot;0&quot;
-    Option &quot;OffTime&quot;     &quot;0&quot;
-    Option &quot;BlankTime&quot;   &quot;0&quot;
+Section &#34;ServerLayout&#34;
+    Identifier &#34;ServerLayout0&#34;
+    Option &#34;StandbyTime&#34; &#34;0&#34;
+    Option &#34;SuspendTime&#34; &#34;0&#34;
+    Option &#34;OffTime&#34;     &#34;0&#34;
+    Option &#34;BlankTime&#34;   &#34;0&#34;
 EndSection
 </code></pre><p><a href="https://wiki.archlinux.jp/index.php/Display_Power_Management_Signaling">https://wiki.archlinux.jp/index.php/Display_Power_Management_Signaling</a></p>
 <h3 id="keyboard">keyboard</h3>
@@ -194,77 +194,77 @@ mod4        Super_L (0x85),  Zenkaku_Hankaku (0x86),  Super_L (0xce),  Hyper_L (
 mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
 </code></pre><h3 id="gtk">gtk</h3>
 <p>gtk-themeはnumixを採用。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S numix-gtk-theme numix-icon-theme-git
-$ vim /usr/share/gtk-x.0/
-
-$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
-<span style="color:#75715e"># GTK+ 2 : ~/.gtkrc-2.0</span>
-<span style="color:#75715e"># GTK+ 3 : ~/.config/gtk-3.0/settings.ini)</span>
-</code></pre></div><p><a href="https://wiki.archlinux.jp/index.php/GTK">https://wiki.archlinux.jp/index.php/GTK</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yay -S numix-gtk-theme numix-icon-theme-git
+</span></span><span style="display:flex;"><span>$ vim /usr/share/gtk-x.0/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GTK+ 2 : ~/.gtkrc-2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GTK+ 3 : ~/.config/gtk-3.0/settings.ini)</span>
+</span></span></code></pre></div><p><a href="https://wiki.archlinux.jp/index.php/GTK">https://wiki.archlinux.jp/index.php/GTK</a></p>
 <h3 id="その他の環境">その他の環境</h3>
 <p>その他の環境としては、i3, xterm, tilix, pcmanfm, chromium, fcitx, yayなどを採用。</p>
 <p>xtermも設定が面倒だけど、アイコンとかもフォントを指定すれば使える。</p>
 <p><code>.Xdefaults</code>,<code>.Xresources</code>に書く。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">XTerm*termName:            xterm-256color
-XTerm*locale:              true
-XTerm*selectToClipboard:   true
-XTerm*saveLines:           <span style="color:#ae81ff">2000</span>
-XTerm*background:          black
-XTerm*foreground:          white
-xterm*faceName:            ricomoon
-XTerm*faceSize:            <span style="color:#ae81ff">13</span>
-</code></pre></div><p>terminalの透過は、picomで実現します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>XTerm*termName:            xterm-256color
+</span></span><span style="display:flex;"><span>XTerm*locale:              true
+</span></span><span style="display:flex;"><span>XTerm*selectToClipboard:   true
+</span></span><span style="display:flex;"><span>XTerm*saveLines:           <span style="color:#ae81ff">2000</span>
+</span></span><span style="display:flex;"><span>XTerm*background:          black
+</span></span><span style="display:flex;"><span>XTerm*foreground:          white
+</span></span><span style="display:flex;"><span>xterm*faceName:            ricomoon
+</span></span><span style="display:flex;"><span>XTerm*faceSize:            <span style="color:#ae81ff">13</span>
+</span></span></code></pre></div><p>terminalの透過は、picomで実現します。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/arch_20210430.png" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S picom
-$ sudo cp /etc/xdg/picom.conf ~/.config/picom/
-$ sudo vim ~/.config/picom/picom.conf
-</code></pre></div><pre tabindex="0"><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
-  &quot;90:class_g = 'URxvt' &amp;&amp; focused&quot;,
-  &quot;60:class_g = 'URxvt' &amp;&amp; !focused&quot;,
-  &quot;90:class_g = 'xterm' &amp;&amp; focused&quot;,
-  &quot;60:class_g = 'xterm' &amp;&amp; !focused&quot;,
-  &quot;90:class_g = 'tilix' &amp;&amp; focused&quot;,
-  &quot;60:class_g = 'tilix' &amp;&amp; !focused&quot;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S picom
+</span></span><span style="display:flex;"><span>$ sudo cp /etc/xdg/picom.conf ~/.config/picom/
+</span></span><span style="display:flex;"><span>$ sudo vim ~/.config/picom/picom.conf
+</span></span></code></pre></div><pre tabindex="0"><code class="language-sh:~/.config/picom/picom.conf" data-lang="sh:~/.config/picom/picom.conf">opacity-rule = [
+  &#34;90:class_g = &#39;URxvt&#39; &amp;&amp; focused&#34;,
+  &#34;60:class_g = &#39;URxvt&#39; &amp;&amp; !focused&#34;,
+  &#34;90:class_g = &#39;xterm&#39; &amp;&amp; focused&#34;,
+  &#34;60:class_g = &#39;xterm&#39; &amp;&amp; !focused&#34;,
+  &#34;90:class_g = &#39;tilix&#39; &amp;&amp; focused&#34;,
+  &#34;60:class_g = &#39;tilix&#39; &amp;&amp; !focused&#34;
 ];
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ picom &amp;
-</code></pre></div><p>あとは、<code>~/.xinitrc</code>にでも書けばいいでしょう。</p>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ picom &amp;
+</span></span></code></pre></div><p>あとは、<code>~/.xinitrc</code>にでも書けばいいでしょう。</p>
 <h3 id="vpn">vpn</h3>
 <p>usbを外のパソコンに挿して、ssh先でvpnを起動し、local networkに入ってリモートすることはよくあるので、vpnの構築方法とclientでの接続方法を紹介。</p>
 <p>vpnはserverもclientもpritunlが便利すぎるので、そちらを使います。</p>
 <p><a href="https://github.com/Fridus/docker-pritunl">https://github.com/Fridus/docker-pritunl</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">network</span>:
-  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox</span>
-  <span style="color:#f92672">ports</span>:
-    - <span style="color:#e6db74">&#34;9700:443&#34;</span>
-    - <span style="color:#e6db74">&#34;1194:1194/udp&#34;</span>
-  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-  <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">mongo</span>:
-  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
-  <span style="color:#f92672">volumes</span>:
-    - <span style="color:#ae81ff">./mongo:/data/db</span>
-  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
-
-<span style="color:#f92672">pritunl</span>:
-  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">fridus/pritunl</span>
-  <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#f92672">environment</span>:
-    - <span style="color:#ae81ff">MONGO_URI=mongodb://127.0.0.1:27017/pritunl</span>
-  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
-
-<span style="color:#f92672">https-portal</span>:
-  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">steveltn/https-portal:1</span>
-  <span style="color:#f92672">ports</span>:
-    - <span style="color:#e6db74">&#39;443:443&#39;</span>
-  <span style="color:#f92672">environment</span>:
-    <span style="color:#f92672">STAGE</span>: <span style="color:#e6db74">&#39;local&#39;</span>
-    <span style="color:#f92672">DOMAINS</span>:  <span style="color:#e6db74">&#39;localhost =&gt; https://0.0.0.0:9700&#39;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker-compose up -d
-</code></pre></div><p>で、設定方法は、<code>https://localhost:9700</code>にアクセスしてwebから行います。user,passwordは<code>pritunl</code>です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo systemctl start docker
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">network</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;9700:443&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;1194:1194/udp&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">mongo</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">./mongo:/data/db</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pritunl</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">fridus/pritunl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">MONGO_URI=mongodb://127.0.0.1:27017/pritunl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">net</span>: <span style="color:#ae81ff">container:network</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">https-portal</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">steveltn/https-portal:1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#39;443:443&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">STAGE</span>: <span style="color:#e6db74">&#39;local&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">DOMAINS</span>:  <span style="color:#e6db74">&#39;localhost =&gt; https://0.0.0.0:9700&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo docker-compose up -d
+</span></span></code></pre></div><p>で、設定方法は、<code>https://localhost:9700</code>にアクセスしてwebから行います。user,passwordは<code>pritunl</code>です。</p>
 <p>基本的にはorg,userを作成して、start serverすればokです。userからはprofile(example.vpn)をダウンロードできますが、それを使います。これはopenvpnでも使用できる形式のものです。ただし、localで構築してることもあって、使用する際はdefaultのip,portが異なります。settingから変更した上で、profileをダウンロードすればいいのですけど、<code>.vpn</code>を修正したほうが早いです。</p>
 <p>ここでは、vpn serverのlocal ipを<code>192.168.11.4</code>とし、global ipを<code>207.97.227.253</code>とします。wan(外部)からserverにアクセスするにはrouteでポートフォワーディングなどを設定すればいいでしょう。</p>
 <pre tabindex="0"><code class="language-sh:example.vpn" data-lang="sh:example.vpn">- remote 192.168.1.4 1194 udp
@@ -273,24 +273,24 @@ $ sudo vim ~/.config/picom/picom.conf
 <p><a href="https://client.pritunl.com/">https://client.pritunl.com/</a></p>
 <p><a href="https://docs.pritunl.com/docs/command-line-interface">https://docs.pritunl.com/docs/command-line-interface</a></p>
 <p>基本的には、GUIでprofileをimportしたあと、gotunlで接続操作すればいいでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo tee -a /etc/pacman.conf <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">[pritunl]
-</span><span style="color:#e6db74">Server = https://repo.pritunl.com/stable/pacman
-</span><span style="color:#e6db74">EOF</span>
-$ sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-$ sudo pacman-key --lsign-key 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-$ sudo pacman -Sy
-$ sudo pacman -S pritunl-client-electron
-$ sudo pacman -S pritunl-client-electron-numix-theme
-$ pritunl-client-electron
-<span style="color:#75715e"># ここでprofile(example.vpn)をimport</span>
-
-$ git clone https://github.com/cghdev/gotunl.git
-$ cd gotunl
-$ go install
-$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
-$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo tee -a /etc/pacman.conf <span style="color:#e6db74">&lt;&lt; EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[pritunl]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Server = https://repo.pritunl.com/stable/pacman
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>$ sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+</span></span><span style="display:flex;"><span>$ sudo pacman-key --lsign-key 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+</span></span><span style="display:flex;"><span>$ sudo pacman -Sy
+</span></span><span style="display:flex;"><span>$ sudo pacman -S pritunl-client-electron
+</span></span><span style="display:flex;"><span>$ sudo pacman -S pritunl-client-electron-numix-theme
+</span></span><span style="display:flex;"><span>$ pritunl-client-electron
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ここでprofile(example.vpn)をimport</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/cghdev/gotunl.git
+</span></span><span style="display:flex;"><span>$ cd gotunl
+</span></span><span style="display:flex;"><span>$ go install
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div>
        			 		
 
 

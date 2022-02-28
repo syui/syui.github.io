@@ -18,7 +18,7 @@
 https://github.com/PowerShell
 https://github.com/PowerShell/PowerShell
 default shellとして設定するには、以下のコマンド。
-# https://github.com/PowerShell/Win32-OpenSSH/wiki/DefaultShell $ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;c:\program files\powershell\7\pwsh.exe&amp;#34; -PropertyType String -Force $ echo $PSVersionTable Name Value ---- ----- PSVersion 7.0.0-preview.6 </description>
+# https://github.com/PowerShell/Win32-OpenSSH/wiki/DefaultShell $ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;c:\program files\powershell\7\pwsh.exe&amp;#34; -PropertyType String -Force  $ echo $PSVersionTable Name Value ---- ----- PSVersion 7.0.0-preview.6 </description>
     </item>
     
     <item>
@@ -44,13 +44,13 @@ winには、cygwinやmsys, chocoなど色々ありますよね。あ、cygwinは
 やってみた
  基本的には、~/scoop/shims/にシンボリックリンクかな、それが置かれてます。実体は~/scoop/apps/$APP_NAME/current/bin/$APP_NAME.exeとかにある感じかな。
 なので、
-$ scoop install curl $ cd ~/scoop/apps/curl/current/bin $ ./curl.exe github.com とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。
+$ scoop install curl  $ cd ~/scoop/apps/curl/current/bin  $ ./curl.exe github.com とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。
 もし仮にデフォルトのbucketにpackageが見つからなければ、
-$ scoop bucket add extras $ scoop install mpv とかやって追加してくと、扱えるpackageが増えます。
+$ scoop bucket add extras  $ scoop install mpv とかやって追加してくと、扱えるpackageが増えます。
 そんな感じで、scoopの紹介終わります。
 windowsは最高です!
 動画 ちなみに、gifっぽいterminal movieは久しぶりに$ asciinema recとか使ってみました。
-$ asciinema rec C-c $ asciinema upload /path/to/xxx みたいな感じでやれば、webにuploadされるんで、urlにアクセスすればいいです。その前にaccountを取っておく必要がありますが。</description>
+$ asciinema rec C-c  $ asciinema upload /path/to/xxx みたいな感じでやれば、webにuploadされるんで、urlにアクセスすればいいです。その前にaccountを取っておく必要がありますが。</description>
     </item>
     
   </channel>

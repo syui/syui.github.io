@@ -111,11 +111,11 @@
 													
        			 		<p><a href="https://www.openssh.com/txt/release-8.2">openssh 8.2</a>がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。</p>
 <p>ので、downgradeしました。downgradeが古かったので、何故か実行してもアクセスできないという現象に遭遇したので、downgradeもupdateしておきましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yay -S downgrade
-$ downgrade openssh
-openssh    8.1p1  <span style="color:#ae81ff">4</span>  x86_64  <span style="color:#f92672">(</span>remote<span style="color:#f92672">)</span>
-$ sudo systemctl restart sshd
-</code></pre></div><p>goodreaderでキー(private-key)が読み込めない問題はこちらが参考になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yay -S downgrade
+</span></span><span style="display:flex;"><span>$ downgrade openssh
+</span></span><span style="display:flex;"><span>openssh    8.1p1  <span style="color:#ae81ff">4</span>  x86_64  <span style="color:#f92672">(</span>remote<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>$ sudo systemctl restart sshd
+</span></span></code></pre></div><p>goodreaderでキー(private-key)が読み込めない問題はこちらが参考になります。</p>
 <p><a href="/blog/post/2020/01/26/goodreader/">iosのgoodreaderでsftpのprivate-keyが読み込めない問題</a></p>
 
        			 		

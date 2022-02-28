@@ -109,100 +109,100 @@
 													<div class="post-time-date">2022-02-19 / <a href="/syui">@syui</a></div>
 													<h2>usbのarchもswayにしてみた</h2>
 													
-       			 		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cfdisk /dev/sdb
-<span style="color:#75715e"># /dev/sdb1 : 200M, EFI</span>
-<span style="color:#75715e"># /dev/sdb2 : 26G, linux</span>
-
-$ mkfs.ext4 /dev/sdb2
-$ mkfs.vfat /dev/sdb1
-
-$ mount /dev/sdb2 /mnt
-$ pacstrap /mnt base base-devel linux
-
-<span style="color:#75715e"># paru(rust)のbuildは時間がかかりすぎるし、usbには読み書き負担が大きすぎるのでbinaryを持ってきたほうがいいです</span>
-$ which paru
-$ cp /bin/paru /mnt/bin/
-
-$ arch-chroot /mnt
-
-$ useradd -m -G wheel -s /bin/zsh syui
-$ passwd
-$ passwd syui
-$ echo -e <span style="color:#e6db74">&#39;Defaults env_keep += &#34;HOME&#34;\n%wheel ALL=(ALL) ALL&#39;</span> &gt;&gt; /mnt/etc/sudoers
-$ echo -e <span style="color:#e6db74">&#39;%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/reboot, /usr/bin/poweroff&#39;</span> &gt;&gt; /mnt/etc/sudoers
-
-$ pacman -S grub dhcpcd vim zsh tmux git go openssh net-tools sway xorg-xwayland waybar lightdm lightdm-gtk-greeter networkmanager network-manager-applet blueman pulseaudio pavucontrol udevil pcmanfm chromium  fcitx5 fcitx5-mozc
-
-<span style="color:#75715e"># grubは様々なマシンをbootできるimgからもってきてcfgを再構築するといいです</span>
-$ exit
-$ cp -rf /boot/<span style="color:#f92672">{</span>efi,boot<span style="color:#f92672">}</span> /mnt/boot
-$ arch-chroot /mnt
-$ grub-mkconfig -o /boot/grub/grub.cfg
-
-<span style="color:#75715e"># macbook-air特有の問題に対処</span>
-$ pacman -S broadcom-wl
-$ vim /etc/mkinitcpio.conf
-HOOKS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;base udev block autodetect modconf filesystems keyboard fsck&#34;</span>
-$ mkinitcpio -p linux
-
-$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
-$ vim /etc/systemd/network/eth.network
-<span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
-Name<span style="color:#f92672">=</span>eth0
-<span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
-<span style="color:#75715e">#DHCP=ipv4</span>
-Address<span style="color:#f92672">=</span>192.168.1.xx
-Gateway<span style="color:#f92672">=</span>192.168.1.xx
-DNS<span style="color:#f92672">=</span>192.168.1.1
-$ sudo systemctl enable NetworkManager
-$ sudo systemctl enable systemd-networkd
-
-$ vim /etc/lightdm/lightdm.conf 
-<span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
-autologin-user<span style="color:#f92672">=</span>syui
-autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-autologin-session<span style="color:#f92672">=</span>sway
-$ groupadd -r autologin
-$ gpasswd -a USERNAME autologin
-$ sudo systemctl enable lightdm
-
-$ vim /etc/locale.gen
-$ locale-gen
-
-$ touch .xprofile
-
-<span style="color:#75715e"># paru -S numix-gtk-theme numix-icon-theme-git</span>
-$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
-$ ls /usr/share/<span style="color:#f92672">{</span>icon*,theme*,font*<span style="color:#f92672">}</span>
-$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
-$ vim ~/.gitrc-2.0
-gtk-icon-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
-gtk-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
-gtk-font-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;awesome-terminal-fonts&#34;</span>
-$ sudo systemctl restart lightdm
-$ pcmanfm
-</code></pre></div><pre tabindex="0"><code>$ pacman -S powerline zsh-syntax-highlighting
+       			 		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cfdisk /dev/sdb
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># /dev/sdb1 : 200M, EFI</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># /dev/sdb2 : 26G, linux</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/sdb2
+</span></span><span style="display:flex;"><span>$ mkfs.vfat /dev/sdb1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mount /dev/sdb2 /mnt
+</span></span><span style="display:flex;"><span>$ pacstrap /mnt base base-devel linux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># paru(rust)のbuildは時間がかかりすぎるし、usbには読み書き負担が大きすぎるのでbinaryを持ってきたほうがいいです</span>
+</span></span><span style="display:flex;"><span>$ which paru
+</span></span><span style="display:flex;"><span>$ cp /bin/paru /mnt/bin/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ useradd -m -G wheel -s /bin/zsh syui
+</span></span><span style="display:flex;"><span>$ passwd
+</span></span><span style="display:flex;"><span>$ passwd syui
+</span></span><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#39;Defaults env_keep += &#34;HOME&#34;\n%wheel ALL=(ALL) ALL&#39;</span> &gt;&gt; /mnt/etc/sudoers
+</span></span><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#39;%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/reboot, /usr/bin/poweroff&#39;</span> &gt;&gt; /mnt/etc/sudoers
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ pacman -S grub dhcpcd vim zsh tmux git go openssh net-tools sway xorg-xwayland waybar lightdm lightdm-gtk-greeter networkmanager network-manager-applet blueman pulseaudio pavucontrol udevil pcmanfm chromium  fcitx5 fcitx5-mozc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grubは様々なマシンをbootできるimgからもってきてcfgを再構築するといいです</span>
+</span></span><span style="display:flex;"><span>$ exit
+</span></span><span style="display:flex;"><span>$ cp -rf /boot/<span style="color:#f92672">{</span>efi,boot<span style="color:#f92672">}</span> /mnt/boot
+</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
+</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># macbook-air特有の問題に対処</span>
+</span></span><span style="display:flex;"><span>$ pacman -S broadcom-wl
+</span></span><span style="display:flex;"><span>$ vim /etc/mkinitcpio.conf
+</span></span><span style="display:flex;"><span>HOOKS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;base udev block autodetect modconf filesystems keyboard fsck&#34;</span>
+</span></span><span style="display:flex;"><span>$ mkinitcpio -p linux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/eth.network
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Name<span style="color:#f92672">=</span>eth0
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#DHCP=ipv4</span>
+</span></span><span style="display:flex;"><span>Address<span style="color:#f92672">=</span>192.168.1.xx
+</span></span><span style="display:flex;"><span>Gateway<span style="color:#f92672">=</span>192.168.1.xx
+</span></span><span style="display:flex;"><span>DNS<span style="color:#f92672">=</span>192.168.1.1
+</span></span><span style="display:flex;"><span>$ sudo systemctl enable NetworkManager
+</span></span><span style="display:flex;"><span>$ sudo systemctl enable systemd-networkd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim /etc/lightdm/lightdm.conf 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>autologin-user<span style="color:#f92672">=</span>syui
+</span></span><span style="display:flex;"><span>autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>autologin-session<span style="color:#f92672">=</span>sway
+</span></span><span style="display:flex;"><span>$ groupadd -r autologin
+</span></span><span style="display:flex;"><span>$ gpasswd -a USERNAME autologin
+</span></span><span style="display:flex;"><span>$ sudo systemctl enable lightdm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim /etc/locale.gen
+</span></span><span style="display:flex;"><span>$ locale-gen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ touch .xprofile
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># paru -S numix-gtk-theme numix-icon-theme-git</span>
+</span></span><span style="display:flex;"><span>$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
+</span></span><span style="display:flex;"><span>$ ls /usr/share/<span style="color:#f92672">{</span>icon*,theme*,font*<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
+</span></span><span style="display:flex;"><span>$ vim ~/.gitrc-2.0
+</span></span><span style="display:flex;"><span>gtk-icon-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+</span></span><span style="display:flex;"><span>gtk-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+</span></span><span style="display:flex;"><span>gtk-font-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;awesome-terminal-fonts&#34;</span>
+</span></span><span style="display:flex;"><span>$ sudo systemctl restart lightdm
+</span></span><span style="display:flex;"><span>$ pcmanfm
+</span></span></code></pre></div><pre tabindex="0"><code>$ pacman -S powerline zsh-syntax-highlighting
 $ source /usr/share/powerline/bindings/zsh/powerline.zsh
 $ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 </code></pre><h3 id="vpnに接続する方法">vpnに接続する方法</h3>
 <p>まずは、pritunl-serverを立ち上げて、profileをdownload(or rewirte)します。</p>
 <p>次に、clientを使い接続します。この辺の仕組みは一度構築すると便利に使えます。usbは外で使う事が多く、local-networkに入るための手段を確立しておくことは重要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="color:#66d9ef">[pritunl]</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Server</span> <span style="color:#f92672">=</span> https://repo.pritunl.com/stable/pacman<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-$ sudo pacman-key --lsign-key 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-$ sudo pacman -Sy
-$ sudo pacman -S pritunl-client-electron
-$ sudo pacman -S pritunl-client-electron-numix-theme
-$ pritunl-client-electron
-<span style="color:#75715e"># ここでprofile(.vpn)をimport</span>
-
-$ git clone https://github.com/cghdev/gotunl.git
-$ cd gotunl
-$ go install
-$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
-$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="display:flex;"><span><span style="color:#66d9ef">[pritunl]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Server</span> <span style="color:#f92672">=</span> https://repo.pritunl.com/stable/pacman<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+</span></span><span style="display:flex;"><span>$ sudo pacman-key --lsign-key 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+</span></span><span style="display:flex;"><span>$ sudo pacman -Sy
+</span></span><span style="display:flex;"><span>$ sudo pacman -S pritunl-client-electron
+</span></span><span style="display:flex;"><span>$ sudo pacman -S pritunl-client-electron-numix-theme
+</span></span><span style="display:flex;"><span>$ pritunl-client-electron
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ここでprofile(.vpn)をimport</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/cghdev/gotunl.git
+</span></span><span style="display:flex;"><span>$ cd gotunl
+</span></span><span style="display:flex;"><span>$ go install
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div>
        			 		
 
 

@@ -18,11 +18,11 @@
 portというのは、ネットワークの通信番号のことで、通常はこの番号を指定して通信のやり取りが行われる。firewallは、どの番号を閉じ、どの番号を開けるのか指定できたりする。
 で、nmapでscanすると、どのportが開いてるのかを調べられたりするんですけど、不要なportは閉じておいたほうがいいし、backdoorなどが設置されてる場合、管理者に覚えがないportが勝手に開けられてたりすることがある。
 この前、macをnmapしてみると、こんな感じだった。
-$ nmap localhost PORT STATE SERVICE 111/tcp open rpcbind 631/tcp open ipp 1021/tcp open exp1 1023/tcp open netvenuechat 2049/tcp open nfs 49163/tcp open unknown $ sudo nmap -sU localhost portを使ってるアプリを調べてみると、macの起動時に動作するプロセスのことが色々把握できた。
+$ nmap localhost PORT STATE SERVICE 111/tcp open rpcbind 631/tcp open ipp 1021/tcp open exp1 1023/tcp open netvenuechat 2049/tcp open nfs 49163/tcp open unknown  $ sudo nmap -sU localhost portを使ってるアプリを調べてみると、macの起動時に動作するプロセスのことが色々把握できた。
 具体的には、macは/System/Library/{LaunchDaemons,LaunchAgents}で起動プロセスが設定されてるらしい。ちなみに、管理者とユーザーでは異なるprocが起動するので、両方チェックする必要がある。
 使わないアプリが勝手に起動し、特定のportを開けている現状は望ましくない。この辺は商用OS?なので、archlinuxなどとは違い、面倒くささがあるなと思った。自分でそういったprocをkillしていかないといけないわけですね。
 procについて調べるには以下のようなコマンドでやる。
-$ lsof -i tcp:49163 rapportd 402 syui 3u xxxx TCP *:49158 (LISTEN) # proc 402をkill $ lsof -p 402 $ codesign -dv --verbose=4 /usr/libexec/rapportd $ otool -L /usr/libexec/rapportd $ launchctl list | grep 402 $ launchctl stop com.</description>
+$ lsof -i tcp:49163 rapportd 402 syui 3u xxxx TCP *:49158 (LISTEN) # proc 402をkill $ lsof -p 402  $ codesign -dv --verbose=4 /usr/libexec/rapportd $ otool -L /usr/libexec/rapportd  $ launchctl list | grep 402 $ launchctl stop com.</description>
     </item>
     
   </channel>

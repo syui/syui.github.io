@@ -111,16 +111,16 @@
 													
        			 		<p><code>git fixup</code>が便利だった件。</p>
 <p>こちらは<code>commit fixup</code>でrebaseを書き換える場合</p>
-<pre tabindex="0"><code>$ GIT_SEQUENCE_EDITOR=&quot;sed -ie '2 s/pick/fixup/g'&quot; git rebase -i --root
+<pre tabindex="0"><code>$ GIT_SEQUENCE_EDITOR=&#34;sed -ie &#39;2 s/pick/fixup/g&#39;&#34; git rebase -i --root
 </code></pre><p>こうやると1行目のコミットに2行目のコミットが統合される。</p>
 <p>あと、<code>~/.gitconfig</code>に書いておくのも便利そう(上記とは内容が異なる)。</p>
 <blockquote>
 <p>~/.gitconfig</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rebase<span style="color:#f92672">]</span>
-    autofixup <span style="color:#f92672">=</span> true
-    autosquash <span style="color:#f92672">=</span> true
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>rebase<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    autofixup <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>    autosquash <span style="color:#f92672">=</span> true
+</span></span></code></pre></div>
        			 		
 
 

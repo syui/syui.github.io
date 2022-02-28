@@ -115,17 +115,17 @@
 <link href="/tarot-api/app.css" rel="stylesheet">
 <h3 id="card-api">card api</h3>
 <p>draw cards for cli.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># user create</span>
-<span style="color:#75715e"># username : [a-z] 7 characters, lower-case letter</span>
-$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;${USER}&#34;}&#39;</span> api.syui.cf/users
-
-<span style="color:#75715e"># user info</span>
-$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>
-
-<span style="color:#75715e"># card draw</span>
-$ curl -X PUT api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>/d
-$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span> | jq .
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># user create</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># username : [a-z] 7 characters, lower-case letter</span>
+</span></span><span style="display:flex;"><span>$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;${USER}&#34;}&#39;</span> api.syui.cf/users
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># user info</span>
+</span></span><span style="display:flex;"><span>$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># card draw</span>
+</span></span><span style="display:flex;"><span>$ curl -X PUT api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>/d
+</span></span><span style="display:flex;"><span>$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span> | jq .
+</span></span></code></pre></div><ul>
 <li>
 <p>あなたは、1日に1回、カードを引くことができます</p>
 </li>

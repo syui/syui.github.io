@@ -111,18 +111,18 @@
 													
        			 		<p><a href="https://github.com/urfave/cli">urfave/cli</a>がv1からv2へ移行したみたいで、このlibで作ったcli toolがCIを通したgo getなどに失敗するようになっていたので対応。(一部だけ</p>
 <p><a href="https://github.com/urfave/cli/blob/master/docs/v2/manual.md">https://github.com/urfave/cli/blob/master/docs/v2/manual.md</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ GO111MODULE<span style="color:#f92672">=</span>on go get github.com/urfave/cli/v2
-~/go/src/github.com/urfave/cli/v2 <span style="color:#f92672">(</span>from $GOROOT<span style="color:#f92672">)</span>
-
-$ go mod init
-$ echo export GO111MODULE<span style="color:#f92672">=</span>on &gt;&gt; ~/.zshrc
-$ . !$
-
-$ go get -v -u github.com/urfave/cli/v2
-</code></pre></div><p>これで<code>v1 -&gt; v2</code>で変更された箇所を書き換えれば、buildが通ります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ GO111MODULE<span style="color:#f92672">=</span>on go get github.com/urfave/cli/v2
+</span></span><span style="display:flex;"><span>~/go/src/github.com/urfave/cli/v2 <span style="color:#f92672">(</span>from $GOROOT<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ go mod init
+</span></span><span style="display:flex;"><span>$ echo export GO111MODULE<span style="color:#f92672">=</span>on &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>$ . !$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ go get -v -u github.com/urfave/cli/v2
+</span></span></code></pre></div><p>これで<code>v1 -&gt; v2</code>で変更された箇所を書き換えれば、buildが通ります。</p>
 <p><a href="https://github.com/urfave/cli/releases/tag/v2.0.0">https://github.com/urfave/cli/releases/tag/v2.0.0</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -v github.com/syui/xq
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get -v github.com/syui/xq
+</span></span></code></pre></div>
        			 		
 
 

@@ -112,11 +112,11 @@
        			 		<p>iosの初期設定の話をしたついでに、andoridの初期設定方法。</p>
 <p>androidはiosとは違ってプリインストールアプリを消去していけますので、楽です。</p>
 <p>基本的には以下のような感じでroot権限で要らないものを削除。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
-$ pm list packages -f
-$ rm -rf /system/app/com.foo...
-$ rm -rf /system/priv-app/com.foo...
-</code></pre></div><p><code>/system/app</code>がプリインストールアプリで、<code>/system/priv-app</code>がシステムアプリです。<code>/system/priv-app</code>にあるものを間違って削除すると動かなくなる可能性があるのである程度詳しい人向け。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ su
+</span></span><span style="display:flex;"><span>$ pm list packages -f
+</span></span><span style="display:flex;"><span>$ rm -rf /system/app/com.foo...
+</span></span><span style="display:flex;"><span>$ rm -rf /system/priv-app/com.foo...
+</span></span></code></pre></div><p><code>/system/app</code>がプリインストールアプリで、<code>/system/priv-app</code>がシステムアプリです。<code>/system/priv-app</code>にあるものを間違って削除すると動かなくなる可能性があるのである程度詳しい人向け。</p>
 <p>とはいっても、壊れたら壊れたで<code>fastboot flash system system.img</code>とかすればいいわけですが、自分にとって不要なアプリを特定していきます。大体は名前とかでわかりますが、私の場合は結構消しています。</p>
 <p>あとは権限ですね。必要なアプリでも不要な権限を持っているアプリも多いですし、特に開発者システムとかですね。これoffにするとgmailの同期とか支障が出た気もしますけど、私の環境では特に不便なく使えてます。</p>
 <p>また、Googleアカウントの設定とかはoffにしていかないといけないのですね。</p>

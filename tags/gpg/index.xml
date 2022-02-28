@@ -78,9 +78,9 @@ $ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
       <guid>https://syui.cf/blog/post/2017/04/01/gpg/</guid>
       <description>AURにPGP登録したこともあって簡潔に情報をまとめておきます。
 https://aur.archlinux.org/account/syui
-# GPG鍵の作成 $ gpg --gen-key # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?
+# GPG鍵の作成 $ gpg --gen-key  # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX  # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?
 $ gpg --keyserver pgp.nic.ad.jp --send-keys D6ABB386 $ gpg --send-keys D6ABB386 $ gpg --search-keys D6ABB386 $ gpg --refresh-keys git commit -Sするとエラーが出るのでハマった。パスフレーズを入力できないことが原因。
-$ echo &#39;no-tty&#39; &amp;gt;&amp;gt; ~/.gnupg/gpg.conf $ GPG_TTY=$(tty) $ export GPG_TTY </description>
+$ echo &amp;#39;no-tty&amp;#39; &amp;gt;&amp;gt; ~/.gnupg/gpg.conf $ GPG_TTY=$(tty) $ export GPG_TTY </description>
     </item>
     
   </channel>

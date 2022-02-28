@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2021/07/05/jquery-terminal/</guid>
       <description>追加した機能とかを簡単に紹介します。これくらい設定したら自分でも使うかも。こういうのは楽しければいいって思ってたんですが、まあまあ便利そうになってしまった気がする。
-# 通常検索、contentから $ search arch or $ / arch # タグ検索、shellの&amp;lt;tab&amp;gt;補完も付けてみた(タグ補完 $ search -t &amp;lt;tab&amp;gt;hugo # 最新記事 $ search -l # user ipでloginします(promptをipに変えてるだけ $ curl ipapi.co axios.get(&amp;#39;https://syui.cf/index.json&amp;#39;, { &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39; }) .then(function (response) { index_json = JSON.stringify(response.data,null,&amp;#34;\t&amp;#34;); origin_index_json = JSON.parse(index_json); origin_index_json.forEach(function(v,index) { if ( tags.indexOf(v.tags) == -1) { tags.push(v.tags)}; }); tags = tags.join(&amp;#39;,&amp;#39;).split(&amp;#39;,&amp;#39;); tags = tags.filter(function (x, i, self) { return self.indexOf(x) === i; }); }) var user_ip; if (inputs[0] === &amp;#39;curl&amp;#39; &amp;amp;&amp;amp; inputs[1] === &amp;#39;ipapi.</description>
+# 通常検索、contentから $ search arch or $ / arch  # タグ検索、shellの&amp;lt;tab&amp;gt;補完も付けてみた(タグ補完 $ search -t &amp;lt;tab&amp;gt;hugo  # 最新記事 $ search -l  # user ipでloginします(promptをipに変えてるだけ $ curl ipapi.co axios.get(&amp;#39;https://syui.cf/index.json&amp;#39;, { &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39; }) .then(function (response) { 	index_json = JSON.stringify(response.data,null,&amp;#34;\t&amp;#34;); 	origin_index_json = JSON.parse(index_json); 	origin_index_json.forEach(function(v,index) { 	if ( tags.indexOf(v.tags) == -1) { 	tags.push(v.tags)}; 	}); 	tags = tags.join(&amp;#39;,&amp;#39;).split(&amp;#39;,&amp;#39;); 	tags = tags.filter(function (x, i, self) { 	return self.</description>
     </item>
     
   </channel>

@@ -115,45 +115,45 @@
 <h2 id="phx-chat">phx-chat</h2>
 <p>さて、chatというと、elixirのphx(phoenix)が便利です。これは、作る場合という話ですが、exampleでも機能はないけど、シンプルなものができます。</p>
 <p>herokuの場合、なかなか面倒ですけど、<a href="https://github.com/dwyl/phoenix-chat-example">dwyl/phoenix-chat-example</a>を使えば、割と簡単にできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dwyl/phoenix-chat-example
-
-$ cd !$:t
-
-$ heroku create $APP_NAME
-
-$ rm -rf .git
-
-$ heroku git:remote -a $APP_NAME 
-
-$ echo <span style="color:#e6db74">&#34;erlang_version=20.1
-</span><span style="color:#e6db74">elixir_version=1.6.0
-</span><span style="color:#e6db74">always_rebuild=false
-</span><span style="color:#e6db74">runtime_path=/app
-</span><span style="color:#e6db74">&#34;</span> &gt;&gt; elixir_buildpack.config
-
-$ echo <span style="color:#e6db74">&#34;web: MIX_ENV=prod POOL_SIZE=2 mix ecto.migrate &amp;&amp; mix phx.server&#34;</span> &gt;&gt; Procfile
-
-$ vim config/prod.exs
-config :chat, ChatWeb.Endpoint,
-  load_from_system_env: true,
-  url: <span style="color:#f92672">[</span>scheme: <span style="color:#e6db74">&#34;https&#34;</span>, host: <span style="color:#e6db74">&#34;syui-chat.herokuapp.com&#34;</span>, port: 443<span style="color:#f92672">]</span>,
-  force_ssl: <span style="color:#f92672">[</span>rewrite_on: <span style="color:#f92672">[</span>:x_forwarded_proto<span style="color:#f92672">]]</span>,
-  cache_static_manifest: <span style="color:#e6db74">&#34;priv/static/cache_manifest.json&#34;</span>,
-  secret_key_base: Map.fetch!<span style="color:#f92672">(</span>System.get_env<span style="color:#f92672">()</span>, <span style="color:#e6db74">&#34;SECRET_KEY_BASE&#34;</span><span style="color:#f92672">)</span>
-
-$ mix deps.get
-$ mix phx.gen.secret
-XXX
-$ heroku config:set SECRET_KEY_BASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXX&#34;</span> -a $APP_NAME
-$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
-$ heroku buildpacks:set https://github.com/HashNuke/heroku-buildpack-elixir.git -a $APP_NAME
-$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/gjaldon/heroku-buildpack-phoenix-static.git -a $APP_NAME
-
-$ echo mix.lock &gt;&gt; .gitignore
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-$ git push heroku master
-</code></pre></div><p>多分、こんな感じですね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/dwyl/phoenix-chat-example
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cd !$:t
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku create $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ rm -rf .git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku git:remote -a $APP_NAME 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;erlang_version=20.1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">elixir_version=1.6.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">always_rebuild=false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">runtime_path=/app
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span> &gt;&gt; elixir_buildpack.config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;web: MIX_ENV=prod POOL_SIZE=2 mix ecto.migrate &amp;&amp; mix phx.server&#34;</span> &gt;&gt; Procfile
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim config/prod.exs
+</span></span><span style="display:flex;"><span>config :chat, ChatWeb.Endpoint,
+</span></span><span style="display:flex;"><span>  load_from_system_env: true,
+</span></span><span style="display:flex;"><span>  url: <span style="color:#f92672">[</span>scheme: <span style="color:#e6db74">&#34;https&#34;</span>, host: <span style="color:#e6db74">&#34;syui-chat.herokuapp.com&#34;</span>, port: 443<span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>  force_ssl: <span style="color:#f92672">[</span>rewrite_on: <span style="color:#f92672">[</span>:x_forwarded_proto<span style="color:#f92672">]]</span>,
+</span></span><span style="display:flex;"><span>  cache_static_manifest: <span style="color:#e6db74">&#34;priv/static/cache_manifest.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  secret_key_base: Map.fetch!<span style="color:#f92672">(</span>System.get_env<span style="color:#f92672">()</span>, <span style="color:#e6db74">&#34;SECRET_KEY_BASE&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mix deps.get
+</span></span><span style="display:flex;"><span>$ mix phx.gen.secret
+</span></span><span style="display:flex;"><span>XXX
+</span></span><span style="display:flex;"><span>$ heroku config:set SECRET_KEY_BASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXX&#34;</span> -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku buildpacks:set https://github.com/HashNuke/heroku-buildpack-elixir.git -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/gjaldon/heroku-buildpack-phoenix-static.git -a $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ echo mix.lock &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push heroku master
+</span></span></code></pre></div><p>多分、こんな感じですね。</p>
 <p><a href="https://github.com/dwyl/learn-heroku/blob/master/elixir-phoenix-app-deployment.md">https://github.com/dwyl/learn-heroku/blob/master/elixir-phoenix-app-deployment.md</a></p>
 <p><a href="https://hexdocs.pm/phoenix/heroku.html#making-our-project-ready-for-heroku">https://hexdocs.pm/phoenix/heroku.html#making-our-project-ready-for-heroku</a></p>
 <h2 id="pleroma">pleroma</h2>
@@ -163,144 +163,144 @@ $ git push heroku master
 <blockquote>
 <p>config/prod.exs</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">use Mix.Config
-
-config :pleroma, Pleroma.Web.Endpoint,
- http: <span style="color:#f92672">[</span>port: <span style="color:#f92672">{</span>:system, <span style="color:#e6db74">&#34;PORT&#34;</span><span style="color:#f92672">}]</span>,
-  url: <span style="color:#f92672">[</span>scheme: <span style="color:#e6db74">&#34;https&#34;</span>, host: <span style="color:#e6db74">&#34;pleroma.syui.cf&#34;</span>, port: 443<span style="color:#f92672">]</span>,
-  force_ssl: <span style="color:#f92672">[</span>rewrite_on: <span style="color:#f92672">[</span>:x_forwarded_proto<span style="color:#f92672">]]</span>,
-  <span style="color:#75715e">#cache_static_manifest: &#34;priv/static/manifest.json&#34;,</span>
-  secret_key_base: System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SECRET_KEY_BASE&#34;</span><span style="color:#f92672">)</span>
-
-config :logger, level: :info
-config :logger, :console, format: <span style="color:#e6db74">&#34;[</span>$level<span style="color:#e6db74">] </span>$message<span style="color:#e6db74">\n&#34;</span>
-
-config :phoenix, :stacktrace_depth, <span style="color:#ae81ff">20</span>
-
-config :pleroma, Pleroma.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DATABASE_URL&#34;</span><span style="color:#f92672">)</span>,
-  pool_size: String.to_integer<span style="color:#f92672">(</span>System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;POOL_SIZE&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">)</span>,
-  ssl: true
-
-config :pleroma, :media_proxy,
-  enabled: true,
-  redirect_on_failure: true,
-  base_url: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/pleroma&#34;</span>
-</code></pre></div><p>pleromaもそうですが、imgをuploadするserverが必要で、通常はhostingしているserverにuploadするんですけど、herokuは再起動と同時に、upload(write)されたものを消します。なので、この際にuploadしたavatarも消えます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>use Mix.Config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>config :pleroma, Pleroma.Web.Endpoint,
+</span></span><span style="display:flex;"><span> http: <span style="color:#f92672">[</span>port: <span style="color:#f92672">{</span>:system, <span style="color:#e6db74">&#34;PORT&#34;</span><span style="color:#f92672">}]</span>,
+</span></span><span style="display:flex;"><span>  url: <span style="color:#f92672">[</span>scheme: <span style="color:#e6db74">&#34;https&#34;</span>, host: <span style="color:#e6db74">&#34;pleroma.syui.cf&#34;</span>, port: 443<span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>  force_ssl: <span style="color:#f92672">[</span>rewrite_on: <span style="color:#f92672">[</span>:x_forwarded_proto<span style="color:#f92672">]]</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#cache_static_manifest: &#34;priv/static/manifest.json&#34;,</span>
+</span></span><span style="display:flex;"><span>  secret_key_base: System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SECRET_KEY_BASE&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>config :logger, level: :info
+</span></span><span style="display:flex;"><span>config :logger, :console, format: <span style="color:#e6db74">&#34;[</span>$level<span style="color:#e6db74">] </span>$message<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>config :phoenix, :stacktrace_depth, <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>config :pleroma, Pleroma.Repo,
+</span></span><span style="display:flex;"><span>  adapter: Ecto.Adapters.Postgres,
+</span></span><span style="display:flex;"><span>  url: System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DATABASE_URL&#34;</span><span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>  pool_size: String.to_integer<span style="color:#f92672">(</span>System.get_env<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;POOL_SIZE&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>  ssl: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>config :pleroma, :media_proxy,
+</span></span><span style="display:flex;"><span>  enabled: true,
+</span></span><span style="display:flex;"><span>  redirect_on_failure: true,
+</span></span><span style="display:flex;"><span>  base_url: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/pleroma&#34;</span>
+</span></span></code></pre></div><p>pleromaもそうですが、imgをuploadするserverが必要で、通常はhostingしているserverにuploadするんですけど、herokuは再起動と同時に、upload(write)されたものを消します。なので、この際にuploadしたavatarも消えます。</p>
 <p>ということで、<code>media_proxy</code>を設定してみてどうにかならないかなってことでやってみましたが、どうにもなりませんでした。</p>
 <p>これに関しては、srcの<code>lib/pleroma/upload.ex</code>をいじって対応しています。けど、やりたいこと事自体は単純なので上記の設定でなんとなく分かると思います(それ自体は有効ではないけど)。</p>
 <p>heroku webは、アクセスがないとM30ごとに落ちます。多分そんな感じ。立ち上がるまで結構時間がかかるので、<code>scheduler</code>を設定してみたわけですが、<code>heroku logs</code>みてみると、<code>Stopping all processes with SIGTERM</code>したことがありました。なのでやめといたほうがいいですね。特に<code>process-scheduler</code>です。herokuに負担がかかりすぎるみたい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:add process-scheduler -a $APP_NAME
-$ heroku addons:create scheduler:standard -a $APP_NAME
-$ heroku addons:open process-scheduler -a $APP_NAME
-$ heroku addons:open scheduler -a $APP_NAME
-</code></pre></div><p>こちらは、pleromaの初期コマンド等です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># sing up</span>
-<span style="color:#75715e"># example : $ heroku run &#34;mix register_user syui syui user@github.com . password123&#34; -a pleroma</span>
-$ heroku run <span style="color:#e6db74">&#34;mix register_user &lt;name&gt; &lt;username&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;&#34;</span> -a $APP_NAME
-
-<span style="color:#75715e"># admin user</span>
-$ heroku run <span style="color:#e6db74">&#34;mix set_moderator </span>$USER<span style="color:#e6db74">&#34;</span> -a $APP_NAME
-
-<span style="color:#75715e"># single user mode</span>
-$ vim config/config.exs
-+ config :pleroma, :instance, registrations_open: false,
-+ config :pleroma, :chat, enabled: false
-</code></pre></div><p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9">https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku addons:add process-scheduler -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:create scheduler:standard -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:open process-scheduler -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:open scheduler -a $APP_NAME
+</span></span></code></pre></div><p>こちらは、pleromaの初期コマンド等です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># sing up</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># example : $ heroku run &#34;mix register_user syui syui user@github.com . password123&#34; -a pleroma</span>
+</span></span><span style="display:flex;"><span>$ heroku run <span style="color:#e6db74">&#34;mix register_user &lt;name&gt; &lt;username&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;&#34;</span> -a $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># admin user</span>
+</span></span><span style="display:flex;"><span>$ heroku run <span style="color:#e6db74">&#34;mix set_moderator </span>$USER<span style="color:#e6db74">&#34;</span> -a $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># single user mode</span>
+</span></span><span style="display:flex;"><span>$ vim config/config.exs
+</span></span><span style="display:flex;"><span>+ config :pleroma, :instance, registrations_open: false,
+</span></span><span style="display:flex;"><span>+ config :pleroma, :chat, enabled: false
+</span></span></code></pre></div><p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9">https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9</a></p>
 <p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Admin%20tasks">https://git.pleroma.social/pleroma/pleroma/wikis/Admin%20tasks</a></p>
 <p>pleromaにもchatありますね。chatは、web, mobileが必要ないならirc server立てればいいだけなんですけどね。</p>
 <h2 id="gnu-social">gnu-social</h2>
 <p><a href="https://git.gnu.io/gnu/gnu-social">gnu-social</a>はphpで書かれていて、しかもcomposerすらないので、つらい感じでした。</p>
 <p>ということで、composerを用意してるrepo(branch)から持ってくることにしました。それをカスタマイズしてheroku deployという感じですね。</p>
 <p>なお、composer.lockもcommitする必要があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.gnu.io/dansup/gnu-social
-$ cd !$:t
-$ git checkout composer-autoloading
-
-$ php -v
-7.2
-
-$ composer update
-error
-
-<span style="color:#75715e"># これでいけました</span>
-$ vim composer.json
-<span style="color:#f92672">{</span>
-  <span style="color:#e6db74">&#34;require&#34;</span>: <span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;ext-pgsql&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-    <span style="color:#e6db74">&#34;ext-gd&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-    <span style="color:#e6db74">&#34;ext-intl&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-    <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;^7.2.0&#34;</span>,
-    <span style="color:#e6db74">&#34;illuminate/contracts&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-    <span style="color:#e6db74">&#34;illuminate/support&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-    <span style="color:#e6db74">&#34;ramsey/uuid&#34;</span>: <span style="color:#e6db74">&#34;^3.0&#34;</span>,
-    <span style="color:#e6db74">&#34;ezyang/htmlpurifier&#34;</span>: <span style="color:#e6db74">&#34;^4.10&#34;</span>,
-    <span style="color:#e6db74">&#34;psy/psysh&#34;</span>: <span style="color:#e6db74">&#34;^0.8.17&#34;</span>
-  <span style="color:#f92672">}</span>,
-    <span style="color:#e6db74">&#34;scripts&#34;</span>: <span style="color:#f92672">{</span>
-      <span style="color:#e6db74">&#34;post-install-cmd&#34;</span>: <span style="color:#f92672">[</span>
-      	<span style="color:#e6db74">&#34;chmod 644 config.php&#34;</span>
-      <span style="color:#f92672">]</span>,
-      <span style="color:#e6db74">&#34;post-update-cmd&#34;</span>: <span style="color:#f92672">[</span>
-      	<span style="color:#e6db74">&#34;chmod 644 config.php&#34;</span>
-      <span style="color:#f92672">]</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-$ composer update
-
-$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-php -a $APP_NAME
-$ heroku addons:add cleardb:ignite -a  $APP_NAME
-
-<span style="color:#75715e"># trueとかの部分はいらない</span>
-$ heroku config -a $APP_NAME | grep CLEARDB_DATABASE_URL
-mysql://username:password@hostname/database
-
-$ rm -rf .git
-$ heroku git:remote -a $APP_NAME 
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-$ git push heroku master
-
-$ open -a Google<span style="color:#ae81ff">\ </span>Chrome $APP_NAME.herokuapp.com/install.php
-</code></pre></div><p>gnu-socialの仕組みは単純で、基本的に<code>install.php</code>が<code>config.php</code>を書き込む処理を行います。ただし、deploy後は、heroku resetの関係でそこで作った<code>config.php</code>は、一時的にしか有効ではありません。もちろん、DBに保存されるユーザー情報は別ですが。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://git.gnu.io/dansup/gnu-social
+</span></span><span style="display:flex;"><span>$ cd !$:t
+</span></span><span style="display:flex;"><span>$ git checkout composer-autoloading
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ php -v
+</span></span><span style="display:flex;"><span>7.2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ composer update
+</span></span><span style="display:flex;"><span>error
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># これでいけました</span>
+</span></span><span style="display:flex;"><span>$ vim composer.json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;require&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;ext-pgsql&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;ext-gd&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;ext-intl&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;php&#34;</span>: <span style="color:#e6db74">&#34;^7.2.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;illuminate/contracts&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;illuminate/support&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;ramsey/uuid&#34;</span>: <span style="color:#e6db74">&#34;^3.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;ezyang/htmlpurifier&#34;</span>: <span style="color:#e6db74">&#34;^4.10&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;psy/psysh&#34;</span>: <span style="color:#e6db74">&#34;^0.8.17&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;scripts&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;post-install-cmd&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#e6db74">&#34;chmod 644 config.php&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;post-update-cmd&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#e6db74">&#34;chmod 644 config.php&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ composer update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-php -a $APP_NAME
+</span></span><span style="display:flex;"><span>$ heroku addons:add cleardb:ignite -a  $APP_NAME
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># trueとかの部分はいらない</span>
+</span></span><span style="display:flex;"><span>$ heroku config -a $APP_NAME | grep CLEARDB_DATABASE_URL
+</span></span><span style="display:flex;"><span>mysql://username:password@hostname/database
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ rm -rf .git
+</span></span><span style="display:flex;"><span>$ heroku git:remote -a $APP_NAME 
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push heroku master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome $APP_NAME.herokuapp.com/install.php
+</span></span></code></pre></div><p>gnu-socialの仕組みは単純で、基本的に<code>install.php</code>が<code>config.php</code>を書き込む処理を行います。ただし、deploy後は、heroku resetの関係でそこで作った<code>config.php</code>は、一時的にしか有効ではありません。もちろん、DBに保存されるユーザー情報は別ですが。</p>
 <p>ということで、srcにconfig.phpを用意して、deployする必要があるわけなんですけど(.gitignoreに注意)、config.phpの内容がわからないんですよね。そもそも<code>heroku run bash -a $APP_NAME</code>してもconfig.phpが見つからないし、権限を考慮してもやっぱり見当たらないので、herokuの仕組み的なものなんだと思いますが、私は、dockerでpreviewして、そのときに作成したconfig.phpをdocker cpして持ってくることを考えました。</p>
 <p>install.phpのINSTALLDIRで設定されているはずなんですが、<code>lib/installer.php</code>の<code>chmod 644</code>を書き直したり、INSTALLDIRを<code>/app</code>にしたりしたのですが、heroku runでは見つけられなかった。</p>
 <p>ということで、dockerを使って簡潔に行きましょー。こんな感じで持ってきます。一応、CONFIGUREを読んでもいいんですけど、これ読んでやってるほうが時間かかると思う。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker run -p 8000:80 rudism/gnu-social /root/start
-$ open -a Google<span style="color:#ae81ff">\ </span>Chrome http://localhost:8000/install.php
-
-$ sudo docker ps -q
-
-$ sudo docker cp xxx:/var/www/gnu-social/config.php .
-or
-$ sudo docker exec xxx /bin/bash
-	cat /var/www/gnu-social/config.php
-$ sudo docker cp xxx:/var/www/gnu-social/config.php .
-or
-$ sudo docker commit xxx rudism/gnu-social
-$ sudo docker run -it rudism/gnu-social /bin/bash
-	cat /var/www/gnu-social/config.php
-$ sudo docker ps -q
-$ sudo docker cp xxx:/var/www/gnu-social/config.php .
-</code></pre></div><p>上記コマンドを見れば、やりたいことはだいたい分かると思います。いろいろな方法があります。この他にも色々ありますね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo docker run -p 8000:80 rudism/gnu-social /root/start
+</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome http://localhost:8000/install.php
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo docker ps -q
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo docker cp xxx:/var/www/gnu-social/config.php .
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>$ sudo docker exec xxx /bin/bash
+</span></span><span style="display:flex;"><span>	cat /var/www/gnu-social/config.php
+</span></span><span style="display:flex;"><span>$ sudo docker cp xxx:/var/www/gnu-social/config.php .
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>$ sudo docker commit xxx rudism/gnu-social
+</span></span><span style="display:flex;"><span>$ sudo docker run -it rudism/gnu-social /bin/bash
+</span></span><span style="display:flex;"><span>	cat /var/www/gnu-social/config.php
+</span></span><span style="display:flex;"><span>$ sudo docker ps -q
+</span></span><span style="display:flex;"><span>$ sudo docker cp xxx:/var/www/gnu-social/config.php .
+</span></span></code></pre></div><p>上記コマンドを見れば、やりたいことはだいたい分かると思います。いろいろな方法があります。この他にも色々ありますね。</p>
 <p>しかし、要点は、heroku dbの情報を入力して作成されたconfig.phpを持ってくることが重要だと思います。下記はexampleです。</p>
 <blockquote>
 <p>config.php</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&lt;?php
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!defined<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;GNUSOCIAL&#39;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span> exit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>; <span style="color:#f92672">}</span>
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gnusocial&#39;</span>;
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;server&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;app.herokuapp.com&#39;</span>;
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;path&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> false; 
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;ssl&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;never&#39;</span>; 
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;database&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mysql://username:password@hostname/database&#39;</span>;
-$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mysql&#39;</span>;
-// Uncomment below <span style="color:#66d9ef">for</span> better performance. Just remember you must run
-// php scripts/checkschema.php whenever your enabled plugins change!
-//$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;schemacheck&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;script&#39;</span>;
-</code></pre></div><p>gnu-socialをdocker等で試行錯誤した結果、<code>ssl</code>と<code>pgsql</code>はどうやっても機能しませんでした。特に、<code>pgsql</code>はバグってると思います。<code>lib/installer.php</code>みたいなファイルから書き直したんですが、docker上でもheroku上でもまともに動きませんでした。正直、よくわからない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&lt;?php
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>!defined<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;GNUSOCIAL&#39;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span> exit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gnusocial&#39;</span>;
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;server&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;app.herokuapp.com&#39;</span>;
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;path&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> false; 
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;site&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;ssl&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;never&#39;</span>; 
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;database&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mysql://username:password@hostname/database&#39;</span>;
+</span></span><span style="display:flex;"><span>$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mysql&#39;</span>;
+</span></span><span style="display:flex;"><span>// Uncomment below <span style="color:#66d9ef">for</span> better performance. Just remember you must run
+</span></span><span style="display:flex;"><span>// php scripts/checkschema.php whenever your enabled plugins change!
+</span></span><span style="display:flex;"><span>//$config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#39;</span><span style="color:#f92672">][</span><span style="color:#e6db74">&#39;schemacheck&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;script&#39;</span>;
+</span></span></code></pre></div><p>gnu-socialをdocker等で試行錯誤した結果、<code>ssl</code>と<code>pgsql</code>はどうやっても機能しませんでした。特に、<code>pgsql</code>はバグってると思います。<code>lib/installer.php</code>みたいなファイルから書き直したんですが、docker上でもheroku上でもまともに動きませんでした。正直、よくわからない。</p>
 <p><a href="https://suriyadeepan.gitbooks.io/mesh-guide/content/gnu_social.html">https://suriyadeepan.gitbooks.io/mesh-guide/content/gnu_social.html</a></p>
 <p>あと、config.phpを置いたのはいいんですが、本来は、644でchmodされるファイルですから、そのパーミッションで行きたいんですけど、なぜか<code>heroku run bash</code>, <code>ls -l config.php</code>で確かめてみると、意図した権限じゃないんですよね。危険ですよ。composerでscript実行してるはずなんですけどね。(これはherokuの問題だと思う)</p>
 <p>その他、gnu-socialはqvitterというpluginがあるのですが、qvitter+pleroma-feでdual bootできるっぽいので、今度試してみようかなーと思っています。(herokuでどこまでできるかわからないけど。directory構造とかnginx設定とかが来ると、ちょっと面倒なことになりそうですね&hellip;)</p>
@@ -313,29 +313,29 @@ $config<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;db&#
 <blockquote>
 <p>nginx_app.conf</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">location @rewriteapp <span style="color:#f92672">{</span>
-    <span style="color:#75715e"># rewrite all to index.php</span>
-    rewrite ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ /index.php/$1 last;
-<span style="color:#f92672">}</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>location @rewriteapp <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># rewrite all to index.php</span>
+</span></span><span style="display:flex;"><span>    rewrite ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ /index.php/$1 last;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
 <p>Procfile</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: vendor/bin/heroku-php-nginx -C nginx_app.conf 
-</code></pre></div><p>メモ</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">fancy urls <span style="color:#f92672">=</span> index.php 
-ex : /index.php/api/user -&gt; /api/user 
-https://github.com/hannesmannerheim/qvitter/issues/256
-
-&gt; nginx_app.conf
-location @rewriteapp <span style="color:#f92672">{</span>
-<span style="color:#75715e"># rewrite all to index.php</span>
-rewrite ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ /index.php/$1 last;
-<span style="color:#f92672">}</span> 
-
-&gt; Procfile 
--C nginx_app.conf 
-https://devcenter.heroku.com/articles/custom-php-settings
-</code></pre></div><p>あと、ちょっと変な現象に遭遇して、config.phpのsite nameにqvitterを入れてると、plugins/Qvitterを呼び出せなかった気がする。多分、plugins/Qvitterのcodeか何かバッティングしたのかも。なので、サイト名変えました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>web: vendor/bin/heroku-php-nginx -C nginx_app.conf 
+</span></span></code></pre></div><p>メモ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>fancy urls <span style="color:#f92672">=</span> index.php 
+</span></span><span style="display:flex;"><span>ex : /index.php/api/user -&gt; /api/user 
+</span></span><span style="display:flex;"><span>https://github.com/hannesmannerheim/qvitter/issues/256
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; nginx_app.conf
+</span></span><span style="display:flex;"><span>location @rewriteapp <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># rewrite all to index.php</span>
+</span></span><span style="display:flex;"><span>rewrite ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ /index.php/$1 last;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; Procfile 
+</span></span><span style="display:flex;"><span>-C nginx_app.conf 
+</span></span><span style="display:flex;"><span>https://devcenter.heroku.com/articles/custom-php-settings
+</span></span></code></pre></div><p>あと、ちょっと変な現象に遭遇して、config.phpのsite nameにqvitterを入れてると、plugins/Qvitterを呼び出せなかった気がする。多分、plugins/Qvitterのcodeか何かバッティングしたのかも。なので、サイト名変えました。</p>
 <h2 id="site">site</h2>
 <p>そういえば、今回、適当にsnsとか立ててみたわけですが、ついでに自分のメインサイトの方にも追記しておきました。</p>
 <p>ですが、そんな立てても使いませんよね。ということで、cssのほうもちょっと作ってみました。使わないやつは赤で表示します。</p>
@@ -343,28 +343,28 @@ https://devcenter.heroku.com/articles/custom-php-settings
 <p><span class="red"></span> <a href="https://pleroma.syui.cf">https://pleroma.syui.cf</a></p>
 <p><span class="red"></span> <a href="http://qvitter.herokuapp.com">http://qvitter.herokuapp.com</a></p>
 <p><span class="red"></span> <a href="http://syui-chat.herokuapp.com">http://syui-chat.herokuapp.com</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
-span.blue {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #61bdcc;
-    margin: 0px 5px;
-    box-shadow: 0px 0px 10px #61bdcc;
-}
-
-&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
-span.red {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #f41b16b0;
-    margin: 0px 5px;
-    box-shadow: 0px 0px 10px #f41b16;
-}
-</code></pre></div><p>これ、他にも使えそうだなー。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>span.blue {
+</span></span><span style="display:flex;"><span>    display: inline-block;
+</span></span><span style="display:flex;"><span>    width: 10px;
+</span></span><span style="display:flex;"><span>    height: 10px;
+</span></span><span style="display:flex;"><span>    border-radius: 50%;
+</span></span><span style="display:flex;"><span>    background: #61bdcc;
+</span></span><span style="display:flex;"><span>    margin: 0px 5px;
+</span></span><span style="display:flex;"><span>    box-shadow: 0px 0px 10px #61bdcc;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>span.red {
+</span></span><span style="display:flex;"><span>    display: inline-block;
+</span></span><span style="display:flex;"><span>    width: 10px;
+</span></span><span style="display:flex;"><span>    height: 10px;
+</span></span><span style="display:flex;"><span>    border-radius: 50%;
+</span></span><span style="display:flex;"><span>    background: #f41b16b0;
+</span></span><span style="display:flex;"><span>    margin: 0px 5px;
+</span></span><span style="display:flex;"><span>    box-shadow: 0px 0px 10px #f41b16;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>これ、他にも使えそうだなー。</p>
 
        			 		
 

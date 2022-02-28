@@ -110,10 +110,10 @@
 													<h2>Pokemon Goの進捗</h2>
 													
        			 		<p>そういえば、CPの計算式が変更になったそうで、以前、作ったjsonが役に立たなくなったので、再度作ったりした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir output
-<span style="color:#75715e"># https://github.com/pokemongo-dev-contrib/pokemongo-json-pokedex</span>
-$ sudo docker run -v <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span><span style="color:#e6db74">/output:/var/lib/pokemongo-json-pokedex/output&#34;</span> brunnerlivio/pokemongo-json-pokedex:latest
-</code></pre></div><pre tabindex="0"><code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir output
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/pokemongo-dev-contrib/pokemongo-json-pokedex</span>
+</span></span><span style="display:flex;"><span>$ sudo docker run -v <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span><span style="color:#e6db74">/output:/var/lib/pokemongo-json-pokedex/output&#34;</span> brunnerlivio/pokemongo-json-pokedex:latest
+</span></span></code></pre></div><pre tabindex="0"><code>
 #!/bin/zsh
 
 d=${0:a:h}
@@ -124,24 +124,24 @@ n=`cat $j_npm|jq length`
 for (( i=0;i&lt;=$n;i++ ))
 do
 
-	dex=`cat $j_npm|jq -r &quot;.[$i].dex&quot;`
+	dex=`cat $j_npm|jq -r &#34;.[$i].dex&#34;`
 	id=`printf %03d ${dex}`
-	name_jp=`curl -sL $url/${id}.html|grep -o '&lt;title&gt;.*&lt;/title&gt;' | sed 's#&lt;title&gt;\(.*\)&lt;/title&gt;#\1#'|cut -d '｜' -f 1`
+	name_jp=`curl -sL $url/${id}.html|grep -o &#39;&lt;title&gt;.*&lt;/title&gt;&#39; | sed &#39;s#&lt;title&gt;\(.*\)&lt;/title&gt;#\1#&#39;|cut -d &#39;｜&#39; -f 1`
 	echo $name_jp
-	cat $j_npm|jq &quot;.[$i]|= .+{\&quot;lang\&quot;:{\&quot;jp\&quot;: \&quot;${name_jp}\&quot;}}&quot; &gt;! $j_out
+	cat $j_npm|jq &#34;.[$i]|= .+{\&#34;lang\&#34;:{\&#34;jp\&#34;: \&#34;${name_jp}\&#34;}}&#34; &gt;! $j_out
 	cp -rf $j_out $j_npm
 done
 </code></pre><p>日本語の名前がなかったので追加した。</p>
 <p>あとは、vue.jsとかでuploadしたjsonを読み込み必要な項目を表示。</p>
 <pre tabindex="0"><code>var demo = new Vue({
-	el: '#demo',
+	el: &#39;#demo&#39;,
 	data: {
-		searchQuery: '',
-		gridColumns: ['dex','name','maxCP','lang'],
+		searchQuery: &#39;&#39;,
+		gridColumns: [&#39;dex&#39;,&#39;name&#39;,&#39;maxCP&#39;,&#39;lang&#39;],
 		gridData: []
 	},
 	beforeCreate: function () {
-		axios.get('https://syui.gitlab.io/pokemon-zukan/json/pokemon.json')
+		axios.get(&#39;https://syui.gitlab.io/pokemon-zukan/json/pokemon.json&#39;)
 			.then(function (response) {
 				demo.gridData = response.data;
 			})
@@ -150,8 +150,8 @@ done
 			});
 	}
 });
-</code></pre><pre tabindex="0"><code>&lt;div id=&quot;demo&quot;&gt;
-  &lt;demo-grid :data=&quot;gridData&quot; :columns=&quot;gridColumns&quot;&gt; &lt;/demo-grid&gt;
+</code></pre><pre tabindex="0"><code>&lt;div id=&#34;demo&#34;&gt;
+  &lt;demo-grid :data=&#34;gridData&#34; :columns=&#34;gridColumns&#34;&gt; &lt;/demo-grid&gt;
 &lt;/div&gt;
 </code></pre><p>ということで、最近の進捗。Gen4の伝説が増えてきてうれしい。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pokemongo_2019_03_03_s01.png" alt=""></p>

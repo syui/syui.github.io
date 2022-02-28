@@ -111,23 +111,23 @@
 													
        			 		<p>ブラウザのテストをするには、<a href="https://www.browserstack.com">BrowserStack</a>が便利です。と言ってもここまでのものを使うことはあまりないと思いますが、それでもテストが楽になります。通常、テストは<code>CircleCI</code>, <code>Wercker</code>などで行うと思います。</p>
 <p><a href="https://www.browserstack.com/javascript-testing-api">https://www.browserstack.com/javascript-testing-api</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm -g install browserstack-runner
-$ browserstack-runner init
-$ cat browserstack.json
-$ browserstack-runner
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">browserstackRunner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;browserstack-runner&#39;</span>);
-
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./browserstack.json&#39;</span>);
-
-<span style="color:#a6e22e">browserstackRunner</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">config</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">report</span>) {
-  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">error</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">error</span>);
-    <span style="color:#66d9ef">return</span>;
-  }
-  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">report</span>, <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">2</span>));
-  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Test Finished&#34;</span>);
-});
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm -g install browserstack-runner
+</span></span><span style="display:flex;"><span>$ browserstack-runner init
+</span></span><span style="display:flex;"><span>$ cat browserstack.json
+</span></span><span style="display:flex;"><span>$ browserstack-runner
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">browserstackRunner</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;browserstack-runner&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./browserstack.json&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">browserstackRunner</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">config</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">report</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">report</span>, <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">2</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Test Finished&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div>
        			 		
 
 

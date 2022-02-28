@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2019/10/13/vita/</guid>
       <description>このプラグインは、vitaのビデオをデバッグモードで起動し、ux0:video/フォルダ/xxx.mp4のように自分で作ったフォルダで動画ファイルを管理できるようになります。なお、video/の直下に置いたファイルは再生できない模様。
-# https://bitbucket.org/SilicaAndPina/videodebug/downloads/ # curl -sLO https://bitbucket.org/SilicaAndPina/videodebug/downloads/videoDebug.skprx # vitaのftp serverにアクセス $ lftp 192.168.1.XX $ cd ux0:tai $ put ./videoDebug.skprx $ get config.txt ------------------ $ vim config.txt *KERNEL ux0:tai/videoDebug.skprx ------------------ $ put ./config.txt # vita再起動 # ビデオアプリを開く、機能はtestfolderから </description>
+# https://bitbucket.org/SilicaAndPina/videodebug/downloads/ # curl -sLO https://bitbucket.org/SilicaAndPina/videodebug/downloads/videoDebug.skprx  # vitaのftp serverにアクセス $ lftp 192.168.1.XX  $ cd ux0:tai $ put ./videoDebug.skprx $ get config.txt ------------------ $ vim config.txt *KERNEL ux0:tai/videoDebug.skprx ------------------ $ put ./config.txt  # vita再起動 # ビデオアプリを開く、機能はtestfolderから </description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
 では使い方から。
 これは、microSDを特定のフォーマット後にtheheroGAC/TF-Card-Plugin-Toolを駆使して使います。
 フォーマットは単純にパーティションなしのexfatです。
-$ sudo cfdisk /dev/sdx #ここでパーティションを全部削除して保存 $ sudo mkfs.exfat /dev/sdx # vitaからvitashellを起動し、ftp serverを立ち上げる $ lftp 192.168.1.x $ cd ux0:/temp $ put ./TF-Card-Plugin-Tool.vpk # コピーしたvpkをvitaにインストール uma0が外部ストレージにマウントするという感じで、ux0がメモリ場所(vitaがメモリを読み込む場所)にマウントするという感じです。
+$ sudo cfdisk /dev/sdx #ここでパーティションを全部削除して保存 $ sudo mkfs.exfat /dev/sdx  # vitaからvitashellを起動し、ftp serverを立ち上げる $ lftp 192.168.1.x $ cd ux0:/temp $ put ./TF-Card-Plugin-Tool.vpk  # コピーしたvpkをvitaにインストール uma0が外部ストレージにマウントするという感じで、ux0がメモリ場所(vitaがメモリを読み込む場所)にマウントするという感じです。
 私の場合は、純正メモリにvitashellと必要最小限のアプリを入れ、SD2VITAをuma0にマウント後、ux0の内容をuma0にvitashellを使ってコピーしました。これなら数秒で終わります。microSDにアプリがなにもないと色々と不便なのでこの処理はやっておいたほうが良さそう。
 その後は、TF-Card-Plugin-Toolでゲームカートリッジ &amp;lt;--&amp;gt; メモリの切り替えができるようになります。再起動が必要ですが、メモリを物理で入れ替える必要がなく非常に便利でした。
 例えば、エロ本の隠し場所として最適ですね、これなら絶対見つからんぞおおお！ただし、使い終わったらux0をメモリに戻しておくこと！！</description>

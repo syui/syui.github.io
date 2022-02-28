@@ -117,17 +117,17 @@
 <p>私が使ったのは、非公式clientであるvaultwardenのdocker-imageです。それをheroku deployする便利なrepoがありましたので、それを使いました。</p>
 <p><a href="https://github.com/davidjameshowell/vaultwarden_heroku">https://github.com/davidjameshowell/vaultwarden_heroku</a></p>
 <p>基本的には、readmeにあるとおりですね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:vaultwarden_heroku/.github/workflows/deploy.yml" data-lang="sh:vaultwarden_heroku/.github/workflows/deploy.yml"><span style="color:#f92672">env</span>:
-  <span style="color:#f92672">AUTOBUS_ENABLE</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">CREATE_APP_NAME</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_APP_NAME }}</span>
-  <span style="color:#f92672">DUO_ENABLE</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">GIT_HASH</span>: <span style="color:#ae81ff">main</span>
-  <span style="color:#f92672">HEROKU_API_KEY</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_API_KEY }}</span>
-  <span style="color:#f92672">USE_PSQL</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">HEROKU_VERIFIED</span>: <span style="color:#ae81ff">0</span>
-  <span style="color:#f92672">OFFSITE_HEROKU_DB</span>: <span style="color:#ae81ff">${{ secrets.OFFSITE_HEROKU_DB }}</span>
-  <span style="color:#f92672">HEROKU_CREATE_OPTIONS</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_CREATE_OPTIONS }}</span>
-</code></pre></div><p>bitwarden-serverを立ち上げたあとは、webからアクセスし、管理者アカウントを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:vaultwarden_heroku/.github/workflows/deploy.yml" data-lang="sh:vaultwarden_heroku/.github/workflows/deploy.yml"><span style="display:flex;"><span><span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">AUTOBUS_ENABLE</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CREATE_APP_NAME</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_APP_NAME }}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">DUO_ENABLE</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">GIT_HASH</span>: <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HEROKU_API_KEY</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_API_KEY }}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">USE_PSQL</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HEROKU_VERIFIED</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OFFSITE_HEROKU_DB</span>: <span style="color:#ae81ff">${{ secrets.OFFSITE_HEROKU_DB }}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HEROKU_CREATE_OPTIONS</span>: <span style="color:#ae81ff">${{ secrets.HEROKU_CREATE_OPTIONS }}</span>
+</span></span></code></pre></div><p>bitwarden-serverを立ち上げたあとは、webからアクセスし、管理者アカウントを作成します。</p>
 <p>そのserver(address)を使って、bitwarden-clientからpass管理や自動入力を行います。もちろん、pass管理はwebからもできます。</p>
 <p>ですが、多くの人がやりたいのは自動入力だと思うので、やはり、bitwarden-clientは必要になると思われます。</p>
 <p>bitwarden-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。</p>
@@ -139,25 +139,25 @@
 <p>現在の運用では、dbに保存するpassを制限し、つまり、流出してもあまり問題なさそうなアカウントのみで登録を行い、運用テストしています。</p>
 <p>また、当該repoは、dbに<code>heroku-postgresql</code>ではなく、<code>autobus</code>, <code>jawsdb</code>などのaddonを使いますが、個人的には、これらのaddonを使用するのは不安要素も大きいです。</p>
 <p>このようなsecure要請が高い事柄においては、herokuでhostする場合、herokuが提供するaddonに限定したほうがいいと思ったので、<code>heroku-postgresql</code>を使用するようにしました。option:envに項目はありましたが、あまり有効に機能してないような気もしましたので。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># yes</span>
-$ heroku addons:create heroku-postgresql -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># no</span>
-$ heroku addons:create autobus -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-$ heroku addons:create jawsdb -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>backupも基本的には、herokuが提供するcmdで足りると思います。ただし、plan:hobby(free)の場合、backup数は限りがありますので注意です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># backup</span>
-$ heroku pg:backups:capture -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># restore</span>
-$ heroku pg:backups -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-x001
-$ heroku pg:backups:restore x001 -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>herokuはfreeの場合、30minでsleepしますので、以下のaddonは必要になるかもです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create scheduler:standard -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-$ heroku addons:open scheduler -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
-every10min $curl https://$APP_NAME.herokuapp.com
-</code></pre></div><p>感想としては、bitwardenは便利です。主に登録と自動入力が便利で、これに慣れてしまうと、keepass時代のcopy/pasteはつらさがあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># yes</span>
+</span></span><span style="display:flex;"><span>$ heroku addons:create heroku-postgresql -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># no</span>
+</span></span><span style="display:flex;"><span>$ heroku addons:create autobus -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>$ heroku addons:create jawsdb -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>backupも基本的には、herokuが提供するcmdで足りると思います。ただし、plan:hobby(free)の場合、backup数は限りがありますので注意です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># backup</span>
+</span></span><span style="display:flex;"><span>$ heroku pg:backups:capture -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># restore</span>
+</span></span><span style="display:flex;"><span>$ heroku pg:backups -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>x001
+</span></span><span style="display:flex;"><span>$ heroku pg:backups:restore x001 -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>herokuはfreeの場合、30minでsleepしますので、以下のaddonは必要になるかもです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku addons:create scheduler:standard -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>$ heroku addons:open scheduler -a <span style="color:#e6db74">&#34;</span>$APP_NAME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>every10min $curl https://$APP_NAME.herokuapp.com
+</span></span></code></pre></div><p>感想としては、bitwardenは便利です。主に登録と自動入力が便利で、これに慣れてしまうと、keepass時代のcopy/pasteはつらさがあります。</p>
 <p>ですが、入力頻度がそれほどない場合は、私のことですが、keepassでいいんじゃないかという気もしてます。</p>
 <p>bitwarden-serverの運用や管理、維持する手間、危険性などを考えると、安全なのは、間違いなくkeepassのcopy/pasteだと思います。とはいえ、状況にもよりますが、基本的には。</p>
 <h3 id="bitwarden-cloudとcopypasteの安全性">bitwarden-cloudとcopy/pasteの安全性</h3>

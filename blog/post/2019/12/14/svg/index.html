@@ -114,15 +114,15 @@
 <p>まず、変換が思った通りにいかないことも多く、そこそこ使えたのは、以下の方法。</p>
 <p>変換サイト : <a href="https://image.online-convert.com/convert-to-svg">https://image.online-convert.com/convert-to-svg</a></p>
 <p>変換コマンド : <a href="https://eprev.org/2015/05/27/converting-png-to-svg">https://eprev.org/2015/05/27/converting-png-to-svg</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install potrace imagemagick
-$ convert -alpha remove party-never.png pgm: <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>| mkbitmap -f <span style="color:#ae81ff">32</span> -t 0.4 - -o - <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>| potrace --svg -o party-never.svg
-</code></pre></div><p>で、変換がうまくいったかは、大体がsvgファイルを見ればわかります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install potrace imagemagick
+</span></span><span style="display:flex;"><span>$ convert -alpha remove party-never.png pgm: <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>| mkbitmap -f <span style="color:#ae81ff">32</span> -t 0.4 - -o - <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>| potrace --svg -o party-never.svg
+</span></span></code></pre></div><p>で、変換がうまくいったかは、大体がsvgファイルを見ればわかります。</p>
 <p><code>viewBox</code>などが普通の数字であること、及び、<code>path d</code>が入ってることが重要。viewBoxが変な値だと、操作するのが難しすぎるし、viewBoxわけわからん。まあ全体と位置を決めてるらしいけど、これを手動で合わせるとか無理。svg演算する専門アプリとかありそう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:syui.svg" data-lang="html:syui.svg"><span style="color:#f92672">&lt;svg</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;512.000000pt&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;512.000000pt&#34;</span> <span style="color:#a6e22e">viewBox=</span><span style="color:#e6db74">&#34;0 0 512.000000 512.000000&#34;</span> <span style="color:#a6e22e">preserveAspectRatio=</span><span style="color:#e6db74">&#34;xMidYMid meet&#34;</span><span style="color:#f92672">&gt;</span>
-<span style="color:#f92672">&lt;path</span> <span style="color:#a6e22e">d=</span><span style="color:#e6db74">&#34;M0 2560 l0 -2560 2560 0 2560 0 0 2560 0 2560 -2560 0 -2560 0 0&#34;</span><span style="color:#f92672">&gt;</span>
-</code></pre></div><p>svgはパスで書かれていて、変換した際、なぜかパスが反転してしまうこともあって、例えば、pngで透明だった背景ベースでパスが構築されてしまう。これもパスを反転すればいいだけじゃんと思ったけど、画像編集の常識が通用しないので、正直、わけがわからんかった。これ、自由自在に編集できる人いるんだろうか？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:syui.svg" data-lang="html:syui.svg"><span style="display:flex;"><span><span style="color:#f92672">&lt;svg</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;512.000000pt&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;512.000000pt&#34;</span> <span style="color:#a6e22e">viewBox=</span><span style="color:#e6db74">&#34;0 0 512.000000 512.000000&#34;</span> <span style="color:#a6e22e">preserveAspectRatio=</span><span style="color:#e6db74">&#34;xMidYMid meet&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;path</span> <span style="color:#a6e22e">d=</span><span style="color:#e6db74">&#34;M0 2560 l0 -2560 2560 0 2560 0 0 2560 0 2560 -2560 0 -2560 0 0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>svgはパスで書かれていて、変換した際、なぜかパスが反転してしまうこともあって、例えば、pngで透明だった背景ベースでパスが構築されてしまう。これもパスを反転すればいいだけじゃんと思ったけど、画像編集の常識が通用しないので、正直、わけがわからんかった。これ、自由自在に編集できる人いるんだろうか？</p>
 <p>その後、配色を黒にしたら、変換できました。</p>
 <h3 id="新しいアイコンのデザイン">新しいアイコンのデザイン</h3>
 <p>そんなことをやりながら、ついでに新しいアイコンをデザインしてみた。</p>

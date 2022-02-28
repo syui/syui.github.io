@@ -61,9 +61,9 @@ misskeyに幸あれ
       <guid>https://syui.cf/blog/post/2019/04/04/misskey/</guid>
       <description>misskey on heroku.
 misskeyという分散snsをherokuというpaasで動かしてみた記録です。
-remote: * Stack heroku-18 remote: NPM_CONFIG_LOGLEVEL=error remote: NODE_ENV=production remote: NODE_MODULES_CACHE=true remote: NODE_VERBOSE=false remote: Resolving node version 10.x... remote: Downloading and installing node 10.15.3... remote: Using default npm version: 6.4.1 remote: &amp;gt; misskey@10.98.3 install misskeyをherokuで動作させるポイントとしては、.config/default.ymlとheroku $PORTです。
+remote: * Stack heroku-18  remote: NPM_CONFIG_LOGLEVEL=error remote: NODE_ENV=production remote: NODE_MODULES_CACHE=true remote: NODE_VERBOSE=false  remote: Resolving node version 10.x... remote: Downloading and installing node 10.15.3... remote: Using default npm version: 6.4.1  remote: &amp;gt; misskey@10.98.3 install misskeyをherokuで動作させるポイントとしては、.config/default.ymlとheroku $PORTです。
 herokuは、deployする度にPORTが変動し、その値は、PORTの環境変数に入っています。しかし、misskeyのsource codeはそれに対応していないようなので、少しだけcodeをPaaS向きに書き換える必要があります。
-$ git clone https://github.com/syuilo/misskey $ cd !$:t # git reset --hard 551d1b7f8624d2e9c19a99dd80aaf49f096ce836 $ git branch $ git checkout -b master $ heroku create $APP_NAME $ heroku git:remote -a $APP_NAME $ heroku buildpacks:set https://github.</description>
+$ git clone https://github.com/syuilo/misskey $ cd !$:t  # git reset --hard 551d1b7f8624d2e9c19a99dd80aaf49f096ce836  $ git branch $ git checkout -b master  $ heroku create $APP_NAME $ heroku git:remote -a $APP_NAME $ heroku buildpacks:set https://github.</description>
     </item>
     
   </channel>

@@ -110,23 +110,23 @@
 													<h2>hugoでちょっとハマったところ</h2>
 													
        			 		<p>content/post以下の記事一覧を表示したいけど、<code>content/post/_index.html</code>のリンクは表示したくない<code>.mainSections</code>のと、古い順<code>.Reverse</code>に表示したい場合。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ range first 100 (where site.RegularPages.Reverse &#34;Type&#34; &#34;in&#34; site.Params.mainSections) }}
-</code></pre></div><p>なんか、次の記事へのリンクが<code>.Paginate</code>とか<code>.Paginator.HasPrev</code>で取得できず、エラーがgolangのバグっぽかったので、<code>.PrevInSection .NextInSection</code>を使った。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ if or .PrevInSection .NextInSection }}
-&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav&#34;</span>&gt;
-    {{ if .PrevInSection }}
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .PrevInSection.Permalink }}&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-older&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-link-wrap&#34;</span>&gt;
-&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $next }}&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; {{ .PrevInSection.Title }}
-    &lt;/<span style="color:#f92672">a</span>&gt;
-    {{ end }}
-    {{ if .NextInSection }}
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .NextInSection.Permalink }}&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-newer&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-link-wrap&#34;</span>&gt;
-      &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $next }}&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; {{ .NextInSection.Title }}
-    &lt;/<span style="color:#f92672">a</span>&gt;
-    {{ end }}
-&lt;/<span style="color:#f92672">nav</span>&gt;
-{{ end }}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ range first 100 (where site.RegularPages.Reverse &#34;Type&#34; &#34;in&#34; site.Params.mainSections) }}
+</span></span></code></pre></div><p>なんか、次の記事へのリンクが<code>.Paginate</code>とか<code>.Paginator.HasPrev</code>で取得できず、エラーがgolangのバグっぽかったので、<code>.PrevInSection .NextInSection</code>を使った。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if or .PrevInSection .NextInSection }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ if .PrevInSection }}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .PrevInSection.Permalink }}&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-older&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-link-wrap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $next }}&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; {{ .PrevInSection.Title }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>    {{ if .NextInSection }}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .NextInSection.Permalink }}&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-newer&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-nav-link-wrap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $next }}&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; {{ .NextInSection.Title }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">nav</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div>
        			 		
 
 

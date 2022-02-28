@@ -112,31 +112,31 @@
        			 		<p>よく<a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html">Lambda</a>と<a href="https://www.iron.io/">Iron</a>が比較されていますが、後者のほうを使ってみました。</p>
 <p>Free Planはアカウント作成から15日間になります。</p>
 <p>基本的には、Iron CLIをインストールして、Dockerでテストして、アップロードするという流れ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p iron/test
-$ cd !$
-$ curl -sSL https://cli.iron.io/install | sh
-$ echo <span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">package main
-</span><span style="color:#e6db74"> 
-</span><span style="color:#e6db74">import &#34;fmt&#34;
-</span><span style="color:#e6db74"> 
-</span><span style="color:#e6db74">func main() {
-</span><span style="color:#e6db74">  fmt.Println(&#34;Hello from IronWorker!
-</span><span style="color:#e6db74">&#34;)
-</span><span style="color:#e6db74">}&#39;</span> &gt;&gt; hello_worker.go
-
-<span style="color:#75715e"># test</span>
-$ docker run --rm -it -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>:/go/src/x/y/z -w /go/src/x/y/z -e <span style="color:#e6db74">&#34;GOPATH=/go/src/x/y/z/vendor:/go&#34;</span> iron/go go build -o hello_worker
-...
-$ docker run --rm -it -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>:/app -w /app  iron/go ./hello_worker
-
-<span style="color:#75715e"># upload</span>
-$ zip -r hello_worker.zip .
-$ iron worker upload --zip hello_worker.zip --name hello_worker iron/go ./hello_worker
-</code></pre></div><p>仮にここまでをWorkerの作成とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p iron/test
+</span></span><span style="display:flex;"><span>$ cd !$
+</span></span><span style="display:flex;"><span>$ curl -sSL https://cli.iron.io/install | sh
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">package main
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">import &#34;fmt&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">func main() {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  fmt.Println(&#34;Hello from IronWorker!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span> &gt;&gt; hello_worker.go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># test</span>
+</span></span><span style="display:flex;"><span>$ docker run --rm -it -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>:/go/src/x/y/z -w /go/src/x/y/z -e <span style="color:#e6db74">&#34;GOPATH=/go/src/x/y/z/vendor:/go&#34;</span> iron/go go build -o hello_worker
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>$ docker run --rm -it -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>:/app -w /app  iron/go ./hello_worker
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># upload</span>
+</span></span><span style="display:flex;"><span>$ zip -r hello_worker.zip .
+</span></span><span style="display:flex;"><span>$ iron worker upload --zip hello_worker.zip --name hello_worker iron/go ./hello_worker
+</span></span></code></pre></div><p>仮にここまでをWorkerの作成とします。</p>
 <p>そして、先ほど作成したWorkerをQueue(キュー)に追加します。Queueはスケジュールタスクになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ iron worker queue --wait hello_worker
-</code></pre></div><p>これとCIを組み合わせることで色々と出来そうです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ iron worker queue --wait hello_worker
+</span></span></code></pre></div><p>これとCIを組み合わせることで色々と出来そうです。</p>
 
        			 		
 

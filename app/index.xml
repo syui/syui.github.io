@@ -16,7 +16,7 @@
       <guid>https://syui.cf/app/dev/msr/</guid>
       <description>msrは、rustで書かれたシンプルなmastodon clientです。
 Download
-# mac $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc $ mv msr-x86_64-apple-darwin msr $ chmod +x msr $ ./msr # security setting # macの場合、ここで設定-&amp;gt;セキュリティにてファイルを開くを選択します # linux $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu $ mv msr-x86_64-unknown-linux-gnu msr $ chmod +x msr $ ./msr build $ git clone https://github.com/syui/msr $ cd msr/ $ cargo build $ ./target/debug/msr use mastodonの開発からappを発行してください。権限は必要最小限で構いません。名前はmsrでredirect-urlはlocalhost(なんでもいい)です。
+# mac $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc $ mv msr-x86_64-apple-darwin msr $ chmod +x msr $ ./msr # security setting # macの場合、ここで設定-&amp;gt;セキュリティにてファイルを開くを選択します  # linux $ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu $ mv msr-x86_64-unknown-linux-gnu msr $ chmod +x msr $ ./msr build $ git clone https://github.com/syui/msr $ cd msr/ $ cargo build $ ./target/debug/msr use mastodonの開発からappを発行してください。権限は必要最小限で構いません。名前はmsrでredirect-urlはlocalhost(なんでもいい)です。
 ~/.config/msr/config.tomlにtokenなどの情報を記述してください。
 $ mkdir -p ~/.config/msr $ cp config.toml.example ~/.config/msr/config.toml $ vim ~/.config/msr/config.toml token = &amp;#34;アクセストークン&amp;#34; client_id = &amp;#34;クライアントキー&amp;#34; client_secret = &amp;#34;クライアントシークレット&amp;#34; redirect = &amp;#34;localhost&amp;#34; base = &amp;#34;https://mastodon.</description>
     </item>
@@ -33,7 +33,7 @@ https://github.com/syui/reviewbot
 詳しくはこちらのファイルを見てください。
 https://github.com/syui/reviewbot/tree/master/.github/workflows
 条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。
-on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: |## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
+on:  pull_request:  types: opened  jobs:  reviewbot:  runs-on: ubuntu-latest  steps:  - uses: actions/checkout@v1  - name: Set up Ruby 2.6  uses: actions/setup-ruby@v1  with:  ruby-version: 2.6.x  - name: gem i  run: gem i sqlint  - name: run reviewbot  env:  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  GITHUB_REPOSITORY: ${{ github.repository }}  URL: ${{ github.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: -
       <guid>https://syui.cf/app/dev/udrs/</guid>
       <description>udrsは、rustで書かれたurlの整形支援するcliツールです。base64のencode,decodeや指定した区切りで取得することができます。
 Download
-#base64 encode $ udrs e &amp;#34;hello world.&amp;#34; aGVsbG8gd29ybGQu $ udrs d &amp;#34;aGVsbG8gd29ybGQu&amp;#34; hello world. $ udrs ud &amp;#34;foo%20bar&amp;#34; foo bar $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -l /ksk001100/seahorse $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -p https $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -d github.com </description>
+#base64 encode $ udrs e &amp;#34;hello world.&amp;#34; aGVsbG8gd29ybGQu  $ udrs d &amp;#34;aGVsbG8gd29ybGQu&amp;#34; hello world.  $ udrs ud &amp;#34;foo%20bar&amp;#34; foo bar  $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -l /ksk001100/seahorse  $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -p https  $ udrs ud &amp;#34;https://github.com/ksk001100/seahorse&amp;#34; -d github.com </description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ Download
       <guid>https://syui.cf/app/dev/covid-vue-chart/</guid>
       <description>vue + apexcharts + axios
 https://github.com/syui/covid-vue-chart
-$ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ yarn serve $ yarn build $ curl -sL https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json|jq &amp;#34;.|keys&amp;#34; </description>
+$ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ yarn serve $ yarn build  $ curl -sL https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json|jq &amp;#34;.|keys&amp;#34; </description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ $ git clone https://github.com/syui/covid-vue-chart $ cd !:t $ yarn install $ ya
       
       <guid>https://syui.cf/app/dev/shasumgo/</guid>
       <description>https://github.com/syui/shasumgo
-$ go get github.com/syui/shasumgo # version $ shasumgo -v # help $ shasumgo h # example $ shasumgo ~/.bashrc ~/.zshrc da39a3ee5e6b4b0d3255bfef95601890afd80709 336de4a66576637c35e0a02e3b4233fdb28798db $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc ok # success:result display is none $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc </description>
+$ go get github.com/syui/shasumgo  # version $ shasumgo -v  # help $ shasumgo h  # example $ shasumgo ~/.bashrc ~/.zshrc da39a3ee5e6b4b0d3255bfef95601890afd80709 336de4a66576637c35e0a02e3b4233fdb28798db  $ shasumgo ~/.bashrc ~/.bashrc ok $ shasumgo s da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc ok  # success:result display is none $ shasumgo c ~/.bashrc ~/.bashrc $ shasumgo s c da39a3ee5e6b4b0d3255bfef95601890afd80709 ~/.bashrc </description>
     </item>
     
     <item>
@@ -117,7 +117,7 @@ https://qiita.com/syui/items/2e1bb571e9d50608809e</description>
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、medigoを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth
 # If authentication does not exist, open the browser. $ medigo authorization code : xxxx oauth認証が終わると、以下のコマンドが使用できます。
-$ medigo h $ medigo u </description>
+$ medigo h  $ medigo u </description>
     </item>
     
     <item>
@@ -130,7 +130,7 @@ $ medigo h $ medigo u </description>
 Download
 curlやjq, pecoなどが必要になる場合があります。
 使い方は、json/user.jsonにアプリ認証情報を置いて、$ mstdn.zsh aコマンドを実行します。
-$ git clone https://github.com/syui/mstdn.zsh $ cd mstdn.zsh $ chmod +x mstdn.zsh $ ./mstdn.zsh a { &amp;#34;host&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;app&amp;#34; : &amp;#34;xxxx&amp;#34;, &amp;#34;select_command&amp;#34; : &amp;#34;fzf&amp;#34; } # 投稿 $ mstdn.zsh p -f &amp;#34;test.&amp;#34; # タイムライン $ mstdn.zsh t # ユーザー情報 $ mstdn.zsh s </description>
+$ git clone https://github.com/syui/mstdn.zsh $ cd mstdn.zsh $ chmod +x mstdn.zsh $ ./mstdn.zsh a { 	&amp;#34;host&amp;#34; : &amp;#34;xxxx&amp;#34;, 	&amp;#34;app&amp;#34; : &amp;#34;xxxx&amp;#34;, 	&amp;#34;select_command&amp;#34; : &amp;#34;fzf&amp;#34; } # 投稿 $ mstdn.zsh p -f &amp;#34;test.&amp;#34;  # タイムライン $ mstdn.zsh t  # ユーザー情報 $ mstdn.zsh s </description>
     </item>
     
     <item>
@@ -145,7 +145,7 @@ Download
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、twgを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth
 # If authentication does not exist, open the browser. $ twg authorization code : xxxx oauth認証が終わると、以下のコマンドが使用できます。
-# timeline $ twg # help $ twg h # post $ twg p &amp;#34;send tweet&amp;#34; # user timeline $ twg u syui__ $ twg u # stream $ twg s # oauth $ twg o # search $ twg / &amp;#34;#twitter&amp;#34; 2 </description>
+# timeline $ twg  # help $ twg h  # post $ twg p &amp;#34;send tweet&amp;#34;  # user timeline $ twg u syui__ $ twg u  # stream $ twg s  # oauth $ twg o  # search $ twg / &amp;#34;#twitter&amp;#34; 2 </description>
     </item>
     
     <item>
@@ -156,7 +156,7 @@ releases版でないとclient_idなどが入っていないため、自身で用
       <guid>https://syui.cf/app/dev/xq/</guid>
       <description>xqは、xmlをjsonに変換します。ほしい要素を取り出します。
 Download
-# https://github.com/syui/xq $ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4 $ curl -sLO https://syui.cf/blog/index.xml $ xq ./index.xml | jq . $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 </description>
+# https://github.com/syui/xq $ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4  $ curl -sLO https://syui.cf/blog/index.xml  $ xq ./index.xml | jq . $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/  $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000  $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 </description>
     </item>
     
   </channel>

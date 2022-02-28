@@ -2994,9 +2994,9 @@ https://pogo.syui.cf/post/2019/04/23/pogo/
       
       <guid>https://syui.cf/blog/post/2019/03/03/pokemon/</guid>
       <description>そういえば、CPの計算式が変更になったそうで、以前、作ったjsonが役に立たなくなったので、再度作ったりした。
-$ mkdir output # https://github.com/pokemongo-dev-contrib/pokemongo-json-pokedex $ sudo docker run -v &amp;#34;$(pwd)/output:/var/lib/pokemongo-json-pokedex/output&amp;#34; brunnerlivio/pokemongo-json-pokedex:latest  #!/bin/zsh d=${0:a:h} url=https://www.pokemon.jp/zukan/detail j_npm=$d/pokemongo-json-pokedex.json j_out=$d/pokemon_tmp.json n=`cat $j_npm|jq length` for (( i=0;i&amp;lt;=$n;i++ )) do dex=`cat $j_npm|jq -r &amp;quot;.[$i].dex&amp;quot;` id=`printf %03d ${dex}` name_jp=`curl -sL $url/${id}.html|grep -o &#39;&amp;lt;title&amp;gt;.*&amp;lt;/title&amp;gt;&#39; | sed &#39;s#&amp;lt;title&amp;gt;\(.*\)&amp;lt;/title&amp;gt;#\1#&#39;|cut -d &#39;｜&#39; -f 1` echo $name_jp cat $j_npm|jq &amp;quot;.[$i]|= .+{\&amp;quot;lang\&amp;quot;:{\&amp;quot;jp\&amp;quot;: \&amp;quot;${name_jp}\&amp;quot;}}&amp;quot; &amp;gt;! $j_out cp -rf $j_out $j_npm done 日本語の名前がなかったので追加した。
+$ mkdir output # https://github.com/pokemongo-dev-contrib/pokemongo-json-pokedex $ sudo docker run -v &amp;#34;$(pwd)/output:/var/lib/pokemongo-json-pokedex/output&amp;#34; brunnerlivio/pokemongo-json-pokedex:latest  #!/bin/zsh d=${0:a:h} url=https://www.pokemon.jp/zukan/detail j_npm=$d/pokemongo-json-pokedex.json j_out=$d/pokemon_tmp.json n=`cat $j_npm|jq length` for (( i=0;i&amp;lt;=$n;i++ )) do dex=`cat $j_npm|jq -r &amp;#34;.[$i].dex&amp;#34;` id=`printf %03d ${dex}` name_jp=`curl -sL $url/${id}.html|grep -o &amp;#39;&amp;lt;title&amp;gt;.*&amp;lt;/title&amp;gt;&amp;#39; | sed &amp;#39;s#&amp;lt;title&amp;gt;\(.*\)&amp;lt;/title&amp;gt;#\1#&amp;#39;|cut -d &amp;#39;｜&amp;#39; -f 1` echo $name_jp cat $j_npm|jq &amp;#34;.[$i]|= .+{\&amp;#34;lang\&amp;#34;:{\&amp;#34;jp\&amp;#34;: \&amp;#34;${name_jp}\&amp;#34;}}&amp;#34; &amp;gt;! $j_out cp -rf $j_out $j_npm done 日本語の名前がなかったので追加した。
 あとは、vue.jsとかでuploadしたjsonを読み込み必要な項目を表示。
-var demo = new Vue({ el: &#39;#demo&#39;, data: { searchQuery: &#39;&#39;, gridColumns: [&#39;dex&#39;,&#39;name&#39;,&#39;maxCP&#39;,&#39;lang&#39;], gridData: [] }, beforeCreate: function () { axios.</description>
+var demo = new Vue({ el: &amp;#39;#demo&amp;#39;, data: { searchQuery: &amp;#39;&amp;#39;, gridColumns: [&amp;#39;dex&amp;#39;,&amp;#39;name&amp;#39;,&amp;#39;maxCP&amp;#39;,&amp;#39;lang&amp;#39;], gridData: [] }, beforeCreate: function () { axios.</description>
     </item>
     
     <item>
@@ -3447,7 +3447,7 @@ http://www.pokemongo.jp/topics/72/
       <guid>https://syui.cf/blog/post/2017/08/06/pokemon/</guid>
       <description>2017/7/22(jp:7/23)に伝説が来るというので、私の場合、それよりもちょっと前からrocketmapをgoogle apiを使いつつprivate(local) server上でpreviewできるよう準備していました。
 なお、使用するユーザーアカウント(ゲームの)はチュートリアルまで進めておきましょう。
-## Google API Console : https://console.developers.google.com/ ## The google maps api key may either be installed in config/config.ini file, or you can provide it as a command line parameter like -k &amp;#39;your key here&amp;#39; - Google Maps Javascript API - Google Places API Web Service - Google Maps Elevation API - Google Maps Geocoding API - Google Maps Time Zone API $ sudo apt-get install -y python python-pip python-dev build-essential git $ curl -sL https://deb.</description>
+## Google API Console : https://console.developers.google.com/ ## The google maps api key may either be installed in config/config.ini file, or you can provide it as a command line parameter like -k &amp;#39;your key here&amp;#39; - Google Maps Javascript API - Google Places API Web Service - Google Maps Elevation API - Google Maps Geocoding API - Google Maps Time Zone API  $ sudo apt-get install -y python python-pip python-dev build-essential git $ curl -sL https://deb.</description>
     </item>
     
     <item>

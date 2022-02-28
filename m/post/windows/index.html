@@ -114,12 +114,12 @@
 <h3 id="openssh">openssh</h3>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
 <p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublic-keyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
-       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-</code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Match Group administrators
+</span></span><span style="display:flex;"><span>       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+</span></span></code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
 <p><a href="https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration">https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
-</code></pre></div><h3 id="ultravnc">ultravnc</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
+</span></span></code></pre></div><h3 id="ultravnc">ultravnc</h3>
 <p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
 <p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
 <p>したがって、exeやstartup(shell:startup)は、<code>プロパティ &gt; 管理者としてこのプログラムを実行する</code>にチェックを入れます。</p>
@@ -127,8 +127,8 @@
 <h3 id="virtualbox">virtualbox</h3>
 <p><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
 <p>virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:startup/vm-arch.bat" data-lang="sh:startup/vm-arch.bat"><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
-</code></pre></div><h3 id="auto-login">auto-login</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:startup/vm-arch.bat" data-lang="sh:startup/vm-arch.bat"><span style="display:flex;"><span><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
+</span></span></code></pre></div><h3 id="auto-login">auto-login</h3>
 <p>起動時のパスワードを省略する設定です。</p>
 <p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
 <p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>

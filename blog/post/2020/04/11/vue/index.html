@@ -115,294 +115,294 @@
 <h3 id="前提">前提</h3>
 <p>今回使用するのは、vue-cli4とhooperです。</p>
 <p>まず、vue-cli4を使えるようにします。最新を入れればいいですが、この情報が古くなった場合、4です。次に、hooperをpackage.jsonに追加します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn global add @vue/cli
-$ vue create sample-vue-project
-$ cd sample-vue-project
-$ yarn add hooper
-
-$ cat package.json
-</code></pre></div><p>package.jsonはこんな感じです。コピーして、<code>yarn install</code>してもいいです。これで<code>yarn install</code>とかすると、依存関係がインストールできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:package.json" data-lang="json:package.json">{
-  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;sample-vue-project&#34;</span>,
-  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>,
-  <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
-  <span style="color:#f92672">&#34;scripts&#34;</span>: {
-    <span style="color:#f92672">&#34;serve&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service serve&#34;</span>,
-    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service build&#34;</span>,
-    <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service lint&#34;</span>
-  },
-  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
-    <span style="color:#f92672">&#34;core-js&#34;</span>: <span style="color:#e6db74">&#34;^3.6.4&#34;</span>,
-    <span style="color:#f92672">&#34;hooper&#34;</span>: <span style="color:#e6db74">&#34;^0.3.4&#34;</span>,
-    <span style="color:#f92672">&#34;vue&#34;</span>: <span style="color:#e6db74">&#34;^2.6.11&#34;</span>
-  },
-  <span style="color:#f92672">&#34;devDependencies&#34;</span>: {
-    <span style="color:#f92672">&#34;@vue/cli-plugin-babel&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
-    <span style="color:#f92672">&#34;@vue/cli-plugin-eslint&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
-    <span style="color:#f92672">&#34;@vue/cli-service&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
-    <span style="color:#f92672">&#34;babel-eslint&#34;</span>: <span style="color:#e6db74">&#34;^10.1.0&#34;</span>,
-    <span style="color:#f92672">&#34;eslint&#34;</span>: <span style="color:#e6db74">&#34;^6.7.2&#34;</span>,
-    <span style="color:#f92672">&#34;eslint-plugin-vue&#34;</span>: <span style="color:#e6db74">&#34;^6.2.2&#34;</span>,
-    <span style="color:#f92672">&#34;vue-template-compiler&#34;</span>: <span style="color:#e6db74">&#34;^2.6.11&#34;</span>
-  },
-  <span style="color:#f92672">&#34;eslintConfig&#34;</span>: {
-    <span style="color:#f92672">&#34;root&#34;</span>: <span style="color:#66d9ef">true</span>,
-    <span style="color:#f92672">&#34;env&#34;</span>: {
-      <span style="color:#f92672">&#34;node&#34;</span>: <span style="color:#66d9ef">true</span>
-    },
-    <span style="color:#f92672">&#34;extends&#34;</span>: [
-      <span style="color:#e6db74">&#34;plugin:vue/essential&#34;</span>,
-      <span style="color:#e6db74">&#34;eslint:recommended&#34;</span>
-    ],
-    <span style="color:#f92672">&#34;parserOptions&#34;</span>: {
-      <span style="color:#f92672">&#34;parser&#34;</span>: <span style="color:#e6db74">&#34;babel-eslint&#34;</span>
-    },
-    <span style="color:#f92672">&#34;rules&#34;</span>: {}
-  },
-  <span style="color:#f92672">&#34;browserslist&#34;</span>: [
-    <span style="color:#e6db74">&#34;&gt; 1%&#34;</span>,
-    <span style="color:#e6db74">&#34;last 2 versions&#34;</span>,
-    <span style="color:#e6db74">&#34;not dead&#34;</span>
-  ]
-}
-</code></pre></div><h3 id="vue">vue</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn global add @vue/cli
+</span></span><span style="display:flex;"><span>$ vue create sample-vue-project
+</span></span><span style="display:flex;"><span>$ cd sample-vue-project
+</span></span><span style="display:flex;"><span>$ yarn add hooper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat package.json
+</span></span></code></pre></div><p>package.jsonはこんな感じです。コピーして、<code>yarn install</code>してもいいです。これで<code>yarn install</code>とかすると、依存関係がインストールできます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:package.json" data-lang="json:package.json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;sample-vue-project&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;serve&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service serve&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service build&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#e6db74">&#34;vue-cli-service lint&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;core-js&#34;</span>: <span style="color:#e6db74">&#34;^3.6.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hooper&#34;</span>: <span style="color:#e6db74">&#34;^0.3.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;vue&#34;</span>: <span style="color:#e6db74">&#34;^2.6.11&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;devDependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-plugin-babel&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-plugin-eslint&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-service&#34;</span>: <span style="color:#e6db74">&#34;~4.3.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;babel-eslint&#34;</span>: <span style="color:#e6db74">&#34;^10.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;eslint&#34;</span>: <span style="color:#e6db74">&#34;^6.7.2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;eslint-plugin-vue&#34;</span>: <span style="color:#e6db74">&#34;^6.2.2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;vue-template-compiler&#34;</span>: <span style="color:#e6db74">&#34;^2.6.11&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;eslintConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;root&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;node&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;extends&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;plugin:vue/essential&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;eslint:recommended&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parserOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;parser&#34;</span>: <span style="color:#e6db74">&#34;babel-eslint&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rules&#34;</span>: {}
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;browserslist&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&gt; 1%&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;last 2 versions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;not dead&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="vue">vue</h3>
 <p>まず、vueの使い方を簡単に説明します。</p>
 <p>vueは<code>src/main.js</code>と<code>src/App.vue</code>,<code>src/index.html</code>などを書いてbuildします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn serve
-$ yarn build
-</code></pre></div><p>デフォルトでは、<code>dist</code>にファイルが置かれます。なお、root pathは<code>public</code>になっています。例えば、<code>https://example.com/path/to/img.png</code>を使いたければ、<code>public/path/to/img.png</code>にファイルを置いて、App.vueには<code>/path/to/img.png</code>と記述します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn serve
+</span></span><span style="display:flex;"><span>$ yarn build
+</span></span></code></pre></div><p>デフォルトでは、<code>dist</code>にファイルが置かれます。なお、root pathは<code>public</code>になっています。例えば、<code>https://example.com/path/to/img.png</code>を使いたければ、<code>public/path/to/img.png</code>にファイルを置いて、App.vueには<code>/path/to/img.png</code>と記述します。</p>
 <p>次に、vue-cliですが、env(環境変数)を使う際は、<code>.env</code>に<code>VUE_APP_XXX=10</code>などと書いて、App.vueなどには<code>process.env.VUE_APP_XXX</code>とすることで環境変数を使えます。</p>
 <h3 id="hooper">hooper</h3>
 <p><a href="https://baianat.github.io/hooper/">https://baianat.github.io/hooper/</a></p>
 <p>docsのexampleがわかりやすいですね。最小構成は以下です。大体わかると思いますが、オプションなども用意されていますので、そのあたりは後述します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="color:#75715e">// https://baianat.github.io/hooper/examples.html#default-example
-</span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
-  &lt;<span style="color:#f92672">hooper</span>&gt;
-    &lt;<span style="color:#f92672">slide</span>&gt;
-      <span style="color:#a6e22e">slide</span> <span style="color:#ae81ff">1</span>
-    &lt;/<span style="color:#f92672">slide</span>&gt;
-    &lt;<span style="color:#f92672">slide</span>&gt;
-      <span style="color:#a6e22e">slide</span> <span style="color:#ae81ff">2</span>
-    &lt;/<span style="color:#f92672">slide</span>&gt;
-    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
-  &lt;/<span style="color:#f92672">hooper</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-
-&lt;<span style="color:#f92672">script</span>&gt;
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">Hooper</span>,
-  <span style="color:#a6e22e">Slide</span>,
-  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
-  } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
-
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">Hooper</span>,
-    <span style="color:#a6e22e">Slide</span>,
-    <span style="color:#a6e22e">HooperNavigation</span>
-  }
-}
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/mani.js" data-lang="js:src/mani.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
-
-<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">productionTip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-
-<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
-  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
-}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
-</code></pre></div><h4 id="hooperでの実装例">hooperでの実装例</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span><span style="color:#75715e">// https://baianat.github.io/hooper/examples.html#default-example
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">slide</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">slide</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Slide</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Slide</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HooperNavigation</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:src/mani.js" data-lang="js:src/mani.js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">productionTip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span></code></pre></div><h4 id="hooperでの実装例">hooperでの実装例</h4>
 <p>私の場合は、画像をスライドさせているので以下のような感じになりました。後で個別に解説します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
-  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
-    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
-     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
-     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
-    &lt;/<span style="color:#f92672">slide</span>&gt;
-    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
-    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
-    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
-  &lt;/<span style="color:#f92672">hooper</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-
-&lt;<span style="color:#f92672">script</span>&gt;
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">Hooper</span>,
-  <span style="color:#a6e22e">Slide</span>,
-  <span style="color:#a6e22e">Progress</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperProgress</span>,
-  <span style="color:#a6e22e">Pagination</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperPagination</span>,
-  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
-
-<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;hooper/dist/hooper.css&#39;</span>;
-
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
-  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">Hooper</span>,
-    <span style="color:#a6e22e">Slide</span>,
-    <span style="color:#a6e22e">HooperProgress</span>,
-    <span style="color:#a6e22e">HooperPagination</span>,
-    <span style="color:#a6e22e">HooperNavigation</span>
-  },
-  <span style="color:#a6e22e">data</span>() {
-    <span style="color:#66d9ef">return</span> {
-      <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [...Array(Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_PAGE</span>)).<span style="color:#a6e22e">keys</span>()],
-      <span style="color:#a6e22e">hooperSettings</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">itemsToShow</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
-        <span style="color:#a6e22e">centerMode</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-      }
-    };
-  }
-};
-&lt;/<span style="color:#f92672">script</span>&gt;
-
-&lt;<span style="color:#f92672">style</span>&gt;
-.<span style="color:#a6e22e">hooper</span> {
-	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#f92672">%</span>;
-}
-<span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">hooper</span><span style="color:#f92672">-</span><span style="color:#a6e22e">indicator</span> {
-	<span style="color:#a6e22e">background</span><span style="color:#f92672">-</span><span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">000</span>;
-}
-<span style="color:#a6e22e">img</span> {
-	<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span><span style="color:#ae81ff">640</span><span style="color:#a6e22e">px</span>;
-}
-.<span style="color:#a6e22e">page_n</span> {
-	<span style="color:#a6e22e">text</span><span style="color:#f92672">-</span><span style="color:#a6e22e">align</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">center</span>;
-	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#a6e22e">px</span>;
-}
-&lt;/<span style="color:#f92672">style</span>&gt;
-</code></pre></div><h4 id="hooperのslideをloopで書く">hooperのslideをloopで書く</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Slide</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Progress</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperProgress</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Pagination</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperPagination</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;hooper/dist/hooper.css&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Slide</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HooperProgress</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HooperPagination</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HooperNavigation</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [...Array(Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_PAGE</span>)).<span style="color:#a6e22e">keys</span>()],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hooperSettings</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">itemsToShow</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">centerMode</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">hooper</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span><span style="color:#f92672">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">hooper</span><span style="color:#f92672">-</span><span style="color:#a6e22e">indicator</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">background</span><span style="color:#f92672">-</span><span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">000</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">img</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span><span style="color:#ae81ff">640</span><span style="color:#a6e22e">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">page_n</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">text</span><span style="color:#f92672">-</span><span style="color:#a6e22e">align</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">center</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#a6e22e">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><h4 id="hooperのslideをloopで書く">hooperのslideをloopで書く</h4>
 <p>わざわざslideを一つずつ用意するのは面倒ですので、通常はfor,bindなどでloop処理を書くことになると思います。あるいは配列を持ってくるなど。以下は必要な部分の記述です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
-  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
-    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
-     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
-     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
-    &lt;/<span style="color:#f92672">slide</span>&gt;
-  &lt;/<span style="color:#f92672">hooper</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
-  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">Hooper</span>
-  },
-  <span style="color:#a6e22e">data</span>() {
-    <span style="color:#66d9ef">return</span> {
-      <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [...Array(Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_PAGE</span>)).<span style="color:#a6e22e">keys</span>()]
-    };
-  }
-};
-</code></pre></div><p>何をしているのかというと、環境変数の<code>VUE_APP_PAGE</code>から<code>data{products}</code>にページ数を入れます。文字列なので数字に変換、それをslideにてループ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Hooper</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [...Array(Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_PAGE</span>)).<span style="color:#a6e22e">keys</span>()]
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>何をしているのかというと、環境変数の<code>VUE_APP_PAGE</code>から<code>data{products}</code>にページ数を入れます。文字列なので数字に変換、それをslideにてループ。</p>
 <p>スライドするのは、対応した画像ファイル、<code>/manga/0.png</code>,<code>/manga/1.png</code>などを順番にスライドさせます。画像ファイルは、<code>/public/manga/0.png</code>などの場所に置きます。</p>
 <p>v-forは<code>(n,index) of products</code>のように書きますが、(n,index)の部分は、<code>n of products</code>でもいいです。indexにも数が入ってます。ここで<code>n,</code>に続く記述はvueのオプション(vueが用意する変数)のようなものです。</p>
 <h4 id="hooperのoption">hooperのoption</h4>
 <p>hooperには様々なbarなどが用意されています。基本的にはこんな感じで使います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
-  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
-    <span style="color:#75715e">// 上の全体位置を示すバー
-</span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
-    <span style="color:#75715e">// ページ、戻る、進むのボタン
-</span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
-    <span style="color:#75715e">// 下の全体位置を示す個別ボタン
-</span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
-  &lt;/<span style="color:#f92672">hooper</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">Hooper</span>,
-  <span style="color:#a6e22e">Slide</span>,
-  <span style="color:#a6e22e">Progress</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperProgress</span>,
-  <span style="color:#a6e22e">Pagination</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperPagination</span>,
-  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
-</code></pre></div><h4 id="hooperのslideにて指定コンテンツを使う">hooperのslideにて指定コンテンツを使う</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 上の全体位置を示すバー
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ページ、戻る、進むのボタン
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 下の全体位置を示す個別ボタン
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Slide</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Progress</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperProgress</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Pagination</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperPagination</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Navigation</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">HooperNavigation</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
+</span></span></code></pre></div><h4 id="hooperのslideにて指定コンテンツを使う">hooperのslideにて指定コンテンツを使う</h4>
 <p>この場合のスライド出力は、0 - Foo, 1 - Barとなります。<code>data{items}</code>を変更すればいいでしょう。vueのexampleを参考にしましょう。</p>
 <p><a href="https://jp.vuejs.org/v2/guide/list.html">https://jp.vuejs.org/v2/guide/list.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:App.vue" data-lang="html:App.vue">&lt;<span style="color:#f92672">template</span>&gt;
-  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
-    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(item, index) in items&#34;</span>&gt;
-    {{ <span style="color:#a6e22e">index</span> }} <span style="color:#960050;background-color:#1e0010">-</span> {{ <span style="color:#a6e22e">item.message</span> }}
-    &lt;/<span style="color:#f92672">slide</span>&gt;
-  &lt;/<span style="color:#f92672">hooper</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-
-&lt;<span style="color:#f92672">script</span>&gt;
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">Hooper</span>,
-  <span style="color:#a6e22e">Slide</span>
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
-
-<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;hooper/dist/hooper.css&#39;</span>;
-
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
-  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">Hooper</span>,
-    <span style="color:#a6e22e">Slide</span>
-  },
-  <span style="color:#a6e22e">data</span>() {
-    <span style="color:#66d9ef">return</span> {
-      <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> [
-      { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Foo&#39;</span> },
-      { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Bar&#39;</span> }
-    	]
-    };
-  }
-};
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="gh-pages--hugoとの連携">gh-pages + hugoとの連携</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:App.vue" data-lang="html:App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(item, index) in items&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ <span style="color:#a6e22e">index</span> }} <span style="color:#960050;background-color:#1e0010">-</span> {{ <span style="color:#a6e22e">item.message</span> }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Slide</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;hooper&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;hooper/dist/hooper.css&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Hooper</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Slide</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Foo&#39;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Bar&#39;</span> }
+</span></span><span style="display:flex;"><span>    	]
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h3 id="gh-pages--hugoとの連携">gh-pages + hugoとの連携</h3>
 <p>build後のファイルはデフォルトでハッシュ値をつけるので、<code>vue.config.js</code>で固定したあとに、gh-actionsを書いていきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>,
-      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>
-    }
-  },
-  <span style="color:#a6e22e">css</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">extract</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>,
-      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>
-    },
-  },
-}
-</code></pre></div><p>私の場合は、非常にシンプルに、こんな感じになります。これはhugoを使っている場合で少し特殊ですが、ようは、VUE_APP_XXXに自動で画像ファイル数を入れる処理を書いて、build後に出力される必要なファイルを必要な場所にコピーしています。もちろん、buildオプションを指定して直接置くようにしてもいいです。その場合、コピー処理は不要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml">      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">           echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` &gt; .env
-</span><span style="color:#e6db74">           yarn build
-</span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/manga
-</span><span style="color:#e6db74">           cp -rf ./dist/*.css ./static/manga
-</span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/manga</span>           
-</code></pre></div><p>私は、hugoを使っているので、以下のように構成しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:content/manga.md" data-lang="md:content/manga.md">---
-title: &#34;yui | MANGA&#34;
-type: manga
-page_image : &#34;https://syui.cf/icon/ai.png&#34;
-description: &#34;惑星で暮らすドラゴンと少女のお話&#34;
----
-
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/manga/single.html" data-lang="html:layouts/manga/single.html">{{ partial &#34;head-blog.html&#34; . }}
-{{ partial &#34;header.html&#34; . }}
-{{ partial &#34;manga-css.html&#34; . }}
-		&lt;<span style="color:#f92672">main</span>&gt;
-		{{ .Content }}
-		&lt;/<span style="color:#f92672">main</span>&gt;
-		&lt;/<span style="color:#f92672">div</span>&gt;
-		{{ partial &#34;footer.html&#34; . }}
-	&lt;/<span style="color:#f92672">body</span>&gt;
-&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layouts/partials/manga-css.html" data-lang="html:layouts/partials/manga-css.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">stylesheet</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">stylesheet</span>&gt;
-</code></pre></div><p>つまり、<code>yarn build</code>してできた<code>dist/index.html</code>の内容をhugoの必要な場所に置き換えます。<code>dist/index.html</code>は通常、buildしても内容が変わるものではありません。よって、hugoのほうに記述しても問題ないのです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">css</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">extract</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>私の場合は、非常にシンプルに、こんな感じになります。これはhugoを使っている場合で少し特殊ですが、ようは、VUE_APP_XXXに自動で画像ファイル数を入れる処理を書いて、build後に出力される必要なファイルを必要な場所にコピーしています。もちろん、buildオプションを指定して直接置くようにしてもいいです。その場合、コピー処理は不要です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml"><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           echo VUE_APP_PAGE=`ls ./static/manga/*.png|wc -l` &gt; .env
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           yarn build
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/manga
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp -rf ./dist/*.css ./static/manga
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/manga</span>           
+</span></span></code></pre></div><p>私は、hugoを使っているので、以下のように構成しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:content/manga.md" data-lang="md:content/manga.md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;yui | MANGA&#34;
+</span></span><span style="display:flex;"><span>type: manga
+</span></span><span style="display:flex;"><span>page_image : &#34;https://syui.cf/icon/ai.png&#34;
+</span></span><span style="display:flex;"><span>description: &#34;惑星で暮らすドラゴンと少女のお話&#34;
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layouts/manga/single.html" data-lang="html:layouts/manga/single.html"><span style="display:flex;"><span>{{ partial &#34;head-blog.html&#34; . }}
+</span></span><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
+</span></span><span style="display:flex;"><span>{{ partial &#34;manga-css.html&#34; . }}
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>		{{ .Content }}
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>		{{ partial &#34;footer.html&#34; . }}
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layouts/partials/manga-css.html" data-lang="html:layouts/partials/manga-css.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/chunk-vendors.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">stylesheet</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/manga/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">stylesheet</span>&gt;
+</span></span></code></pre></div><p>つまり、<code>yarn build</code>してできた<code>dist/index.html</code>の内容をhugoの必要な場所に置き換えます。<code>dist/index.html</code>は通常、buildしても内容が変わるものではありません。よって、hugoのほうに記述しても問題ないのです。</p>
 
        			 		
 

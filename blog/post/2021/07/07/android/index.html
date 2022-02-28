@@ -117,38 +117,38 @@
 <p>lineage os 18.1 : <a href="https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/">https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/</a></p>
 <p>sysrepart_1280_120.zip : <a href="https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/">https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/</a></p>
 <p>opengapps(android 11) : <a href="https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/">https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb reboot-bootloader
-$ fastboot flash recovery twrp.img
-$ fastboot boot twrp.img
-
-$ adb push sysrepart.zip /sdcard/
-<span style="color:#75715e"># twrp -&gt; install -&gt; sysrepart</span>
-
-$ adb push lineageos.zip /sdcard/
-$ adb push opengaaps.zip /sdcard/
-<span style="color:#75715e"># twrp -&gt; install -&gt; lineage, opengaaps</span>
-</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/nexus7_android11_lineageos_01.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ adb reboot-bootloader
+</span></span><span style="display:flex;"><span>$ fastboot flash recovery twrp.img
+</span></span><span style="display:flex;"><span>$ fastboot boot twrp.img
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ adb push sysrepart.zip /sdcard/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># twrp -&gt; install -&gt; sysrepart</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ adb push lineageos.zip /sdcard/
+</span></span><span style="display:flex;"><span>$ adb push opengaaps.zip /sdcard/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># twrp -&gt; install -&gt; lineage, opengaaps</span>
+</span></span></code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/nexus7_android11_lineageos_01.png" alt=""></p>
 <h3 id="magisk-root">magisk root</h3>
 <p>root化は現在、magiskが一般的らしい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb install magisk.apk
-<span style="color:#75715e"># magiskでlineageのboot.imgにpatchを当てる</span>
-
-$ adb pull /sdcard/Downloads/magisk_patched.img
-$ adb reboot-bootloader
-$ fastboot flash boot magisk_patched.img
-</code></pre></div><p>firewallとterminalがroot化されてる図。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ adb install magisk.apk
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># magiskでlineageのboot.imgにpatchを当てる</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ adb pull /sdcard/Downloads/magisk_patched.img
+</span></span><span style="display:flex;"><span>$ adb reboot-bootloader
+</span></span><span style="display:flex;"><span>$ fastboot flash boot magisk_patched.img
+</span></span></code></pre></div><p>firewallとterminalがroot化されてる図。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nexus7_android11_lineageos_02.png" alt=""></p>
 <h3 id="nexus7-usb接続の不具合">nexus7 usb接続の不具合</h3>
 <p>このnexus7は昔からusb接続の調子がよくありません。特にusbでデータ接続すると切断を繰り返すため、容量の大きいファイルをnexus7にuploadするのがストレスでした。</p>
 <p>昔からデータ通信、接続が不安定で、充電はできるんですが、データのほうは接続と切断を繰り返すため、コマンドも通る時と通らない時がありました。</p>
 <p>これは、おそらくハード的な故障だと思われます。一度分解してusb基板を交換しており、交換直後は問題なかったのですが、最近、また調子が悪くなってきて、おそらく、また故障しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 接続切断が頻発するときのerror</span>
-adb: error: failed to read copy response20210622-UNOFFICIAL_TEST.zip
-open_gapps-arm-11.0-pico-20210622-UNOFFICIAL_TEST.zip: <span style="color:#ae81ff">1</span> file pushed, <span style="color:#ae81ff">0</span> skipped. 29.1 MB/s <span style="color:#f92672">(</span><span style="color:#ae81ff">101391216</span> bytes in 3.323s<span style="color:#f92672">)</span>
-adb: error: failed to read copy response
-
-adb: error: failed to get feature set: no devices/emulators found
-</code></pre></div><p>今回もusb接続が継続されることはほぼなくなり、adbでデータのやり取りが困難でやりづらかった。GUIの表示上は接続できているんですが、内部では接続と切断を繰り返している状態です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 接続切断が頻発するときのerror</span>
+</span></span><span style="display:flex;"><span>adb: error: failed to read copy response20210622-UNOFFICIAL_TEST.zip
+</span></span><span style="display:flex;"><span>open_gapps-arm-11.0-pico-20210622-UNOFFICIAL_TEST.zip: <span style="color:#ae81ff">1</span> file pushed, <span style="color:#ae81ff">0</span> skipped. 29.1 MB/s <span style="color:#f92672">(</span><span style="color:#ae81ff">101391216</span> bytes in 3.323s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>adb: error: failed to read copy response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>adb: error: failed to get feature set: no devices/emulators found
+</span></span></code></pre></div><p>今回もusb接続が継続されることはほぼなくなり、adbでデータのやり取りが困難でやりづらかった。GUIの表示上は接続できているんですが、内部では接続と切断を繰り返している状態です。</p>
 <p>したがって、端末に大きなファイルをuploadしたい場合、androidに入れてるarchにsshしてrsyncでuploadしていました。archでは/sdcard/という名のandroid root dirをmountしているので、特に問題ありませんが、このarchが壊れてしまうと、他にnexus7にデータをuploadする手段があまりないため、かなり不便になります。例えば、gitのprivate repoにpushして、androidでcloneする方法がありますが、このようなcloudを使った手法しかできなくなります。</p>
 <p>一応、分解した状態で接続すると、うまく継続されること多いんですけどね&hellip;。</p>
 <p>したがって、今回、androidをupgredeする際の注意点としては、主要なdir構造を保持すること(いくつかmountするため)とsupersuなどでterminal emulatorにroot権限を付与できること、busyboxをインストール可能であることが重要になってきます。</p>

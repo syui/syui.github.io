@@ -113,10 +113,10 @@
 <p>svgの仕様は、今回はハマらなかったのですが(たまたま)、場合によってはハマりそうだなって思いました。</p>
 <p>重要なのは、<code>d, path</code>です。あと、<code>width, scale</code>とかもめんどくさそうですが、svgの中身を参考にすればいいと思います。</p>
 <p>demo : <a href="https://syui.github.io/svg-animation-particle-circle.css">https://syui.github.io/svg-animation-particle-circle.css</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/svg-animation-particle-circle.css
-$ cd !$:t
-$ open index.html
-</code></pre></div><p>色とか透明度をアニメーションで調整してやると、いい感じになります。夢が広がりますね！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/syui/svg-animation-particle-circle.css
+</span></span><span style="display:flex;"><span>$ cd !$:t
+</span></span><span style="display:flex;"><span>$ open index.html
+</span></span></code></pre></div><p>色とか透明度をアニメーションで調整してやると、いい感じになります。夢が広がりますね！</p>
 <p>最終的には以下のような形で落ち着きましたけど、悩みました。特徴は、<code>scale(1,0.9)</code>と<code>90%のfill</code>です。パーティクルの色は、html-svgに書いてあるので変更できます。</p>
 <style>
 .likeButton .syuiold {
@@ -196,11 +196,11 @@ $ open index.html
 </g>
 </svg>
 </a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:script.js" data-lang="js:script.js"><span style="color:#75715e">// マウスクリックからの変更
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.likeButton&#34;</span>).<span style="color:#a6e22e">hover</span>(<span style="color:#66d9ef">function</span>() {
-    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">toggleClass</span>(<span style="color:#e6db74">&#34;clicked&#34;</span>);
-}
-</code></pre></div><pre tabindex="0"><code class="language-css:style.class="syui"" data-lang="css:style.class="syui"">.likeButton .explosion {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:script.js" data-lang="js:script.js"><span style="display:flex;"><span><span style="color:#75715e">// マウスクリックからの変更
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.likeButton&#34;</span>).<span style="color:#a6e22e">hover</span>(<span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">toggleClass</span>(<span style="color:#e6db74">&#34;clicked&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre tabindex="0"><code class="language-css:style.class="syui"" data-lang="css:style.class="syui"">.likeButton .explosion {
   /* サークルのカラーはこのstrokeがいくつも重なって指定されている */
   stroke: #dd4688;
 }

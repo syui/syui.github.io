@@ -111,25 +111,25 @@
 													
        			 		<p>arch32で詰みかけのerrorが出た話。</p>
 <p>現在、32bitは公式では提供されてないので、<code>https://archlinux32.org/</code>からダウンロードして使ってるもの。pacman-mirrorとかもいつもとは違うURLだったりする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -Syu
-: GPGME エラー: 無効な暗号エンジンです
-
-$ pacman-key --refresh-keys
-/usr/bin/bash: error <span style="color:#66d9ef">while</span> loading shared libraries: libreadline.so.7: cannot open shared object file: No such file or directory
-
-$ pacman -S readline
-: GPGME エラー: 無効な暗号エンジンです
-
-$ cd /var/cache/pacman/pkg
-$ pacman -U readline.pkg
-/usr/bin/bash: error <span style="color:#66d9ef">while</span> loading shared libraries: libreadline.so.7: cannot open shared object file: No such file or directory
-</code></pre></div><p>ここで、あれ?なんかやばくない?と感じ始めた。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pacman -Syu
+</span></span><span style="display:flex;"><span>: GPGME エラー: 無効な暗号エンジンです
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ pacman-key --refresh-keys
+</span></span><span style="display:flex;"><span>/usr/bin/bash: error <span style="color:#66d9ef">while</span> loading shared libraries: libreadline.so.7: cannot open shared object file: No such file or directory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ pacman -S readline
+</span></span><span style="display:flex;"><span>: GPGME エラー: 無効な暗号エンジンです
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cd /var/cache/pacman/pkg
+</span></span><span style="display:flex;"><span>$ pacman -U readline.pkg
+</span></span><span style="display:flex;"><span>/usr/bin/bash: error <span style="color:#66d9ef">while</span> loading shared libraries: libreadline.so.7: cannot open shared object file: No such file or directory
+</span></span></code></pre></div><p>ここで、あれ?なんかやばくない?と感じ始めた。</p>
 <p>なんでかっていうと、アップデートするにはgpg-keyの更新が必要で、gpg-keyを更新するにはアップデート(おそらくreadline)が必要みたいな感じになってるから、多分&hellip;。</p>
 <p>問題は、pacmanに使われてるbash scriptにlibreadlineが使われてることにあるみたいで、結局、既存のlibにシンボリックリンクを貼りました。その後、キーを更新して、アップデートが無事成功。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ln -s /usr/lib/libreadline.so.8.0 /usr/lib/libreadline.so.7
-$ pacman-key --refresh-keys
-$ pacman -Syu
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ln -s /usr/lib/libreadline.so.8.0 /usr/lib/libreadline.so.7
+</span></span><span style="display:flex;"><span>$ pacman-key --refresh-keys
+</span></span><span style="display:flex;"><span>$ pacman -Syu
+</span></span></code></pre></div>
        			 		
 
 
