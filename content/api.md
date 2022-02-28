@@ -7,6 +7,7 @@ date = "2022-02-27"
 <div id="app"></div>
 <script src="/tarot-api/chunk-vendors.js"></script>
 <script src="/tarot-api/app.js"></script>
+<link href="/tarot-api/app.css" rel="stylesheet">
 
 ### card api
 
