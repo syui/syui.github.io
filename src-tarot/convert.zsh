@@ -147,7 +147,7 @@ if [ ! -f $dir/tarot_00.webp ];then
 	composite -gravity north  -geometry +0+160 -compose over $s $bg $o
 fi
 
-if [ -f $dir/${file_s}.png ] && [ "$1" = "-n" ];then
+if [ -f $dir/${file_s}.png ];then
 	mv $dir/*.png $cache/
 	rsync -av $dir/*.webp $cache/
 fi
