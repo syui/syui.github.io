@@ -46,7 +46,15 @@ slug = "pokemas"
 
 つまり、初期戦略としては、アタッカーなどを配布で補完しながら、最強格のサポート、テクニカルから狙って攻略していくのがおすすめで、`マジコスグリーン`、`マジコスリーフ`が未だに揺るがない最強キャラです。
 
-![](/games/pokemas/pokemas_01.png)
+### 無課金で狙ってきたキャラ
+
+私が狙ってきたキャラは以下の通りです。
+
+![](/games/pokemas/pokemas_01.jpg)
+
+![](/games/pokemas/pokemas_02.jpg)
+
+狙ってたけど取れなかったキャラはおらず、大体は天井分までダイヤをためてガチャを回すようにしています。
 
 ### 中盤以降に狙うべきキャラ
 
@@ -63,9 +71,7 @@ slug = "pokemas"
 |SS+|アニバーサリーN|レシラム|アタッカー|
 |S+|マジコスリーフ|フシギバナ|テクニカル|
 |S+|マジコスグリーン|カメックス|サポート|
-|S+|レッド|カビゴン|サポート|
 
-https://pokemonmasters.pokemongo-raku.com/posts/4602
 
 ### 強い配布キャラ
 
@@ -74,3 +80,6 @@ https://pokemonmasters.pokemongo-raku.com/posts/4602
 |SS+|プラターヌ|ゼルネアス|サポート|
 |S+|サカキ|ミュウツー|アタッカー|
 |S+|ゲーチス|キュレム|テクニカル|
+
+
+https://pokemonmasters.pokemongo-raku.com/posts/4602
