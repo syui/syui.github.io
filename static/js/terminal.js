@@ -250,6 +250,8 @@ var ascii_archjp = "\n\n\
 				}).then(function(s) {
 					s.charCodeAt(0);
 				});
+			} else if (/pico/.test(input)) {
+				window.location.href = '/pico';
 			} else if (inputs[0] === 'ai' && inputs[1] === 'c') {
 						window.location.href = '/ai/img/diff';
 			} else if (inputs[0] === 'ai' && inputs[1] === 'i') {
