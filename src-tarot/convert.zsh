@@ -33,7 +33,7 @@ random=$(($RANDOM % $n))
 
 if [ -n "$2" ];then
 	random=$2
-	random=`expr $2 - 1`
+	random=`expr $2`
 fi
 
 echo kira $random
@@ -141,10 +141,29 @@ if [ "$good" = "true" ];then
 	fi
 fi
 
-if [ ! -f $dir/tarot_00.webp ];then
+if [ ! -f $dir/tarot_00.webp ] || [ ! -f $dir/tarot_00.gif ];then
 	s=$static/tarot.png
 	o=$dir/tarot_00.webp
+	h=`cat $d/static/json/tarot.json|jq -r ".[0].h"`
+	good_cache_gif=$dir/tarot_00.gif
 	composite -gravity north  -geometry +0+160 -compose over $s $bg $o
+	for ((ii=0;ii<=9;ii++))
+	do
+		title=$dir/null
+		o=${title}_${ii}.png
+		br=$static/tarot_bgg_${ii}.png
+		composite -gravity north  -geometry +0+160 -compose over $s $bg $o.back
+		composite -gravity north  -geometry +0+0 -compose over $br $o.back $o
+		rm $o.back
+		if [ `echo $h|wc -m` -eq 2 ];then
+			mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
+		else
+			mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
+		fi
+		squoosh-cli --webp '{"quality":90}' -d $dir --resize '{width:400,height:550}' $o
+	done
+	convert -layers optimize -loop 0 -delay 40 $dir/null_*.webp $good_cache_gif
+		rm -f $dir/null_*
 fi
 
 if [ -f $dir/${file_s}.png ];then
