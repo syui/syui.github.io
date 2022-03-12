@@ -4,7 +4,7 @@ $(function() {
 	var greetings = "";
 	var origin_songs = [];
 	var file_full = [];
-	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/", "curl"];
+	var command_all = ["help","ls","cat","nyancat","top","mpv","pacman","search", "/", "curl", "api", "pico"];
 	var pacman_option = "-Syu";
 	var user_ip;
 	var	tags = [];
