@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>icloud on syui.cf</title>
+    <link>https://syui.cf/tags/icloud/</link>
+    <description>Recent content in icloud on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 01 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/icloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ibmcloudでcachetを立てる</title>
+      <link>https://syui.cf/blog/post/2019/04/01/cachet/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/04/01/cachet/</guid>
+      <description>CachetHQ/Cachet on bluemix(ibm cloud).
+cachetというappをibm cloudで動かす手順を記録します。
+$ git clone https://github.com/CachetHQ/Cachet # masterでは、bootstrap/autoload.phpのerrorが出るため特定のcommitまで戻す。おそらく原因は、secrity updateの&amp;#34;Bump bootstrap-sass from 3.4.0 to 3.4.1&amp;#34;です $ git reset --hard b82651f7943619ebc9df46dd5ebbe14f809791d8  $ cp .env.example .env  # myslqDBが必要になる $ heroku create $APP_NAME $ heroku addons:add cleardb:ignite -a $APP_NAME $ heroku config -a $APP_NAME  $ vim .env APP_URL=https://$APP_NAME_BLUEMIX.mybluemix.net DB_DRIVER=mysql DB_HOST=$DB_HOST DB_UNIX_SOCKET=null DB_DATABASE=$DB_NAME DB_USERNAME=$DB_USER DB_PASSWORD=$DB_PASS DB_PORT=3306 DB_PREFIX=null CACHE_DRIVER=file SESSION_DRIVER=file QUEUE_DRIVER=sync  $ vim .bp-config/options.json {  &amp;#34;COMPOSER_INSTALL_OPTIONS_DEBUG&amp;#34;: [ &amp;#34;--no-dev&amp;#34;, &amp;#34;-o&amp;#34;],  &amp;#34;PHP_VERSION&amp;#34;: &amp;#34;{PHP_71_LATEST}&amp;#34;,  &amp;#34;COMPOSER_VENDOR_DIR&amp;#34;: &amp;#34;vendor&amp;#34;,  &amp;#34;WEBDIR&amp;#34;: &amp;#34;public&amp;#34;,  &amp;#34;PHP_EXTENSIONS&amp;#34;: [&amp;#34;bz2&amp;#34;, &amp;#34;pdo&amp;#34;, &amp;#34;zlib&amp;#34;, &amp;#34;curl&amp;#34;, &amp;#34;mcrypt&amp;#34;, &amp;#34;mbstring&amp;#34;, &amp;#34;mysqli&amp;#34;, &amp;#34;gd&amp;#34;, &amp;#34;zip&amp;#34;, &amp;#34;pdo_mysql&amp;#34;, &amp;#34;pdo_sqlite&amp;#34;,&amp;#34;iconv&amp;#34;, &amp;#34;openssl&amp;#34; ] }  $ vim manifest.</description>
+    </item>
+    
+  </channel>
+</rss>

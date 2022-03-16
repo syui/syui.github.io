@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on syui.cf</title>
+    <link>https://syui.cf/tags/windows/</link>
+    <description>Recent content in windows on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsの使い方</title>
+      <link>https://syui.cf/m/post/windows/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/windows/</guid>
+      <description>local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
+openssh https://github.com/PowerShell/Win32-OpenSSH
+sshd_configはc:programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublic-keyを記述します。ここでは、c:programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。
+Match Group administrators  AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys shellをpwshに変更するには、以下のコマンドを実行します。
+https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration
+$ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;C:\Program Files\PowerShell\7\pwsh.exe&amp;#34; -PropertyType String -Force ultravnc https://www.uvnc.com/downloads/ultravnc.html
+管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。
+したがって、exeやstartup(shell:startup)は、プロパティ &amp;gt; 管理者としてこのプログラムを実行するにチェックを入れます。
+また、場合によってはnusrmgr.cplから制御設定の変更が必要になるかもしれません。
+virtualbox https://www.virtualbox.org/
+virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。
+&amp;#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&amp;#34; startvm arch --type headless auto-login 起動時のパスワードを省略する設定です。
+仮にユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要のチェックボックスが表示されない場合、レジストリの値が2になっているので変更する必要があります。
+regeditを開き、HKEY_LOCAL_MACHINE &amp;gt; SOFTWARE &amp;gt; Microsoft &amp;gt;Windows NT &amp;gt; CurrentVersion &amp;gt; PasswordLess &amp;gt; Deviceを0にします。
+https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</description>
+    </item>
+    
+    <item>
+      <title>windows 11にupgradeしてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/16/windows/</link>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/16/windows/</guid>
+      <description>UIメニューはwindows 10よりカチッとしててよいと思いました。
+おわり。
+windowsはpowershellが来たvista以降、内部的にはあまり変わってないらしいです。
+参照 : https://japanese.engadget.com/windows-103000902.html</description>
+    </item>
+    
+    <item>
+      <title>windowsの必須ツールをupdateしてみる</title>
+      <link>https://syui.cf/blog/post/2020/06/01/win/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/06/01/win/</guid>
+      <description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。
+$ scoop install curl 7z  # powershell 7.0.1 # https://github.com/PowerShell/PowerShell/releases $ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi $ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1  # openssh v8.1.0 # https://github.com/PowerShell/Win32-OpenSSH/releases $ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip $ 7z x OpenSSH-Win64.zip $ cp OpenSSH-Win64/* &amp;#39;c:\programfiles\OpenSSH\&amp;#39; or $ robocopy .\OpenSSH-Win64\ &amp;#39;c:\Program Files\OpenSSH\&amp;#39;  # terminal 1.0.1 # https://github.com/microsoft/terminal/releases $ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle $ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle robocopyは例えば、sshdというprocessが起動していても上書きするので便利です。
+winget 今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。
+https://github.com/microsoft/winget-cli
+$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle $ Add-AppxPackage Microsoft.</description>
+    </item>
+    
+    <item>
+      <title>hddがmountできない場合の対処法</title>
+      <link>https://syui.cf/blog/post/2019/12/17/testdisk/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/17/testdisk/</guid>
+      <description>突然、hddが壊れてmountすらできなくなったので、やってみたことなど。
+最終的には、ddすればいいのですが、disk sizeが大きいので、できればやりたくない。
+$ sudo fdisk -l .../dev/sdbが表示されない  $ sudo parted -l エラー: /dev/sdb: ディスクラベルが認識できません。  $ sudo pacman -S tesdisk $ sudo testdisk $ Intel &amp;gt; Analyse &amp;gt; Quick Search(Deeper Serch) https://z1000s.hatenablog.com/entry/2018/07/02/225327</description>
+    </item>
+    
+    <item>
+      <title>windows terminal (preview)を試してみる</title>
+      <link>https://syui.cf/blog/post/2019/05/09/windows-terminal/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/05/09/windows-terminal/</guid>
+      <description>microsoftがwindows terminalを開発してるみたいで、今風のターミナルなので便利そうです。
+https://github.com/Microsoft/Terminal
+(というより、windowsは、これまでのターミナルがあまりにも酷すぎた気がする)
+VS2019でもbuildが可能ですが、いくつかのエラーが修正できませんでしたので、正常に起動しなかった。よって、VS2017でやったほうがいいです。
+$ git clone https://github.com/Microsoft/Terminal $ cd Terminal $ git submodule update --init --recursive $ scoop install nuget $ nuget restore OpenConsole.sln # VS2017でOpenConsole.slnを開いて、ソリューション全体をbuildします。 # ビルドが終わったら、当該ソリューションプロジェクト&amp;#34;OpenConsole46&amp;#34;を右クリックでデプロイ(ソリューションの配置)を実行します。 # すると、スタートメニューに&amp;#34;Windows Terminal Preview&amp;#34;が追加されます。 C+tでタブを開きます。pwshならC+lとか動きます(前のターミナルも動いてたっけ?)。
+なお、ソリューションの配置については、Windowsの開発者モードを有効にした上で、Windows 1903 (build &amp;gt;= 10.0.18362.0)が必要なので、プレビュー版のWindowsにアップデートしてバージョン要求を満たす必要があります。(Windows Insider Programに登録して、プレビュー版のWindows Buildを試す必要があります)
+guide : https://github.com/microsoft/Terminal/issues/489</description>
+    </item>
+    
+    <item>
+      <title>windows-openssh-key</title>
+      <link>https://syui.cf/blog/post/2017/06/06/windows/</link>
+      <pubDate>Tue, 06 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/06/06/windows/</guid>
+      <description>Windowsのsshd(github.com/PowerShell/Win32-OpenSSH)によってsshサーバーを立て、ホストからキーを作成し、それをc:users/$user/.ssh/authorized_keysにscpなりすることで接続できるはずなんですが、できなかった話。
+結論としてPATHが通ってないことが原因です。$authorizedKeyPath
+# windowsのpathは適時置き換えてください。 $ scp ~/.ssh/test.pub windows:.ssh/authorized_keys  $ ssh -i ~/.ssh/test.pub admin@192.168.11.XX Permission denied (publickey,gssapi-keyex,gssapi-with-mic). PowerShellで以下のコマンドを実行。
+# pathは置き換えてください。 ## https://github.com/PowerShell/Win32-OpenSSH/wiki/ssh.exe-examples $authorizedKeyPath = ... ... Ref :
+https://github.com/PowerShell/Win32-OpenSSH/wiki/ssh.exe-examples</description>
+    </item>
+    
+    <item>
+      <title>conemu&#43;nyagos,ps</title>
+      <link>https://syui.cf/blog/post/2017/01/28/windows/</link>
+      <pubDate>Sat, 28 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/01/28/windows/</guid>
+      <description>WindowsのCLI環境をconemu+nyagos,psに移行した。
+昔はconsole2+nyaos,msys2,ps(powershell)とかだったけど、それがconemu+nya[g]os,psみたいな感じになった。と言っても、Windows自体対して使ってなかったりもするのだけど、Windowsを触るならCLI環境の構築は必須だと思うので。
+conemuはかなりいい感じで、まずpsの起動が速いし、UIも見劣りしない。
+nyagosはちょっと触ってみた感じでは良かったと思う。旧nyaosとの違いは今のところあまり感じていないので良さがある(そのうち出てきそうではある)。
+conemuはchocoにあるので、それでインストールすればいいが、nyagosはgithubのreleaseからインストールした。インストールと言うか実行ファイルにpsでPATHを通すんだけど、そんな感じで。
+個人的にはwindowsはps(またはcmd)で触ったほうがよく、その理由の一つがシステムへの変更が容易である事が挙げられ(エイリアスや関数などが設定されているため)、補完程度に他のシェル(環境?)を使うという感じになると思われる。Windowsメインのユーザーはpsが最もおすすめだと個人的には思ってる。
+ただ、Linux, Unixユーザーにとっては「そんなの覚えてられるか!」というものが多く、慣れ親しまないと有用性は低いと思われる(つまり、応用面でwindowsしか通用しない)。
+psを使う場合は、こちらのリポジトリ等を参照しながら適当に使っていきます。
+https://github.com/powershell
+例えば、ssh, module, updateなど。
+ https://github.com/PowerShell/Win32-OpenSSH  &amp;gt; ssh-keygen.exe -t rsa -f id_rsa &amp;gt; net start ssh-agent &amp;gt; ssh-add.exe id_rsa  https://github.com/PowerShell/PowerShellGet  &amp;gt; Install-PackageProvider Nuget -Force -Scope CurrentUser  https://github.com/PowerShell/xWindowsUpdate  # 管理者ユーザー &amp;gt; Start-Process powershell.exe -Verb runas # スクリプト実行ルールの変更 &amp;gt; Set-ExecutionPolicy RemoteSigned  &amp;gt; $env:PSModulePath &amp;gt; Save-Module -Name PSWindowsUpdate -Path &amp;lt;path&amp;gt; &amp;gt; Save-Module -Name xWindowsUpdate -Path &amp;lt;path&amp;gt; &amp;gt; Install-Module -Name xWindowsUpdate -Scope CurrentUser &amp;gt; Install-Module -Name PSWindowsUpdate -Scope CurrentUser  &amp;gt; Start-Process powershell -Verb runAs &amp;gt; Get-WUInstall -AcceptAll -AutoReboot 面倒ですね。</description>
+    </item>
+    
+  </channel>
+</rss>

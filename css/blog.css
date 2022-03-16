@@ -1,0 +1,64 @@
+.containerx {
+	padding: 0 250px;
+	width: auto;
+}
+
+.containerx p img {
+	width: 50%;
+	padding:0 25%;
+}
+
+pre {
+    background-color: #272822;
+    color: #f1f1f1e3;
+    /* padding: 0 10px; */
+    overflow:auto;
+}
+
+@media screen and (max-width:1000px) { 
+	html {
+		font-size: 100%; 
+	}
+	.logo span.icon-phoeni-world{
+		font-size: 60px;
+		font-size: 6rem;
+	}
+	.containerx { 
+		margin: 0 15px;
+		padding: 0 ;
+		font-size:18px;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+	.containerx p img {
+		width: 100%;
+		padding:0;
+	}
+}
+
+table {
+    width:100%;
+}
+
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  padding:6px;
+}
+
+.code-name {
+  position: relative;
+  padding: 4px 8px;
+  background-color: #444;
+  color: #ccc;
+  font-weight: 400;
+}
+
+span.prompt {
+    color: #008CCF;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

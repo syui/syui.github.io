@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>usb on syui.cf</title>
+    <link>https://syui.cf/tags/usb/</link>
+    <description>Recent content in usb on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/usb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>usbのarchもswayにしてみた</title>
+      <link>https://syui.cf/blog/post/2022/02/19/usb/</link>
+      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/19/usb/</guid>
+      <description>$ cfdisk /dev/sdb # /dev/sdb1 : 200M, EFI # /dev/sdb2 : 26G, linux  $ mkfs.ext4 /dev/sdb2 $ mkfs.vfat /dev/sdb1  $ mount /dev/sdb2 /mnt $ pacstrap /mnt base base-devel linux  # paru(rust)のbuildは時間がかかりすぎるし、usbには読み書き負担が大きすぎるのでbinaryを持ってきたほうがいいです $ which paru $ cp /bin/paru /mnt/bin/  $ arch-chroot /mnt  $ useradd -m -G wheel -s /bin/zsh syui $ passwd $ passwd syui $ echo -e &amp;#39;Defaults env_keep += &amp;#34;HOME&amp;#34;\n%wheel ALL=(ALL) ALL&amp;#39; &amp;gt;&amp;gt; /mnt/etc/sudoers $ echo -e &amp;#39;%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/reboot, /usr/bin/poweroff&amp;#39; &amp;gt;&amp;gt; /mnt/etc/sudoers  $ pacman -S grub dhcpcd vim zsh tmux git go openssh net-tools sway xorg-xwayland waybar lightdm lightdm-gtk-greeter networkmanager network-manager-applet blueman pulseaudio pavucontrol udevil pcmanfm chromium fcitx5 fcitx5-mozc  # grubは様々なマシンをbootできるimgからもってきてcfgを再構築するといいです $ exit $ cp -rf /boot/{efi,boot} /mnt/boot $ arch-chroot /mnt $ grub-mkconfig -o /boot/grub/grub.</description>
+    </item>
+    
+  </channel>
+</rss>

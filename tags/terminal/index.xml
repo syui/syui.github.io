@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal on syui.cf</title>
+    <link>https://syui.cf/tags/terminal/</link>
+    <description>Recent content in terminal on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsでのsixel</title>
+      <link>https://syui.cf/blog/post/2022/02/11/sixel/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/11/sixel/</guid>
+      <description>msrというmastodon clientでは、macはiterm2のimgcatを使い、linuxはmltermなどでimg2sixelを使って画像アイコンを表示します。
+windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。
+ msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
+$ scoop install msys2 $ msys2 $ git clone https://github.com/saitoha/libsixel $ cd libsixel $ pacman -S make gcc $ ./configure $ make $ make install  $ mintty $ img2sixel test.png https://github.com/saitoha/libsixel
+windows terminalもsixelに対応してくれるといいんですけどね。
+https://github.com/microsoft/terminal
+https://github.com/microsoft/terminal/issues/448</description>
+    </item>
+    
+    <item>
+      <title>jquery.terminalで検索機能とか付けてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/05/jquery-terminal/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/05/jquery-terminal/</guid>
+      <description>追加した機能とかを簡単に紹介します。これくらい設定したら自分でも使うかも。こういうのは楽しければいいって思ってたんですが、まあまあ便利そうになってしまった気がする。
+# 通常検索、contentから $ search arch or $ / arch  # タグ検索、shellの&amp;lt;tab&amp;gt;補完も付けてみた(タグ補完 $ search -t &amp;lt;tab&amp;gt;hugo  # 最新記事 $ search -l  # user ipでloginします(promptをipに変えてるだけ $ curl ipapi.co axios.get(&amp;#39;https://syui.cf/index.json&amp;#39;, { &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39; }) .then(function (response) { 	index_json = JSON.stringify(response.data,null,&amp;#34;\t&amp;#34;); 	origin_index_json = JSON.parse(index_json); 	origin_index_json.forEach(function(v,index) { 	if ( tags.indexOf(v.tags) == -1) { 	tags.push(v.tags)}; 	}); 	tags = tags.join(&amp;#39;,&amp;#39;).split(&amp;#39;,&amp;#39;); 	tags = tags.filter(function (x, i, self) { 	return self.</description>
+    </item>
+    
+    <item>
+      <title>xtermとsixelでterminalに画像を表示する</title>
+      <link>https://syui.cf/blog/post/2021/05/12/xterm/</link>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/12/xterm/</guid>
+      <description>sixelを使えば、terminalに画像を表示することができるようになります。ただし、端末がsixelに対応していなければなりませんし、sixelはvte対応だったかな。vteの問題があるterminalでは難しかったと思いますので、注意。
+例えば、xtermでは、以下のような感じで画像を簡単に表示できます。
+$ yay -S libsixel $ xterm -ti vt340 $ img2sixel test.png </description>
+    </item>
+    
+  </channel>
+</rss>

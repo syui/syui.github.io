@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on syui.cf</title>
+    <link>https://syui.cf/tags/git/</link>
+    <description>Recent content in git on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>giteaでgit serverを立てる</title>
+      <link>https://syui.cf/blog/post/2019/12/06/gitea/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/06/gitea/</guid>
+      <description>giteaは、golangで書かれたgit serverで、ワンバイナリで起動します。
+Dockerfileも用意されており、簡単に環境を構築できます。
+設定ファイルは、./custom/conf/app.iniにあります。
+version: &amp;#39;3&amp;#39; services:  web:  image: gitea/gitea:latest  volumes:  - ./gitea-data:/data  ports:  - &amp;#34;3000:3000&amp;#34;  - &amp;#34;10022:10022&amp;#34;  environment:  - TZ=Japan  - SSH_PORT=10022  restart: always https://docs.gitea.io/en-us/install-with-docker/
+# serverの初期設定 $ docker-compose up -d $ sudo docker ps $ chromium localhost:3000/install  # sshでpushできるようにする $ ssh-keygen -t rsa -b 4096 -f ~/.ssh/gitea $ cat ~/.ssh/gitea.pub | pbcopy $ vi gitea-data/gitea/conf/app.ini START_SSH_SERVER = true $ vi ~/.</description>
+    </item>
+    
+    <item>
+      <title>git-sh</title>
+      <link>https://syui.cf/blog/post/2017/05/05/git/</link>
+      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/05/05/git/</guid>
+      <description>gitshというものがあるのですが、zshではそれを使わなくても以下のような感じでいけます。
+https://github.com/thoughtbot/gitsh
+http://pocke.hatenablog.com/entry/2015/12/09/000000
+function git-sh() {  eval &amp;#34;__precmd_for_git-sh() { print -z &amp;#39;$*&amp;#39; }&amp;#34;  autoload -Uz add-zsh-hook  add-zsh-hook precmd &amp;#34;__precmd_for_git-sh&amp;#34; } $ git-sh git $ git status ただ、注意点としてはzshではx-xという形式だと空白でもコマンドを発行できるので、思わぬ結果を招くことも。
+ /path/to/git-ci
+ git commit -m &amp;#34;$*&amp;#34; 上記は、こんな感じで便利に使える場合もあります。
+# git commit -m &amp;#34;add : commit message!&amp;#34; # ↓ $ git ci add : commit message! ちなみにfishやるなら以下のような感じ。--descriptionは補完に使う事が多い。但し、そのままでは使えない。
+function git --description &amp;#39;ci&amp;#39; 	if test (count $argv) -ge 2 	git commit -m &amp;#34;$argv[2.</description>
+    </item>
+    
+    <item>
+      <title>git-upstream</title>
+      <link>https://syui.cf/blog/post/2017/04/20/git/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/20/git/</guid>
+      <description>Mastodonのアップデートが速いのでついていくのに大変さがあるので、この辺、自動化したい(かつこれが一般的なやり方かどうかわからないし、多分違う)。
+heroku git:clone -a appname cd appname cp -rf .git .gitback mv .gitback ../  git remote add upstream https://github.com/tootsuite/mastodon.git git fetch upstream git merge upstream/master --allow-unrelated-histories  # local # 自分が変更したファイルはHARDを優先する git --no-pager log -n 2 --graph --name-status --pretty=format:&amp;#39;%C(green)%an&amp;#39; --author=$USER | tr -d &amp;#39;	&amp;#39; | cut -d &amp;#39; &amp;#39; -f 2|grep -v &amp;#34;|$USRR&amp;#34; git checkout --ours filename  # update # それ以外はupstream/masterを優先する git checkout --theirs .  git rebase upstream/master git rebase --continue rm -rf .</description>
+    </item>
+    
+    <item>
+      <title>git fixup</title>
+      <link>https://syui.cf/blog/post/2017/04/05/git/</link>
+      <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/05/git/</guid>
+      <description>git fixupが便利だった件。
+こちらはcommit fixupでrebaseを書き換える場合
+$ GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/pick/fixup/g&amp;#39;&amp;#34; git rebase -i --root こうやると1行目のコミットに2行目のコミットが統合される。
+あと、~/.gitconfigに書いておくのも便利そう(上記とは内容が異なる)。
+ ~/.gitconfig
+ [rebase]  autofixup = true  autosquash = true </description>
+    </item>
+    
+    <item>
+      <title>git push -f for gitlab</title>
+      <link>https://syui.cf/blog/post/2017/04/04/git/</link>
+      <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/04/git/</guid>
+      <description>GitLabでgit push -fすると
+ You are not allowed to force push code to a protected branch on this project.
+ と表示されてできない。
+こちらhttps://gitlab.com/help/user/permissionsの権限にもforceのチェックがはいってないし、マジでできないのだろうか?そんなことあり得るのかとか思ったのだけど、やっぱりできるようだった。が、手順が非常に面倒くさい。
+usrer/settings/repositoryにてProtected branchをUnprotectすればいいんだけどリポジトリ(Project)ごとに設定しなければならないのは非常に面倒くさいのです。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ポケモンGoにリーグが実装されたのでやってみる5 | syui.cf</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="ポケモンGoにリーグが実装されたのでやってみる5" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.cf/favicon.png" />
+		<meta property="og:url" content="https://syui.cf" />
+		<meta property="og:site_name" content="syui.cf" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "name": "syui.cf",
+			  "url": "https://syui.cf/"
+			}
+		</script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/js/highlight-prompt.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/axios/dist/axios.min.js"></script>
+		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a class="navbar-title" href="/">syui.cf</a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/icon">デザイン</a>
+				<a class="navbar-brand" href="/img">イラスト</a>
+				<a class="navbar-brand" href="/music">ミュージック</a>
+				<a class="navbar-brand" href="/app">アプリ</a>
+				<a class="navbar-brand" href="/archive">アイデア</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+			<a href="/syui"><span class="icon-syui"></span></a>
+		</div>
+</nav>
+
+
+
+
+
+<body onload="highlight_prompt()">
+	
+		<div class="containerx">
+			<header id="header">
+				
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+</svg>
+ </a> </div>
+
+				
+			</header>
+
+       			<article>
+       			 	<div class="content">
+													<div class="post-time-date">2020-02-05 / <a href="/syui">@syui</a></div>
+													<h2>ポケモンGoにリーグが実装されたのでやってみる5</h2>
+													
+       			 		<p>ランク8に上がってからギリギリの勝負になることが多くなったので、メンバー変えました。</p>
+<p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/114/small/de890fe3975c516b.jpg" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;scale=5;121/190&#34;</span>|bc
+</span></span><span style="display:flex;"><span>.63684
+</span></span></code></pre></div><p>現在は121勝69敗です。ランク8での勝率は7,8割ほどだと思います。初期の頃より勝てるようになっているという珍しいタイプ。</p>
+<p>ただ、この前、2勝3敗になってしまい、レートはじまってから初めて敗けました。はじめてレートが下がりましたが、これ、かなり下がりますね、きついです。</p>
+<p>以前のメンバーはかなり勝数を上げてくれて、ランク6,7で割と楽だったんですけど、もちろん、運が良かったというのもありますが、ランク8ではまたきつくなってきたと思っていて、いつもギリギリの勝利になっていて、これはダメだなと。そういった経緯でPvPは、これで2回目の構築になります。</p>
+<h3 id="スーパーリーグ">スーパーリーグ</h3>
+<table>
+<thead>
+<tr>
+<th>ポケモン</th>
+<th>弱点</th>
+<th>耐性x2</th>
+<th>わざ1</th>
+<th>わざ2</th>
+<th>わざ3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>グランブル</td>
+<td>はがね, どく</td>
+<td>ドラゴン</td>
+<td>あまえる</td>
+<td>かみくだく</td>
+<td>インファイト</td>
+</tr>
+<tr>
+<td>シュバルゴ</td>
+<td>ほのおx2</td>
+<td>くさ, どく</td>
+<td>カウンター</td>
+<td>つばめがえし</td>
+<td>メガホーン</td>
+</tr>
+<tr>
+<td>ナットレイ</td>
+<td>ほのおx2,かくとう</td>
+<td>くさ</td>
+<td>タネマシンガン</td>
+<td>パワーウィップ</td>
+<td>ミラーショット</td>
+</tr>
+</tbody>
+</table>
+<p>わざ1がノーマルで、わざ2,3がスペシャル。以前のメンバー、わざ3はあまり考慮してなかったし、開放もしてなかったなあ。なので、今回はわざ3も考慮してみた。</p>
+<p>なお、エアームドを頻繁に見かける場合はナットレイの代わりにレアコイルを入れるとよいかも。マリルリ対策はいまだにルンパッパが有効です。</p>
+<table>
+<thead>
+<tr>
+<th>ポケモン</th>
+<th>弱点</th>
+<th>耐性x2</th>
+<th>わざ1</th>
+<th>わざ2</th>
+<th>わざ3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>レアコイル</td>
+<td>じめんx2,ほのお,かくとう</td>
+<td>ひこう,どく,はがね</td>
+<td>スパーク</td>
+<td>ほうでん</td>
+<td>マグネットボム</td>
+</tr>
+<tr>
+<td>ルンパッパ</td>
+<td>ひこう,どく,むし</td>
+<td>みず</td>
+<td>はっぱカッター</td>
+<td>れいとうビーム</td>
+<td>ハイドロポンプ</td>
+</tr>
+</tbody>
+</table>
+<p>参考 : <a href="https://pokemongo-get.com/pokemon/">https://pokemongo-get.com/pokemon/</a></p>
+<h3 id="メンバーの構築">メンバーの構築</h3>
+<p>メンバーの構築は、大体が前回と一緒で<code>テンプレ撃破から考えよう</code>です。</p>
+<p>なぜならテンプレは最も数が多いからです。数が多いと、それだけマッチする確率が高くなります。</p>
+<p>具体的にどうやってテンプレ撃破を考えるのか。まずはじめはタイプから考えます。こちらが狙われるタイプ、そして、相手を返り打つタイプです。次に技です。テンプレが放ってくる技。</p>
+<p>ポケモンGoの強さは<code>タイプ &gt; わざ &gt; 種族値 &gt; 個体値</code>になっています。特にスーパーリーグではその傾向があり、マスターに近づくにつれ、その傾向は薄れます。これは、私の考えに過ぎませんが、簡略化するとそうなっていると思います。</p>
+<p>とすれば、タイプから考えていくのが合理的です。</p>
+<p>例えば、テンプレではあまり見かけないタイプがあるとしましょう。それが<code>ほのお</code>タイプだとして、じゃあ、この<code>ほのお</code>タイプが弱点になるポケモンを入れてみようという感じです。</p>
+<p>これは、いろいろな方向から考えます。例えば、<code>ほのお</code>タイプのメンバーはテンプレに対してどうだろうと考えてみます。すると、<code>ほのお</code>タイプの構成ではテンプレに圧勝されてしまうでしょう。ラグラージやマリルリ、ナマズンやタテトプス、チルタリスにやられてしまうのです。</p>
+<p>よって、必然的に<code>ほのお</code>タイプで構成されたメンバーは駆逐され、見かけなくなります。とすると、<code>ほのお</code>が弱点のポケモンを入れても、その弱点を突かれる可能性は低いと思います。</p>
+<p>あとは技が重要なので、強い技から構成して、それを持っているポケモンを調べるという流れ。</p>
+<p>基本的には同じタイプの技を選ばないこと。わざ1,2,3あるけど全部違うタイプで構成すること。わざ1、つまりノーマル技だけど、これはダメージ重視の効率的な技にすること。貯めはそれよりも優先順位が低い。</p>
+<p>ただし、今回採用しているナットレイの<code>タネマシンガン</code>は<code>はっぱカッター</code>より威力が弱く、そして遅い。よって、<code>パワーウィップ</code>で同タイプ補完しています。</p>
+<p><code>チルタリス</code>にやられないように考える必要もあります。<code>チルタリス</code>は<code>ドラゴン</code>と<code>ひこう</code>技で攻めてくるでしょう。なので、<code>はがね</code>タイプで対応します。</p>
+<p>頭の中でシュミレーションして、これを出したら、相手がこっちの弱点となるポケモンで先鋒してきて、それをこうして、ああしてということを繰り返します。</p>
+<p>考えるの2回目なので、バトルも楽しくなってきた気がする</p>
+<h3 id="初期レート">初期レート</h3>
+<p>ランクは初期レートによってほぼ決定します。初期レートは古いユーザーの場合、メダルが影響していると考えられています。なお、古いユーザーか否かはXPなどから判断されるのかもしれません。</p>
+<blockquote>
+<p>世界中の900人以上のトレーナーによる調査結果を以下に示します。</p>
+<p>ゲームは、以下の5つのバッジの値に基づいてGBLでプレイを開始した瞬間に、すべてのプレーヤーの初期評価を作成しています。（最高値のバッジは各プレーヤーのGBLロビーに表示されます）</p>
+</blockquote>
+<p><a href="https://9db.jp/pokemongo/data/8878">https://9db.jp/pokemongo/data/8878</a></p>
+<p>原文 : <a href="https://www.reddit.com/r/pokemongo/comments/ezk4g7/study_report_go_battle_league_rating_vastly">https://www.reddit.com/r/pokemongo/comments/ezk4g7/study_report_go_battle_league_rating_vastly</a></p>
+<p>ここからは個人的な推測です。</p>
+<p>メダルは、基本メダルと加算メダルに分けられ、エリートトレーナー、ヒーローが基本メダルになります。それに加算メダルである各リーグのメダルのうち200ポイント(ゴールド)を超えた部分が1000ポイントを上限に加算されると考えています。つまり、最大で800ポイントです。そして、2番目のリーグメダルが上限を超えた場合、3番目に移行します。超えなかった場合は2番目までが加算。なお、ポイント合計が3500以上になる場合、端数を切り捨て、3500台になると考えられます。</p>
+<p>例えば、エリート2600, スーパー1500, ハイパー512のメダルポイントがあったとしましょう。これが対戦プロフィールに表示されている場合は</p>
+<p>2600 + 800 + 312 = 3712となり、初期レートは3512です。</p>
+<p>これがハイパーリーグの場合、もしかしたら初期レートはハイパーリーグのメダルが加算されるなど、変化するかもしれません。</p>
+<p>また、初期レートは単なるガチャの可能性もあります。人によってあまりにバラバラですからね。</p>
+<h3 id="ランク10を狙うには">ランク10を狙うには</h3>
+<p>私は初期レートの2600から2900に上げました。これはバトルのみで+300ものレートを上げたことになりますが、かなりきつい。</p>
+<p>レートは3勝2敗で下がります。4勝1敗でもほぼ上昇しない。5勝0敗でやっと+30ほど上がります。つまり、5連勝しないと上がらないようになっています。</p>
+<p>この場合、レートを+300上げるには、大体、5連勝x10回繰り返す必要がありました。ランク8で5連勝を繰り返すことは至難を極め、つらい戦いでした。</p>
+<p>よって、バトルでレートを上げるのは全く現実的ではありません。</p>
+<p>ランク10を狙うには、初期レートで3500に近いポイントを取るしかありません。</p>
+<h3 id="不正テクニック">不正テクニック</h3>
+<p>たくさんのバトルをしていると、不正テクニックを使ったユーザーとマッチすることがとても多いです。大体、5回に1回ほどの割合で、不正ユーザーに当たります。</p>
+<p>私もたくさんやられてます。ですが、戦いをやめるわけにはいきません。期間制限があるからです。そして、期間中にバグが修正される可能性はほぼゼロです。</p>
+<p>つまり、不正ユーザーによる敗け試合を覚悟してでも、不正ユーザーにマッチしないことを祈りながら戦うしかない状況です。</p>
+<p>勝率のうち約20%が不正ユーザーによる負けで、残り20%が相性による負けになります。これが私を含めたほとんどのプレイヤーの勝率の内訳だと思います。</p>
+<p>もちろん、これはうまくやった場合の話で、それでも、不正ユーザーによる負けを回避する方法が未だわかりません。</p>
+<p>twitterでは勝率がやたら高い人がいます。しかし、彼らは一体、どうやって不正ユーザーを回避しているのでしょう。</p>
+<p>私は5回に1回は不正ユーザーに当たっています。この場合、あのような勝率は実現不可能です。</p>
+<p>もしかしたら、不正ユーザーとマッチングしないようにする何らかの方法があるのかもしれません。</p>
+<p>その方法がわかるまでバトルは控えたほうがいいのかも。</p>
+<p>私が確認した限りでは、不正ユーザーは2種類のタイプに分かれます。最初から不正を使ってくるタイプと、自分が負けそうになったら使ってくるタイプです。この場合、こちらが動かなくなり、次に更新されたときにはダメージがかなり通っている状態になります。なお、シールドは使えますので、こちらの通信の問題ではないと思います。</p>
+<p>また、完全にフリーズしてしまい、次にアプリを開いたときにはこちらの負けが確定しているというパターンもあります。また、動かなくなったまま、相手だけが動いてこちらをボコるパターンもあります。</p>
+<h3 id="ハイパーリーグ">ハイパーリーグ</h3>
+<table>
+<thead>
+<tr>
+<th>ポケモン</th>
+<th>弱点</th>
+<th>耐性x2</th>
+<th>わざ1</th>
+<th>わざ2</th>
+<th>わざ3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>グランブル</td>
+<td>はがね,どく</td>
+<td>ドラゴン</td>
+<td>あまえる</td>
+<td>かみくだく</td>
+<td>インファイト</td>
+</tr>
+<tr>
+<td>ヒードラン</td>
+<td>じめんx2,みず,かくとう</td>
+<td>フェアリー,くさ,こおり,どく,はがね,むし</td>
+<td>ほのおのうず</td>
+<td>かえんほうしゃ</td>
+<td>ストーンエッジ</td>
+</tr>
+<tr>
+<td>ディアルガ</td>
+<td>じめん,かくとう</td>
+<td>どく,くさ</td>
+<td>りゅうのいぶき</td>
+<td>かみなり</td>
+<td>アイアンヘッド</td>
+</tr>
+</tbody>
+</table>
+<h3 id="マスターリーグ">マスターリーグ</h3>
+<table>
+<thead>
+<tr>
+<th>ポケモン</th>
+<th>弱点</th>
+<th>耐性x2</th>
+<th>わざ1</th>
+<th>わざ2</th>
+<th>わざ3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>サーナイト</td>
+<td>はがね,どく,ゴースト</td>
+<td>かくとう,ドラゴン</td>
+<td>あまえる</td>
+<td>シンクロノイズ</td>
+<td>シャドーボール</td>
+</tr>
+<tr>
+<td>ヒードラン</td>
+<td>じめんx2,みず,かくとう</td>
+<td>フェアリー,くさ,こおり,どく,はがね,むし</td>
+<td>ほのおのうず</td>
+<td>かえんほうしゃ</td>
+<td>ストーンエッジ</td>
+</tr>
+<tr>
+<td>ディアルガ</td>
+<td>じめん,かくとう</td>
+<td>どく,くさ</td>
+<td>りゅうのいぶき</td>
+<td>かみなり</td>
+<td>アイアンヘッド</td>
+</tr>
+</tbody>
+</table>
+
+       			 		
+
+
+<nav id="article-nav">
+    
+
+    <a href="https://syui.cf/blog/post/2020/02/02/pokemon/" id="article-nav-older" class="article-nav-link-wrap">
+<i class="fa fa-chevron-right"></i> ポケモンGoにリーグが実装されたのでやってみる4
+    </a>
+    
+
+		
+</nav>
+
+
+
+								
+								
+								    <strong>tag:</strong>
+								    <a href="https://syui.cf/tags/pokemon/">pokemon</a>
+					<div class="utterances">
+						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+					</div>
+       			 	</div>
+       			</article>
+		</div>
+
+		
+<script type="text/javascript" src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>

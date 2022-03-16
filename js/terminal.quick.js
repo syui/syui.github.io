@@ -1,0 +1,11 @@
+$(function(){
+    $("#mainTitle").click(function(){
+        $("home-layout").toggle();
+    });
+    $("#mainTitleA").click(function(){
+        $("home-layout").toggle();
+    });
+    $("#mainTitleB").click(function(){
+        $("home-layout").toggle();
+    });
+});

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipad on syui.cf</title>
+    <link>https://syui.cf/tags/ipad/</link>
+    <description>Recent content in ipad on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ipad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iPadは開発機として使えるのか</title>
+      <link>https://syui.cf/blog/post/2019/11/30/ipad/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/11/30/ipad/</guid>
+      <description>ipadの使い勝手などを把握するため、bluetoothキーボードにつないでちょっと触ってみました。
+画像は、ipadからwan経由でlocalに立てたvpnにアクセスし(wifi版でもテザリングからdocomo回線のipを使ってwan経由が可能)、local-networkに入って、ipadのtermius(ssh client)で踏み台sshからnexus7(android)上に起動してるarchをリモートし、そこからwindowsとiphoneにアクセスしています。また、android上のarchはnexus7のストレージ/sdcard等をmountしてるためandroidシステムにもアクセスできます。
+わかりにくいですが、大体の図です。
+(W)[ ipad ] ---&amp;gt; (L)[ vpn ] ---&amp;gt; [ arch ] ---&amp;gt; [ android ] [ arch ] ---&amp;gt; [ windows, iphone ] iosとandroidでは、ファイル共有の概念に大きな違いがあります。iosではアプリごとに固定のディレクトリにアクセスできるのみですが、androidは共有ディレクトリを使えたりします。ios13から多少ファイルのやり取りは簡単になりましたが、それでもまだ不便を感じています。
+androidはlinuxであり、システムやディレクトリ構造、共有の概念を受け継いでいます。これらの思想の違いは、そのosの扱いやすさに影響を及ぼします。例えば、hackerな人達にとってandroidのほうが圧倒的に扱いやすいと思います。
+ですが、ipadは、nexus7よりもタッチ操作に不安がありません。普通に使う分には優れていると思います。
+試しにお絵かきをしてみましたが、nexus7と比べてすごく描きやすかった。ただ、ごまかしが効かない感じがするので絵を描けない自分にはちょっとつらい。これは完全に実力不足の自分が悪い。またipadはデフォルトの画像動画編集アプリが非常に優秀です。
+コードやなんかは、コンテナを立てられたりするandroidのほうが便利ですが、創作とか日常に関するアプリは、iosのほうが便利という感想です。
+ついでに、昔書いたvpnの記事をちょっと修正、追記しました。
+/blog/post/2019/05/25/vpn/</description>
+    </item>
+    
+    <item>
+      <title>iPad 7th Genを買ってみた</title>
+      <link>https://syui.cf/blog/post/2019/11/29/ipad/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/11/29/ipad/</guid>
+      <description>購入したのはiPad 7th(2019)、具体的にはiPad7,11になります。メモリは3GでCPUはA10らしい。値段は35,000 JPYくらい。
+この端末は買っておいたほうが良いだろうと思ったので、Apple Storeから購入。触ってみた感想、思った以上に軽い。
+現在私が持ってる端末は、iPhone SE, iPhone 5s, Nexus7(2013)で、そこにiPad 7が加わりました。古い機種も多いですが、全部現役で使ってます。初めてのタブレットはNexus7で、Androidも触っておいたほうが良さそうという理由でした。iPad 7も長く使えると嬉しいです。
+一応、iPad 7が何に使えそうか書き出してみる。
+  お絵かきとかにも使えそう
+  メモリ3Gなのでゲームが落ちなさそう
+  iosのsupportは5,6年続く可能性
+  supportが切れたらcheckra1n(checkm8)でserverに利用できそう
+  https://www.apple.com/jp/ipad/compare/
+https://ja.wikipedia.org/wiki/IPad</description>
+    </item>
+    
+    <item>
+      <title>ipad4のios10.3.3を8.4.1にdowngradeするための情報をまとめてみる</title>
+      <link>https://syui.cf/blog/post/2019/10/14/ipad/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/10/14/ipad/</guid>
+      <description>iosのjailbreakは、はじめてなこともあり自分なりに情報をまとめてみることにします。全ては推測であり、冒頭に「おそらく」が付きますが省略します。
+ipad4(ipad3,4)をdowngradeするには、kDFUでなければならず、なぜなら、復元するとき、ibssを端末にuploadしなければならないからで、当該ファイルをuploadするにはjailbreakしてる必要があります(厳密にはsshできる状態)。つまり、現時点では、checkm8を使ったpwnDFUでは脱獄状態でもない限り、downgradeするのは難しいと思われます。
+もしかしたら、iphone5sのdowngrade例に似てますが、bootloader作成して、それをcfwに乗せて復元みたいな方法でいけるかもしれません。
+また、pwnDFU+OpenOCD+特殊ケーブルを使えば、いけるかも。これは現実的ではないのでパス。
+リンク集 https://ipsw.me/iPad3,4
+https://www.theiphonewiki.com/wiki/Donner_12H321_(iPad3,4)
+https://github.com/axi0mX/ipwndfu
+https://github.com/s0uthwest/futurerestore
+https://www.reddit.com/r/jailbreak/comments/dddp8j/tutorial_untethered_downgrade_compatible_a7/
+https://github.com/iH8sn0w/iBoot32Patcher
+https://www.theiphonewiki.com/wiki/OdysseusOTA2
+https://github.com/tihmstar/igetnonce
+https://github.com/xerub/img4lib/
+## Donner 12H321 (iPad3,4) 8.4.1 iBEC.p101.RELEASE.dfu 	IV: add7db95ab270c16ddd632cdc9a4ebac 	Key: 77b7990cbb88f3d091aaff10b424ab19c5263f100eb1ee642771500510b0dd42 iBoot.p101.RELEASE.img3 	IV: 07d85cc140e348b4d66d2b6d1b88b139 	Key: 29f94825bf6e6b0660037bba1a20dd804eb037888b14260f204ee8e54c2e6db3 odysseus-ipad3,4-8.4.1-bundleが存在します。
+odysseusよりfuturerestoreのほうが良いと思われます。
+jailbreak,downgrade関連ツールのコマンド例です 検索などの取っ掛かりとして。
+$ ipwndfu -p $ idevicerestore -t iPad_32bit_10.3.3_14G60_Restore.ipsw $ unzip -j iPad3,4_10.3.3_Restore.ipsw Firmware/all_flash/all_flash*/iBoot* $ iBoot32Patcher iBoot.n101ap.RELEASE.dec PwnediBoot --rsa --boot-partition $ iBoot64patcher ibss.raw ibss.pwn $ xpwntool iBoot.n101ap.RELEASE.img3 iBoot.n101ap.RELEASE.dec -iv $ tsschecker -d {did} -e {eid} -i 8.</description>
+    </item>
+    
+  </channel>
+</rss>

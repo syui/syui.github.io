@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on syui.cf</title>
+    <link>https://syui.cf/tags/rust/</link>
+    <description>Recent content in rust on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsでのsixel</title>
+      <link>https://syui.cf/blog/post/2022/02/11/sixel/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/11/sixel/</guid>
+      <description>msrというmastodon clientでは、macはiterm2のimgcatを使い、linuxはmltermなどでimg2sixelを使って画像アイコンを表示します。
+windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。
+ msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
+$ scoop install msys2 $ msys2 $ git clone https://github.com/saitoha/libsixel $ cd libsixel $ pacman -S make gcc $ ./configure $ make $ make install  $ mintty $ img2sixel test.png https://github.com/saitoha/libsixel
+windows terminalもsixelに対応してくれるといいんですけどね。
+https://github.com/microsoft/terminal
+https://github.com/microsoft/terminal/issues/448</description>
+    </item>
+    
+    <item>
+      <title>github actionsでrustのcross compile</title>
+      <link>https://syui.cf/blog/post/2022/02/10/github/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/10/github/</guid>
+      <description>opensslのerrorが出る場合はsudo apt-get install -y -qq pkg-config libssl-devするといいらしい。
+windowsのbuildやuploadは、同じ内容でも、うまく行ったり行かなかったりしたので、そのうち動かなくなりそう。
+name: release  on:  push:  tags:  - &amp;#39;*&amp;#39;  jobs:  build:  name: release binary  strategy:  matrix:  include:  - os: macos-latest  artifact_prefix: macos  target: x86_64-apple-darwin  artifact_name: msr  asset_name: msr-x86_64-apple-darwin  - os: ubuntu-latest  artifact_prefix: linux  target: x86_64-unknown-linux-gnu  artifact_name: msr  asset_name: msr-x86_64-unknown-linux-gnu  - os: windows-latest  artifact_prefix: windows   target: x86_64-pc-windows-msvc  artifact_name: msr.</description>
+    </item>
+    
+    <item>
+      <title>mammutのexampleをまとめてみる</title>
+      <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/06/rust-mammut/</guid>
+      <description>mastodon apiのrust libであるmammutですが、exampleがあるとわかりやすいと思ったので、作ってみました。
+まず、mastodonへのrequestはこんな感じになります。
+curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ 	-d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
+[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34;  [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv;  use std::env; use mammut::{Data, Mastodon};  fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; {   let data = Data {  base: env::var(&amp;#34;BASE&amp;#34;).</description>
+    </item>
+    
+    <item>
+      <title>rustでmastodon clientをはじめてみた</title>
+      <link>https://syui.cf/blog/post/2022/02/05/rust/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/05/rust/</guid>
+      <description>今までmastodonはzshでapi叩いてやってたんですが、他言語でもclientを作ろうかなと前々から思ってて、今回はrustではじめてみた。
+大抵の場合、本人が使うときにしか機能追加されない模様。
+使ってるうち便利にしていければと思ってます。
+https://github.com/syui/msr</description>
+    </item>
+    
+    <item>
+      <title>rustで作るcli tool</title>
+      <link>https://syui.cf/blog/post/2020/05/12/rust/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/05/12/rust/</guid>
+      <description>私は、cli(command line interface) toolを好んで使うのですが、自分で作ることもあります。
+特に、ワンバイナリなtoolは、CIやdockerを回すときに便利でgolangをよく使います。goはshellとの親和性が高いので色々な場所で扱いやすく、非常に素晴らしい言語です。
+ただ、最近は、rustが人気みたい。理由としては、高速で、サイズが小さく、安全であることが挙げられます。デメリットはコンパイルが遅いこと。
+しかし、rustも非常に魅力なので、base64 {encode,decode}などをcli tool化しながら、rustを学んでいこうという記事です。
+まず、テンプレを作成します。src/main.rsが本体になります。
+$ cargo new udrs $ cd udrs $ vim src/main.rs ここで、cli optionなどを書きやすくするframeworkのseahorseを導入します。
+use std::env; use seahorse::{App, Command, Context};  fn main() { 	let args: Vec&amp;lt;String&amp;gt; = env::args().collect(); 	let app = App::new() 	.name(env!(&amp;#34;CARGO_PKG_NAME&amp;#34;)) 	.author(env!(&amp;#34;CARGO_PKG_AUTHORS&amp;#34;)) 	.version(env!(&amp;#34;CARGO_PKG_VERSION&amp;#34;)) 	.usage(&amp;#34;cli_tool [command] [x] [y]&amp;#34;) 	.command( 	Command::new() 	.name(&amp;#34;t&amp;#34;) 	.usage(&amp;#34;udrs t {}&amp;#34;) 	.action(t), 	); 	app.run(args); }  fn t(_c: &amp;amp;Context) { 	let t = &amp;#34;hello world.</description>
+    </item>
+    
+    <item>
+      <title>rustで作るcli toolに入門してみる</title>
+      <link>https://syui.cf/blog/post/2020/05/10/rust/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/05/10/rust/</guid>
+      <description>前からrustでcli toolを作ってみようかなと思っていたので作ってみました。
+こちらの記事がわかりやすすぎた。
+https://qiita.com/watawuwu/items/b20abfae62f76e4b4c0c
+rustでコードを書くところから、toolのテストやmakefileでの自動化、ciでbuildしてtoolを配布するところまで、おおよそ必要な情報すべてが解説されています。
+rustで作ったcli tool(そのまんま) :
+https://github.com/syui/udrs
+travis-ciでgithub-releasesにupload
+$ sudo gem i travis $ travis login $ travis encrypt $GITHUB_ACCESS_TOKEN  $ cat .travis.yml deploy:  api_key:  secure: &amp;#34;xxx&amp;#34; makefileでtaskの自動化
+LOG_LEVEL := debug APP_ARGS := &amp;#34;foo%20bar&amp;#34; export RUST_LOG=url=$(LOG_LEVEL) PREFIX := $(HOME)/.cargo  run: 	cargo run $(APP_ARGS)  test: 	cargo test  check: 	cargo check $(OPTION)  install: 	cargo install --force --root $(PREFIX) --path .</description>
+    </item>
+    
+    <item>
+      <title>rustをやっていきたい</title>
+      <link>https://syui.cf/blog/post/2018/08/22/rust/</link>
+      <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/08/22/rust/</guid>
+      <description>導入 自分が苦手意識を持っている言語は、いくつかあります。
+と言っても特に使ったこともないんだけど、何故か苦手意識を持っています。
+私が苦手な言語は、例えば、lisp, haskell, rustなどになるのですが、rustに関しては、やっておいたほうがいいだろうということで、やっていきます。
+ここで、私がなぜrustに苦手意識を持っているのかというと、多分、mdbookを使ってたことが起因していると思います。
+mdbookというのは、gitbookをrustで書いたものなんですが、そこですごくハマったことがあったんですよね。依存パッケージのbuildとかも相当な時間がかかったりで、とにかく大変だった印象があるのです。
+そんなこともあり、なんとなくrustはなー&amp;hellip;とか思ってたんですが、rustを急にやってみたくなったので、やってみたいなーということで。
+rust c++の代替みたいな感じですかね。速いことで有名。single coreを余すことなく使うらしい。
+基本的には、cargoでinstallしたりbuildしたり。cargo.tomlを作ります。rocketというフレームワークが便利そう。dbとの接続はdieselを使う感じ。
+とりあえず、rocketから触ってみることに。
+https://github.com/SergioBenitez/Rocket/tree/master/examples/json
+api server立てるっぽいやつを動かしてみる。ここでコードの内容も見ていく。
+$ rustc -V $ cargo -V  $ git clone https://github.com/SergioBenitez/Rocket $ cd Rocket/example/json $ rustup override set nightly  $ cat Cargo.toml $ cargo build $ cargo run  $ cat src/main.rs  # check $ curl localhost:8000/message/1 # post $ curl -H &amp;#39;Content-Type:application/json&amp;#39; -d &amp;#39;{ &amp;#34;contents&amp;#34;: &amp;#34;Hello, world!&amp;#34; }&amp;#39; localhost:8000/message/1 # get $ curl localhost:8000/message/1 次は、dbを組み合わせた感じのものを見ていきます。</description>
+    </item>
+    
+  </channel>
+</rss>
