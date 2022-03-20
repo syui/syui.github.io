@@ -104,17 +104,18 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-02-05 / <a href="/syui">@syui</a></div>
-													<h2>Linuxでメモリ解放をユーザー権限で行う方法</h2>
-													
-       			 		<p><code>/etc/sudoers</code>に以下の文を追加してShellに<code>alias p=&quot;sync &amp;&amp; echo 3 | sudo tee /proc/sys/vm/drop_caches&quot;</code>を追加。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-02-05 / <a href="/syui">@syui</a></div>
+		<h2>Linuxでメモリ解放をユーザー権限で行う方法</h2>
+
+		<p><code>/etc/sudoers</code>に以下の文を追加してShellに<code>alias p=&quot;sync &amp;&amp; echo 3 | sudo tee /proc/sys/vm/drop_caches&quot;</code>を追加。</p>
 <pre tabindex="0"><code>%wheel ALL=(ALL) NOPASSWD: /usr/bin/tee /proc/sys/vm/drop_caches
 </code></pre><pre tabindex="0"><code>$ p
 $ cat /proc/sys/vm/drop_caches
 </code></pre>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -130,17 +131,16 @@ $ cat /proc/sys/vm/drop_caches
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/linux/">linux</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/linux/">linux</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

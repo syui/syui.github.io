@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2021-08-09 / <a href="/syui">@syui</a></div>
-													<h2>twg v0.4.5 [twitter clinet on go]</h2>
-													
-       			 		<p>twitter上でのやり取りが不便だったので、自分で使ってるtwgというclientをupdateしました。あと、imageをtweetする機能もつけました。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2021-08-09 / <a href="/syui">@syui</a></div>
+		<h2>twg v0.4.5 [twitter clinet on go]</h2>
+
+		<p>twitter上でのやり取りが不便だったので、自分で使ってるtwgというclientをupdateしました。あと、imageをtweetする機能もつけました。</p>
 <p>app keyが入れてあるので、releaseからdlしてください。twitter apiの<code>consumer_key, consumer_secret_key</code>を持っている人は、srcをbuildして使えます。</p>
 <p><a href="https://github.com/syui/twg/releases">https://github.com/syui/twg/releases</a></p>
 <p>ciはtravisからgh-actionsに移行しましたが、またハマりました。</p>
@@ -160,7 +161,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        $GOPATH/bin/gox -osarch &#34;freebsd/arm linux/386 linux/amd64 linux/arm linux/mips64le linux/mips64 linux/mipsle linux/mips linux/s390x netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 windows/386 windows/amd64 darwin/amd64&#34; -output &#34;dist/{{.OS}}_{{.Arch}}_{{.Dir}}&#34; -ldflags=&#34;-X github.com/syui/twg/oauth.ckey=${C_KEY} -X github.com/syui/twg/oauth.cskey=${CS_KEY}&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        $GOPATH/bin/ghr --username syui --token ${GITHUB_TOKEN} --replace --debug ${REF##*/} dist/</span>        
 </span></span></code></pre></div>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -176,17 +177,16 @@
 
 
 
-								
-								
-								    <strong>tags:</strong>
-								    <a href="https://syui.cf/tags/twitter/">twitter</a>, <a href="https://syui.cf/tags/golang/">golang</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tags:</strong>
+		<a href="https://syui.cf/tags/twitter/">twitter</a>, <a href="https://syui.cf/tags/golang/">golang</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

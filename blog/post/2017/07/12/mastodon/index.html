@@ -104,18 +104,19 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-07-12 / <a href="/syui">@syui</a></div>
-													<h2>mastodon-2fa-disable</h2>
-													
-       			 		<p>アップデートに問題があって、2FAでコードを入力しても何故かログインできず、リカバリコードを使い切ってしまった場合の対処法。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-07-12 / <a href="/syui">@syui</a></div>
+		<h2>mastodon-2fa-disable</h2>
+
+		<p>アップデートに問題があって、2FAでコードを入力しても何故かログインできず、リカバリコードを使い切ってしまった場合の対処法。</p>
 <p><a href="https://github.com/tootsuite/mastodon/issues/2488">https://github.com/tootsuite/mastodon/issues/2488</a></p>
 <p>DBにアクセスして2FAを無効にする。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku pg:psql
 </span></span><span style="display:flex;"><span>$ UPDATE users SET otp_required_for_login<span style="color:#f92672">=</span>false WHERE email<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user@example.com&#39;</span>;
 </span></span></code></pre></div>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -131,17 +132,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/mastodon/">mastodon</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/mastodon/">mastodon</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

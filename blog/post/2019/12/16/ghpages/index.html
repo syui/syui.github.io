@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2019-12-16 / <a href="/syui">@syui</a></div>
-													<h2>github pagesでサブドメインのリポジトリにソースを載せない方法</h2>
-													
-       			 		<p>現在、hugoをgithub-actionsで自動ビルドとデプロイしているのですが、デプロイが、コミットを消すやつじゃないので困ってます。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2019-12-16 / <a href="/syui">@syui</a></div>
+		<h2>github pagesでサブドメインのリポジトリにソースを載せない方法</h2>
+
+		<p>現在、hugoをgithub-actionsで自動ビルドとデプロイしているのですが、デプロイが、コミットを消すやつじゃないので困ってます。</p>
 <p>デプロイすると、<code>${user}.github.io</code>のリポジトリの場合、masterにhtmlが置かれます。(privateなら見えないようにできる)</p>
 <p>しかし、この前、ちょっと裏技ぽいものを発見したのでメモ。</p>
 <p>以下でmasterの内容がgh-pagesに反映されなかった。おそらく、githubのpage-buildが走ってないからだと思う。</p>
@@ -142,7 +143,7 @@
 <p>おそらく、gh-pagesのbuildが走るのはworkflow中に一回で、連動している場合、同workflow内でmasterにpushされても<code>page_build</code>が走らないため、最新のmasterの内容がページに反映されていないんだと思う。もしくは、<code>on:page_build</code>のアクションには<code>page_build</code>は実行されないとか。</p>
 <p>とはいえ、不安定な挙動を放置するわけにもいかないので、使わないかな。効果がcommit整理とhtmlソースをリポジトリに置かないことだけですし。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -158,17 +159,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/github/">github</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/github/">github</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

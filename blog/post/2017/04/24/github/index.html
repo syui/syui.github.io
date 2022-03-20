@@ -104,19 +104,20 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-04-24 / <a href="/syui">@syui</a></div>
-													<h2>Mastodonの自動アップデート</h2>
-													
-       			 		<p>Mastodonのインスタンスを管理する上での負担の一つはアップデートなわけだけど、これを自動化した話。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-04-24 / <a href="/syui">@syui</a></div>
+		<h2>Mastodonの自動アップデート</h2>
+
+		<p>Mastodonのインスタンスを管理する上での負担の一つはアップデートなわけだけど、これを自動化した話。</p>
 <p>Travis CIでCron Jobを動かすことにしたんだけど、ローカルではうまくいくのに、Travisのgitコマンドでは上手くいかないのでハマった。</p>
 <p>Travisでは多分だけどcloneしたリポジトリの変更を許さない感じになっていて、upstreamをmeargeしたものがコミットできなかったのではないかなと。できなかったというより、変更はありませんみたいなこと言われるのでmergeしたものをデプロイ出来なかった。</p>
 <p>これはスクリプトを書いて更にcloneした後、upstreamをmergeしてtokenを使ってpushし、それをHeroku Deployする感じで解決した。</p>
 <p>ただし、この仕組、デプロイを2回やらないといけないことになるのだけど、1回目はcronで実行され、そこでupstreamがpushされるので2回目が回ってupstreamが取り込まれたものがDeployされる仕組み。1日に2回デプロイするのは無駄なので、この辺をなんとかしたいと思いつつ、良い方法が思い浮かばないので放置。</p>
 <p>TravisのHerokuはどういった形でデプロイされているのだろうか、もし<code>git push https://$ENCRYPTED_API_KEY@heroku.com/$APP_NAME.git master</code>みたいな感じだったらスクリプトで条件つければいけそうな気がするのだけど、調べるのも面倒くさいので放置。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -132,17 +133,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/github/">github</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/github/">github</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

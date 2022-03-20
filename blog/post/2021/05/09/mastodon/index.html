@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2021-05-09 / <a href="/syui">@syui</a></div>
-													<h2>mastodon v3.4.0をruby v3.0.1でdeployしてみた</h2>
-													
-       			 		<p>mastodon v3.4.0のpre-verがmasterにcommitされています。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2021-05-09 / <a href="/syui">@syui</a></div>
+		<h2>mastodon v3.4.0をruby v3.0.1でdeployしてみた</h2>
+
+		<p>mastodon v3.4.0のpre-verがmasterにcommitされています。</p>
 <p>heroku-20は<code>ruby v3.0.1</code>に対応していて、mastodon v3.4.0は<code>ruby &lt; v3.1.0</code>なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。</p>
 <blockquote>
 <p>Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:</p>
@@ -137,7 +138,7 @@
 </span></span><span style="display:flex;"><span>$ heroku run RAILS_ENV<span style="color:#f92672">=</span>production bin/tootctl cache clear
 </span></span><span style="display:flex;"><span>$ heroku run RAILS_ENV<span style="color:#f92672">=</span>production bundle exec rails assets:precompile
 </span></span></code></pre></div>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -153,17 +154,16 @@
 
 
 
-								
-								
-								    <strong>tags:</strong>
-								    <a href="https://syui.cf/tags/heroku/">heroku</a>, <a href="https://syui.cf/tags/mastodon/">mastodon</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tags:</strong>
+		<a href="https://syui.cf/tags/heroku/">heroku</a>, <a href="https://syui.cf/tags/mastodon/">mastodon</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2021-06-27 / <a href="/syui">@syui</a></div>
-													<h2>herokuでgiteaが動かなくなってた</h2>
-													
-       			 		<p>$USERではなく、<code>whoami</code>で取るようにしました。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2021-06-27 / <a href="/syui">@syui</a></div>
+		<h2>herokuでgiteaが動かなくなってた</h2>
+
+		<p>$USERではなく、<code>whoami</code>で取るようにしました。</p>
 <p>herokuはUSERとPORTが変動しますので、仕組みに応じて環境変数を書き換える必要があります。今回もgiteaのdockerfileを使用します。</p>
 <p><a href="https://git.syui.cf/syui/gitea">https://git.syui.cf/syui/gitea</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
@@ -120,7 +121,7 @@
 </span></span></code></pre></div><p>ちなみに、herokuは、1日おきに生成されたファイルをリセットしますので、例えば、webにpushするにしても<code>gitea/git</code>に生成されたファイルは時間が経つと削除されてしまうので、localにpushする必要があり、生成された<code>gitea/git</code>をgit-heroku-repoに含めてheroku-dockerにcopyしなければならず、herokuでのgitea運用は実用的ではありません。</p>
 <p>参照 : <a href="https://syui.cf/blog/post/2019/12/06/gitea/">https://syui.cf/blog/post/2019/12/06/gitea/</a></p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -136,17 +137,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/heroku/">heroku</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/heroku/">heroku</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

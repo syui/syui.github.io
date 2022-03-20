@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2021-07-04 / <a href="/syui">@syui</a></div>
-													<h2>hugoで画像表示を自動化する</h2>
-													
-       			 		<p>昨日紹介したvueを使った方法は、browserでjavascriptをdisableにしているuserには表示できないので、本来的にはhugoで解決したほうがいいかもしれません。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2021-07-04 / <a href="/syui">@syui</a></div>
+		<h2>hugoで画像表示を自動化する</h2>
+
+		<p>昨日紹介したvueを使った方法は、browserでjavascriptをdisableにしているuserには表示できないので、本来的にはhugoで解決したほうがいいかもしれません。</p>
 <p>vueは基本的にjsで出力されるのに対して、hugoはhtmlで出力されるますので。</p>
 <p>したがって、hugoでの解決法も書いておきます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ export IMG_YUI<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/yui_*.png|wc -l|tr -d <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span>
@@ -136,7 +137,7 @@
 <p>valは1から、indexは0からです。subする際にintで文字を数値に変換してます。</p>
 <p>ただ、hugoでpreviewする際、環境変数を入れるのいつも忘れるので、この方法は使用しません。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -152,17 +153,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/hugo/">hugo</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/hugo/">hugo</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-06-04 / <a href="/syui">@syui</a></div>
-													<h2>bitcoin</h2>
-													
-       			 		<p>bitcoinはブロックチェーンのダウンロードにものすごい時間がかかります。これは取引記録のデータで、最新のデータに一致しなければならず、20GB~100GBの領域が必要になります。何度か触ってみないと分かりませんが、多分そんな感じ。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-06-04 / <a href="/syui">@syui</a></div>
+		<h2>bitcoin</h2>
+
+		<p>bitcoinはブロックチェーンのダウンロードにものすごい時間がかかります。これは取引記録のデータで、最新のデータに一致しなければならず、20GB~100GBの領域が必要になります。何度か触ってみないと分かりませんが、多分そんな感じ。</p>
 <p>で、<code>bitcoind</code>でダウンロード開始されるのですが、これがすごい遅いのですよね。torrentにもあるようでそちらでダウンロードしたほうが速いということらしいのですが、このあたりあまり良く分かりませんでしたので、<code>bitcoind</code>で開始しています。</p>
 <p>また、膨大な領域が必要になるためこれをメインに置くのは非効率で、開発にも支障をきたしかねませんので、外部に置いた<code>~/.bitcoin</code>を使うことにします。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf
@@ -136,7 +137,7 @@ rpcpassword=foo
 rpcallowip=127.0.0.1
 rpcport=8332
 </code></pre>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -152,17 +153,16 @@ rpcport=8332
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/coin/">coin</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/coin/">coin</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

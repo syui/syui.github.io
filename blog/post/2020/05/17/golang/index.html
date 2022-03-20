@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2020-05-17 / <a href="/syui">@syui</a></div>
-													<h2>xqというcli toolにtxtをjson{body:}に出力するオプションを追加してみた</h2>
-													
-       			 		<p>shellの<code>cat</code>では、github-apiのpostでjson errorが出る場合があったので、<a href="https://github.com/syui/xq">xq</a>にtxt, mdなどのファイルをjsonのbodyに入れて出力するコマンドを追加してみました。</p>
+<article>
+	<div class="content">
+		<div class="post-time-date">update : 0001-01-01</div>
+		<div class="post-time-date">2020-05-17 / <a href="/syui">@syui</a></div>
+		<h2>xqというcli toolにtxtをjson{body:}に出力するオプションを追加してみた</h2>
+
+		<p>shellの<code>cat</code>では、github-apiのpostでjson errorが出る場合があったので、<a href="https://github.com/syui/xq">xq</a>にtxt, mdなどのファイルをjsonのbodyに入れて出力するコマンドを追加してみました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ xq j ./index.md
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;body&#34;</span>:<span style="color:#e6db74">&#34;+++\ndate = \&#34;2020-05-17JST\&#34;\ntags = [\&#34;golang\&#34;]\ntitle = \&#34;\&#34;\nslug = \&#34;golang\&#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n</span>$<span style="color:#e6db74"> xq j ./index.md\n```\n&#34;</span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>これでgh-actionsに以下のような書き方ができます。</p>
@@ -121,7 +122,7 @@
 <p>どんどんと、なんのツールかわからなくなってきましたね！</p>
 <p>&hellip;でも新しく作るのとか、分けるのとか面倒なんだよなあ。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -137,17 +138,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/golang/">golang</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/golang/">golang</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

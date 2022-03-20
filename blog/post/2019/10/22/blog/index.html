@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2019-10-22 / <a href="/syui">@syui</a></div>
-													<h2>blogを統合してみた</h2>
-													
-       			 		<p>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2019-10-22 / <a href="/syui">@syui</a></div>
+		<h2>blogを統合してみた</h2>
+
+		<p>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。</p>
 <p>urlは、<code>https://syui.cf/blog</code>になります。hugoて、xmlをcontent/以下のディレクトリでも生成してくれるぽいので、ブログのrssとかは/blog/index.xmlから取ってもらえればと思います。</p>
 <p>しばらくの間は、過去urlであるblog.syui.cfとかlog.syui.cfとかは、cloudflareでリダイレクトしてますが、それほど長い期間は対応しないと思います。対応した内容を書いておきます。</p>
 <pre tabindex="0"><code># cloudflare
@@ -118,7 +119,7 @@ CNAME blog syui.gitlab.io
 Redirect *log.syui.cf/* 301 https://syui.cf/blog
 </code></pre><p><code>$ mkdir -p content/{blog,log}</code>します。そして、githubではdomain設定は新しいリポジトリ作らなければならないので、gitlabのほうでリポジトリを作って、<code>pages -&gt; domain</code>を設定します。gitlab-pagesの場合、複数のcnameが設定できるので便利。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -134,17 +135,16 @@ Redirect *log.syui.cf/* 301 https://syui.cf/blog
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/blog/">blog</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/blog/">blog</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

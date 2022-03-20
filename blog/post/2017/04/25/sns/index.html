@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-04-25 / <a href="/syui">@syui</a></div>
-													<h2>Mastodonのインスタンにオートスクロールなどを付けた</h2>
-													
-       			 		<p>機能としては、ユーザーのパブリックページにjk移動やオートスクロールを付けた。 /@syui</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-04-25 / <a href="/syui">@syui</a></div>
+		<h2>Mastodonのインスタンにオートスクロールなどを付けた</h2>
+
+		<p>機能としては、ユーザーのパブリックページにjk移動やオートスクロールを付けた。 /@syui</p>
 <p>ハマりどころが多すぎて何から解説していいのかわからないけど、覚えている限りで適当に書いてく。</p>
 <p>まず、<code>/public</code>に置いたファイルが更新されてなかったのでハマりまくった。ソースからスクリプトを見てみると、デプロイしたにも関わらず変更されてない箇所があった。</p>
 <p>自動アップデートも含め、かなり複雑な手順を踏んでデプロイしているため、正直、何が原因でそうなってるのかの特定が面倒だった。最初はそのコード自体が危険で、あまり順当でないやり方で書いたためビルド段階でコードが排除されたのではないかと考えた。プロテクトやLint関連かなとか思った。デプロイが上手くいってるのにコードが一部消されているというのはそういうことだと思った。</p>
@@ -124,7 +125,7 @@
 <p>Mastodon本体を変更すれば速いんだけど、しかし、あまり変更しすぎると、今度は自動アップデートが失敗するというか、自分が変更したファイルがきっかけで動かない可能性が高まるので、できる限りユーザー設定ぽいコード以外の箇所は変更したくないなというのはある。</p>
 <p>以上</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -140,17 +141,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/sns/">sns</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/sns/">sns</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

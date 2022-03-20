@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2021-08-18 / <a href="/syui">@syui</a></div>
-													<h2>squoosh-cliとgh-actionsで画像表示を高速化してみる</h2>
-													
-       			 		<p>squoosh-cliは、google製の画像圧縮ツールらしい。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2021-08-18 / <a href="/syui">@syui</a></div>
+		<h2>squoosh-cliとgh-actionsで画像表示を高速化してみる</h2>
+
+		<p>squoosh-cliは、google製の画像圧縮ツールらしい。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npm i -g @squoosh/cli
 </span></span><span style="display:flex;"><span>$ squoosh-cli --webp <span style="color:#e6db74">&#39;{&#34;quality&#34;:75,&#34;target_size&#34;:0,&#34;target_PSNR&#34;:0,&#34;method&#34;:0,&#34;sns_strength&#34;:50,&#34;filter_strength&#34;:60,&#34;filter_sharpness&#34;:0,&#34;filter_type&#34;:1,&#34;partitions&#34;:0,&#34;segments&#34;:4,&#34;pass&#34;:1,&#34;show_compressed&#34;:0,&#34;preprocessing&#34;:0,&#34;autofilter&#34;:0,&#34;partition_limit&#34;:0,&#34;alpha_compression&#34;:1,&#34;alpha_filtering&#34;:1,&#34;alpha_quality&#34;:100,&#34;lossless&#34;:0,&#34;exact&#34;:0,&#34;image_hint&#34;:0,&#34;emulate_jpeg_size&#34;:0,&#34;thread_level&#34;:0,&#34;low_memory&#34;:0,&#34;near_lossless&#34;:100,&#34;use_delta_palette&#34;:0,&#34;use_sharp_yuv&#34;:0}&#39;</span> -d out-dir img.jpg
 </span></span></code></pre></div><p>size的にはjpgのほうがいいのですが、webpじゃないとpng透過が保存されないので、webpを使います。</p>
@@ -159,7 +160,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">src</span>
 </span></span></code></pre></div>
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -175,17 +176,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/github/">github</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/github/">github</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

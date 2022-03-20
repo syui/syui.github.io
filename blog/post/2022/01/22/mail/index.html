@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2022-01-22 / <a href="/syui">@syui</a></div>
-													<h2>cloudflare mailとmailgun</h2>
-													
-       			 		<p>mailは全く使ってなくて、spam-mailに分類されてそのまま見ないこともあるため、個人的に、やり取りするには不確実性が高いものになってます。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2022-01-22 / <a href="/syui">@syui</a></div>
+		<h2>cloudflare mailとmailgun</h2>
+
+		<p>mailは全く使ってなくて、spam-mailに分類されてそのまま見ないこともあるため、個人的に、やり取りするには不確実性が高いものになってます。</p>
 <p>私は、gmailをベースにmailgunで<code>address(syui@syui.cf)</code>に転送していました。</p>
 <p>ただ、2022.1.16あたりからroutingが動いてないことに気づき、mailgun-logを見る限りでは単なるmailgun側の障害だったようですが、その時に送信ができなくなってることに気づきました。(送信自体は全くしないので)</p>
 <p>具体的には、gmailにmailgunのsmtp serverを適用していました。これによって指定のaddressを送信元と表示することができます。</p>
@@ -122,7 +123,7 @@
 <p>なので、しばらくはcloudflare-mailで受信、mailgunで送信を設定していこうかなと思っています。</p>
 <p>なお、gmailでmailgunのsmtpを設定する方法は、<code>gmail mailgun  smtp</code>とかで検索すれば良さそう。この設定に関するgoogle(gmail)の公式docsがどこにあるのかちょっとわからなかった。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -138,17 +139,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/mail/">mail</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/mail/">mail</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>

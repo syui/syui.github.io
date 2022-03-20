@@ -104,12 +104,13 @@
 				
 			</header>
 
-       			<article>
-       			 	<div class="content">
-													<div class="post-time-date">2017-04-02 / <a href="/syui">@syui</a></div>
-													<h2>gpg-keys-2</h2>
-													
-       			 		<p>GPGでの失敗談です。</p>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2017-04-02 / <a href="/syui">@syui</a></div>
+		<h2>gpg-keys-2</h2>
+
+		<p>GPGでの失敗談です。</p>
 <p>一つ目は<code>gpg send-keys</code>した後に、<code>search-keys</code>したのですが、その時、登録されていなかったみたいだったので、一度、その鍵を削除したあと、再度、searchしてみたら登録されてたという。これ、公開鍵を削除できないパターンなんじゃ&hellip;。</p>
 <p>二つ目はGPG鍵を新しくしたので、古い鍵をGitHubから削除したのですが、過去のコミットがUnverifiedになってしまったという。</p>
 <p>いや、ローカルでは古い鍵は秘密鍵を含め削除してるし。これ、公開鍵をGitHubに再登録できないパターンぽい。コミットをPushした時点でVerifiedであれば、ずっと同じVerifiedだと思ってたのだけど違ってたみたいだ。GitHubでは古い公開鍵も登録したままにしとかないと駄目だったぽい。</p>
@@ -117,7 +118,7 @@
 <p>とりあえずバックアップの重要性を再認識した。</p>
 <p>あと、macのgpgコマンド、なんか挙動がおかしい気がする。</p>
 
-       			 		
+		
 
 
 <nav id="article-nav">
@@ -133,17 +134,16 @@
 
 
 
-								
-								
-								    <strong>tag:</strong>
-								    <a href="https://syui.cf/tags/gpg/">gpg</a>
-					<div class="utterances">
-						<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
-					</div>
-       			 	</div>
-       			</article>
+		
+		
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/gpg/">gpg</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
