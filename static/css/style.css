@@ -240,6 +240,11 @@ ins.adsbygoogle {
 	padding:15px 0 15px 0;
 }
 
+.post-time-date-update {
+	text-align:right;
+	padding:15px 0 15px 0;
+}
+
 ul.cp_list li i.fas.fa-bars {
     margin-bottom: 30px;
 }
