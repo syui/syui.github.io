@@ -1,12 +1,9 @@
 name: push imgdiff
-
 on:
-  workflow_run:
-    workflows: 
-      - github pages
-    branches: src
-    types:
-      - "completed"
+  push:
+    tags:
+    - diff*
+
 jobs:
   comment:
     runs-on: ubuntu-latest
