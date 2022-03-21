@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mastodon on syui.cf</title>
+    <link>https://syui.cf/tags/mastodon/</link>
+    <description>Recent content in mastodon on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mammutのexampleをまとめてみる</title>
+      <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/06/rust-mammut/</guid>
+      <description>mastodon apiのrust libであるmammutですが、exampleがあるとわかりやすいと思ったので、作ってみました。
+まず、mastodonへのrequestはこんな感じになります。
+curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ 	-d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
+[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34;  [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv;  use std::env; use mammut::{Data, Mastodon};  fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; {   let data = Data {  base: env::var(&amp;#34;BASE&amp;#34;).</description>
+    </item>
+    
+    <item>
+      <title>rustでmastodon clientをはじめてみた</title>
+      <link>https://syui.cf/blog/post/2022/02/05/rust/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/05/rust/</guid>
+      <description>今までmastodonはzshでapi叩いてやってたんですが、他言語でもclientを作ろうかなと前々から思ってて、今回はrustではじめてみた。
+大抵の場合、本人が使うときにしか機能追加されない模様。
+使ってるうち便利にしていければと思ってます。
+https://github.com/syui/msr</description>
+    </item>
+    
+    <item>
+      <title>mastodonをruby-3.0.3で動かしてみた</title>
+      <link>https://syui.cf/blog/post/2021/12/05/mastodon/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/12/05/mastodon/</guid>
+      <description>今までrbenvでversion管理してたんだけど、archlinuxにruby-3.0.3が来ていたので、これがmastodonのgemfileと合いそうだったので上げてみた。heroku-runtimeも3.0.3ですし、今だとrbenvは必要ありません。
+$ cd mastodon  $ rbenv local system  $ ruby -v 3.0.3 $ sudo gem i bundler $ export PATH=&amp;#34;$HOME/.gem/ruby/3.0.0/bin:$PATH&amp;#34;  $ rm Gemfile.lock $ bundle あとはGemfile.lockをherokuにcommit, deployすればいいです。
+また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
+ &amp;#34;engines&amp;#34;: {  &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34;  }, 最新のmastodonではkeybaseのリンクが消滅しています。下記の事情があったみたいです。したがって、当該commitをrevertすることでリンク(認証)を残すことができます。
+https://github.com/mastodon/mastodon/issues/13670
+$ git revert 7de0ee7ab  その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
+https://devcenter.heroku.com/ja/articles/nodejs-support
+https://docs.joinmastodon.org/user/contacts/</description>
+    </item>
+    
+    <item>
+      <title>mastodonでcommit-hashとdeploy-rubyをあわせて表示してみる</title>
+      <link>https://syui.cf/blog/post/2021/05/10/mastodon/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/10/mastodon/</guid>
+      <description>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつをzundaさんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuではSOURCE_VERSIONからhashを取れるっぽい。
+https://github.com/zunda/mastodon/pull/27/files
+namespace :source do  desc &amp;#39;Record source version&amp;#39;  task :version do  hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build  if hash.blank?  begin  hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip  # ignore the error: fatal: Not a git repository  rescue Errno::ENOENT # git command is not available  end  end  unless hash.blank?  hash_abb = hash[0..7]  File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f|  f.</description>
+    </item>
+    
+    <item>
+      <title>mastodon v3.4.0をruby v3.0.1でdeployしてみた</title>
+      <link>https://syui.cf/blog/post/2021/05/09/mastodon/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/05/09/mastodon/</guid>
+      <description>mastodon v3.4.0のpre-verがmasterにcommitされています。
+heroku-20はruby v3.0.1に対応していて、mastodon v3.4.0はruby &amp;lt; v3.1.0なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。
+ Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
+2.6.7, Rubygems: 3.0.3.1
+2.7.3, Rubygems: 3.1.6
+3.0.1, Rubygems: 3.2.15
+ https://devcenter.heroku.com/articles/ruby-support#ruby-versions
+$ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:remote -a $app $ rm Gemfile.</description>
+    </item>
+    
+    <item>
+      <title>mastodonからtwitterに投稿する</title>
+      <link>https://syui.cf/blog/post/2019/12/21/mastodon/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/21/mastodon/</guid>
+      <description>この前、golangで使ってるlibがv2にupdateしたとかで書き直さなきゃいけなくて、面倒だと思ってたんだけど、mastodonとtwitter連携が面白そうだったので、それをネタにツールを書き直して、ついでに仕組みを作ってみました。
+具体的には、mastodonにtwitterタグを付けて投稿すると、twitterにも投稿されるようにしてみる。
+仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。
+GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能
+gh-actionsでcron:m15を回して、mastodonはapiから投稿を取得、twitterタグがついてれば、jqで投稿を抜き出し、date(unix-time)で15分前のtimeとmastodonの投稿時間を比較し、大きければ新しい投稿と判断して、syui/twgからtwitterに投稿するという感じ。
+name: mastodon tweet  on:  push:  branches:  - master  schedule:  - cron: &amp;#39;*/15 * * * *&amp;#39;  jobs:  build:  runs-on: ubuntu-latest  steps:  - uses: actions/checkout@master  - run: |job_time=15 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg chmod +x twg mkdir -p ~/.config/twg cat .config/twg/user.json| jq &amp;#34;.|=. + {\&amp;#34;Token\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_TOKEN }}\&amp;#34;,\&amp;#34;Secret\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_SECRET }}\&amp;#34;}&amp;#34; &amp;gt; t mv t ~/.</description>
+    </item>
+    
+    <item>
+      <title>Dolphinというシングルユーザー用のActivityPub serverを立ててみた</title>
+      <link>https://syui.cf/blog/post/2019/11/16/dolphin/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/11/16/dolphin/</guid>
+      <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。
+今回、misskeyというmastodonに似たプロジェクトがあるのですが、その姉妹プロジェクトであるdolphinがシングルユーザー、つまり、お一人様インスタンスと呼ばれるサーバーに特化しているようなので、herokuで立ててみました。
+以前、misskeyを触ったこともあり、ハマりどころは特になし。
+https://github.com/syuilo/dolphin
+$ git clone -b master git://github.com/syuilo/dolphin.git $ cd dolphin $ cp .config/example.yml .config/default.yml $ npm i  $ heroku create $APP_NAME $ ls -a ./.git $ heroku git:remote -a $APP_NAME $ heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs $ heroku addons:create heroku-postgresql:hobby-dev --version=10 $ heroku addons:create heroku-redis:hobby-dev $ heroku config $ vim .config/default.yml # postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME} # redis://h:${REDIS_PASS}@${REDIS_HOST}:${REDIS_PORT}  disableCache: true drive:  storage: &amp;#39;fs&amp;#39; disableHsts: true clusterLimit: 1 id: &amp;#39;aid&amp;#39;  &amp;#34;engines&amp;#34;: {  &amp;#34;node&amp;#34;: &amp;#34;11.</description>
+    </item>
+    
+    <item>
+      <title>keybaseにmastodonがやって来ました</title>
+      <link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</guid>
+      <description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。
+まず、mastodonがkeybase proofに対応するjsonを出力する実装、その他を行い、keybaseが大手mastodonドメインを自サーバー内に登録することによって、連携が可能になりました。ここで、最も連携に重要だったポイントは、keybaseサーバーに特定のドメインが登録されるということでしたので、タイトルを後者にしました。
+しかし、そんなことはどうでもいいです。ユーザーにとって重要なのは、keybaseが何であるのかや、プロフィールにチェックマーク(認証マーク)が付くことだけですから。
+ここで、keybaseを、可能な限り個人証明に適したサイト、及びサービスのこととしておきましょう。
+では、個人証明というのはなんなのかというと、これは、色々な外部サービスのアカウント(twitterやgithub)とkeybaseのアカウントを結びつけて、keybaseの&amp;quot;syui&amp;quot;は、twitterやgithubでは、このアカウントを所有していますよーという感じで行います。また、自分が管理するドメインも登録できたりします。
+そうすることによって、なりすましの防止やネット上の同一性がわかりやすくなります。
+ネット上でも、名前というのは意外に重要です。誰でもネット上で呼ばれる名前、呼ばれたい名前ってありますよね。私の場合は、&amp;ldquo;syui&amp;quot;です。由来は、本名からですが、それはどうでも良くて、重要なのは、おおよそ、ネット上での呼び名を個々人が持っているということですね。そして、それは他の人とよく重複(競合)します。本名でもそうですよね。たくさんの田中さんや太郎さんがいます。
+そんな中、この太郎さんは、一体、どこの太郎さんなのかってのが、ネット上でも分かりづらいことがあります。keybaseは、それをわかりやすくしてくれるってことです。
+今回は、それがmastodonでも可能になったという話ですが、mastodon上からもkeybaseのアカウント証明を示してくれるようになりました。で、連携させると、mastodonのプロフィールに書かれたkeybaseへのリンクに認証マークが付くんですよね、かっこいいですね。
+どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが
+$ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。
+keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由
+ もっと詳しく</description>
+    </item>
+    
+    <item>
+      <title>mastodon 1.4-1.5</title>
+      <link>https://syui.cf/blog/post/2017/08/22/mastodon/</link>
+      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/08/22/mastodon/</guid>
+      <description>1.4から1.5は自分の場合だけど以下の手順でアップデートできた。
+# Aptfile -&amp;gt; libidn11-dev の行を削除してpush $ heroku run rake db:migrate -a $APP_NAME heroku Cannot run more than 1 Free size dynos. $ heroku kill DYNO --app $APP_NAME  $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
+    </item>
+    
+    <item>
+      <title>mastodon 1.3-1.4</title>
+      <link>https://syui.cf/blog/post/2017/08/21/mastodon/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/08/21/mastodon/</guid>
+      <description>私の場合、dbをreset, restoreした後にmastodon 1.4 -&amp;gt; down 1.2 -&amp;gt; up 1.3 -&amp;gt; up 1.4 -&amp;gt; up 1.5という手順を踏むことにした。
+しかし、1.3から1.4のアップデートすると、heroku serverにrake db:migrateした時点でPG::DuplicateTable: ERRORなどが出るので、結果として500で投稿(toot)などが出来ない問題の対処法。
+$ heroku run rake db:migrate -a $APP_NAME PG::DuplicateTable: ERROR account_domain_blocks conversation conversation_mutes $ heroku pg:psql DROP TABLE account_domain_blocks; DROP TABLE conversation CASCADE; DROP TABLE conversation_mutes; $ heroku run rake db:migrate -a $APP_NAME Index name &amp;#39;index_accounts_on_uri&amp;#39; on table &amp;#39;accounts&amp;#39; already exists $ heroku pg:psql DROP INDEX index_accounts_on_uri; $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
+    </item>
+    
+    <item>
+      <title>mastodon-2fa-disable</title>
+      <link>https://syui.cf/blog/post/2017/07/12/mastodon/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/07/12/mastodon/</guid>
+      <description>アップデートに問題があって、2FAでコードを入力しても何故かログインできず、リカバリコードを使い切ってしまった場合の対処法。
+https://github.com/tootsuite/mastodon/issues/2488
+DBにアクセスして2FAを無効にする。
+$ heroku pg:psql $ UPDATE users SET otp_required_for_login=false WHERE email=&amp;#39;user@example.com&amp;#39;; </description>
+    </item>
+    
+    <item>
+      <title>Heroku&#43;Mastodon</title>
+      <link>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</guid>
+      <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。herokuで立ててみたので、その運営に関するまとめです。
+https://mstdn.syui.cf/
+TwitterとMastodon Twitterには前から不穏な空気はあって、主に経営が云々という理由などからですが、一体どこに移転しようかということを思っていたユーザーは多かったのではないでしょうか。
+私は、Twitterは結構好きで、アイコンとかアプリとかすごいよくできていて面白いし、ユーザーも多いし、シンプルだし色々素晴らしいのですが、しかし、経営があまりうまくいってないみたいな話があって。
+で、こういった視点からみた場合、私は、大企業よりも個人の方を若干、信頼している部分もあって、そのあたりでTwitter以外の選択肢というものがあればいいのになと思っていました。
+ただ、Twitterに代わるサービスというものはなかなかありませんでした。
+これは主にサービス内容というよりユーザー数みたいなものが重要で、特にSNSなので人がいないと意味がありません。自分がアカウント持ってなかったり、または相手が持っていなかったり。
+この点、Twitterはユーザー数が圧倒的に多くて、誰もがアカウントを持っています(大抵の場合)。なので、やり取りを行いたい場合の気軽さがあり、これがTwitterの魅力の一つでした。いくら良いサービスを知っていても、そこに人がいなければ、なかなかSNSサービスを使う気にはならないのです。もちろん、サービスとしての利便性と言うのは重要です。ただ、いちばん重要なのはユーザー数とか、自分の周りの人たちが使っているかどうかだと思います。
+次に、経営的な観点というか、倫理観みたいな話をしていきたいと思います。
+これについては、私は先程、企業よりも個人の方を若干信頼していると言いましたが、基本的には個人の方を信頼します。あくまで比較の問題ですし、ケースバイケースですが、基本姿勢としてはそうです。もちろん、悪い人もいれば、裏切られることもあるでしょう。しかし、それは大企業でも同じだと思います。
+何故かと言うと、一つは経営に行き詰まった企業でかつ一時期とても反映してた大企業が衰退する時というのは、歴史的な視点で見た場合、多くの悲惨な事件を引き起こしました。
+もちろん、これは個人で見た場合も同じですが、大企業なら安心というわけではないと私は考えます。私は、大企業でも何をするかわからない、そう考えているのです。
+そして、個人よりも大企業ほうが内部的な事情は外からは見えにくいのです。したがって、監視という視点から見ても、個人を監視するより大企業を監視することのほうが難しいと私は思います。基本的には。
+ただ、mastodonでもそれを悪用しようとする人達は出てくると思われます。その点には注意しなければなりませんが、暫くの間、個人的にはmastodonをやってみようかなと思っています。使い続けるかどうかは今のところ分かりませんが、私は単に自分が使ってみて良いと思うものを使うと思います。
+使ってみた感想など 巷では設計に失敗しているとか、すぐに飽きられるなど言われていますが、私はそれはまだわからないと考えています。
+例えば、設計に失敗しているとか、すぐに飽きられるなどの問題は単なる結果でしかありません。どういうことかというと、結果が良ければ設計に成功していると言われ、結果が悪ければ設計に失敗している言われることになるでしょう。
+ただ、私が思うのは、偉そうなことばかり言う人は完璧な設計でなおかつ多くのユーザーに使われるものを自分で作ればいいのではないかと思います。
+しかし、そういう人に限って全く設計できなかったり、または言ってることが最終的にデタラメ(ハズレまくり)だったりすることが多いのは、単なる気のせいでしょうか。
+確かに、一時的にも注目を集めたものって色々言われるのが世の常なのでしょうけれど、やっぱり定着するのか、すぐに廃れるのかは分かりません。
+私が使ってみた感想で言うと、なんか賑やかな感じで結構面白いと思いました。
+普通に使いやすいですし、色々な使い方ができそうというのは思いました。
+tootsuite/mastodon 実験的にサーバーを立ち上げてみました。連絡は @syui@mstdn.syui.cf よりお願いします。mastodonはこちらで使ってこうかなと思ってるけど、やっぱり.cloudのほうが人いっぱいで面白そうだなーというのはあるので、どうなるかはわからないですが。
+https://mstdn.syui.cf/
+説明 : https://mstdn.syui.cf/about/more
+mastodonの使い方だけど、基本的にはdockerで動かす形になる。
+簡単に言うとこちらのリポジトリtootsuite/mastodonを見ながら使用されている技術などを読み解きながらHeroku Deployして色々やる。
+まずは確認から。なんとなく使われてる技術、どうやって動いてるのかなどをゆるく把握する。
+# https://github.com/tootsuite/mastodon/blob/master/README.md $ docker-compose build $ docker-compose run --rm web rake secret ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行  $ cp .env.production.sample .env.production $ vim !$ ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。  $ docker-compose run --rm web rails db:migrate $ docker-compose run --rm web rails assets:precompile $ docker-compose up  # LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する) $ curl localhost:3000 次に、Heroku Deployを実行してみる。簡単に.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,41 @@
+[
+  {
+    "music": [
+      {
+        "1": "/music/niji.mp3"
+      },
+      {
+        "2": "/music/hosi.mp3"
+      },
+      {
+        "3": "/music/tuki.mp3"
+      },
+      {
+        "4": "/music/siro.mp3"
+      },
+      {
+        "5": "/music/sora.mp3"
+      },
+      {
+        "6": "/music/gaia.mp3"
+      },
+      {
+        "7": "/music/yume.mp3"
+      },
+      {
+        "8": "/music/yuki.mp3"
+      },
+      {
+	      "album":"/music/music.zip"
+      }
+    ]
+  }
+  ,{
+	  "json":[
+		  {"1":"/json/file.json"},
+		  {"2":"/json/link.json"},
+		  {"3":"/json/keybase.json"},
+		  {"4":"/index.json"}
+	  ]
+  }
+]

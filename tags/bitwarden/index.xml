@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bitwarden on syui.cf</title>
+    <link>https://syui.cf/tags/bitwarden/</link>
+    <description>Recent content in bitwarden on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/bitwarden/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bitwardenをself-hostで試してみた</title>
+      <link>https://syui.cf/blog/post/2021/08/14/bitwarden/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/14/bitwarden/</guid>
+      <description>password managerのbitwardenを試してみました。self-hostしますので、herokuを使います。
+https://bitwarden.com
+bitwardenはossのcloud pass managerみたいなものだと思われます。web domainを使ってdbにアクセスし、そっから情報を読み込みます。
+つまり、passwordにアクセスするには、networkにつながっていなければなりません。また、自分のserverからdbを管理する場合、updateなどの手間がかかります。ですが、その手段が採れるというのはいいですね。
+self-hostの利点として挙げられるのは、例えば、「bitwardenがhackされてもpasswordが流出しない」と公式では言われています。ですが、様々な可能性が考えられるため、本当のところはわかりませんが。
+私が使ったのは、非公式clientであるvaultwardenのdocker-imageです。それをheroku deployする便利なrepoがありましたので、それを使いました。
+https://github.com/davidjameshowell/vaultwarden_heroku
+基本的には、readmeにあるとおりですね。
+env:  AUTOBUS_ENABLE: 1  CREATE_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}  DUO_ENABLE: 1  GIT_HASH: main  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}  USE_PSQL: 1  HEROKU_VERIFIED: 0  OFFSITE_HEROKU_DB: ${{ secrets.OFFSITE_HEROKU_DB }}  HEROKU_CREATE_OPTIONS: ${{ secrets.HEROKU_CREATE_OPTIONS }} bitwarden-serverを立ち上げたあとは、webからアクセスし、管理者アカウントを作成します。
+そのserver(address)を使って、bitwarden-clientからpass管理や自動入力を行います。もちろん、pass管理はwebからもできます。
+ですが、多くの人がやりたいのは自動入力だと思うので、やはり、bitwarden-clientは必要になると思われます。
+bitwarden-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。
+例えば、chromeからtwitterに自動入力したい場合は、twitter.com/loginにアクセスして、chrome addonのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。
+使ってみた感想ですが、自動入力も便利ですが、登録とかも便利でした。
+ですが、そのためにcloudに情報を置くのはちょっとオーバーだなと思いました。self-hostする場合、bitwarden-serverの運用や管理、維持も必要になってきます。
+現在の運用段階 現在の運用では、dbに保存するpassを制限し、つまり、流出してもあまり問題なさそうなアカウントのみで登録を行い、運用テストしています。
+また、当該repoは、dbにheroku-postgresqlではなく、autobus, jawsdbなどのaddonを使いますが、個人的には、これらのaddonを使用するのは不安要素も大きいです。
+このようなsecure要請が高い事柄においては、herokuでhostする場合、herokuが提供するaddonに限定したほうがいいと思ったので、heroku-postgresqlを使用するようにしました。option:envに項目はありましたが、あまり有効に機能してないような気もしましたので。
+# yes $ heroku addons:create heroku-postgresql -a &amp;#34;$APP_NAME&amp;#34;  # no $ heroku addons:create autobus -a &amp;#34;$APP_NAME&amp;#34; $ heroku addons:create jawsdb -a &amp;#34;$APP_NAME&amp;#34; backupも基本的には、herokuが提供するcmdで足りると思います。ただし、plan:hobby(free)の場合、backup数は限りがありますので注意です。</description>
+    </item>
+    
+  </channel>
+</rss>

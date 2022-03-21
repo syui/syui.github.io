@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>m on syui.cf</title>
+    <link>https://syui.cf/tags/m/</link>
+    <description>Recent content in m on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/m/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsの使い方</title>
+      <link>https://syui.cf/m/post/windows/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/windows/</guid>
+      <description>local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
+openssh https://github.com/PowerShell/Win32-OpenSSH
+sshd_configはc:programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublic-keyを記述します。ここでは、c:programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。
+Match Group administrators  AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys shellをpwshに変更するには、以下のコマンドを実行します。
+https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration
+$ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;C:\Program Files\PowerShell\7\pwsh.exe&amp;#34; -PropertyType String -Force ultravnc https://www.uvnc.com/downloads/ultravnc.html
+管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。
+したがって、exeやstartup(shell:startup)は、プロパティ &amp;gt; 管理者としてこのプログラムを実行するにチェックを入れます。
+また、場合によってはnusrmgr.cplから制御設定の変更が必要になるかもしれません。
+virtualbox https://www.virtualbox.org/
+virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。
+&amp;#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&amp;#34; startvm arch --type headless auto-login 起動時のパスワードを省略する設定です。
+仮にユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要のチェックボックスが表示されない場合、レジストリの値が2になっているので変更する必要があります。
+regeditを開き、HKEY_LOCAL_MACHINE &amp;gt; SOFTWARE &amp;gt; Microsoft &amp;gt;Windows NT &amp;gt; CurrentVersion &amp;gt; PasswordLess &amp;gt; Deviceを0にします。
+https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</description>
+    </item>
+    
+  </channel>
+</rss>

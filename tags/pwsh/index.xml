@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pwsh on syui.cf</title>
+    <link>https://syui.cf/tags/pwsh/</link>
+    <description>Recent content in pwsh on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pwsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pwsh v7がreleasesされてたので使ってみた</title>
+      <link>https://syui.cf/blog/post/2019/11/28/pwsh/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/11/28/pwsh/</guid>
+      <description>pwshのversion 7.0が登場してたので、updateしてみました。まだpreview版ですが、pwsh(powershell)はかなり変わってきてます。例えば、readme, docsを見てもめちゃくちゃ分かりやすくなってます。少し前のpwshは「なんで単なるshellの起動がこんな遅いの」とか「docsがわかりにくすぎて意味がわからん」みたいな印象でしたが、v6あたりから相当に変化してます。起動速度はまあ問題ない程度ですし、docsもわかりやすいです。exampleが書いてるのもいいですね。pwshのコマンドなんて普通知りませんから。
+https://github.com/PowerShell
+https://github.com/PowerShell/PowerShell
+default shellとして設定するには、以下のコマンド。
+# https://github.com/PowerShell/Win32-OpenSSH/wiki/DefaultShell $ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;c:\program files\powershell\7\pwsh.exe&amp;#34; -PropertyType String -Force  $ echo $PSVersionTable Name Value ---- ----- PSVersion 7.0.0-preview.6 </description>
+    </item>
+    
+    <item>
+      <title>windowsはパッケージマネージャーのscoopが便利</title>
+      <link>https://syui.cf/blog/post/2018/08/04/pwsh-scoop/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/08/04/pwsh-scoop/</guid>
+      <description>導入 windowsって、良さげな環境を構築するのが面倒ですよね。
+理由の一つとしてあげられるのが、やはりpackage managerではないでしょうか。cuiで使えるいい感じのものを探すだけで一苦労なんですよ。
+それ以外にも色々ありますが、例えば、windows標準のcmdのconsole(terminal)は使いづらいですし、pwshというshellもいまいちですし(私は各コマンド名が気に入りませんよ)。
+しかし、package managerというのが一番大きい。
+それさえあれば、ある程度は、packageを入れて解決できると言うか、扱いづらさにおいては割と緩和できると思うんです。hackerなどのcuiをメインに扱う人種には、基本コマンドが入っていないのが一番つらいと思うんですよね。
+ということで、今回、windowsで一番オススメなpackage managerを紹介してみます。
+ちなみに、package managerを扱う場合、shellのpathとかも重要になりますので、pwshの使い方をある程度理解している人を対象としています。
+特に、scoopは環境を汚さないので、ディレクトリ構造とか把握しておく必要はあるかもです。
+scoop lukesampson/scoop
+現時点で一番オススメなのは、pwsh+scoopを使った環境です。
+winには、cygwinやmsys, chocoなど色々ありますよね。あ、cygwinはaptで、msysはpacmanで、chocoはpackage managerそのものなんでバラバラですけど、これらを駆使した環境っていうことです。分かりづらいか。
+話を進めると、msysとかは、minttyとかのconsole環境も相まって愛されてる感じなんですが、pwshはかなり嫌われちゃってるみたいなんですよね。いや、pwshは単なるshellなんで他のterminal上でも実行できるんですけど、あちらはセット販売してますから、色々と便利なんですよね。
+私は、pwshは現時点ではかなり充実していて、シームレスにwindowsのsystemにアクセスできるコマンドを実行できる点とかが気に入ってるわけですが、cygwinとかmsysとかはなかなかそうは行きませんよね。
+ということで、shellはpwshを採用するとして、package managerはscoopという構成がおすすめです。
+やってみた
+ 基本的には、~/scoop/shims/にシンボリックリンクかな、それが置かれてます。実体は~/scoop/apps/$APP_NAME/current/bin/$APP_NAME.exeとかにある感じかな。
+なので、
+$ scoop install curl  $ cd ~/scoop/apps/curl/current/bin  $ ./curl.exe github.com とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。
+もし仮にデフォルトのbucketにpackageが見つからなければ、
+$ scoop bucket add extras  $ scoop install mpv とかやって追加してくと、扱えるpackageが増えます。
+そんな感じで、scoopの紹介終わります。
+windowsは最高です!
+動画 ちなみに、gifっぽいterminal movieは久しぶりに$ asciinema recとか使ってみました。
+$ asciinema rec C-c  $ asciinema upload /path/to/xxx みたいな感じでやれば、webにuploadされるんで、urlにアクセスすればいいです。その前にaccountを取っておく必要がありますが。</description>
+    </item>
+    
+  </channel>
+</rss>

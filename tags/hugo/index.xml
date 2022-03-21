@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on syui.cf</title>
+    <link>https://syui.cf/tags/hugo/</link>
+    <description>Recent content in hugo on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blogのlayoutを変更した</title>
+      <link>https://syui.cf/blog/post/2022/01/03/hugo/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/03/hugo/</guid>
+      <description>blogのlayoutをちょっとだけ変更しました。
+変更点を簡単に説明します。
+まず上のメニューですが、項目が多すぎたので減らしました。
+全部を/aiに放り投げました。
+できる限りシンプルな見た目にしようと思っていたため、かつてこのサイトはテーマカラーの朱色のみでした。
+しかし、snsアイコンの追加により少しだけカラフルになりました。また、緑が足りないので、githubの芝を追加しました。
+本当はmastodonのアイコンも追加したかったけど、twitterと青色がかぶるのでやめました。色もそうですが、アイコンも多すぎると分かりづらいと思ったので、数は限定していく方向で。
+自己紹介やサイトマップ、ヒントの文字数も減らしました。
+以上です。</description>
+    </item>
+    
+    <item>
+      <title>hugoのresourceを使ってみた</title>
+      <link>https://syui.cf/blog/post/2021/10/24/hugo/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/10/24/hugo/</guid>
+      <description>今回、写真が増えてきたので、ページを作ったのですが、その際、hugoのresourceを使ってみました。
+/photo
+dir構造は以下の通り。content/photo/以下に画像を置きます。
+content/photo ├── figure.jpg ├── illust.jpg ├── index.md ├── pokecard.jpg └── sticker.jpg --- title: &amp;#34;photo | syui.cf&amp;#34; resources: - src: &amp;#39;*.jpg&amp;#39; type: &amp;#34;photo&amp;#34; --- それをlayout/photo/single.htmlでresourceを使って取得。
+{{ with .Resources.Match &amp;#34;*.jpg&amp;#34; }} &amp;lt;div class=&amp;#34;Carousel__slide&amp;#34;&amp;gt; 	&amp;lt;p&amp;gt; 	{{ range . }} 	&amp;lt;a href=&amp;#34;{{ .RelPermalink }}&amp;#34;&amp;gt;&amp;lt;img src=&amp;#34;{{ .RelPermalink }}&amp;#34; width=&amp;#34;480&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; 	{{ end }} 	&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; {{ end }} 以下のような感じで取得してもいいらしい。
+{{ .Resources.ByType &amp;#34;image&amp;#34; }} {{ .Page.Resources.ByType &amp;#34;image&amp;#34; }} でも、正直、分かりづらかったり、思ったように動かなかったりするかも。</description>
+    </item>
+    
+    <item>
+      <title>syui.cfの歩き方</title>
+      <link>https://syui.cf/blog/post/2021/09/19/blog/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/09/19/blog/</guid>
+      <description>syui.cfは、このサイト(ブログ)のタイトルです。
+このサイトには、いくつかの隠し機能があり、今回はそれらを使って、このサイトを便利に閲覧しちゃおうという内容です。
+といっても、ほとんどが遊び機能。
+ 環境 : safari, chrome
+動作するには、browserのcookie, javascriptをenableに、adblockなどpluginをdisableにする必要があるかもしれません
+ j, kで移動 ブログ記事へのリンク間をshift + j, shift + kで移動できるようになっています。
+shiftを選択している理由は、このような設定はkeybindを奪うことにもなり、不便が生じるかもしれないので、あまり使われなさそうなshiftにしています。
+terminalの呼び出し ctrl + enterでterminalを呼び出すことができます。主に/と2階層目くらいまでは呼び出せるようなってることが多いかな。
+このterminalにより、サイト上の色々な機能にアクセスしやすくなってます。
+現在使える便利機能をいくつか紹介します。
+ ただし、個別記事である/blog/foo上ではterminalは呼び出せず、代わりに/blogに移動するようになっています。/blogからは従来通りterminalを呼び出すことができます。
+ / コマンドで個別記事に飛ぶ $ / /コマンドを使うと最新記事の中から個別記事に飛ぶことができます。飛びたい番号を入力します。
+search コマンドでタグを検索する $ search -t hugo search -t $tagでタグを検索することができます。オプションなしだと通常検索です。補完機能があるので&amp;lt;tab&amp;gt;でタグ補完できます。
+login コマンドで自分の名前を表示する $ login login : test password : test 適当な遊びコマンドですが、自分のusernameとip addressをこのサイト上に表示することができます。ちなみに、個人情報がこのサイトの管理人に送信されることはありません。あと、passwordは何でもいいです。
+また、遊びの一環としてroot loginに挑戦してみるのも面白いかもしれません。ちゃんとpasswordが設定されてますので、ぜひ、突破してみてください。
+その他 その他にも面白おかしいコマンドがいくつかあります。是非、遊んでみてください。</description>
+    </item>
+    
+    <item>
+      <title>jquery.terminalで検索機能とか付けてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/05/jquery-terminal/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/05/jquery-terminal/</guid>
+      <description>追加した機能とかを簡単に紹介します。これくらい設定したら自分でも使うかも。こういうのは楽しければいいって思ってたんですが、まあまあ便利そうになってしまった気がする。
+# 通常検索、contentから $ search arch or $ / arch  # タグ検索、shellの&amp;lt;tab&amp;gt;補完も付けてみた(タグ補完 $ search -t &amp;lt;tab&amp;gt;hugo  # 最新記事 $ search -l  # user ipでloginします(promptをipに変えてるだけ $ curl ipapi.co axios.get(&amp;#39;https://syui.cf/index.json&amp;#39;, { &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39; }) .then(function (response) { 	index_json = JSON.stringify(response.data,null,&amp;#34;\t&amp;#34;); 	origin_index_json = JSON.parse(index_json); 	origin_index_json.forEach(function(v,index) { 	if ( tags.indexOf(v.tags) == -1) { 	tags.push(v.tags)}; 	}); 	tags = tags.join(&amp;#39;,&amp;#39;).split(&amp;#39;,&amp;#39;); 	tags = tags.filter(function (x, i, self) { 	return self.</description>
+    </item>
+    
+    <item>
+      <title>hugoで画像表示を自動化する</title>
+      <link>https://syui.cf/blog/post/2021/07/04/hugo/</link>
+      <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/04/hugo/</guid>
+      <description>昨日紹介したvueを使った方法は、browserでjavascriptをdisableにしているuserには表示できないので、本来的にはhugoで解決したほうがいいかもしれません。
+vueは基本的にjsで出力されるのに対して、hugoはhtmlで出力されるますので。
+したがって、hugoでの解決法も書いておきます。
+$ export IMG_YUI=`ls ./static/img/yui_*.png|wc -l|tr -d &amp;#39; &amp;#39;`  $ hugo serve {{ $yuin := getenv &amp;#34;IMG_YUI&amp;#34; }} {{ $yuil := int $yuin }} {{ $yuil := sub $yuil 1 }}  &amp;lt;p&amp;gt; 	&amp;lt;img src=&amp;#34;/img/yui_{{ $yuil }}.png&amp;#34;/&amp;gt; &amp;lt;/p&amp;gt;  &amp;lt;p&amp;gt; 	{{ range $index, $val := seq $yuin }} 	{{ if lt $index 10 }} 	&amp;lt;img src=&amp;#34;/img/yui_0{{ $index }}.png&amp;#34;/&amp;gt; 	{{ else }} 	&amp;lt;img src=&amp;#34;/img/yui_{{ $index }}.</description>
+    </item>
+    
+    <item>
+      <title>お絵かきの枚数が増えてきたので自動表示してみた</title>
+      <link>https://syui.cf/blog/post/2021/07/03/vue-img/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/03/vue-img/</guid>
+      <description>今まで新しい絵を追加するたびに、手動でhtmlを書き換えてたんですが、面倒だなあと思いつつ、しかし、載せるタイミングは操作できるので別にいいかと思っていたのですが、流石に枚数が増えてきたので自動化しました。
+&amp;lt;template&amp;gt; 	&amp;lt;div class=&amp;#34;chara&amp;#34;&amp;gt; 	&amp;lt;p&amp;gt; 	&amp;lt;a v-for=&amp;#34;(n,index) of cid&amp;#34; :key=&amp;#34;n&amp;#34; :href=&amp;#34;&amp;#39;/img/c_&amp;#39;+ ( &amp;#39;00&amp;#39; + index ).slice( -2 ) +&amp;#39;.png&amp;#39;&amp;#34;&amp;gt; 	&amp;lt;img :src=&amp;#34;&amp;#39;/img/c_&amp;#39;+ ( &amp;#39;00&amp;#39; + index ).slice( -2 ) +&amp;#39;.png&amp;#39;&amp;#34; /&amp;gt; 	&amp;lt;/a&amp;gt; 	&amp;lt;/p&amp;gt; 	&amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt;  &amp;lt;script&amp;gt; var c = Number(process.env.VUE_APP_IMGNUMBERC); export default { 	data () { 	return { 	cid: c 	} 	} } &amp;lt;/script&amp;gt; import Vue from &amp;#39;vue&amp;#39; import App from &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>hugoでsearchするやつ付けてみた</title>
+      <link>https://syui.cf/blog/post/2021/07/02/hugo-search/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/07/02/hugo-search/</guid>
+      <description>/search
+記事を検索したい場合、自分はcontent/postをgrepするだけなので、あまり使わないのですが、一応、webにも検索フォームを付けてみました。
+hugo + vue + lunr.jsです。
+ただ、日本語はおそらく対応してない。対応するには日本語対応するためのlibを追加で読み込む必要がありそう。
+lunrに渡すdataは、hugoがjson出力できるので、それを使います。
+[outputs]  home = [&amp;#34;JSON&amp;#34;, &amp;#34;HTML&amp;#34;] jsはこんな感じで(要点記述だけですが)。
+axios(&amp;#39;/index.json&amp;#39;)  this.searchIndex = lunr(function () {  this.ref(&amp;#39;href&amp;#39;)  this.field(&amp;#39;contents&amp;#39;)  this.field(&amp;#39;title&amp;#39;)  this.field(&amp;#39;tags&amp;#39;)  documents.forEach(doc =&amp;gt; {  this.add(doc)  }) } </description>
+    </item>
+    
+    <item>
+      <title>webサイトの変更</title>
+      <link>https://syui.cf/blog/post/2021/01/16/web/</link>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/01/16/web/</guid>
+      <description>レイアウトを変更したり、個別ページの文章を書き直したりしてました。
+このブログと言うか、webサイトのタイトルって、syui.cfなんですよね。あまり知らなかった人、多いかもしれません。
+今までタイトルは表示しないようにしてきたんですが、過去ブログを整理したタイミングとかで、やっぱり、タイトルは文字で表示しといたほうがいいと思ったので、表示することにしました。
+また、コピーしやすいようspanで囲ったりしてね。タイトルをコピーすること私もたまにありますので。
+逆にプロフィールページへのリンクがアイコンになったので、わかりにくくなっちゃった部分はあります。これ、トップページへのリンクと勘違いしやすそう。
+普通に文字でプロフィールってすればいいんですけど、項目が多いので個人アイコンの形にしています。
+これ、分かりづらいよなあと思いつつ、個人アイコンとブログのロゴが同一なので&amp;hellip;.。昔は分かれてたんですが、面倒なので統一したことがあって、それ以降、syui個人のアイコンとブログのアイコンが同じなんですよね。わかりづらい。
+今回、過去ブログのmbahack.syui.cf, mbahack2.syui.cfを閉じて、移転のお知らせのみを表示することにしました。過去ブログはメンテ、運用してなくて、これ以上、放置しておくのもよくないので。
+あと、google-adsの広告とかをこっちに持ってきました。このサイトでは、収益になるはずもないんですけど、今、審査を通過するのって結構難しいらしいじゃない&amp;hellip;そんな理由で一応貼っておこうかなと。もちろん、収益になれば嬉しいんですけどね。アフィリエイトで収益って今の時代、かなり難しいんじゃないかな。ほとんどの人は、adblockしてますし、私も、してますし&amp;hellip;。</description>
+    </item>
+    
+    <item>
+      <title>タグを表示するようにしてみた</title>
+      <link>https://syui.cf/blog/post/2020/05/27/hugo/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/05/27/hugo/</guid>
+      <description>/tags
+タグは表示すると、整理したり、管理したり、付けるのも考えるのも覚えてるのも面倒だったりするので、表示していなかったのですが、他のブログ見てるとき、やっぱりタグあると便利だよなあと思ったので記事中に表示するようにしました。
+{{ $taxo := &amp;#34;tags&amp;#34; }} {{ with .Param $taxo }} 	&amp;lt;strong&amp;gt;tag{{ if gt (len .) 1 }}s{{ end }}:&amp;lt;/strong&amp;gt; 	{{ range $index, $director := . }} 	{{- if gt $index 0 }}, {{ end -}} 	{{ with $.Site.GetPage (printf &amp;#34;/%s/%s&amp;#34; $taxo $director) -}} 	&amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34;&amp;gt;{{ $director }}&amp;lt;/a&amp;gt; 	{{- end -}} 	{{- end -}} {{ end }} {{ $s := path.</description>
+    </item>
+    
+    <item>
+      <title>hugoでその日の記事がビルドされない問題を回避する</title>
+      <link>https://syui.cf/blog/post/2019/12/11/hugo/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/11/hugo/</guid>
+      <description>hugoは、その日の記事がビルドされない問題があります。その回避法です。
+[frontmatter] date = [&amp;#34;:filename&amp;#34;, &amp;#34;:default&amp;#34;] ファイルはcontent/post/2019-12-09-test.md(その日の日付)とします。
+date = &amp;#34;2019-12-09T08:00:00JST&amp;#34; hugoでその日の記事がビルドされない問題 これは、UTCがデフォルトになっているためだと思いますが、hugoでは、通常、.Date.Localを使っても、その日の記事がビルドされない問題があります。
+{{ dateFormat &amp;#34;2006-01-02T15:04:05JST&amp;#34; .Date.Local }} そこで、dateをファイル名から取得する方法に切り替えると、回避できます。
+追記 : date = &amp;quot;2019-12-09JST&amp;quot;と書けばいける?</description>
+    </item>
+    
+    <item>
+      <title>hugoのsyntax highlightを考えてみた</title>
+      <link>https://syui.cf/blog/post/2019/12/08/highlight/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/08/highlight/</guid>
+      <description>今まで放置してたhugoのsyntax-highlightを考えてみました。
+ファイル名を表示し、プロンプト$をコピーしないように設定。
+ファイル名はmarkdownのバッククオートで以下のようにすると使えるようにして
+```sh:setup.sh #!/bin/bash あとコマンドプロンプトを示す$があると自動で&amp;lt;span class=&amp;quot;prompt&amp;quot;&amp;gt;$ &amp;lt;/span&amp;gt;に置換。CSSでuser-select:noneを指定すると、コピー除外されます。styleを入れて強制しても良かったんですがそこはお好みで。
+# https://github.com/syui/highlight-prompt.js $ git clone https://git.syui.cf/syui/highlight-prompt.js $ cd !$:t $ cat highlight-prompt.js function highlight_prompt() {  var list = document.body.getElementsByClassName(&amp;#34;language-sh hljs bash&amp;#34;);  if ( list.length &amp;gt;= 1 ) {  for(i=0; i &amp;lt;= list.length-1; i++){  var nodes = list[i].innerHTML;  if (nodes.match(/\$ /)){  t = nodes.replace(/^\$ /mg,&amp;#34;&amp;lt;span class=&amp;#39;prompt&amp;#39;&amp;gt;$ &amp;lt;/span&amp;gt;&amp;#34;);  document.getElementsByClassName(&amp;#34;language-sh hljs bash&amp;#34;)[i].innerHTML = &amp;#39;&amp;#39;;  document.getElementsByClassName(&amp;#34;language-sh hljs bash&amp;#34;)[i].insertAdjacentHTML(&amp;#39;afterbegin&amp;#39;, t);	 };  };  }; } CSSはこんな感じ。フォントとかも良さげにしました。</description>
+    </item>
+    
+    <item>
+      <title>hugoでちょっとハマったところ</title>
+      <link>https://syui.cf/blog/post/2019/10/21/hugo/</link>
+      <pubDate>Mon, 21 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/10/21/hugo/</guid>
+      <description>content/post以下の記事一覧を表示したいけど、content/post/_index.htmlのリンクは表示したくない.mainSectionsのと、古い順.Reverseに表示したい場合。
+{{ range first 100 (where site.RegularPages.Reverse &amp;#34;Type&amp;#34; &amp;#34;in&amp;#34; site.Params.mainSections) }} なんか、次の記事へのリンクが.Paginateとか.Paginator.HasPrevで取得できず、エラーがgolangのバグっぽかったので、.PrevInSection .NextInSectionを使った。
+{{ if or .PrevInSection .NextInSection }} &amp;lt;nav id=&amp;#34;article-nav&amp;#34;&amp;gt;  {{ if .PrevInSection }}  &amp;lt;a href=&amp;#34;{{ .PrevInSection.Permalink }}&amp;#34; id=&amp;#34;article-nav-older&amp;#34; class=&amp;#34;article-nav-link-wrap&amp;#34;&amp;gt; &amp;lt;i class=&amp;#34;{{ $next }}&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; {{ .PrevInSection.Title }}  &amp;lt;/a&amp;gt;  {{ end }}  {{ if .NextInSection }}  &amp;lt;a href=&amp;#34;{{ .NextInSection.Permalink }}&amp;#34; id=&amp;#34;article-nav-newer&amp;#34; class=&amp;#34;article-nav-link-wrap&amp;#34;&amp;gt;  &amp;lt;i class=&amp;#34;{{ $next }}&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; {{ .NextInSection.Title }}  &amp;lt;/a&amp;gt;  {{ end }} &amp;lt;/nav&amp;gt; {{ end }} </description>
+    </item>
+    
+    <item>
+      <title>hugoでscssをbuildする</title>
+      <link>https://syui.cf/blog/post/2019/02/27/hugo/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/02/27/hugo/</guid>
+      <description>hugoは、ver:extendedでscssを簡単にcssにbuild(convert)することができます。
+https://github.com/gohugoio/hugo/releases
+ex:hugo_extended_0.54.0_macOS-64bit.tar.gz
+scssをcssにbuildして使うには、以下のような書き方をします。
+{{ $style := resources.Get &amp;#34;scss/main.scss&amp;#34; | toCSS | minify | fingerprint }} &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;{{ $style.Permalink }}&amp;#34;&amp;gt; 実際に編集するscssは、./assets以下に置きます。
+上の記述で大体わかると思いますが、resources.Getでscssのファイルを指定し、toCSSで変換、minifyで最小化などを行います。それらのdate構造をstyleに入れて、そのdate構造から.Permalinkでcssに変換後のurlを取得している感じだと思います。
+おそらく、hugo serverもしくはhugo(build)でresourcesの記述が実行され、./resources/以下にファイルが作成、参照されます。./public/にcssなどがbuildされます。
+なお、themeをcloneした際、./にpackage.jsonがある場合は、$ npm iしといたほうがいいでしょう。</description>
+    </item>
+    
+    <item>
+      <title>タイトルを変更した</title>
+      <link>https://syui.cf/blog/post/2019/02/04/title/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/02/04/title/</guid>
+      <description>タイトルを変更しました。
+タイトルの変更って良くないですよね。私もそう思います。けど、前のがダメすぎたので、早めに修正しといたほうがいいなって思いました。
+修正大事。でもタイトルの変更はよくない。
+なので、自分が納得する方を選びました。今後、タイトルが変更されることは多分ない。
+今のタイトルにこれだ感がありますので。スペースもなければ、ドットもない。スペースはよくないですし、ドットはドメインとの区別がつきにくいので問題でした。また、ハイフンとかも基本、良くないですよね。
+piyologを参考にしました。piyologoを見た時、タイトルはこの方式が正解だって思いました。piyologは偉大。
+cnameも追加しました。
+https://log.syui.cf
+https://blog.syui.cf
+https://syui.gitlab.io/blog
+しかし、元のリポジトリが、blogというのがちょっと不満ですが、割とどうしようもない。そちらをリダイレクトページにすればいいんですけど、良くないので、やりません。
+変化の過程 タイトルの変化過程を一応、記録しときます。心境も同時に。
+昔はですね、例えば、ドメインがblog.syui.cfなら、ドットの前後を反転させるのが正解だって思っていました。だって、シンプルですし、めんどくさくないですしね(ルールが明白という意味で)。そんな考え方でした。
+↓ ↓  blog.syui.cf = syui.blog しかし、上記は見た目はたしかにいいのですが、これではドメインとの区別がつきにくくてダメでした。実は、昔からこの問題点は把握していたのですが、見た目と簡潔さを重視していました。しかし、考え方が変わりました。ブラウザのアドレスバーから検索しやすくないとやっぱりダメですよね。
+次に、ドメインをそのままというのも考えました。しかし、サブドメインの場合は、ドットが2つもあるので、覚えにくいのでダメだと思いました。
+blog.syui.cf = blog.syui.cf これがメインドメインなら、ありだと思いますし、いいと思います。けど、blogはサブでやってますしね。ダメです。
+syui.cf = syui.cf 次は、スペースでやってみました。上記のような区別問題もないですし、見た目もわかりやすいですが、スペース自体が好きではなかったのです。
+blog.syui.cf = &amp;#34;syui blog&amp;#34; そこで、ドット前後を反転した上で、単純にドットを消すのが正解かなって思いました。今思いましたね。
+blog.syui.cf = syuiblog しかし、8文字って多いですよね。7文字くらいに減らしたいところです。しかも、元ネタもありますし、blogをlogにすることにしました。
+log.syui.cf = syuilog 限りなくめんどくさくないルールで、かつ間違いが起こりにくい方式で行きたいです。サブドメインなら、シンプルに単語を連結させるのが正解でした。そう思います。
+ついでにbaseurlもセットしておくことにしました。今までは、実は確実性を期して、セットしていなかったのですけど、流石に、やはりタイトルがlogなのに、blogリポジトリsyui.gitlab.io/blogは変ですしね。
+以上</description>
+    </item>
+    
+    <item>
+      <title>hugoとgitlab ciのpipeline schedulesで自動更新する</title>
+      <link>https://syui.cf/blog/post/2018/08/23/hugo/</link>
+      <pubDate>Thu, 23 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2018/08/23/hugo/</guid>
+      <description>静的サイトジェネレーターは、それぞれに特徴的でした。昔、hugoは将来の日付で書かれた記事も素直にbuildしていた気がしますが、最近では、buildするコンピュータからtimeを取得して、将来の日付の記事をbuildしないようになった気がします。
+ちなみに、middlemanでは、昔からこの挙動でした。つまり、将来の日付はbuildしないという挙動です。コードの書き方によって設定できるとかがあるかもしれませんが、自分が触っている限りでは、そんな感じでした。
+で、結構昔からhugoを使っていて、そんなもんだったわけですから、自動更新の仕組みを作るにしても、相当にめんどくさかった。
+具体的には、/content/postにmdを置くわけですが、それを置く時期をこちらで処理しなければならなかったのと、後は、定期にbuild, deployをciで実行することをやっていました。
+ただ、こちらもできればserver lessにしたいわけなので、docker imageを作成して、それをdocker hub(private)に上げた後、travis-ciでcron jobsでそのdocker imageをpull, runし、pageのrepoにpushして、そこでgitlab-ciを発火するように設定していました。めんどくさすぎますが、仕組みとしては単純に役割が決まっています。
+ docker image : gitlab-push
+ travis-ci : cron, docker-run
+ gitlab-ci : page build, deploy
+しかし、gitlab-ciもかなり便利になったもので、cronにあたるpipeline schedulesが実装されたこともあって、travis-ci(cron-jobs)が不要になりました。
+また、hugoもsrcから将来の日付の記事をbuildしないようになったため?わざわざdocker-imageでその日のものをcontent/postに置く処理が不要になり、将来の日付の記事を含めたすべてを/content/postに置いていても問題なくなりました。
+とは言え、srcを公開している場合、この手法は使えません。また、docker-imageで合わせて処理をしていたjsonを作成してpushする処理もgitlab-ciでやることになるか、もしくは面倒なので諦めるかということになりそうではありますが、とにかく便利になったなあと感じています。
+今後は、hugo+gitlabでブログをやるとしても、自動更新の点では、他のサービスに比べて遥かに楽にできるようになるでしょうね。これまではいろいろと組み合わせてやっていましたが、gitlab-ciだけで事足りるようになってきた感じです。
+ただ、まとめて書くにしても、何か書くことって、それ自体、結構つらかったりしますからね。書くこともそんなありませんし。その点では難しいかもしれませんね。
+おわり。</description>
+    </item>
+    
+  </channel>
+</rss>

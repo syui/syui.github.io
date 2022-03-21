@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on syui.cf</title>
+    <link>https://syui.cf/tags/github/</link>
+    <description>Recent content in github on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>github actionsでrustのcross compile</title>
+      <link>https://syui.cf/blog/post/2022/02/10/github/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/02/10/github/</guid>
+      <description>opensslのerrorが出る場合はsudo apt-get install -y -qq pkg-config libssl-devするといいらしい。
+windowsのbuildやuploadは、同じ内容でも、うまく行ったり行かなかったりしたので、そのうち動かなくなりそう。
+name: release  on:  push:  tags:  - &amp;#39;*&amp;#39;  jobs:  build:  name: release binary  strategy:  matrix:  include:  - os: macos-latest  artifact_prefix: macos  target: x86_64-apple-darwin  artifact_name: msr  asset_name: msr-x86_64-apple-darwin  - os: ubuntu-latest  artifact_prefix: linux  target: x86_64-unknown-linux-gnu  artifact_name: msr  asset_name: msr-x86_64-unknown-linux-gnu  - os: windows-latest  artifact_prefix: windows   target: x86_64-pc-windows-msvc  artifact_name: msr.</description>
+    </item>
+    
+    <item>
+      <title>blogにgithubの芝を生やした</title>
+      <link>https://syui.cf/blog/post/2022/01/02/github/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/01/02/github/</guid>
+      <description>昔、gitlabのを表示していたことがありましたが、apiの変更があったので、今回はgithubの芝を生やしてみました。
+現在、githubでは以下のurlにて芝の情報を取得できます。
+$ curl -sL https://github.com/users/$USER/contributions しかし、データは加工されていない状態で使いづらいので、以下のapiを使います。
+https://github-contributions-api.deno.dev/
+開発者 : https://zenn.dev/kawarimidoll/articles/b573f617a51c0b
+$ curl -sL https://github-contributions-api.deno.dev/$USER.json これをcal-heatmapで表示します。
+# sample date $ curl -sL https://cal-heatmap.com/datas-years.json  $ bower install cal-heatmap 使い方は見ての通りですが、exampleを紹介します。
+&amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;//d3js.org/d3.v3.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css&amp;#34; /&amp;gt; &amp;lt;div id=&amp;#34;example-b&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; 	var cal = new CalHeatMap(); 	cal.init({ 	itemSelector: &amp;#34;#example-b&amp;#34;, 	domain: &amp;#34;month&amp;#34;, 	data: &amp;#34;/datas-years.json&amp;#34;, 	start: new Date(2021, 0), 	cellSize: 9, 	range: 15, 	previousSelector: &amp;#34;#example-b-PreviousDomain-selector&amp;#34;, 	nextSelector: &amp;#34;#example-b-NextDomain-selector&amp;#34;, 	legend: [2, 4, 6, 8] 	});  &amp;lt;/script&amp;gt; &amp;lt;style&amp;gt; div#example-b{ 	margin-right: auto; 	margin-left: auto; } .</description>
+    </item>
+    
+    <item>
+      <title>gh-actionsでpushしたとき指定のworkflowを実行する</title>
+      <link>https://syui.cf/blog/post/2021/08/21/github-workflow/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/21/github-workflow/</guid>
+      <description>この前、画像を圧縮してpushするaction(workflow)を作ったんだけど、workflowでpushしても、gh-actionsのon:pushが動作しなかったので、どうやらworkflowでpushしたやつには反応したいみたい。
+このブログの場合、画像を圧縮してpushしてもhugo-buildを通さないとweb server(gh-pages)にdeployされないので、build+deployのworkflowに以下を追加すると、ちゃんと動いてくれるので便利になります。
+on:  workflow_run:  workflows:  - push webp  branches: src  types:  - &amp;#34;completed&amp;#34; こんな感じで書いて、pushするworkflowはnameを設定します。
+name: push webp </description>
+    </item>
+    
+    <item>
+      <title>squoosh-cliとgh-actionsで画像表示を高速化してみる</title>
+      <link>https://syui.cf/blog/post/2021/08/18/github/</link>
+      <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/18/github/</guid>
+      <description>squoosh-cliは、google製の画像圧縮ツールらしい。
+$ npm i -g @squoosh/cli $ squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:75,&amp;#34;target_size&amp;#34;:0,&amp;#34;target_PSNR&amp;#34;:0,&amp;#34;method&amp;#34;:0,&amp;#34;sns_strength&amp;#34;:50,&amp;#34;filter_strength&amp;#34;:60,&amp;#34;filter_sharpness&amp;#34;:0,&amp;#34;filter_type&amp;#34;:1,&amp;#34;partitions&amp;#34;:0,&amp;#34;segments&amp;#34;:4,&amp;#34;pass&amp;#34;:1,&amp;#34;show_compressed&amp;#34;:0,&amp;#34;preprocessing&amp;#34;:0,&amp;#34;autofilter&amp;#34;:0,&amp;#34;partition_limit&amp;#34;:0,&amp;#34;alpha_compression&amp;#34;:1,&amp;#34;alpha_filtering&amp;#34;:1,&amp;#34;alpha_quality&amp;#34;:100,&amp;#34;lossless&amp;#34;:0,&amp;#34;exact&amp;#34;:0,&amp;#34;image_hint&amp;#34;:0,&amp;#34;emulate_jpeg_size&amp;#34;:0,&amp;#34;thread_level&amp;#34;:0,&amp;#34;low_memory&amp;#34;:0,&amp;#34;near_lossless&amp;#34;:100,&amp;#34;use_delta_palette&amp;#34;:0,&amp;#34;use_sharp_yuv&amp;#34;:0}&amp;#39; -d out-dir img.jpg size的にはjpgのほうがいいのですが、webpじゃないとpng透過が保存されないので、webpを使います。
+resizeは300x400だとスマホで見たとき粗くなってしまうため、600x800にしました。
+git-diffにcommit-hashを指定し、更新ファイルがあれば、squooshを実行します。gh-actionsはpush:pathsからトリガーできます。
+パラメータ、特にqualityは適時、調整してください。
+on:  push:  paths:  - &amp;#39;static/img/*.png&amp;#39;  jobs:  comment:  runs-on: ubuntu-latest  steps:  - uses: actions/checkout@v1  - name: install squoosh  env:  WORKFLOW_FILE_PATH: ${{ github.workflow }}  GITHUB_REPOSITORY: ${{ github.repository }}   run: | npm i -g @squoosh/cli   - name: convert webp  run: |s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep &amp;#34;static/img/&amp;#34;|grep &amp;#34;\.</description>
+    </item>
+    
+    <item>
+      <title>bitwardenをself-hostで試してみた</title>
+      <link>https://syui.cf/blog/post/2021/08/14/bitwarden/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2021/08/14/bitwarden/</guid>
+      <description>password managerのbitwardenを試してみました。self-hostしますので、herokuを使います。
+https://bitwarden.com
+bitwardenはossのcloud pass managerみたいなものだと思われます。web domainを使ってdbにアクセスし、そっから情報を読み込みます。
+つまり、passwordにアクセスするには、networkにつながっていなければなりません。また、自分のserverからdbを管理する場合、updateなどの手間がかかります。ですが、その手段が採れるというのはいいですね。
+self-hostの利点として挙げられるのは、例えば、「bitwardenがhackされてもpasswordが流出しない」と公式では言われています。ですが、様々な可能性が考えられるため、本当のところはわかりませんが。
+私が使ったのは、非公式clientであるvaultwardenのdocker-imageです。それをheroku deployする便利なrepoがありましたので、それを使いました。
+https://github.com/davidjameshowell/vaultwarden_heroku
+基本的には、readmeにあるとおりですね。
+env:  AUTOBUS_ENABLE: 1  CREATE_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}  DUO_ENABLE: 1  GIT_HASH: main  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}  USE_PSQL: 1  HEROKU_VERIFIED: 0  OFFSITE_HEROKU_DB: ${{ secrets.OFFSITE_HEROKU_DB }}  HEROKU_CREATE_OPTIONS: ${{ secrets.HEROKU_CREATE_OPTIONS }} bitwarden-serverを立ち上げたあとは、webからアクセスし、管理者アカウントを作成します。
+そのserver(address)を使って、bitwarden-clientからpass管理や自動入力を行います。もちろん、pass管理はwebからもできます。
+ですが、多くの人がやりたいのは自動入力だと思うので、やはり、bitwarden-clientは必要になると思われます。
+bitwarden-clientでは、初期画面に設定アイコンみたいなものがあると思うので、そこから先程立ち上げたserverのaddressを設定します。
+例えば、chromeからtwitterに自動入力したい場合は、twitter.com/loginにアクセスして、chrome addonのbitwardenのアイコンをクリックします(あらかじめtwitterのpassを登録しておく必要があります)。
+使ってみた感想ですが、自動入力も便利ですが、登録とかも便利でした。
+ですが、そのためにcloudに情報を置くのはちょっとオーバーだなと思いました。self-hostする場合、bitwarden-serverの運用や管理、維持も必要になってきます。
+現在の運用段階 現在の運用では、dbに保存するpassを制限し、つまり、流出してもあまり問題なさそうなアカウントのみで登録を行い、運用テストしています。
+また、当該repoは、dbにheroku-postgresqlではなく、autobus, jawsdbなどのaddonを使いますが、個人的には、これらのaddonを使用するのは不安要素も大きいです。
+このようなsecure要請が高い事柄においては、herokuでhostする場合、herokuが提供するaddonに限定したほうがいいと思ったので、heroku-postgresqlを使用するようにしました。option:envに項目はありましたが、あまり有効に機能してないような気もしましたので。
+# yes $ heroku addons:create heroku-postgresql -a &amp;#34;$APP_NAME&amp;#34;  # no $ heroku addons:create autobus -a &amp;#34;$APP_NAME&amp;#34; $ heroku addons:create jawsdb -a &amp;#34;$APP_NAME&amp;#34; backupも基本的には、herokuが提供するcmdで足りると思います。ただし、plan:hobby(free)の場合、backup数は限りがありますので注意です。</description>
+    </item>
+    
+    <item>
+      <title>本と本の表紙を作ってみた</title>
+      <link>https://syui.cf/blog/post/2020/09/23/zenn/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/09/23/zenn/</guid>
+      <description>zennという投稿サービスが流行ってて、本形式の記事とかも販売できるようなので、とりあえずやってみました。
+最初に目指したのは、(1)最速で作ること、(2)表紙だけはそれっぽくすることの2つ。
+なので、直近に書いた技術系の記事をそのまま利用する形になったのと、あとは実験のために作曲というコードとは直接関係ないジャンルを投稿してみることにしました。
+で、今回もっとも挑戦的だったのが表紙の作成です。
+本形式の投稿というなら昔からgitbookを使ってたし、そこまで初体験でもないけれど、本の表紙みたいなものを作ったのはこれが初めてだったんじゃないかなと。
+作った表紙はこちら。
+コピーライトはいらないんじゃないかと思ったんだけど、そのままではそれがなにか分かりづらいし、「著者」とか入れるのもなんだしということで入れといた。
+それぞれに工夫した点を挙げると、タイトルを考えるの割と大変でした。
+幅的なものを調整したりとか色々なんだけど、「コマンドラインツール」でいくか「CLIツール」でいくか「コマンドライン・インタフェース・ツール」でいくか、様々な選択肢がある中で、見栄えの良さを考慮した結果、「コマンドツール」になりました。
+で、上の部分と下の部分を分けて入力し、それぞれに幅を変えていますので、しっかりと長方形に収まっているというか一致するようになっています。
+ボカロのほうは、そのまま書くと「で」だけうまく入らなかったので、スペース空けて丸で囲むことで、あくまでパッと見なんだけどいい感じになったんじゃないかなと。
+あと、フォントの囲みを白にしたのと、背景にちょっと被せる形にしたのが一番しっくり来た。
+背景については、それぞれ端末と音階を表現しています。色についても難しくて、うん、難しかった。
+ボカロは初音ミクの緑っぽさを使った感じで、rustは、はじめ青で行こうと思ったんだけど、zennで見てみるとなんか違うってなったので、赤に変更。
+気になった方はちょっと覗いてみてくだされ。
+https://zenn.dev/syui</description>
+    </item>
+    
+    <item>
+      <title>github profile(readme)にsvgを付けてみる</title>
+      <link>https://syui.cf/blog/post/2020/07/09/github/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/07/09/github/</guid>
+      <description>github profile(readme)を使用するには、githubで$userのrepositoryを作成してreadme.mdを置くとgithub.com/$userで表示できるようになるかもしれない。
+この機能のテストに当選した人は、リポジトリを作成するとき以下の表示が出るようです。
+ここでsvgを再生したいなあと思ったのですが、このブログで使用しているsvgは少し複雑過ぎるので、新しく作り直してみました。
+urlはrawを引用したほうがいいようです。
+他にもカウンターを使ってみたりできそう。
+https://github.com/brentvollebregt/hit-counter
+&amp;lt;img src=&amp;#34;https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Fsyui%2Fsyui&amp;#34; alt=&amp;#34;Hits&amp;#34;&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>pull-reqが来たときgithub-actionsを実行してhtml,sqlをreviewする</title>
+      <link>https://syui.cf/blog/post/2020/05/16/arch/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/05/16/arch/</guid>
+      <description>今回は、pull-reqが来たときgh-actionsを実行してlintでreviewやらreview-supportをするbotを作ってみた話。突然やる気になって作り始めてしまったという。
+sql lintは、sqlintを使いました。
+$ sudo gem i sqlint $ sqlint index.sql on:  pull_request:  types: opened #on: # push: # branchs: # - test jobs:  comment:  runs-on: ubuntu-latest  steps:  - uses: actions/checkout@v1  - name: Set up Ruby 2.6  uses: actions/setup-ruby@v1  with:  ruby-version: 2.6.x  - name: gem i  run: gem i sqlint  - name: run sqlint  env:  GITHUB_TOKEN: ${{ secrets.</description>
+    </item>
+    
+    <item>
+      <title>github pagesでサブドメインのリポジトリにソースを載せない方法</title>
+      <link>https://syui.cf/blog/post/2019/12/16/ghpages/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/16/ghpages/</guid>
+      <description>現在、hugoをgithub-actionsで自動ビルドとデプロイしているのですが、デプロイが、コミットを消すやつじゃないので困ってます。
+デプロイすると、${user}.github.ioのリポジトリの場合、masterにhtmlが置かれます。(privateなら見えないようにできる)
+しかし、この前、ちょっと裏技ぽいものを発見したのでメモ。
+以下でmasterの内容がgh-pagesに反映されなかった。おそらく、githubのpage-buildが走ってないからだと思う。
+name: github pages deploy  on:  page_build:  jobs:  build:  runs-on: ubuntu-18.04  steps:  - uses: actions/checkout@v2  with:  branch: &amp;#39;master&amp;#39;  run: git checkout master   - uses: ad-m/github-push-action@master  with:  branch: &amp;#39;master&amp;#39;  force: true  github_token: ${{ secrets.GITHUB_TOKEN }}  run: |git config --local user.email &amp;#34;action@github.com&amp;#34; git config --local user.name &amp;#34;GitHub Action&amp;#34; GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/^pick /f /g&amp;#39;&amp;#34; git rebase -i --root https://help.</description>
+    </item>
+    
+    <item>
+      <title>github issuesを使うコメントシステムutterancを設置する</title>
+      <link>https://syui.cf/blog/post/2019/12/12/issue/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/12/12/issue/</guid>
+      <description>utterancでコメントを設置 基本的にはutteranc.esにアクセスして、GitHubにアプリをインストールします。
+https://github.com/utterance/utterances
+そして、コメントを載せたい場所にコードを貼り付ければOKです。
+&amp;lt;script src=&amp;#34;https://utteranc.es/client.js&amp;#34;  repo=&amp;#34;[ENTER REPO HERE]&amp;#34;  issue-term=&amp;#34;pathname&amp;#34;  theme=&amp;#34;github-light&amp;#34;  crossorigin=&amp;#34;anonymous&amp;#34;  async&amp;gt; &amp;lt;/script&amp;gt; コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。
+github actionsを使ったChatOpsでラベルを付ける ChatOpsと連携すると便利かもということで、やってみました。
+自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。
+name: COMMENT action on:  issue_comment:  types: [created, edited] jobs:  build:  name: COMMENT action  runs-on: ubuntu-latest  steps:  - name: Run action  env:  GITHUB_REPOSITORY: ${{ github.repository }}  ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }}  ISSUE_NUMBER: ${{ github.event.issue.number }}  GITHUB_TOKEN: ${{ secrets.</description>
+    </item>
+    
+    <item>
+      <title>ホームページ、りにゅーある</title>
+      <link>https://syui.cf/blog/post/2019/10/20/gh-pages/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/10/20/gh-pages/</guid>
+      <description>ホームページをりにゅーあるしました。遊びに来てね
+gh-actionsに少しハマったので、ポイントだけ書いておきます。
+peaceiris/actions-hugo
+まず、branch:gh-pagesで実行する場合、そのままいけましたが、titleにスペースを入れるとなぜか失敗してた記憶があります。が、今は問題なさそうな感じでした。
+次に、branch:masterで実行する場合、これはgithub側の問題ですが、githubが自動で実行するjekyll-deployなどが成功するも、なぜかページが上手く表示されないという現象が起こりました。index.htmlには全く問題がありませんし、ステータスはokになってるのですが、なぜ。
+なので、こんな感じのコマンドを実行し、jekyll-buildを停止。あと一応、CNAMEの問題かもしれないので置きました(自前でpushした場合は無くてもいけてた気がするけど)。
+ - name: Build  run: |hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description>
+    </item>
+    
+    <item>
+      <title>github.dev</title>
+      <link>https://syui.cf/blog/post/2019/02/22/github/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2019/02/22/github/</guid>
+      <description>googleから取得できるdomainの.devで、github.devがgithubによって速攻で取得され、github pagesの宣伝に使われてたので、とりあえずpreviewしてみた。
+https://github.dev
+source : https://github.com/github/personal-website
+deploy : https://mbahack2.syui.cf/personal-website
+$ git clone https://github.com/github/personal-website $ personal-website $ rvm install 2.6.1 $ rvm --default use 2.6.1 $ gem install jekyll bundler $ bundle $ bundle exec jekyll serve repoを作って、branch:gh-pagesにpushすると、開発者っぽいabout pagesがdeployされる。url:https://syui.github.io/personal-website
+$ git branch $ git checkout -b gh-pages $ git push origin gh-pages # fork $ curl -sL https://syui.github.io/personal-website url,baseurlをsetすると、cssがhttps protocolになった。
+$ vim _config.yml url: https://mbahack2.syui.cf baseurl: personal-website  $ vim _includes/header.html // https://jekyllrb.</description>
+    </item>
+    
+    <item>
+      <title>Mastodonの自動アップデート</title>
+      <link>https://syui.cf/blog/post/2017/04/24/github/</link>
+      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2017/04/24/github/</guid>
+      <description>Mastodonのインスタンスを管理する上での負担の一つはアップデートなわけだけど、これを自動化した話。
+Travis CIでCron Jobを動かすことにしたんだけど、ローカルではうまくいくのに、Travisのgitコマンドでは上手くいかないのでハマった。
+Travisでは多分だけどcloneしたリポジトリの変更を許さない感じになっていて、upstreamをmeargeしたものがコミットできなかったのではないかなと。できなかったというより、変更はありませんみたいなこと言われるのでmergeしたものをデプロイ出来なかった。
+これはスクリプトを書いて更にcloneした後、upstreamをmergeしてtokenを使ってpushし、それをHeroku Deployする感じで解決した。
+ただし、この仕組、デプロイを2回やらないといけないことになるのだけど、1回目はcronで実行され、そこでupstreamがpushされるので2回目が回ってupstreamが取り込まれたものがDeployされる仕組み。1日に2回デプロイするのは無駄なので、この辺をなんとかしたいと思いつつ、良い方法が思い浮かばないので放置。
+TravisのHerokuはどういった形でデプロイされているのだろうか、もしgit push https://$ENCRYPTED_API_KEY@heroku.com/$APP_NAME.git masterみたいな感じだったらスクリプトで条件つければいけそうな気がするのだけど、調べるのも面倒くさいので放置。</description>
+    </item>
+    
+  </channel>
+</rss>
