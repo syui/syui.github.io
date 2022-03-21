@@ -1,7 +1,5 @@
 name: github pages cron
 on:
-  schedule:
-    - cron:  '00 00 * * 1'
   push:
     tags:
     - card*
