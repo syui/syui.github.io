@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 21 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pokemongo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pokemongo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>niantic profile web</title>
+      <link>https://syui.cf/blog/post/2022/03/24/niantic-profile/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/03/24/niantic-profile/</guid>
+      <description>niantic profile(web)がreleasesされました。
+https://my.nianticlabs.com
+niantic idを登録(予約)している人は少なく、体感だと2/100くらいでした。niantic profileの役割は今後、徐々に拡大される可能性があるので、今のうちにidをとっておくのがおすすめです。
+ nianticのゲームは、大半が位置情報ゲームであるため、idの選択には注意してください。例えば、network上のcodename(username), handlename類を現実の社会関係性に適用、または認知を望まない場合、idの選択には注意が必要です。
+ ref : https://nianticlabs.com/blog/niantic-profile</description>
+    </item>
+    
     <item>
       <title>ポケモンGOのジョウトツアー</title>
       <link>https://syui.cf/blog/post/2022/03/21/pogo/</link>

@@ -2,25 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/android/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/nexus7/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/03/24/nexus7/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/niantic/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/03/24/niantic-profile/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pokemongo/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/03/23/genshin/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/pokemongo/</loc>
     <lastmod>2022-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/03/21/pogo/</loc>
@@ -280,9 +295,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/11/06/illust/</loc>
     <lastmod>2021-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/niantic/</loc>
-    <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/11/05/niantic/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
@@ -550,9 +562,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/11/manga/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/android/</loc>
-    <lastmod>2021-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/08/android/</loc>
     <lastmod>2021-07-08T00:00:00+00:00</lastmod>

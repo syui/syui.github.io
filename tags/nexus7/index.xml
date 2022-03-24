@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nexus7 on syui.cf</title>
+    <link>https://syui.cf/tags/nexus7/</link>
+    <description>Recent content in nexus7 on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/nexus7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nexus7にandroid12を入れる</title>
+      <link>https://syui.cf/blog/post/2022/03/24/nexus7/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/03/24/nexus7/</guid>
+      <description>nexus7にlineage-19.1(android12)を入れてみました。
+https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-19-1-2022-03-18.3569067/
+ほとんどが前回と変わらずです。
+gapps : https://drive.google.com/drive/folders/1O-I01LDvno57ztnxIW_bSnVWEk8-6Ics
+bitgapps : https://github.com/BiTGApps
+magisk : https://github.com/topjohnwu/Magisk
+sysrepart_1380_20.zipのパーティションの処理が失敗する場合は、公式factory-imgで初期化するといいかもしれません。
+flo : https://developers.google.com/android/images
+nexus7が文鎮化した 今回、nexus7が文鎮化しました。
+lineage 19.1を入れて、うまく動作していたのですが、gappsが入らなくて、gappsが入らないと、gmsが使えません。gmsが使えないと、google-storeなどが使えませんので不便です。
+gappsが入らないのは、sysrepartのscriptが失敗しているからなんですが、それを修正しようと、公式のfactory-imgで初期化したのが失敗でした。
+私のnexus7は以前からfastboot(bootloader)に入る際、電源ボタン+volume下ボタンでは入れなくなっていたため、usb接続からのadb reboot bootloaderで入っていました。
+で、初期化後に起動しなくなったのですが、当然ながら、fastbootに入れない。
+&amp;hellip;まあ、いわゆる文鎮化です。
+googleロゴが繰り返し出てきてandroidが起動せず、fastbootにも入れない。
+この場合、ボタンを押して入るしかないからです。これが文鎮化につながりました。
+ちなみに、起動後はちゃんとボタン、つまり、ボリュームダウン等は機能してたんですよ。ただ起動時のみ、なぜかボタンを押してもfastbootに入れない。以前はボタンで入れたのですけど、いつの間にかボタンで入れなくなっていました。
+nexus7の文鎮化を修理した 分解してボタン周りをいじったら、なんとかfastbootに入ってくれました。
+このチャンスを逃す手はありません。
+ここで様々な処理を施し、最低限、androidが正常に起動するようにしました。
+android12 app list 使ってるアプリのリストです。
+  Terminal Emulator for Android
+  BusyBox
+  Hacker&amp;rsquo;s Keyboard
+  AFWall+
+  Clipper - Clipboard Manager
+  AdAway
+  Perfect Viewer
+  chrootしたarch.imgにもsshできたのでよかった。この辺もちょっとしたhackは必要だった。</description>
+    </item>
+    
+  </channel>
+</rss>
