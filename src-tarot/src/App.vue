@@ -53,6 +53,12 @@ export default {
 				var cNumber = Math.floor(Math.random() * this.items.length);
 				var cn = Math.floor(Math.random() * this.items.length);
 				this.cName = this.items[cNumber];
+				while (cn ===  0) {
+					var cn = Math.floor(Math.random() * this.items.length);
+				};
+				while (cNumber ===  0) {
+					var cNumber = Math.floor(Math.random() * this.items.length);
+				};
 				while (cNumber ===  cn) {
 					var cn = Math.floor(Math.random() * this.items.length);
 				};
