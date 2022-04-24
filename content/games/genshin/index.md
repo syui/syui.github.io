@@ -1,6 +1,6 @@
 +++
 date = "2021-12-25"
-lastmod = "2022-03-20"
+lastmod = "2022-04-24"
 tags = ["genshin","game"]
 title = "原神"
 slug = "genshin"
