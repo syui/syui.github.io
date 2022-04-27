@@ -17,7 +17,9 @@
 				<div class="logo"> <a href="/app"> {{ partial "svg.html" . }} </a> </div>
 
 				{{ else if eq $o "ai" }}
-				<div class="logo"> <a href="/ai"> {{ partial "svg-ai.html" . }} </a> </div>
+				<div class="logo"> 
+					{{ partial "ai-star.html" . }}
+				</div>
 
 				{{ else }}
 				<div class="logo"> <a href="/" > {{ partial "svg.html" . }} </a> </div>
