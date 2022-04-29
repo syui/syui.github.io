@@ -59,6 +59,8 @@ slug = "genshin"
 |2022|03|15,000|0|15,000||
 |2022|04|20,000|-20,000|0|ウェンティ, 綾華|
 
+<a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
+
 ### 考察
 
 原神のちょっとした考察をまとめます。
