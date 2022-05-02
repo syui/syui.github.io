@@ -147,7 +147,6 @@ ul.cp_list li > p > a {
 }
 
 ul.cp_list li > span.icon-moon {
-	/* color: #EF454A;	*/
 	color: #0e0e0e;		
 }
 .footer-link > a > i.fab.fa-twitter {
@@ -156,13 +155,12 @@ ul.cp_list li > span.icon-moon {
 .footer-link > a > i.fab.fa-github {
 	color: rgba(1	1	1);		
 }
-.footer-link > a > i.fab.fa-mastodon {
-	color: rgba(44	114	202);		
-}
+
 .footer-link > a > i.fas.fa-rss {
 	color: #f4a316;		
 	font-size: 23px;
 }
+
 .footer-link > a > span.icon-ai {
 	font-size:25px;
 	color: #d9d200;		
@@ -247,4 +245,8 @@ ins.adsbygoogle {
 
 ul.cp_list li i.fas.fa-bars {
     margin-bottom: 30px;
+}
+
+.footer-link > a > i.fab.fa-mastodon {
+	color:#5e8fcd;
 }
