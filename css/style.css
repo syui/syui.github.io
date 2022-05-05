@@ -250,3 +250,11 @@ ul.cp_list li i.fas.fa-bars {
 .footer-link > a > i.fab.fa-mastodon {
 	color:#5e8fcd;
 }
+
+.footer-link > a > span.icon-home {
+	font-size: 27px;
+	padding: 7px;
+}
+
+}
+
