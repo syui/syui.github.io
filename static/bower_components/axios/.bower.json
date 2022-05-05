@@ -1,7 +1,7 @@
 {
   "name": "axios",
   "main": "./dist/axios.js",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "homepage": "https://github.com/axios/axios",
   "authors": [
     "Matt Zabriskie"
@@ -35,14 +35,13 @@
     "package.json",
     "webpack.*.js"
   ],
-  "_release": "0.18.0",
+  "_release": "0.18.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.18.0",
-    "commit": "2d6b14512063b47154460b78111364037faef911"
+    "tag": "v0.18.1",
+    "commit": "c0816bbbfb3a30d7cd619c1ddcae1db114cf0455"
   },
   "_source": "https://github.com/mzabriskie/axios.git",
   "_target": "^0.18.0",
-  "_originalSource": "axios",
-  "_direct": true
+  "_originalSource": "axios"
 }
