@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/manga/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/yui/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/05/07/manga/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
@@ -12,12 +27,6 @@
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/pokemongo/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/05/03/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3go%E3%83%A1%E3%82%AC%E3%82%B7%E3%83%B3%E3%82%AB%E3%81%8C%E6%A5%BD%E3%81%97%E3%81%84/</loc>
@@ -577,9 +586,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/13/illust/</loc>
     <lastmod>2021-07-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/manga/</loc>
-    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/07/11/manga/</loc>
     <lastmod>2021-07-11T00:00:00+00:00</lastmod>
