@@ -1,6 +1,6 @@
 +++
 date = "2021-04-03"
-tags = ["youtube","pokemongo"]
+tags = ["youtube","pogo"]
 title = "はじめての撮影とポケモンGo"
 slug = "pokemongo"
 +++
