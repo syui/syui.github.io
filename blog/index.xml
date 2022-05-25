@@ -14,7 +14,15 @@
       <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2022/05/25/nft/</guid>
-      <description></description>
+      <description>まずopenseaからmetamaskのアカウントを作成し、rinkebyのtestnet(address)を作成します。そのeth-addressをopenseaのtestnetと紐付けます。
+eth-address(test)には、metamaskのaddressをtweetして、そのtweet-urlをこちらに貼り付けることで得られます。
+今回は、openseaのtestnetと独自コントラクトを接続し、画像をopensea(test)のマーケットに置くまでをやってみます。
+https://wizard.openzeppelin.com/
+erc721を選択して、baseuriを設定します。
+baseuriには以下のようなファイルをwebに置きます。そのurlを設定します。
+{  &amp;#34;tokenId&amp;#34;: &amp;#34;1&amp;#34;,  &amp;#34;name&amp;#34;: &amp;#34;test 1&amp;#34;,  &amp;#34;description&amp;#34;: &amp;#34;test NFT MetaDeta&amp;#34;,  &amp;#34;image&amp;#34;: &amp;#34;https://github.com/syui/syui.github.io/raw/src/static/icon/ai/ai.jpg&amp;#34; } Open in Remixでcomplileします。
+その後、deployしますが、envでweb3を選択して、metamask(rinkeby-testnet)のeth-addressとリンクします。
+deploy後は、safemintにrinkeby-testnetのaddressを入力後にsafemintボタンをクリックします。これでopensea(testnet)で独自コントラクトが参照され、画像が表示されます。</description>
     </item>
     
     <item>
