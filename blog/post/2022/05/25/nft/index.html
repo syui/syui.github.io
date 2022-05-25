@@ -110,10 +110,11 @@
 		<div class="post-time-date">2022-05-25 / <a href="/syui">@syui</a></div>
 		<h2>nftをやってみた</h2>
 
-		<p>まずopenseaからmetamaskのアカウントを作成し、rinkebyのtestnet(address)を作成します。そのeth-addressをopenseaのtestnetと紐付けます。</p>
-<p>eth-address(test)には、metamaskのaddressをtweetして、そのtweet-urlを<a href="https://faucet.rinkeby.io/">こちら</a>に貼り付けることで得られます。</p>
-<p>今回は、openseaのtestnetと独自コントラクトを接続し、画像をopensea(test)のマーケットに置くまでをやってみます。</p>
-<p><a href="https://wizard.openzeppelin.com/">https://wizard.openzeppelin.com/</a></p>
+		<p>まずopensea(nftマーケット)からmetamaskのアカウントを作成し、rinkebyのeth-address(test)を作成します。それをopenseaのtestnetと紐付けます。</p>
+<p><a href="https://opensea.io">https://opensea.io</a></p>
+<p>eth-address(test)への入金は、metamaskのeth-addressをtweetし、そのtweet-urlを<a href="https://faucet.rinkeby.io/">こちら</a>に貼り付けることで得られます。</p>
+<p>今回は、openseaのtestnetと独自コントラクトを接続し、画像をマーケットに置くまでをやってみます。</p>
+<p><a href="https://wizard.openzeppelin.com">https://wizard.openzeppelin.com</a></p>
 <p><code>erc721</code>を選択して、baseuriを設定します。</p>
 <p>baseuriには以下のようなファイルをwebに置きます。そのurlを設定します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -123,11 +124,15 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/syui/syui.github.io/raw/src/static/icon/ai/ai.jpg&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>Open in Remix</code>でcomplileします。</p>
-<p>その後、deployしますが、envでweb3を選択して、metamask(rinkeby-testnet)のeth-addressとリンクします。</p>
-<p>deploy後は、safemintにrinkeby-testnetのaddressを入力後に<code>safemint</code>ボタンをクリックします。これでopensea(testnet)で独自コントラクトが参照され、画像が表示されます。</p>
+<p>その後、deployしますが、envでweb3を選択して、metamask(rinkeby)のeth-addressとリンクします。</p>
+<p>deploy後は、safemintにrinkeby-testnetのaddressを入力後に<code>safemint</code>ボタンをクリックします。これでopensea(testnet)に独自コントラクトが参照され、画像が表示されます。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0001.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0003.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0004.png" alt=""></p>
+<p>これをopenseaの本マーケットに出品する場合は、ガス代をethなどで支払う必要があります。これはmintしたときに必要になります。</p>
+<p>わざわざ独自コントラクトを作って接続する理由は、(1)自身のowner権限で<code>metadata.json</code>を作成できること、(2)自身の口座を設定できることです。</p>
+<p>今回は、<code>openzeppelin</code>を使いましたが、コントラクトのdeployなどは、<code>trufflesuite</code>もおすすめらしい。</p>
+<p><a href="https://trufflesuite.com">https://trufflesuite.com</a></p>
 
 		
 
