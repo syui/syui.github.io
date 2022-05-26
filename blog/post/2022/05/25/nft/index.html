@@ -127,9 +127,9 @@
 <p>これを可能にした技術がブロックチェーンであり、ブロックチェーンというのは、簡単に言うと改竄が困難な台帳のことです。</p>
 <p>お金の流れは全て共有される台帳に刻まれます。これによって、銀行が行っていた業務を個人でも行えるようになりました。</p>
 <h4 id="nft">nft</h4>
-<p>nftとは、このブロックチェーンを何かしらのコンテンツ情報と紐付けることで、その所有や唯一性を担保しようとしたのだと思います。</p>
+<p>nftとは、このブロックチェーンを何かしらのコンテンツ情報と紐付けることで、その所有や唯一性、検索性、履歴性を担保しようとしたのだと思います。</p>
 <p>この仕組みが一般化するかはわかりません。</p>
-<p>しかし、例えば、今までにあった美術品などの問題は一部で解消する余地があるかもしれないと個人的には思っています。</p>
+<p>しかし、例えば、今までにあった美術品などの問題は一部で解消される余地があるかもしれないと個人的には思っています。</p>
 <p>美術品の価値、及び所有や作者の問題は、関係者を悩ませる問題でもありました。</p>
 <p>これは本当にゴッホの絵なのかどうなのか、あるいは、ゴッホの絵に数億の価値は本当にあるのだろうか、絵の真の所有者は誰なのだろう、ゴッホの絵は作者が死んでから価値が出たけど(それまでは無価値だった)なぜだろうとか。</p>
 <p>このへんの話をすると長くなるので割愛しますが、nftは、今までの美術品に取って代わるものとして期待されている側面があるのかもしれません。そんな風に感じています。</p>
@@ -141,7 +141,7 @@
 <h4 id="metamask">metamask</h4>
 <p><a href="https://metamask.io">https://metamask.io</a></p>
 <p>次にウォレットです。metamaskが有名です。新しい認証の仕組みで公開鍵と秘密鍵を使った認証を行います。</p>
-<p>ethでの支払いやtestnetを使う際にもウォレットでの認証を経なければなりません。</p>
+<p>ethでの支払いやtestnetを使う際にもウォレットでの認証を経なければなりません。ウォレットは署名の役割も担います。</p>
 <h4 id="eth">eth</h4>
 <p><a href="https://ethereum.org">https://ethereum.org</a></p>
 <p>仮想通貨のethereumの略で、nftでは、ガス代などの支払いにethが使われます。マーケットに出品する場合は、mintしなければならず、その処理に必要です。</p>
@@ -150,32 +150,73 @@
 <p>test用のethは<a href="https://faucet.rinkeby.io/">こちら</a>からもらえます。例えば、mintする際にrinkebyのtestnet(eth-address)を指定してください。</p>
 <h4 id="openzeppelin">openzeppelin</h4>
 <p><a href="https://wizard.openzeppelin.com">https://wizard.openzeppelin.com</a></p>
-<p>自分でブロックチェーンのネットワークにdeployすることを独自コントラクトといいます。マーケットはコントラクトを持っていますが、それを使用すると、nftのowner(所有)はマーケットになり、口座もマーケットとの共有になります。ですから、<code>metadata.json</code>を自身のowner権限で発行し、自身の口座を使いたい場合は、独自コントラクトしたものをマーケットに指定(接続)する必要があります。この際にも当然、ウォレット認証が必要になってきます。</p>
+<p>自分でブロックチェーンのネットワークにdeployすることを独自コントラクトといいます。</p>
+<p>もちろん、マーケットもコントラクトを持っていますが、それを使用すると、nftのowner(所有)はマーケットになり、口座もマーケットとの共有になります。</p>
+<p>ですから、自身のowner権限で<code>metadata.json</code>を発行し、自身の口座を指定したい場合は、独自コントラクトしたものを(接続)する必要があります。</p>
+<p>この際にも当然、ウォレット認証や署名が必要になってきます。</p>
 <p>独自コントラクトを立ち上げるなら、openzeppelinが便利です。<code>trufflesuite</code>もおすすめらしい。</p>
 <p><a href="https://trufflesuite.com">https://trufflesuite.com</a></p>
 <h3 id="実践nft">実践nft</h3>
 <p>今回は、openseaのtestnetと独自コントラクトを接続し、画像をマーケットに置くまでをやってみます。</p>
-<p><code>erc721</code>を選択して、baseuriを設定します。これは画像urlと同じドメイン上で指定するようにしてください。</p>
-<p>baseuriにはwebに置いたmetadata.jsonを指定します。</p>
+<p>まず、<a href="https://wizard.openzeppelin.com">openzeppelin</a>でテンプレート(コード)を書きます。といっても、基本的に<code>openzeppelin</code>で吐かれたコードをそのまま使用しても動作します。</p>
+<p><code>erc721</code>を選択して、baseuriを設定します。これは画像urlと同じドメインを指定するようにしてください。baseuriにはwebに置いたmetadata.jsonを指定します。</p>
 <p>例えば、<code>example.com/meta/0</code>にjsonファイル、<code>example.com/test/0.jpg</code>に画像ファイルを置きます。</p>
-<p>baseuri : <a href="https://example.com/meta/">https://example.com/meta/</a></p>
+<ul>
+<li>
+<p>baseuri : <code>https://example.com/meta/</code></p>
+</li>
+<li>
+<p>metadata : <code>/meta/0</code></p>
+</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tokenId&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;test 1&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;test NFT&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/test/0.jpg&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>Open in Remix</code>でcomplileします。</p>
-<p>その後、deployします。</p>
-<p>まず、envでweb3を選択して、metamask(rinkeby)のeth-addressとリンクします。</p>
+</span></span></code></pre></div><ul>
+<li>file : <code>/test/0.jpg</code></li>
+</ul>
+<p><code>Open in Remix</code>ボタンをクリックして、<code>remix</code>を起動します。<code>remix</code>はIDE(web)です。</p>
+<p>この<code>remix</code>で先程のコードをcomplileします。</p>
+<p>その後、deploy(ethアイコンのやつ)するわけですが、ここではまず、envでweb3(injected)を選択して、metamask(rinkeby)のeth-addressとリンクします。これはtestnetのものを使用します。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0004.png" alt=""></p>
-<p><code>deploy</code>ボタンを押して、しばらくして出てきた詳細にある<code>safemint</code>にrinkeby-testnetのaddressを入力します。<code>safemint</code>ボタンを押します。</p>
+<p>contractに先程作ったmetadataを参照します。ここでは<code>MyToken</code>という名前になります。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0001.png" alt=""></p>
+<p><code>deploy</code>ボタンを押すと、しばらくして詳細が出てきます。そこにある<code>safemint</code>にrinkeby-testnetのaddressを入力し<code>safemint</code>ボタンを押します。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/nft_metamask_rinkeby_testnet_0003.png" alt=""></p>
 <p>これでopensea-testnetで独自コントラクトが参照され、画像が表示されます。</p>
 <p><a href="https://testnets.opensea.io/syui">https://testnets.opensea.io/syui</a></p>
 <p>openseaの本番マーケットに出品する場合、ガス代をethなどで支払う必要があります。これはmintしたときに必要になります。</p>
 <p>わざわざ独自コントラクトを作って接続する理由は、(1)自身のowner権限で<code>metadata.json</code>を作成できること、(2)自身の口座を設定できることです。</p>
+<h3 id="nftやweb3は流行るのか">nftやweb3は流行るのか</h3>
+<p>nftやweb3は流行るのか、一般化するのかについて、個人的な考えを書いていきたいと思います。</p>
+<p>ここではweb3に統一して書きますが、web3が流行るのかどうかについては、私にはわからないということです。</p>
+<p>web3は絶対に流行らない、一般化するわけがない、web3は詐欺であり、よくないものだ。web3はダメなものだ、胡散臭いと言われているのを私は知っています。</p>
+<p>確かに、そういった側面もあると思います。</p>
+<p>しかし、よく考えてみてほしいのですが、例えば、ゴッホの絵にどれほどの価値があるのでしょうか。</p>
+<p>多くの一般人にとって、ゴッホの絵に価値などありません。</p>
+<p>というのもゴッホの生前には言ってみれば価値はありませんでした。いくらでも安く買えたような代物で、もしかしたらタダでも手に入ったかもしれません。</p>
+<p>しかし、長い年月を経て、作者が亡くなってから、有名になり、ゴッホの絵の価値は上がりました。</p>
+<p>これを詐欺だ、胡散臭い、絶対におかしい、無価値だなんて言いません。</p>
+<p>物の価値というのは、一概には言えないところがあります。その将来においての価値というのは、評価が難しい。評価不能と言ってもいいでしょう。</p>
+<p>それを前提にnftにもそういったものが今後出てくるかもしれません。nftを買う人の中には、そういった流れを見越して買っている人もいるかもしれません。</p>
+<p>これについては様々な意見があるものの、最も多い意見としては、詐欺だ、あんなものに価値はないという意見です。その気持ちもわかりますが、個人的には、それはわからない。先程に述べた理由からそんな風に考えています。</p>
+<p>次に話していきたいのは、流行や一般化についてです。</p>
+<p>人間の歴史を見ていくと、流行や一般化したものについては、実に奇妙な経緯をたどります。</p>
+<p>今で言うGAFAですが、googleやapple, microsoftやamazonなども当初行っていた事業は、実は虚業のようなものだったりします。</p>
+<p>例えば、microsoftが作りはじめたosですが、当初は、技術からおもちゃだと笑われ、実際にもバグだらけで不良品、欠陥品でした。</p>
+<p>当初は、あんなものが流行って、一般化するとは考えられませんでした。今のようになっているとは、誰も考えていなかったのです。当時の意見を見ると、そんな感じでした。</p>
+<p>ですが、タイミングが良かったのか、継続性によるものなのか、わかりませんが、その後、奇妙な経緯をたどって現在の形に進化することになります。</p>
+<p>何が言いたいのかというと、ある事柄がどのような経緯をたどり、広がりを見せ、あるいは進化していくのか。それを予測することは難しいということです。</p>
+<p>とても一般化するとは思えない規格が、その後、一般化して現在でも使われている例を、私はたくさん見てきました。</p>
+<p>web3も同じで、これがどのような経緯をたどり、広がりを見せるのか。将来的に当たり前のように使われているものなのかどうなのか。逆に世間的な意見が的中して廃れているのか。それはなかなかにわからないところがあります。</p>
+<p>なので私は、web3をdisの人を見ても、likeの人を見ても、特に思うところはありません。</p>
+<p>どちらの言い分もおおよそ正しいのではないでしょうか。</p>
+<p>そんな感じなので、私はnftに対して特別な拒否感はありませんし、期待もしていません。</p>
+<p>今回は、とりあえず、面白そうだったnftを触ってみようということで、触ってみることにしました。</p>
+<p>触ってみた感想は、なかなかに面白いものなんじゃないかなって思ました。以上です。</p>
 
 		
 
