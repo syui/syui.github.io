@@ -4,6 +4,7 @@ lastmod = "2022-05-03"
 tags = ["genshin","game"]
 title = "原神"
 slug = "genshin"
+header_image = "/games/genshin.png"
 +++
 
 <style>

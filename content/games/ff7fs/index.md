@@ -3,6 +3,7 @@ date = "2021-12-26"
 tags = ["ff7fs","game"]
 title = "FF7FS"
 slug = "ff7fs"
+header_image = "/games/ff7fs.png"
 +++
 
 <style>

@@ -256,5 +256,9 @@ ul.cp_list li i.fas.fa-bars {
 	padding: 7px;
 }
 
+
+ul.cp_list li img {
+    float: left;
+				padding:7px;
 }
 

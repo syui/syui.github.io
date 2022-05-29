@@ -4,6 +4,7 @@ lastmod = "2022-05-20"
 tags = ["pokemas","pokemon","game"]
 title = "Pokemon Masters"
 slug = "pokemas"
+header_image = "/games/pokemas.png"
 +++
 
 <style>

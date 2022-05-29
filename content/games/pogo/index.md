@@ -3,6 +3,7 @@ date = "2021-12-26"
 tags = ["pokemongo","pokemon","game"]
 title = "Pokemon GO"
 slug = "pogo"
+header_image = "/games/pogo.png"
 +++
 
 <style>
