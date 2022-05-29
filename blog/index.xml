@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 28 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プレイしてるゲームをまとめた</title>
+      <link>https://syui.cf/blog/post/2022/05/29/hugo/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/05/29/hugo/</guid>
+      <description>以下のページにまとめてみた。
+/games
+やったこと 更新順に表示することにしたのと、アイコンを表示することにした。
+lastmod = &amp;#34;2022-05-29&amp;#34; header_image = &amp;#34;/games/genshin.png&amp;#34; &amp;lt;ul&amp;gt; 	{{ range .Data.Pages.ByLastmod.Reverse }} 	&amp;lt;li&amp;gt; 	&amp;lt;img src=&amp;#34;{{ .Params.header_image }}&amp;#34;/&amp;gt; 	{{ .Lastmod.Format &amp;#34;2006-01-02&amp;#34; }}&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;{{.Permalink}}&amp;#34;&amp;gt;{{.Title}}&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; 	&amp;lt;/li&amp;gt; 	{{ end }} &amp;lt;/ul&amp;gt; li img { 	float: left; 	padding: 7px; } </description>
+    </item>
+    
     <item>
       <title>原神、これから</title>
       <link>https://syui.cf/blog/post/2022/05/28/genshin/</link>
