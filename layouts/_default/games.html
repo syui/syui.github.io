@@ -11,9 +11,9 @@
 				<li class="games">
 				<img src="{{ .Params.header_image }}"/>
 					{{ if not $index }}
-					{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}" id="fmove" class="lmove">{{.Title}}</a></p>
+					{{ .Lastmod.Format "2006-01-02" }}<p><a href="{{.Permalink}}" id="fmove" class="lmove">{{.Title}}</a></p>
 					{{ else }}
-					{{ .Date.Local.Format "2006-01-02" }}<p><a href="{{.Permalink}}" class="lmove">{{.Title}}</a></p>
+					{{ .Lastmod.Format "2006-01-02" }}<p><a href="{{.Permalink}}" class="lmove">{{.Title}}</a></p>
 					{{ end }}
 				</li>
 				{{ end }}
