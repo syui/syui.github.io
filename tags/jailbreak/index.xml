@@ -17,7 +17,7 @@
       <description>jailbreakのしきたりにはまだ慣れなくて、とりあえずopensshを入れて、sshdの最低限の設定を行いました。
 cydiaでopensshを入れると、sshdは自動でstartされるらしいです。とりあえず、iphoneにsshして、初期設定しました。
 その際、iosのlocal ipは固定にしておいたほうがいいでしょう。ネットワーク設定 -&amp;gt; 静的
-$ ssh root@192.168.1.x $ uname -a  # パスワードの変更、alpine $ passwd $ passwd mobile  $ cat /etc/ssh/sshd_config $ exit ------------------ # sshd_configを編集してiphoneにアップロード $ scp root@192.168.11.x:/etc/ssh/sshd_config . $ vim sshd_config 	Port XXX 	PasswordAuthentication no $ scp sshd_config root@192.168.11.x:/etc/ssh/  $ ssh-keygen -f ~/.ssh/test $ ssh-copy-id -i ~/.ssh/test.pub root@192.168.11.x  # iphoneを再起動して、exploitからjailbreak $ vim ~/.ssh/config Host iphone  HostName 192.168.1.x  Port XXX  IdentityFile ~/.</description>
+$ ssh root@192.168.1.x $ uname -a # パスワードの変更、alpine $ passwd $ passwd mobile $ cat /etc/ssh/sshd_config $ exit ------------------ # sshd_configを編集してiphoneにアップロード $ scp root@192.168.11.x:/etc/ssh/sshd_config . $ vim sshd_config Port XXX PasswordAuthentication no $ scp sshd_config root@192.168.11.x:/etc/ssh/ $ ssh-keygen -f ~/.ssh/test $ ssh-copy-id -i ~/.ssh/test.pub root@192.168.11.x # iphoneを再起動して、exploitからjailbreak $ vim ~/.ssh/config Host iphone HostName 192.168.1.x Port XXX IdentityFile ~/.ssh/test User root $ ssh iphone android(nexus7)の場合、root化して、archを入れて、chrootして、sshして使ってるんですが、こちらはかなり自由度があって便利です。パッケージマネージャーもありますし。</description>
     </item>
     
   </channel>

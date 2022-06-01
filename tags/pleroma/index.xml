@@ -19,8 +19,8 @@ herokuでpleromaを動かします。動いた環境を記録します。
 heroku info remote: * Stack heroku-18 remote: * Erlang 21.2 remote: * Elixir 1.7 src : https://git.pleroma.social/pleroma/pleroma , fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8
 buildpack : https://github.com/syui/heroku-buildpack-elixir
 こちらのHashNuke/heroku-buildpack-elixirで${build_path}からmixを実行できないので、それを修正したもの。
-$ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mix remote: fatal: not a git repository (or any parent up to mount point /) remote: Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). $ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME  Procfile
- web: mix phx.</description>
+$ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mix remote: fatal: not a git repository (or any parent up to mount point /) remote: Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). $ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME Procfile
+web: mix phx.</description>
     </item>
     
     <item>
@@ -40,8 +40,8 @@ docker:pleroma github.com/ht164/pleroma-docker-compose
 検索したらこういうものがアップされていました。docker-composeで上げられてるの、非常にありがたい!
 $ git clone https://github.com/ht164/pleroma-docker-compose $ mkdir -p web/pleroma &amp;amp;&amp;amp; cd web/pleroma $ git clone https://git.pleroma.social/pleroma/pleroma.git . 大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。
 https://git.pleroma.social/pleroma/pleroma/wikis/home
- ./pleroma-docker-compose/web/pleroma
- $ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, 	adapter: Ecto.Adapters.Postgres, 	username: &amp;#34;pleroma&amp;#34;, 	password: &amp;#34;pleroma&amp;#34;, 	database: &amp;#34;pleroma_dev&amp;#34;, 	hostname: &amp;#34;db&amp;#34;, 	pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres  $ cd .</description>
+./pleroma-docker-compose/web/pleroma
+$ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, adapter: Ecto.Adapters.Postgres, username: &amp;#34;pleroma&amp;#34;, password: &amp;#34;pleroma&amp;#34;, database: &amp;#34;pleroma_dev&amp;#34;, hostname: &amp;#34;db&amp;#34;, pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres $ cd ../.. # ./pleroma-docker-compose $ docker-compose build $ docker-compose up -d $ docker ps 12345678 pleroma/pleroma pleroma-docker-compose_web_1 $ docker exec -it 12345678 /bin/sh &amp;gt; $ mix ecto.</description>
     </item>
     
   </channel>

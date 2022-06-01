@@ -37,7 +37,7 @@ svgの仕様は、今回はハマらなかったのですが(たまたま)、場
 demo : https://syui.github.io/svg-animation-particle-circle.css
 $ git clone https://github.com/syui/svg-animation-particle-circle.css $ cd !$:t $ open index.html 色とか透明度をアニメーションで調整してやると、いい感じになります。夢が広がりますね！
 最終的には以下のような形で落ち着きましたけど、悩みました。特徴は、scale(1,0.9)と90%のfillです。パーティクルの色は、html-svgに書いてあるので変更できます。
- .likeButton .syuiold { fill: #EF454A; } .likeButton.clicked .syuiold { fill: #EF454A; -webkit-animation: syuioldAnime 400ms; animation: syuioldAnime 400ms; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; } @keyframes syuioldAnime { 40% { fiil:#ef454a63; transform-origin:0 0 0; transform: scale(1,0.9) translate(-9%, 9%); -webkit-transform: scale(1,0.9) translate(-9%, 9%); } 50% { fill:#ef454ab8; transform-origin:0 0 0; transform: scale(1,0.9) translate(-7%, 7%); -webkit-transform: scale(1,0.</description>
+// マウスクリックからの変更 $(&amp;#34;.likeButton&amp;#34;).hover(function() { $(this).toggleClass(&amp;#34;clicked&amp;#34;); } </description>
     </item>
     
   </channel>

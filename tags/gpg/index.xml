@@ -38,7 +38,7 @@ https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
 この辺りの挙動がだいぶGitHubとLab間で違っているので色々と面倒でした。
 できれば匿名アドレスを使いたいのですが、GitLabでGPGをVerifiedにするにはそれは不可能で、なおかつ.gitconfigに設定したemailとGPGのメールアドレスが不一致を見ると今度はGitHubでUnverifiedになってしまいます。
 これは何が問題なのかというと以下のようにできないのが問題なのです。
-   Host Rep GPG Verified     GitHub 匿名 匿名 Yes   GitHub 匿名 実名 No   GitLab 匿名 匿名 No   GitLab 匿名 実名 Yes    全部実名で行う場合はどちらもYes.ですが、匿名で行う場合、別々のキーを用意するか、または実名キーを使用するかで面倒が生じます。私は、できれば同一のキーを使いたいと考えていますが、その場合はやはり実名アドレスを使うしかないでしょう。反対にキーを別々にしたとしても、一つは実名アドレスを使用するしか無く、この点において匿名を使用する意義が低下します。キーを調べれば一方に実名アドレスが使われている事がわかるからです。
+Host Rep GPG Verified GitHub 匿名 匿名 Yes GitHub 匿名 実名 No GitLab 匿名 匿名 No GitLab 匿名 実名 Yes 全部実名で行う場合はどちらもYes.ですが、匿名で行う場合、別々のキーを用意するか、または実名キーを使用するかで面倒が生じます。私は、できれば同一のキーを使いたいと考えていますが、その場合はやはり実名アドレスを使うしかないでしょう。反対にキーを別々にしたとしても、一つは実名アドレスを使用するしか無く、この点において匿名を使用する意義が低下します。キーを調べれば一方に実名アドレスが使われている事がわかるからです。
 また、もしキーを別々にしたとしても、新しい問題が発生します。それはgit commitを行う場合、つまり、GitHubでVerifiedを維持する方向でコミットを行うにはGitHubのリポジトリでわざわざgit config user.emailする必要があるのです。これは、.gitconfig [email]匿名の場合の話です。
 この辺り、非常に面倒くさくなっているのです。
 ということで、もはやGitHubとLab間でGPG認証を行う場合、匿名アドレスを使用するメリットが失われました。できれば匿名アドレスを使い続けたかったのですが、実名アドレスでキーを発行することにしました。本来なら秘匿アドレスで行うものではないのですが、しかし、そういったやり方ができないというか、やろうとするとかなり面倒なことになるので、少し残念です。</description>
@@ -51,8 +51,8 @@ https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
       
       <guid>https://syui.cf/blog/post/2017/06/07/gpg/</guid>
       <description>この処理によってパスフレーズを短縮可能。OSによってパスフレーズの短縮手法は異なる。
-$ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
- use-standard-socket pinentry-program /usr/local/bin/pinentry-mac </description>
+$ brew install gpg2 gpg-agent pinentry-mac ~/.gnupg/gpg-agent.conf
+use-standard-socket pinentry-program /usr/local/bin/pinentry-mac </description>
     </item>
     
     <item>
@@ -78,7 +78,7 @@ $ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
       <guid>https://syui.cf/blog/post/2017/04/01/gpg/</guid>
       <description>AURにPGP登録したこともあって簡潔に情報をまとめておきます。
 https://aur.archlinux.org/account/syui
-# GPG鍵の作成 $ gpg --gen-key  # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX  # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?
+# GPG鍵の作成 $ gpg --gen-key # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?
 $ gpg --keyserver pgp.nic.ad.jp --send-keys D6ABB386 $ gpg --send-keys D6ABB386 $ gpg --search-keys D6ABB386 $ gpg --refresh-keys git commit -Sするとエラーが出るのでハマった。パスフレーズを入力できないことが原因。
 $ echo &amp;#39;no-tty&amp;#39; &amp;gt;&amp;gt; ~/.gnupg/gpg.conf $ GPG_TTY=$(tty) $ export GPG_TTY </description>
     </item>

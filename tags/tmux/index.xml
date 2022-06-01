@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2017/05/27/tmux/</guid>
       <description>tmux-2.4は日本語周りだいぶおかしいですがpatchを公開してくれている方がいます。助かりますね、ありがとうございます。
-$ brew edit tmux  def patches  [  &amp;#34;https://gist.githubusercontent.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772/raw/fd87552e02f75013d65783493247315ca1754e8e/tmux-2.4-input.patch&amp;#34;,  &amp;#34;https://gist.githubusercontent.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772/raw/fd87552e02f75013d65783493247315ca1754e8e/tmux-2.4-screen-write.patch&amp;#34;,  ] end  $ tmux kill-server $ brew uninstall tmux $ brew install tmux -s https://gist.github.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772</description>
+$ brew edit tmux def patches [ &amp;#34;https://gist.githubusercontent.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772/raw/fd87552e02f75013d65783493247315ca1754e8e/tmux-2.4-input.patch&amp;#34;, &amp;#34;https://gist.githubusercontent.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772/raw/fd87552e02f75013d65783493247315ca1754e8e/tmux-2.4-screen-write.patch&amp;#34;, ] end $ tmux kill-server $ brew uninstall tmux $ brew install tmux -s https://gist.github.com/utahta/6f14dc33ec0700f3f2f224e0ce84c772</description>
     </item>
     
     <item>

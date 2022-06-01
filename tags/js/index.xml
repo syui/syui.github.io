@@ -19,7 +19,7 @@
 今日は、OAuth認証でAuthorizationURLのcodeを取得するのにページを作成した時の話。
 認証に必要なコードは承認をクリック後に飛ばされるURLに示されるんだけど、それをパースして表示したほうが分かりやすいので作りました。こういうやり方が正しいかはよく分かりません。
 https://github.com/syui/medigoのbranch:gh-pagesにあります。
-$ bower install purl jquery jQuery(function ($) { 	$.ajax({ 	async: true, 	cache: true, 	success: function(data) { 	var pel = document.getElementById(&amp;#39;param&amp;#39;) ; 	var url = $.url(window.location.href).param(); 	console.log(url.code); 	$(&amp;#39;#param&amp;#39;).text(url.code); 	} 	}); }); これでHTMLのdiv id=parmに表示されます。
+$ bower install purl jquery jQuery(function ($) { $.ajax({ async: true, cache: true, success: function(data) { var pel = document.getElementById(&amp;#39;param&amp;#39;) ; var url = $.url(window.location.href).param(); console.log(url.code); $(&amp;#39;#param&amp;#39;).text(url.code); } }); }); これでHTMLのdiv id=parmに表示されます。
 こういうテンプレート、どこかにあると思って探したけどなかった。一般的にはブラウザから値を取り出して処理するのが普通なのかもしれませんね。</description>
     </item>
     

@@ -93,11 +93,11 @@
 うーん、ここまで来ると、なんか自分の推しを、押しに押してる感じがして、ですね、ちょっとあれですね。なんか自分が望む結論を導くため、証拠をでっち上げ、自分にとって有利な証拠しか持ってこないやつみたいな感じになってるのかもしれんが、客観的に。
 ともあれ、最初から読み返してみたところ、当初は全く思いもしなかった四葉が花嫁である可能性が高いのかなとも思ったので、今回は、それについて書きました。
 まとめると、今後の展開予想としては、こんな感じです。
-  ニノか四葉のどちらか、おそらくニノだと思うけど、変装して風太郎にちょっかいを出す
-  五月は「男の人の見極め」のために風太郎がどう四葉を変えるのか見ているんじゃないだろうか。それが成功したとき恋愛に発展する可能性。そして、四葉も時期を同じくするかも。
-  四葉と五月の花嫁戦争へ(そんな修羅場になるとは、今のとこちょっと考えられないけどね
-  この場合、花嫁は、五月が60%で四葉が40%くらいな気がする
-  以上です。</description>
+ニノか四葉のどちらか、おそらくニノだと思うけど、変装して風太郎にちょっかいを出す
+五月は「男の人の見極め」のために風太郎がどう四葉を変えるのか見ているんじゃないだろうか。それが成功したとき恋愛に発展する可能性。そして、四葉も時期を同じくするかも。
+四葉と五月の花嫁戦争へ(そんな修羅場になるとは、今のとこちょっと考えられないけどね
+この場合、花嫁は、五月が60%で四葉が40%くらいな気がする
+以上です。</description>
     </item>
     
     <item>
@@ -196,8 +196,8 @@ https://www.nao.ac.jp/news/science/2019/20190410-eht.html
       
       <guid>https://syui.cf/blog/post/2018/12/13/comic/</guid>
       <description>screencapture -hで大体わかります。今はwebで読める漫画とか多いですから、ついでに保存用として使えます。
- $ ./t.zsh 19
- #!/bin/zsh case $1 in 	&amp;#34;&amp;#34;)	pg=18	;; 	*)	pg=$1	;; esac tl=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get NAME of active tab of first window&amp;#39; | cut -d &amp;#39; &amp;#39; -f -1` ul=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get URL of active tab of first window&amp;#39;` ul=`echo ${ul:t} | cut -d = -f 4-` fn=${tl}_${ul} hd=${0:a:h} td=$hd/$ul mkdir -p $td echo ${fn} cd $hd  w=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get the bounds of the first window&amp;#39; | tr -d &amp;#39; &amp;#39;` osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to activate&amp;#39; id=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get id of every window&amp;#39;` for ((i=1;i&amp;lt;=${pg};i++ )) do 	osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to activate&amp;#39; 	if [ $i -le 9 ];then 	f=$td/0${i}.</description>
+$ ./t.zsh 19
+#!/bin/zsh case $1 in &amp;#34;&amp;#34;)	pg=18	;; *)	pg=$1	;; esac tl=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get NAME of active tab of first window&amp;#39; | cut -d &amp;#39; &amp;#39; -f -1` ul=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get URL of active tab of first window&amp;#39;` ul=`echo ${ul:t} | cut -d = -f 4-` fn=${tl}_${ul} hd=${0:a:h} td=$hd/$ul mkdir -p $td echo ${fn} cd $hd w=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get the bounds of the first window&amp;#39; | tr -d &amp;#39; &amp;#39;` osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to activate&amp;#39; id=`osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to get id of every window&amp;#39;` for ((i=1;i&amp;lt;=${pg};i++ )) do osascript -e &amp;#39;tell application &amp;#34;Google Chrome&amp;#34; to activate&amp;#39; if [ $i -le 9 ];then f=$td/0${i}.</description>
     </item>
     
   </channel>

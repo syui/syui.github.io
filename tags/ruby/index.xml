@@ -17,10 +17,10 @@
       <description>OctopressをWerckerでビルド、デプロイしようとした時にハマった話(何度目?)。
 (1) なぜかdeployのworkflowsを作らないとbuild(rake gen)が通らない、原因不明(意味不明)
 (2) `autodetect&amp;rsquo;: Could not find a JavaScript runtime.
- Gemfile
- gem &amp;#39;therubyracer&amp;#39;, :platforms =&amp;gt; :ruby (3) Liquid Exception: invalid byte sequence in US-ASCII in foo.html
- wercker.yml
- - install-packages: packages: git ssh-client locales - script: echo &amp;#39;en_US UTF-8&amp;#39; &amp;gt; /etc/locale.gen locale-gen en_US.UTF-8 export LANG=en_US.UTF-8 export LANGUAGE=en_US:en export LC_ALL=en_US.UTF-8 もう触りたくない。</description>
+Gemfile
+gem &amp;#39;therubyracer&amp;#39;, :platforms =&amp;gt; :ruby (3) Liquid Exception: invalid byte sequence in US-ASCII in foo.html
+wercker.yml
+- install-packages: packages: git ssh-client locales - script: echo &amp;#39;en_US UTF-8&amp;#39; &amp;gt; /etc/locale.gen locale-gen en_US.UTF-8 export LANG=en_US.UTF-8 export LANGUAGE=en_US:en export LC_ALL=en_US.UTF-8 もう触りたくない。</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
 自分の環境ではtmuxinatorはpane,layoutでmain-verticalが思ったように動作しない。
 で、これをtmux list-windowの値にするんだけど、単にペインを作るだけでは上手く動作せず、一度ペインの幅を動かした後でないと機能しない。この点は割とハマった。
 あとは、以下のような感じでスクリプトを動かすんだけど、send-keysなども便利に使える。
-paneX: 	- tmux select-pane -t 2; tmux send-keys C-l; tmux select-pane -t 1; tmux send-keys B </description>
+paneX: - tmux select-pane -t 2; tmux send-keys C-l; tmux select-pane -t 1; tmux send-keys B </description>
     </item>
     
   </channel>

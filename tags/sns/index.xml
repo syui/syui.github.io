@@ -16,14 +16,14 @@
       <guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid>
       <description>今回は、Herokuで立てる分散SNSの話です。
 アドベントカレンダーに参加しています。
-  Heroku Advent Calendar 2019
-  分散SNS Advent Calendar 2019
-  Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
+Heroku Advent Calendar 2019
+分散SNS Advent Calendar 2019
+Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
 Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPaaSだと思っています。今までOpenShiftやIBM Cloud(Bluemix)など様々なサービスを試してきましたが、その中では総合的に見てHerokuが一番でした。(あくまで個人的見解
 さて、そんなHerokuですが、サービスとしての認知度は高く、定評があり、人気もあるので、知っている人は多いかと思います。
 ですが、Herokuがどういった会社なのかを知る人は少ないと思うので、今回は少しだけそのへんを考えてみたいと思います。
 まず下のページを読んでみてください。
- Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description>
+Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description>
     </item>
     
     <item>
@@ -118,7 +118,7 @@ https://mstdn.syui.cf/
 mastodonの使い方だけど、基本的にはdockerで動かす形になる。
 簡単に言うとこちらのリポジトリtootsuite/mastodonを見ながら使用されている技術などを読み解きながらHeroku Deployして色々やる。
 まずは確認から。なんとなく使われてる技術、どうやって動いてるのかなどをゆるく把握する。
-# https://github.com/tootsuite/mastodon/blob/master/README.md $ docker-compose build $ docker-compose run --rm web rake secret ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行  $ cp .env.production.sample .env.production $ vim !$ ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。  $ docker-compose run --rm web rails db:migrate $ docker-compose run --rm web rails assets:precompile $ docker-compose up  # LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する) $ curl localhost:3000 次に、Heroku Deployを実行してみる。簡単に.</description>
+# https://github.com/tootsuite/mastodon/blob/master/README.md $ docker-compose build $ docker-compose run --rm web rake secret ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行 $ cp .env.production.sample .env.production $ vim !$ ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。 $ docker-compose run --rm web rails db:migrate $ docker-compose run --rm web rails assets:precompile $ docker-compose up # LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する) $ curl localhost:3000 次に、Heroku Deployを実行してみる。簡単に.</description>
     </item>
     
   </channel>

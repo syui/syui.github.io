@@ -15,9 +15,9 @@
       
       <guid>https://syui.cf/blog/post/2019/01/30/ascii/</guid>
       <description>location mapをcliからqueryして表示したいと思ったので、調べてみたら、面白そうなツールがいくつか見つかりました。
-$ whois example.com $ nslookup exmaple.com 8.8.8.8 #google dns server  # https://github.com/yaronn/blessed-contrib $ git clone https://github.com/yaronn/blessed-contrib.git $ cd blessed-contrib $ node examples/map-query-location.js `curl -sL ipinfo.io/8.8.8.8/loc`  # https://github.com/rastapasta/mapscii $ sudo npm install -g mapscii $ mapscii mapsciiはsecrity的にあまりよろしくなさそうな感じですかね。
- blessed-contrib/examples/map-query-location.js
- var blessed = require(&amp;#39;blessed&amp;#39;)  , contrib = require(&amp;#39;../&amp;#39;)  , screen = blessed.screen()  , map = contrib.map({label: &amp;#39;World Map&amp;#39;})  , loc = process.argv[2]  , rLoc = loc.</description>
+$ whois example.com $ nslookup exmaple.com 8.8.8.8 #google dns server # https://github.com/yaronn/blessed-contrib $ git clone https://github.com/yaronn/blessed-contrib.git $ cd blessed-contrib $ node examples/map-query-location.js `curl -sL ipinfo.io/8.8.8.8/loc` # https://github.com/rastapasta/mapscii $ sudo npm install -g mapscii $ mapscii mapsciiはsecrity的にあまりよろしくなさそうな感じですかね。
+blessed-contrib/examples/map-query-location.js
+var blessed = require(&amp;#39;blessed&amp;#39;) , contrib = require(&amp;#39;../&amp;#39;) , screen = blessed.screen() , map = contrib.map({label: &amp;#39;World Map&amp;#39;}) , loc = process.argv[2] , rLoc = loc.split(&amp;#34;,&amp;#34;) screen.append(map) map.addMarker({&amp;#34;lat&amp;#34; : rLoc[0], &amp;#34;lon&amp;#34; : rLoc[1], color: &amp;#34;red&amp;#34;, char: &amp;#34;X&amp;#34; }) screen.</description>
     </item>
     
   </channel>

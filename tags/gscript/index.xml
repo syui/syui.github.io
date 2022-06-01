@@ -18,8 +18,9 @@
 ハマりどころが多かったので、ポイントだけ。
 まず、公開時(リリース時)は、必ずNewでバージョンをつけないと、更新されないみたいです。空にした場合、2,3,4と自動で番号が付きます。同じバージョンを選ぶと、内容は保存されているみたいですが、デプロイされていない状態だと思われます。
 次に、curlで、-X POSTが機能しないので、書き方が悪いのかなあと思っていたら、本当に機能しないみたいです。機能するポストは以下。
-$ curl -L -d &amp;#34;&amp;#34; function doPost(e) {  var contents = e.postData.contents;  var d = JSON.parse(contents);  var spanish = LanguageApp.translate(d.txt,  &amp;#39;en&amp;#39;, &amp;#39;ja&amp;#39;, {contentType: &amp;#39;html&amp;#39;});  Logger.log(spanish);  return ContentService.createTextOutput(spanish); }  //function doGet(e) { // return ContentService.createTextOutput(&amp;#34;doGet!!&amp;#34;); //} これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。
-# post req $ curl -L -d &amp;#34;{\&amp;#34;txt\&amp;#34;:\&amp;#34;hello\&amp;#34;}&amp;#34; https://script.google.com/macros/s/${APP_ID}/exec こんにちは  # get req $ curl -L https://script.google.com/macros/s/${APP_ID}/exec doGet!</description>
+$ curl -L -d &amp;#34;&amp;#34; function doPost(e) { var contents = e.postData.contents; var d = JSON.parse(contents); var spanish = LanguageApp.translate(d.txt, &amp;#39;en&amp;#39;, &amp;#39;ja&amp;#39;, {contentType: &amp;#39;html&amp;#39;}); Logger.log(spanish); return ContentService.createTextOutput(spanish); } //function doGet(e) { // return ContentService.createTextOutput(&amp;#34;doGet!!&amp;#34;); //} これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。
+# post req $ curl -L -d &amp;#34;{\&amp;#34;txt\&amp;#34;:\&amp;#34;hello\&amp;#34;}&amp;#34; https://script.google.com/macros/s/${APP_ID}/exec こんにちは # get req $ curl -L https://script.google.com/macros/s/${APP_ID}/exec doGet!! LanguageApp.translateのパラメーターは、text, sourceLanguage, targetLanguageとなっています。言語を変えたい場合は変えられるようにしておくほうがいいかもしれません。
+LanguageApp.translate(d.txt, d.src, d.targ); curl -L &amp;#34;{\&amp;#34;txt\&amp;#34;:\&amp;#34;こんにちは\&amp;#34;,\&amp;#34;src\&amp;#34;:\&amp;#34;ja\&amp;#34;,\&amp;#34;targ\&amp;#34;:\&amp;#34;en\&amp;#34;}&amp;#34; ということで、実際に、archlinux.</description>
     </item>
     
   </channel>

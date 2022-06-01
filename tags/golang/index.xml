@@ -19,8 +19,8 @@ app keyが入れてあるので、releaseからdlしてください。twitter ap
 https://github.com/syui/twg/releases
 ciはtravisからgh-actionsに移行しましたが、またハマりました。
 goxでbuildする際に、darwin/386はunsuportのerrが出るので、optionで出力を指定してやらなければなりません。goは1.14からdarwin/386がunsuportされ、1.16では戻ったみたいですけど、errが出ます。
---&amp;gt; darwin/386 error: exit status 2 Stderr: cmd/go: unsupported GOOS/GOARCH pair darwin/386  make: *** [build] Error 1 その他、tagからverを抜き出すのは、env: REF=${{ github.ref }}, ${REF##*/}がいいです。
-on:  push:  branches:  - master  create:  tags:  - v*.*.*  jobs:  release: # job_id  name: Build  runs-on: ubuntu-latest  steps:   - name: Set up Go 1.16  uses: actions/setup-go@v1  with:  version: 1.</description>
+--&amp;gt; darwin/386 error: exit status 2 Stderr: cmd/go: unsupported GOOS/GOARCH pair darwin/386 make: *** [build] Error 1 その他、tagからverを抜き出すのは、env: REF=${{ github.ref }}, ${REF##*/}がいいです。
+on: push: branches: - master create: tags: - v*.*.* jobs: release: # job_id name: Build runs-on: ubuntu-latest steps: - name: Set up Go 1.16 uses: actions/setup-go@v1 with: version: 1.16 id: go - name: Check out code into the Go module directory uses: actions/checkout@master - name: Build env: GO111MODULE: on GOPATH: /home/runner/work/ GITHUB_TOKEN: ${{ secrets.</description>
     </item>
     
     <item>
@@ -30,8 +30,8 @@ on:  push:  branches:  - master  create:  tags:  - v*.*.*  jobs:  release: # job
       
       <guid>https://syui.cf/blog/post/2020/05/17/golang/</guid>
       <description>shellのcatでは、github-apiのpostでjson errorが出る場合があったので、xqにtxt, mdなどのファイルをjsonのbodyに入れて出力するコマンドを追加してみました。
-$ xq j ./index.md {&amp;#34;body&amp;#34;:&amp;#34;+++\ndate = \&amp;#34;2020-05-17JST\&amp;#34;\ntags = [\&amp;#34;golang\&amp;#34;]\ntitle = \&amp;#34;\&amp;#34;\nslug = \&amp;#34;golang\&amp;#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n$xq j ./index.md\n```\n&amp;#34;} これでgh-actionsに以下のような書き方ができます。
-$ curl -X POST \  -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \  -d &amp;#34;`xq j index.txt`&amp;#34; \  ${URL} github-apiのpostは、titleなども加えられるのでbodyだけでは応用性は低いですが、個人的に使わない機能を追加してもしょうがないので、必要最小限で。
+$ xq j ./index.md {&amp;#34;body&amp;#34;:&amp;#34;+++\ndate = \&amp;#34;2020-05-17JST\&amp;#34;\ntags = [\&amp;#34;golang\&amp;#34;]\ntitle = \&amp;#34;\&amp;#34;\nslug = \&amp;#34;golang\&amp;#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n$ xq j ./index.md\n```\n&amp;#34;} これでgh-actionsに以下のような書き方ができます。
+$ curl -X POST \ -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \ -d &amp;#34;`xq j index.txt`&amp;#34; \ ${URL} github-apiのpostは、titleなども加えられるのでbodyだけでは応用性は低いですが、個人的に使わない機能を追加してもしょうがないので、必要最小限で。
 どんどんと、なんのツールかわからなくなってきましたね！
 &amp;hellip;でも新しく作るのとか、分けるのとか面倒なんだよなあ。</description>
     </item>
@@ -44,9 +44,9 @@ $ curl -X POST \  -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \  -
       <guid>https://syui.cf/blog/post/2019/12/25/golang-xq/</guid>
       <description>xqはxmlをjsonに変換するコマンドラインツールです。必要があったので必要な分だけ作ったやつ。
 https://github.com/syui/xq
-$ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4  $ curl -sLO https://syui.cf/blog/index.xml  $ xq ./index.xml | jq . ですが、今回、その名の通り[q]ueryできるようにしてみました、一部ですが。
+$ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4 $ curl -sLO https://syui.cf/blog/index.xml $ xq ./index.xml | jq . ですが、今回、その名の通り[q]ueryできるようにしてみました、一部ですが。
 具体的には、latestのデータをsub-commandで抽出できるようになります。
-$ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/  $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000  $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 これも単にArchLinuxJP/archtrans-jpのjq依存を解消したかったので追加しただけだったりします。
+$ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 $ xq u ./index.xml Tue, 24 Dec 2019 00:00:00 +0000 これも単にArchLinuxJP/archtrans-jpのjq依存を解消したかったので追加しただけだったりします。
 あと、xmlのpublish(latest)とupdateって違うんですね。勘違いしてた。</description>
     </item>
     
@@ -57,7 +57,7 @@ $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/  $ xq p ./index
       
       <guid>https://syui.cf/blog/post/2017/04/10/golang/</guid>
       <description>なぜか，サービスにこのクライアントを入れてイベントをPublishするとなぜかData部分のJSONがbase64エンコードされている……. 結論から言うと，Go1.8未満のバージョンで json.RawMessage を json.Marshal するとbase64エンコードされてしまうのが原因．
- http://blog.upamune.com/entry/2017/04/07/165658
+http://blog.upamune.com/entry/2017/04/07/165658
 これに類似する問題、ちょっとハマったのでメモ。</description>
     </item>
     
@@ -85,7 +85,7 @@ https://github.com/syui/medigo/releases
       <guid>https://syui.cf/blog/post/2017/04/07/golang/</guid>
       <description>medium clientをgolangで書いた。
 https://github.com/syui/medigo
-$ cd $GOPATH/bin $ curl -LO https://github.com/syui/medigo/releases/download/0.1/darwin_amd64_medigo $ mv darwin_amd64_medigo medigo $ chmod +x medigo $ export PATH=$PATH:$GOPATH/bin  # 最初はOAuth認証のためブラウザが開く $ medigo   $ medigo h  COMMANDS:  post, p carte post  sub-command : draft(d), public(p)  key, k token json  sub-command : AccessToken(a), RefreshToken(r), SelfToken(s)  user, u user info  oauth, o get oauth-access-token  self, s get self-access-token  refresh, r refresh access-token  help, h Shows a list of commands or help for one command 前回は試せなかったので、設定ファイルから読み込む方法でclient_idなどを読み込むようにしてみたりとか色々。エディタとかと連携したら面白そうだけどやってない。</description>
+$ cd $GOPATH/bin $ curl -LO https://github.com/syui/medigo/releases/download/0.1/darwin_amd64_medigo $ mv darwin_amd64_medigo medigo $ chmod +x medigo $ export PATH=$PATH:$GOPATH/bin # 最初はOAuth認証のためブラウザが開く $ medigo $ medigo h COMMANDS: post, p carte post sub-command : draft(d), public(p) key, k token json sub-command : AccessToken(a), RefreshToken(r), SelfToken(s) user, u user info oauth, o get oauth-access-token self, s get self-access-token refresh, r refresh access-token help, h Shows a list of commands or help for one command 前回は試せなかったので、設定ファイルから読み込む方法でclient_idなどを読み込むようにしてみたりとか色々。エディタとかと連携したら面白そうだけどやってない。</description>
     </item>
     
     <item>
@@ -100,7 +100,7 @@ https://github.com/syui/ipinfo/releases
 このツールは名前の通り、ipinfo.ioを叩く機能と、同時にdarksky.ioで天候や気温などを取得できる感じになっている。
 ちょっと修正して挙動をよりシンプルにした。
 使い方としては基本的にバイナリをダウンロードしてリネーム、実行権限を付与という感じで使う。
-$ cd $GOPATH/bin $ curl -LO https://github.com/syui/ipinfo/releases/download/0.1/darwin_amd64_ipinfo $ mv darwin_amd64_ipinfo ipinfo $ chmod +x ipinfo $ export PATH=$PATH:$GOPATH/bin   $ ipinfo 192.30.252.153   $ ./ipinfo h  COMMANDS:  ipinfo, i ipinfo.io  sub-command : ip(i), country(c), city(ci), loc(l), org(o)  ip grobal ip address  loc location gps  sky, s darksky.io  sub-command : info(i)  all, a json  help, h Shows a list of commands or help for one command   $ .</description>
+$ cd $GOPATH/bin $ curl -LO https://github.com/syui/ipinfo/releases/download/0.1/darwin_amd64_ipinfo $ mv darwin_amd64_ipinfo ipinfo $ chmod +x ipinfo $ export PATH=$PATH:$GOPATH/bin $ ipinfo 192.30.252.153 $ ./ipinfo h COMMANDS: ipinfo, i ipinfo.io sub-command : ip(i), country(c), city(ci), loc(l), org(o) ip grobal ip address loc location gps sky, s darksky.io sub-command : info(i) all, a json help, h Shows a list of commands or help for one command $ .</description>
     </item>
     
     <item>
@@ -112,8 +112,8 @@ $ cd $GOPATH/bin $ curl -LO https://github.com/syui/ipinfo/releases/download/0.1
       <description>https://github.com/syui/ipinfo
 golangで書いた。色々と試したいこともあったので、ごちゃごちゃしている。
 きっかけは、ある記事でお天気APIをgoで使うチュートリアルみたいなものがあって、続きはあなたが書きましょう、APIでオススメはこれみたいなのが紹介されていたので。 http://postd.cc/how-i-start-go/
- 最終コードをgithubにフォークしましょう。別のweatherProviderを追加してみましょう（ヒント:forecast.ioはお勧めです）。
- 適当に機能を追加して作った。具体的にはIPアドレスから地域を取得し、その地域を元にforecast.io -&amp;gt; https://darksky.net/dev/で天気を取得する感じ。あとは、これをコマンド化してオプションで呼ぶようにした。IPアドレスやAPIの問い合わせは時間がかかるので、オプション無しコマンドはヘルプのみ呼び出すようにしてる。
+最終コードをgithubにフォークしましょう。別のweatherProviderを追加してみましょう（ヒント:forecast.ioはお勧めです）。
+適当に機能を追加して作った。具体的にはIPアドレスから地域を取得し、その地域を元にforecast.io -&amp;gt; https://darksky.net/dev/で天気を取得する感じ。あとは、これをコマンド化してオプションで呼ぶようにした。IPアドレスやAPIの問い合わせは時間がかかるので、オプション無しコマンドはヘルプのみ呼び出すようにしてる。
 自分では使わないので、内容的には試したいことをやってるだけみたいな感じになってる。
 以上</description>
     </item>

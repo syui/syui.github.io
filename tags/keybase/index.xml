@@ -26,7 +26,7 @@
 どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが
 $ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。
 keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由
- もっと詳しく</description>
+もっと詳しく</description>
     </item>
     
     <item>
