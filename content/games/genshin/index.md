@@ -4,7 +4,7 @@ lastmod = "2022-05-29"
 tags = ["genshin","game"]
 title = "原神"
 slug = "genshin"
-header_image = "/games/genshin.png"
+header_image = "/games/genshin.jpg"
 +++
 
 <style>
@@ -63,10 +63,11 @@ header_image = "/games/genshin.png"
 |1| 鍾離|
 |2| 雷電|
 |3| 万葉|
-|4| ベネット(1凸)、行秋(完凸)|
-|5| 綾華|
+|4| 綾華|
 
 ![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220424_0001.jpg)
+
+行秋(完凸)とベネット(1凸)は配布、交換、すり抜けで狙う方針。
 
 ### 無課金のガチャ歴
 
@@ -146,6 +147,8 @@ header_image = "/games/genshin.png"
 
 パイモンが使えるようになったら楽しそうだし、楽しいことをするのがゲームですから、私はそんな風に妄想しています。
 
+<a href="/games/genshin/genshin_chara_paimon.jpg"><img src="/games/genshin/genshin_chara_paimon.jpg"></a>
+
 ### 基本的な考え
 
 原神で会心率、会心ダメが重要だと思うのは、なぜでしょう。
@@ -176,17 +179,15 @@ header_image = "/games/genshin.png"
 
 ### 聖遺物を厳選するタイミング
 
-聖遺物厳選は、基本的に必要ありません。自己満足の部類であるため厳選するタイミングはやることがなくなった時点が最適です。
+聖遺物厳選は、基本的に必要ありません。自己満足の部類であるため厳選するタイミングは、やることがなくなった時点が最適です。
 
 あるいは基準を下げて厳選し、早めに終えるのが得策だと思います。
 
-今後も聖遺物の種類が増えることが予想され、キャラの最適な聖遺物も変化していきます。
+今後も聖遺物の種類が増えることが予想され、キャラに最適な聖遺物も変化していきます。
 
-ですから、聖遺物厳選が無駄になる可能性も高い。
+狙っているキャラのモラや鉱石、レベル本や天賦本が不足することが予想されるなら、先にそちらを集めるといいでしょう。
 
-したがって、狙っているキャラのモラや鉱石、レベル本や天賦本が不足することが予想されるなら、先にそちらを集めるといいでしょう。
-
-私は、早めに厳選を終わらせ、聖遺物周回に樹脂を消費することを極力、控えるようにしています。
+私は、早めに厳選を終わらせ、聖遺物周回に樹脂を消費することは極力、控えるようにしています。
 
 ### 育成中のキャラ
 
@@ -214,39 +215,31 @@ header_image = "/games/genshin.png"
 
 ただ、武器の護摩を装備すると、会心系は目標値に到達する。けど、実戦では、チャージ効率のほうが総合的に見て強いと思う。
 
-#### ノエル
-
-<a href="/games/genshin/genshin_chara_noelle.png"><img src="/games/genshin/genshin_chara_noelle.png"></a>
-
-ノエルは、2000~8000くらいのダメージを出せるので、アタッカーが死んだとき、なんとか乗り切れるようになってる。
-
-#### バーバラ
-
-<a href="/games/genshin/genshin_chara_barbara.png"><img src="/games/genshin/genshin_chara_barbara.png"></a>
-
-海染で爆発が14000くらいのダメージ入る。武器も金泊なので相性がいいと思う。
-
-#### 香菱
-
-<a href="/games/genshin/genshin_chara_xiangling.png"><img src="/games/genshin/genshin_chara_xiangling.png"></a>
-
-4凸が強すぎる。ただ、スキルが弱く、かつ爆発のクールタイムは長いため、最強キャラとは言えないのかもしれない。
-
 #### 鍾離
 
 <a href="/games/genshin/genshin_chara_zhongli.png"><img src="/games/genshin/genshin_chara_zhongli.png"></a>
-
-鍾離は、ガチャのピックアップで3人目に引いたキャラ。今まで回したガチャは`1:クレー, 2:雷電, 3:鍾離`となっている。
 
 無凸でも破格の性能で、なおかつシールドは腐ることがないと考えます。シールドが腐ること、それは岩元素が腐ることと等しく、仮にそのような状況に至るなら、それは原神に配信されているコンテンツに間違いがあるのだと思う。なぜなら、原神のコンセプトが全元素の活躍にあると思うから。
 
 したがって、この場合、コンテンツのバランス調整が間違っているということになると思う。そして、それは後々修正される可能性が高いものになりそう。
 
+#### ウェンティ
+
+<a href="/games/genshin/genshin_chara_venti.png"><img src="/games/genshin/genshin_chara_venti.png"></a>
+
+修正 :
+
+<a href="/games/genshin/genshin_chara_venti_fix.jpg"><img src="/games/genshin/genshin_chara_venti_fix.jpg"></a>
+
+#### 綾華
+
+<a href="/games/genshin/genshin_chara_ayaka.png"><img src="/games/genshin/genshin_chara_ayaka.png"></a>
+
 #### 甘雨
 
 <a href="/games/genshin/genshin_chara_ganyu.png"><img src="/games/genshin/genshin_chara_ganyu.png"></a>
 
-甘雨は、自分にとって2人目のアタッカー。`破魔の弓`をもたせてる。会心率70%, 会心ダメ200が目標。
+`破魔の弓`をもたせてる。会心率70%, 会心ダメ200が目標。結局あまり使っていない尾で、自分には弓キャラは合わないと思った。
 
 修正:
 
@@ -262,15 +255,13 @@ header_image = "/games/genshin.png"
 
 <a href="/games/genshin/genshin_chara_bennett.png"><img src="/games/genshin/genshin_chara_bennett.png"></a>
 
-最強のバッファー、ヒラー。多数の役割をこなすキャラは強いし、ベネットも例外ではない。
+最強のバッファー&ヒラー。多数の役割をこなすキャラは強いし、ベネットも例外ではない。
 
-#### ウェンティ
+#### 香菱
 
-<a href="/games/genshin/genshin_chara_venti.png"><img src="/games/genshin/genshin_chara_venti.png"></a>
+<a href="/games/genshin/genshin_chara_xiangling.png"><img src="/games/genshin/genshin_chara_xiangling.png"></a>
 
-#### 綾華
-
-<a href="/games/genshin/genshin_chara_ayaka.png"><img src="/games/genshin/genshin_chara_ayaka.png"></a>
+4凸が強すぎる。ただ、スキルが弱く、かつ爆発のクールタイムは長いため、最強キャラとは言えないのかもしれない。
 
 https://shinshin.moe
 
@@ -542,9 +533,9 @@ LVに関しても同じことが言えます。もちろん、経験値が無駄
 
 これらのキャラクターデザインにより神属性持ちのキャラの性能は替えがきかないものになりやすい。替えがきかないので、今後も使われ続けることが予想されます。
 
-王冠は使い続けると予想できるキャラに使うべきです。
+王冠は今後も使い続けることが予想されるキャラに使うべきです。
 
-したがって、王冠は必然的に神属性持ちのキャラに使うのが一番良い考えます。
+したがって、必然的に神属性持ちのキャラに使うのが一番良い考えます。
 
 次の基準は、クールタイムと元素タイプです。
 
@@ -572,13 +563,15 @@ LVに関しても同じことが言えます。もちろん、経験値が無駄
 
 それ以外でいうと、やはり、神属性持ちのキャラ、そのキャラ特有の性能に王冠を使っていくのが良いと思います。
 
+それでも一応、3つは残しておきましょう。何かあったときのために。
+
 私は、その方針で強化していこうと考えています。
 
 |名前|通常|元素スキル|元素爆発|
 |---|---|---|---|
 |雷電|x|o|o|
-|鍾離|x|o|o|
 |ウェンティ|x|o|o|
+|鍾離|x|o|o|
 |万葉|x|o|o|
 
 必要最小限 :
@@ -586,8 +579,8 @@ LVに関しても同じことが言えます。もちろん、経験値が無駄
 |名前|通常|元素スキル|元素爆発|
 |---|---|---|---|
 |雷電|x|x|o|
-|鍾離|x|o|x|
 |ウェンティ|x|x|o|
+|鍾離|x|o|x|
 |万葉|x|x|o|
 
 個人的には、元素爆発より元素スキルのほうが使用頻度が高いので、元素スキルにも王冠を使っていく予定です。

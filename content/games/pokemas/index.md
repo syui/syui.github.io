@@ -4,7 +4,7 @@ lastmod = "2022-05-20"
 tags = ["pokemas","pokemon","game"]
 title = "Pokemon Masters"
 slug = "pokemas"
-header_image = "/games/pokemas.png"
+header_image = "/games/pokemas.jpg"
 +++
 
 <style>
@@ -101,6 +101,12 @@ https://pokemonmasters.pokemongo-raku.com/posts/4602
 まずはレッドの`勝利への戦略`をNにかけます。HPが減ってきたら`キズぐすり`を使い、技ポイントが減ってきたら、ダイマックスの`キョダイサイセイ`という流れ。これ地味にダメージがでかいので、`勝利への戦略`が余っている場合は、レッドに使うのもありです。
 
 グラードンの晴れがあるうちは、レシラムで攻撃します。晴れがなくなり、かつ両脇が倒れた時点で、グラードンで戦うと良いでしょう。
+
+### チャンピオンバトル
+
+基本的には、速攻か毒殺を選択すればいいと思います。
+
+![](/games/pokemas/pokemas_03.png)
 
 ### 楽曲開放
 
