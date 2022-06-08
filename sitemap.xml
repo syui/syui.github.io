@@ -3,15 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2022-06-05T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/git/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/gitea/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/06/08/gitea/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/heroku/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2022-06-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/06/05/genshin/</loc>
@@ -528,9 +540,6 @@
     <lastmod>2021-08-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/08/14/bitwarden/</loc>
-    <lastmod>2021-08-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/heroku/</loc>
     <lastmod>2021-08-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/keepass/</loc>
@@ -1602,9 +1611,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2019/12/07/vmlinuz/</loc>
     <lastmod>2019-12-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/git/</loc>
-    <lastmod>2019-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2019/12/06/gitea/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>

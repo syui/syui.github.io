@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 05 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://syui.cf/tags/git/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitea</title>
+      <link>https://syui.cf/tags/gitea/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/gitea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://syui.cf/tags/heroku/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>genshin</title>
       <link>https://syui.cf/tags/genshin/</link>
@@ -378,15 +405,6 @@
     </item>
     
     <item>
-      <title>heroku</title>
-      <link>https://syui.cf/tags/heroku/</link>
-      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/heroku/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>keepass</title>
       <link>https://syui.cf/tags/keepass/</link>
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
@@ -671,15 +689,6 @@
       <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/weechat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://syui.cf/tags/git/</link>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/git/</guid>
       <description></description>
     </item>
     
