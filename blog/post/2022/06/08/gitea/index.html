@@ -114,7 +114,7 @@
 <p><a href="https://git.syui.cf/syui">https://git.syui.cf/syui</a></p>
 <p>まず、メンテナンス後にherokuのpgsqlがwebとcliで情報が違ってたので、cliを参考にすること。</p>
 <p>app.iniのdb情報を修正すれば動くと思う。</p>
-<p>ただ、db(recode)がいっぱいになりかけてたし、updateもしたかったので、resetしてからdeployすることに。</p>
+<p>ただ、db(record)がいっぱいになりかけてたし、updateもしたかったので、resetしてからdeployすることに。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/go-gitea/gitea
 </span></span><span style="display:flex;"><span>$ cd gitea
 </span></span><span style="display:flex;"><span>$ vim docker-compose.yml 
