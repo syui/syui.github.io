@@ -112,32 +112,32 @@
 		<p>今回、写真が増えてきたので、ページを作ったのですが、その際、hugoのresourceを使ってみました。</p>
 <p><a href="/photo">/photo</a></p>
 <p>dir構造は以下の通り。<code>content/photo/</code>以下に画像を置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>content/photo
-</span></span><span style="display:flex;"><span>├── figure.jpg
-</span></span><span style="display:flex;"><span>├── illust.jpg
-</span></span><span style="display:flex;"><span>├── index.md
-</span></span><span style="display:flex;"><span>├── pokecard.jpg
-</span></span><span style="display:flex;"><span>└── sticker.jpg
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:/content/photo/index.md" data-lang="html:/content/photo/index.md"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>title: &#34;photo | syui.cf&#34;
-</span></span><span style="display:flex;"><span>resources:
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> src: &#39;*.jpg&#39;
-</span></span><span style="display:flex;"><span>type: &#34;photo&#34;
-</span></span><span style="display:flex;"><span>---
-</span></span></code></pre></div><p>それを<code>layout/photo/single.html</code>でresourceを使って取得。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/photo/single.html" data-lang="html:layout/photo/single.html"><span style="display:flex;"><span>{{ with .Resources.Match &#34;*.jpg&#34; }}
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Carousel__slide&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>	{{ range . }}
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .RelPermalink }}&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .RelPermalink }}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;480&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
-</span></span><span style="display:flex;"><span>	{{ end }}
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>{{ end }}
-</span></span></code></pre></div><p>以下のような感じで取得してもいいらしい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ .Resources.ByType &#34;image&#34; }}
-</span></span><span style="display:flex;"><span>{{ .Page.Resources.ByType &#34;image&#34; }}
-</span></span></code></pre></div><p>でも、正直、分かりづらかったり、思ったように動かなかったりするかも。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">content/photo
+├── figure.jpg
+├── illust.jpg
+├── index.md
+├── pokecard.jpg
+└── sticker.jpg
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:/content/photo/index.md" data-lang="html:/content/photo/index.md">---
+title: &#34;photo | syui.cf&#34;
+resources:
+<span style="color:#66d9ef">-</span> src: &#39;*.jpg&#39;
+type: &#34;photo&#34;
+---
+</code></pre></div><p>それを<code>layout/photo/single.html</code>でresourceを使って取得。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/photo/single.html" data-lang="html:layout/photo/single.html">{{ with .Resources.Match &#34;*.jpg&#34; }}
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Carousel__slide&#34;</span>&gt;
+	&lt;<span style="color:#f92672">p</span>&gt;
+	{{ range . }}
+	&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .RelPermalink }}&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .RelPermalink }}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;480&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+	{{ end }}
+	&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+{{ end }}
+</code></pre></div><p>以下のような感じで取得してもいいらしい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ .Resources.ByType &#34;image&#34; }}
+{{ .Page.Resources.ByType &#34;image&#34; }}
+</code></pre></div><p>でも、正直、分かりづらかったり、思ったように動かなかったりするかも。</p>
 <p><a href="https://gohugo.io/content-management/page-resources/">https://gohugo.io/content-management/page-resources/</a></p>
 
 		

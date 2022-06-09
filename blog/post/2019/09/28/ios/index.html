@@ -119,49 +119,49 @@
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/ios_ipwndfu_checkx8_01.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/ios_ipwndfu_checkx8_02.png" alt=""></p>
 <p><code>checkm8</code>のexampleを実行してみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/axi0mX/ipwndfu
-</span></span><span style="display:flex;"><span>$ cd ipwndfu
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./ipwndfu
-</span></span><span style="display:flex;"><span>USAGE: ipwndfu <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Interact with an iOS device in DFU Mode.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Basic options:
-</span></span><span style="display:flex;"><span>  -p                            USB exploit <span style="color:#66d9ef">for</span> pwned DFU Mode
-</span></span><span style="display:flex;"><span>  -x                            install alloc8 exploit to NOR
-</span></span><span style="display:flex;"><span>  -f file                       send file to device in DFU Mode
-</span></span><span style="display:flex;"><span>Advanced options:
-</span></span><span style="display:flex;"><span>  --demote                      demote device to enable JTAG
-</span></span><span style="display:flex;"><span>  --dump<span style="color:#f92672">=</span>address,length         dump memory to stdout
-</span></span><span style="display:flex;"><span>  --hexdump<span style="color:#f92672">=</span>address,length      hexdump memory to stdout
-</span></span><span style="display:flex;"><span>  --dump-rom                    dump SecureROM
-</span></span><span style="display:flex;"><span>  --dump-nor<span style="color:#f92672">=</span>file               dump NOR to file
-</span></span><span style="display:flex;"><span>  --flash-nor<span style="color:#f92672">=</span>file              flash NOR <span style="color:#f92672">(</span>header and firmware only<span style="color:#f92672">)</span> from file
-</span></span><span style="display:flex;"><span>  --24kpwn                      install 24Kpwn exploit to NOR
-</span></span><span style="display:flex;"><span>  --remove-24kpwn               remove 24Kpwn exploit from NOR
-</span></span><span style="display:flex;"><span>  --remove-alloc8               remove alloc8 exploit from NOR
-</span></span><span style="display:flex;"><span>  --decrypt-gid<span style="color:#f92672">=</span>hexdata         AES decrypt with GID key
-</span></span><span style="display:flex;"><span>  --encrypt-gid<span style="color:#f92672">=</span>hexdata         AES encrypt with GID key
-</span></span><span style="display:flex;"><span>  --decrypt-uid<span style="color:#f92672">=</span>hexdata         AES decrypt with UID key
-</span></span><span style="display:flex;"><span>  --encrypt-uid<span style="color:#f92672">=</span>hexdata         AES encrypt with UID key
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./ipwndfu -p
-</span></span><span style="display:flex;"><span>Found: CPID:8960 CPRV:11 CPFM:03 SCEP:01 BDID:00 ECID:XXXXXXXXX IBFL:1C SRTG:<span style="color:#f92672">[</span>iBoot-1704.10<span style="color:#f92672">]</span> PWND:<span style="color:#f92672">[</span>checkm8<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Device is now in pwned DFU Mode.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./ipwndfu --dump-rom
-</span></span><span style="display:flex;"><span>Saved: SecureROM-XXXXXXX-XXXXXXX-RELEASE.dump
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ここでdumpしたものはネットにuploadしないように大切に保管しましょう</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./ipwndfu --decrypt-gid KEYBAG
-</span></span><span style="display:flex;"><span>Decrypting with XXXXXXX GID key.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./ipwndfu --demote
-</span></span><span style="display:flex;"><span>Demotion register: 0xXXXXXXXX
-</span></span><span style="display:flex;"><span>Attempting to demote device.
-</span></span><span style="display:flex;"><span>Demotion register: 0xXXXXXXXX
-</span></span><span style="display:flex;"><span>Success!
-</span></span></code></pre></div><p>参考</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/axi0mX/ipwndfu
+$ cd ipwndfu
+
+$ ./ipwndfu
+USAGE: ipwndfu <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+Interact with an iOS device in DFU Mode.
+
+Basic options:
+  -p                            USB exploit <span style="color:#66d9ef">for</span> pwned DFU Mode
+  -x                            install alloc8 exploit to NOR
+  -f file                       send file to device in DFU Mode
+Advanced options:
+  --demote                      demote device to enable JTAG
+  --dump<span style="color:#f92672">=</span>address,length         dump memory to stdout
+  --hexdump<span style="color:#f92672">=</span>address,length      hexdump memory to stdout
+  --dump-rom                    dump SecureROM
+  --dump-nor<span style="color:#f92672">=</span>file               dump NOR to file
+  --flash-nor<span style="color:#f92672">=</span>file              flash NOR <span style="color:#f92672">(</span>header and firmware only<span style="color:#f92672">)</span> from file
+  --24kpwn                      install 24Kpwn exploit to NOR
+  --remove-24kpwn               remove 24Kpwn exploit from NOR
+  --remove-alloc8               remove alloc8 exploit from NOR
+  --decrypt-gid<span style="color:#f92672">=</span>hexdata         AES decrypt with GID key
+  --encrypt-gid<span style="color:#f92672">=</span>hexdata         AES encrypt with GID key
+  --decrypt-uid<span style="color:#f92672">=</span>hexdata         AES decrypt with UID key
+  --encrypt-uid<span style="color:#f92672">=</span>hexdata         AES encrypt with UID key
+
+$ ./ipwndfu -p
+Found: CPID:8960 CPRV:11 CPFM:03 SCEP:01 BDID:00 ECID:XXXXXXXXX IBFL:1C SRTG:<span style="color:#f92672">[</span>iBoot-1704.10<span style="color:#f92672">]</span> PWND:<span style="color:#f92672">[</span>checkm8<span style="color:#f92672">]</span>
+Device is now in pwned DFU Mode.
+
+$ ./ipwndfu --dump-rom
+Saved: SecureROM-XXXXXXX-XXXXXXX-RELEASE.dump
+<span style="color:#75715e"># ここでdumpしたものはネットにuploadしないように大切に保管しましょう</span>
+
+$ ./ipwndfu --decrypt-gid KEYBAG
+Decrypting with XXXXXXX GID key.
+
+$ ./ipwndfu --demote
+Demotion register: 0xXXXXXXXX
+Attempting to demote device.
+Demotion register: 0xXXXXXXXX
+Success!
+</code></pre></div><p>参考</p>
 <p><a href="https://twitter.com/axi0mX/status/1177542201670168576">https://twitter.com/axi0mX/status/1177542201670168576</a></p>
 <p><a href="https://news.ycombinator.com/item?id=21091219">https://news.ycombinator.com/item?id=21091219</a></p>
 <p><a href="https://arstechnica.com/information-technology/2019/09/developer-of-checkm8-explains-why-idevice-jailbreak-exploit-is-a-game-changer/">https://arstechnica.com/information-technology/2019/09/developer-of-checkm8-explains-why-idevice-jailbreak-exploit-is-a-game-changer/</a></p>

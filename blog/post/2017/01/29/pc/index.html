@@ -113,35 +113,35 @@
 <p>それぞれの事案に対処できるかどうかわからないけど、nasneなHDDが故障しているケースが多いのでそれに対する一般的な処置について書きます。十分調査した上で開始してください。ここに書いてあることはあくまで参考程度にし、理解した上で実行してください。</p>
 <p>まず分解して、HDDを取り出します。nasneの構成は<code>sdb1:ext3(boot), sdb2:ext3, sdb3:xfs</code>です。システムがHDD(sdb1,2)にはいっており、sdb3がユーザー領域でフォーマットしてもかまわない領域だと考えられます。</p>
 <p>とりあえずバックアップした後に色々やります(私のケースでは主に新しいHDDに換装)。私のケースではHDDが死にかけているためバックアップが非常に困難(時間がかかる)。この場合、エラーがsys1,2にクリティカルヒットし、かつそれが起動に必要なものであり修復できない場合、多分ですがリストアしてもnasneが起動できないかもしれません。なので、クリティカルしてないことを祈るしかない&hellip;。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo fdisk -l
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># バックアップ</span>
-</span></span><span style="display:flex;"><span>$ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb of<span style="color:#f92672">=</span>~/nasne.img bs<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">2623488</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># エラーが出てる時はdumpなどでバックアップを取ったほうが良い</span>
-</span></span><span style="display:flex;"><span>	$ sudo dump -0u -z9 -f ~/nasne_sdb1.dump /dev/sdb1
-</span></span><span style="display:flex;"><span>	$ sudo dump -0u -z9 -f ~/nasne_sdb2.dump /dev/sdb2
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># その他のバックアップ方法</span>
-</span></span><span style="display:flex;"><span>	$ sudo ddrescue -v -d -f -r3 /dev/sdb ~/nasne.img
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># リストア(新しいHDD, cfdiskで領域削除した後に)</span>
-</span></span><span style="display:flex;"><span>$ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>~/nasne.img of<span style="color:#f92672">=</span>/dev/sdb
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># user:xfs領域のチェック</span>
-</span></span><span style="display:flex;"><span>$ sudo xfs_check /dev/sdb3
-</span></span><span style="display:flex;"><span>error
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修復, これで治るのがベスト</span>
-</span></span><span style="display:flex;"><span>$ sudo xfs repair -L /dev/sdb3
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 場合によってはフォーマット(録画したビデオなどは消える)</span>
-</span></span><span style="display:flex;"><span>$ sudo cfdisk /dev/sdb <span style="color:#75715e"># sdb3領域を削除し、新しい領域を作って保存</span>
-</span></span><span style="display:flex;"><span>$ sudo mkfs.xfs -f /dev/sdb3
-</span></span><span style="display:flex;"><span>$ sudo xfs_admin -L user /dev/sdb3 <span style="color:#75715e"># ラベル:user</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># sys1,2:ext3領域チェック</span>
-</span></span><span style="display:flex;"><span>$ sudo fsck /dev/sdb1
-</span></span><span style="display:flex;"><span>$ sudo fsck /dev/sdb2
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修復</span>
-</span></span><span style="display:flex;"><span>$ sudo fsck -yf /dev/sdb1
-</span></span><span style="display:flex;"><span>$ sudo fsck -yf /dev/sdb2
-</span></span></code></pre></div><p>nasneは、そう簡単に壊れると思ってなかったのでバックアップも取ってなかったし、なんというかあれ。バックアップとっとけばよかった(特にsdb1:sys1,sdb2:2)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo fdisk -l
+
+<span style="color:#75715e"># バックアップ</span>
+$ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb of<span style="color:#f92672">=</span>~/nasne.img bs<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">2623488</span>
+	<span style="color:#75715e"># エラーが出てる時はdumpなどでバックアップを取ったほうが良い</span>
+	$ sudo dump -0u -z9 -f ~/nasne_sdb1.dump /dev/sdb1
+	$ sudo dump -0u -z9 -f ~/nasne_sdb2.dump /dev/sdb2
+	<span style="color:#75715e"># その他のバックアップ方法</span>
+	$ sudo ddrescue -v -d -f -r3 /dev/sdb ~/nasne.img
+<span style="color:#75715e"># リストア(新しいHDD, cfdiskで領域削除した後に)</span>
+$ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>~/nasne.img of<span style="color:#f92672">=</span>/dev/sdb
+
+<span style="color:#75715e"># user:xfs領域のチェック</span>
+$ sudo xfs_check /dev/sdb3
+error
+<span style="color:#75715e"># 修復, これで治るのがベスト</span>
+$ sudo xfs repair -L /dev/sdb3
+<span style="color:#75715e"># 場合によってはフォーマット(録画したビデオなどは消える)</span>
+$ sudo cfdisk /dev/sdb <span style="color:#75715e"># sdb3領域を削除し、新しい領域を作って保存</span>
+$ sudo mkfs.xfs -f /dev/sdb3
+$ sudo xfs_admin -L user /dev/sdb3 <span style="color:#75715e"># ラベル:user</span>
+
+<span style="color:#75715e"># sys1,2:ext3領域チェック</span>
+$ sudo fsck /dev/sdb1
+$ sudo fsck /dev/sdb2
+<span style="color:#75715e"># 修復</span>
+$ sudo fsck -yf /dev/sdb1
+$ sudo fsck -yf /dev/sdb2
+</code></pre></div><p>nasneは、そう簡単に壊れると思ってなかったのでバックアップも取ってなかったし、なんというかあれ。バックアップとっとけばよかった(特にsdb1:sys1,sdb2:2)</p>
 <p>本来なら買った時にHDDのsdb1,2領域をバックアップしておけば簡単に新しいHDDに換装できたのでやっておくべきだった。よって、バックアップしてない人はシステム領域だけでもバックアップしておいたほうが良いかもしれない。</p>
 <p>自分の場合、HDDが死んでsdb2領域がダメになってるぽいので割とどうしようもない感じだった。が、一応、復旧を試みる。</p>
 <p>たった1GBのバックアップに時間がかかり最終的にはエラーを吐く(上手くバックアップできないし、できたとしても修復できない可能性)。ディスクがなかなか認識しないような状態でHDDディスク自体が壊れかけていると思われる。</p>

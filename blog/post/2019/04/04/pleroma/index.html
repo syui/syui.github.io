@@ -112,106 +112,106 @@
 		<p>pleroma on heroku.</p>
 <p>herokuでpleromaを動かします。動いた環境を記録します。</p>
 <h2 id="heroku-info">heroku info</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>remote:        * Stack heroku-18
-</span></span><span style="display:flex;"><span>remote:        * Erlang 21.2
-</span></span><span style="display:flex;"><span>remote:        * Elixir 1.7
-</span></span></code></pre></div><p>src : <a href="https://git.pleroma.social/pleroma/pleroma">https://git.pleroma.social/pleroma/pleroma</a> , <code>fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">remote:        * Stack heroku-18
+remote:        * Erlang 21.2
+remote:        * Elixir 1.7
+</code></pre></div><p>src : <a href="https://git.pleroma.social/pleroma/pleroma">https://git.pleroma.social/pleroma/pleroma</a> , <code>fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8</code></p>
 <p>buildpack : <a href="https://github.com/syui/heroku-buildpack-elixir">https://github.com/syui/heroku-buildpack-elixir</a></p>
 <p>こちらの<a href="https://github.com/HashNuke/heroku-buildpack-elixir">HashNuke/heroku-buildpack-elixir</a>で<code>${build_path}</code>からmixを実行できないので、それを修正したもの。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git push heroku master
-</span></span><span style="display:flex;"><span>remote: -----&gt; Fetching app dependencies with mix
-</span></span><span style="display:flex;"><span>remote: fatal: not a git repository <span style="color:#f92672">(</span>or any parent up to mount point /<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>remote: Stopping at filesystem boundary <span style="color:#f92672">(</span>GIT_DISCOVERY_ACROSS_FILESYSTEM not set<span style="color:#f92672">)</span>.
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
+remote: -----&gt; Fetching app dependencies with mix
+remote: fatal: not a git repository <span style="color:#f92672">(</span>or any parent up to mount point /<span style="color:#f92672">)</span>
+remote: Stopping at filesystem boundary <span style="color:#f92672">(</span>GIT_DISCOVERY_ACROSS_FILESYSTEM not set<span style="color:#f92672">)</span>.
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
+</code></pre></div><blockquote>
 <p>Procfile</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>web: mix phx.server
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">web: mix phx.server
+</code></pre></div><blockquote>
 <p>elixir_buildpack.config</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>erlang_version<span style="color:#f92672">=</span>21.2
-</span></span><span style="display:flex;"><span>elixir_version<span style="color:#f92672">=</span>1.7
-</span></span><span style="display:flex;"><span>always_rebuild<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span>runtime_path<span style="color:#f92672">=</span>/app
-</span></span><span style="display:flex;"><span>hook_pre_fetch_dependencies<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwd&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#hook_pre_compile=&#34;pwd&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#hook_post_compile=&#34;pwd&#34;</span>
-</span></span></code></pre></div><p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9">Pleroma Install Wiki</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">erlang_version<span style="color:#f92672">=</span>21.2
+elixir_version<span style="color:#f92672">=</span>1.7
+always_rebuild<span style="color:#f92672">=</span>false
+runtime_path<span style="color:#f92672">=</span>/app
+hook_pre_fetch_dependencies<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwd&#34;</span>
+<span style="color:#75715e">#hook_pre_compile=&#34;pwd&#34;</span>
+<span style="color:#75715e">#hook_post_compile=&#34;pwd&#34;</span>
+</code></pre></div><p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Pleroma%E3%81%AE%E5%85%A5%E3%82%8C%E6%96%B9">Pleroma Install Wiki</a></p>
 <h2 id="example">example</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://git.pleroma.social/pleroma/pleroma
-</span></span><span style="display:flex;"><span>$ cd !$:t
-</span></span><span style="display:flex;"><span>$ git checkout -b master
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku create $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku git:remote -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku config -a $APP_NAME
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mix --version
-</span></span><span style="display:flex;"><span>Erlang/OTP <span style="color:#ae81ff">21</span> <span style="color:#f92672">[</span>erts-10.3.1<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>source<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>64-bit<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>smp:4:4<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ds:4:4:10<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>async-threads:1<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>hipe<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>dtrace<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Mix 1.8.1 <span style="color:#f92672">(</span>compiled with Erlang/OTP 21<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mix deps.get
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># これによって必要な値がconfig(config/generated_config.exs)に書き込まれる</span>
-</span></span><span style="display:flex;"><span>$ mix pleroma.instance gen
-</span></span><span style="display:flex;"><span>$ mv config/<span style="color:#f92672">{</span>generated_config.exs,prod.secret.exs<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku pgslでは、権限がないので、setup_db.psqlの内容は書き込めない</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># cat config/setup_db.psql | pbcopy</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku pg:psql -a $APP_NAME</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 貼り付け</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku pg:reset -a $APP_NAME 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mix phx.gen.secret
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># configのsecret_key_baseに入れる, herokuのSECRET_KEY_BASEを使ってもいい</span>
-</span></span><span style="display:flex;"><span>$ heroku config:set SECRET_KEY_BASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXX&#34;</span> -a $APP_NAME
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mix ecto.migrate
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku用に$PORTを追加</span>
-</span></span><span style="display:flex;"><span>$ vim config/prod.secret.exs
-</span></span><span style="display:flex;"><span>config :pleroma, Pleroma.Web.Endpoint,
-</span></span><span style="display:flex;"><span> http: <span style="color:#f92672">[</span>port: <span style="color:#f92672">{</span>:system, <span style="color:#e6db74">&#34;PORT&#34;</span><span style="color:#f92672">}]</span>,
-</span></span><span style="display:flex;"><span>   url: <span style="color:#f92672">[</span>host: <span style="color:#e6db74">&#34;APP_NAME.herokuapp.com&#34;</span>, scheme: <span style="color:#e6db74">&#34;https&#34;</span>, port: 443<span style="color:#f92672">]</span>,
-</span></span><span style="display:flex;"><span>   secret_key_base: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>   signing_salt: <span style="color:#e6db74">&#34;o+Aj/ehx&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># あと、System.get_env(&#34;DATABASE_URL&#34;)などを使ったほうが安全</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ vim Procfile
-</span></span><span style="display:flex;"><span>web: mix phx.server
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ vim elixir_buildpack.config
-</span></span><span style="display:flex;"><span>erlang_version<span style="color:#f92672">=</span>21.2
-</span></span><span style="display:flex;"><span>elixir_version<span style="color:#f92672">=</span>1.7
-</span></span><span style="display:flex;"><span>always_rebuild<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span>runtime_path<span style="color:#f92672">=</span>/app
-</span></span><span style="display:flex;"><span>hook_pre_fetch_dependencies<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwd&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#hook_pre_compile=&#34;pwd&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#hook_post_compile=&#34;pwd&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cat .gitignore
-</span></span><span style="display:flex;"><span>$ cat ~/.gitignore
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git add .
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push heroku master
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku logs -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku run bash -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ ls -a
-</span></span><span style="display:flex;"><span>$ ./.platform_tools/elixir/bin/mix phx.server
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ユーザーの作成</span>
-</span></span><span style="display:flex;"><span>$ heroku run <span style="color:#e6db74">&#34;mix pleroma.user invite&#34;</span> -a $APP_NAME
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 権限の付与</span>
-</span></span><span style="display:flex;"><span>$ heroku run <span style="color:#e6db74">&#34;mix pleroma.user set </span>$USER<span style="color:#e6db74"> --admin&#34;</span> -a $APP_NAME
-</span></span></code></pre></div><h2 id="説明">説明</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://git.pleroma.social/pleroma/pleroma
+$ cd !$:t
+$ git checkout -b master
+
+$ heroku create $APP_NAME
+$ heroku git:remote -a $APP_NAME
+$ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME
+
+$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
+$ heroku config -a $APP_NAME
+
+$ mix --version
+Erlang/OTP <span style="color:#ae81ff">21</span> <span style="color:#f92672">[</span>erts-10.3.1<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>source<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>64-bit<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>smp:4:4<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ds:4:4:10<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>async-threads:1<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>hipe<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>dtrace<span style="color:#f92672">]</span>
+Mix 1.8.1 <span style="color:#f92672">(</span>compiled with Erlang/OTP 21<span style="color:#f92672">)</span>
+
+$ mix deps.get
+
+<span style="color:#75715e"># これによって必要な値がconfig(config/generated_config.exs)に書き込まれる</span>
+$ mix pleroma.instance gen
+$ mv config/<span style="color:#f92672">{</span>generated_config.exs,prod.secret.exs<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># heroku pgslでは、権限がないので、setup_db.psqlの内容は書き込めない</span>
+<span style="color:#75715e"># cat config/setup_db.psql | pbcopy</span>
+<span style="color:#75715e"># heroku pg:psql -a $APP_NAME</span>
+<span style="color:#75715e"># 貼り付け</span>
+
+$ heroku pg:reset -a $APP_NAME 
+
+$ mix phx.gen.secret
+<span style="color:#75715e"># configのsecret_key_baseに入れる, herokuのSECRET_KEY_BASEを使ってもいい</span>
+$ heroku config:set SECRET_KEY_BASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXX&#34;</span> -a $APP_NAME
+
+$ mix ecto.migrate
+
+<span style="color:#75715e"># heroku用に$PORTを追加</span>
+$ vim config/prod.secret.exs
+config :pleroma, Pleroma.Web.Endpoint,
+ http: <span style="color:#f92672">[</span>port: <span style="color:#f92672">{</span>:system, <span style="color:#e6db74">&#34;PORT&#34;</span><span style="color:#f92672">}]</span>,
+   url: <span style="color:#f92672">[</span>host: <span style="color:#e6db74">&#34;APP_NAME.herokuapp.com&#34;</span>, scheme: <span style="color:#e6db74">&#34;https&#34;</span>, port: 443<span style="color:#f92672">]</span>,
+   secret_key_base: <span style="color:#e6db74">&#34;&#34;</span>,
+   signing_salt: <span style="color:#e6db74">&#34;o+Aj/ehx&#34;</span>
+
+<span style="color:#75715e"># あと、System.get_env(&#34;DATABASE_URL&#34;)などを使ったほうが安全</span>
+
+$ vim Procfile
+web: mix phx.server
+
+$ vim elixir_buildpack.config
+erlang_version<span style="color:#f92672">=</span>21.2
+elixir_version<span style="color:#f92672">=</span>1.7
+always_rebuild<span style="color:#f92672">=</span>false
+runtime_path<span style="color:#f92672">=</span>/app
+hook_pre_fetch_dependencies<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwd&#34;</span>
+<span style="color:#75715e">#hook_pre_compile=&#34;pwd&#34;</span>
+<span style="color:#75715e">#hook_post_compile=&#34;pwd&#34;</span>
+
+$ cat .gitignore
+$ cat ~/.gitignore
+
+$ git add .
+$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+$ git push heroku master
+
+$ heroku logs -a $APP_NAME
+$ heroku run bash -a $APP_NAME
+$ ls -a
+$ ./.platform_tools/elixir/bin/mix phx.server
+
+<span style="color:#75715e"># ユーザーの作成</span>
+$ heroku run <span style="color:#e6db74">&#34;mix pleroma.user invite&#34;</span> -a $APP_NAME
+<span style="color:#75715e"># 権限の付与</span>
+$ heroku run <span style="color:#e6db74">&#34;mix pleroma.user set </span>$USER<span style="color:#e6db74"> --admin&#34;</span> -a $APP_NAME
+</code></pre></div><h2 id="説明">説明</h2>
 <p>pleromaは、elixir+phoenixで書かれた分散snsです。最新のcommitでは、buildpackがうまく動作しませんので、対応しました。</p>
 <p>srcやbuildpackを合わせても、今後、herokuやaddonの仕様変更によって動かなくなる可能性はあります。</p>
 <p>動いた日付 : 2019/04/01</p>

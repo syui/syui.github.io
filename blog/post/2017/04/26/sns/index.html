@@ -112,10 +112,10 @@
 		<p>Mastodonの購読は少し複雑になっていて、<code>/lib/tasks</code>にあるスクリプトによって処理するよう管理者に促されており、cronで定期的に実行するような感じ。</p>
 <p><a href="https://github.com/tootsuite/mastodon/blob/master/lib/tasks/mastodon.rake">https://github.com/tootsuite/mastodon/blob/master/lib/tasks/mastodon.rake</a></p>
 <p>Herokuの場合はSchedulerというものがあって、これで定期的に処理を実行可能なので設定する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku addons:add scheduler:standard
-</span></span><span style="display:flex;"><span>$ heroku addons:open scheduler
-</span></span><span style="display:flex;"><span>&gt; rake mastodon:daily
-</span></span></code></pre></div><p>Streaming APIとかの情報もあって気になる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku addons:add scheduler:standard
+$ heroku addons:open scheduler
+&gt; rake mastodon:daily
+</code></pre></div><p>Streaming APIとかの情報もあって気になる。</p>
 <p><a href="https://github.com/zunda/mastodon/wiki/CreateInstanceOnHeroku">https://github.com/zunda/mastodon/wiki/CreateInstanceOnHeroku</a></p>
 <p><a href="https://github.com/tootsuite/documentation/blob/master/Using-the-API/Streaming-API.md">https://github.com/tootsuite/documentation/blob/master/Using-the-API/Streaming-API.md</a></p>
 

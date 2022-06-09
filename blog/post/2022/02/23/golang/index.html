@@ -111,502 +111,502 @@
 
 		<p>最初は、<a href="https://github.com/go-gorm/gorm">gorm</a>を使っていました。</p>
 <p>gormは非常に見通しがよく、わかりやすかったです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;aicard/database&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/labstack/echo/v4&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Id</span>    <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;id&#34; param:&#34;id&#34; gorm:&#34;primary_key&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; gorm:&#34;unique,collate:utf8,length:7`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">CreatedAt</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UpdatedAt</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DeletedAt</span> <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DeletedAt</span> <span style="color:#e6db74">`gorm:&#34;index&#34;`</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hello</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getUsers</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">User</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">users</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">users</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Take</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;id&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Where</span>(<span style="color:#e6db74">&#34;id = ?&#34;</span>, <span style="color:#a6e22e">id</span>).<span style="color:#a6e22e">First</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">Error</span>; <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Save</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusCreated</span>, <span style="color:#a6e22e">user</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;id&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Delete</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">User</span>{}, <span style="color:#a6e22e">id</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">NoContent</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusNoContent</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Connect</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sqlDB</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">DB</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">sqlDB</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">hello</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">getUsers</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">getUser</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">PUT</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">updateUser</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">createUser</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DELETE</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">deleteUser</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;PORT&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;1323&#34;</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Start</span>(<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>))
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>しかし、<code>ent@0.9.0</code>に追加されたような<code>onconflict</code>の仕組みがなかったので、<a href="https://entgo.io/ja/docs/code-gen/">ent</a>を使いはじめました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
+	<span style="color:#e6db74">&#34;aicard/database&#34;</span>
+	<span style="color:#e6db74">&#34;net/http&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/labstack/echo/v4&#34;</span>
+	<span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Id</span>    <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;id&#34; param:&#34;id&#34; gorm:&#34;primary_key&#34;`</span>
+	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; gorm:&#34;unique,collate:utf8,length:7`</span>
+	<span style="color:#a6e22e">CreatedAt</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
+	<span style="color:#a6e22e">UpdatedAt</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
+	<span style="color:#a6e22e">DeletedAt</span> <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DeletedAt</span> <span style="color:#e6db74">`gorm:&#34;index&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hello</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getUsers</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">User</span>{}
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">users</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">users</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Take</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">user</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
+	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;id&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Where</span>(<span style="color:#e6db74">&#34;id = ?&#34;</span>, <span style="color:#a6e22e">id</span>).<span style="color:#a6e22e">First</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">Error</span>; <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Save</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">user</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>{}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bind</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+	}
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">user</span>)
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusCreated</span>, <span style="color:#a6e22e">user</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteUser</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span> {
+	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;id&#34;</span>)
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">Delete</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">User</span>{}, <span style="color:#a6e22e">id</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">NoContent</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusNoContent</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">echo</span>.<span style="color:#a6e22e">New</span>()
+	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Connect</span>()
+	<span style="color:#a6e22e">sqlDB</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DB</span>.<span style="color:#a6e22e">DB</span>()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">sqlDB</span>.<span style="color:#a6e22e">Close</span>()
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">hello</span>)
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">getUsers</span>)
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">getUser</span>)
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">PUT</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">updateUser</span>)
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">createUser</span>)
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DELETE</span>(<span style="color:#e6db74">&#34;/users/:id&#34;</span>, <span style="color:#a6e22e">deleteUser</span>)
+	<span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;PORT&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
+		<span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;1323&#34;</span>
+	}
+	<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Start</span>(<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>))
+}
+</code></pre></div><p>しかし、<code>ent@0.9.0</code>に追加されたような<code>onconflict</code>の仕組みがなかったので、<a href="https://entgo.io/ja/docs/code-gen/">ent</a>を使いはじめました。</p>
 <p><code>onconflict</code>は、dbに既に一致するdateがある場合、errを出してくれます。これによって、例えば、同じユーザー名では登録できないようにすることが可能です。もちろん、gormでも可能ですが、entのほうが簡単にできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/http/create.go" data-lang="go:ent/http/create.go"><span style="display:flex;"><span><span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">Create</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">SetUsername</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">Username</span>).<span style="color:#a6e22e">OnConflict</span>()
-</span></span></code></pre></div><p>それでは、entの基本的な使い方を紹介していきたいと思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/http/create.go" data-lang="go:ent/http/create.go"><span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">Create</span>()
+<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">SetUsername</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">Username</span>).<span style="color:#a6e22e">OnConflict</span>()
+</code></pre></div><p>それでは、entの基本的な使い方を紹介していきたいと思います。</p>
 <p>まずは、project-dirを作り、その中にgo.modを作ります。<code>go get</code>などする際は依存関連が示されるgo.sumが更新されていきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir t
-</span></span><span style="display:flex;"><span>$ cd t
-</span></span><span style="display:flex;"><span>$ go mod init $project
-</span></span><span style="display:flex;"><span>$ cat go.mod
-</span></span></code></pre></div><p>なお、herokuにdeployする際は、<code>go.mod</code>には以下のようにverを指定してやらなければいけません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:go.mod" data-lang="go:go.mod"><span style="display:flex;"><span>module t
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// +heroku goVersion go1.17
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>go <span style="color:#ae81ff">1.17</span>
-</span></span></code></pre></div><p>go.modのmoduleの名前は、ent/以下のファイルをimportする際に使います。ここでは、project-nameを<code>t</code>としています。例えば、ent/entryをimportしたい場合は、<code>t/ent/entry</code>というpathを指定することになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir t
+$ cd t
+$ go mod init $project
+$ cat go.mod
+</code></pre></div><p>なお、herokuにdeployする際は、<code>go.mod</code>には以下のようにverを指定してやらなければいけません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:go.mod" data-lang="go:go.mod">module t
+
+<span style="color:#75715e">// +heroku goVersion go1.17
+</span><span style="color:#75715e"></span>go <span style="color:#ae81ff">1.17</span>
+</code></pre></div><p>go.modのmoduleの名前は、ent/以下のファイルをimportする際に使います。ここでは、project-nameを<code>t</code>としています。例えば、ent/entryをimportしたい場合は、<code>t/ent/entry</code>というpathを指定することになります。</p>
 <p>entはschemaに作成されたファイルからコントロールし、dbのデータをclientと受け渡しする仕組みを構築できます。schemaを書きかえたら都度、go generateでコードファイルを更新できます。追加機能などもこの仕組からコードファイルに追記されていきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/generate.go" data-lang="go:ent/generate.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate ./schema
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate --feature sql/upsert ./schema
-</span></span></span></code></pre></div><p>go mod initでgo.modを作成できたら、entをインストールして、entcコマンドを使えるようにします。通常はgoを使用しているとインストールされるbinaryにはpathが通っているはずですが、通っていなくても<code>go run</code>からurlを指定すれば実行可能です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/generate.go" data-lang="go:ent/generate.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
+
+<span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate ./schema
+</span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate --feature sql/upsert ./schema
+</span></code></pre></div><p>go mod initでgo.modを作成できたら、entをインストールして、entcコマンドを使えるようにします。通常はgoを使用しているとインストールされるbinaryにはpathが通っているはずですが、通っていなくても<code>go run</code>からurlを指定すれば実行可能です。</p>
 <p>なお、<code>go mod init</code>や<code>ent init</code>で指定した名前は各ファイルに書かれますので適切なものにしてください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get -d entgo.io/ent/cmd/ent
-</span></span><span style="display:flex;"><span>$ ent init Entry
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ go run entgo.io/ent/cmd/ent init Entry
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ tree .
-</span></span><span style="display:flex;"><span>.
-</span></span><span style="display:flex;"><span>├── ent
-</span></span><span style="display:flex;"><span>│   ├── generate.go
-</span></span><span style="display:flex;"><span>│   └── schema
-</span></span><span style="display:flex;"><span>│       └── entry.go
-</span></span><span style="display:flex;"><span>├── go.mod
-</span></span><span style="display:flex;"><span>└── go.sum
-</span></span></code></pre></div><p>ここで、entの通常の開発手順としては、(1)<code>entc init</code>してschemaを作成する、(2)<code>ent/schema/*.go</code>を編集する、(3)<code>go generate ./ent</code>を実行する、(4)<code>main.go</code>などのメインファイルからclientを操作する、(5)<code>go run</code>や<code>go build</code>する、という流れになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get -d entgo.io/ent/cmd/ent
+$ ent init Entry
+or
+$ go run entgo.io/ent/cmd/ent init Entry
+
+$ tree .
+.
+├── ent
+│   ├── generate.go
+│   └── schema
+│       └── entry.go
+├── go.mod
+└── go.sum
+</code></pre></div><p>ここで、entの通常の開発手順としては、(1)<code>entc init</code>してschemaを作成する、(2)<code>ent/schema/*.go</code>を編集する、(3)<code>go generate ./ent</code>を実行する、(4)<code>main.go</code>などのメインファイルからclientを操作する、(5)<code>go run</code>や<code>go build</code>する、という流れになります。</p>
 <p>ということで、次は<code>ent/schema/entry.go</code>を書きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/schema/entry.go" data-lang="go:ent/schema/entry.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Fields of the User.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">User</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;age&#34;</span>).
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Positive</span>(),
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;name&#34;</span>).
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Default</span>(<span style="color:#e6db74">&#34;unknown&#34;</span>),
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>project-rootから<code>go generate ./ent</code>を実行します。すると、先程、initした名前のファイル、<code>entry*.go</code>が作成されています。これらをimportすることで、開発者は<code>schema</code>と<code>main</code>の編集に集中できるという感じになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go generate ./ent
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ tree .
-</span></span><span style="display:flex;"><span>.
-</span></span><span style="display:flex;"><span>├── ent
-</span></span><span style="display:flex;"><span>│   ├── client.go
-</span></span><span style="display:flex;"><span>│   ├── config.go
-</span></span><span style="display:flex;"><span>│   ├── context.go
-</span></span><span style="display:flex;"><span>│   ├── ent.go
-</span></span><span style="display:flex;"><span>│   ├── entry
-</span></span><span style="display:flex;"><span>│   │   ├── entry.go
-</span></span><span style="display:flex;"><span>│   │   └── where.go
-</span></span><span style="display:flex;"><span>│   ├── entry.go
-</span></span><span style="display:flex;"><span>│   ├── entry_create.go
-</span></span><span style="display:flex;"><span>│   ├── entry_delete.go
-</span></span><span style="display:flex;"><span>│   ├── entry_query.go
-</span></span><span style="display:flex;"><span>│   ├── entry_update.go
-</span></span><span style="display:flex;"><span>│   ├── enttest
-</span></span><span style="display:flex;"><span>│   │   └── enttest.go
-</span></span><span style="display:flex;"><span>│   ├── generate.go
-</span></span><span style="display:flex;"><span>│   ├── hook
-</span></span><span style="display:flex;"><span>│   │   └── hook.go
-</span></span><span style="display:flex;"><span>│   ├── migrate
-</span></span><span style="display:flex;"><span>│   │   ├── migrate.go
-</span></span><span style="display:flex;"><span>│   │   └── schema.go
-</span></span><span style="display:flex;"><span>│   ├── mutation.go
-</span></span><span style="display:flex;"><span>│   ├── predicate
-</span></span><span style="display:flex;"><span>│   │   └── predicate.go
-</span></span><span style="display:flex;"><span>│   ├── runtime
-</span></span><span style="display:flex;"><span>│   │   └── runtime.go
-</span></span><span style="display:flex;"><span>│   ├── runtime.go
-</span></span><span style="display:flex;"><span>│   ├── schema
-</span></span><span style="display:flex;"><span>│   │   └── entry.go
-</span></span><span style="display:flex;"><span>│   └── tx.go
-</span></span><span style="display:flex;"><span>├── go.mod
-</span></span><span style="display:flex;"><span>└── go.sum
-</span></span></code></pre></div><p>次は、clientを操作する<code>main.go</code>を作成していきます。project-rootにmain.goを置き、それをbuildします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;t/ent&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/lib/pq&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;postgres&#34;</span>,<span style="color:#e6db74">&#34;host=&lt;host&gt; port=&lt;port&gt; user=&lt;user&gt; dbname=&lt;database&gt; password=&lt;pass&gt;&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go build
-</span></span><span style="display:flex;"><span>$ ./t
-</span></span></code></pre></div><p>特に重要になる部分は以下のような書き方がされる箇所です。apiへpostされたdateを受け取り、それをdbに保存し、返すための処理を書くのに使われることが多い。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Entry</span>.<span style="color:#a6e22e">Create</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">SetUser</span>()
-</span></span></code></pre></div><p>また、各種ファイルでのimportはproject-nameからのpathとなります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;t/ent&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;t/ent/entry&#34;</span>
-</span></span><span style="display:flex;"><span>		)
-</span></span></code></pre></div><p>もちろん、projectをgithubにおいているなら、<code>github.com/$USER/$PROJECT/ent</code>としてもいいです。この場合、go.modのmoduleもそのように書き換えてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/schema/entry.go" data-lang="go:ent/schema/entry.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
+    <span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
+)
+
+<span style="color:#75715e">// Fields of the User.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">User</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
+    <span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
+        <span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;age&#34;</span>).
+            <span style="color:#a6e22e">Positive</span>(),
+        <span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;name&#34;</span>).
+            <span style="color:#a6e22e">Default</span>(<span style="color:#e6db74">&#34;unknown&#34;</span>),
+    }
+}
+</code></pre></div><p>project-rootから<code>go generate ./ent</code>を実行します。すると、先程、initした名前のファイル、<code>entry*.go</code>が作成されています。これらをimportすることで、開発者は<code>schema</code>と<code>main</code>の編集に集中できるという感じになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go generate ./ent
+
+$ tree .
+.
+├── ent
+│   ├── client.go
+│   ├── config.go
+│   ├── context.go
+│   ├── ent.go
+│   ├── entry
+│   │   ├── entry.go
+│   │   └── where.go
+│   ├── entry.go
+│   ├── entry_create.go
+│   ├── entry_delete.go
+│   ├── entry_query.go
+│   ├── entry_update.go
+│   ├── enttest
+│   │   └── enttest.go
+│   ├── generate.go
+│   ├── hook
+│   │   └── hook.go
+│   ├── migrate
+│   │   ├── migrate.go
+│   │   └── schema.go
+│   ├── mutation.go
+│   ├── predicate
+│   │   └── predicate.go
+│   ├── runtime
+│   │   └── runtime.go
+│   ├── runtime.go
+│   ├── schema
+│   │   └── entry.go
+│   └── tx.go
+├── go.mod
+└── go.sum
+</code></pre></div><p>次は、clientを操作する<code>main.go</code>を作成していきます。project-rootにmain.goを置き、それをbuildします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+
+    <span style="color:#e6db74">&#34;t/ent&#34;</span>
+
+    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/lib/pq&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;postgres&#34;</span>,<span style="color:#e6db74">&#34;host=&lt;host&gt; port=&lt;port&gt; user=&lt;user&gt; dbname=&lt;database&gt; password=&lt;pass&gt;&#34;</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go build
+$ ./t
+</code></pre></div><p>特に重要になる部分は以下のような書き方がされる箇所です。apiへpostされたdateを受け取り、それをdbに保存し、返すための処理を書くのに使われることが多い。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Entry</span>.<span style="color:#a6e22e">Create</span>()
+<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">SetUser</span>()
+</code></pre></div><p>また、各種ファイルでのimportはproject-nameからのpathとなります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">import</span> (
+		<span style="color:#e6db74">&#34;t/ent&#34;</span>
+		<span style="color:#e6db74">&#34;t/ent/entry&#34;</span>
+		)
+</code></pre></div><p>もちろん、projectをgithubにおいているなら、<code>github.com/$USER/$PROJECT/ent</code>としてもいいです。この場合、go.modのmoduleもそのように書き換えてください。</p>
 <p>ここまでがentの基本的な部分です。ここからは、<code>heroku-postgres</code>や<code>onconflict</code>に対応します。herokuはportが変わりますので、envから受け取らなければなりません。</p>
 <p>まずは、heroku-postgresに対応します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ent/schema/entry.go" data-lang="ent/schema/entry.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Entry</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Entry</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;user&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">MaxLen</span>(<span style="color:#ae81ff">8</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Unique</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Immutable</span>(),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;first&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Unique</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Immutable</span>(),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;created_at&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Immutable</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
-</span></span><span style="display:flex;"><span>		}),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Entry</span>) <span style="color:#a6e22e">Edges</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;t/ent&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;context&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;database/sql&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">entsql</span> <span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent/dialect&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/jackc/pgx/v4/stdlib&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;user&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">first</span> <span style="color:#66d9ef">int</span> <span style="color:#e6db74">`json:&#34;first&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">created_at</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;created_at&#34;`</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">databaseUrl</span> <span style="color:#66d9ef">string</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Client</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;pgx&#34;</span>, <span style="color:#a6e22e">databaseUrl</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">drv</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entsql</span>.<span style="color:#a6e22e">OpenDB</span>(<span style="color:#a6e22e">dialect</span>.<span style="color:#a6e22e">Postgres</span>, <span style="color:#a6e22e">db</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Driver</span>(<span style="color:#a6e22e">drv</span>))
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;DATABASE_URL&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;?sslmode=require&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">url</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ctx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">ctx</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go build
-</span></span></code></pre></div><p>次に、<code>onconflict</code>への対応です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/generate.go" data-lang="go:ent/generate.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate ./schema
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate --feature sql/upsert ./schema
-</span></span></span></code></pre></div><pre tabindex="0"><code>$ go generate ./...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ent/schema/entry.go" data-lang="ent/schema/entry.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Entry</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Entry</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;user&#34;</span>).
+		<span style="color:#a6e22e">MaxLen</span>(<span style="color:#ae81ff">8</span>).
+		<span style="color:#a6e22e">Unique</span>().
+		<span style="color:#a6e22e">Immutable</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;first&#34;</span>).
+		<span style="color:#a6e22e">Unique</span>().
+		<span style="color:#a6e22e">Immutable</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;created_at&#34;</span>).
+		<span style="color:#a6e22e">Immutable</span>().
+		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+		}),
+
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Entry</span>) <span style="color:#a6e22e">Edges</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;t/ent&#34;</span>
+
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
+
+	<span style="color:#e6db74">&#34;database/sql&#34;</span>
+	<span style="color:#a6e22e">entsql</span> <span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/dialect&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/jackc/pgx/v4/stdlib&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;user&#34;`</span>
+	<span style="color:#a6e22e">first</span> <span style="color:#66d9ef">int</span> <span style="color:#e6db74">`json:&#34;first&#34;`</span>
+	<span style="color:#a6e22e">created_at</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;created_at&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">databaseUrl</span> <span style="color:#66d9ef">string</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Client</span> {
+	<span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;pgx&#34;</span>, <span style="color:#a6e22e">databaseUrl</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#a6e22e">drv</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entsql</span>.<span style="color:#a6e22e">OpenDB</span>(<span style="color:#a6e22e">dialect</span>.<span style="color:#a6e22e">Postgres</span>, <span style="color:#a6e22e">db</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Driver</span>(<span style="color:#a6e22e">drv</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;DATABASE_URL&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;?sslmode=require&#34;</span>
+	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">url</span>)
+	<span style="color:#a6e22e">ctx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">ctx</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go build
+</code></pre></div><p>次に、<code>onconflict</code>への対応です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/generate.go" data-lang="go:ent/generate.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
+
+<span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate ./schema
+</span><span style="color:#75715e">//go:generate go run -mod=mod entgo.io/ent/cmd/ent generate --feature sql/upsert ./schema
+</span></code></pre></div><pre tabindex="0"><code>$ go generate ./...
 </code></pre><p>これで<code>onconflict</code>が使えるようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Entry</span>.<span style="color:#a6e22e">Create</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">SetUser</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">User</span>).<span style="color:#a6e22e">OnConflict</span>()
-</span></span></code></pre></div><p>例えば、作成したapiにpostすると、同じ名前にはerrを返すようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -X <span style="color:#e6db74">&#39;POST&#39;</span> -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> -d <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;syui&#34;}&#39;</span> <span style="color:#e6db74">&#34;https://</span>$APP<span style="color:#e6db74">.herokuapp.com/u&#34;</span>
-</span></span><span style="display:flex;"><span>...ok
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ !!
-</span></span><span style="display:flex;"><span>...err
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku logs
-</span></span></code></pre></div><p>herokuにdeployする場合は、<code>.gitignore</code>を書いて、<code>git push</code>します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat .gitignore
-</span></span><span style="display:flex;"><span>*.db
-</span></span><span style="display:flex;"><span>t
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git init
-</span></span><span style="display:flex;"><span>$ heroku git:remote -a $APP
-</span></span><span style="display:flex;"><span>$ git add .
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push -u heroku main
-</span></span></code></pre></div><p>ここからは、entで作るopen-apiの作り方を紹介します。基本的には、<code>ent/entc.go</code>を作成し、genarateします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Entry</span>.<span style="color:#a6e22e">Create</span>()
+<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">SetUser</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">User</span>).<span style="color:#a6e22e">OnConflict</span>()
+</code></pre></div><p>例えば、作成したapiにpostすると、同じ名前にはerrを返すようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -X <span style="color:#e6db74">&#39;POST&#39;</span> -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> -d <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;syui&#34;}&#39;</span> <span style="color:#e6db74">&#34;https://</span>$APP<span style="color:#e6db74">.herokuapp.com/u&#34;</span>
+...ok
+
+$ !!
+...err
+
+$ heroku logs
+</code></pre></div><p>herokuにdeployする場合は、<code>.gitignore</code>を書いて、<code>git push</code>します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat .gitignore
+*.db
+t
+
+$ git init
+$ heroku git:remote -a $APP
+$ git add .
+$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
+$ git push -u heroku main
+</code></pre></div><p>ここからは、entで作るopen-apiの作り方を紹介します。基本的には、<code>ent/entc.go</code>を作成し、genarateします。</p>
 <p>実は、entでopen-apiの作成はなかなかに面倒で、gormのほうが基本的にはわかりやすく、コードも見通しが良いものになるでしょう。ですが、規模が大きくなると、entのほうがよいapiを作れるのではないかと思います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/entc.go" data-lang="go:ent/entc.go"><span style="display:flex;"><span><span style="color:#75715e">//go:build ignore
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/contrib/entoas&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent/entc&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent/entc/gen&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/ariga/ogent&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/ogen-go/ogen&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">spec</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">ogen</span>.<span style="color:#a6e22e">Spec</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">oas</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entoas</span>.<span style="color:#a6e22e">NewExtension</span>(<span style="color:#a6e22e">entoas</span>.<span style="color:#a6e22e">Spec</span>(<span style="color:#a6e22e">spec</span>))
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;creating entoas extension: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ogent</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewExtension</span>(<span style="color:#a6e22e">spec</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;creating ogent extension: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">entc</span>.<span style="color:#a6e22e">Generate</span>(<span style="color:#e6db74">&#34;./schema&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gen</span>.<span style="color:#a6e22e">Config</span>{}, <span style="color:#a6e22e">entc</span>.<span style="color:#a6e22e">Extensions</span>(<span style="color:#a6e22e">ogent</span>, <span style="color:#a6e22e">oas</span>))
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;running ent codegen: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get entgo.io/contrib/entoas ariga.io/ogent
-</span></span><span style="display:flex;"><span>$ entc init Todo
-</span></span><span style="display:flex;"><span>$ vim ent/schema/todo.go
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/schema/todo.go" data-lang="go:ent/schema/todo.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Todo holds the schema definition for the Todo entity.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Todo</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Fields of the Todo.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Todo</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;title&#34;</span>),
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;done&#34;</span>).
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">Optional</span>(),
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>最初に作ったentryは削除します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -rf ent/entry*
-</span></span><span style="display:flex;"><span>$ rm -rf ent/schema/entry*
-</span></span></code></pre></div><p>続いて、ent/entc.goからファイルを再構成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/genarate.go" data-lang="go:ent/genarate.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go run -mod=mod entc.go
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go generate ./...
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:main.go" data-lang="go:main.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;t/ent&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;context&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;database/sql&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">entsql</span> <span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent/dialect&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/jackc/pgx/v4/stdlib&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/lib/pq&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;t/ent/ogent&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql/schema&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">user</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;user&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">first</span> <span style="color:#66d9ef">int</span> <span style="color:#e6db74">`json:&#34;first&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">created_at</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;created_at&#34;`</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">databaseUrl</span> <span style="color:#66d9ef">string</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Client</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;pgx&#34;</span>, <span style="color:#a6e22e">databaseUrl</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">drv</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entsql</span>.<span style="color:#a6e22e">OpenDB</span>(<span style="color:#a6e22e">dialect</span>.<span style="color:#a6e22e">Postgres</span>, <span style="color:#a6e22e">db</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Driver</span>(<span style="color:#a6e22e">drv</span>))
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;DATABASE_URL&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;?sslmode=require&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;postgres&#34;</span>, <span style="color:#a6e22e">url</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//client, err := Open(url)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">WithAtlas</span>(<span style="color:#66d9ef">true</span>)); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;PORT&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;8080&#34;</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">srv</span>,<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewServer</span>(<span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewOgentHandler</span>(<span style="color:#a6e22e">client</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">srv</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get t
-</span></span><span style="display:flex;"><span>$ go run -mod<span style="color:#f92672">=</span>mod main.go
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ go build
-</span></span><span style="display:flex;"><span>$ ./t
-</span></span><span style="display:flex;"><span>--------------------
-</span></span><span style="display:flex;"><span>$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;title&#34;:&#34;Give ogen and ogent a Star on GitHub&#34;}&#39;</span> localhost:8080/todos
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;Give ogen and ogent a Star on GitHub&#34;</span>,<span style="color:#e6db74">&#34;done&#34;</span>:false<span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>できました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/entc.go" data-lang="go:ent/entc.go"><span style="color:#75715e">//go:build ignore
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+
+    <span style="color:#e6db74">&#34;entgo.io/contrib/entoas&#34;</span>
+    <span style="color:#e6db74">&#34;entgo.io/ent/entc&#34;</span>
+    <span style="color:#e6db74">&#34;entgo.io/ent/entc/gen&#34;</span>
+    <span style="color:#e6db74">&#34;github.com/ariga/ogent&#34;</span>
+    <span style="color:#e6db74">&#34;github.com/ogen-go/ogen&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">spec</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">ogen</span>.<span style="color:#a6e22e">Spec</span>)
+    <span style="color:#a6e22e">oas</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entoas</span>.<span style="color:#a6e22e">NewExtension</span>(<span style="color:#a6e22e">entoas</span>.<span style="color:#a6e22e">Spec</span>(<span style="color:#a6e22e">spec</span>))
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;creating entoas extension: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+    }
+    <span style="color:#a6e22e">ogent</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewExtension</span>(<span style="color:#a6e22e">spec</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;creating ogent extension: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+    }
+    <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">entc</span>.<span style="color:#a6e22e">Generate</span>(<span style="color:#e6db74">&#34;./schema&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gen</span>.<span style="color:#a6e22e">Config</span>{}, <span style="color:#a6e22e">entc</span>.<span style="color:#a6e22e">Extensions</span>(<span style="color:#a6e22e">ogent</span>, <span style="color:#a6e22e">oas</span>))
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;running ent codegen: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+    }
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get entgo.io/contrib/entoas ariga.io/ogent
+$ entc init Todo
+$ vim ent/schema/todo.go
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/schema/todo.go" data-lang="go:ent/schema/todo.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
+    <span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
+)
+
+<span style="color:#75715e">// Todo holds the schema definition for the Todo entity.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Todo</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
+}
+
+<span style="color:#75715e">// Fields of the Todo.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Todo</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;title&#34;</span>),
+			<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;done&#34;</span>).
+				<span style="color:#a6e22e">Optional</span>(),
+	}
+}
+</code></pre></div><p>最初に作ったentryは削除します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rm -rf ent/entry*
+$ rm -rf ent/schema/entry*
+</code></pre></div><p>続いて、ent/entc.goからファイルを再構成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/genarate.go" data-lang="go:ent/genarate.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">ent</span>
+
+<span style="color:#75715e">//go:generate go run -mod=mod entc.go
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go generate ./...
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:main.go" data-lang="go:main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;t/ent&#34;</span>
+	<span style="color:#e6db74">&#34;net/http&#34;</span>
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
+
+	<span style="color:#e6db74">&#34;database/sql&#34;</span>
+	<span style="color:#a6e22e">entsql</span> <span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/dialect&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/jackc/pgx/v4/stdlib&#34;</span>
+	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/lib/pq&#34;</span>
+	<span style="color:#e6db74">&#34;t/ent/ogent&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/dialect/sql/schema&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">user</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;user&#34;`</span>
+	<span style="color:#a6e22e">first</span> <span style="color:#66d9ef">int</span> <span style="color:#e6db74">`json:&#34;first&#34;`</span>
+	<span style="color:#a6e22e">created_at</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;created_at&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">databaseUrl</span> <span style="color:#66d9ef">string</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Client</span> {
+	<span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;pgx&#34;</span>, <span style="color:#a6e22e">databaseUrl</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#a6e22e">drv</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">entsql</span>.<span style="color:#a6e22e">OpenDB</span>(<span style="color:#a6e22e">dialect</span>.<span style="color:#a6e22e">Postgres</span>, <span style="color:#a6e22e">db</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Driver</span>(<span style="color:#a6e22e">drv</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;DATABASE_URL&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;?sslmode=require&#34;</span>
+	<span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;postgres&#34;</span>, <span style="color:#a6e22e">url</span>)
+	<span style="color:#75715e">//client, err := Open(url)
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Schema</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">WithAtlas</span>(<span style="color:#66d9ef">true</span>)); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;PORT&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
+		<span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;8080&#34;</span>
+	}
+	<span style="color:#a6e22e">srv</span>,<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewServer</span>(<span style="color:#a6e22e">ogent</span>.<span style="color:#a6e22e">NewOgentHandler</span>(<span style="color:#a6e22e">client</span>))
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">srv</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get t
+$ go run -mod<span style="color:#f92672">=</span>mod main.go
+or
+$ go build
+$ ./t
+--------------------
+$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;title&#34;:&#34;Give ogen and ogent a Star on GitHub&#34;}&#39;</span> localhost:8080/todos
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;Give ogen and ogent a Star on GitHub&#34;</span>,<span style="color:#e6db74">&#34;done&#34;</span>:false<span style="color:#f92672">}</span>
+</code></pre></div><p>できました。</p>
 <p>次は、userを作成するapiを作ってみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ entc init Users
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go:ent/schema/users.go" data-lang="go:ent/schema/users.go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Users</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;user&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">NotEmpty</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Immutable</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">MaxLen</span>(<span style="color:#ae81ff">7</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Unique</span>(),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;first&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Optional</span>(),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;draw&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Optional</span>(),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;created_at&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Optional</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
-</span></span><span style="display:flex;"><span>		}),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;updated_at&#34;</span>).
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Optional</span>().
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
-</span></span><span style="display:flex;"><span>		}),
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Edges</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span>{}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go generate ./...
-</span></span><span style="display:flex;"><span>$ go run -mod<span style="color:#f92672">=</span>mod main.go
-</span></span><span style="display:flex;"><span>--------------------
-</span></span><span style="display:flex;"><span>$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;syui&#34;}&#39;</span> localhost:8080/users
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ !!
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;code&#34;</span>:409,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#e6db74">&#34;Conflict&#34;</span>,<span style="color:#e6db74">&#34;errors&#34;</span>:<span style="color:#e6db74">&#34;ent: constraint failed: pq: duplicate key value violates unique constraint \&#34;users_user_key\&#34;&#34;</span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ curl localhost:8080/users/1
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>以上がentでopen-apiを作成する基本的な手順になると思われます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ entc init Users
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/schema/users.go" data-lang="go:ent/schema/users.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">schema</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;time&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent&#34;</span>
+	<span style="color:#e6db74">&#34;entgo.io/ent/schema/field&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Users</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Schema</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Fields</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Field</span>{
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;user&#34;</span>).
+		<span style="color:#a6e22e">NotEmpty</span>().
+		<span style="color:#a6e22e">Immutable</span>().
+		<span style="color:#a6e22e">MaxLen</span>(<span style="color:#ae81ff">7</span>).
+		<span style="color:#a6e22e">Unique</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;first&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Int</span>(<span style="color:#e6db74">&#34;draw&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>(),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;created_at&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>().
+		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+		}),
+
+		<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;updated_at&#34;</span>).
+		<span style="color:#a6e22e">Optional</span>().
+		<span style="color:#a6e22e">Default</span>(<span style="color:#66d9ef">func</span>() <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+		}),
+
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">Users</span>) <span style="color:#a6e22e">Edges</span>() []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span> {
+	<span style="color:#66d9ef">return</span> []<span style="color:#a6e22e">ent</span>.<span style="color:#a6e22e">Edge</span>{}
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go generate ./...
+$ go run -mod<span style="color:#f92672">=</span>mod main.go
+--------------------
+$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;syui&#34;}&#39;</span> localhost:8080/users
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
+
+$ !!
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;code&#34;</span>:409,<span style="color:#e6db74">&#34;status&#34;</span>:<span style="color:#e6db74">&#34;Conflict&#34;</span>,<span style="color:#e6db74">&#34;errors&#34;</span>:<span style="color:#e6db74">&#34;ent: constraint failed: pq: duplicate key value violates unique constraint \&#34;users_user_key\&#34;&#34;</span><span style="color:#f92672">}</span>
+
+$ curl localhost:8080/users/1
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>:1,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;syui&#34;</span>,<span style="color:#e6db74">&#34;first&#34;</span>:0,<span style="color:#e6db74">&#34;draw&#34;</span>:0,<span style="color:#e6db74">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span>,<span style="color:#e6db74">&#34;updated_at&#34;</span>:<span style="color:#e6db74">&#34;2022-02-24T10:15:33Z&#34;</span><span style="color:#f92672">}</span>
+</code></pre></div><p>以上がentでopen-apiを作成する基本的な手順になると思われます。</p>
 <p>entは、最初はとっつきにくいですが、触っているうちに慣れてくると思うので、おすすめです。</p>
 <h4 id="ref-">ref :</h4>
 <ul>

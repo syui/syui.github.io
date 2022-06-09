@@ -33,7 +33,7 @@ https://github.com/syui/reviewbot
 詳しくはこちらのファイルを見てください。
 https://github.com/syui/reviewbot/tree/master/.github/workflows
 条件は変更できます。基本的には、lintをinstallして、ファイルの拡張子から判断し、lintを実行し、その出力をcommentにpostします。
-on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: | ## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
+on: pull_request: types: opened jobs: reviewbot: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: Set up Ruby 2.6 uses: actions/setup-ruby@v1 with: ruby-version: 2.6.x - name: gem i run: gem i sqlint - name: run reviewbot env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} GITHUB_REPOSITORY: ${{ github.repository }} URL: ${{ github.event.pull_request.comments_url }} GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }} run: |## setup pull_n=$(jq --raw-output .pull_request.number &amp;#34;$GITHUB_EVENT_PATH&amp;#34;) npm i -D htmllint-cli -s .</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@ $ go get github.com/syui/shasumgo # version $ shasumgo -v # help $ shasumgo h # 
       <guid>https://syui.cf/app/dev/airsave/</guid>
       <description>airsave.vimは、vimの自動保存をサポートするvim-pluginです。
 Plug &amp;#39;syui/airsave.vim&amp;#39; .vimrcにlet g:air_auto_write = 1を書くと有効になります。
-&amp;#34; 最小構成 aug vimrc_airsave_vim au! au TextChanged * w aug END &amp;#34; オートセーブを有効にする let g:air_auto_write = 1 &amp;#34; 書き込みを表示する let g:air_auto_write_nosilent = 1 &amp;#34; オートセーブを開始する nm &amp;lt;Leader&amp;gt;s &amp;lt;Plug&amp;gt;(AirAutoWriteStart) &amp;#34; オートセーブを停止する nm &amp;lt;Leader&amp;gt;ss &amp;lt;Plug&amp;gt;(AirAutoWriteStop) </description>
+&amp;#34; 最小構成aug vimrc_airsave_vim au! au TextChanged * waug END&amp;#34; オートセーブを有効にするlet g:air_auto_write = 1&amp;#34; 書き込みを表示するlet g:air_auto_write_nosilent = 1&amp;#34; オートセーブを開始するnm &amp;lt;Leader&amp;gt;s &amp;lt;Plug&amp;gt;(AirAutoWriteStart)&amp;#34; オートセーブを停止するnm &amp;lt;Leader&amp;gt;ss &amp;lt;Plug&amp;gt;(AirAutoWriteStop)</description>
     </item>
     
     <item>
@@ -111,8 +111,8 @@ https://qiita.com/syui/items/2e1bb571e9d50608809e</description>
       
       <guid>https://syui.cf/app/dev/medigo/</guid>
       <description>medigoは、goで書かれたシンプルなmedium clientです。記事をポストしたり、編集できます。
-現在、medium apiが一般公開されなくなったことにより動作しません
-Download
+ 現在、medium apiが一般公開されなくなったことにより動作しません
+ Download
 # https://github.com/syui/medigo $ go get -u -v github.com/syui/medigo or $ yay -S medigo 使い方 releasesからダウンロードするか、AURからインストールして使います。
 releases版でないとclient_idなどが入っていないため、自身で用意する必要があります。
 最初に、medigoを起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。-&amp;gt; oauth

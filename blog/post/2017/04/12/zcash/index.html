@@ -110,26 +110,26 @@
 		<h2>zcash</h2>
 
 		<p>仮想通貨のzcashを使ってみました。コインの送受信が匿名でできたりするので便利そう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S zcash --noconfirm
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ zcash-fetch-params
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mkdir -p ~/.zcash
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;addnode=mainnet.z.cash&#39;</span> &gt;~/.zcash/zcash.conf
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;rpcuser=username&#39;</span> &gt;&gt;~/.zcash/zcash.conf
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;rpcpassword=`head -c 32 /dev/urandom | base64`&#39;</span> &gt;&gt;~/.zcash/zcash.conf
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;gen=1&#39;</span> &gt;&gt; ~/.zcash/zcash.conf
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#39;genproclimit=-1&#39;</span> &gt;&gt; ~/.zcash/zcash.conf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># コインを掘る</span>
-</span></span><span style="display:flex;"><span>$ zcashd --daemon
-</span></span><span style="display:flex;"><span>$ zcash-cli getinfo
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 送受信のためのアドレスを発行。z-addressを公開すれば良い</span>
-</span></span><span style="display:flex;"><span>$ zcash-cli getnewaddress
-</span></span><span style="display:flex;"><span>$ zcash-cli z_getnewaddress
-</span></span><span style="display:flex;"><span>$ zcash-cli z_listaddresses
-</span></span></code></pre></div><p>基本的に以下を読めばいいと思われます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S zcash --noconfirm
+
+$ zcash-fetch-params
+
+$ mkdir -p ~/.zcash
+$ echo <span style="color:#e6db74">&#39;addnode=mainnet.z.cash&#39;</span> &gt;~/.zcash/zcash.conf
+$ echo <span style="color:#e6db74">&#39;rpcuser=username&#39;</span> &gt;&gt;~/.zcash/zcash.conf
+$ echo <span style="color:#e6db74">&#39;rpcpassword=`head -c 32 /dev/urandom | base64`&#39;</span> &gt;&gt;~/.zcash/zcash.conf
+$ echo <span style="color:#e6db74">&#39;gen=1&#39;</span> &gt;&gt; ~/.zcash/zcash.conf
+$ echo <span style="color:#e6db74">&#39;genproclimit=-1&#39;</span> &gt;&gt; ~/.zcash/zcash.conf
+
+<span style="color:#75715e"># コインを掘る</span>
+$ zcashd --daemon
+$ zcash-cli getinfo
+
+<span style="color:#75715e"># 送受信のためのアドレスを発行。z-addressを公開すれば良い</span>
+$ zcash-cli getnewaddress
+$ zcash-cli z_getnewaddress
+$ zcash-cli z_listaddresses
+</code></pre></div><p>基本的に以下を読めばいいと思われます。</p>
 <p><a href="https://github.com/zcash/zcash/wiki/1.0-User-Guide">https://github.com/zcash/zcash/wiki/1.0-User-Guide</a></p>
 <p>コインを掘るというのは、取引には計算が必要で、その計算をネットワークを使った分散処理によって実現しているため、コンピュータ能力を貸すことで少ないですが、報酬がもらえるというものです。基本的には激安なので、個人でやる場合、電気代のほうがかかってしまうためマイナスにしかなりませんが、面白そうなのでやってみるのもいいかもしれませんね。</p>
 

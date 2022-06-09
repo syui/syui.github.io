@@ -112,21 +112,21 @@
 		<p>bitcoinはブロックチェーンのダウンロードにものすごい時間がかかります。これは取引記録のデータで、最新のデータに一致しなければならず、20GB~100GBの領域が必要になります。何度か触ってみないと分かりませんが、多分そんな感じ。</p>
 <p>で、<code>bitcoind</code>でダウンロード開始されるのですが、これがすごい遅いのですよね。torrentにもあるようでそちらでダウンロードしたほうが速いということらしいのですが、このあたりあまり良く分かりませんでしたので、<code>bitcoind</code>で開始しています。</p>
 <p>また、膨大な領域が必要になるためこれをメインに置くのは非効率で、開発にも支障をきたしかねませんので、外部に置いた<code>~/.bitcoin</code>を使うことにします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ bitcoind -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ -listen<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>$ bitcoin-cli -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ -testnet getinfo | grep block
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ bitcoin-cli -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ getinfo | grep block
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ブロック</span>
-</span></span><span style="display:flex;"><span>$ bitcoin-cli getblockcount
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># アドレスの発行(口座)</span>
-</span></span><span style="display:flex;"><span>$ bitcoin-cli getnewaddress
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 残高照会</span>
-</span></span><span style="display:flex;"><span>$ bitcoin-cli getbalance 
-</span></span><span style="display:flex;"><span>$ bitcoin-cli listunspent 
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf
+
+$ bitcoind -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ -listen<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+$ bitcoin-cli -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ -testnet getinfo | grep block
+or
+$ bitcoin-cli -datadir<span style="color:#f92672">=</span>/media/sdb1/.bitcoin/ getinfo | grep block
+
+<span style="color:#75715e"># ブロック</span>
+$ bitcoin-cli getblockcount
+<span style="color:#75715e"># アドレスの発行(口座)</span>
+$ bitcoin-cli getnewaddress
+<span style="color:#75715e"># 残高照会</span>
+$ bitcoin-cli getbalance 
+$ bitcoin-cli listunspent 
+</code></pre></div><blockquote>
 <p>/media/sdb1/.bitcoin/.bitcoin/bitcoin.conf</p>
 </blockquote>
 <pre tabindex="0"><code>testnet=3

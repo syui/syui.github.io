@@ -110,12 +110,12 @@
 		<h2>vmlinuz linux not found</h2>
 
 		<p>起動したら<code>vmlinuz linux not found</code>が出る。これは、/boot/以下に置かれるlinux imgで、usbからアクセスしてみると、確かにない。自身の環境では、<code>/boot/grub/grub.cfg</code>とかで読み込んでるのでないと、当然起動しない。ということで、linuxをインストールし直してみた。<code>systemd-boot</code>とかが怪しいのか、アップデート時に間違って別の場所にインストールされたとか?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ arch-chroot /mnt
-</span></span><span style="display:flex;"><span>$ pacman -S linux
-</span></span><span style="display:flex;"><span>$ ls /boot/vmlinuz-linux
-</span></span><span style="display:flex;"><span>$ exit
-</span></span><span style="display:flex;"><span>$ reboot
-</span></span></code></pre></div><p>追記 : ちょっと調べてみた。conflictでupdateが失敗してたみたいで、そこでよくわからんけど<code>/boot/vmlinuz-linux</code>が削除されたっぽい。archが壊れたの久しぶり。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ arch-chroot /mnt
+$ pacman -S linux
+$ ls /boot/vmlinuz-linux
+$ exit
+$ reboot
+</code></pre></div><p>追記 : ちょっと調べてみた。conflictでupdateが失敗してたみたいで、そこでよくわからんけど<code>/boot/vmlinuz-linux</code>が削除されたっぽい。archが壊れたの久しぶり。</p>
 <p>確かにネタで「archが壊れた」とか言うことはあるけど、実際問題、そうそう壊れない。公式の最新情報を見て対応が必要な場合もあるけど、主にアプリ自体の問題であることも多く、ubuntuなどは膨大なユーザー情報からアプリに独自改変し調整とかしてたりするので挙動が安定してたりすることはあると思うけど、arch自体が壊れるってことは稀だと思う。</p>
 <p>まあ、arch使ってると自分が入れてるパッケージで、何かしら挙動があれだったりと問題を抱えている場合、「archは何かしら壊れてる」みたいな印象はあるかもだけど。</p>
 <p>でもarchいいよ。aurでコンパイル簡単だし、修正も簡単だし、基本パッケージはpacmanからバイナリダウンロードだし。</p>

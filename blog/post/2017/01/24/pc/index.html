@@ -109,20 +109,20 @@
 		<div class="post-time-date">2017-01-24 / <a href="/syui">@syui</a></div>
 		<h2>gcli</h2>
 
-		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go get -u github.com/tcnksm/gcli
-</span></span><span style="display:flex;"><span>$ go get -u github.com/tcnksm/cli-init
-</span></span><span style="display:flex;"><span>$ go get -u github.com/jteeuwen/go-bindata
-</span></span><span style="display:flex;"><span>$ cd $GOPATH/src/github.com/tcnksm
-</span></span><span style="display:flex;"><span>$ make
-</span></span><span style="display:flex;"><span>$ make install
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd $GOPATH/src/github.com/mitchellh/cli
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># -F:framework, -c:option, $=name</span>
-</span></span><span style="display:flex;"><span>$ gcli new -F mitchellh_cli -c add -c list -c delete todo
-</span></span><span style="display:flex;"><span>$ cd $GOPATH/src/github.com/$USER/todo
-</span></span><span style="display:flex;"><span>$ go build
-</span></span><span style="display:flex;"><span>$ ./todo
-</span></span></code></pre></div>
+		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go get -u github.com/tcnksm/gcli
+$ go get -u github.com/tcnksm/cli-init
+$ go get -u github.com/jteeuwen/go-bindata
+$ cd $GOPATH/src/github.com/tcnksm
+$ make
+$ make install
+
+$ cd $GOPATH/src/github.com/mitchellh/cli
+<span style="color:#75715e"># -F:framework, -c:option, $=name</span>
+$ gcli new -F mitchellh_cli -c add -c list -c delete todo
+$ cd $GOPATH/src/github.com/$USER/todo
+$ go build
+$ ./todo
+</code></pre></div>
 		
 
 

@@ -121,13 +121,13 @@
 <h2 id="ハマったこと問題">ハマったこと/問題</h2>
 <h3 id="音声ライブラリ">音声ライブラリ</h3>
 <p>以下のように音声ライブラリを独自にダウンロードして<code>/database</code>に置くやり方では動作しませんでした。あと、7zの圧縮はちょっとつらいかもしれない。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pwsh
-</span></span><span style="display:flex;"><span>$ scoop install 7zip
-</span></span><span style="display:flex;"><span>$ mkdir renri
-</span></span><span style="display:flex;"><span>$ mv ./20181104_synv_tp_renri<span style="color:#f92672">(</span>library<span style="color:#f92672">)</span>.7z renri/
-</span></span><span style="display:flex;"><span>$ cd ./renri
-</span></span><span style="display:flex;"><span>$ 7z e ./20181104_synv_tp_renri<span style="color:#f92672">(</span>library<span style="color:#f92672">)</span>.7z
-</span></span></code></pre></div><h3 id="bpm">BPM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwsh
+$ scoop install 7zip
+$ mkdir renri
+$ mv ./20181104_synv_tp_renri<span style="color:#f92672">(</span>library<span style="color:#f92672">)</span>.7z renri/
+$ cd ./renri
+$ 7z e ./20181104_synv_tp_renri<span style="color:#f92672">(</span>library<span style="color:#f92672">)</span>.7z
+</code></pre></div><h3 id="bpm">BPM</h3>
 <p>伴奏とmidiで読み込んだボーカル(ノート)が合いません。BPMの問題かもしれませんが、どこで設定するのかわかりませんでした。UTAUなら読み込めば、合うのですけど(作成したソースが合ってるのだから本来的には合うはず)、こちらでは合わなかったし、合わせる方法がわかりませんでした。しかし、普通にBPMのところをクリックして調整すればできました。</p>
 <h3 id="linux">linux</h3>
 <p>やはりファイルの読み込みとか日本語入力が現在のwm(i3)では難しいです。多分、xserverをubuntuが採用してるwmで起動すればいけそうですけど、面倒なのでやりませんでした。</p>
@@ -137,8 +137,8 @@
 <p>上記の通り。調整が必要だけどやっていない。今回はそのままコピーしただけなので。</p>
 <p>どうやら「ふ」は「fu」と入力することで、普通に発音してくれるらしいです。</p>
 <h3 id="音声が小さいのでffmpegで調整した">音声が小さいのでffmpegで調整した</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ffmpeg -i siro_c.wav -vol <span style="color:#ae81ff">1024</span> siro_c.mp3
-</span></span></code></pre></div><h3 id="伴奏とボーカルの合成出力ができない">伴奏とボーカルの合成出力ができない?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ffmpeg -i siro_c.wav -vol <span style="color:#ae81ff">1024</span> siro_c.mp3
+</code></pre></div><h3 id="伴奏とボーカルの合成出力ができない">伴奏とボーカルの合成出力ができない?</h3>
 <p>伴奏とボーカルを合成したものが出力できないのでしょうか。よくわかりませんでした。よって、ボーカルだけwavで出力したあと、audacityで合成。地味に辛い。</p>
 <p>source : <a href="https://syui.gitlab.io/music/siro.txt">siro.txt</a>, <a href="https://syui.gitlab.io/music/siro_b.wav">siro_b.wav</a>, <a href="https://syui.gitlab.io/music/siro_v.mid">siro_v.mid</a></p>
 

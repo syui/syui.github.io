@@ -112,27 +112,27 @@
 		<p>昨日紹介したvueを使った方法は、browserでjavascriptをdisableにしているuserには表示できないので、本来的にはhugoで解決したほうがいいかもしれません。</p>
 <p>vueは基本的にjsで出力されるのに対して、hugoはhtmlで出力されるますので。</p>
 <p>したがって、hugoでの解決法も書いておきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ export IMG_YUI<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/yui_*.png|wc -l|tr -d <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ hugo serve
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html"><span style="display:flex;"><span>{{ $yuin := getenv &#34;IMG_YUI&#34; }}
-</span></span><span style="display:flex;"><span>{{ $yuil := int $yuin }} 
-</span></span><span style="display:flex;"><span>{{ $yuil := sub $yuil 1 }}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_{{ $yuil }}.png&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>	{{ range $index, $val := seq $yuin }}
-</span></span><span style="display:flex;"><span>		{{ if lt $index 10 }}
-</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_0{{ $index }}.png&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>		{{ else }}
-</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_{{ $index }}.png&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>		{{ end }}
-</span></span><span style="display:flex;"><span>	{{ end }}
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span></code></pre></div><p>getenvで環境変数を取得後、最新の画像をトップに表示して、それ以降は順番通りに表示しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ export IMG_YUI<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/yui_*.png|wc -l|tr -d <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span>
+
+$ hugo serve
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html">{{ $yuin := getenv &#34;IMG_YUI&#34; }}
+{{ $yuil := int $yuin }} 
+{{ $yuil := sub $yuil 1 }}
+
+&lt;<span style="color:#f92672">p</span>&gt;
+	&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_{{ $yuil }}.png&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">p</span>&gt;
+
+&lt;<span style="color:#f92672">p</span>&gt;
+	{{ range $index, $val := seq $yuin }}
+		{{ if lt $index 10 }}
+			&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_0{{ $index }}.png&#34;</span>/&gt;
+		{{ else }}
+			&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/img/yui_{{ $index }}.png&#34;</span>/&gt;
+		{{ end }}
+	{{ end }}
+&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div><p>getenvで環境変数を取得後、最新の画像をトップに表示して、それ以降は順番通りに表示しています。</p>
 <p>valは1から、indexは0からです。subする際にintで文字を数値に変換してます。</p>
 <p>ただ、hugoでpreviewする際、環境変数を入れるのいつも忘れるので、この方法は使用しません。</p>
 

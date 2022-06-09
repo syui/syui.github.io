@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2021/11/11/goodreader/</guid>
       <description>goodreader(latest)がopenssh 8.7に対応
-iosには昔からgoodreaderという便利なアプリがあります。
+ iosには昔からgoodreaderという便利なアプリがあります。
 これがずっと便利で(遥か昔から今日に至るまでiosには他に便利なアプリがあまりなかったとも言う)、このアプリ、すごく基本的なことができるのです。
 androidでは普通にできるようなことができ、例えば、ssh(sftp) serverにpublic-key方式でアクセスしたりできるんですけど、一時期からupdateが滞り、openssh verによっては、public-keyなどによるアクセスが使えなくなっていました。
 しかし、ここ最近のgoodreaderのupdateでopenssh 8.7(openssl 1.1.1)ならpublic-keyでも接続可能になりました。</description>
@@ -47,21 +47,16 @@ iphone se1がios15に対応するということでupgradeしてみました。
 ということで、この端末は予想以上に長生きする可能性があると思いました。
 これはとてもいいことです。私が持っている端末は全部お気に入りなので。
 そういえば、自分が使ってる端末、意外と長生きする傾向にあるのでは、と思ったので、ちょっと整理してみることに。
-iphone se(1st gen) os : ios 15 (最新)
-cpu : A9
-memory : 2G
-iphone5の形や大きさが好きで、それを系譜しているiphone se1を使っています。iphone5sからハードを分解して内部をいじっているうち内部構造に詳しくなりました。seが故障しても修理できるので、このタイプの端末には安心感があります。
-ipad 7th os : ios 15 (最新)
-cpu : A10
-memory : 3G
-原神とかも普通にプレイできてる。ただ、自作フィギュアから3Dモデルを作ってみたいなあと思っており、scaniverseというアプリに非対応なので、ipadは買い替え時かもしれません。
-nexus7(2013) os : android 11 (最新)
-cpu : Krait 1.50GHz
-memory : 2G
-nexus7(2013)を調べてみるとmemoryが2Gもあったので驚いてます。それにしては動作がちょっと重くて、アプリもゲーム系は動かない気がしてるけど、そのへんはcpu, gpuなのかな。まあ、memory足りてないと落ちるようになるんだけど。
-この端末はrootを取り、公式imgを焼いてましたが、最新のandroidを入れるにあたって、非公式imgを使うようになりました。
-ipadを買ってからは、あまり用途がなくなっていた端末ですが、色々と遊べるので、たまに使ってます。
-macbook air(mid2013) os : mac bigsur 11.6 (最新)</description>
+iphone se(1st gen)   os : ios 15 (最新)
+  cpu : A9
+  memory : 2G
+  iphone5の形や大きさが好きで、それを系譜しているiphone se1を使っています。iphone5sからハードを分解して内部をいじっているうち内部構造に詳しくなりました。seが故障しても修理できるので、このタイプの端末には安心感があります。
+ipad 7th   os : ios 15 (最新)
+  cpu : A10
+  memory : 3G
+  原神とかも普通にプレイできてる。ただ、自作フィギュアから3Dモデルを作ってみたいなあと思っており、scaniverseというアプリに非対応なので、ipadは買い替え時かもしれません。
+nexus7(2013)   os : android 11 (最新)
+  cpu : Krait 1.</description>
     </item>
     
     <item>
@@ -137,7 +132,7 @@ https://github.com/syui/game/releases/tag/v3.0
 いまのところ、対応はmac, win, ios, androidとなっています。
 やったこと アイコン調整 アイコンがぼやけてたので、シャープ強にしてから変換しました。
 また、xcodeでのアイコンの設定が分かりづらかったのですが、サイズのあった.pngをprojectのImages.xcassets/AppIcon.appiconset/に置きます。そして、Contents.jsonを書きます。
-#!/bin/zsh # Images.xcassets/AppIcon.appiconset/ # use : icon_1024x1024.png mogrify -resize 20x20! icon_1024x1024.png icon-20.png mogrify -resize 40x40! icon_1024x1024.png icon-20@2x.png mogrify -resize 60x60! icon_1024x1024.png icon-20@3x.png mogrify -resize 80x80! icon_1024x1024.png icon-40@2x.png mogrify -resize 120x120! icon_1024x1024.png icon-40@3x.png mogrify -resize 180x180! icon_1024x1024.png icon-60@3x.png cp -rf icon-20@2x.png icon-40.png cp -rf icon-20@3x.png icon-60.png cp -rf icon-40@3x.png icon-60@2x.png mogrify -resize 29x29! icon_1024x1024.png icon-29.png mogrify -resize 58x58! icon_1024x1024.png icon-29@2x.png mogrify -resize 87x87!</description>
+#!/bin/zsh  # Images.xcassets/AppIcon.appiconset/ # use : icon_1024x1024.png mogrify -resize 20x20! icon_1024x1024.png icon-20.png mogrify -resize 40x40! icon_1024x1024.png icon-20@2x.png mogrify -resize 60x60! icon_1024x1024.png icon-20@3x.png mogrify -resize 80x80! icon_1024x1024.png icon-40@2x.png mogrify -resize 120x120! icon_1024x1024.png icon-40@3x.png mogrify -resize 180x180! icon_1024x1024.png icon-60@3x.png cp -rf icon-20@2x.png icon-40.png cp -rf icon-20@3x.png icon-60.png cp -rf icon-40@3x.png icon-60@2x.png mogrify -resize 29x29! icon_1024x1024.png icon-29.png mogrify -resize 58x58! icon_1024x1024.png icon-29@2x.</description>
     </item>
     
     <item>
@@ -180,7 +175,7 @@ iosのgoodreaderでsftpのprivate-keyが読み込めませんでした。
 問題の答え # 公開鍵、秘密鍵の作成 $ ssh-keygen -t rsa -b 4096 -m PEM -f ~/.ssh/goodreader # serverにpublic-keyを登録 $ ssh-copy-id -i ~/.ssh/goodreader.pub user@192.168.1.11 -p 22 # ~/.ssh/goodreader # このprivate-keyをiosのgoodreaderに持っていく 問題の内容 私はいつもこんな感じでssh-keyを登録したり、変更したりします。単純ですね。
 $ ssh-keygen -f ~/.ssh/$KEYNAME $ ssh-copy-id -i ~/.ssh/$KEYNAME.pub user@localhost 簡単に説明すると、サーバーの/etc/ssh/sshd_configにて設定される.ssh/authorized_keysに公開鍵が登録される仕組み。
 この公開鍵に対応する秘密鍵を共有すれば、大抵はサーバーにアクセスできる。よって、iosのgoodreaderにもこんな感じで使える秘密鍵(.ssh/authorized_keysに書いた公開鍵に対応するやつ)を使えばアクセスできるはずなんですが、できなかった。
-$ cat ~/.ssh/private-key -----BEGIN OPENSSH PRIVATE KEY----- $ cat ~/.ssh/private-key-old -----BEGIN RSA PRIVATE KEY----- デフォルトは、RFC 4716 - The Secure Shell (SSH) Public Key File Format のフォーマット。これは RFC で定められた秘密鍵のフォーマットだ。</description>
+$ cat ~/.ssh/private-key -----BEGIN OPENSSH PRIVATE KEY----- $ cat ~/.ssh/private-key-old -----BEGIN RSA PRIVATE KEY-----  デフォルトは、RFC 4716 - The Secure Shell (SSH) Public Key File Format のフォーマット。これは RFC で定められた秘密鍵のフォーマットだ。</description>
     </item>
     
     <item>
@@ -191,7 +186,7 @@ $ cat ~/.ssh/private-key -----BEGIN OPENSSH PRIVATE KEY----- $ cat ~/.ssh/privat
       <guid>https://syui.cf/blog/post/2019/10/16/ios/</guid>
       <description>薄々は気づいていたのですが、楽曲がフォルダやファイル名ではなく、metadataで管理される時代になっています。
 私の場合、楽曲はフォルダに入れて、mpvで再生するか、goodreaderで再生する感じで、今まではmetaが付いてなくてもそこまで不便を感じなかったのですが、スマホのvlcを使いだすと、metadataが設定されていないと猛烈に不便になります。なので、自分で作った曲に最低限のmetaを付けることにしました。(今まですごく適当に付けてただけだったけど、それだと不便だった)
-# 最低限のメタデータをつける echo &amp;#34;;FFMETADATA1 title=${title} artist=${USER} album=origin/master genre=vocaloid track=${n} encoder=${USER}&amp;#34; &amp;gt;! $meta ffmpeg -i $file -i $meta -map_metadata 1 -codec copy -y $tmp # カバー画像をつける ffmpeg -i $tmp -i $cover -disposition:v:1 attached_pic -map 0 -map 1 -c copy -id3v2_version 3 -metadata:s:v title=&amp;#34;Album cover&amp;#34; -metadata:s:v comment=&amp;#34;Cover (front)&amp;#34; $file 最低限のmetadataは、title,artist,track,album,genreですかね。vlcの項目がそんな感じなので。あと、cover imageは大きいほうがいいです。小さいと画像が荒くてきれいに見えないので。</description>
+# 最低限のメタデータをつける echo &amp;#34;;FFMETADATA1 title=${title}artist=${USER}album=origin/master genre=vocaloid track=${n}encoder=${USER}&amp;#34; &amp;gt;! $meta ffmpeg -i $file -i $meta -map_metadata 1 -codec copy -y $tmp # カバー画像をつける ffmpeg -i $tmp -i $cover -disposition:v:1 attached_pic -map 0 -map 1 -c copy -id3v2_version 3 -metadata:s:v title=&amp;#34;Album cover&amp;#34; -metadata:s:v comment=&amp;#34;Cover (front)&amp;#34; $file 最低限のmetadataは、title,artist,track,album,genreですかね。vlcの項目がそんな感じなので。あと、cover imageは大きいほうがいいです。小さいと画像が荒くてきれいに見えないので。</description>
     </item>
     
     <item>
@@ -213,11 +208,11 @@ $ cat ~/.ssh/private-key -----BEGIN OPENSSH PRIVATE KEY----- $ cat ~/.ssh/privat
       <guid>https://syui.cf/blog/post/2019/10/13/ios/</guid>
       <description>データは消えるかもしれないので、バックアップするか、余ってる端末で。説明はよく読むこと。最悪、文鎮化するかもしれないことを理解する。所要時間は20分ほど。
 bootromにはcheckm8 exploitを使用、脱獄はv0rtex exploitを使用します。
-https://github.com/MatthewPierson/1033-OTA-Downgrader
-https://meridian.sparkes.zone
-iphone5s(GMS)の12.4.2を10.3.3にダウングレード
-macがCatalinaの場合は以下の通り
-# Cmd+Rでリカバリモードで起動する $ csrutil disable $ reboot $ sudo mount -uw / $ git clone https://github.com/MatthewPierson/1033-OTA-Downgrader $ cd !$:t # iOS 10.3.3 IPSW from ipsw.me # ipswはこのフォルダに置く $ chmod +x *.sh $ ./install.sh $ ./prep.sh iPhone iPhone6,1 # DFUで端末をパソコンにつなぐ(10秒間ホームボタンと電源ボタン、その後、電源ボタンを離す) # 最大40回失敗する可能性、何度も実行(2回目以降はここから実行) $ ./pwn.sh [Log] Device is now in PWNDREC mode **************** PWNing Completed. Please run restore.sh **************** $ ./restore.sh iPhone iPhone6,1 n **************** Downgrade complete!</description>
+  https://github.com/MatthewPierson/1033-OTA-Downgrader
+  https://meridian.sparkes.zone
+  iphone5s(GMS)の12.4.2を10.3.3にダウングレード
+  macがCatalinaの場合は以下の通り
+# Cmd+Rでリカバリモードで起動する $ csrutil disable $ reboot $ sudo mount -uw / $ git clone https://github.com/MatthewPierson/1033-OTA-Downgrader $ cd !$:t # iOS 10.3.3 IPSW from ipsw.me # ipswはこのフォルダに置く $ chmod +x *.sh $ ./install.sh $ ./prep.sh iPhone iPhone6,1 # DFUで端末をパソコンにつなぐ(10秒間ホームボタンと電源ボタン、その後、電源ボタンを離す) # 最大40回失敗する可能性、何度も実行(2回目以降はここから実行) $ ./pwn.sh [Log] Device is now in PWNDREC mode **************** PWNing Completed. Please run restore.</description>
     </item>
     
     <item>
@@ -319,8 +314,8 @@ https://japan.cnet.com/article/35107622/</description>
       
       <guid>https://syui.cf/blog/post/2017/04/16/ios/</guid>
       <description>電源ボタンを長押で、シャットダウンを表示させる
-この画面でホームボタンを長押しする
-以上でメモリ解放と同等のことができるらしいです。
+  この画面でホームボタンを長押しする
+  以上でメモリ解放と同等のことができるらしいです。
 iPhone5sを使ってて重くなったりメモリ足りなくなったことないけど&amp;hellip;。</description>
     </item>
     

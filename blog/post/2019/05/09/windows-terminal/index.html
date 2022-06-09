@@ -113,15 +113,15 @@
 <p><a href="https://github.com/Microsoft/Terminal">https://github.com/Microsoft/Terminal</a></p>
 <p>(というより、windowsは、これまでのターミナルがあまりにも酷すぎた気がする)</p>
 <p>VS2019でもbuildが可能ですが、いくつかのエラーが修正できませんでしたので、正常に起動しなかった。よって、VS2017でやったほうがいいです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/Microsoft/Terminal
-</span></span><span style="display:flex;"><span>$ cd Terminal
-</span></span><span style="display:flex;"><span>$ git submodule update --init --recursive
-</span></span><span style="display:flex;"><span>$ scoop install nuget
-</span></span><span style="display:flex;"><span>$ nuget restore OpenConsole.sln
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># VS2017でOpenConsole.slnを開いて、ソリューション全体をbuildします。</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ビルドが終わったら、当該ソリューションプロジェクト&#34;OpenConsole46&#34;を右クリックでデプロイ(ソリューションの配置)を実行します。</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># すると、スタートメニューに&#34;Windows Terminal Preview&#34;が追加されます。</span>
-</span></span></code></pre></div><p>C+tでタブを開きます。pwshならC+lとか動きます(前のターミナルも動いてたっけ?)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/Microsoft/Terminal
+$ cd Terminal
+$ git submodule update --init --recursive
+$ scoop install nuget
+$ nuget restore OpenConsole.sln
+<span style="color:#75715e"># VS2017でOpenConsole.slnを開いて、ソリューション全体をbuildします。</span>
+<span style="color:#75715e"># ビルドが終わったら、当該ソリューションプロジェクト&#34;OpenConsole46&#34;を右クリックでデプロイ(ソリューションの配置)を実行します。</span>
+<span style="color:#75715e"># すると、スタートメニューに&#34;Windows Terminal Preview&#34;が追加されます。</span>
+</code></pre></div><p>C+tでタブを開きます。pwshならC+lとか動きます(前のターミナルも動いてたっけ?)。</p>
 <p><img src="https://files.mastodon.social/media_attachments/files/014/391/900/original/583f95f2de71535b.png" alt=""></p>
 <p>なお、<code>ソリューションの配置</code>については、Windowsの開発者モードを有効にした上で、<code>Windows 1903 (build &gt;= 10.0.18362.0)</code>が必要なので、プレビュー版のWindowsにアップデートしてバージョン要求を満たす必要があります。(Windows Insider Programに登録して、プレビュー版のWindows Buildを試す必要があります)</p>
 <p>guide : <a href="https://github.com/microsoft/Terminal/issues/489">https://github.com/microsoft/Terminal/issues/489</a></p>

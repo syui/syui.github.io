@@ -110,10 +110,10 @@
 		<h2>kubernetesを使ってみた</h2>
 
 		<h2 id="kubernetesを使ってみた">kubernetesを使ってみた</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.6.0/minikube-darwin-amd64 <span style="color:#f92672">&amp;&amp;</span> chmod +x minikube <span style="color:#f92672">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
-</span></span><span style="display:flex;"><span>$ curl -k -o kubectl https://kuar.io/darwin/kubectl <span style="color:#f92672">&amp;&amp;</span> chmod +x kubectl <span style="color:#f92672">&amp;&amp;</span> sudo mv kubectl /usr/local/bin/
-</span></span><span style="display:flex;"><span>$ minikube start
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.6.0/minikube-darwin-amd64 <span style="color:#f92672">&amp;&amp;</span> chmod +x minikube <span style="color:#f92672">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
+$ curl -k -o kubectl https://kuar.io/darwin/kubectl <span style="color:#f92672">&amp;&amp;</span> chmod +x kubectl <span style="color:#f92672">&amp;&amp;</span> sudo mv kubectl /usr/local/bin/
+$ minikube start
+</code></pre></div><blockquote>
 <p>redis-django.yaml</p>
 </blockquote>
 <pre tabindex="0"><code>apiVersion: v1
@@ -132,12 +132,12 @@ spec:
       image: django
       ports:
         - containerPort: 8000
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl create -f ./redis-django.yaml
-</span></span><span style="display:flex;"><span>$ kubectl get pods
-</span></span><span style="display:flex;"><span>$ kubectl get nodes
-</span></span><span style="display:flex;"><span>$ eval <span style="color:#66d9ef">$(</span>minikube docker-env<span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>$ docker ps
-</span></span></code></pre></div><p>参考 : <a href="https://jedipunkz.github.io/blog/2016/07/25/minikube/">https://jedipunkz.github.io/blog/2016/07/25/minikube/</a></p>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create -f ./redis-django.yaml
+$ kubectl get pods
+$ kubectl get nodes
+$ eval <span style="color:#66d9ef">$(</span>minikube docker-env<span style="color:#66d9ef">)</span>
+$ docker ps
+</code></pre></div><p>参考 : <a href="https://jedipunkz.github.io/blog/2016/07/25/minikube/">https://jedipunkz.github.io/blog/2016/07/25/minikube/</a></p>
 
 		
 

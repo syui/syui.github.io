@@ -114,23 +114,23 @@
 <p>詳しいPOGO関連の情報は以下になります。<code>suhide</code>の場合、今回もXposedは動くみたいですね。</p>
 <p><a href="https://www.reddit.com/r/pokemongodev/comments/56bqi8/new_suhide_v054_working_for_latest_safetynet/">https://www.reddit.com/r/pokemongodev/comments/56bqi8/new_suhide_v054_working_for_latest_safetynet/</a></p>
 <p>ここで、本テーマとはあまり関係ありませんがAndroid Hackに便利なコマンドを紹介。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 再起動</span>
-</span></span><span style="display:flex;"><span>$ adb reboot system
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># リカバリモード</span>
-</span></span><span style="display:flex;"><span>$ adb reboot recovery
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ブートローダー</span>
-</span></span><span style="display:flex;"><span>$ adb reboot bootloader
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># アップロード</span>
-</span></span><span style="display:flex;"><span>$ adb push xxx.zip /sdcard/Download
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ダウンロード</span>
-</span></span><span style="display:flex;"><span>$ adb pull /sdcard/Download/xxx.zip .
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># インストール</span>
-</span></span><span style="display:flex;"><span>$ adb sideload xxx.zip
-</span></span><span style="display:flex;"><span>$ adb install xxx.apk
-</span></span></code></pre></div><p>色々とセーフティーネットへの対応は面倒ですが、上記のコマンドを覚えておけば(ほとんどの人は私同様にHistory選択すると思うので覚えておく必要はないと思うけど)、そこそこ手早くできるんじゃないかと思われます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 再起動</span>
+$ adb reboot system
+<span style="color:#75715e"># リカバリモード</span>
+$ adb reboot recovery
+<span style="color:#75715e"># ブートローダー</span>
+$ adb reboot bootloader
+
+<span style="color:#75715e"># アップロード</span>
+$ adb push xxx.zip /sdcard/Download
+
+<span style="color:#75715e"># ダウンロード</span>
+$ adb pull /sdcard/Download/xxx.zip .
+
+<span style="color:#75715e"># インストール</span>
+$ adb sideload xxx.zip
+$ adb install xxx.apk
+</code></pre></div><p>色々とセーフティーネットへの対応は面倒ですが、上記のコマンドを覚えておけば(ほとんどの人は私同様にHistory選択すると思うので覚えておく必要はないと思うけど)、そこそこ手早くできるんじゃないかと思われます。</p>
 
 		
 

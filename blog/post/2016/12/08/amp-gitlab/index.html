@@ -113,13 +113,13 @@
 <p>一応、<code>psuh</code>すればampも更新されるやり方を考えてみました。</p>
 <p><code>.gitlab-ci.yml</code></p>
 <pre tabindex="0"><code>  script:
-  - git config --global user.email &#34;${GITLAB_MAIL}&#34;
-  - git config --global user.name &#34;${USER}&#34;
+  - git config --global user.email &quot;${GITLAB_MAIL}&quot;
+  - git config --global user.name &quot;${USER}&quot;
   - git push https://${GITLAB_API_TOKEN}@gitlab.com/syui/amp.git
   - cp -rf content amp/
   - cd amp
   - git add .
-  - git commit -m &#34;amp&#34;
+  - git commit -m &quot;amp&quot;
   - git push -u origin master
 </code></pre>
 		

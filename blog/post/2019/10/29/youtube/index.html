@@ -121,44 +121,44 @@
 <p>いい曲あったら、教えてください！</p>
 <h2 id="youtube-api">youtube api</h2>
 <p>あと、listのurlを一つずつgetできないかと思い、apiでやってみた例。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># oauth(get scoop)</span>
-</span></span><span style="display:flex;"><span>$ id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .id<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;https://accounts.google.com/o/oauth2/auth?client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;redirect_uri=http%3A%2F%2Flocalhost%2Foauth2callback&amp;scope=https://www.googleapis.com/auth/youtube&amp;response_type=code&amp;access_type=offline&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># token</span>
-</span></span><span style="display:flex;"><span>$ code<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .code<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ secret<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .secret<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ curl -s -d <span style="color:#e6db74">&#34;code=</span><span style="color:#e6db74">${</span>code<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_secret=</span><span style="color:#e6db74">${</span>secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;redirect_uri=http://localhost/oauth2callback&amp;grant_type=authorization_code&#34;</span> -X POST <span style="color:#e6db74">&#34;https://accounts.google.com/o/oauth2/token&#34;</span> &gt;! token.json
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># token-refresh</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ja#OAuth2_Refreshing_a_Token</span>
-</span></span><span style="display:flex;"><span>$ id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .id<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ code<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .code<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ secret<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .secret<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ refresh<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./token.json|jq -r .refresh_token<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ token<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -s -d <span style="color:#e6db74">&#34;client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_secret=</span><span style="color:#e6db74">${</span>secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;refresh_token=</span><span style="color:#e6db74">${</span>refresh<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;grant_type=refresh_token&#34;</span> https://www.googleapis.com/oauth2/v4/token|jq -r .access_token<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  \&#34;access_token\&#34;: \&#34;</span>$token<span style="color:#e6db74">\&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  \&#34;expires_in\&#34;: 3600,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  \&#34;refresh_token\&#34;: \&#34;</span>$refresh<span style="color:#e6db74">\&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  \&#34;scope\&#34;: \&#34;https://www.googleapis.com/auth/youtube\&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  \&#34;token_type\&#34;: \&#34;Bearer\&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#34;</span> &gt;! token.json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># example</span>
-</span></span><span style="display:flex;"><span>$ export ACCESS_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./token.json | jq -r .access_token<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ list<span style="color:#f92672">=</span>XXXXXXX
-</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/channels?part=id&amp;mine=true&#34;</span>
-</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=</span><span style="color:#e6db74">${</span>list<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;maxResults=50&#34;</span>
-</span></span><span style="display:flex;"><span>$ next<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&#34;</span>|jq -r .nextPageToken<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&amp;pageToken=</span><span style="color:#e6db74">${</span>next<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># videoid</span>
-</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=</span><span style="color:#e6db74">${</span>list<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;maxResults=50&#34;</span> &gt;! p1.json
-</span></span><span style="display:flex;"><span>$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&amp;pageToken=</span><span style="color:#e6db74">${</span>next<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;! p2.json
-</span></span><span style="display:flex;"><span>$ cat p1.json| jq -r <span style="color:#e6db74">&#34;.items|.[].snippet.resourceId.videoId&#34;</span> &gt;! list.txt
-</span></span><span style="display:flex;"><span>$ cat p2.json| jq -r <span style="color:#e6db74">&#34;.items|.[].snippet.resourceId.videoId&#34;</span> &gt;&gt; list.txt
-</span></span><span style="display:flex;"><span>$ cat list.txt|sed <span style="color:#e6db74">&#34;s#^#https://www.youtube.com/watch?v=#g&#34;</span>
-</span></span></code></pre></div><h2 id="追記">追記</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># oauth(get scoop)</span>
+$ id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .id<span style="color:#e6db74">`</span>
+$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;https://accounts.google.com/o/oauth2/auth?client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;redirect_uri=http%3A%2F%2Flocalhost%2Foauth2callback&amp;scope=https://www.googleapis.com/auth/youtube&amp;response_type=code&amp;access_type=offline&#34;</span>
+<span style="color:#75715e"># token</span>
+$ code<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .code<span style="color:#e6db74">`</span>
+$ secret<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .secret<span style="color:#e6db74">`</span>
+$ curl -s -d <span style="color:#e6db74">&#34;code=</span><span style="color:#e6db74">${</span>code<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_secret=</span><span style="color:#e6db74">${</span>secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;redirect_uri=http://localhost/oauth2callback&amp;grant_type=authorization_code&#34;</span> -X POST <span style="color:#e6db74">&#34;https://accounts.google.com/o/oauth2/token&#34;</span> &gt;! token.json
+<span style="color:#75715e"># token-refresh</span>
+<span style="color:#75715e"># https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ja#OAuth2_Refreshing_a_Token</span>
+$ id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .id<span style="color:#e6db74">`</span>
+$ code<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .code<span style="color:#e6db74">`</span>
+$ secret<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./config.json|jq -r .secret<span style="color:#e6db74">`</span>
+$ refresh<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./token.json|jq -r .refresh_token<span style="color:#e6db74">`</span>
+$ token<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -s -d <span style="color:#e6db74">&#34;client_id=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;client_secret=</span><span style="color:#e6db74">${</span>secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;refresh_token=</span><span style="color:#e6db74">${</span>refresh<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;grant_type=refresh_token&#34;</span> https://www.googleapis.com/oauth2/v4/token|jq -r .access_token<span style="color:#e6db74">`</span>
+$ echo <span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">{
+</span><span style="color:#e6db74">  \&#34;access_token\&#34;: \&#34;</span>$token<span style="color:#e6db74">\&#34;,
+</span><span style="color:#e6db74">  \&#34;expires_in\&#34;: 3600,
+</span><span style="color:#e6db74">  \&#34;refresh_token\&#34;: \&#34;</span>$refresh<span style="color:#e6db74">\&#34;,
+</span><span style="color:#e6db74">  \&#34;scope\&#34;: \&#34;https://www.googleapis.com/auth/youtube\&#34;,
+</span><span style="color:#e6db74">  \&#34;token_type\&#34;: \&#34;Bearer\&#34;
+</span><span style="color:#e6db74">}&#34;</span> &gt;! token.json
+
+<span style="color:#75715e"># example</span>
+$ export ACCESS_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat ./token.json | jq -r .access_token<span style="color:#e6db74">`</span>
+$ list<span style="color:#f92672">=</span>XXXXXXX
+$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/channels?part=id&amp;mine=true&#34;</span>
+$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=</span><span style="color:#e6db74">${</span>list<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;maxResults=50&#34;</span>
+$ next<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&#34;</span>|jq -r .nextPageToken<span style="color:#e6db74">`</span>
+$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&amp;pageToken=</span><span style="color:#e6db74">${</span>next<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># videoid</span>
+$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=</span><span style="color:#e6db74">${</span>list<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;maxResults=50&#34;</span> &gt;! p1.json
+$ curl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ACCESS_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&amp;playlistId=PLqs8DaKUViAS8LGerf7CFGr2rUtuKLP61&amp;maxResults=50&amp;pageToken=</span><span style="color:#e6db74">${</span>next<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;! p2.json
+$ cat p1.json| jq -r <span style="color:#e6db74">&#34;.items|.[].snippet.resourceId.videoId&#34;</span> &gt;! list.txt
+$ cat p2.json| jq -r <span style="color:#e6db74">&#34;.items|.[].snippet.resourceId.videoId&#34;</span> &gt;&gt; list.txt
+$ cat list.txt|sed <span style="color:#e6db74">&#34;s#^#https://www.youtube.com/watch?v=#g&#34;</span>
+</code></pre></div><h2 id="追記">追記</h2>
 <p>その後、時間空いたときにちょっと調べたり、削除したりでリスト整理しました。</p>
 
 		

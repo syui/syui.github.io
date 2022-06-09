@@ -111,10 +111,10 @@
 
 		<p>これは動かない時はどうやっても動かないので、よくわかりません。動かないというのは、画面が固まったようになって操作できないし、キーの入力、マウスも受け付けない感じなのですが、これはサーバー側に問題があるのかもしれず、i3とかが怪しいとは思っているのですが、WindowsのVNCサーバーもたまに固まったように動かせないことがあるため、MacのVNCも不安定な感じで、操作が確実ではありません。完璧にコントロールできるのとは全然違っていて色々あれ。多分、Linuxのクライアントアプリならもう少しマシになるとは思います(特にキーのカスタマイズとか)。</p>
 <p>で、検索してみたけどやっぱり解決しなかったわけなのですが、<code>netstart</code>とか便利そうだなと思ったのでメモ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh XXX netstart -nlt
-</span></span><span style="display:flex;"><span>	tcp <span style="color:#ae81ff">5900</span>
-</span></span><span style="display:flex;"><span>$ open vnc://192.168.X.X:5900
-</span></span></code></pre></div><p>VNC関連は以下の記事が参考になりそうでした。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ssh XXX netstart -nlt
+	tcp <span style="color:#ae81ff">5900</span>
+$ open vnc://192.168.X.X:5900
+</code></pre></div><p>VNC関連は以下の記事が参考になりそうでした。</p>
 <p><a href="http://homemadegarbage.0t0.jp/mac-raspi3-vnc">http://homemadegarbage.0t0.jp/mac-raspi3-vnc</a></p>
 <p>VNCはこういうものと割り切ったほうがいい気もしますけどね。</p>
 

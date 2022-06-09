@@ -113,45 +113,45 @@
 <h3 id="fzf">fzf</h3>
 <p>fzfに関しては、<code>vim **&lt;tab&gt;</code>などが使えます。<code>--preview</code>で画面分割しながら<code>tree,cat</code>したものを表示できます。</p>
 <p>grepの代わりになる<code>rg</code>とcatの代わりになる<code>bat</code>がおすすめで、コマンドオプションなどに追加。あと<code>.git</code>以下は拾わないようにしたりとか、ファイルのみとか。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install rg bat
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc"><span style="display:flex;"><span>bindkey <span style="color:#e6db74">&#39;^b&#39;</span> fzf-file-widget
-</span></span><span style="display:flex;"><span>export FZF_DEFAULT_COMMAND<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;fd --type f --hidden --follow --exclude .git&#39;</span>
-</span></span><span style="display:flex;"><span>export FZF_COMPLETION_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--preview &#34;bat --color=always --style=header,grid --line-range :100 {}&#34;&#39;</span>
-</span></span><span style="display:flex;"><span>export FZF_CTRL_T_COMMAND<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rg --files --hidden --follow --glob &#34;!.git/*&#34;&#39;</span>
-</span></span><span style="display:flex;"><span>export FZF_CTRL_T_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--preview &#34;bat --color=always --style=header,grid --line-range :100 {}&#34;&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#export FZF_COMPLETION_TRIGGER=&#39;~~&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fancy-ctrl-z <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $#BUFFER -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>    BUFFER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fg&#34;</span>
-</span></span><span style="display:flex;"><span>    zle accept-line
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
-</span></span><span style="display:flex;"><span>    zle push-input
-</span></span><span style="display:flex;"><span>    zle clear-screen
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>zle -N fancy-ctrl-z
-</span></span><span style="display:flex;"><span>bindkey <span style="color:#e6db74">&#39;^z&#39;</span> fancy-ctrl-z
-</span></span></code></pre></div><p><code>fzf-file-widget</code>は<code>^t</code>ですが、<code>tmux</code>に使ってるので<code>^b</code>に変更。この辺は<code>bindkey</code>コマンドで調べられます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install rg bat
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.zshrc" data-lang="sh:~/.zshrc">bindkey <span style="color:#e6db74">&#39;^b&#39;</span> fzf-file-widget
+export FZF_DEFAULT_COMMAND<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;fd --type f --hidden --follow --exclude .git&#39;</span>
+export FZF_COMPLETION_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--preview &#34;bat --color=always --style=header,grid --line-range :100 {}&#34;&#39;</span>
+export FZF_CTRL_T_COMMAND<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rg --files --hidden --follow --glob &#34;!.git/*&#34;&#39;</span>
+export FZF_CTRL_T_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--preview &#34;bat --color=always --style=header,grid --line-range :100 {}&#34;&#39;</span>
+<span style="color:#75715e">#export FZF_COMPLETION_TRIGGER=&#39;~~&#39;</span>
+
+fancy-ctrl-z <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $#BUFFER -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+    BUFFER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fg&#34;</span>
+    zle accept-line
+  <span style="color:#66d9ef">else</span>
+    zle push-input
+    zle clear-screen
+  <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+zle -N fancy-ctrl-z
+bindkey <span style="color:#e6db74">&#39;^z&#39;</span> fancy-ctrl-z
+</code></pre></div><p><code>fzf-file-widget</code>は<code>^t</code>ですが、<code>tmux</code>に使ってるので<code>^b</code>に変更。この辺は<code>bindkey</code>コマンドで調べられます。</p>
 <p><code>^z</code>でバックグラウンドの利用を促進。</p>
 <h3 id="vim--terminal">vim + terminal</h3>
 <p>vim + terminalは、tyruさんのgithubやblogが参考になると思います。</p>
 <p><a href="http://tyru.hatenablog.com/entry/2020/01/06/153959">http://tyru.hatenablog.com/entry/2020/01/06/153959</a></p>
 <p>簡単に言うとpeco, fzfとの連携が便利になるpluginなどをいくつか作られている感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:~/.vimrc" data-lang="sh:~/.vimrc"><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tyru/sync-term-cwd.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tyru/tapi-reg.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ go get github.com/mattn/gof
-</span></span></code></pre></div><h3 id="vim-lsp">vim-lsp</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.vimrc" data-lang="sh:~/.vimrc"><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tyru/sync-term-cwd.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tyru/tapi-reg.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get github.com/mattn/gof
+</code></pre></div><h3 id="vim-lsp">vim-lsp</h3>
 <p>vim補完についてはmattnさんのgithubやblogが参考になると思います。</p>
 <p><a href="https://mattn.kaoriya.net/software/vim/20191231213507.htm">https://mattn.kaoriya.net/software/vim/20191231213507.htm</a></p>
 <p>lspは様々な言語支援を提供してくれるサーバーのことでpluginはそのクライアントみたいな感じでしょうか。わからん。言語ファイルを開いて、<code>:LspInstallServer</code>しましょう。<code>./servers</code>にダウンロードされます。</p>
 <p><a href="https://github.com/mattn/vim-lsp-settings">https://github.com/mattn/vim-lsp-settings</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:~/.vimrc" data-lang="sh:~/.vimrc"><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/async.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/asyncomplete.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/asyncomplete-lsp.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/vim-lsp&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;mattn/vim-lsp-settings&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:~/.vimrc" data-lang="sh:~/.vimrc"><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/async.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/asyncomplete.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/asyncomplete-lsp.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;prabirshrestha/vim-lsp&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;mattn/vim-lsp-settings&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div>
 		
 
 

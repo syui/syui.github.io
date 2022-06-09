@@ -112,48 +112,48 @@
 		<h3 id="phonegapでremote-buildする">phonegapでremote buildする</h3>
 <p>tyranoscript v5でios,androidはphonegapなどでbuildしてねと書いてあったので、やってみました。</p>
 <p><a href="https://tyrano.jp/dl/v5">https://tyrano.jp/dl/v5</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo npm -g install phonegap cordova
-</span></span><span style="display:flex;"><span>$ phonegap create test com.example.test2 Test
-</span></span><span style="display:flex;"><span>$ cd test
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># html5(index.htmlファイル群)はwww/に置く</span>
-</span></span><span style="display:flex;"><span>$ cp -rf ../yui/* www/
-</span></span><span style="display:flex;"><span>$ vim config.xml
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml:config.xml" data-lang="xml:config.xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;widget</span> <span style="color:#a6e22e">xmlns   =</span> <span style="color:#e6db74">&#34;http://www.w3.org/ns/widgets&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:gap   =</span> <span style="color:#e6db74">&#34;http://phonegap.com/ns/1.0&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id          =</span> <span style="color:#e6db74">&#34;cf.syui.game&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">versionCode =</span> <span style="color:#e6db74">&#34;10&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">version     =</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;name&gt;</span>yui<span style="color:#f92672">&lt;/name&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;platform</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ios&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;platform</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;android&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;description&gt;</span>
-</span></span><span style="display:flex;"><span>      novel game yui.
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/description&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;author</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;https://syui.cf&#34;</span> <span style="color:#a6e22e">email=</span><span style="color:#e6db74">&#34;example@example.com&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      syui
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/author&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/widget&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ phonegap serve -p <span style="color:#ae81ff">1313</span>
-</span></span><span style="display:flex;"><span>$ phonegap remote build ios
-</span></span></code></pre></div><p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/002/small/0c0180e07bd8937c.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo npm -g install phonegap cordova
+$ phonegap create test com.example.test2 Test
+$ cd test
+<span style="color:#75715e"># html5(index.htmlファイル群)はwww/に置く</span>
+$ cp -rf ../yui/* www/
+$ vim config.xml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:config.xml" data-lang="xml:config.xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;widget</span> <span style="color:#a6e22e">xmlns   =</span> <span style="color:#e6db74">&#34;http://www.w3.org/ns/widgets&#34;</span>
+    <span style="color:#a6e22e">xmlns:gap   =</span> <span style="color:#e6db74">&#34;http://phonegap.com/ns/1.0&#34;</span>
+    <span style="color:#a6e22e">id          =</span> <span style="color:#e6db74">&#34;cf.syui.game&#34;</span>
+    <span style="color:#a6e22e">versionCode =</span> <span style="color:#e6db74">&#34;10&#34;</span>
+    <span style="color:#a6e22e">version     =</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span> <span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;name&gt;</span>yui<span style="color:#f92672">&lt;/name&gt;</span>
+	<span style="color:#f92672">&lt;platform</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ios&#34;</span> <span style="color:#f92672">/&gt;</span>
+	<span style="color:#f92672">&lt;platform</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;android&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;description&gt;</span>
+      novel game yui.
+  <span style="color:#f92672">&lt;/description&gt;</span>
+  <span style="color:#f92672">&lt;author</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;https://syui.cf&#34;</span> <span style="color:#a6e22e">email=</span><span style="color:#e6db74">&#34;example@example.com&#34;</span><span style="color:#f92672">&gt;</span>
+      syui
+  <span style="color:#f92672">&lt;/author&gt;</span>
+<span style="color:#f92672">&lt;/widget&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ phonegap serve -p <span style="color:#ae81ff">1313</span>
+$ phonegap remote build ios
+</code></pre></div><p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/002/small/0c0180e07bd8937c.png" alt=""></p>
 <p><code>phonegap</code>はadobeのアカウントが必要になります。また、phonegap buildするにもios dev(apple)のkey(p12)を登録する必要があり、これにはapple-storeでappを配布するときに使われる開発者登録が必要です。</p>
 <p><a href="https://build.phonegap.com/apps">https://build.phonegap.com/apps</a></p>
 <h3 id="cordovaでbuildする">cordovaでbuildする</h3>
 <p>xcodeや実機がある場合、cordovaでbuildできます。phonegapはあくまでcloudでremote buildするためのものです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cordova create test
-</span></span><span style="display:flex;"><span>$ cd test
-</span></span><span style="display:flex;"><span>$ cordova platform add ios
-</span></span><span style="display:flex;"><span>$ cordova compile ios
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 更新</span>
-</span></span><span style="display:flex;"><span>$ vim www/
-</span></span><span style="display:flex;"><span>$ cordova prepare ios
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ls ./platforms/ios
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ open -a Xcode ./platforms/ios/yui.xcodeproj
-</span></span></code></pre></div><p>実機でappを起動している様子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cordova create test
+$ cd test
+$ cordova platform add ios
+$ cordova compile ios
+
+<span style="color:#75715e"># 更新</span>
+$ vim www/
+$ cordova prepare ios
+
+$ ls ./platforms/ios
+
+$ open -a Xcode ./platforms/ios/yui.xcodeproj
+</code></pre></div><p>実機でappを起動している様子</p>
 <p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/004/small/e78eaaff5970b71e.png" alt=""></p>
 <p><img src="https://github.com/syui/mstdn.page/raw/master/img/mastodon/media_attachments/files/000/000/005/small/93344400c1fa81bf.png" alt=""></p>
 <p>アイコンを調整したり、画面サイズを調整したりする必要がありますが、難しくはありません。アイコンはcordovaに倣ってファイルを指定してやればいいのでしょう。画面サイズはtyranoscriptのほうで調整すればokだと思います。ただ、ストア配布に関しては、dev登録などのハードルが高いですし、めんどうです。また配布したところでプレイする人はほとんどいないでしょう。なので、今のところ考えていません。</p>

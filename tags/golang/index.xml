@@ -30,8 +30,8 @@ on: push: branches: - master create: tags: - v*.*.* jobs: release: # job_id name
       
       <guid>https://syui.cf/blog/post/2020/05/17/golang/</guid>
       <description>shellのcatでは、github-apiのpostでjson errorが出る場合があったので、xqにtxt, mdなどのファイルをjsonのbodyに入れて出力するコマンドを追加してみました。
-$ xq j ./index.md {&amp;#34;body&amp;#34;:&amp;#34;+++\ndate = \&amp;#34;2020-05-17JST\&amp;#34;\ntags = [\&amp;#34;golang\&amp;#34;]\ntitle = \&amp;#34;\&amp;#34;\nslug = \&amp;#34;golang\&amp;#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n$ xq j ./index.md\n```\n&amp;#34;} これでgh-actionsに以下のような書き方ができます。
-$ curl -X POST \ -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \ -d &amp;#34;`xq j index.txt`&amp;#34; \ ${URL} github-apiのpostは、titleなども加えられるのでbodyだけでは応用性は低いですが、個人的に使わない機能を追加してもしょうがないので、必要最小限で。
+$ xq j ./index.md {&amp;#34;body&amp;#34;:&amp;#34;+++\ndate = \&amp;#34;2020-05-17JST\&amp;#34;\ntags = [\&amp;#34;golang\&amp;#34;]\ntitle = \&amp;#34;\&amp;#34;\nslug = \&amp;#34;golang\&amp;#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n$xq j ./index.md\n```\n&amp;#34;} これでgh-actionsに以下のような書き方ができます。
+$ curl -X POST \  -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \  -d &amp;#34;`xq j index.txt`&amp;#34; \  ${URL} github-apiのpostは、titleなども加えられるのでbodyだけでは応用性は低いですが、個人的に使わない機能を追加してもしょうがないので、必要最小限で。
 どんどんと、なんのツールかわからなくなってきましたね！
 &amp;hellip;でも新しく作るのとか、分けるのとか面倒なんだよなあ。</description>
     </item>
@@ -57,7 +57,7 @@ $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.
       
       <guid>https://syui.cf/blog/post/2017/04/10/golang/</guid>
       <description>なぜか，サービスにこのクライアントを入れてイベントをPublishするとなぜかData部分のJSONがbase64エンコードされている……. 結論から言うと，Go1.8未満のバージョンで json.RawMessage を json.Marshal するとbase64エンコードされてしまうのが原因．
-http://blog.upamune.com/entry/2017/04/07/165658
+ http://blog.upamune.com/entry/2017/04/07/165658
 これに類似する問題、ちょっとハマったのでメモ。</description>
     </item>
     
@@ -112,8 +112,8 @@ $ cd $GOPATH/bin $ curl -LO https://github.com/syui/ipinfo/releases/download/0.1
       <description>https://github.com/syui/ipinfo
 golangで書いた。色々と試したいこともあったので、ごちゃごちゃしている。
 きっかけは、ある記事でお天気APIをgoで使うチュートリアルみたいなものがあって、続きはあなたが書きましょう、APIでオススメはこれみたいなのが紹介されていたので。 http://postd.cc/how-i-start-go/
-最終コードをgithubにフォークしましょう。別のweatherProviderを追加してみましょう（ヒント:forecast.ioはお勧めです）。
-適当に機能を追加して作った。具体的にはIPアドレスから地域を取得し、その地域を元にforecast.io -&amp;gt; https://darksky.net/dev/で天気を取得する感じ。あとは、これをコマンド化してオプションで呼ぶようにした。IPアドレスやAPIの問い合わせは時間がかかるので、オプション無しコマンドはヘルプのみ呼び出すようにしてる。
+ 最終コードをgithubにフォークしましょう。別のweatherProviderを追加してみましょう（ヒント:forecast.ioはお勧めです）。
+ 適当に機能を追加して作った。具体的にはIPアドレスから地域を取得し、その地域を元にforecast.io -&amp;gt; https://darksky.net/dev/で天気を取得する感じ。あとは、これをコマンド化してオプションで呼ぶようにした。IPアドレスやAPIの問い合わせは時間がかかるので、オプション無しコマンドはヘルプのみ呼び出すようにしてる。
 自分では使わないので、内容的には試したいことをやってるだけみたいな感じになってる。
 以上</description>
     </item>

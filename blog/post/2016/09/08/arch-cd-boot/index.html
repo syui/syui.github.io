@@ -117,57 +117,57 @@
 <p>ここでUSBブートも, DVDブートもダメとなると、選択肢は限られてくる。</p>
 <p>幸運にも私はUSB接続するタイプのDVD外付けドライブを持っていたので、そちらからArchインストールディスクをブートすることにした。</p>
 <p>ブートは成功したものの幾つかのエラーが出ていてArch Linux自体は起動しなかった。外部ドライブ先である<code>/dev/sr1</code>からエラーが出ていたので、以下のコマンドでも問題解決には至らなかった。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Waiting <span style="color:#ae81ff">30</span> seconds <span style="color:#66d9ef">for</span> device /dev/disk/ARCH_201609
-</span></span><span style="display:flex;"><span>$ ln -sf /dev/sr1 /dev/disk/by-label/ARCH_201609
-</span></span><span style="display:flex;"><span>$ exit
-</span></span></code></pre></div><p>したがって、USBを接続して、そちらに入れてあるArch Linuxを使うことにした。これは、要求されているラベルを書き換えることで使うことができた。DVDブートが要求しているラベルは<code>ARCH_201609</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>$ cd /dev/disk/by-label/
-</span></span><span style="display:flex;"><span>$ ls 
-</span></span><span style="display:flex;"><span>ARCH_201608...USB
-</span></span><span style="display:flex;"><span>$ mv ARCH_201608 ARCH_201609
-</span></span><span style="display:flex;"><span>$ exit
-</span></span></code></pre></div><p>これでArch Linuxが無事起動した。ここまでくれば後は問題ないと思っていたが、HDDをマウントできない問題が発生した。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/sda2
-</span></span><span style="display:flex;"><span>$ mount /dev/sda2 /mnt
-</span></span><span style="display:flex;"><span>mount: unknown filesystem type <span style="color:#e6db74">&#39;ext4&#39;</span>
-</span></span></code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?id=215432">https://bbs.archlinux.org/viewtopic.php?id=215432</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+Waiting <span style="color:#ae81ff">30</span> seconds <span style="color:#66d9ef">for</span> device /dev/disk/ARCH_201609
+$ ln -sf /dev/sr1 /dev/disk/by-label/ARCH_201609
+$ exit
+</code></pre></div><p>したがって、USBを接続して、そちらに入れてあるArch Linuxを使うことにした。これは、要求されているラベルを書き換えることで使うことができた。DVDブートが要求しているラベルは<code>ARCH_201609</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+$ cd /dev/disk/by-label/
+$ ls 
+ARCH_201608...USB
+$ mv ARCH_201608 ARCH_201609
+$ exit
+</code></pre></div><p>これでArch Linuxが無事起動した。ここまでくれば後は問題ないと思っていたが、HDDをマウントできない問題が発生した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
+$ mkfs.ext4 /dev/sda2
+$ mount /dev/sda2 /mnt
+mount: unknown filesystem type <span style="color:#e6db74">&#39;ext4&#39;</span>
+</code></pre></div><p><a href="https://bbs.archlinux.org/viewtopic.php?id=215432">https://bbs.archlinux.org/viewtopic.php?id=215432</a></p>
 <p>他のフォーマットを試したけど無駄ぽい。マウントできないというのは割りとどうしようもないので、USBの起動イメージを変えてみることにした。具体的にはArch Linuxのイメージを少し古くしてみたらいけた。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>$ cd /dev/disk/by-label/
-</span></span><span style="display:flex;"><span>$ ls 
-</span></span><span style="display:flex;"><span>ARCH_201508...USB
-</span></span><span style="display:flex;"><span>$ mv ARCH_201508 ARCH_201609
-</span></span><span style="display:flex;"><span>$ exit
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/sda2
-</span></span><span style="display:flex;"><span>$ mount /dev/sda2 /mnt
-</span></span></code></pre></div><p>ただ、そこでも<code>pacman-key --refresh-keys</code>などでのエラーに手こずった。(Archは古いイメージを使うとすぐこうなるから嫌だったんだよ。)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>rootfs<span style="color:#f92672">]</span>
+$ cd /dev/disk/by-label/
+$ ls 
+ARCH_201508...USB
+$ mv ARCH_201508 ARCH_201609
+$ exit
+<span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
+$ mkfs.ext4 /dev/sda2
+$ mount /dev/sda2 /mnt
+</code></pre></div><p>ただ、そこでも<code>pacman-key --refresh-keys</code>などでのエラーに手こずった。(Archは古いイメージを使うとすぐこうなるから嫌だったんだよ。)</p>
 <p>でも以下のようにしたらいけた。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>$ pacstrap /mnt base
-</span></span><span style="display:flex;"><span>warning: Public keyring not found; have you run <span style="color:#e6db74">&#39;pacman-key --init&#39;</span>?
-</span></span><span style="display:flex;"><span>error: packege_name: key <span style="color:#e6db74">&#34;****************&#34;</span> is unknown
-</span></span><span style="display:flex;"><span>error: key <span style="color:#e6db74">&#34;****************&#34;</span> could not be looked up remotely
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacman-key --refresh-keys
-</span></span><span style="display:flex;"><span>gpg: connecting dirmngr at <span style="color:#e6db74">&#39;/root/.gnupg/S.dirmngr&#39;</span> failed: IPC connect call failed
-</span></span><span style="display:flex;"><span>gpg: keyserver refresh failed: No dirmngr
-</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; ERROR: A specified local key could not be updated from a keyserver.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ dirmngr
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacman-key --init
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacstrap /mnt base
-</span></span><span style="display:flex;"><span>:: Import PGP key ********, <span style="color:#e6db74">&#34;hoge hoge &lt;******@archlinux.org&gt;&#34;</span>, created YYYY-MM-DD? <span style="color:#f92672">[</span>Y/n<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacman-key --populate
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacstrap /mnt base
-</span></span></code></pre></div><p>だいたいこんな感じでなんとかなった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>archiso<span style="color:#f92672">]</span>
+$ pacstrap /mnt base
+warning: Public keyring not found; have you run <span style="color:#e6db74">&#39;pacman-key --init&#39;</span>?
+error: packege_name: key <span style="color:#e6db74">&#34;****************&#34;</span> is unknown
+error: key <span style="color:#e6db74">&#34;****************&#34;</span> could not be looked up remotely
+
+$ pacman-key --refresh-keys
+gpg: connecting dirmngr at <span style="color:#e6db74">&#39;/root/.gnupg/S.dirmngr&#39;</span> failed: IPC connect call failed
+gpg: keyserver refresh failed: No dirmngr
+<span style="color:#f92672">==</span>&gt; ERROR: A specified local key could not be updated from a keyserver.
+
+$ dirmngr
+
+$ pacman-key --init
+
+$ pacstrap /mnt base
+:: Import PGP key ********, <span style="color:#e6db74">&#34;hoge hoge &lt;******@archlinux.org&gt;&#34;</span>, created YYYY-MM-DD? <span style="color:#f92672">[</span>Y/n<span style="color:#f92672">]</span>
+
+$ pacman-key --populate
+
+$ pacstrap /mnt base
+</code></pre></div><p>だいたいこんな感じでなんとかなった。</p>
 <p>と言っても重要なのは最初の方だけで、DVDドライブからは何故かArchが起動しなかったので、<code>rootfs(busybox)</code>からUSBのArchイメージを所定のラベル(DVDイメージが要求するラベル)に変更することで強引にArchを起動しているという所だと思われる。</p>
 
 		

@@ -123,13 +123,13 @@
 <h3 id="注意点">注意点</h3>
 <p>superuser-hidesuの注意点ですが、手順通り以外のことを独自にやると動かない可能性があります。ここで言う動かないというのは、Pokemon Goでログインできないということですが、ログインできない可能性があります。</p>
 <p>そのような場合は公式の<code>boot.img</code>を上書きします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ fastboot flash boot boot.img
-</span></span></code></pre></div><p>また、supersuなどのアンインストールも慌てずやりましょう。処理が走っていることもありますので、再起動まで待つ必要があるかもしれません。具体的には<code>XX個中XX個のアプリを最適化しています</code>という処理を走らせる必要があるかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fastboot flash boot boot.img
+</code></pre></div><p>また、supersuなどのアンインストールも慌てずやりましょう。処理が走っていることもありますので、再起動まで待つ必要があるかもしれません。具体的には<code>XX個中XX個のアプリを最適化しています</code>という処理を走らせる必要があるかもしれません。</p>
 <p>私の場合、hidesuでのログイン成功後に色々とやってしまったので、再度動かなくなり、無駄な時間を費やしてしまいました。そんな感じで、この辺は注意です。</p>
 <p>また、手順を間違えてAndroid自体が起動しなくなった場合などは<code>supersu</code>を再度インストールすると動くようになることが多いです。ダメな場合は、公式の<code>system.img</code>などを上書きしてみてください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ fastboot erase system
-</span></span><span style="display:flex;"><span>$ fastboot flash system system.img
-</span></span></code></pre></div><p>あと、当然ですが、こういうことをやる場合、ある程度Androidの仕組み的なものを知っておかなければ対応できないことがあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fastboot erase system
+$ fastboot flash system system.img
+</code></pre></div><p>あと、当然ですが、こういうことをやる場合、ある程度Androidの仕組み的なものを知っておかなければ対応できないことがあります。</p>
 <h3 id="selinux">SELinux</h3>
 <p>SuperUser-HidesuではSELinuxがOFFにならないため、アプリによっては不都合を起こします。例えば、Frepで画像認識が使えなくなるとか。なので、以下のようなアプリが必要になります。</p>
 <p>SELinux Mode Changer : <a href="http://forum.xda-developers.com/showthread.php?t=2524485">http://forum.xda-developers.com/showthread.php?t=2524485</a></p>

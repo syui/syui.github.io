@@ -111,11 +111,11 @@
 
 		<p>OctopressをWerckerでビルド、デプロイしようとした時にハマった話(何度目?)。</p>
 <p>(1) なぜかdeployのworkflowsを作らないとbuild(rake gen)が通らない、原因不明(意味不明)</p>
-<p>(2) `autodetect&rsquo;: Could not find a JavaScript runtime.</p>
+<p>(2) `autodetect': Could not find a JavaScript runtime.</p>
 <blockquote>
 <p>Gemfile</p>
 </blockquote>
-<pre tabindex="0"><code>gem &#39;therubyracer&#39;, :platforms =&gt; :ruby
+<pre tabindex="0"><code>gem 'therubyracer', :platforms =&gt; :ruby
 </code></pre><p>(3) Liquid Exception: invalid byte sequence in US-ASCII in foo.html</p>
 <blockquote>
 <p>wercker.yml</p>
@@ -123,7 +123,7 @@
 <pre tabindex="0"><code>- install-packages:
     packages: git ssh-client locales
 - script:
-    echo &#39;en_US UTF-8&#39; &gt; /etc/locale.gen
+    echo 'en_US UTF-8' &gt; /etc/locale.gen
     locale-gen en_US.UTF-8
     export LANG=en_US.UTF-8
     export LANGUAGE=en_US:en

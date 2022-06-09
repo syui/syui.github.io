@@ -111,101 +111,101 @@
 
 		<p>古いパソコンのHDDが壊れてから、USBを挿してarchサーバーとして運用してたのですが、流石にOSの読み書き回数に耐えられなかったのか、USBが逝きました。</p>
 <p>古い端子のHDDを買い直して取り付ける気も起きず、USBを挿していたわけですが、USBが寿命っぽい。なので、余ってたmicroSDを再び挿して、そこにarchを入れて使うことに。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ loadkeys jp106
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ fdisk -l
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cfdisk /dev/sdc
-</span></span><span style="display:flex;"><span>sda1 200M
-</span></span><span style="display:flex;"><span>sda2 残り全部
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mkfs.vfat /dev/sdc1
-</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/sdc2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mount /dev/sdc2 /mnt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ vim /etc/pacman.d/mirror
-</span></span><span style="display:flex;"><span>Japan
-</span></span><span style="display:flex;"><span>$ pacman-key --refresh-keys
-</span></span><span style="display:flex;"><span>$ pacstrap /mnt base base-devel
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacman-db-upgrade
-</span></span><span style="display:flex;"><span>$ pacman -S grub grub-efi-x86_64 efibootmgr dhcpcd
-</span></span><span style="display:flex;"><span>$ grub-install --force --recheck /dev/sdc
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd.service
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ useradd -m -G wheel -s /bin/bash archie
-</span></span><span style="display:flex;"><span>$ passwd
-</span></span><span style="display:flex;"><span>$ passwd archie
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ echo xxx &gt;&gt; /etc/hostname
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ exit
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ reboot
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ pacman -S openssh vim net-tools atool zsh tmux git
-</span></span><span style="display:flex;"><span>$ ip link
-</span></span><span style="display:flex;"><span>$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
-</span></span><span style="display:flex;"><span>$ ip link set xxxx down
-</span></span><span style="display:flex;"><span>$ ip link set eth0 up
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># networkはsystemd, netctlどちらでも</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># systemd-networkd</span>
-</span></span><span style="display:flex;"><span>$ vim  /etc/systemd/network/20-wired.network
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Name<span style="color:#f92672">=</span>eth0
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Address<span style="color:#f92672">=</span>192.168.1.x
-</span></span><span style="display:flex;"><span>Gateway<span style="color:#f92672">=</span>192.168.1.1
-</span></span><span style="display:flex;"><span>DNS<span style="color:#f92672">=</span>192.168.1.1
-</span></span><span style="display:flex;"><span>$ systemctl enable systemd-networkd
-</span></span><span style="display:flex;"><span>$ systemctl start systemd-networkd
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># netctl</span>
-</span></span><span style="display:flex;"><span>$ cp /etc/netctl/examples/ethernet-static /etc/netctl/eth0
-</span></span><span style="display:flex;"><span>$ vim /etc/netctl/eth0
-</span></span><span style="display:flex;"><span>Interface<span style="color:#f92672">=</span>eth0
-</span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">=</span>ethernet
-</span></span><span style="display:flex;"><span>IP<span style="color:#f92672">=</span>static
-</span></span><span style="display:flex;"><span>Address<span style="color:#f92672">=(</span><span style="color:#e6db74">&#39;192.168.1.x&#39;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>Gateway<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;192.168.1.1&#39;</span>
-</span></span><span style="display:flex;"><span>DNS<span style="color:#f92672">=(</span><span style="color:#e6db74">&#39;192.168.1.1&#39;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>$ netctl start eth0
-</span></span><span style="display:flex;"><span>$ netctl enable eth0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ systemctl disable dhcpcd
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ping github.com
-</span></span><span style="display:flex;"><span>$ vim /etc/resolv.conf
-</span></span><span style="display:flex;"><span>nameserver 192.168.1.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ssh</span>
-</span></span><span style="display:flex;"><span>$ ifconfig
-</span></span><span style="display:flex;"><span>$ systemctl start sshd
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># clientで</span>
-</span></span><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/xxx
-</span></span><span style="display:flex;"><span>$ ssh-copy-id -i ~/.ssh/xxx.pub archie@192.168.1.x
-</span></span><span style="display:flex;"><span>$ ssh archie@192.168.1.x 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># serverで</span>
-</span></span><span style="display:flex;"><span>$ sudo vim /etc/ssh/sshd_config
-</span></span><span style="display:flex;"><span>Port XXXXX
-</span></span><span style="display:flex;"><span>PasswordAuthentication no
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># clientで</span>
-</span></span><span style="display:flex;"><span>$ vim ~/.ssh/config
-</span></span><span style="display:flex;"><span>Host xxx
-</span></span><span style="display:flex;"><span>    HostName 192.168.1.x
-</span></span><span style="display:flex;"><span>    Port XXXX
-</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/xxx
-</span></span><span style="display:flex;"><span>    User archie
-</span></span><span style="display:flex;"><span>$ ssh xxx
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ loadkeys jp106
+
+$ fdisk -l
+
+$ cfdisk /dev/sdc
+sda1 200M
+sda2 残り全部
+
+$ mkfs.vfat /dev/sdc1
+$ mkfs.ext4 /dev/sdc2
+
+$ mount /dev/sdc2 /mnt
+
+$ vim /etc/pacman.d/mirror
+Japan
+$ pacman-key --refresh-keys
+$ pacstrap /mnt base base-devel
+
+$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+
+$ arch-chroot /mnt
+
+$ pacman-db-upgrade
+$ pacman -S grub grub-efi-x86_64 efibootmgr dhcpcd
+$ grub-install --force --recheck /dev/sdc
+
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+$ systemctl enable dhcpcd.service
+
+$ useradd -m -G wheel -s /bin/bash archie
+$ passwd
+$ passwd archie
+
+$ echo xxx &gt;&gt; /etc/hostname
+
+$ exit
+
+$ reboot
+
+$ pacman -S openssh vim net-tools atool zsh tmux git
+$ ip link
+$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+$ ip link set xxxx down
+$ ip link set eth0 up
+
+<span style="color:#75715e"># networkはsystemd, netctlどちらでも</span>
+<span style="color:#75715e"># systemd-networkd</span>
+$ vim  /etc/systemd/network/20-wired.network
+<span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>eth0
+<span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+Address<span style="color:#f92672">=</span>192.168.1.x
+Gateway<span style="color:#f92672">=</span>192.168.1.1
+DNS<span style="color:#f92672">=</span>192.168.1.1
+$ systemctl enable systemd-networkd
+$ systemctl start systemd-networkd
+<span style="color:#75715e"># netctl</span>
+$ cp /etc/netctl/examples/ethernet-static /etc/netctl/eth0
+$ vim /etc/netctl/eth0
+Interface<span style="color:#f92672">=</span>eth0
+Connection<span style="color:#f92672">=</span>ethernet
+IP<span style="color:#f92672">=</span>static
+Address<span style="color:#f92672">=(</span><span style="color:#e6db74">&#39;192.168.1.x&#39;</span><span style="color:#f92672">)</span>
+Gateway<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;192.168.1.1&#39;</span>
+DNS<span style="color:#f92672">=(</span><span style="color:#e6db74">&#39;192.168.1.1&#39;</span><span style="color:#f92672">)</span>
+$ netctl start eth0
+$ netctl enable eth0
+
+$ systemctl disable dhcpcd
+
+$ ping github.com
+$ vim /etc/resolv.conf
+nameserver 192.168.1.1
+
+<span style="color:#75715e"># ssh</span>
+$ ifconfig
+$ systemctl start sshd
+<span style="color:#75715e"># clientで</span>
+$ ssh-keygen -f ~/.ssh/xxx
+$ ssh-copy-id -i ~/.ssh/xxx.pub archie@192.168.1.x
+$ ssh archie@192.168.1.x 
+<span style="color:#75715e"># serverで</span>
+$ sudo vim /etc/ssh/sshd_config
+Port XXXXX
+PasswordAuthentication no
+<span style="color:#75715e"># clientで</span>
+$ vim ~/.ssh/config
+Host xxx
+    HostName 192.168.1.x
+    Port XXXX
+    IdentityFile ~/.ssh/xxx
+    User archie
+$ ssh xxx
+</code></pre></div>
 		
 
 

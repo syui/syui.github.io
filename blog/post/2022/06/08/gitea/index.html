@@ -114,145 +114,145 @@
 <p>まず、メンテナンス後にherokuのpgsqlがwebとcliで情報が違ってたので、cliを参考にすること。</p>
 <p>app.iniのdb情報を修正すれば動くと思う。</p>
 <p>ただ、db(record)がいっぱいになりかけてたし、updateもしたかったので、resetしてからdeployすることに。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/go-gitea/gitea
-</span></span><span style="display:flex;"><span>$ cd gitea
-</span></span><span style="display:flex;"><span>$ vim docker-compose.yml 
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">gitea</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:1.16.8</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">gitea</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">USER_UID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">USER_GID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITEA__database__DB_TYPE=postgres</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITEA__database__HOST=db:5432</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITEA__database__NAME=gitea</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITEA__database__USER=gitea</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GITEA__database__PASSWD=gitea</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">gitea</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./gitea:/data</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/timezone:/etc/timezone:ro</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;222:22&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:14</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_USER=gitea</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_PASSWORD=gitea</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_DB=gitea</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">gitea</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./postgres:/var/lib/postgresql/data</span>
-</span></span></code></pre></div><p>最小構成はこんな感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./gitea:/data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=Japan</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SSH_PORT=10022</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker-compose up
-</span></span></code></pre></div><p>起動しないときは、dockerのpsやimageを削除します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo docker ps -aq
-</span></span><span style="display:flex;"><span>$ sudo docker images -aq
-</span></span><span style="display:flex;"><span>$ sudo docker stop <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ sudo docker rm -f <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>$ sudo docker rmi -f <span style="color:#e6db74">`</span>sudo docker images -aq<span style="color:#e6db74">`</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chromium localhost:3000/install
-</span></span></code></pre></div><p>webでぽちぽちやると以下のファイルが生成されます。重要な設定部分を載せています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:gitea/gitea/conf/app.ini" data-lang="yml:gitea/gitea/conf/app.ini"><span style="display:flex;"><span><span style="color:#66d9ef">[database]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SSL_MODE</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">require</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[service]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DISABLE_REGISTRATION</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">REQUIRE_SIGNIN_VIEW</span>               <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">REGISTER_EMAIL_CONFIRM</span>            <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ENABLE_NOTIFY_MAIL</span>                <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ALLOW_ONLY_EXTERNAL_REGISTRATION</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ENABLE_CAPTCHA</span>                    <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_KEEP_EMAIL_PRIVATE</span>        <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_ALLOW_CREATE_ORGANIZATION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_ENABLE_TIMETRACKING</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku git:remote -a $appname
-</span></span><span style="display:flex;"><span>$ heroku pg:credentials:url
-</span></span><span style="display:flex;"><span>$ heroku stack:set container
-</span></span></code></pre></div><p>Dockerfileの<code>ENV USER git</code>を消してください。基本的にはこれだけで動きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim Dockerfile
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#ENV USER git</span>
-</span></span><span style="display:flex;"><span>COPY ./gitea/ /data/
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git add gitea Dockerfile heroku.yml
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add conf&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push -u heroku main
-</span></span></code></pre></div><h3 id="heroku-user-port">heroku $USER, $PORT</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/go-gitea/gitea
+$ cd gitea
+$ vim docker-compose.yml 
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+
+<span style="color:#f92672">networks</span>:
+  <span style="color:#f92672">gitea</span>:
+    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">server</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:1.16.8</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">gitea</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">USER_UID=1000</span>
+      - <span style="color:#ae81ff">USER_GID=1000</span>
+      - <span style="color:#ae81ff">GITEA__database__DB_TYPE=postgres</span>
+      - <span style="color:#ae81ff">GITEA__database__HOST=db:5432</span>
+      - <span style="color:#ae81ff">GITEA__database__NAME=gitea</span>
+      - <span style="color:#ae81ff">GITEA__database__USER=gitea</span>
+      - <span style="color:#ae81ff">GITEA__database__PASSWD=gitea</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">gitea</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./gitea:/data</span>
+      - <span style="color:#ae81ff">/etc/timezone:/etc/timezone:ro</span>
+      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
+      - <span style="color:#e6db74">&#34;222:22&#34;</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">db</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:14</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">POSTGRES_USER=gitea</span>
+      - <span style="color:#ae81ff">POSTGRES_PASSWORD=gitea</span>
+      - <span style="color:#ae81ff">POSTGRES_DB=gitea</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">gitea</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./postgres:/var/lib/postgresql/data</span>
+</code></pre></div><p>最小構成はこんな感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">web</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./gitea:/data</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
+      - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">TZ=Japan</span>
+      - <span style="color:#ae81ff">SSH_PORT=10022</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose up
+</code></pre></div><p>起動しないときは、dockerのpsやimageを削除します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker ps -aq
+$ sudo docker images -aq
+$ sudo docker stop <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
+$ sudo docker rm -f <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
+$ sudo docker rmi -f <span style="color:#e6db74">`</span>sudo docker images -aq<span style="color:#e6db74">`</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ chromium localhost:3000/install
+</code></pre></div><p>webでぽちぽちやると以下のファイルが生成されます。重要な設定部分を載せています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:gitea/gitea/conf/app.ini" data-lang="yml:gitea/gitea/conf/app.ini"><span style="color:#66d9ef">[database]</span>
+<span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
+<span style="color:#a6e22e">SSL_MODE</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">require</span>
+
+<span style="color:#66d9ef">[service]</span>
+<span style="color:#a6e22e">DISABLE_REGISTRATION</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">REQUIRE_SIGNIN_VIEW</span>               <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">REGISTER_EMAIL_CONFIRM</span>            <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">ENABLE_NOTIFY_MAIL</span>                <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">ALLOW_ONLY_EXTERNAL_REGISTRATION</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">ENABLE_CAPTCHA</span>                    <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">DEFAULT_KEEP_EMAIL_PRIVATE</span>        <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">DEFAULT_ALLOW_CREATE_ORGANIZATION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+<span style="color:#a6e22e">DEFAULT_ENABLE_TIMETRACKING</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku git:remote -a $appname
+$ heroku pg:credentials:url
+$ heroku stack:set container
+</code></pre></div><p>Dockerfileの<code>ENV USER git</code>を消してください。基本的にはこれだけで動きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim Dockerfile
+<span style="color:#75715e">#ENV USER git</span>
+COPY ./gitea/ /data/
+
+$ git add gitea Dockerfile heroku.yml
+$ git commit -m <span style="color:#e6db74">&#34;add conf&#34;</span>
+$ git push -u heroku main
+</code></pre></div><h3 id="heroku-user-port">heroku $USER, $PORT</h3>
 <p>herokuの場合、毎日web-serverのストレージがリセットされる際に$USER, $PORTが変わるので、それに対応しなければなりません。</p>
 <p>リセットされる都度、以下のような処理をどこかに入れて、<code>gitea web</code>するしかありません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo RUN_USER<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>whoami<span style="color:#e6db74">`</span> &gt;&gt; /data/gitea/conf/app.ini
-</span></span></code></pre></div><p>カスタマイズしたい方は、<code>./docker/root/</code>以下のファイルが参考になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo RUN_USER<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>whoami<span style="color:#e6db74">`</span> &gt;&gt; /data/gitea/conf/app.ini
+</code></pre></div><p>カスタマイズしたい方は、<code>./docker/root/</code>以下のファイルが参考になります。</p>
 <p><code>heroku.yml</code>のrunはDockerfileにCMDがある場合は実行されません。ですから、仮に<code>heroku.yml</code>を優先したい場合は、DockerfileのCMDを削除してrunを書きましょう。</p>
 <blockquote>
 <p>Dockerfile</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#CMD [&#34;/bin/s6-svscan&#34;, &#34;/etc/s6&#34;]</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo &#34;RUN_USER=`whoami`&#34; &gt;&gt; /data/gitea/conf/app.ini;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">Dockerfile</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">release</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">web</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">command</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
-</span></span></code></pre></div><p>herokuの$USERが難しいのは、Dockerfileがrootで実行されるので、heroku.ymlで制御する必要があるからです。ただし、heroku.ymlでは<code>/data/gitea/conf</code>に書き込む権限がありません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#CMD [&#34;/bin/s6-svscan&#34;, &#34;/etc/s6&#34;]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
+  <span style="color:#f92672">docker</span>:
+    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
+<span style="color:#f92672">run</span>:
+  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo &#34;RUN_USER=`whoami`&#34; &gt;&gt; /data/gitea/conf/app.ini;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
+  <span style="color:#f92672">docker</span>:
+    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">Dockerfile</span>
+<span style="color:#f92672">release</span>:
+  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">web</span>
+  <span style="color:#f92672">command</span>:
+    - <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini</span>
+<span style="color:#f92672">run</span>:
+  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</code></pre></div><p>herokuの$USERが難しいのは、Dockerfileがrootで実行されるので、heroku.ymlで制御する必要があるからです。ただし、heroku.ymlでは<code>/data/gitea/conf</code>に書き込む権限がありません。</p>
 <p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
 <h3 id="git-push">git push</h3>
 <p>herokuがストレージを<a href="https://devcenter.heroku.com/ja/articles/dynos#restarting">リセット</a>する関係上、webで作成したrepo、つまり、web serverに書き込まれる<code>/data/git</code>は後々削除されます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku ps:restart
-</span></span></code></pre></div><p>ですから、localでrepo、つまり、<code>/gitea/git</code>を生成して、それをheroku-repoにpushする必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku ps:restart
+</code></pre></div><p>ですから、localでrepo、つまり、<code>/gitea/git</code>を生成して、それをheroku-repoにpushする必要があります。</p>
 <p>ただし、herokuでつかうapp.iniとdocker-localで使うapp.iniは異なります。立ち上げる際は動くように調整する必要があります。</p>
 <p>giteaを使う場合は、作成したrepoをcloneしてpushできます。</p>
 <p>init, remoteで作成した<code>.git</code>だとそのままではpushできません。cloneした<code>.git</code>を使ってください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone xxx/xxx.git
-</span></span><span style="display:flex;"><span>$ cd xxx
-</span></span><span style="display:flex;"><span>$ tree .git
-</span></span></code></pre></div><p>また、localでrepoを作成、更新するのが面倒な場合は、<code>/data/gitea/git/repositories/$user</code>にrepoの<code>.git</code>を<code>$repo.git</code>として置く方法があります。これをheroku-deployしなければなりません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone xxx/$user/$repo.git 
-</span></span><span style="display:flex;"><span>$ mkdir -p gitea/git/repositories/$user
-</span></span><span style="display:flex;"><span>$ mv $repo/.git ./gitea/git/repositories/$user/$repo.git
-</span></span><span style="display:flex;"><span>$ rm -rf $repo
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git add gitea/git
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add git-repo&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push heroku main
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone xxx/xxx.git
+$ cd xxx
+$ tree .git
+</code></pre></div><p>また、localでrepoを作成、更新するのが面倒な場合は、<code>/data/gitea/git/repositories/$user</code>にrepoの<code>.git</code>を<code>$repo.git</code>として置く方法があります。これをheroku-deployしなければなりません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone xxx/$user/$repo.git 
+$ mkdir -p gitea/git/repositories/$user
+$ mv $repo/.git ./gitea/git/repositories/$user/$repo.git
+$ rm -rf $repo
+
+$ git add gitea/git
+$ git commit -m <span style="color:#e6db74">&#34;add git-repo&#34;</span>
+$ git push heroku main
+</code></pre></div>
 		
 
 

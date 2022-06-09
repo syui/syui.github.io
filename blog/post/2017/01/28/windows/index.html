@@ -122,30 +122,30 @@
 <ul>
 <li><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ssh-keygen.exe -t rsa -f id_rsa
-</span></span><span style="display:flex;"><span>&gt; net start ssh-agent
-</span></span><span style="display:flex;"><span>&gt; ssh-add.exe id_rsa
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; ssh-keygen.exe -t rsa -f id_rsa
+&gt; net start ssh-agent
+&gt; ssh-add.exe id_rsa
+</code></pre></div><ul>
 <li><a href="https://github.com/PowerShell/PowerShellGet">https://github.com/PowerShell/PowerShellGet</a></li>
 </ul>
 <pre tabindex="0"><code>&gt; Install-PackageProvider Nuget -Force -Scope CurrentUser 
 </code></pre><ul>
 <li><a href="https://github.com/PowerShell/xWindowsUpdate">https://github.com/PowerShell/xWindowsUpdate</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 管理者ユーザー</span>
-</span></span><span style="display:flex;"><span>&gt; Start-Process powershell.exe -Verb runas
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># スクリプト実行ルールの変更</span>
-</span></span><span style="display:flex;"><span>&gt; Set-ExecutionPolicy RemoteSigned
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; $env:PSModulePath
-</span></span><span style="display:flex;"><span>&gt; Save-Module -Name PSWindowsUpdate -Path &lt;path&gt;
-</span></span><span style="display:flex;"><span>&gt; Save-Module -Name xWindowsUpdate -Path &lt;path&gt;
-</span></span><span style="display:flex;"><span>&gt; Install-Module -Name xWindowsUpdate -Scope CurrentUser
-</span></span><span style="display:flex;"><span>&gt; Install-Module -Name PSWindowsUpdate -Scope CurrentUser
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; Start-Process powershell -Verb runAs
-</span></span><span style="display:flex;"><span>&gt; Get-WUInstall -AcceptAll -AutoReboot
-</span></span></code></pre></div><p>面倒ですね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 管理者ユーザー</span>
+&gt; Start-Process powershell.exe -Verb runas
+<span style="color:#75715e"># スクリプト実行ルールの変更</span>
+&gt; Set-ExecutionPolicy RemoteSigned
+
+&gt; $env:PSModulePath
+&gt; Save-Module -Name PSWindowsUpdate -Path &lt;path&gt;
+&gt; Save-Module -Name xWindowsUpdate -Path &lt;path&gt;
+&gt; Install-Module -Name xWindowsUpdate -Scope CurrentUser
+&gt; Install-Module -Name PSWindowsUpdate -Scope CurrentUser
+
+&gt; Start-Process powershell -Verb runAs
+&gt; Get-WUInstall -AcceptAll -AutoReboot
+</code></pre></div><p>面倒ですね。</p>
 <p>以上</p>
 
 		

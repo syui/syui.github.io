@@ -113,67 +113,67 @@
 <blockquote>
 <p>dockerfile</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>FROM ubuntu:16.10
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN dpkg --add-architecture i386
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apt-get update -y
-</span></span><span style="display:flex;"><span>RUN apt-get install -y software-properties-common <span style="color:#f92672">&amp;&amp;</span> add-apt-repository -y ppa:ubuntu-wine/ppa
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apt-get install -y wine1.8 winetricks xvfb curl wget zsh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apt-get purge -y software-properties-common
-</span></span><span style="display:flex;"><span>RUN apt-get autoclean -y
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
-</span></span><span style="display:flex;"><span>RUN echo <span style="color:#e6db74">&#34;alias mt5=&#39;wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&#39;&#34;</span> &gt;&gt; ~/.zshrc
-</span></span><span style="display:flex;"><span>RUN echo -e <span style="color:#e6db74">&#34;#!/bin/sh
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&#34;</span> &gt;&gt; ~/main.sh <span style="color:#f92672">&amp;&amp;</span> chmod +x ~/main.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ENV HOME /root
-</span></span><span style="display:flex;"><span>CMD /bin/zsh
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo docker build -t ubuntu:base .
-</span></span><span style="display:flex;"><span>$ sudo docker run -ti --rm <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ubuntu:base
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># wine mt5setup.exe</span>
-</span></span><span style="display:flex;"><span>------------------------------------
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># インストール終了後</span>
-</span></span><span style="display:flex;"><span>$ sudo docker ps
-</span></span><span style="display:flex;"><span>$ sudo docker commit <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span> ubuntu:mt5
-</span></span><span style="display:flex;"><span>$ sudo docker run -ti --rm <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ubuntu:mt5
-</span></span></code></pre></div><h3 id="alpineでも少し頑張ったけど無理だった">Alpineでも少し頑張ったけど無理だった</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM ubuntu:16.10
+
+RUN dpkg --add-architecture i386
+
+RUN apt-get update -y
+RUN apt-get install -y software-properties-common <span style="color:#f92672">&amp;&amp;</span> add-apt-repository -y ppa:ubuntu-wine/ppa
+
+RUN apt-get install -y wine1.8 winetricks xvfb curl wget zsh
+
+RUN apt-get purge -y software-properties-common
+RUN apt-get autoclean -y
+
+RUN curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
+RUN echo <span style="color:#e6db74">&#34;alias mt5=&#39;wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&#39;&#34;</span> &gt;&gt; ~/.zshrc
+RUN echo -e <span style="color:#e6db74">&#34;#!/bin/sh
+</span><span style="color:#e6db74">wine ~/.wine/drive_c/Program\ Files/MetaTrader\ 5/terminal64.exe&#34;</span> &gt;&gt; ~/main.sh <span style="color:#f92672">&amp;&amp;</span> chmod +x ~/main.sh
+
+ENV HOME /root
+CMD /bin/zsh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t ubuntu:base .
+$ sudo docker run -ti --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ubuntu:base
+<span style="color:#75715e"># wine mt5setup.exe</span>
+------------------------------------
+<span style="color:#75715e"># インストール終了後</span>
+$ sudo docker ps
+$ sudo docker commit <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span> ubuntu:mt5
+$ sudo docker run -ti --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ubuntu:mt5
+</code></pre></div><h3 id="alpineでも少し頑張ったけど無理だった">Alpineでも少し頑張ったけど無理だった</h3>
 <p>ちなみに、Alpineでも少し頑張ったけど、難しかったのでやめた。</p>
 <blockquote>
 <p>dockerfile</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>FROM alpine:latest
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ENV DISPLAY :0
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#ENV WINEARCH win32</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk update <span style="color:#f92672">&amp;&amp;</span> apk add alpine-desktop xfce4 cabextract alpine-base wine 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --no-cache xvfb curl wget zsh <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>ln -s /usr/bin/wine64 /usr/bin/wine <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>curl -sLO https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks <span style="color:#f92672">&amp;&amp;</span> chmod +x winetricks <span style="color:#f92672">&amp;&amp;</span> mv winetricks /usr/bin/winetricks
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN echo <span style="color:#e6db74">&#39;root:root&#39;</span> |chpasswd
-</span></span><span style="display:flex;"><span>RUN adduser -S wineuser <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;wineuser ALL=(ALL) NOPASSWD:ALL&#34;</span> &gt;&gt; /etc/sudoers <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#39;wineuser:wineuser&#39;</span> | chpasswd
-</span></span><span style="display:flex;"><span>USER wineuser
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN cd <span style="color:#f92672">&amp;&amp;</span> curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
-</span></span><span style="display:flex;"><span>CMD /bin/zsh
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo docker build -t alpine:base .
-</span></span><span style="display:flex;"><span>$ sudo docker run -ti --rm <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    alpine:base
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># cd ;WINEPREFIX=~/.win64 wine mt5setup</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM alpine:latest
+
+ENV DISPLAY :0
+<span style="color:#75715e">#ENV WINEARCH win32</span>
+
+RUN apk update <span style="color:#f92672">&amp;&amp;</span> apk add alpine-desktop xfce4 cabextract alpine-base wine 
+
+RUN apk add --no-cache xvfb curl wget zsh <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>ln -s /usr/bin/wine64 /usr/bin/wine <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>curl -sLO https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks <span style="color:#f92672">&amp;&amp;</span> chmod +x winetricks <span style="color:#f92672">&amp;&amp;</span> mv winetricks /usr/bin/winetricks
+
+RUN echo <span style="color:#e6db74">&#39;root:root&#39;</span> |chpasswd
+RUN adduser -S wineuser <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;wineuser ALL=(ALL) NOPASSWD:ALL&#34;</span> &gt;&gt; /etc/sudoers <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#39;wineuser:wineuser&#39;</span> | chpasswd
+USER wineuser
+
+RUN cd <span style="color:#f92672">&amp;&amp;</span> curl -sLO https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
+CMD /bin/zsh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker build -t alpine:base .
+$ sudo docker run -ti --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e DISPLAY<span style="color:#f92672">=</span>$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    alpine:base
+<span style="color:#75715e"># cd ;WINEPREFIX=~/.win64 wine mt5setup</span>
+</code></pre></div>
 		
 
 

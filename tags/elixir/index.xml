@@ -24,9 +24,9 @@ https://github.com/cotoami/cotoami
 これを見る限りではcotoamiというプロジェクトがあって、何やらmd共有とチャットサービスみたいなものが実験的に稼働しているみたいな感じなのかな。
 $ git clone https://github.com/cotoami/cotoami $ cd cotoami $ npm i $ mix deps.get $ mix ecto.create &amp;amp;&amp;amp; mix ecto.migrate $ mix phoenix.server それぞれのバージョン。
 $ mix -v Mix 1.5.0-dev $ mix phoenix.new -v Phoenix v1.2.1 $ psql -V psql (PostgreSQL) 9.5.3 $ elm -v 0.18.0 macでやるとerlang,elixirのバージョンとかpostgrexなどの設定とかでかなりハマる。
-warning: variable &amp;ldquo;deps&amp;rdquo; does not exist and is being expanded to &amp;ldquo;deps()&amp;rdquo;
-こんな感じでエラーが出る場合、mix.exsを編集して変数の語尾に()をつけることで回避可能。
-psql: could not connect to server: No such file or directory Is the server running locally and accepting connections on Unix domain socket</description>
+ warning: variable &amp;ldquo;deps&amp;rdquo; does not exist and is being expanded to &amp;ldquo;deps()&amp;rdquo;
+ こんな感じでエラーが出る場合、mix.exsを編集して変数の語尾に()をつけることで回避可能。
+ psql: could not connect to server: No such file or directory Is the server running locally and accepting connections on Unix domain socket</description>
     </item>
     
   </channel>

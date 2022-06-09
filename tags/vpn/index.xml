@@ -19,9 +19,9 @@
 しかし、VPNはなかなか面倒で一番良いのは、サービスにインストールして使えるようにすることですが、費用がかかります。
 今回は、Web UIから設定が行えるpritunlを使ってLocal NetworkにVPN Serverを立ててみようと思います。
 https://github.com/Fridus/docker-pritunl
-$ mkdir mongo $ sudo docker-compose up -d docker-compose.yml
-network: image: busybox ports: - &amp;#34;9700:443&amp;#34; - &amp;#34;1194:1194/udp&amp;#34; restart: always tty: true mongo: image: mongo volumes: - ./mongo:/data/db restart: always net: container:network pritunl: image: fridus/pritunl privileged: true environment: - MONGO_URI=mongodb://127.0.0.1:27017/pritunl restart: always net: container:network もしくはjippi/pritunlを使います。
-#!/bin/bash datadir=&amp;#34;$(dirname $(readlink -f &amp;#34;$0&amp;#34;))/data&amp;#34; echo &amp;#34;datadir=$datadir&amp;#34; mkdir -p $datadir/{mongodb,pritunl} touch $datadir/pritunl.conf sudo docker run \ --name=pritunl \ --detach \ --cap-add NET_ADMIN \ --network=bridge \ --restart=always \ -v $datadir/mongodb:/var/lib/mongodb \ -v $datadir/pritunl:/var/lib/pritunl \ -v $datadir/pritunl.</description>
+$ mkdir mongo $ sudo docker-compose up -d  docker-compose.yml
+ network: image: busybox ports: - &amp;#34;9700:443&amp;#34; - &amp;#34;1194:1194/udp&amp;#34; restart: always tty: true mongo: image: mongo volumes: - ./mongo:/data/db restart: always net: container:network pritunl: image: fridus/pritunl privileged: true environment: - MONGO_URI=mongodb://127.0.0.1:27017/pritunl restart: always net: container:network もしくはjippi/pritunlを使います。
+#!/bin/bash  datadir=&amp;#34;$(dirname $(readlink -f &amp;#34;$0&amp;#34;))/data&amp;#34; echo &amp;#34;datadir=$datadir&amp;#34; mkdir -p $datadir/{mongodb,pritunl} touch $datadir/pritunl.</description>
     </item>
     
     <item>

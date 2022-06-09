@@ -112,15 +112,15 @@
 		<p>Docker Hubには、1つのPrivate Imageしか置けません(Free)。したがって、GitLab.comを使うのが最も良い選択肢です。</p>
 <p>必要なのは、GitLab.comのGit RepositoryとAccess Tokenのみです。</p>
 <p><a href="https://gitlab.com/profile/personal_access_tokens">https://gitlab.com/profile/personal_access_tokens</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。</span>
-</span></span><span style="display:flex;"><span>$ sudo docker login registry.gitlab.com
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ sudo vim ~/.docker/config.json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。
-</span></span><span style="display:flex;"><span>$ sudo docker build -t registry.gitlab.com/$USER/repo .
-</span></span><span style="display:flex;"><span>$ sudo docker push registry.gitlab.com/$USER/repo
-</span></span></code></pre></div><p><a href="https://gitlab.com/help/user/project/container_registry">https://gitlab.com/help/user/project/container_registry</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。</span>
+$ sudo docker login registry.gitlab.com
+or
+$ sudo vim ~/.docker/config.json
+
+$ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。
+$ sudo docker build -t registry.gitlab.com/$USER/repo .
+$ sudo docker push registry.gitlab.com/$USER/repo
+</code></pre></div><p><a href="https://gitlab.com/help/user/project/container_registry">https://gitlab.com/help/user/project/container_registry</a></p>
 <p>DockerのPrivate Imageは沢山の使い道があります。</p>
 <p>一つは、Git ServerにPushするImageを作れるという点です。これによって、CIを可動させ、それを回す仕組みを作ることができます。</p>
 <p>ただし、セキュリティ上の危険は増大します。なぜなら、Docker Image内にGit Serverへのアクセスに必要なものを置く必要があるからです。</p>

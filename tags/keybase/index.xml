@@ -26,7 +26,7 @@
 どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが
 $ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。
 keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由
-もっと詳しく</description>
+ もっと詳しく</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@ https://keybase.pub
 追記:
 twitterのlinkって、短縮形なので、そのへんが難しいんじゃないかと思っていたら、できました。
 やったことは、以下。
-1. a rel=&amp;#34;me&amp;#34; href=&amp;#34;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;#34;https://mstdn.syui.cf/@syui&amp;#34;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
+1. a rel=&amp;quot;me&amp;quot; href=&amp;quot;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;quot;https://mstdn.syui.cf/@syui&amp;quot;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
     </item>
     
   </channel>

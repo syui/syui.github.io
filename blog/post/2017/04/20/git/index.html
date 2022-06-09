@@ -110,33 +110,33 @@
 		<h2>git-upstream</h2>
 
 		<p>Mastodonのアップデートが速いのでついていくのに大変さがあるので、この辺、自動化したい(かつこれが一般的なやり方かどうかわからないし、多分違う)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>heroku git:clone -a appname
-</span></span><span style="display:flex;"><span>cd appname
-</span></span><span style="display:flex;"><span>cp -rf .git .gitback
-</span></span><span style="display:flex;"><span>mv .gitback ../
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>git remote add upstream https://github.com/tootsuite/mastodon.git
-</span></span><span style="display:flex;"><span>git fetch upstream
-</span></span><span style="display:flex;"><span>git merge upstream/master --allow-unrelated-histories
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># local</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 自分が変更したファイルはHARDを優先する</span>
-</span></span><span style="display:flex;"><span>git --no-pager log -n <span style="color:#ae81ff">2</span> --graph --name-status --pretty<span style="color:#f92672">=</span>format:<span style="color:#e6db74">&#39;%C(green)%an&#39;</span> --author<span style="color:#f92672">=</span>$USER | tr -d <span style="color:#e6db74">&#39;	&#39;</span> | cut -d <span style="color:#e6db74">&#39; &#39;</span> -f 2|grep -v <span style="color:#e6db74">&#34;|</span>$USRR<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>git checkout --ours filename
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># update</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># それ以外はupstream/masterを優先する</span>
-</span></span><span style="display:flex;"><span>git checkout --theirs .
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>git rebase upstream/master
-</span></span><span style="display:flex;"><span>git rebase --continue
-</span></span><span style="display:flex;"><span>rm -rf .git
-</span></span><span style="display:flex;"><span>mv ../.gitback
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;up&#34;</span>
-</span></span><span style="display:flex;"><span>git push -f heroku master
-</span></span></code></pre></div><p>何かあった時は<code>git reset --hard heroku/master</code>です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">heroku git:clone -a appname
+cd appname
+cp -rf .git .gitback
+mv .gitback ../
+
+git remote add upstream https://github.com/tootsuite/mastodon.git
+git fetch upstream
+git merge upstream/master --allow-unrelated-histories
+
+<span style="color:#75715e"># local</span>
+<span style="color:#75715e"># 自分が変更したファイルはHARDを優先する</span>
+git --no-pager log -n <span style="color:#ae81ff">2</span> --graph --name-status --pretty<span style="color:#f92672">=</span>format:<span style="color:#e6db74">&#39;%C(green)%an&#39;</span> --author<span style="color:#f92672">=</span>$USER | tr -d <span style="color:#e6db74">&#39;	&#39;</span> | cut -d <span style="color:#e6db74">&#39; &#39;</span> -f 2|grep -v <span style="color:#e6db74">&#34;|</span>$USRR<span style="color:#e6db74">&#34;</span>
+git checkout --ours filename
+
+<span style="color:#75715e"># update</span>
+<span style="color:#75715e"># それ以外はupstream/masterを優先する</span>
+git checkout --theirs .
+
+git rebase upstream/master
+git rebase --continue
+rm -rf .git
+mv ../.gitback
+
+git add .
+git commit -m <span style="color:#e6db74">&#34;up&#34;</span>
+git push -f heroku master
+</code></pre></div><p>何かあった時は<code>git reset --hard heroku/master</code>です。</p>
 <p>Travis CIのcronでも走らせて対応しようかなと思いつつ、変更内容によっては手動で対応しなければならない場合もあるだろうし、やっぱり手動でやるしかないのかもしれない。</p>
 
 		

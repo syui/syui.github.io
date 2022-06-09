@@ -16,7 +16,7 @@
       <guid>https://syui.cf/blog/post/2022/02/10/github/</guid>
       <description>opensslのerrorが出る場合はsudo apt-get install -y -qq pkg-config libssl-devするといいらしい。
 windowsのbuildやuploadは、同じ内容でも、うまく行ったり行かなかったりしたので、そのうち動かなくなりそう。
-name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release binary strategy: matrix: include: - os: macos-latest artifact_prefix: macos target: x86_64-apple-darwin artifact_name: msr asset_name: msr-x86_64-apple-darwin - os: ubuntu-latest artifact_prefix: linux target: x86_64-unknown-linux-gnu artifact_name: msr asset_name: msr-x86_64-unknown-linux-gnu - os: windows-latest artifact_prefix: windows target: x86_64-pc-windows-msvc artifact_name: msr.exe asset_name: msr-x86_64-pc-windows-msvc runs-on: ${{ matrix.os }} steps: - uses: actions/checkout@v1 - name: installing rust toolchain uses: actions-rs/toolchain@v1 with: profile: minimal toolchain: stable override: true components: rustfmt, clippy - name: installing needed macos dependencies if: matrix.</description>
+name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release binary strategy: matrix: include: - os: macos-latest artifact_prefix: macos target: x86_64-apple-darwin artifact_name: msr asset_name: msr-x86_64-apple-darwin - os: ubuntu-latest artifact_prefix: linux target: x86_64-unknown-linux-gnu artifact_name: msr asset_name: msr-x86_64-unknown-linux-gnu - os: windows-latest artifact_prefix: windows  target: x86_64-pc-windows-msvc artifact_name: msr.exe asset_name: msr-x86_64-pc-windows-msvc runs-on: ${{ matrix.os }} steps: - uses: actions/checkout@v1 - name: installing rust toolchain uses: actions-rs/toolchain@v1 with: profile: minimal toolchain: stable override: true components: rustfmt, clippy - name: installing needed macos dependencies if: matrix.</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@ $ npm i -g @squoosh/cli $ squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;
 resizeは300x400だとスマホで見たとき粗くなってしまうため、600x800にしました。
 git-diffにcommit-hashを指定し、更新ファイルがあれば、squooshを実行します。gh-actionsはpush:pathsからトリガーできます。
 パラメータ、特にqualityは適時、調整してください。
-on: push: paths: - &amp;#39;static/img/*.png&amp;#39; jobs: comment: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: install squoosh env: WORKFLOW_FILE_PATH: ${{ github.workflow }} GITHUB_REPOSITORY: ${{ github.repository }} run: | npm i -g @squoosh/cli - name: convert webp run: | s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep &amp;#34;static/img/&amp;#34;|grep &amp;#34;\.png&amp;#34;` echo $s if [ -z &amp;#34;$s&amp;#34; ];then exit fi for i in $s do squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:100}&amp;#39; -d .</description>
+on: push: paths: - &amp;#39;static/img/*.png&amp;#39; jobs: comment: runs-on: ubuntu-latest steps: - uses: actions/checkout@v1 - name: install squoosh env: WORKFLOW_FILE_PATH: ${{ github.workflow }} GITHUB_REPOSITORY: ${{ github.repository }} run: | npm i -g @squoosh/cli - name: convert webp run: |s=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA|grep &amp;#34;static/img/&amp;#34;|grep &amp;#34;\.png&amp;#34;` echo $s if [ -z &amp;#34;$s&amp;#34; ];then exit fi for i in $s do squoosh-cli --webp &amp;#39;{&amp;#34;quality&amp;#34;:100}&amp;#39; -d .</description>
     </item>
     
     <item>
@@ -148,7 +148,7 @@ $ sudo gem i sqlint $ sqlint index.sql on: pull_request: types: opened #on: # pu
 デプロイすると、${user}.github.ioのリポジトリの場合、masterにhtmlが置かれます。(privateなら見えないようにできる)
 しかし、この前、ちょっと裏技ぽいものを発見したのでメモ。
 以下でmasterの内容がgh-pagesに反映されなかった。おそらく、githubのpage-buildが走ってないからだと思う。
-name: github pages deploy on: page_build: jobs: build: runs-on: ubuntu-18.04 steps: - uses: actions/checkout@v2 with: branch: &amp;#39;master&amp;#39; run: git checkout master - uses: ad-m/github-push-action@master with: branch: &amp;#39;master&amp;#39; force: true github_token: ${{ secrets.GITHUB_TOKEN }} run: | git config --local user.email &amp;#34;action@github.com&amp;#34; git config --local user.name &amp;#34;GitHub Action&amp;#34; GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/^pick /f /g&amp;#39;&amp;#34; git rebase -i --root https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#
+name: github pages deploy on: page_build: jobs: build: runs-on: ubuntu-18.04 steps: - uses: actions/checkout@v2 with: branch: &amp;#39;master&amp;#39; run: git checkout master - uses: ad-m/github-push-action@master with: branch: &amp;#39;master&amp;#39; force: true github_token: ${{ secrets.GITHUB_TOKEN }} run: |git config --local user.email &amp;#34;action@github.com&amp;#34; git config --local user.name &amp;#34;GitHub Action&amp;#34; GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/^pick /f /g&amp;#39;&amp;#34; git rebase -i --root https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#
 やりたいことは、masterのcommitをfixupしてcommit削減なんだけど、実際に実行された内容は、branch:srcの内容をmasterにpsuh -fするみたいな感じになってる。つまり、srcがmasterにコピーされたのに、ページが表示されていました。
 ただし、何度も連続でcommitして、このアクションが2回連続実行されたりするとページが消えてしまう危険があります。
 おそらく、gh-pagesのbuildが走るのはworkflow中に一回で、連動している場合、同workflow内でmasterにpushされてもpage_buildが走らないため、最新のmasterの内容がページに反映されていないんだと思う。もしくは、on:page_buildのアクションにはpage_buildは実行されないとか。
@@ -167,7 +167,7 @@ https://github.com/utterance/utterances
 &amp;lt;script src=&amp;#34;https://utteranc.es/client.js&amp;#34; repo=&amp;#34;[ENTER REPO HERE]&amp;#34; issue-term=&amp;#34;pathname&amp;#34; theme=&amp;#34;github-light&amp;#34; crossorigin=&amp;#34;anonymous&amp;#34; async&amp;gt; &amp;lt;/script&amp;gt; コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。
 github actionsを使ったChatOpsでラベルを付ける ChatOpsと連携すると便利かもということで、やってみました。
 自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。
-name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: | labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description>
+name: COMMENT action on: issue_comment: types: [created, edited] jobs: build: name: COMMENT action runs-on: ubuntu-latest steps: - name: Run action env: GITHUB_REPOSITORY: ${{ github.repository }} ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }} ISSUE_NUMBER: ${{ github.event.issue.number }} GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} run: |labels=$(echo &amp;#34;${ISSUE_PAYLOAD}&amp;#34; | jq &amp;#39;.labels[]|.name&amp;#39; | jq -s . | jq -c &amp;#39;.</description>
     </item>
     
     <item>
@@ -182,7 +182,7 @@ peaceiris/actions-hugo
 まず、branch:gh-pagesで実行する場合、そのままいけましたが、titleにスペースを入れるとなぜか失敗してた記憶があります。が、今は問題なさそうな感じでした。
 次に、branch:masterで実行する場合、これはgithub側の問題ですが、githubが自動で実行するjekyll-deployなどが成功するも、なぜかページが上手く表示されないという現象が起こりました。index.htmlには全く問題がありませんし、ステータスはokになってるのですが、なぜ。
 なので、こんな感じのコマンドを実行し、jekyll-buildを停止。あと一応、CNAMEの問題かもしれないので置きました(自前でpushした場合は無くてもいけてた気がするけど)。
-- name: Build run: | hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description>
+- name: Build run: |hugo --gc --minify --cleanDestinationDir touch ./public/.nojekyll cp ./CNAME ./public/ これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</description>
     </item>
     
     <item>

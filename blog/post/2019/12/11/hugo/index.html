@@ -110,14 +110,14 @@
 		<h2>hugoでその日の記事がビルドされない問題を回避する</h2>
 
 		<p>hugoは、その日の記事がビルドされない問題があります。その回避法です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">frontmatter</span>]
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">date</span>  = [<span style="color:#e6db74">&#34;:filename&#34;</span>, <span style="color:#e6db74">&#34;:default&#34;</span>]
-</span></span></code></pre></div><p>ファイルは<code>content/post/2019-12-09-test.md</code>(その日の日付)とします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:content/post/2019-12-09-test.md" data-lang="md:content/post/2019-12-09-test.md"><span style="display:flex;"><span>date = &#34;2019-12-09T08:00:00JST&#34;
-</span></span></code></pre></div><h3 id="hugoでその日の記事がビルドされない問題">hugoでその日の記事がビルドされない問題</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">frontmatter</span>]
+<span style="color:#a6e22e">date</span>  = [<span style="color:#e6db74">&#34;:filename&#34;</span>, <span style="color:#e6db74">&#34;:default&#34;</span>]
+</code></pre></div><p>ファイルは<code>content/post/2019-12-09-test.md</code>(その日の日付)とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:content/post/2019-12-09-test.md" data-lang="md:content/post/2019-12-09-test.md">date = &#34;2019-12-09T08:00:00JST&#34;
+</code></pre></div><h3 id="hugoでその日の記事がビルドされない問題">hugoでその日の記事がビルドされない問題</h3>
 <p>これは、UTCがデフォルトになっているためだと思いますが、hugoでは、通常、<code>.Date.Local</code>を使っても、その日の記事がビルドされない問題があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/_default/list.html" data-lang="html:layout/_default/list.html"><span style="display:flex;"><span>{{ dateFormat &#34;2006-01-02T15:04:05JST&#34; .Date.Local }}
-</span></span></code></pre></div><p>そこで、dateをファイル名から取得する方法に切り替えると、回避できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/_default/list.html" data-lang="html:layout/_default/list.html">{{ dateFormat &#34;2006-01-02T15:04:05JST&#34; .Date.Local }}
+</code></pre></div><p>そこで、dateをファイル名から取得する方法に切り替えると、回避できます。</p>
 <p>追記 : <code>date = &quot;2019-12-09JST&quot;</code>と書けばいける?</p>
 
 		

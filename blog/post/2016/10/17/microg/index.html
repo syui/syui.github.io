@@ -119,8 +119,8 @@
 <p>In case you had the Google Play Services previously installed, remove all updates and the packages in /system/priv-app of the Google Services GmsCore, GoogleBackupTransport, GoogleFeedback, GoogleLoginService, GoogleOneTimeInitializer, GooglePartnerSetup, GoogleServicesFramework, Phonesky, SetupWizard and Velvet. In case you forgot to remove the GmsCore updates, you can manually remove these using adb uninstall com.google.android.gms. After that, reboot your android device - all privileged GAPPS should be removed.</p>
 </blockquote>
 <p>これには注意を要します。Signature SpoofingのためのXposedのモジュールまたは、Custom ROMが必要です。インストールするにはあらかじめ公式のGmsCoreを削除しておかなければなりません、多分。<code>GmsCore</code>削除後は一部アプリが正常に動かなくなります。<code>GmsCore</code>を<code>microG GmsCore</code>に置き換えて、動作を確認することになるでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ adb uninstall com.google.android.gms
-</span></span></code></pre></div><p>今後さらにSafetyNetによる対策が進めば、開発者やギークなどのマイノリティな人々からGoogleアプリやサービスは避けられていく流れになるかもしれません。それは新しいものに置き換えられるでしょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ adb uninstall com.google.android.gms
+</code></pre></div><p>今後さらにSafetyNetによる対策が進めば、開発者やギークなどのマイノリティな人々からGoogleアプリやサービスは避けられていく流れになるかもしれません。それは新しいものに置き換えられるでしょう。</p>
 <p>この流れは最初は非常にマイノリティなものですが、やがてそれは一般に波及する流れになるのかもしれません。</p>
 <p>理由としてはSafetyNetで対策されるPokemon Goは非常に人気のアプリだからです。</p>
 <p>先のことはわかりませんが、「後々考えると、あの時、Pokemon GoがGoogleを殺した」というようなことも十分にありえるのかもしれません。普通に考えたらありえないのですけどね。Pokemon GoとGoogleは通常密接に連携しており、Pokemon Go人気は通常Googleにとって利益となるものです。しかし、先のことはやっぱり分からないということで。</p>

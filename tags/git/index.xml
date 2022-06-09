@@ -44,9 +44,9 @@ version: &amp;#39;3&amp;#39; services: web: image: gitea/gitea:latest volumes: -
       <description>gitshというものがあるのですが、zshではそれを使わなくても以下のような感じでいけます。
 https://github.com/thoughtbot/gitsh
 http://pocke.hatenablog.com/entry/2015/12/09/000000
-function git-sh() { eval &amp;#34;__precmd_for_git-sh() { print -z &amp;#39;$* &amp;#39; }&amp;#34; autoload -Uz add-zsh-hook add-zsh-hook precmd &amp;#34;__precmd_for_git-sh&amp;#34; } $ git-sh git $ git status ただ、注意点としてはzshではx-xという形式だと空白でもコマンドを発行できるので、思わぬ結果を招くことも。
-/path/to/git-ci
-git commit -m &amp;#34;$*&amp;#34; 上記は、こんな感じで便利に使える場合もあります。
+function git-sh() { eval &amp;#34;__precmd_for_git-sh() { print -z &amp;#39;$*&amp;#39; }&amp;#34; autoload -Uz add-zsh-hook add-zsh-hook precmd &amp;#34;__precmd_for_git-sh&amp;#34; } $ git-sh git $ git status ただ、注意点としてはzshではx-xという形式だと空白でもコマンドを発行できるので、思わぬ結果を招くことも。
+ /path/to/git-ci
+ git commit -m &amp;#34;$*&amp;#34; 上記は、こんな感じで便利に使える場合もあります。
 # git commit -m &amp;#34;add : commit message!&amp;#34; # ↓ $ git ci add : commit message! ちなみにfishやるなら以下のような感じ。--descriptionは補完に使う事が多い。但し、そのままでは使えない。
 function git --description &amp;#39;ci&amp;#39; if test (count $argv) -ge 2 git commit -m &amp;#34;$argv[2..-1]&amp;#34; end end というか、今度、特定のタグがついた時、本サイトのまとめ記事に追加する仕組み作ろう&amp;hellip;。</description>
     </item>
@@ -69,10 +69,10 @@ heroku git:clone -a appname cd appname cp -rf .git .gitback mv .gitback ../ git 
       <guid>https://syui.cf/blog/post/2017/04/05/git/</guid>
       <description>git fixupが便利だった件。
 こちらはcommit fixupでrebaseを書き換える場合
-$ GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/pick/fixup/g&amp;#39;&amp;#34; git rebase -i --root こうやると1行目のコミットに2行目のコミットが統合される。
+$ GIT_SEQUENCE_EDITOR=&amp;quot;sed -ie &#39;2 s/pick/fixup/g&#39;&amp;quot; git rebase -i --root こうやると1行目のコミットに2行目のコミットが統合される。
 あと、~/.gitconfigに書いておくのも便利そう(上記とは内容が異なる)。
-~/.gitconfig
-[rebase] autofixup = true autosquash = true </description>
+ ~/.gitconfig
+ [rebase] autofixup = true autosquash = true </description>
     </item>
     
     <item>
@@ -82,8 +82,8 @@ $ GIT_SEQUENCE_EDITOR=&amp;#34;sed -ie &amp;#39;2 s/pick/fixup/g&amp;#39;&amp;#3
       
       <guid>https://syui.cf/blog/post/2017/04/04/git/</guid>
       <description>GitLabでgit push -fすると
-You are not allowed to force push code to a protected branch on this project.
-と表示されてできない。
+ You are not allowed to force push code to a protected branch on this project.
+ と表示されてできない。
 こちらhttps://gitlab.com/help/user/permissionsの権限にもforceのチェックがはいってないし、マジでできないのだろうか?そんなことあり得るのかとか思ったのだけど、やっぱりできるようだった。が、手順が非常に面倒くさい。
 usrer/settings/repositoryにてProtected branchをUnprotectすればいいんだけどリポジトリ(Project)ごとに設定しなければならないのは非常に面倒くさいのです。</description>
     </item>

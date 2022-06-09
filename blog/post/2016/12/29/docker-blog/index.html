@@ -110,42 +110,42 @@
 		<h2>docker-blog</h2>
 
 		<p>こんな感じで構築してるけど、アンチパターンぽい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>FROM archlinuxjp/archlinux:start
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN mkdir -p /root/.ssh
-</span></span><span style="display:flex;"><span>RUN mkdir -p /root/bin
-</span></span><span style="display:flex;"><span>ADD .zshrc /root
-</span></span><span style="display:flex;"><span>ADD bin/script /root/bin
-</span></span><span style="display:flex;"><span>ADD .ssh/config /root/.ssh
-</span></span><span style="display:flex;"><span>ADD .ssh/id_rsa /root/.ssh
-</span></span><span style="display:flex;"><span>RUN chmod <span style="color:#ae81ff">700</span> /root/.ssh/id_rsa
-</span></span><span style="display:flex;"><span>RUN /bin/cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN pacman -Syu --noconfirm
-</span></span><span style="display:flex;"><span>RUN pacman -Scc --noconfirm
-</span></span><span style="display:flex;"><span>RUN pacman -S base-devel git zsh openssh --noconfirm
-</span></span><span style="display:flex;"><span>RUN pacman -S curl nodejs npm which --noconfirm
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN npm i gulp -g
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>CMD /bin/zsh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN git config --global user.email <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">@users.noreply.github.com&#34;</span>
-</span></span><span style="display:flex;"><span>RUN git config --global user.name <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ENV PATH $PATH:/root/bin
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN git clone $HOST/$USER/$REPO.git
-</span></span><span style="display:flex;"><span>RUN which script
-</span></span></code></pre></div><p><code>.ssh/config</code>はこんな感じで。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Host gitlab.com
-</span></span><span style="display:flex;"><span>	RSAAuthentication yes
-</span></span><span style="display:flex;"><span>	IdentityFile ~/.ssh/id_rsa
-</span></span><span style="display:flex;"><span>	User syui
-</span></span><span style="display:flex;"><span>	TCPKeepAlive yes
-</span></span><span style="display:flex;"><span>	identitiesonly yes
-</span></span><span style="display:flex;"><span>	StrictHostKeyChecking no
-</span></span></code></pre></div><p>特に、SSH Keyが良くなくて、本来なら<code>ENV GITHUB_TOKEN XXXXXXX</code>としてから<code>git clone,push ${GITHUB_TOKEN}@github.com/$USER/$REPO</code>などとすべきなんだけど、GitLabのACCESS_TOKENの使い方がよくわからんということで。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM archlinuxjp/archlinux:start
+
+RUN mkdir -p /root/.ssh
+RUN mkdir -p /root/bin
+ADD .zshrc /root
+ADD bin/script /root/bin
+ADD .ssh/config /root/.ssh
+ADD .ssh/id_rsa /root/.ssh
+RUN chmod <span style="color:#ae81ff">700</span> /root/.ssh/id_rsa
+RUN /bin/cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+RUN pacman -Syu --noconfirm
+RUN pacman -Scc --noconfirm
+RUN pacman -S base-devel git zsh openssh --noconfirm
+RUN pacman -S curl nodejs npm which --noconfirm
+
+RUN npm i gulp -g
+
+CMD /bin/zsh
+
+RUN git config --global user.email <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">@users.noreply.github.com&#34;</span>
+RUN git config --global user.name <span style="color:#e6db74">&#34;</span>$USER<span style="color:#e6db74">&#34;</span>
+
+ENV PATH $PATH:/root/bin
+
+RUN git clone $HOST/$USER/$REPO.git
+RUN which script
+</code></pre></div><p><code>.ssh/config</code>はこんな感じで。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Host gitlab.com
+	RSAAuthentication yes
+	IdentityFile ~/.ssh/id_rsa
+	User syui
+	TCPKeepAlive yes
+	identitiesonly yes
+	StrictHostKeyChecking no
+</code></pre></div><p>特に、SSH Keyが良くなくて、本来なら<code>ENV GITHUB_TOKEN XXXXXXX</code>としてから<code>git clone,push ${GITHUB_TOKEN}@github.com/$USER/$REPO</code>などとすべきなんだけど、GitLabのACCESS_TOKENの使い方がよくわからんということで。</p>
 <p>なぜダメなのかというと、一つはDocker Hubでプライベートにしててもアクセスがコントロールできてなくて危険だから。</p>
 <p>SSHとACCESS TOKENでの違いはアクセス制限というか、そういったコントロールが可能で、ACCESS TOKENでのアクセスのほうがより安全。</p>
 <p>ただ、Docker HubにAccess Tokenを置くこと自体危険だとも言えるのだけど、正直、このような全部の処理を外部サービスに任せる開発フローではどうしても危険性が増えてしまう気がする。</p>

@@ -115,42 +115,42 @@
 <p>DL：https://www.androidfilehost.com/?w=files&amp;flid=37911</p>
 <p>ROMはこちらもある、AOSP。</p>
 <p><a href="https://builds.unlegacy-android.org/aosp-6.0/grouper/">https://builds.unlegacy-android.org/aosp-6.0/grouper/</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ adb reboot bootloader
-</span></span><span style="display:flex;"><span>$ fastboot oem unlock
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># まずrecoveryをtwrpにする</span>
-</span></span><span style="display:flex;"><span>$ fastboot flash recovery twrp-xxx.img
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ adb reboot recovery
-</span></span><span style="display:flex;"><span>$ adb push xxx.zip
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install rom : https://www.androidfilehost.com/?w=files&amp;flid=37911</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install app : http://opengapps.org/</span>
-</span></span></code></pre></div><p>無事起動できることを確認した後、Google App(Google Playなど)を入れたほうがいいかも。私はnanoを選択。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ adb reboot bootloader
+$ fastboot oem unlock
+<span style="color:#75715e"># まずrecoveryをtwrpにする</span>
+$ fastboot flash recovery twrp-xxx.img
+
+$ adb reboot recovery
+$ adb push xxx.zip
+<span style="color:#75715e"># install rom : https://www.androidfilehost.com/?w=files&amp;flid=37911</span>
+<span style="color:#75715e"># install app : http://opengapps.org/</span>
+</code></pre></div><p>無事起動できることを確認した後、Google App(Google Playなど)を入れたほうがいいかも。私はnanoを選択。</p>
 <p>その後、ROOT化など。</p>
 <p><a href="https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip">https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip</a></p>
 <p>起動しない時は、xposed, suhideを削除すればいけます。uninstall.zipを使います。</p>
 <p>suhideはインストール前に/su/suhide,su.dにfile(aunpack suhide-v0.55.zip)を置いとけばいけました。xposed+suhideの組み合わせが駄目みたいです。しかし、pure nexusにはxposed(no systemless)が内蔵されているためsafety-netは回避できません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ adb reboot recovery
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://forum.xda-developers.com/apps/supersu/suhide-t3450396</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://forum.xda-developers.com/showthread.php?t=3034811</span>
-</span></span><span style="display:flex;"><span>$ ls
-</span></span><span style="display:flex;"><span>	xposed-v86.2-sdk23-topjohnwu.zip
-</span></span><span style="display:flex;"><span>	suhide-v0.55.zip
-</span></span><span style="display:flex;"><span>	SR3-SuperSU-v2.79-SR3-20170114223742.zip
-</span></span><span style="display:flex;"><span>$ adb push . /sdcard/Download
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install</span>
-</span></span><span style="display:flex;"><span>	1. xposed-v86.2-sdk23-topjohnwu.zip
-</span></span><span style="display:flex;"><span>	2. SR3-SuperSU-v2.79-SR3-20170114223742.zip
-</span></span><span style="display:flex;"><span>	3. suhide-v0.55.zip
-</span></span><span style="display:flex;"><span>		$ adb shell
-</span></span><span style="display:flex;"><span>		$ mount -o rw,remount /dev/block/mtdblock0 /system
-</span></span><span style="display:flex;"><span>		$ rm /system/xbin/su
-</span></span><span style="display:flex;"><span>		$ rm /system/bin/app_process32_xposed
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># aunpack suhide-v0.55.zip (safetynet clear!)</span>
-</span></span><span style="display:flex;"><span>			adb push suhide-v0.55/common/. /su/suhide
-</span></span><span style="display:flex;"><span>			adb push suhide-v0.55/armv7/. /su/suhide
-</span></span><span style="display:flex;"><span>			adb shell mv /su/suhide/05suhide /su/su.d/
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ adb reboot recovery
+<span style="color:#75715e"># https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip</span>
+<span style="color:#75715e"># https://forum.xda-developers.com/apps/supersu/suhide-t3450396</span>
+<span style="color:#75715e"># https://forum.xda-developers.com/showthread.php?t=3034811</span>
+$ ls
+	xposed-v86.2-sdk23-topjohnwu.zip
+	suhide-v0.55.zip
+	SR3-SuperSU-v2.79-SR3-20170114223742.zip
+$ adb push . /sdcard/Download
+<span style="color:#75715e"># install</span>
+	1. xposed-v86.2-sdk23-topjohnwu.zip
+	2. SR3-SuperSU-v2.79-SR3-20170114223742.zip
+	3. suhide-v0.55.zip
+		$ adb shell
+		$ mount -o rw,remount /dev/block/mtdblock0 /system
+		$ rm /system/xbin/su
+		$ rm /system/bin/app_process32_xposed
+		<span style="color:#75715e"># aunpack suhide-v0.55.zip (safetynet clear!)</span>
+			adb push suhide-v0.55/common/. /su/suhide
+			adb push suhide-v0.55/armv7/. /su/suhide
+			adb shell mv /su/suhide/05suhide /su/su.d/
+</code></pre></div>
 		
 
 

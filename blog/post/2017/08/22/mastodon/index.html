@@ -110,15 +110,15 @@
 		<h2>mastodon 1.4-1.5</h2>
 
 		<p>1.4から1.5は自分の場合だけど以下の手順でアップデートできた。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Aptfile -&gt; libidn11-dev の行を削除してpush</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $APP_NAME
-</span></span><span style="display:flex;"><span>heroku Cannot run more than <span style="color:#ae81ff">1</span> Free size dynos.
-</span></span><span style="display:flex;"><span>$ heroku kill DYNO --app $APP_NAME
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku run rake assets:precompile -a $APP_NAME
-</span></span><span style="display:flex;"><span>$ heroku ps:restart -a $APP_NAME
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Aptfile -&gt; libidn11-dev の行を削除してpush</span>
+$ heroku run rake db:migrate -a $APP_NAME
+heroku Cannot run more than <span style="color:#ae81ff">1</span> Free size dynos.
+$ heroku kill DYNO --app $APP_NAME
+
+$ heroku run rake db:migrate -a $APP_NAME
+$ heroku run rake assets:precompile -a $APP_NAME
+$ heroku ps:restart -a $APP_NAME
+</code></pre></div>
 		
 
 

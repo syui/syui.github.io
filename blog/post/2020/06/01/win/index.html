@@ -110,37 +110,37 @@
 		<h2>windowsの必須ツールをupdateしてみる</h2>
 
 		<p>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ scoop install curl 7z
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># powershell 7.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/PowerShell/PowerShell/releases</span>
-</span></span><span style="display:flex;"><span>$ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi
-</span></span><span style="display:flex;"><span>$ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ENABLE_PSREMOTING<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> REGISTER_MANIFEST<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># openssh v8.1.0</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/PowerShell/Win32-OpenSSH/releases</span>
-</span></span><span style="display:flex;"><span>$ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip
-</span></span><span style="display:flex;"><span>$ 7z x OpenSSH-Win64.zip
-</span></span><span style="display:flex;"><span>$ cp OpenSSH-Win64/* <span style="color:#e6db74">&#39;c:\programfiles\OpenSSH\&#39;</span>
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ robocopy .<span style="color:#ae81ff">\O</span>penSSH-Win64<span style="color:#ae81ff">\ </span><span style="color:#e6db74">&#39;c:\Program Files\OpenSSH\&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># terminal 1.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/microsoft/terminal/releases</span>
-</span></span><span style="display:flex;"><span>$ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle
-</span></span><span style="display:flex;"><span>$ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle
-</span></span></code></pre></div><p><code>robocopy</code>は例えば、sshdというprocessが起動していても上書きするので便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install curl 7z
+
+<span style="color:#75715e"># powershell 7.0.1</span>
+<span style="color:#75715e"># https://github.com/PowerShell/PowerShell/releases</span>
+$ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi
+$ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ENABLE_PSREMOTING<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> REGISTER_MANIFEST<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+
+<span style="color:#75715e"># openssh v8.1.0</span>
+<span style="color:#75715e"># https://github.com/PowerShell/Win32-OpenSSH/releases</span>
+$ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip
+$ 7z x OpenSSH-Win64.zip
+$ cp OpenSSH-Win64/* <span style="color:#e6db74">&#39;c:\programfiles\OpenSSH\&#39;</span>
+or
+$ robocopy .<span style="color:#ae81ff">\O</span>penSSH-Win64<span style="color:#ae81ff">\ </span><span style="color:#e6db74">&#39;c:\Program Files\OpenSSH\&#39;</span>
+
+<span style="color:#75715e"># terminal 1.0.1</span>
+<span style="color:#75715e"># https://github.com/microsoft/terminal/releases</span>
+$ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle
+$ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle
+</code></pre></div><p><code>robocopy</code>は例えば、sshdというprocessが起動していても上書きするので便利です。</p>
 <h3 id="winget">winget</h3>
 <p>今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。</p>
 <p><a href="https://github.com/microsoft/winget-cli">https://github.com/microsoft/winget-cli</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
-</span></span><span style="display:flex;"><span>$ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
-</span></span><span style="display:flex;"><span>$ winget
-</span></span></code></pre></div><p>なお、ssh経由では、wingetは使用できない感じでした。アクセス権関連ぽい気がする。これは採用しづらい&hellip;。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ scoop install which
-</span></span><span style="display:flex;"><span>$ which winget
-</span></span><span style="display:flex;"><span>c:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\A</span>ppData<span style="color:#ae81ff">\L</span>ocal<span style="color:#ae81ff">\M</span>icrosoft<span style="color:#ae81ff">\W</span>indowsApps<span style="color:#ae81ff">\w</span>inget.EXE
-</span></span></code></pre></div><p>issue : <a href="https://github.com/microsoft/winget-cli/issues/256">https://github.com/microsoft/winget-cli/issues/256</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
+$ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
+$ winget
+</code></pre></div><p>なお、ssh経由では、wingetは使用できない感じでした。アクセス権関連ぽい気がする。これは採用しづらい&hellip;。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install which
+$ which winget
+c:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\A</span>ppData<span style="color:#ae81ff">\L</span>ocal<span style="color:#ae81ff">\M</span>icrosoft<span style="color:#ae81ff">\W</span>indowsApps<span style="color:#ae81ff">\w</span>inget.EXE
+</code></pre></div><p>issue : <a href="https://github.com/microsoft/winget-cli/issues/256">https://github.com/microsoft/winget-cli/issues/256</a></p>
 <h3 id="参照">参照</h3>
 <p><a href="https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-windows">https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-windows</a></p>
 <p><a href="https://docs.microsoft.com/en-us/powershell/module/appx/add-appxpackage">https://docs.microsoft.com/en-us/powershell/module/appx/add-appxpackage</a></p>

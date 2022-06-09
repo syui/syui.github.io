@@ -16,8 +16,8 @@
       <guid>https://syui.cf/blog/post/2022/02/06/rust-mammut/</guid>
       <description>mastodon apiのrust libであるmammutですが、exampleがあるとわかりやすいと思ったので、作ってみました。
 まず、mastodonへのrequestはこんな感じになります。
-curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ -d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
-[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34; [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv; use std::env; use mammut::{Data, Mastodon}; fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; { let data = Data { base: env::var(&amp;#34;BASE&amp;#34;).unwrap().into(), client_id: env::var(&amp;#34;CLIENT_ID&amp;#34;).unwrap().into(), client_secret: env::var(&amp;#34;CLIENT_SECRET&amp;#34;).unwrap().into(), redirect: env::var(&amp;#34;REDIRECT&amp;#34;).</description>
+curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ 	-d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
+[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34; [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv; use std::env; use mammut::{Data, Mastodon}; fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; { let data = Data { base: env::var(&amp;#34;BASE&amp;#34;).unwrap().into(), client_id: env::var(&amp;#34;CLIENT_ID&amp;#34;).unwrap().into(), client_secret: env::var(&amp;#34;CLIENT_SECRET&amp;#34;).</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ $ cd mastodon $ rbenv local system $ ruby -v 3.0.3 $ sudo gem i bundler $ export
 また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
 &amp;#34;engines&amp;#34;: { &amp;#34;node&amp;#34;: &amp;#34;12.13.0&amp;#34; }, 最新のmastodonではkeybaseのリンクが消滅しています。下記の事情があったみたいです。したがって、当該commitをrevertすることでリンク(認証)を残すことができます。
 https://github.com/mastodon/mastodon/issues/13670
-$ git revert 7de0ee7ab その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
+$ git revert 7de0ee7ab  その他のリンク https://devcenter.heroku.com/ja/articles/ruby-support
 https://devcenter.heroku.com/ja/articles/nodejs-support
 https://docs.joinmastodon.org/user/contacts/</description>
     </item>
@@ -56,7 +56,7 @@ https://docs.joinmastodon.org/user/contacts/</description>
       <guid>https://syui.cf/blog/post/2021/05/10/mastodon/</guid>
       <description>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつをzundaさんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuではSOURCE_VERSIONからhashを取れるっぽい。
 https://github.com/zunda/mastodon/pull/27/files
-namespace :source do desc &amp;#39;Record source version&amp;#39; task :version do hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build if hash.blank? begin hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip # ignore the error: fatal: Not a git repository rescue Errno::ENOENT # git command is not available end end unless hash.blank? hash_abb = hash[0..7] File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f| f.write &amp;lt;&amp;lt;~_TEMPLATE # frozen_string_literal: true module Mastodon module Version module_function def suffix &amp;#34; at #{hash_abb} on ruby-#{RUBY_VERSION}&amp;#34; end def repository &amp;#39;tootsuite/mastodon&amp;#39; end def source_tag &amp;#34;#{hash}&amp;#34; end end end _TEMPLATE end end end end task &amp;#39;assets:precompile&amp;#39; =&amp;gt; [&amp;#39;source:version&amp;#39;] rake assets:precompileでconfig/initializers/version.</description>
+namespace :source do desc &amp;#39;Record source version&amp;#39; task :version do hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build if hash.blank? begin hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip # ignore the error: fatal: Not a git repository rescue Errno::ENOENT # git command is not available end end unless hash.blank? hash_abb = hash[0..7] File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f| f.write &amp;lt;&amp;lt;~_TEMPLATE # frozen_string_literal: true module Mastodon module Version module_function def suffix &amp;#34; at #{hash_abb}on ruby-#{RUBY_VERSION}&amp;#34; end def repository &amp;#39;tootsuite/mastodon&amp;#39; end def source_tag &amp;#34;#{hash}&amp;#34; end end end _TEMPLATE end end end end task &amp;#39;assets:precompile&amp;#39; =&amp;gt; [&amp;#39;source:version&amp;#39;] rake assets:precompileでconfig/initializers/version.</description>
     </item>
     
     <item>
@@ -67,11 +67,11 @@ namespace :source do desc &amp;#39;Record source version&amp;#39; task :version 
       <guid>https://syui.cf/blog/post/2021/05/09/mastodon/</guid>
       <description>mastodon v3.4.0のpre-verがmasterにcommitされています。
 heroku-20はruby v3.0.1に対応していて、mastodon v3.4.0はruby &amp;lt; v3.1.0なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。
-Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
+ Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
 2.6.7, Rubygems: 3.0.3.1
 2.7.3, Rubygems: 3.1.6
 3.0.1, Rubygems: 3.2.15
-https://devcenter.heroku.com/articles/ruby-support#ruby-versions
+ https://devcenter.heroku.com/articles/ruby-support#ruby-versions
 $ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:remote -a $app $ rm Gemfile.</description>
     </item>
     
@@ -86,7 +86,7 @@ $ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:r
 仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。
 GitHub ActionsにCI/CD機能を搭載〜パブリックリポジトリでは無料で利用可能
 gh-actionsでcron:m15を回して、mastodonはapiから投稿を取得、twitterタグがついてれば、jqで投稿を抜き出し、date(unix-time)で15分前のtimeとmastodonの投稿時間を比較し、大きければ新しい投稿と判断して、syui/twgからtwitterに投稿するという感じ。
-name: mastodon tweet on: push: branches: - master schedule: - cron: &amp;#39;*/15 * * * *&amp;#39; jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@master - run: | job_time=15 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg chmod +x twg mkdir -p ~/.config/twg cat .config/twg/user.json| jq &amp;#34;.|=. + {\&amp;#34;Token\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_TOKEN }}\&amp;#34;,\&amp;#34;Secret\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_SECRET }}\&amp;#34;}&amp;#34; &amp;gt; t mv t ~/.config/twg/user.json url=https://mstdn.syui.cf/api/v1 j=mastodon.json user_id=1 url=&amp;#34;$url/accounts/$user_id/statuses?limit=40&amp;#34; curl -sSL &amp;#34;$url&amp;#34; -H &amp;#34;Authorization: Bearer ${{ secrets.</description>
+name: mastodon tweet on: push: branches: - master schedule: - cron: &amp;#39;*/15 * * * *&amp;#39; jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@master - run: |job_time=15 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin curl -sL https://github.com/syui/twg/releases/download/0.3/linux_amd64_twg -o twg chmod +x twg mkdir -p ~/.config/twg cat .config/twg/user.json| jq &amp;#34;.|=. + {\&amp;#34;Token\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_TOKEN }}\&amp;#34;,\&amp;#34;Secret\&amp;#34;:\&amp;#34;${{ secrets.TWITTER_SECRET }}\&amp;#34;}&amp;#34; &amp;gt; t mv t ~/.config/twg/user.json url=https://mstdn.syui.cf/api/v1 j=mastodon.json user_id=1 url=&amp;#34;$url/accounts/$user_id/statuses?limit=40&amp;#34; curl -sSL &amp;#34;$url&amp;#34; -H &amp;#34;Authorization: Bearer ${{ secrets.</description>
     </item>
     
     <item>
@@ -120,7 +120,7 @@ $ git clone -b master git://github.com/syuilo/dolphin.git $ cd dolphin $ cp .con
 どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが
 $ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。
 keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由
-もっと詳しく</description>
+ もっと詳しく</description>
     </item>
     
     <item>
@@ -141,7 +141,7 @@ keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&
       <guid>https://syui.cf/blog/post/2017/08/21/mastodon/</guid>
       <description>私の場合、dbをreset, restoreした後にmastodon 1.4 -&amp;gt; down 1.2 -&amp;gt; up 1.3 -&amp;gt; up 1.4 -&amp;gt; up 1.5という手順を踏むことにした。
 しかし、1.3から1.4のアップデートすると、heroku serverにrake db:migrateした時点でPG::DuplicateTable: ERRORなどが出るので、結果として500で投稿(toot)などが出来ない問題の対処法。
-$ heroku run rake db:migrate -a $APP_NAME PG::DuplicateTable: ERROR account_domain_blocks conversation conversation_mutes $ heroku pg:psql DROP TABLE account_domain_blocks; DROP TABLE conversation CASCADE; DROP TABLE conversation_mutes; $ heroku run rake db:migrate -a $APP_NAME Index name &amp;#39;index_accounts_on_uri&amp;#39; on table &amp;#39;accounts&amp;#39; already exists $ heroku pg:psql DROP INDEX index_accounts_on_uri; $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
+$ heroku run rake db:migrate -a $APP_NAME PG::DuplicateTable: ERROR account_domain_blocks conversation conversation_mutes $ heroku pg:psql DROP TABLE account_domain_blocks; DROP TABLE conversation CASCADE; DROP TABLE conversation_mutes; $ heroku run rake db:migrate -a $APP_NAME Index name &#39;index_accounts_on_uri&#39; on table &#39;accounts&#39; already exists $ heroku pg:psql DROP INDEX index_accounts_on_uri; $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
     </item>
     
     <item>

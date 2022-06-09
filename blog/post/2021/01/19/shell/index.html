@@ -111,111 +111,111 @@
 
 		<p><code>coreutils</code>になかったのですが、<code>gnu-time</code>でインストールできます。</p>
 <p>mac標準は、<code>/usr/bin/time</code>にありますが、ほとんどのオプションが機能せず、あまり使えません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install gnu-time
-</span></span><span style="display:flex;"><span>$ gtime -f <span style="color:#e6db74">&#34;%e&#34;</span> read
-</span></span></code></pre></div><p>これによって、ストップウォッチとして使えますし、任意のタイミングで実行時間を計測して記録できるので、色々と便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install gnu-time
+$ gtime -f <span style="color:#e6db74">&#34;%e&#34;</span> read
+</code></pre></div><p>これによって、ストップウォッチとして使えますし、任意のタイミングで実行時間を計測して記録できるので、色々と便利です。</p>
 <p>例えば、任意のコマンドを指定した間隔で実行してみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#/bin/zsh</span>
-</span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span>time.txt
-</span></span><span style="display:flex;"><span>json<span style="color:#f92672">=</span>command.json
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[s]ave, [l]oad&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> $1 in
-</span></span><span style="display:flex;"><span>	s<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f $json <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>			rm $json
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>		echo <span style="color:#e6db74">&#34;[&#34;</span> &gt;&gt; $json
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">while</span> :
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>				echo <span style="color:#e6db74">&#34;command?, [s]top&#34;</span>
-</span></span><span style="display:flex;"><span>				read key
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">case</span> $key in
-</span></span><span style="display:flex;"><span>					s<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>						echo <span style="color:#e6db74">&#34;{\&#34;command\&#34;:\&#34;\&#34;,\&#34;time\&#34;:\&#34;\&#34;}]&#34;</span> &gt;&gt; $json
-</span></span><span style="display:flex;"><span>						exit
-</span></span><span style="display:flex;"><span>					;;
-</span></span><span style="display:flex;"><span>					*<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>						echo <span style="color:#e6db74">&#34;time enter&#34;</span>
-</span></span><span style="display:flex;"><span>						gtime -f <span style="color:#e6db74">&#34;%e&#34;</span> -o $time read
-</span></span><span style="display:flex;"><span>						cti<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $time<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>						echo <span style="color:#e6db74">&#34;{\&#34;command\&#34;:\&#34;</span>$key<span style="color:#e6db74">\&#34;,\&#34;time\&#34;:\&#34;</span>$cti<span style="color:#e6db74">\&#34;},&#34;</span> &gt;&gt; $json
-</span></span><span style="display:flex;"><span>					;;
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">esac</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">done</span> 
-</span></span><span style="display:flex;"><span>	;;
-</span></span><span style="display:flex;"><span>	l<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ! cat $json|jq;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>			exit
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>		n<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq length<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>		n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">))</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$n;i++<span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>				command<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].command&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>				time<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].time&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>				zsh -c <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>				sleep $time
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">done</span>
-</span></span><span style="display:flex;"><span>	;;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
-</span></span></code></pre></div><p>例えば、このスクリプトを<code>command.zsh</code>で保存したとして、<code>ls</code>, <code>which cat</code>を一定の時間間隔で実行してみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p ./tmp
-</span></span><span style="display:flex;"><span>$ cd ./tmp
-</span></span><span style="display:flex;"><span>$ chmod +x command.zsh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># まずは処理を保存します</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 時間間隔も保存しますので、`time enter`のところで任意のタイミングでetnerを押し、記録します</span>
-</span></span><span style="display:flex;"><span>$ ./command.zsh s
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>ave, <span style="color:#f92672">[</span>l<span style="color:#f92672">]</span>oad
-</span></span><span style="display:flex;"><span>command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
-</span></span><span style="display:flex;"><span>ls
-</span></span><span style="display:flex;"><span>time enter
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
-</span></span><span style="display:flex;"><span>which cat
-</span></span><span style="display:flex;"><span>time enter
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
-</span></span><span style="display:flex;"><span>s
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 呼び出してみます</span>
-</span></span><span style="display:flex;"><span>$ ./command.zsh l
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;ls&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;5.63&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;which cat&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;7.08&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>command.json    command.zsh     time.txt
-</span></span><span style="display:flex;"><span>/bin/cat
-</span></span></code></pre></div><p>指定したコマンドが記録された間隔で実行されました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#/bin/zsh</span>
+time<span style="color:#f92672">=</span>time.txt
+json<span style="color:#f92672">=</span>command.json
+echo <span style="color:#e6db74">&#34;[s]ave, [l]oad&#34;</span>
+<span style="color:#66d9ef">case</span> $1 in
+	s<span style="color:#f92672">)</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f $json <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+			rm $json
+		<span style="color:#66d9ef">fi</span>
+		echo <span style="color:#e6db74">&#34;[&#34;</span> &gt;&gt; $json
+		<span style="color:#66d9ef">while</span> :
+			<span style="color:#66d9ef">do</span>
+				echo <span style="color:#e6db74">&#34;command?, [s]top&#34;</span>
+				read key
+				<span style="color:#66d9ef">case</span> $key in
+					s<span style="color:#f92672">)</span>
+						echo <span style="color:#e6db74">&#34;{\&#34;command\&#34;:\&#34;\&#34;,\&#34;time\&#34;:\&#34;\&#34;}]&#34;</span> &gt;&gt; $json
+						exit
+					;;
+					*<span style="color:#f92672">)</span>
+						echo <span style="color:#e6db74">&#34;time enter&#34;</span>
+						gtime -f <span style="color:#e6db74">&#34;%e&#34;</span> -o $time read
+						cti<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $time<span style="color:#e6db74">`</span>
+						echo <span style="color:#e6db74">&#34;{\&#34;command\&#34;:\&#34;</span>$key<span style="color:#e6db74">\&#34;,\&#34;time\&#34;:\&#34;</span>$cti<span style="color:#e6db74">\&#34;},&#34;</span> &gt;&gt; $json
+					;;
+				<span style="color:#66d9ef">esac</span>
+		<span style="color:#66d9ef">done</span> 
+	;;
+	l<span style="color:#f92672">)</span>
+		<span style="color:#66d9ef">if</span> ! cat $json|jq;<span style="color:#66d9ef">then</span>
+			exit
+		<span style="color:#66d9ef">fi</span>
+		n<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq length<span style="color:#e6db74">`</span>
+		n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">))</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$n;i++<span style="color:#f92672">))</span>
+			<span style="color:#66d9ef">do</span>
+				command<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].command&#34;</span><span style="color:#e6db74">`</span>
+				time<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].time&#34;</span><span style="color:#e6db74">`</span>
+				zsh -c <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span>
+				sleep $time
+		<span style="color:#66d9ef">done</span>
+	;;
+<span style="color:#66d9ef">esac</span>
+</code></pre></div><p>例えば、このスクリプトを<code>command.zsh</code>で保存したとして、<code>ls</code>, <code>which cat</code>を一定の時間間隔で実行してみます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ./tmp
+$ cd ./tmp
+$ chmod +x command.zsh
+
+<span style="color:#75715e"># まずは処理を保存します</span>
+<span style="color:#75715e"># 時間間隔も保存しますので、`time enter`のところで任意のタイミングでetnerを押し、記録します</span>
+$ ./command.zsh s
+<span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>ave, <span style="color:#f92672">[</span>l<span style="color:#f92672">]</span>oad
+command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
+ls
+time enter
+
+command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
+which cat
+time enter
+
+command?, <span style="color:#f92672">[</span>s<span style="color:#f92672">]</span>top
+s
+
+<span style="color:#75715e"># 呼び出してみます</span>
+$ ./command.zsh l
+<span style="color:#f92672">[</span>
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;ls&#34;</span>,
+    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;5.63&#34;</span>
+  <span style="color:#f92672">}</span>,
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;which cat&#34;</span>,
+    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;7.08&#34;</span>
+  <span style="color:#f92672">}</span>,
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+    <span style="color:#e6db74">&#34;time&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">]</span>
+command.json    command.zsh     time.txt
+/bin/cat
+</code></pre></div><p>指定したコマンドが記録された間隔で実行されました。</p>
 <p>もし永続化したいなら、<code>zsh repeat</code>を使うか、新しいオプションを付けてみてください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ll<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> ! cat $json|jq;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>		exit
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>	n<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq length<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">))</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> :
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$n;i++<span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>				command<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].command&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>				time<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].time&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>				zsh -c <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>				sleep $time
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">done</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">done</span>
-</span></span><span style="display:flex;"><span>;;
-</span></span></code></pre></div><p>ちなみに、こういうのもあるらしいので、<code>gtime</code>に当ててやると、時間が測りやすいと思います。(面倒なのでやらないけど</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ll<span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">if</span> ! cat $json|jq;<span style="color:#66d9ef">then</span>
+		exit
+	<span style="color:#66d9ef">fi</span>
+	n<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq length<span style="color:#e6db74">`</span>
+	n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">))</span>
+	<span style="color:#66d9ef">while</span> :
+		<span style="color:#66d9ef">do</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$n;i++<span style="color:#f92672">))</span>
+			<span style="color:#66d9ef">do</span>
+				command<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].command&#34;</span><span style="color:#e6db74">`</span>
+				time<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat $json|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">].time&#34;</span><span style="color:#e6db74">`</span>
+				zsh -c <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74">&#34;</span>
+				sleep $time
+			<span style="color:#66d9ef">done</span>
+	<span style="color:#66d9ef">done</span>
+;;
+</code></pre></div><p>ちなみに、こういうのもあるらしいので、<code>gtime</code>に当ててやると、時間が測りやすいと思います。(面倒なのでやらないけど</p>
 <p><a href="https://raw.githubusercontent.com/coryfklein/sw/master/sw">https://raw.githubusercontent.com/coryfklein/sw/master/sw</a></p>
 
 		

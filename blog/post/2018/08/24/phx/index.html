@@ -113,107 +113,107 @@
 <p>今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。</p>
 <p>iconの取得はmailから<code>gravatar.com</code>を使ってるんじゃないですかね(知りませんが)。コード読めという話ですね。</p>
 <p>さて、ではrepoのcloneからいきましょー。今回もexample chatみたいな感じのやつです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/tony612/exchat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd !$:t
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cat ./elixir_buildpack.config
-</span></span><span style="display:flex;"><span>erlang_version<span style="color:#f92672">=</span>20.1
-</span></span><span style="display:flex;"><span>elixir_version<span style="color:#f92672">=</span>1.6.0
-</span></span><span style="display:flex;"><span>always_rebuild<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>config_vars_to_export<span style="color:#f92672">=(</span>DATABASE_URL JWT_SECRET<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cat ./Procfile
-</span></span><span style="display:flex;"><span>web: MIX_ENV<span style="color:#f92672">=</span>prod POOL_SIZE<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> mix ecto.migrate <span style="color:#f92672">&amp;&amp;</span> mix phoenix.server
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># npm i</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># frontendは、react ,redux, jwt(login), bootstrapみたいな感じ。</span>
-</span></span><span style="display:flex;"><span>$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/gjaldon/heroku-buildpack-phoenix-static.git -a $APP_NAME
-</span></span></code></pre></div><p><code>heroku config:set</code>には、<code>DATABASE_URL</code>, <code>JWT_SECRET</code>, <code>SECRET_KEY_BASE</code>を入れてください。というか、<code>DATABASE_URL</code>, <code>PORT</code>はpostgresを入れれば勝手に作成されると思う。JWTとKEYは、<code>$ mix phx.gen.sercet</code>になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tony612/exchat
+
+$ cd !$:t
+
+$ cat ./elixir_buildpack.config
+erlang_version<span style="color:#f92672">=</span>20.1
+elixir_version<span style="color:#f92672">=</span>1.6.0
+always_rebuild<span style="color:#f92672">=</span>true
+config_vars_to_export<span style="color:#f92672">=(</span>DATABASE_URL JWT_SECRET<span style="color:#f92672">)</span>
+
+$ cat ./Procfile
+web: MIX_ENV<span style="color:#f92672">=</span>prod POOL_SIZE<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> mix ecto.migrate <span style="color:#f92672">&amp;&amp;</span> mix phoenix.server
+
+<span style="color:#75715e"># npm i</span>
+<span style="color:#75715e"># frontendは、react ,redux, jwt(login), bootstrapみたいな感じ。</span>
+$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/gjaldon/heroku-buildpack-phoenix-static.git -a $APP_NAME
+</code></pre></div><p><code>heroku config:set</code>には、<code>DATABASE_URL</code>, <code>JWT_SECRET</code>, <code>SECRET_KEY_BASE</code>を入れてください。というか、<code>DATABASE_URL</code>, <code>PORT</code>はpostgresを入れれば勝手に作成されると思う。JWTとKEYは、<code>$ mix phx.gen.sercet</code>になります。</p>
 <h2 id="notifyの実装">notifyの実装</h2>
 <p>通知の手段は色々あるんですけど、mailが簡単そうなので、まずは簡単そうなものから。</p>
 <blockquote>
 <p>mix.exs</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span>applications: [:bamboo]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>defp deps do
-</span></span><span style="display:flex;"><span>  [{:phoenix, <span style="color:#e6db74">&#34;~&gt; 1.3.3&#34;</span>},
-</span></span><span style="display:flex;"><span>   {:bamboo, <span style="color:#e6db74">&#34;~&gt; 1.0.0&#34;</span>},
-</span></span><span style="display:flex;"><span>   {:bamboo_smtp, <span style="color:#e6db74">&#34;~&gt; 1.5.0&#34;</span>}
-</span></span><span style="display:flex;"><span>  ]
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">applications: [:bamboo]
+
+defp deps do
+  [{:phoenix, <span style="color:#e6db74">&#34;~&gt; 1.3.3&#34;</span>},
+   {:bamboo, <span style="color:#e6db74">&#34;~&gt; 1.0.0&#34;</span>},
+   {:bamboo_smtp, <span style="color:#e6db74">&#34;~&gt; 1.5.0&#34;</span>}
+  ]
+</code></pre></div><blockquote>
 <p>config/prod.ex</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span>config :exchat, Exchat.Mailer,
-</span></span><span style="display:flex;"><span>       adapter: Bamboo.SMTPAdapter,
-</span></span><span style="display:flex;"><span>       server: <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
-</span></span><span style="display:flex;"><span>       port: <span style="color:#ae81ff">587</span>,
-</span></span><span style="display:flex;"><span>       username: System.get_env(<span style="color:#e6db74">&#34;GMAIL&#34;</span>),
-</span></span><span style="display:flex;"><span>       password: System.get_env(<span style="color:#e6db74">&#34;GMAIL_APP_PASS&#34;</span>),
-</span></span><span style="display:flex;"><span>       tls: :if_available, <span style="color:#960050;background-color:#1e0010">#</span> can be <span style="color:#960050;background-color:#1e0010">`</span>:always<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#f92672">or</span> <span style="color:#960050;background-color:#1e0010">`</span>:never<span style="color:#960050;background-color:#1e0010">`</span>
-</span></span><span style="display:flex;"><span>       ssl: false, <span style="color:#960050;background-color:#1e0010">#</span> can be <span style="color:#960050;background-color:#1e0010">`</span>true<span style="color:#960050;background-color:#1e0010">`</span>
-</span></span><span style="display:flex;"><span>       retries: <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>これに関しては、<code>mailgun</code>とかを使うのが通常なんだけど、demoなのでgmailで。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">config :exchat, Exchat.Mailer,
+       adapter: Bamboo.SMTPAdapter,
+       server: <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+       port: <span style="color:#ae81ff">587</span>,
+       username: System.get_env(<span style="color:#e6db74">&#34;GMAIL&#34;</span>),
+       password: System.get_env(<span style="color:#e6db74">&#34;GMAIL_APP_PASS&#34;</span>),
+       tls: :if_available, <span style="color:#960050;background-color:#1e0010">#</span> can be <span style="color:#960050;background-color:#1e0010">`</span>:always<span style="color:#960050;background-color:#1e0010">`</span> <span style="color:#f92672">or</span> <span style="color:#960050;background-color:#1e0010">`</span>:never<span style="color:#960050;background-color:#1e0010">`</span>
+       ssl: false, <span style="color:#960050;background-color:#1e0010">#</span> can be <span style="color:#960050;background-color:#1e0010">`</span>true<span style="color:#960050;background-color:#1e0010">`</span>
+       retries: <span style="color:#ae81ff">1</span>
+</code></pre></div><p>これに関しては、<code>mailgun</code>とかを使うのが通常なんだけど、demoなのでgmailで。</p>
 <blockquote>
 <p>lib/mailer.ex</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span>defmodule Exchat.Mailer do
-</span></span><span style="display:flex;"><span>  use Bamboo.Mailer, otp_app: :exchat
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Mailer do
+  use Bamboo.Mailer, otp_app: :exchat
+<span style="color:#66d9ef">end</span>
+</code></pre></div><blockquote>
 <p>lib/mail.ex</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span>defmodule Exchat.Email do
-</span></span><span style="display:flex;"><span>  use Bamboo.Phoenix, view: Exchat.EmailView
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  def hello_email(email) do
-</span></span><span style="display:flex;"><span>    new_email
-</span></span><span style="display:flex;"><span>    |<span style="color:#f92672">&gt;</span> to(email)
-</span></span><span style="display:flex;"><span>    |<span style="color:#f92672">&gt;</span> from(<span style="color:#e6db74">&#34;support@xxx.herokuapp.com&#34;</span>)
-</span></span><span style="display:flex;"><span>    |<span style="color:#f92672">&gt;</span> subject(<span style="color:#e6db74">&#34;login&#34;</span>)
-</span></span><span style="display:flex;"><span>    |<span style="color:#f92672">&gt;</span> text_body(<span style="color:#e6db74">&#34;.&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span></code></pre></div><p>userがloginしたらmailを送信するようにする。これによって、管理者は送信メールが出るので、それを通知すればいいかな。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">defmodule Exchat.Email do
+  use Bamboo.Phoenix, view: Exchat.EmailView
+
+  def hello_email(email) do
+    new_email
+    |<span style="color:#f92672">&gt;</span> to(email)
+    |<span style="color:#f92672">&gt;</span> from(<span style="color:#e6db74">&#34;support@xxx.herokuapp.com&#34;</span>)
+    |<span style="color:#f92672">&gt;</span> subject(<span style="color:#e6db74">&#34;login&#34;</span>)
+    |<span style="color:#f92672">&gt;</span> text_body(<span style="color:#e6db74">&#34;.&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>userがloginしたらmailを送信するようにする。これによって、管理者は送信メールが出るので、それを通知すればいいかな。</p>
 <blockquote>
 <p>web/controllers/api_auth.ex</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span>  def login_by_email_pass(conn, email, pass, opts) do
-</span></span><span style="display:flex;"><span>    repo <span style="color:#f92672">=</span> Keyword.fetch<span style="color:#f92672">!</span>(opts, :repo)
-</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span> repo.get_by(User, email: email)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cond</span> do
-</span></span><span style="display:flex;"><span>      user <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> checkpw(pass, user.password_hash) <span style="color:#f92672">-&gt;</span>
-</span></span><span style="display:flex;"><span>	Exchat.Email.hello_email(user.email) |<span style="color:#f92672">&gt;</span> Exchat.Mailer.deliver_now
-</span></span><span style="display:flex;"><span>        {:ok, login(conn, user)}
-</span></span><span style="display:flex;"><span>      user <span style="color:#f92672">-&gt;</span>
-</span></span><span style="display:flex;"><span>        {:error, :unauthorized, conn}
-</span></span><span style="display:flex;"><span>      true <span style="color:#f92672">-&gt;</span>
-</span></span><span style="display:flex;"><span>        dummy_checkpw()
-</span></span><span style="display:flex;"><span>        {:error, :not_found, conn}
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span></code></pre></div><p>実際、loginしてみてmailをcheckしてみる。確認できたなら、コードを変更。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">  def login_by_email_pass(conn, email, pass, opts) do
+    repo <span style="color:#f92672">=</span> Keyword.fetch<span style="color:#f92672">!</span>(opts, :repo)
+    user <span style="color:#f92672">=</span> repo.get_by(User, email: email)
+
+    <span style="color:#66d9ef">cond</span> do
+      user <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> checkpw(pass, user.password_hash) <span style="color:#f92672">-&gt;</span>
+	Exchat.Email.hello_email(user.email) |<span style="color:#f92672">&gt;</span> Exchat.Mailer.deliver_now
+        {:ok, login(conn, user)}
+      user <span style="color:#f92672">-&gt;</span>
+        {:error, :unauthorized, conn}
+      true <span style="color:#f92672">-&gt;</span>
+        dummy_checkpw()
+        {:error, :not_found, conn}
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><p>実際、loginしてみてmailをcheckしてみる。確認できたなら、コードを変更。</p>
 <p>DMやmessageが来た時も通知したければこんな感じでやってくとよさそう。</p>
 <p>というかメールの通知は色々とつらい。普通はやらないと思うので、<a href="https://github.com/acutario/ravenx">ravenx</a>/slackとか使うのがいいんでしょうか。</p>
 <h2 id="mailgun">mailgun</h2>
 <p>一応、mailgunの書き方も掲載しておきます。</p>
 <p><code>mailgun</code>: 使用する上での注意点としては、freeの場合は、sandboxでしかapi/v3からmailの送信はできません。しかも、認証済みのmail addressにしか送れず、よって、<code>lib/mail.ex</code>を書き換えて、to:verify-email, from:sandbox.domain, text_body:emailというようにしなければなりません。つまり、login userに送信(通知)するのではなく誰かがloginした時に管理者に通知する役割しか担えませんので注意です。freeでない場合はapiから普通に送れますので大丈夫ですが。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> In config<span style="color:#f92672">/</span>config.exs, <span style="color:#f92672">or</span> config.prod.exs, etc.
-</span></span><span style="display:flex;"><span>config :my_app, MyApp.Mailer,
-</span></span><span style="display:flex;"><span>  adapter: Bamboo.MailgunAdapter,
-</span></span><span style="display:flex;"><span>  api_key: <span style="color:#e6db74">&#34;my_api_key&#34;</span>,
-</span></span><span style="display:flex;"><span>  domain: <span style="color:#e6db74">&#34;your.domain&#34;</span>
-</span></span></code></pre></div><p>mailgun(MailgunAdapter)を使う場合の<code>new_email</code>の値はこちらを参考に。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -s --user <span style="color:#e6db74">&#39;api:YOUR_API_KEY&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -F from<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Excited User &lt;mailgun@YOUR_DOMAIN_NAME&gt;&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -F to<span style="color:#f92672">=</span>YOU@YOUR_DOMAIN_NAME <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -F to<span style="color:#f92672">=</span>bar@example.com <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -F subject<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Hello&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -F text<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Testing some Mailgun awesomeness!&#39;</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang"><span style="color:#960050;background-color:#1e0010">#</span> In config<span style="color:#f92672">/</span>config.exs, <span style="color:#f92672">or</span> config.prod.exs, etc.
+config :my_app, MyApp.Mailer,
+  adapter: Bamboo.MailgunAdapter,
+  api_key: <span style="color:#e6db74">&#34;my_api_key&#34;</span>,
+  domain: <span style="color:#e6db74">&#34;your.domain&#34;</span>
+</code></pre></div><p>mailgun(MailgunAdapter)を使う場合の<code>new_email</code>の値はこちらを参考に。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -s --user <span style="color:#e6db74">&#39;api:YOUR_API_KEY&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -F from<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Excited User &lt;mailgun@YOUR_DOMAIN_NAME&gt;&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -F to<span style="color:#f92672">=</span>YOU@YOUR_DOMAIN_NAME <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -F to<span style="color:#f92672">=</span>bar@example.com <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -F subject<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Hello&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -F text<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Testing some Mailgun awesomeness!&#39;</span>
+</code></pre></div>
 		
 
 

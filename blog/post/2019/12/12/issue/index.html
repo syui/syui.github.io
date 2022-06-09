@@ -113,37 +113,37 @@
 <p>基本的には<a href="https://utteranc.es/">utteranc.es</a>にアクセスして、GitHubにアプリをインストールします。</p>
 <p><a href="https://github.com/utterance/utterances">https://github.com/utterance/utterances</a></p>
 <p>そして、コメントを載せたい場所にコードを貼り付ければOKです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://utteranc.es/client.js&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">repo</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[ENTER REPO HERE]&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">issue-term</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pathname&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;github-light&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">async</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><p>コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://utteranc.es/client.js&#34;</span>
+        <span style="color:#a6e22e">repo</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[ENTER REPO HERE]&#34;</span>
+        <span style="color:#a6e22e">issue-term</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pathname&#34;</span>
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;github-light&#34;</span>
+        <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>
+        <span style="color:#a6e22e">async</span>&gt;
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>コメントは指定したリポジトリのissuesに投稿されます。なお、リポジトリのissueは有効にしておいてください。</p>
 <h2 id="github-actionsを使ったchatopsでラベルを付ける">github actionsを使ったChatOpsでラベルを付ける</h2>
 <p>ChatOpsと連携すると便利かもということで、やってみました。</p>
 <p>自動でラベル付けできるけど、コメントを確認したときでいいかということで、github actionsでissues上のコマンド(ChatOps)を作ってみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/com.yml" data-lang="yml:.github/workflows/com.yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">issue_comment</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">created, edited]</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run action</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ISSUE_PAYLOAD</span>: <span style="color:#ae81ff">${{ toJson(github.event.issue) }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ISSUE_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.issue.number }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        labels=$(echo &#34;${ISSUE_PAYLOAD}&#34; | jq &#39;.labels[]|.name&#39; | jq -s . | jq -c &#39;.|.+[&#34;COMMENT&#34;]|unique&#39;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        curl -X PATCH -d &#39;{&#34;labels&#34;: &#39;${labels}&#39;}&#39; -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}</span>        
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.event.comment.body, &#39;/com&#39;)</span>
-</span></span></code></pre></div><p>これでissues上で<code>/com</code>を投稿すると、自動で<code>COMMENT</code>のラベルが付きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/com.yml" data-lang="yml:.github/workflows/com.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">issue_comment</span>:
+    <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">created, edited]</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">COMMENT action</span>
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run action</span>
+      <span style="color:#f92672">env</span>:
+        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
+        <span style="color:#f92672">ISSUE_PAYLOAD</span>: <span style="color:#ae81ff">${{ toJson(github.event.issue) }}</span>
+        <span style="color:#f92672">ISSUE_NUMBER</span>: <span style="color:#ae81ff">${{ github.event.issue.number }}</span>
+        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        labels=$(echo &#34;${ISSUE_PAYLOAD}&#34; | jq &#39;.labels[]|.name&#39; | jq -s . | jq -c &#39;.|.+[&#34;COMMENT&#34;]|unique&#39;)
+</span><span style="color:#e6db74">        curl -X PATCH -d &#39;{&#34;labels&#34;: &#39;${labels}&#39;}&#39; -H &#34;Authorization: token ${GITHUB_TOKEN}&#34; https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}</span>        
+      <span style="color:#f92672">if</span>: <span style="color:#ae81ff">startsWith(github.event.comment.body, &#39;/com&#39;)</span>
+</code></pre></div><p>これでissues上で<code>/com</code>を投稿すると、自動で<code>COMMENT</code>のラベルが付きます。</p>
 <p><img src="https://raw.githubusercontent.com/mba-hack/images/master/github_issues_chatops_comment.png" alt=""></p>
 <p>参考 : <a href="https://qiita.com/shmurata/items/db66a4e8d5fabb545f11">https://qiita.com/shmurata/items/db66a4e8d5fabb545f11</a></p>
 

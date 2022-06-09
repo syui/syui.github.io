@@ -114,15 +114,15 @@
 <li>mount -t ext4,ext3,ext2などが失敗する</li>
 </ul>
 <p>理由はよくわからないけど、これらのコマンドが使えなくなってしまうので、イメージをマウントできなくなる問題があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
-</span></span><span style="display:flex;"><span>mount: Invalid argument
-</span></span><span style="display:flex;"><span>failed: Invalid argument
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># mount | grep loop</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox dmasg | grep loop255</span>
-</span></span><span style="display:flex;"><span>EXT4-fs <span style="color:#f92672">(</span>loop255<span style="color:#f92672">)</span>: error: unable to read superblock
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./busybox fdisk -l /dev/block/loop255</span>
-</span></span><span style="display:flex;"><span>fdisk: can<span style="color:#e6db74">&#39;t open &#39;</span>/dev/block/loop255<span style="color:#960050;background-color:#1e0010">&#39;</span>: Input/output error
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># mount -t ext4 /dev/block/loop255 /data/local/mnt</span>
+mount: Invalid argument
+failed: Invalid argument
+<span style="color:#75715e"># mount | grep loop</span>
+<span style="color:#75715e"># ./busybox dmasg | grep loop255</span>
+EXT4-fs <span style="color:#f92672">(</span>loop255<span style="color:#f92672">)</span>: error: unable to read superblock
+<span style="color:#75715e"># ./busybox fdisk -l /dev/block/loop255</span>
+fdisk: can<span style="color:#e6db74">&#39;t open &#39;</span>/dev/block/loop255<span style="color:#960050;background-color:#1e0010">&#39;</span>: Input/output error
+</code></pre></div><ul>
 <li>FRepのスクリーンショット登録が行えない, スクリーンショット保存ができない</li>
 </ul>
 <p>まず、システム設定で<code>一時ディレクトリ</code>を<code>/sdcard/foo</code>にしないと動作しないのでこれを行うと、スクリーンショット機能が使えなくなり、そのため画像認識プログラムなども全滅してしまう問題があります。</p>

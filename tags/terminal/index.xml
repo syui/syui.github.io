@@ -16,7 +16,7 @@
       <guid>https://syui.cf/blog/post/2022/02/11/sixel/</guid>
       <description>msrというmastodon clientでは、macはiterm2のimgcatを使い、linuxはmltermなどでimg2sixelを使って画像アイコンを表示します。
 windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。
-msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
+ msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
 $ scoop install msys2 $ msys2 $ git clone https://github.com/saitoha/libsixel $ cd libsixel $ pacman -S make gcc $ ./configure $ make $ make install $ mintty $ img2sixel test.png https://github.com/saitoha/libsixel
 windows terminalもsixelに対応してくれるといいんですけどね。
 https://github.com/microsoft/terminal

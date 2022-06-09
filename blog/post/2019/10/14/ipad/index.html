@@ -123,31 +123,31 @@
 <p><a href="https://www.theiphonewiki.com/wiki/OdysseusOTA2">https://www.theiphonewiki.com/wiki/OdysseusOTA2</a></p>
 <p><a href="https://github.com/tihmstar/igetnonce">https://github.com/tihmstar/igetnonce</a></p>
 <p><a href="https://github.com/xerub/img4lib/">https://github.com/xerub/img4lib/</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">## Donner 12H321 (iPad3,4) 8.4.1</span>
-</span></span><span style="display:flex;"><span>iBEC.p101.RELEASE.dfu
-</span></span><span style="display:flex;"><span>	IV: add7db95ab270c16ddd632cdc9a4ebac
-</span></span><span style="display:flex;"><span>	Key: 77b7990cbb88f3d091aaff10b424ab19c5263f100eb1ee642771500510b0dd42
-</span></span><span style="display:flex;"><span>iBoot.p101.RELEASE.img3
-</span></span><span style="display:flex;"><span>	IV: 07d85cc140e348b4d66d2b6d1b88b139
-</span></span><span style="display:flex;"><span>	Key: 29f94825bf6e6b0660037bba1a20dd804eb037888b14260f204ee8e54c2e6db3
-</span></span></code></pre></div><p><code>odysseus-ipad3,4-8.4.1-bundle</code>が存在します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">## Donner 12H321 (iPad3,4) 8.4.1</span>
+iBEC.p101.RELEASE.dfu
+	IV: add7db95ab270c16ddd632cdc9a4ebac
+	Key: 77b7990cbb88f3d091aaff10b424ab19c5263f100eb1ee642771500510b0dd42
+iBoot.p101.RELEASE.img3
+	IV: 07d85cc140e348b4d66d2b6d1b88b139
+	Key: 29f94825bf6e6b0660037bba1a20dd804eb037888b14260f204ee8e54c2e6db3
+</code></pre></div><p><code>odysseus-ipad3,4-8.4.1-bundle</code>が存在します。</p>
 <p><code>odysseus</code>より<code>futurerestore</code>のほうが良いと思われます。</p>
 <h2 id="jailbreakdowngrade関連ツールのコマンド例です">jailbreak,downgrade関連ツールのコマンド例です</h2>
 <p>検索などの取っ掛かりとして。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ipwndfu -p
-</span></span><span style="display:flex;"><span>$ idevicerestore -t iPad_32bit_10.3.3_14G60_Restore.ipsw
-</span></span><span style="display:flex;"><span>$ unzip -j iPad3,4_10.3.3_Restore.ipsw Firmware/all_flash/all_flash*/iBoot*
-</span></span><span style="display:flex;"><span>$ iBoot32Patcher iBoot.n101ap.RELEASE.dec PwnediBoot --rsa --boot-partition
-</span></span><span style="display:flex;"><span>$ iBoot64patcher ibss.raw ibss.pwn
-</span></span><span style="display:flex;"><span>$ xpwntool iBoot.n101ap.RELEASE.img3 iBoot.n101ap.RELEASE.dec -iv
-</span></span><span style="display:flex;"><span>$ tsschecker -d <span style="color:#f92672">{</span>did<span style="color:#f92672">}</span> -e <span style="color:#f92672">{</span>eid<span style="color:#f92672">}</span> -i 8.4.1 -o -s
-</span></span><span style="display:flex;"><span>$ futurerestore -t xxx-iPad3,4-10.3.3.shsh --no-baseband --use-pwndfu iPad3,4_8.4.1_12H321_Restore.ipsw
-</span></span><span style="display:flex;"><span>$ img4 -i iBSS.iphone6.RELEASE.im4p -o ibss.decrypt -k <span style="color:#e6db74">&#34;ivkey&#34;</span> -D
-</span></span><span style="display:flex;"><span>$ img4tool -e -o ibss.raw ibss.decrypt 
-</span></span><span style="display:flex;"><span>$ irecovery -f ibss.img4
-</span></span><span style="display:flex;"><span>$ bspatch iBSS.iphone6.RELEASE.im4p ibss.patched ibss.verbose.patch
-</span></span><span style="display:flex;"><span>$ bspatch futurerestore futurerestore_patched futurerestore.patch
-</span></span></code></pre></div><h2 id="気になる引用">気になる引用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ipwndfu -p
+$ idevicerestore -t iPad_32bit_10.3.3_14G60_Restore.ipsw
+$ unzip -j iPad3,4_10.3.3_Restore.ipsw Firmware/all_flash/all_flash*/iBoot*
+$ iBoot32Patcher iBoot.n101ap.RELEASE.dec PwnediBoot --rsa --boot-partition
+$ iBoot64patcher ibss.raw ibss.pwn
+$ xpwntool iBoot.n101ap.RELEASE.img3 iBoot.n101ap.RELEASE.dec -iv
+$ tsschecker -d <span style="color:#f92672">{</span>did<span style="color:#f92672">}</span> -e <span style="color:#f92672">{</span>eid<span style="color:#f92672">}</span> -i 8.4.1 -o -s
+$ futurerestore -t xxx-iPad3,4-10.3.3.shsh --no-baseband --use-pwndfu iPad3,4_8.4.1_12H321_Restore.ipsw
+$ img4 -i iBSS.iphone6.RELEASE.im4p -o ibss.decrypt -k <span style="color:#e6db74">&#34;ivkey&#34;</span> -D
+$ img4tool -e -o ibss.raw ibss.decrypt 
+$ irecovery -f ibss.img4
+$ bspatch iBSS.iphone6.RELEASE.im4p ibss.patched ibss.verbose.patch
+$ bspatch futurerestore futurerestore_patched futurerestore.patch
+</code></pre></div><h2 id="気になる引用">気になる引用</h2>
 <p>iBSS,iBEC関連のirecoveryが失敗または停止した場合、代わりに詳細なファイルを使用するらしいので、futurerestoreにpatchを当てて使う必要があるという記述</p>
 <blockquote>
 <p>Note: I found that for switching from pwndfu to pwnrecovery later on only the verbose iBSS and iBEC worked so if irecovery fails or stops when sending iBEC then trying using the verbose files instead.
@@ -172,12 +172,12 @@ On the computer run futurerestore &ndash;use-pwndfu -t ticket.shsh &ndash;latest
 <p><a href="https://github.com/s0uthwest/futurerestore">https://github.com/s0uthwest/futurerestore</a></p>
 <h2 id="checkm8の成功率">checkm8の成功率</h2>
 <p>自分の場合、以下の手順でやればほぼ確実に成功します。これ以外の単純な繰り返しだと、ほぼ失敗します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># macの再起動が必要</span>
-</span></span><span style="display:flex;"><span>1. dfuにしてipadをパソコンに接続した後、usbを抜く
-</span></span><span style="display:flex;"><span>2. macを再起動する
-</span></span><span style="display:flex;"><span>3. usbでipadとパソコンを繋ぐ、ipadをunmountする
-</span></span><span style="display:flex;"><span>4. <span style="color:#e6db74">`</span>ipwndfu -p<span style="color:#e6db74">`</span><span style="color:#f92672">(</span>checkm8<span style="color:#f92672">)</span>を実行する
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># macの再起動が必要</span>
+1. dfuにしてipadをパソコンに接続した後、usbを抜く
+2. macを再起動する
+3. usbでipadとパソコンを繋ぐ、ipadをunmountする
+4. <span style="color:#e6db74">`</span>ipwndfu -p<span style="color:#e6db74">`</span><span style="color:#f92672">(</span>checkm8<span style="color:#f92672">)</span>を実行する
+</code></pre></div>
 		
 
 

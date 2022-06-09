@@ -57,9 +57,9 @@ https://trufflesuite.com
 まず、openzeppelinでテンプレート(コード)を書きます。といっても、基本的にopenzeppelinで吐かれたコードをそのまま使用しても動作します。
 erc721を選択して、baseuriを設定します。これは画像urlと同じドメインを指定するようにしてください。baseuriにはwebに置いたmetadata.jsonを指定します。
 例えば、example.com/meta/0にjsonファイル、example.com/test/0.jpgに画像ファイルを置きます。
-baseuri : https://example.com/meta/
-metadata : /meta/0
-{ &amp;#34;tokenId&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;test 1&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;test NFT&amp;#34;, &amp;#34;image&amp;#34;: &amp;#34;https://example.com/test/0.jpg&amp;#34; } file : /test/0.</description>
+  baseuri : https://example.com/meta/
+  metadata : /meta/0
+  { &amp;#34;tokenId&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;test 1&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;test NFT&amp;#34;, &amp;#34;image&amp;#34;: &amp;#34;https://example.</description>
     </item>
     
   </channel>

@@ -108,40 +108,40 @@
 				    <h2>twg | syui.cf</h2>
        			 		<p><code>twg</code>は、goで書かれたシンプルなtwitter clientです。</p>
 <p><a href="https://github.com/syui/twg/releases">Download</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/syui/twg</span>
-</span></span><span style="display:flex;"><span>$ go get -u -v gitlab.com/syui/twg
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ yay -S twg
-</span></span></code></pre></div><h3 id="使い方">使い方</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/syui/twg</span>
+$ go get -u -v gitlab.com/syui/twg
+or
+$ yay -S twg
+</code></pre></div><h3 id="使い方">使い方</h3>
 <p><code>releases</code>からダウンロードするか、AURからインストールして使います。</p>
 <p><code>releases</code>版でないと<code>client_id</code>などが入っていないため、自身で用意する必要があります。</p>
 <p>最初に、<code>twg</code>を起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。<code>-&gt; oauth</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># If authentication does not exist, open the browser.</span>
-</span></span><span style="display:flex;"><span>$ twg
-</span></span><span style="display:flex;"><span>authorization code : xxxx
-</span></span></code></pre></div><p><code>oauth認証</code>が終わると、以下のコマンドが使用できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># timeline</span>
-</span></span><span style="display:flex;"><span>$ twg
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># help</span>
-</span></span><span style="display:flex;"><span>$ twg h
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># post</span>
-</span></span><span style="display:flex;"><span>$ twg p <span style="color:#e6db74">&#34;send tweet&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># user timeline</span>
-</span></span><span style="display:flex;"><span>$ twg u syui__
-</span></span><span style="display:flex;"><span>$ twg u
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># stream</span>
-</span></span><span style="display:flex;"><span>$ twg s
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># oauth</span>
-</span></span><span style="display:flex;"><span>$ twg o
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># search</span>
-</span></span><span style="display:flex;"><span>$ twg / <span style="color:#e6db74">&#34;#twitter&#34;</span> <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># If authentication does not exist, open the browser.</span>
+$ twg
+authorization code : xxxx
+</code></pre></div><p><code>oauth認証</code>が終わると、以下のコマンドが使用できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># timeline</span>
+$ twg
+
+<span style="color:#75715e"># help</span>
+$ twg h
+
+<span style="color:#75715e"># post</span>
+$ twg p <span style="color:#e6db74">&#34;send tweet&#34;</span>
+
+<span style="color:#75715e"># user timeline</span>
+$ twg u syui__
+$ twg u
+
+<span style="color:#75715e"># stream</span>
+$ twg s
+
+<span style="color:#75715e"># oauth</span>
+$ twg o
+
+<span style="color:#75715e"># search</span>
+$ twg / <span style="color:#e6db74">&#34;#twitter&#34;</span> <span style="color:#ae81ff">2</span>
+</code></pre></div>
        			 		
 
 

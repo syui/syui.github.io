@@ -70,7 +70,7 @@ build: docker: web: ./Dockerfile run: web: echo RUN_USER=`whoami` &amp;gt;&amp;g
       <guid>https://syui.cf/blog/post/2021/05/10/mastodon/</guid>
       <description>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつをzundaさんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuではSOURCE_VERSIONからhashを取れるっぽい。
 https://github.com/zunda/mastodon/pull/27/files
-namespace :source do desc &amp;#39;Record source version&amp;#39; task :version do hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build if hash.blank? begin hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip # ignore the error: fatal: Not a git repository rescue Errno::ENOENT # git command is not available end end unless hash.blank? hash_abb = hash[0..7] File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f| f.write &amp;lt;&amp;lt;~_TEMPLATE # frozen_string_literal: true module Mastodon module Version module_function def suffix &amp;#34; at #{hash_abb} on ruby-#{RUBY_VERSION}&amp;#34; end def repository &amp;#39;tootsuite/mastodon&amp;#39; end def source_tag &amp;#34;#{hash}&amp;#34; end end end _TEMPLATE end end end end task &amp;#39;assets:precompile&amp;#39; =&amp;gt; [&amp;#39;source:version&amp;#39;] rake assets:precompileでconfig/initializers/version.</description>
+namespace :source do desc &amp;#39;Record source version&amp;#39; task :version do hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build if hash.blank? begin hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip # ignore the error: fatal: Not a git repository rescue Errno::ENOENT # git command is not available end end unless hash.blank? hash_abb = hash[0..7] File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f| f.write &amp;lt;&amp;lt;~_TEMPLATE # frozen_string_literal: true module Mastodon module Version module_function def suffix &amp;#34; at #{hash_abb}on ruby-#{RUBY_VERSION}&amp;#34; end def repository &amp;#39;tootsuite/mastodon&amp;#39; end def source_tag &amp;#34;#{hash}&amp;#34; end end end _TEMPLATE end end end end task &amp;#39;assets:precompile&amp;#39; =&amp;gt; [&amp;#39;source:version&amp;#39;] rake assets:precompileでconfig/initializers/version.</description>
     </item>
     
     <item>
@@ -81,11 +81,11 @@ namespace :source do desc &amp;#39;Record source version&amp;#39; task :version 
       <guid>https://syui.cf/blog/post/2021/05/09/mastodon/</guid>
       <description>mastodon v3.4.0のpre-verがmasterにcommitされています。
 heroku-20はruby v3.0.1に対応していて、mastodon v3.4.0はruby &amp;lt; v3.1.0なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。
-Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
+ Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
 2.6.7, Rubygems: 3.0.3.1
 2.7.3, Rubygems: 3.1.6
 3.0.1, Rubygems: 3.2.15
-https://devcenter.heroku.com/articles/ruby-support#ruby-versions
+ https://devcenter.heroku.com/articles/ruby-support#ruby-versions
 $ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:remote -a $app $ rm Gemfile.</description>
     </item>
     
@@ -97,13 +97,13 @@ $ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:r
       <guid>https://syui.cf/blog/post/2021/05/06/heroku/</guid>
       <description>stack:heroku-20でmastodon v3.3.0に対応する方法です。
 libvpx5 以下のエラーが出てしまいますが、これは、heroku-20で使用されるubuntu 20.04がlibvpx6を使用するのに対し、mastodonはlibvpx5を使用するためだと思われます。
-remote: E: Unable to locate package libvpx5
-したがって、mastodon/Aptfileを書き換えます。
+ remote: E: Unable to locate package libvpx5
+ したがって、mastodon/Aptfileを書き換えます。
 - libvpx5 + libvpx[5-9] 追記:zundaさんがpull-reqされていました。
 https://github.com/tootsuite/mastodon/pull/15591
 ruby v2.7.3 heroku-20は、最も古いのがruby v2.5.9です。したがって、Gemfile.lockを変更する必要があります。
 https://devcenter.heroku.com/articles/ruby-support
-$ cd ./mastodon $ yay -S rbenv ruby-build $ rbenv init $ rbenv install 2.7.3 $ rbenv local 2.7.3 $ gem i bundler $ bundle # git push -f heroku main $ git push -f heroku master bundleを実行するのは何でもいいですけど、archで実行後にGemfile.lockをcpしてgit-pushしました。
+$ cd ./mastodon $ yay -S rbenv ruby-build $ rbenv init $ rbenv install 2.7.3 $ rbenv local 2.7.3 $ gem i bundler $ bundle # git push -f heroku main  $ git push -f heroku master bundleを実行するのは何でもいいですけど、archで実行後にGemfile.lockをcpしてgit-pushしました。
 mastodon v3.3.0 SKIP_POST_DEPLOYMENT_MIGRATIONS=trueは特殊だけど、他はいつも通りのコマンド。
 $ heroku run RAILS_ENV=production bin/tootctl cache clear $ heroku run SKIP_POST_DEPLOYMENT_MIGRATIONS=true RAILS_ENV=production bundle exec rails db:migrate $ heroku run RAILS_ENV=production bundle exec rails assets:precompile https://github.</description>
     </item>
@@ -115,10 +115,10 @@ $ heroku run RAILS_ENV=production bin/tootctl cache clear $ heroku run SKIP_POST
       
       <guid>https://syui.cf/blog/post/2021/05/05/heroku/</guid>
       <description>elixir+phoenixで作ってるappが古いstack:heroku-16で動いてて、versionを上げろと言われてたので、heroku-20にしてみた。
-The Heroku-16 stack is end-of-life This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 2021. Apps using Heroku-16 no longer receive security updates, and from June 1st, 2021, builds will be disabled. Please upgrade your app to a newer Heroku stack. Visit here to learn more
-https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq
+ The Heroku-16 stack is end-of-life This app is using the Heroku-16 stack, which reached end-of-life on May 1st, 2021. Apps using Heroku-16 no longer receive security updates, and from June 1st, 2021, builds will be disabled. Please upgrade your app to a newer Heroku stack. Visit here to learn more
+ https://help.heroku.com/0S5P41DC/heroku-16-end-of-life-faq
 $ heroku git:clone -a $app $ cd $app $ heroku buildpacks:set hashnuke/elixir elixir_version=1.9.0 release=true これでpushしても以下のエラーが出るけど、cacheを削除すると動きます。
-/app/.platform_tools/erlang/erts-10.6.4/bin/beam.smp: error while loading shared libraries: libtinfo.</description>
+ /app/.</description>
     </item>
     
     <item>
@@ -128,8 +128,8 @@ $ heroku git:clone -a $app $ cd $app $ heroku buildpacks:set hashnuke/elixir eli
       
       <guid>https://syui.cf/blog/post/2021/05/04/heroku/</guid>
       <description>heroku redis 4,5が廃止になるらしい。6にupgradeしなければ、6/30に自動でupgradeされるらしいので、heroku redis 6にupgradeしてみます。
-Users that do not proactively upgrade their add-on to version 6 will be automatically upgraded after the deadline of June 30, 2021.
-https://devcenter.heroku.com/articles/heroku-redis-hobby-deprecation
+ Users that do not proactively upgrade their add-on to version 6 will be automatically upgraded after the deadline of June 30, 2021.
+ https://devcenter.heroku.com/articles/heroku-redis-hobby-deprecation
 # redis urlの取得 $ heroku config:get REDIS_URL -a ${app} # redis addonを作成 $ heroku addons:create heroku-redis:hobby-dev --fork `heroku config:get REDIS_URL -a ${app}` -a ${app} # 進捗の確認 $ heroku redis:info redis-xxxx -a ${app} # 完了すればappが使用するredisを変更 $ heroku redis:promote redis-xxxx -a ${app} # appを確認後に古いredisを削除 $ heroku redis:info -a ${app} $ heroku addons -a ${app} $ heroku addons:destroy redis-xxxx -a ${app} </description>
     </item>
     
@@ -141,14 +141,14 @@ https://devcenter.heroku.com/articles/heroku-redis-hobby-deprecation
       <guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid>
       <description>今回は、Herokuで立てる分散SNSの話です。
 アドベントカレンダーに参加しています。
-Heroku Advent Calendar 2019
-分散SNS Advent Calendar 2019
-Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
+  Heroku Advent Calendar 2019
+  分散SNS Advent Calendar 2019
+  Herokuについて 私は、MastodonをHeroku上に構築しています。この界隈ではzundaさんが有名です。
 Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPaaSだと思っています。今までOpenShiftやIBM Cloud(Bluemix)など様々なサービスを試してきましたが、その中では総合的に見てHerokuが一番でした。(あくまで個人的見解
 さて、そんなHerokuですが、サービスとしての認知度は高く、定評があり、人気もあるので、知っている人は多いかと思います。
 ですが、Herokuがどういった会社なのかを知る人は少ないと思うので、今回は少しだけそのへんを考えてみたいと思います。
 まず下のページを読んでみてください。
-Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description>
+ Hanafuda has been around for hundreds of years and has a very recognizable style. The cards have special significance and represent months of the year. Heroku also has a distinctive style, one we take great pride in. Herein lay the challenge: How do we make the cards recognizable to experienced Hanafuda players, but also make them feel like they came from Heroku?</description>
     </item>
     
     <item>
@@ -163,8 +163,8 @@ Hanafuda has been around for hundreds of years and has a very recognizable style
 https://github.com/syui/misskey/tree/v10
 では、なんでこんなボタン作ったのか、ですね。
 この前、偶然にもこんな言葉をどこかで読みました。
-作り手とその取り巻きだけが楽しんでる間は本物じゃない。その中身が理解できない人々の生活を変えてこそ本物だ
-なんというか&amp;hellip;すごくいい言葉なのかもしれませんね。なんのことか意味がよくわからないけど。
+ 作り手とその取り巻きだけが楽しんでる間は本物じゃない。その中身が理解できない人々の生活を変えてこそ本物だ
+ なんというか&amp;hellip;すごくいい言葉なのかもしれませんね。なんのことか意味がよくわからないけど。
 とりあえずその話は置いといて、ソフトウェアを最初に触わるときって、何もかも全部把握し、完璧に理解した上で動かしてる人って多くないと思うんですよね。普通、動かしてるうちに、色々把握したり、理解したりするもんじゃないですか、というのが私の考えです。
 それが自分の管理下にないサーバー上のことならなおさらですよね。必要な設定の値とかもわかりませんし、それをデプロイしながら把握していくのでは時間がかかってしまいます。もちろん、それ以外にもわからないことだらけですよね、初めて触るんだから当然です。
 ここで、例えば、あなたがなにかのツールをインストールしようとして、もしインストールに失敗したり、動かなかったりした場合、どうしますか。
@@ -174,8 +174,8 @@ https://github.com/syui/misskey/tree/v10
 みなさんも、なにかを初めて動かそうとするときって、大抵、そうじゃないですか。
 もちろん、それは違うって人もいると思うんですけど、私は、はじめての人にとって、簡単に・できるってことは、すごく重要なことだと思うんです。
 では、もう一度、冒頭に引用した言葉を思い出してみることにしましょう。
-作り手とその取り巻きだけが楽しんでる間は本物じゃない。その中身が理解できない人々の生活を変えてこそ本物だ
-&amp;hellip;相変わらず、再度読んでみても、さっぱりよくわからない言葉ですね!
+ 作り手とその取り巻きだけが楽しんでる間は本物じゃない。その中身が理解できない人々の生活を変えてこそ本物だ
+ &amp;hellip;相変わらず、再度読んでみても、さっぱりよくわからない言葉ですね!
 ここで、デプロイボタンがあれば、少しだけ簡単に、初見の人にも簡単に、できたりしますので、嬉しいし、楽しいと思いました。それだけ。
 次に、どうやってボタンつけたかの話です。
 これは、load.tsを変更して付けました。load.tsは、設定ファイルを読み込んでその内容を反映する非常に根幹的なファイルコードです。これを変更するというのは、正直、躊躇しました。
@@ -185,8 +185,8 @@ https://github.com/syui/misskey/tree/v10
 またまた、言葉の引用になりますが、最近、ドラゴンボールを読み返してみたんですよね。
 読み返してみると、亀仙人いるじゃないですか。あやつは、なかなかにいいことをいうておるんですよね。
 例えば、亀仙人、こんなことをいうておるんです。めんどくさそうなところは飛ばして、趣旨だけ述べると
-武道を習得するのは、喧嘩に勝つためではなく、ギャルに褒められるためでもない。武道を学ぶことによって心身ともに健康となり、それによって人生を面白おかしく過ごしてしまおうというものじゃ!
-みたいなことを言っとるんです。んで、この言葉を聞いた悟空は、ぜんぜんわからんとか言うんですが、要するに「一生懸命に修行して人生を楽しく暮らしちゃおうということだ!!」ってことみたいです。
+ 武道を習得するのは、喧嘩に勝つためではなく、ギャルに褒められるためでもない。武道を学ぶことによって心身ともに健康となり、それによって人生を面白おかしく過ごしてしまおうというものじゃ!
+ みたいなことを言っとるんです。んで、この言葉を聞いた悟空は、ぜんぜんわからんとか言うんですが、要するに「一生懸命に修行して人生を楽しく暮らしちゃおうということだ!!」ってことみたいです。
 つまりですね、私、個人の行動原理として、「人生を楽しく」ってことが大切だと思ってるんです。これはプライベートで開発してる人の多くが、例えば、プルリクを送る側であれ、受け取る側であれ、人生は楽しいほうがいいよ、みたいなことだと思うです。(もはやわけわからん
 例えば、自分がプルリクを送るとしたら、それは、楽しそうだったからでしょうね、多分。
 しかし、もしそれが楽しくなかったら&amp;hellip;嫌なことばかりだったらどうでしょう。例えば、その楽しくなさそーな雰囲気を自分が作り出してしまっているとしたら&amp;hellip;もはや最悪ですね。私でも「あんた、さっさといなくなってくれたほうがいいよ」って言いいますよ。んで、その場合は、さっさとその場を去るのが一番でしょう。自分がやらかしてるんだから当たり前です。そして、それは、自分のためでもあり&amp;hellip;しかし、それだけでもなく。
@@ -220,8 +220,8 @@ herokuでpleromaを動かします。動いた環境を記録します。
 heroku info remote: * Stack heroku-18 remote: * Erlang 21.2 remote: * Elixir 1.7 src : https://git.pleroma.social/pleroma/pleroma , fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8
 buildpack : https://github.com/syui/heroku-buildpack-elixir
 こちらのHashNuke/heroku-buildpack-elixirで${build_path}からmixを実行できないので、それを修正したもの。
-$ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mix remote: fatal: not a git repository (or any parent up to mount point /) remote: Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). $ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME Procfile
-web: mix phx.</description>
+$ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mix remote: fatal: not a git repository (or any parent up to mount point /) remote: Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). $ heroku buildpacks:set https://github.com/syui/heroku-buildpack-elixir.git -a $APP_NAME  Procfile
+ web: mix phx.</description>
     </item>
     
     <item>

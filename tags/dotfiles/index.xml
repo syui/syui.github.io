@@ -67,7 +67,7 @@ git-repoにcdするとき劇遅になるので、zle reset-promptして必要が
       
       <guid>https://syui.cf/blog/post/2019/12/23/dotfiles/</guid>
       <description>アドベントカレンダーに参加しています。
-dotfiles Advent Calendar 2019 今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。
+ dotfiles Advent Calendar 2019  今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。
 自動化スクリプトが動かなくなってた話 私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。
 $ curl -L git.io/air|zsh ですが、最近実行してみると、やっぱり動かなくなっていたのです！
 dotfilesのメンテもいつの間にかやらなくなる話 dotfilesも同じく、最初はちゃんとpushするんですが、そのうち、commitがめんどくさくなってしまい、いつの間にかメンテナンスしなくなっていました。
@@ -82,7 +82,7 @@ Packer + VagrantでArchLinuxの仮想環境を構築 ArchLinuxは、なかなか
 $ brew install packer $ brew cask install vagrant 続いて、Packerの設定ファイルを取ってきて、PackerでVagrantイメージを作ります(今回のために作った)。
 https://github.com/syui/arch
 $ git clone https://github.com/syui/arch $ cd arch/packer $ packer build arch.json 作ったVagrantイメージをクラウドに保存して、ダウンロード起動します。
-$ vagrant login $ vagrant box add syui/arch arch.box --force $ vim vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.</description>
+$ vagrant login $ vagrant box add syui/arch arch.box --force $ vim vagrantfile Vagrant.</description>
     </item>
     
   </channel>

@@ -127,13 +127,13 @@
 <p>では、なぜUSBにインストールしたArch Linuxを常時パソコン(サーバー)に刺している状態のかというと、中に入っているArch Linuxを自動アップデートしているからだ。USB OSはほっとくとすぐに古くなってアップデートが面倒なので。</p>
 <p>中にはついでにサーバーとしても動いているものがいくつかあるが、USB OSは刺しているパソコンのスペックに依存するので、あまり動かし過ぎるとリソースを食うのでよろしくない。</p>
 <p>パソコン側ではUSB OSはChrootでアクセスする感じで動いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo losetup -f
-</span></span><span style="display:flex;"><span>sudo losetup -d /dev/loop255
-</span></span><span style="display:flex;"><span>sudo mknod /dev/loop255 b <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>sudo losetup /dev/loop255 /dev/sdb2
-</span></span><span style="display:flex;"><span>sudo mount -t ext4 /dev/loop255 /mnt
-</span></span><span style="display:flex;"><span>sudo chroot /mnt /usr/bin/env -i HOME<span style="color:#f92672">=</span>/root USER<span style="color:#f92672">=</span>root PATH<span style="color:#f92672">=</span>/bin:/usr/bin:/usr/local/bin TERM<span style="color:#f92672">=</span>linux /bin/bash -l
-</span></span></code></pre></div><p>何がいいたいのかというと、Arch Linuxはアップデートが楽。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo losetup -f
+sudo losetup -d /dev/loop255
+sudo mknod /dev/loop255 b <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">1</span>
+sudo losetup /dev/loop255 /dev/sdb2
+sudo mount -t ext4 /dev/loop255 /mnt
+sudo chroot /mnt /usr/bin/env -i HOME<span style="color:#f92672">=</span>/root USER<span style="color:#f92672">=</span>root PATH<span style="color:#f92672">=</span>/bin:/usr/bin:/usr/local/bin TERM<span style="color:#f92672">=</span>linux /bin/bash -l
+</code></pre></div><p>何がいいたいのかというと、Arch Linuxはアップデートが楽。</p>
 <p>おわり。</p>
 
 		

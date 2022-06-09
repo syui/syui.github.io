@@ -42,7 +42,7 @@ winには、cygwinやmsys, chocoなど色々ありますよね。あ、cygwinは
 私は、pwshは現時点ではかなり充実していて、シームレスにwindowsのsystemにアクセスできるコマンドを実行できる点とかが気に入ってるわけですが、cygwinとかmsysとかはなかなかそうは行きませんよね。
 ということで、shellはpwshを採用するとして、package managerはscoopという構成がおすすめです。
 やってみた
-基本的には、~/scoop/shims/にシンボリックリンクかな、それが置かれてます。実体は~/scoop/apps/$APP_NAME/current/bin/$APP_NAME.exeとかにある感じかな。
+ 基本的には、~/scoop/shims/にシンボリックリンクかな、それが置かれてます。実体は~/scoop/apps/$APP_NAME/current/bin/$APP_NAME.exeとかにある感じかな。
 なので、
 $ scoop install curl $ cd ~/scoop/apps/curl/current/bin $ ./curl.exe github.com とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。
 もし仮にデフォルトのbucketにpackageが見つからなければ、

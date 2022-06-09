@@ -114,52 +114,52 @@
 <p><a href="https://github.com/syui/twg/releases">https://github.com/syui/twg/releases</a></p>
 <p>ciはtravisからgh-actionsに移行しましたが、またハマりました。</p>
 <p>goxでbuildする際に、darwin/386はunsuportのerrが出るので、optionで出力を指定してやらなければなりません。goは1.14からdarwin/386がunsuportされ、1.16では戻ったみたいですけど、errが出ます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>--&gt; darwin/386 error: exit status <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>Stderr: cmd/go: unsupported GOOS/GOARCH pair darwin/386
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>build<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>その他、tagからverを抜き出すのは、<code>env: REF=${{ github.ref }}</code>, <code>${REF##*/}</code>がいいです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/releases.yml" data-lang="yml:.github/workflows/releases.yml"><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">master</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">create</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tags</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">v*.*.*</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">release</span>: <span style="color:#75715e"># job_id</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Go 1.16</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-go@v1</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.16</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">id</span>: <span style="color:#ae81ff">go</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Check out code into the Go module directory</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GO111MODULE</span>: <span style="color:#66d9ef">on</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GOPATH</span>: <span style="color:#ae81ff">/home/runner/work/</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">C_KEY</span>: <span style="color:#ae81ff">${{ secrets.C_KEY }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">REF</span>: <span style="color:#ae81ff">${{ github.ref }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">CS_KEY</span>: <span style="color:#ae81ff">${{ secrets.CS_KEY }}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        export CREATE_EVENT_REF_TYPE=$(jq --raw-output .ref_type &#34;$GITHUB_EVENT_PATH&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        go get -t -v ./...
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        go get -u github.com/mitchellh/gox
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        go get -u github.com/tcnksm/ghr
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        $GOPATH/bin/gox -osarch &#34;freebsd/arm linux/386 linux/amd64 linux/arm linux/mips64le linux/mips64 linux/mipsle linux/mips linux/s390x netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 windows/386 windows/amd64 darwin/amd64&#34; -output &#34;dist/{{.OS}}_{{.Arch}}_{{.Dir}}&#34; -ldflags=&#34;-X github.com/syui/twg/oauth.ckey=${C_KEY} -X github.com/syui/twg/oauth.cskey=${CS_KEY}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        $GOPATH/bin/ghr --username syui --token ${GITHUB_TOKEN} --replace --debug ${REF##*/} dist/</span>        
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">--&gt; darwin/386 error: exit status <span style="color:#ae81ff">2</span>
+Stderr: cmd/go: unsupported GOOS/GOARCH pair darwin/386
+
+make: *** <span style="color:#f92672">[</span>build<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><p>その他、tagからverを抜き出すのは、<code>env: REF=${{ github.ref }}</code>, <code>${REF##*/}</code>がいいです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/releases.yml" data-lang="yml:.github/workflows/releases.yml"><span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">master</span>
+  <span style="color:#f92672">create</span>:
+    <span style="color:#f92672">tags</span>:
+      - <span style="color:#ae81ff">v*.*.*</span>
+
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">release</span>: <span style="color:#75715e"># job_id</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Set up Go 1.16</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-go@v1</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.16</span>
+      <span style="color:#f92672">id</span>: <span style="color:#ae81ff">go</span>
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Check out code into the Go module directory</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+      <span style="color:#f92672">env</span>:
+        <span style="color:#f92672">GO111MODULE</span>: <span style="color:#66d9ef">on</span>
+        <span style="color:#f92672">GOPATH</span>: <span style="color:#ae81ff">/home/runner/work/</span>
+        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+        <span style="color:#f92672">GITHUB_REPOSITORY</span>: <span style="color:#ae81ff">${{ github.repository }}</span>
+        <span style="color:#f92672">C_KEY</span>: <span style="color:#ae81ff">${{ secrets.C_KEY }}</span>
+        <span style="color:#f92672">REF</span>: <span style="color:#ae81ff">${{ github.ref }}</span>
+        <span style="color:#f92672">CS_KEY</span>: <span style="color:#ae81ff">${{ secrets.CS_KEY }}</span>
+
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        export CREATE_EVENT_REF_TYPE=$(jq --raw-output .ref_type &#34;$GITHUB_EVENT_PATH&#34;)
+</span><span style="color:#e6db74">        go get -t -v ./...
+</span><span style="color:#e6db74">        go get -u github.com/mitchellh/gox
+</span><span style="color:#e6db74">        go get -u github.com/tcnksm/ghr
+</span><span style="color:#e6db74">        $GOPATH/bin/gox -osarch &#34;freebsd/arm linux/386 linux/amd64 linux/arm linux/mips64le linux/mips64 linux/mipsle linux/mips linux/s390x netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 windows/386 windows/amd64 darwin/amd64&#34; -output &#34;dist/{{.OS}}_{{.Arch}}_{{.Dir}}&#34; -ldflags=&#34;-X github.com/syui/twg/oauth.ckey=${C_KEY} -X github.com/syui/twg/oauth.cskey=${CS_KEY}&#34;
+</span><span style="color:#e6db74">        $GOPATH/bin/ghr --username syui --token ${GITHUB_TOKEN} --replace --debug ${REF##*/} dist/</span>        
+</code></pre></div>
 		
 
 

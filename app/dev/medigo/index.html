@@ -111,22 +111,22 @@
 <p>現在、medium apiが一般公開されなくなったことにより動作しません</p>
 </blockquote>
 <p><a href="https://github.com/syui/medigo/releases">Download</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/syui/medigo</span>
-</span></span><span style="display:flex;"><span>$ go get -u -v github.com/syui/medigo
-</span></span><span style="display:flex;"><span>or
-</span></span><span style="display:flex;"><span>$ yay -S medigo
-</span></span></code></pre></div><h3 id="使い方">使い方</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/syui/medigo</span>
+$ go get -u -v github.com/syui/medigo
+or
+$ yay -S medigo
+</code></pre></div><h3 id="使い方">使い方</h3>
 <p><code>releases</code>からダウンロードするか、AURからインストールして使います。</p>
 <p><code>releases</code>版でないと<code>client_id</code>などが入っていないため、自身で用意する必要があります。</p>
 <p>最初に、<code>medigo</code>を起動して、URLをブラウザで開き、アプリを承認します。表示されたcodeを貼り付けます。<code>-&gt; oauth</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># If authentication does not exist, open the browser.</span>
-</span></span><span style="display:flex;"><span>$ medigo
-</span></span><span style="display:flex;"><span>authorization code : xxxx
-</span></span></code></pre></div><p><code>oauth認証</code>が終わると、以下のコマンドが使用できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ medigo h
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ medigo u
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># If authentication does not exist, open the browser.</span>
+$ medigo
+authorization code : xxxx
+</code></pre></div><p><code>oauth認証</code>が終わると、以下のコマンドが使用できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ medigo h
+
+$ medigo u
+</code></pre></div>
        			 		
 
 

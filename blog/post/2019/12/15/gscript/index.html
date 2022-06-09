@@ -113,61 +113,61 @@
 <p>ハマりどころが多かったので、ポイントだけ。</p>
 <p>まず、公開時(リリース時)は、<code>必ずNewでバージョンをつけないと、更新されない</code>みたいです。空にした場合、2,3,4と自動で番号が付きます。同じバージョンを選ぶと、内容は保存されているみたいですが、デプロイされていない状態だと思われます。</p>
 <p>次に、<code>curl</code>で、<code>-X POST</code>が機能しないので、書き方が悪いのかなあと思っていたら、本当に機能しないみたいです。機能するポストは以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">L</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#e6db74">&#34;&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:main.js" data-lang="js:main.js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">doPost</span>(<span style="color:#a6e22e">e</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">postData</span>.<span style="color:#a6e22e">contents</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">contents</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">spanish</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">LanguageApp</span>.<span style="color:#a6e22e">translate</span>(<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">txt</span>,
-</span></span><span style="display:flex;"><span>                                      <span style="color:#e6db74">&#39;en&#39;</span>, <span style="color:#e6db74">&#39;ja&#39;</span>, {<span style="color:#a6e22e">contentType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;html&#39;</span>});
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">spanish</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ContentService</span>.<span style="color:#a6e22e">createTextOutput</span>(<span style="color:#a6e22e">spanish</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//function doGet(e) {
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  return ContentService.createTextOutput(&#34;doGet!!&#34;);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//}
-</span></span></span></code></pre></div><p>これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># post req</span>
-</span></span><span style="display:flex;"><span>$ curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;hello\&#34;}&#34;</span> https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec
-</span></span><span style="display:flex;"><span>こんにちは
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># get req</span>
-</span></span><span style="display:flex;"><span>$ curl -L https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec
-</span></span><span style="display:flex;"><span>doGet!!
-</span></span></code></pre></div><p><a href="https://developers.google.com/apps-script/reference/language/language-app">LanguageApp.translate</a>のパラメーターは、<code>text, sourceLanguage, targetLanguage</code>となっています。言語を変えたい場合は変えられるようにしておくほうがいいかもしれません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>LanguageApp.translate<span style="color:#f92672">(</span>d.txt, d.src, d.targ<span style="color:#f92672">)</span>;
-</span></span><span style="display:flex;"><span>curl -L <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;こんにちは\&#34;,\&#34;src\&#34;:\&#34;ja\&#34;,\&#34;targ\&#34;:\&#34;en\&#34;}&#34;</span>
-</span></span></code></pre></div><p>ということで、実際に、<a href="https://www.archlinux.org/">archlinux.org</a>の最新ニュースを翻訳してみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:run.sh" data-lang="sh:run.sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -f ./xq <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>	curl -sL https://github.com/syui/xq/releases/download/0.1/linux_amd64_xq -o xq
-</span></span><span style="display:flex;"><span>	chmod +x xq
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>url<span style="color:#f92672">=</span>$1
-</span></span><span style="display:flex;"><span>date_now<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date +<span style="color:#e6db74">&#34;%Y%m%d&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>url_arch<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.archlinux.org/feeds/news/&#34;</span>
-</span></span><span style="display:flex;"><span>xml<span style="color:#f92672">=</span>index.xml
-</span></span><span style="display:flex;"><span>curl -sL $url_arch -o $xml
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>date_xml<span style="color:#f92672">=</span>$date_now
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>	date_xml<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date --date<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>./xq l $xml<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> +<span style="color:#e6db74">&#34;%Y%m%d&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$date_now<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$date_xml<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>    exit
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>title<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>./xq $xml|jq -r <span style="color:#e6db74">&#34;.[0]|.title&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>body<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>./xq $xml|jq -r <span style="color:#e6db74">&#34;.[0]|.description&#34;</span>|tr -d <span style="color:#e6db74">&#39;\n&#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>echo $title, $body
-</span></span><span style="display:flex;"><span>curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;</span>$title<span style="color:#e6db74">\&#34;}&#34;</span> $url
-</span></span><span style="display:flex;"><span>curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;</span>$body<span style="color:#e6db74">\&#34;}&#34;</span> $url
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chmod +x run.sh
-</span></span><span style="display:flex;"><span>$ ./run.sh https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec t
-</span></span></code></pre></div><p><code>github.com/syui/xq</code>がおかしいと思ったら、<code>github.com/urfave/cli</code>が壊れてるぽい。あと、最新のバイナリをreleasesに置いてなかったので、ずっとオプション間違えてて、ローカルでは動いてたので、ハマりまくった。やっぱり、golangで書いたものは、releasesするCIを回しておけばよかった&hellip;。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">L</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span> <span style="color:#e6db74">&#34;&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:main.js" data-lang="js:main.js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">doPost</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">postData</span>.<span style="color:#a6e22e">contents</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">contents</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">spanish</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">LanguageApp</span>.<span style="color:#a6e22e">translate</span>(<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">txt</span>,
+                                      <span style="color:#e6db74">&#39;en&#39;</span>, <span style="color:#e6db74">&#39;ja&#39;</span>, {<span style="color:#a6e22e">contentType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;html&#39;</span>});
+  <span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">spanish</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ContentService</span>.<span style="color:#a6e22e">createTextOutput</span>(<span style="color:#a6e22e">spanish</span>);
+}
+
+<span style="color:#75715e">//function doGet(e) {
+</span><span style="color:#75715e">//  return ContentService.createTextOutput(&#34;doGet!!&#34;);
+</span><span style="color:#75715e">//}
+</span></code></pre></div><p>これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># post req</span>
+$ curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;hello\&#34;}&#34;</span> https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec
+こんにちは
+
+<span style="color:#75715e"># get req</span>
+$ curl -L https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec
+doGet!!
+</code></pre></div><p><a href="https://developers.google.com/apps-script/reference/language/language-app">LanguageApp.translate</a>のパラメーターは、<code>text, sourceLanguage, targetLanguage</code>となっています。言語を変えたい場合は変えられるようにしておくほうがいいかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LanguageApp.translate<span style="color:#f92672">(</span>d.txt, d.src, d.targ<span style="color:#f92672">)</span>;
+curl -L <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;こんにちは\&#34;,\&#34;src\&#34;:\&#34;ja\&#34;,\&#34;targ\&#34;:\&#34;en\&#34;}&#34;</span>
+</code></pre></div><p>ということで、実際に、<a href="https://www.archlinux.org/">archlinux.org</a>の最新ニュースを翻訳してみました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:run.sh" data-lang="sh:run.sh"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -f ./xq <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+	curl -sL https://github.com/syui/xq/releases/download/0.1/linux_amd64_xq -o xq
+	chmod +x xq
+<span style="color:#66d9ef">fi</span>
+
+url<span style="color:#f92672">=</span>$1
+date_now<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date +<span style="color:#e6db74">&#34;%Y%m%d&#34;</span><span style="color:#e6db74">`</span>
+url_arch<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.archlinux.org/feeds/news/&#34;</span>
+xml<span style="color:#f92672">=</span>index.xml
+curl -sL $url_arch -o $xml
+
+date_xml<span style="color:#f92672">=</span>$date_now
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+	date_xml<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date --date<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>./xq l $xml<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> +<span style="color:#e6db74">&#34;%Y%m%d&#34;</span><span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$date_now<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$date_xml<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+    exit
+<span style="color:#66d9ef">fi</span>
+
+title<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>./xq $xml|jq -r <span style="color:#e6db74">&#34;.[0]|.title&#34;</span><span style="color:#e6db74">`</span>
+body<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>./xq $xml|jq -r <span style="color:#e6db74">&#34;.[0]|.description&#34;</span>|tr -d <span style="color:#e6db74">&#39;\n&#39;</span><span style="color:#e6db74">`</span>
+echo $title, $body
+curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;</span>$title<span style="color:#e6db74">\&#34;}&#34;</span> $url
+curl -L -d <span style="color:#e6db74">&#34;{\&#34;txt\&#34;:\&#34;</span>$body<span style="color:#e6db74">\&#34;}&#34;</span> $url
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ chmod +x run.sh
+$ ./run.sh https://script.google.com/macros/s/<span style="color:#e6db74">${</span>APP_ID<span style="color:#e6db74">}</span>/exec t
+</code></pre></div><p><code>github.com/syui/xq</code>がおかしいと思ったら、<code>github.com/urfave/cli</code>が壊れてるぽい。あと、最新のバイナリをreleasesに置いてなかったので、ずっとオプション間違えてて、ローカルでは動いてたので、ハマりまくった。やっぱり、golangで書いたものは、releasesするCIを回しておけばよかった&hellip;。</p>
 
 		
 

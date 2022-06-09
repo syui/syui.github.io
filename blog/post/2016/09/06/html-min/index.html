@@ -115,60 +115,60 @@
 <p>スクリプトの読み込みは<code>async</code>を付けます。</p>
 <p>HTMLを最適化するために<code>html-minifier</code>を使います。</p>
 <p>以下のような感じでビルドすればよいでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">before_script</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">apt-get update -qq &amp;&amp; apt-get install -y -qq git zsh curl</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">apt-get update -qq</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">curl -sL https://deb.nodesource.com/setup_6.x | bash -</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">apt-get install -y nodejs</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">curl -L https://npmjs.org/install.sh | sh </span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">pages</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">hugo</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">npm i html-minifier</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">./bin/html-minifier.sh</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">artifacts</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">public</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">only</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">master</span>
-</span></span></code></pre></div><p>Dockerの<code>publysher/hugo</code>はDebianらしいので、Node.jsのインストールが面倒くさいです。個人的にDocker ImageはArch Linux, Alpine Linuxなどを使って欲しさはある。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
+
+<span style="color:#f92672">before_script</span>:
+  - <span style="color:#ae81ff">apt-get update -qq &amp;&amp; apt-get install -y -qq git zsh curl</span>
+  - <span style="color:#ae81ff">apt-get update -qq</span>
+  - <span style="color:#ae81ff">curl -sL https://deb.nodesource.com/setup_6.x | bash -</span>
+  - <span style="color:#ae81ff">apt-get install -y nodejs</span>
+  - <span style="color:#ae81ff">curl -L https://npmjs.org/install.sh | sh </span>
+<span style="color:#f92672">pages</span>:
+  <span style="color:#f92672">script</span>:
+  - <span style="color:#ae81ff">hugo</span>
+  - <span style="color:#ae81ff">npm i html-minifier</span>
+  - <span style="color:#ae81ff">./bin/html-minifier.sh</span>
+  <span style="color:#f92672">artifacts</span>:
+    <span style="color:#f92672">paths</span>:
+    - <span style="color:#ae81ff">public</span>
+  <span style="color:#f92672">only</span>:
+  - <span style="color:#ae81ff">master</span>
+</code></pre></div><p>Dockerの<code>publysher/hugo</code>はDebianらしいので、Node.jsのインストールが面倒くさいです。個人的にDocker ImageはArch Linux, Alpine Linuxなどを使って欲しさはある。</p>
 <p><a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a></p>
 <blockquote>
 <p>bin/html-minifier.sh</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/zsh
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h:h<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>h<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cp $d/public/index.html $h
-</span></span><span style="display:flex;"><span>$d/node_modules/.bin/html-minifier -c $h/html-minifier.conf $h/index.html -o $d/public/index.html
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/zsh
+</span><span style="color:#75715e"></span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h:h<span style="color:#e6db74">}</span>
+h<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
+
+cp $d/public/index.html $h
+$d/node_modules/.bin/html-minifier -c $h/html-minifier.conf $h/index.html -o $d/public/index.html
+</code></pre></div><blockquote>
 <p>bin/html-minifier.conf</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeComments&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeCommentsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeCDATASectionsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;collapseWhitespace&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;conservativeCollapse&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;collapseBooleanAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeAttributeQuotes&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeRedundantAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;useShortDoctype&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeEmptyAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeOptionalTags&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;removeEmptyElements&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;keepClosingSlash&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;caseSensitive&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;minifyJS&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;minifyCSS&#34;</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ignoreCustomComments&#34;</span>: [],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;processScripts&#34;</span>: []
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>ネットワークにおける圧縮ファイルの使用については、以下の機能提案がされている模様。これはWebサーバーに依存するので、こちらからはどうしようもない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;removeComments&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;removeCommentsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeCDATASectionsFromCDATA&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;collapseWhitespace&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;conservativeCollapse&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;collapseBooleanAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeAttributeQuotes&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeRedundantAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;useShortDoctype&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeEmptyAttributes&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeOptionalTags&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;removeEmptyElements&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;keepClosingSlash&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;caseSensitive&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;minifyJS&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;minifyCSS&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;ignoreCustomComments&#34;</span>: [],
+  <span style="color:#f92672">&#34;processScripts&#34;</span>: []
+}
+</code></pre></div><p>ネットワークにおける圧縮ファイルの使用については、以下の機能提案がされている模様。これはWebサーバーに依存するので、こちらからはどうしようもない。</p>
 <p><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/15037">https://gitlab.com/gitlab-org/gitlab-ce/issues/15037</a></p>
 
 		

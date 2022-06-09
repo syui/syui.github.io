@@ -113,125 +113,125 @@
 <p>まず、fishは他のshellとの互換性を完全に捨ててる。考慮もあんまりしてない感じだけど、それ故に可読性は良いと思う。が、shellの強みって一貫した書き方だったりするわけで、その点では触っていてめんどくささはかなりある。まあ、これをshellと見ること無く、アプリとか言語の一つとかとして見る場合は普通なんだけど、そんな感じです。これは何が問題なのかというと、例えば、他のアプリがshell変数なんかをあてにしてたりする場合、fishを使うことによって思わぬ動作不良を招くことも多いため、あくまで嗜好品とか、楽しんで使うアプリとしてみるほうが良いのかもしれません。</p>
 <p>fishはあまり設定書かなくても使える。補完とかプロンプトだったり。あと、プラグインが読みやすいし、オリジナルの設定を書きやすい、改変しやすい感じ。但し、補完も書かないと不便なところは多くて、それは例えば特殊文字の扱いとか色々なんだけど、zshのほうが便利な部分もある。</p>
 <p>最初に嵌りそうな点は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># export a=&#34;word&#34;</span>
-</span></span><span style="display:flex;"><span>set a <span style="color:#e6db74">&#34;word&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># a=`echo word`</span>
-</span></span><span style="display:flex;"><span>set a <span style="color:#f92672">(</span>echo word<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># if which ls;then echo ok ls;fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>
-</span></span><span style="display:flex;"><span>	which ls
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># case $1 in</span>
-</span></span><span style="display:flex;"><span>switch <span style="color:#f92672">(</span>echo arvg<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> test
-</span></span><span style="display:flex;"><span>		echo ok
-</span></span><span style="display:flex;"><span>	end
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># function a (){echo a}</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># functionは付けなくてもいいが、内容によってはバッティングするため動作不良を引き起こす可能性あり</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> a
-</span></span><span style="display:flex;"><span>	echo a
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># alias v=&#34;vim&#34;</span>
-</span></span><span style="display:flex;"><span>alias v<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vim&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># aliasで書いた文はfunctionで再定義されるのでそのまま書いてもいい</span>
-</span></span><span style="display:flex;"><span>$ type v
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> v
-</span></span><span style="display:flex;"><span>	vim
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># case $OSTYPE in</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># fishではいくつかの環境変数が設定されていない</span>
-</span></span><span style="display:flex;"><span>switch <span style="color:#f92672">(</span>uname<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> Darwin 
-</span></span><span style="display:flex;"><span>		echo mac
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> Linux
-</span></span><span style="display:flex;"><span>		echo linux
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;*&#39;</span>
-</span></span><span style="display:flex;"><span>		echo other
-</span></span><span style="display:flex;"><span>	end
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># . ~/.zshrc &amp;&amp; exec $SHELL</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># fishは設定を再度読み込むより再起動したほうがいい事が多い</span>
-</span></span><span style="display:flex;"><span>exec fish
-</span></span></code></pre></div><p>いろんなものをインストール。よく使うのは<code>z, fzf, ghq, hub, tmux</code>なのでそれらと連携するプラグインなど。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-</span></span><span style="display:flex;"><span>$ fisher fzf z edc/bass omf/thefuck omf/theme-bobthefish decors/fish-ghq
-</span></span></code></pre></div><p>fishでは<code>~/.config/fish/config.fish</code>に書いたバインドは有効になる場合とならない場合があり、基本的には有効になるが、<code>~/.config/fish/functions/</code>以下に置いた<code>fish_user_key_bindings</code>関数が無効になる。つまり、fish_user_key_bindings関数に書くのが順当であり、かつその関数ファイルは<code>functions/</code>に置くのが一般的。内容によっては<code>commandline -f repaint</code>を入れないとプロンプトでEnterを押す必要が出てくるので必要な場合あり。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># export a=&#34;word&#34;</span>
+set a <span style="color:#e6db74">&#34;word&#34;</span>
+
+<span style="color:#75715e"># a=`echo word`</span>
+set a <span style="color:#f92672">(</span>echo word<span style="color:#f92672">)</span>
+
+<span style="color:#75715e"># if which ls;then echo ok ls;fi</span>
+<span style="color:#66d9ef">if</span>
+	which ls
+end
+
+<span style="color:#75715e"># case $1 in</span>
+switch <span style="color:#f92672">(</span>echo arvg<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>
+	<span style="color:#66d9ef">case</span> test
+		echo ok
+	end
+end
+
+<span style="color:#75715e"># function a (){echo a}</span>
+<span style="color:#75715e"># functionは付けなくてもいいが、内容によってはバッティングするため動作不良を引き起こす可能性あり</span>
+<span style="color:#66d9ef">function</span> a
+	echo a
+end
+
+<span style="color:#75715e"># alias v=&#34;vim&#34;</span>
+alias v<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vim&#34;</span>
+<span style="color:#75715e"># aliasで書いた文はfunctionで再定義されるのでそのまま書いてもいい</span>
+$ type v
+<span style="color:#66d9ef">function</span> v
+	vim
+end
+
+<span style="color:#75715e"># case $OSTYPE in</span>
+<span style="color:#75715e"># fishではいくつかの環境変数が設定されていない</span>
+switch <span style="color:#f92672">(</span>uname<span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">case</span> Darwin 
+		echo mac
+	<span style="color:#66d9ef">case</span> Linux
+		echo linux
+	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;*&#39;</span>
+		echo other
+	end
+end
+
+<span style="color:#75715e"># . ~/.zshrc &amp;&amp; exec $SHELL</span>
+<span style="color:#75715e"># fishは設定を再度読み込むより再起動したほうがいい事が多い</span>
+exec fish
+</code></pre></div><p>いろんなものをインストール。よく使うのは<code>z, fzf, ghq, hub, tmux</code>なのでそれらと連携するプラグインなど。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+$ fisher fzf z edc/bass omf/thefuck omf/theme-bobthefish decors/fish-ghq
+</code></pre></div><p>fishでは<code>~/.config/fish/config.fish</code>に書いたバインドは有効になる場合とならない場合があり、基本的には有効になるが、<code>~/.config/fish/functions/</code>以下に置いた<code>fish_user_key_bindings</code>関数が無効になる。つまり、fish_user_key_bindings関数に書くのが順当であり、かつその関数ファイルは<code>functions/</code>に置くのが一般的。内容によっては<code>commandline -f repaint</code>を入れないとプロンプトでEnterを押す必要が出てくるので必要な場合あり。</p>
 <blockquote>
 <p>~/.config/fish/functions/fish_user_key_bindings.fish</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> fish_user_key_bindings
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\c</span>f peco_select_ghq_repository
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\c</span>k __fish_cd_up
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\c</span>s __fzf_find_file
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\c</span>x __fzf_find_and_execute
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\e</span>c __fzf_cd
-</span></span><span style="display:flex;"><span>	bind <span style="color:#ae81ff">\e</span>C __fzf_cd_with_hidden
-</span></span><span style="display:flex;"><span>	bind -M insert <span style="color:#ae81ff">\e</span>D __fzf_cd_with_hidden
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> __fish_cd_up
-</span></span><span style="display:flex;"><span>	cd ..
-</span></span><span style="display:flex;"><span>	ls -slFa
-</span></span><span style="display:flex;"><span>	commandline -f repaint
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>注意ですが、bindの後ろは￥(半角)を入れてください。例えば、<code>bind ￥cf pecoとか</code>になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> fish_user_key_bindings
+	bind <span style="color:#ae81ff">\c</span>f peco_select_ghq_repository
+	bind <span style="color:#ae81ff">\c</span>k __fish_cd_up
+	bind <span style="color:#ae81ff">\c</span>s __fzf_find_file
+	bind <span style="color:#ae81ff">\c</span>x __fzf_find_and_execute
+	bind <span style="color:#ae81ff">\e</span>c __fzf_cd
+	bind <span style="color:#ae81ff">\e</span>C __fzf_cd_with_hidden
+	bind -M insert <span style="color:#ae81ff">\e</span>D __fzf_cd_with_hidden
+end
+
+<span style="color:#66d9ef">function</span> __fish_cd_up
+	cd ..
+	ls -slFa
+	commandline -f repaint
+end
+</code></pre></div><p>注意ですが、bindの後ろは￥(半角)を入れてください。例えば、<code>bind ￥cf pecoとか</code>になります。</p>
 <p>補完などはインストール時についてくるファイルを利用したりとか色々。PATHを通してもいいし、補完を作成したり、<code>~/.config/fish/completions</code>に置いてもいい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/github/hub/blob/master/etc/hub.fish_completion</span>
-</span></span><span style="display:flex;"><span>$ brew install hub
-</span></span><span style="display:flex;"><span>ls /usr/local/bin/share/fish/completions/
-</span></span><span style="display:flex;"><span>$ fish_update_completions
-</span></span><span style="display:flex;"><span>$ hub
-</span></span><span style="display:flex;"><span>	alias <span style="color:#f92672">(</span>show shell instructions <span style="color:#66d9ef">for</span> wrapping git<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	browse <span style="color:#f92672">(</span>browse the project on GitHub<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	ci-status <span style="color:#f92672">(</span>display GitHub Status information <span style="color:#66d9ef">for</span> a commit<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	compare <span style="color:#f92672">(</span>lookup commit in GitHub Status API<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	create <span style="color:#f92672">(</span>create new repo on GitHub <span style="color:#66d9ef">for</span> the current project<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	fork <span style="color:#f92672">(</span>fork origin repo on GitHub<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	pull-request <span style="color:#f92672">(</span>open a pull request on GitHub<span style="color:#f92672">)</span>
-</span></span></code></pre></div><p>tmuxとの連携は<code>~/.tmux.conf</code>に<code>set-option -g default-command &quot;reattach-to-user-namespace -l fish&quot;</code>を書くことでvimでのクリップボードとか色々な不都合が起こりにくい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/github/hub/blob/master/etc/hub.fish_completion</span>
+$ brew install hub
+ls /usr/local/bin/share/fish/completions/
+$ fish_update_completions
+$ hub
+	alias <span style="color:#f92672">(</span>show shell instructions <span style="color:#66d9ef">for</span> wrapping git<span style="color:#f92672">)</span>
+	browse <span style="color:#f92672">(</span>browse the project on GitHub<span style="color:#f92672">)</span>
+	ci-status <span style="color:#f92672">(</span>display GitHub Status information <span style="color:#66d9ef">for</span> a commit<span style="color:#f92672">)</span>
+	compare <span style="color:#f92672">(</span>lookup commit in GitHub Status API<span style="color:#f92672">)</span>
+	create <span style="color:#f92672">(</span>create new repo on GitHub <span style="color:#66d9ef">for</span> the current project<span style="color:#f92672">)</span>
+	fork <span style="color:#f92672">(</span>fork origin repo on GitHub<span style="color:#f92672">)</span>
+	pull-request <span style="color:#f92672">(</span>open a pull request on GitHub<span style="color:#f92672">)</span>
+</code></pre></div><p>tmuxとの連携は<code>~/.tmux.conf</code>に<code>set-option -g default-command &quot;reattach-to-user-namespace -l fish&quot;</code>を書くことでvimでのクリップボードとか色々な不都合が起こりにくい。</p>
 <blockquote>
 <p>config.fish</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> test $TERM !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;screen&#34;</span>
-</span></span><span style="display:flex;"><span> tmux new-session
-</span></span><span style="display:flex;"><span> and exit
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>zとの連携は以下のような感じ。<code>j -l</code>で取得したりできるので、それを元に関数を書く。キーバインドの<code>C-j</code>で移動。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> test $TERM !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;screen&#34;</span>
+ tmux new-session
+ and exit
+end
+</code></pre></div><p>zとの連携は以下のような感じ。<code>j -l</code>で取得したりできるので、それを元に関数を書く。キーバインドの<code>C-j</code>で移動。</p>
 <blockquote>
 <p>~/.config/fish/config.fish</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set -U Z_CMD <span style="color:#e6db74">&#34;j&#34;</span>
-</span></span><span style="display:flex;"><span>set -U Z_DATA <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.z&#34;</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set -U Z_CMD <span style="color:#e6db74">&#34;j&#34;</span>
+set -U Z_DATA <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.z&#34;</span>
+</code></pre></div><blockquote>
 <p>~/.config/fish/functions/fish_user_key_bindings.fish</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> peco_z
-</span></span><span style="display:flex;"><span> set -l query <span style="color:#f92672">(</span>commandline<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> test -n $query
-</span></span><span style="display:flex;"><span> set peco_flags --query <span style="color:#e6db74">&#34;</span>$query<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span> end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span> j -l | peco $peco_flags | awk <span style="color:#e6db74">&#39;{ print $2 }&#39;</span> | read recent
-</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $recent <span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span> cd $recent
-</span></span><span style="display:flex;"><span> commandline -r <span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span> commandline -f repaint
-</span></span><span style="display:flex;"><span> end
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> fish_user_key_bindings
-</span></span><span style="display:flex;"><span> bind <span style="color:#ae81ff">\e</span> peco_z
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>このようにfishは昔からある基本的なshellの決まりごとはことごとく通用しない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> peco_z
+ set -l query <span style="color:#f92672">(</span>commandline<span style="color:#f92672">)</span>
+
+ <span style="color:#66d9ef">if</span> test -n $query
+ set peco_flags --query <span style="color:#e6db74">&#34;</span>$query<span style="color:#e6db74">&#34;</span>
+ end
+
+ j -l | peco $peco_flags | awk <span style="color:#e6db74">&#39;{ print $2 }&#39;</span> | read recent
+ <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $recent <span style="color:#f92672">]</span>
+ cd $recent
+ commandline -r <span style="color:#e6db74">&#39;&#39;</span>
+ commandline -f repaint
+ end
+end
+
+<span style="color:#66d9ef">function</span> fish_user_key_bindings
+ bind <span style="color:#ae81ff">\e</span> peco_z
+end
+</code></pre></div><p>このようにfishは昔からある基本的なshellの決まりごとはことごとく通用しない。</p>
 <p><a href="https://fishshell.com/docs/current/index.html">https://fishshell.com/docs/current/index.html</a></p>
 
 		

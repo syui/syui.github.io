@@ -116,15 +116,15 @@
 <blockquote>
 <p>./t.zsh</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/zsh
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>dd<span style="color:#f92672">=</span>$d/out
-</span></span><span style="display:flex;"><span>mkdir -p $dd
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> f in *.mp4; <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>	ffmpeg -y -i $f -flags +bitexact -vcodec libx264 -profile:v baseline -level 3.0 -s 480x272 -r 29.97 -b:v 384k -acodec aac -b:a 96k -ar <span style="color:#ae81ff">48000</span> -f psp -strict -2 $dd/<span style="color:#e6db74">${</span>f%.*<span style="color:#e6db74">}</span>_psp.MP4
-</span></span><span style="display:flex;"><span>        ffmpeg -i $f -f image2 -ss <span style="color:#ae81ff">5</span> -vframes <span style="color:#ae81ff">1</span> -s 160x120 $dd/<span style="color:#e6db74">${</span>f%.*<span style="color:#e6db74">}</span>_psp.THM
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/zsh
+</span><span style="color:#75715e"></span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
+dd<span style="color:#f92672">=</span>$d/out
+mkdir -p $dd
+<span style="color:#66d9ef">for</span> f in *.mp4; <span style="color:#66d9ef">do</span>
+	ffmpeg -y -i $f -flags +bitexact -vcodec libx264 -profile:v baseline -level 3.0 -s 480x272 -r 29.97 -b:v 384k -acodec aac -b:a 96k -ar <span style="color:#ae81ff">48000</span> -f psp -strict -2 $dd/<span style="color:#e6db74">${</span>f%.*<span style="color:#e6db74">}</span>_psp.MP4
+        ffmpeg -i $f -f image2 -ss <span style="color:#ae81ff">5</span> -vframes <span style="color:#ae81ff">1</span> -s 160x120 $dd/<span style="color:#e6db74">${</span>f%.*<span style="color:#e6db74">}</span>_psp.THM
+<span style="color:#66d9ef">done</span>
+</code></pre></div><blockquote>
 <p>$ chmod +x ./t.zsh;./t.zsh</p>
 </blockquote>
 

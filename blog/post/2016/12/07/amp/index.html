@@ -111,75 +111,75 @@
 
 		<p>hugoでampに対応したthemeが公開されています。私のサイトはhugoで構築されていますので、hugoのcontentをそのままビルドできるので便利です。</p>
 <p><a href="https://github.com/wildhaber/gohugo-amp">https://github.com/wildhaber/gohugo-amp</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir themes
-</span></span><span style="display:flex;"><span>$ cd themes
-</span></span><span style="display:flex;"><span>$ git clone https://github.com/wildhaber/gohugo-amp.git
-</span></span><span style="display:flex;"><span>$ rm -rf gohugo-amp/.git
-</span></span><span style="display:flex;"><span>$ mv gohugo-amp/exampleSite/ .
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir themes
+$ cd themes
+$ git clone https://github.com/wildhaber/gohugo-amp.git
+$ rm -rf gohugo-amp/.git
+$ mv gohugo-amp/exampleSite/ .
+</code></pre></div><blockquote>
 <p>config.toml</p>
 </blockquote>
-<pre tabindex="0"><code>baseurl = &#34;https://amp.syui.cf/&#34;
-languageCode = &#34;en-us&#34;
-title = &#34;MBA-HACK3 AMP&#34;
-theme = &#34;gohugo-amp&#34;
+<pre tabindex="0"><code>baseurl = &quot;https://amp.syui.cf/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;MBA-HACK3 AMP&quot;
+theme = &quot;gohugo-amp&quot;
 enableRobotsTXT = true
 
 [params]
     amp = true # enables amp features
-    ampCdnRoot = &#34;https://cdn.ampproject.org/&#34; # defined base cdn root of the amp projects files
-    ampRelease = &#34;v0&#34; # define amp release you want to use
-    ampElementsVersion = &#34;0.1&#34; # define amp-elements version you want to use
+    ampCdnRoot = &quot;https://cdn.ampproject.org/&quot; # defined base cdn root of the amp projects files
+    ampRelease = &quot;v0&quot; # define amp release you want to use
+    ampElementsVersion = &quot;0.1&quot; # define amp-elements version you want to use
     
     # define which amp-elements you are using globally, these elements will be included in every page
-    ampElements = [&#34;amp-accordion&#34;,&#34;amp-ad&#34;,&#34;amp-carousel&#34;,&#34;amp-iframe&#34;,&#34;amp-dynamic-css-classes&#34;,&#34;amp-form&#34;,&#34;amp-fx-flying-carpet&#34;,&#34;amp-image-lightbox&#34;,&#34;amp-lightbox&#34;,&#34;amp-sidebar&#34;,&#34;amp-social-share&#34;,&#34;amp-sticky-ad&#34;,&#34;amp-user-notification&#34;]
-    #ampElements = [&#34;amp-accordion&#34;,&#34;amp-ad&#34;,&#34;amp-analytics&#34;,&#34;amp-carousel&#34;,&#34;amp-iframe&#34;,&#34;amp-app-banner&#34;,&#34;amp-dynamic-css-classes&#34;,&#34;amp-form&#34;,&#34;amp-fx-flying-carpet&#34;,&#34;amp-image-lightbox&#34;,&#34;amp-lightbox&#34;,&#34;amp-sidebar&#34;,&#34;amp-social-share&#34;,&#34;amp-sticky-ad&#34;,&#34;amp-user-notification&#34;]
+    ampElements = [&quot;amp-accordion&quot;,&quot;amp-ad&quot;,&quot;amp-carousel&quot;,&quot;amp-iframe&quot;,&quot;amp-dynamic-css-classes&quot;,&quot;amp-form&quot;,&quot;amp-fx-flying-carpet&quot;,&quot;amp-image-lightbox&quot;,&quot;amp-lightbox&quot;,&quot;amp-sidebar&quot;,&quot;amp-social-share&quot;,&quot;amp-sticky-ad&quot;,&quot;amp-user-notification&quot;]
+    #ampElements = [&quot;amp-accordion&quot;,&quot;amp-ad&quot;,&quot;amp-analytics&quot;,&quot;amp-carousel&quot;,&quot;amp-iframe&quot;,&quot;amp-app-banner&quot;,&quot;amp-dynamic-css-classes&quot;,&quot;amp-form&quot;,&quot;amp-fx-flying-carpet&quot;,&quot;amp-image-lightbox&quot;,&quot;amp-lightbox&quot;,&quot;amp-sidebar&quot;,&quot;amp-social-share&quot;,&quot;amp-sticky-ad&quot;,&quot;amp-user-notification&quot;]
 
-    themeColor = &#34;#112233&#34; # define a theme color (this will colorize the android address-bar)
+    themeColor = &quot;#112233&quot; # define a theme color (this will colorize the android address-bar)
 
-    #adsensePublisher = &#34;ca-pub-123456789&#34; # required if you want to include google adsense
-    #googleAnalytics = &#34;UA-123456-78&#34; # required if you want to use google analytics
-    #appleItunesApp = &#34;app-id=123456789, app-argument=app-name://link/to/app-content&#34; # required if you want to add an app banner with iOS app
-    #ampManifest = &#34;/amp-manifest.json&#34; # required if you want to add the app-banner feature
+    #adsensePublisher = &quot;ca-pub-123456789&quot; # required if you want to include google adsense
+    #googleAnalytics = &quot;UA-123456-78&quot; # required if you want to use google analytics
+    #appleItunesApp = &quot;app-id=123456789, app-argument=app-name://link/to/app-content&quot; # required if you want to add an app banner with iOS app
+    #ampManifest = &quot;/amp-manifest.json&quot; # required if you want to add the app-banner feature
     
-    alternatePageName = &#34;HUGO AMP&#34; # alternative name for website structured data
-    organisationLogo = &#34;https://amp.syui.cf/favicon.png&#34; # set organisation logo for structured data
-    organisationName = &#34;syui.cf&#34; # set organisation name
-    organisationAddress = &#34;Some Street 123, 12345 City&#34; # set organisation address
+    alternatePageName = &quot;HUGO AMP&quot; # alternative name for website structured data
+    organisationLogo = &quot;https://amp.syui.cf/favicon.png&quot; # set organisation logo for structured data
+    organisationName = &quot;syui.cf&quot; # set organisation name
+    organisationAddress = &quot;Some Street 123, 12345 City&quot; # set organisation address
 
-    socialProfiles = [&#34;http://www.facebook.com/your-profile&#34;,&#34;http://instagram.com/yourProfile&#34;,&#34;http://www.linkedin.com/in/yourprofile&#34;,&#34;http://plus.google.com/your_profile&#34;]  # for sameAs in organisation&#39;s structured data
+    socialProfiles = [&quot;http://www.facebook.com/your-profile&quot;,&quot;http://instagram.com/yourProfile&quot;,&quot;http://www.linkedin.com/in/yourprofile&quot;,&quot;http://plus.google.com/your_profile&quot;]  # for sameAs in organisation's structured data
     
-    publisherName = &#34;syui.cf&#34; # publisher used in article schema
-    publisherLogo = &#34;https://amp.syui.cf/favicon.png&#34; # https://developers.google.com/search/docs/data-types/articles#logo-guidelines
+    publisherName = &quot;syui.cf&quot; # publisher used in article schema
+    publisherLogo = &quot;https://amp.syui.cf/favicon.png&quot; # https://developers.google.com/search/docs/data-types/articles#logo-guidelines
     publisherLogoWidth = 600 # logo width
     publisherLogoHeight = 60 # logo height
 
-    stylesheetRegular = [&#34;/base-styling.css&#34;] # these styles are used when amp is disabled for a specific page
-    javascriptRegular = [&#34;/script.js&#34;] # these scripts are used when amp is disabled for a specific page
+    stylesheetRegular = [&quot;/base-styling.css&quot;] # these styles are used when amp is disabled for a specific page
+    javascriptRegular = [&quot;/script.js&quot;] # these scripts are used when amp is disabled for a specific page
 
 [permalinks]
-    post = &#34;/:year/:month/:day/:slug&#34;
+    post = &quot;/:year/:month/:day/:slug&quot;
 </code></pre><p><a href="https://cdn.ampproject.org/">https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p>
 <p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p>
 <p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">pages</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">hugo</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">artifacts</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">public</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">only</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">master</span>
-</span></span></code></pre></div><p><code>content/post</code>はまるごとコピーしておきましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
+
+<span style="color:#f92672">pages</span>:
+  <span style="color:#f92672">script</span>:
+  - <span style="color:#ae81ff">hugo</span>
+  <span style="color:#f92672">artifacts</span>:
+    <span style="color:#f92672">paths</span>:
+    - <span style="color:#ae81ff">public</span>
+  <span style="color:#f92672">only</span>:
+  - <span style="color:#ae81ff">master</span>
+</code></pre></div><p><code>content/post</code>はまるごとコピーしておきましょう。</p>
 <p>これで<code>amp.syui.cf</code>がampのコンテンツアドレスになります。したがって、<a href="https://syui.cf/2016/10/26/web-app/">https://syui.cf/2016/10/26/web-app/</a> = <a href="https://amp.syui.cf/2016/10/26/web-app/">https://amp.syui.cf/2016/10/26/web-app/</a>です。</p>
 <p><code>post = &quot;/:year/:month/:day/:slug&quot;</code>は2つの<code>config.toml</code>で一致させます。本来なら<code>post = &quot;/post/:slug&quot;</code>などのpermlinkを設定したかったのですが、コメントシステムの対応が面倒だったので、日付を入れることにしました。</p>
 <p>あと、ちょっと気になったのはAnalyticsを設定してないと文字が表示されてしまうことでした。したがって、<code>themes/gohugo-amp/layouts/partials/amp/google-analytics.html</code>を編集。</p>
 <p>検証は<code>npm i amphtml-validator -g</code>で行います。または、<a href="https://validator.ampproject.org/">https://validator.ampproject.org/</a>です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ amphtml-validator https://amp.syui.cf
-</span></span><span style="display:flex;"><span>The tag <span style="color:#e6db74">&#39;img&#39;</span> may only appear as a descendant of tag <span style="color:#e6db74">&#39;noscript&#39;</span>. Did you mean <span style="color:#e6db74">&#39;amp-img&#39;</span>?
-</span></span></code></pre></div><p>どうやら<code>![](/favicon.png)</code>などの記述では問題がでるようです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ amphtml-validator https://amp.syui.cf
+The tag <span style="color:#e6db74">&#39;img&#39;</span> may only appear as a descendant of tag <span style="color:#e6db74">&#39;noscript&#39;</span>. Did you mean <span style="color:#e6db74">&#39;amp-img&#39;</span>?
+</code></pre></div><p>どうやら<code>![](/favicon.png)</code>などの記述では問題がでるようです。</p>
 
 		
 

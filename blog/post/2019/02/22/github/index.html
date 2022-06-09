@@ -113,30 +113,30 @@
 <p><a href="https://github.dev">https://github.dev</a></p>
 <p>source : <a href="https://github.com/github/personal-website">https://github.com/github/personal-website</a></p>
 <p>deploy : <a href="https://mbahack2.syui.cf/personal-website">https://mbahack2.syui.cf/personal-website</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/github/personal-website
-</span></span><span style="display:flex;"><span>$ personal-website
-</span></span><span style="display:flex;"><span>$ rvm install 2.6.1
-</span></span><span style="display:flex;"><span>$ rvm --default use 2.6.1
-</span></span><span style="display:flex;"><span>$ gem install jekyll bundler
-</span></span><span style="display:flex;"><span>$ bundle
-</span></span><span style="display:flex;"><span>$ bundle exec jekyll serve
-</span></span></code></pre></div><p>repoを作って、branch:gh-pagesにpushすると、開発者っぽいabout pagesがdeployされる。url:<code>https://syui.github.io/personal-website</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git branch
-</span></span><span style="display:flex;"><span>$ git checkout -b gh-pages
-</span></span><span style="display:flex;"><span>$ git push origin gh-pages
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># fork</span>
-</span></span><span style="display:flex;"><span>$ curl -sL https://syui.github.io/personal-website
-</span></span></code></pre></div><p>url,baseurlをsetすると、cssがhttps protocolになった。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ae81ff">$ vim _config.yml</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://mbahack2.syui.cf</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">baseurl</span>: <span style="color:#ae81ff">personal-website</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ vim _includes/header.html</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">// https://jekyllrb.com/news/2016/10/06/jekyll-3-3-is-here/</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">By default, baseurl is set to &#34;&#34; and therefore yields (never set to &#34;/&#34;):</span>
-</span></span><span style="display:flex;"><span>{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| absolute_url }} =&gt; https://jekyllrb.com/myproject/docs/assets</span>
-</span></span><span style="display:flex;"><span>{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| relative_url }} =&gt; /myproject/docs/assets</span>
-</span></span></code></pre></div><p>ちなみに、dirではなくrootに置く場合は、<code>repo</code>を<code>${user}.github.io</code>にする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/github/personal-website
+$ personal-website
+$ rvm install 2.6.1
+$ rvm --default use 2.6.1
+$ gem install jekyll bundler
+$ bundle
+$ bundle exec jekyll serve
+</code></pre></div><p>repoを作って、branch:gh-pagesにpushすると、開発者っぽいabout pagesがdeployされる。url:<code>https://syui.github.io/personal-website</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git branch
+$ git checkout -b gh-pages
+$ git push origin gh-pages
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># fork</span>
+$ curl -sL https://syui.github.io/personal-website
+</code></pre></div><p>url,baseurlをsetすると、cssがhttps protocolになった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ae81ff">$ vim _config.yml</span>
+<span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://mbahack2.syui.cf</span>
+<span style="color:#f92672">baseurl</span>: <span style="color:#ae81ff">personal-website</span>
+
+<span style="color:#ae81ff">$ vim _includes/header.html</span>
+<span style="color:#ae81ff">// https://jekyllrb.com/news/2016/10/06/jekyll-3-3-is-here/</span>
+<span style="color:#ae81ff">By default, baseurl is set to &#34;&#34; and therefore yields (never set to &#34;/&#34;):</span>
+{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| absolute_url }} =&gt; https://jekyllrb.com/myproject/docs/assets</span>
+{{ <span style="color:#e6db74">&#34;/docs/assets/&#34;</span> <span style="color:#ae81ff">| relative_url }} =&gt; /myproject/docs/assets</span>
+</code></pre></div><p>ちなみに、dirではなくrootに置く場合は、<code>repo</code>を<code>${user}.github.io</code>にする。</p>
 
 		
 

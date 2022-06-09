@@ -113,21 +113,21 @@
 <p><a href="/games">/games</a></p>
 <h3 id="やったこと">やったこと</h3>
 <p>更新順に表示することにしたのと、アイコンを表示することにした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:/games/genshin/index.md" data-lang="html:/games/genshin/index.md"><span style="display:flex;"><span>lastmod = &#34;2022-05-29&#34;
-</span></span><span style="display:flex;"><span>header_image = &#34;/games/genshin.png&#34;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/_default/games.html" data-lang="html:layout/_default/games.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">ul</span>&gt;
-</span></span><span style="display:flex;"><span>	{{ range .Data.Pages.ByLastmod.Reverse }}
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">li</span>&gt;
-</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Params.header_image }}&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>		{{ .Lastmod.Format &#34;2006-01-02&#34; }}&lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.Permalink}}&#34;</span>&gt;{{.Title}}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">li</span>&gt;
-</span></span><span style="display:flex;"><span>	{{ end }}
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">ul</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:static/css/style.css" data-lang="css:static/css/style.css"><span style="display:flex;"><span><span style="color:#f92672">li</span> <span style="color:#f92672">img</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">7</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:/games/genshin/index.md" data-lang="html:/games/genshin/index.md">lastmod = &#34;2022-05-29&#34;
+header_image = &#34;/games/genshin.png&#34;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/_default/games.html" data-lang="html:layout/_default/games.html">&lt;<span style="color:#f92672">ul</span>&gt;
+	{{ range .Data.Pages.ByLastmod.Reverse }}
+	&lt;<span style="color:#f92672">li</span>&gt;
+		&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Params.header_image }}&#34;</span>/&gt;
+		{{ .Lastmod.Format &#34;2006-01-02&#34; }}&lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.Permalink}}&#34;</span>&gt;{{.Title}}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+	&lt;/<span style="color:#f92672">li</span>&gt;
+	{{ end }}
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:static/css/style.css" data-lang="css:static/css/style.css"><span style="color:#f92672">li</span> <span style="color:#f92672">img</span> {
+	<span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+	<span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">7</span><span style="color:#66d9ef">px</span>;
+}
+</code></pre></div>
 		
 
 

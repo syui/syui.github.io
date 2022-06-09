@@ -120,36 +120,36 @@
 <h2 id="dockerpleroma">docker:pleroma</h2>
 <p><a href="https://github.com/ht164/pleroma-docker-compose">github.com/ht164/pleroma-docker-compose</a></p>
 <p>検索したらこういうものがアップされていました。<code>docker-compose</code>で上げられてるの、非常にありがたい!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/ht164/pleroma-docker-compose
-</span></span><span style="display:flex;"><span>$ mkdir -p web/pleroma <span style="color:#f92672">&amp;&amp;</span> cd web/pleroma
-</span></span><span style="display:flex;"><span>$ git clone https://git.pleroma.social/pleroma/pleroma.git .
-</span></span></code></pre></div><p>大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/ht164/pleroma-docker-compose
+$ mkdir -p web/pleroma <span style="color:#f92672">&amp;&amp;</span> cd web/pleroma
+$ git clone https://git.pleroma.social/pleroma/pleroma.git .
+</code></pre></div><p>大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。</p>
 <p><a href="https://git.pleroma.social/pleroma/pleroma/wikis/home">https://git.pleroma.social/pleroma/pleroma/wikis/home</a></p>
 <blockquote>
 <p>./pleroma-docker-compose/web/pleroma</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim config/dev.secret.exs
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pleroma.Repoを書き換えます</span>
-</span></span><span style="display:flex;"><span>config :pleroma, Pleroma.Repo,
-</span></span><span style="display:flex;"><span>	adapter: Ecto.Adapters.Postgres,
-</span></span><span style="display:flex;"><span>	username: <span style="color:#e6db74">&#34;pleroma&#34;</span>,
-</span></span><span style="display:flex;"><span>	password: <span style="color:#e6db74">&#34;pleroma&#34;</span>,
-</span></span><span style="display:flex;"><span>	database: <span style="color:#e6db74">&#34;pleroma_dev&#34;</span>,
-</span></span><span style="display:flex;"><span>	hostname: <span style="color:#e6db74">&#34;db&#34;</span>,
-</span></span><span style="display:flex;"><span>	pool_size: <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span>$ mkdir -p web/uploads <span style="color:#f92672">&amp;&amp;</span> mkdir -p db/postgres
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd ../..
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ./pleroma-docker-compose</span>
-</span></span><span style="display:flex;"><span>$ docker-compose build
-</span></span><span style="display:flex;"><span>$ docker-compose up -d
-</span></span><span style="display:flex;"><span>$ docker ps
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">12345678</span>        pleroma/pleroma       pleroma-docker-compose_web_1
-</span></span><span style="display:flex;"><span>$ docker exec -it <span style="color:#ae81ff">12345678</span> /bin/sh
-</span></span><span style="display:flex;"><span>	&gt; $ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
-</span></span><span style="display:flex;"><span>	&gt; $ exit
-</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
-</span></span></code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-up.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim config/dev.secret.exs
+<span style="color:#75715e"># Pleroma.Repoを書き換えます</span>
+config :pleroma, Pleroma.Repo,
+	adapter: Ecto.Adapters.Postgres,
+	username: <span style="color:#e6db74">&#34;pleroma&#34;</span>,
+	password: <span style="color:#e6db74">&#34;pleroma&#34;</span>,
+	database: <span style="color:#e6db74">&#34;pleroma_dev&#34;</span>,
+	hostname: <span style="color:#e6db74">&#34;db&#34;</span>,
+	pool_size: <span style="color:#ae81ff">10</span>
+$ mkdir -p web/uploads <span style="color:#f92672">&amp;&amp;</span> mkdir -p db/postgres
+
+$ cd ../..
+<span style="color:#75715e"># ./pleroma-docker-compose</span>
+$ docker-compose build
+$ docker-compose up -d
+$ docker ps
+	<span style="color:#ae81ff">12345678</span>        pleroma/pleroma       pleroma-docker-compose_web_1
+$ docker exec -it <span style="color:#ae81ff">12345678</span> /bin/sh
+	&gt; $ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
+	&gt; $ exit
+$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-up.png" alt=""></p>
 <p>ここまでできたら、あとは、<code>pleroma</code>の仕組みを見ていくだけですね。</p>
 <p><code>pleroma</code>は単純にWebからのリクエストを受け、必要に応じてその内容をDBに保存します。今回使用したDBは<code>postgres</code>です。登録されたユーザー情報などもすべてこのDBに保存されます。</p>
 <p><code>phoenix</code>の仕組みとしては、<code>config/</code>以下の設定ファイルにてDBへのアクセスやサーバー設定を行います。どの順番に読み込まれるか、もしくは読まれないかを注意してください。<code>config/config.exs</code>の順に読み込まれ、最後の行の<code>import_config &quot;#{Mix.env()}.exs&quot;</code>の記述がそれに当たります。そして、DBへのアクセスに必要な情報等は、<code>.secret.exs</code>に記述することが通常です。また、実際運用する際は、<code>Ecto.Adapters.Postgres</code>は変更する必要が出てきますね。</p>
@@ -157,18 +157,18 @@
 <p>場合によっては、<code>phoenix</code>の情報が必要になるので、公式ページを参照します。</p>
 <p><a href="https://hexdocs.pm/phoenix/Phoenix.html">https://hexdocs.pm/phoenix/Phoenix.html</a></p>
 <p>さて、今度はユーザー情報をDBに追加していきましょう。管理者なので(一人インスタンスの場合、そもそもWebからの登録は不要)、以下のようなコマンドを実行すればいいですよ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># まずpleromaのweb serverにshでアクセス</span>
-</span></span><span style="display:flex;"><span>$ docker exec -it <span style="color:#ae81ff">12345678</span> /bin/sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 次にDB更新等</span>
-</span></span><span style="display:flex;"><span>$ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ユーザーの追加</span>
-</span></span><span style="display:flex;"><span>$ mix register_user &lt;name&gt; &lt;nickname&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Webから先程登録した情報でログイン</span>
-</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
-</span></span></code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-user.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># まずpleromaのweb serverにshでアクセス</span>
+$ docker exec -it <span style="color:#ae81ff">12345678</span> /bin/sh
+
+<span style="color:#75715e"># 次にDB更新等</span>
+$ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
+
+<span style="color:#75715e"># ユーザーの追加</span>
+$ mix register_user &lt;name&gt; &lt;nickname&gt; &lt;email&gt; &lt;bio&gt; &lt;password&gt;
+
+<span style="color:#75715e"># Webから先程登録した情報でログイン</span>
+$ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-user.png" alt=""></p>
 <p>いけました。こんな感じで。</p>
 <p>実際、これを一から運用するとなると、かなり大変です。Webサーバーにするサーバーをレンタルし、DBにするストレージ等を契約して(ユーザーを持つ場合、画像等により年々、容量が増え続けるので、このあたりは特によく考えないといけない。AWS等は相当安いらしいけど)、次にドメインを借りて、SSL証明書等(サーバー管理者ならLet&rsquo;s Encryptを利用できる)を取得、Webサーバーに設定して、サイトにアクセスできるようにしなければなりません。</p>
 <p>反対に、これをPaaS等が提供するコンテナ技術を利用すると、結構楽だと思います。</p>

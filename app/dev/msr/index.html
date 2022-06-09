@@ -108,56 +108,56 @@
 				    <h2>msr | syui.cf</h2>
        			 		<p><code>msr</code>は、rustで書かれたシンプルなmastodon clientです。</p>
 <p><a href="https://github.com/syui/msr/releases">Download</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># mac</span>
-</span></span><span style="display:flex;"><span>$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc
-</span></span><span style="display:flex;"><span>$ mv msr-x86_64-apple-darwin msr
-</span></span><span style="display:flex;"><span>$ chmod +x msr
-</span></span><span style="display:flex;"><span>$ ./msr
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># security setting</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># macの場合、ここで設定-&gt;セキュリティにてファイルを開くを選択します</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># linux</span>
-</span></span><span style="display:flex;"><span>$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu
-</span></span><span style="display:flex;"><span>$ mv msr-x86_64-unknown-linux-gnu msr
-</span></span><span style="display:flex;"><span>$ chmod +x msr
-</span></span><span style="display:flex;"><span>$ ./msr
-</span></span></code></pre></div><h3 id="build">build</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/syui/msr
-</span></span><span style="display:flex;"><span>$ cd msr/
-</span></span><span style="display:flex;"><span>$ cargo build
-</span></span><span style="display:flex;"><span>$ ./target/debug/msr
-</span></span></code></pre></div><h3 id="use">use</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># mac</span>
+$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-pc-windows-msvc
+$ mv msr-x86_64-apple-darwin msr
+$ chmod +x msr
+$ ./msr
+<span style="color:#75715e"># security setting</span>
+<span style="color:#75715e"># macの場合、ここで設定-&gt;セキュリティにてファイルを開くを選択します</span>
+
+<span style="color:#75715e"># linux</span>
+$ curl -sLO https://github.com/syui/msr/releases/download/main/msr-x86_64-unknown-linux-gnu
+$ mv msr-x86_64-unknown-linux-gnu msr
+$ chmod +x msr
+$ ./msr
+</code></pre></div><h3 id="build">build</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/syui/msr
+$ cd msr/
+$ cargo build
+$ ./target/debug/msr
+</code></pre></div><h3 id="use">use</h3>
 <p>mastodonの<code>開発</code>からappを発行してください。権限は必要最小限で構いません。名前は<code>msr</code>でredirect-urlは<code>localhost</code>(なんでもいい)です。</p>
 <p><code>~/.config/msr/config.toml</code>にtokenなどの情報を記述してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p ~/.config/msr
-</span></span><span style="display:flex;"><span>$ cp config.toml.example ~/.config/msr/config.toml
-</span></span><span style="display:flex;"><span>$ vim ~/.config/msr/config.toml
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:~/.config/msr/config.toml" data-lang="toml:~/.config/msr/config.toml"><span style="display:flex;"><span><span style="color:#a6e22e">token</span> = <span style="color:#e6db74">&#34;アクセストークン&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client_id</span> = <span style="color:#e6db74">&#34;クライアントキー&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client_secret</span> = <span style="color:#e6db74">&#34;クライアントシークレット&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">redirect</span> = <span style="color:#e6db74">&#34;localhost&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">base</span> = <span style="color:#e6db74">&#34;https://mastodon.social&#34;</span>
-</span></span></code></pre></div><p>なお、<code>~/.config/msr/setting.toml</code>を置くことで、簡単にaccountの切り替えができるようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ msr a -d
-</span></span></code></pre></div><p>基本的には、<code>a</code> option後にfile-pathを指定することで、accountを切り替えられます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ msr a ~/.config/msr/social.toml
-</span></span></code></pre></div><h3 id="icon">icon</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/.config/msr
+$ cp config.toml.example ~/.config/msr/config.toml
+$ vim ~/.config/msr/config.toml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:~/.config/msr/config.toml" data-lang="toml:~/.config/msr/config.toml"><span style="color:#a6e22e">token</span> = <span style="color:#e6db74">&#34;アクセストークン&#34;</span>
+<span style="color:#a6e22e">client_id</span> = <span style="color:#e6db74">&#34;クライアントキー&#34;</span>
+<span style="color:#a6e22e">client_secret</span> = <span style="color:#e6db74">&#34;クライアントシークレット&#34;</span>
+<span style="color:#a6e22e">redirect</span> = <span style="color:#e6db74">&#34;localhost&#34;</span>
+<span style="color:#a6e22e">base</span> = <span style="color:#e6db74">&#34;https://mastodon.social&#34;</span>
+</code></pre></div><p>なお、<code>~/.config/msr/setting.toml</code>を置くことで、簡単にaccountの切り替えができるようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a -d
+</code></pre></div><p>基本的には、<code>a</code> option後にfile-pathを指定することで、accountを切り替えられます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr a ~/.config/msr/social.toml
+</code></pre></div><h3 id="icon">icon</h3>
 <p>macはiterm2の<code>imgcat</code>を使い、linuxはmltermなどで<code>img2sixel</code>を使ってアイコンを表示します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ msr i
-</span></span></code></pre></div><p>windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。scoopでmsys2をinstallする場合のpathは<code>~/scoop/apps/msys2/current</code>になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ scoop install msys2
-</span></span><span style="display:flex;"><span>$ msys2
-</span></span><span style="display:flex;"><span>$ cd
-</span></span><span style="display:flex;"><span>$ git clone https://github.com/saitoha/libsixel
-</span></span><span style="display:flex;"><span>$ cd libsixel
-</span></span><span style="display:flex;"><span>$ pacman -S make gcc
-</span></span><span style="display:flex;"><span>$ ./configure
-</span></span><span style="display:flex;"><span>$ make
-</span></span><span style="display:flex;"><span>$ make install
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mintty
-</span></span><span style="display:flex;"><span>$ img2sixel test.png
-</span></span></code></pre></div><p>その他の使い方は、command <code>help</code>を見てください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ msr i
+</code></pre></div><p>windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。scoopでmsys2をinstallする場合のpathは<code>~/scoop/apps/msys2/current</code>になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install msys2
+$ msys2
+$ cd
+$ git clone https://github.com/saitoha/libsixel
+$ cd libsixel
+$ pacman -S make gcc
+$ ./configure
+$ make
+$ make install
+
+$ mintty
+$ img2sixel test.png
+</code></pre></div><p>その他の使い方は、command <code>help</code>を見てください。</p>
 
        			 		
 

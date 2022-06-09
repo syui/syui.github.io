@@ -16,7 +16,7 @@
       <guid>https://syui.cf/blog/post/2022/02/11/sixel/</guid>
       <description>msrというmastodon clientでは、macはiterm2のimgcatを使い、linuxはmltermなどでimg2sixelを使って画像アイコンを表示します。
 windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。
-msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
+ msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。
 $ scoop install msys2 $ msys2 $ git clone https://github.com/saitoha/libsixel $ cd libsixel $ pacman -S make gcc $ ./configure $ make $ make install $ mintty $ img2sixel test.png https://github.com/saitoha/libsixel
 windows terminalもsixelに対応してくれるといいんですけどね。
 https://github.com/microsoft/terminal
@@ -31,7 +31,7 @@ https://github.com/microsoft/terminal/issues/448</description>
       <guid>https://syui.cf/blog/post/2022/02/10/github/</guid>
       <description>opensslのerrorが出る場合はsudo apt-get install -y -qq pkg-config libssl-devするといいらしい。
 windowsのbuildやuploadは、同じ内容でも、うまく行ったり行かなかったりしたので、そのうち動かなくなりそう。
-name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release binary strategy: matrix: include: - os: macos-latest artifact_prefix: macos target: x86_64-apple-darwin artifact_name: msr asset_name: msr-x86_64-apple-darwin - os: ubuntu-latest artifact_prefix: linux target: x86_64-unknown-linux-gnu artifact_name: msr asset_name: msr-x86_64-unknown-linux-gnu - os: windows-latest artifact_prefix: windows target: x86_64-pc-windows-msvc artifact_name: msr.exe asset_name: msr-x86_64-pc-windows-msvc runs-on: ${{ matrix.os }} steps: - uses: actions/checkout@v1 - name: installing rust toolchain uses: actions-rs/toolchain@v1 with: profile: minimal toolchain: stable override: true components: rustfmt, clippy - name: installing needed macos dependencies if: matrix.</description>
+name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release binary strategy: matrix: include: - os: macos-latest artifact_prefix: macos target: x86_64-apple-darwin artifact_name: msr asset_name: msr-x86_64-apple-darwin - os: ubuntu-latest artifact_prefix: linux target: x86_64-unknown-linux-gnu artifact_name: msr asset_name: msr-x86_64-unknown-linux-gnu - os: windows-latest artifact_prefix: windows  target: x86_64-pc-windows-msvc artifact_name: msr.exe asset_name: msr-x86_64-pc-windows-msvc runs-on: ${{ matrix.os }} steps: - uses: actions/checkout@v1 - name: installing rust toolchain uses: actions-rs/toolchain@v1 with: profile: minimal toolchain: stable override: true components: rustfmt, clippy - name: installing needed macos dependencies if: matrix.</description>
     </item>
     
     <item>
@@ -42,8 +42,8 @@ name: release on: push: tags: - &amp;#39;*&amp;#39; jobs: build: name: release b
       <guid>https://syui.cf/blog/post/2022/02/06/rust-mammut/</guid>
       <description>mastodon apiのrust libであるmammutですが、exampleがあるとわかりやすいと思ったので、作ってみました。
 まず、mastodonへのrequestはこんな感じになります。
-curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ -d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
-[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34; [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv; use std::env; use mammut::{Data, Mastodon}; fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; { let data = Data { base: env::var(&amp;#34;BASE&amp;#34;).unwrap().into(), client_id: env::var(&amp;#34;CLIENT_ID&amp;#34;).unwrap().into(), client_secret: env::var(&amp;#34;CLIENT_SECRET&amp;#34;).unwrap().into(), redirect: env::var(&amp;#34;REDIRECT&amp;#34;).</description>
+curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ 	-d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
+[package] name = &amp;#34;test&amp;#34; version = &amp;#34;0.0.1&amp;#34; [dependencies] dotenv = &amp;#34;0.15&amp;#34; mammut = &amp;#34;0.13.0&amp;#34; extern crate mammut; extern crate dotenv; use std::env; use mammut::{Data, Mastodon}; fn main() -&amp;gt; mammut::Result&amp;lt;()&amp;gt; { let data = Data { base: env::var(&amp;#34;BASE&amp;#34;).unwrap().into(), client_id: env::var(&amp;#34;CLIENT_ID&amp;#34;).unwrap().into(), client_secret: env::var(&amp;#34;CLIENT_SECRET&amp;#34;).</description>
     </item>
     
     <item>

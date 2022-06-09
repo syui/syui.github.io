@@ -187,33 +187,33 @@
 <p><a href="https://gitlab.com/pages">https://gitlab.com/pages</a></p>
 <p>まず、リポジトリを作りましょう。リポジトリ名は<code>${user}.gitlab.io</code>です。例えば、私の場合、<code>syui.gitlab.io</code>ですね。</p>
 <p>そして、以下のリポジトリをpushしましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://gitlab.com/pages/jekyll
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd jekyll
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ${USER}に注意</span>
-</span></span><span style="display:flex;"><span>$ git remote add origin git@gitlab.com:<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>.gitlab.io.git
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git push -u origin master
-</span></span></code></pre></div><p>GitLab CIが通ったのを確認したら、ページが表示されているはずです。(GitLabの場合、成功しても公開まで少し時間がかかります)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://gitlab.com/pages/jekyll
+
+$ cd jekyll
+
+<span style="color:#75715e"># ${USER}に注意</span>
+$ git remote add origin git@gitlab.com:<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>.gitlab.io.git
+
+$ git push -u origin master
+</code></pre></div><p>GitLab CIが通ったのを確認したら、ページが表示されているはずです。(GitLabの場合、成功しても公開まで少し時間がかかります)</p>
 <p>ビルド出力は<code>public</code>ディレクトリでないといけません。このへんは注意です。それぞれのジェネレーター(静的サイトジェネレーターなど)の実行にオプションから指定しないといけない場合があるかもしれません。publicがデフォルトでない場合はそうですね。</p>
 <p>複数のページを作りたい場合は、同じような手順に加えて、<code>.gitlab-ci.yml</code>を調整しましょう。</p>
 <h4 id="github-pages-1">GitHub Pages</h4>
 <p>まず、リポジトリを作りましょう。リポジトリ名は<code>${user}.github.io</code>です。例えば、私の場合、<code>syui.github.io</code>です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://gitlab.com/pages/jekyll
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd jekyll
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ${USER}に注意</span>
-</span></span><span style="display:flex;"><span>$ git remote add origin git@github.com:<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>.github.io.git
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git push -u origin master
-</span></span></code></pre></div><p>複数のページを作りたい場合は、同じような手順に加えて、ブランチを<code>gh-pages</code>にしてpushしましょう。アクセスは、<code>https://${USER}.github.io/リポジトリ名</code>となります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># リポジトリを作った上で</span>
-</span></span><span style="display:flex;"><span>$ git remote add origin git@github.com:<span style="color:#e6db74">${</span>リポジトリ名<span style="color:#e6db74">}</span>.git
-</span></span><span style="display:flex;"><span>$ git branch -b gh-pages
-</span></span><span style="display:flex;"><span>$ git push -u origin gh-pages
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://gitlab.com/pages/jekyll
+
+$ cd jekyll
+
+<span style="color:#75715e"># ${USER}に注意</span>
+$ git remote add origin git@github.com:<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>.github.io.git
+
+$ git push -u origin master
+</code></pre></div><p>複数のページを作りたい場合は、同じような手順に加えて、ブランチを<code>gh-pages</code>にしてpushしましょう。アクセスは、<code>https://${USER}.github.io/リポジトリ名</code>となります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># リポジトリを作った上で</span>
+$ git remote add origin git@github.com:<span style="color:#e6db74">${</span>リポジトリ名<span style="color:#e6db74">}</span>.git
+$ git branch -b gh-pages
+$ git push -u origin gh-pages
+</code></pre></div>
 		
 
 

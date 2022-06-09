@@ -107,23 +107,23 @@
        			 	<div class="content">
 				    <h2>airsave.vim | syui.cf</h2>
        			 		<p><a href="https://github.com/syui/airsave.vim">airsave.vim</a>は、vimの自動保存をサポートするvim-pluginです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Plug <span style="color:#e6db74">&#39;syui/airsave.vim&#39;</span>
-</span></span></code></pre></div><p><code>.vimrc</code>に<code>let g:air_auto_write = 1</code>を書くと有効になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; 最小構成</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">vimrc_airsave_vim</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#a6e22e">au</span>!<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#a6e22e">au</span> <span style="color:#a6e22e">TextChanged</span> * <span style="color:#a6e22e">w</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">END</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; オートセーブを有効にする</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">air_auto_write</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; 書き込みを表示する</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">air_auto_write_nosilent</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; オートセーブを開始する</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nm</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">s</span>  &lt;<span style="color:#a6e22e">Plug</span>&gt;(<span style="color:#a6e22e">AirAutoWriteStart</span>)<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; オートセーブを停止する</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nm</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">ss</span> &lt;<span style="color:#a6e22e">Plug</span>&gt;(<span style="color:#a6e22e">AirAutoWriteStop</span>)<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Plug <span style="color:#e6db74">&#39;syui/airsave.vim&#39;</span>
+</code></pre></div><p><code>.vimrc</code>に<code>let g:air_auto_write = 1</code>を書くと有効になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; 最小構成</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">vimrc_airsave_vim</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#a6e22e">au</span>!<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#a6e22e">au</span> <span style="color:#a6e22e">TextChanged</span> * <span style="color:#a6e22e">w</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">END</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span><span style="color:#75715e">&#34; オートセーブを有効にする</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">air_auto_write</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; 書き込みを表示する</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">air_auto_write_nosilent</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; オートセーブを開始する</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nm</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">s</span>  &lt;<span style="color:#a6e22e">Plug</span>&gt;(<span style="color:#a6e22e">AirAutoWriteStart</span>)<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; オートセーブを停止する</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nm</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">ss</span> &lt;<span style="color:#a6e22e">Plug</span>&gt;(<span style="color:#a6e22e">AirAutoWriteStop</span>)<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div>
        			 		
 
 

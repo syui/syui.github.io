@@ -110,9 +110,9 @@
 		<h2>zcash-cli t-address</h2>
 
 		<p>t-addressの確認がわからなかったのだけど、以下のコマンドで行ける。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zcash-cli listreceivedbyaddress <span style="color:#ae81ff">0</span> true
-</span></span><span style="display:flex;"><span>zcash-cli getaddressesbyaccount <span style="color:#e6db74">&#34;&#34;</span>
-</span></span></code></pre></div><p>t-addressも一度作成したものはずっと保存されてるらしい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zcash-cli listreceivedbyaddress <span style="color:#ae81ff">0</span> true
+zcash-cli getaddressesbyaccount <span style="color:#e6db74">&#34;&#34;</span>
+</code></pre></div><p>t-addressも一度作成したものはずっと保存されてるらしい。</p>
 <p>あと、poolからcash outしたけど、未だにt-addressに到達してないのはなぜだろう。時間がかかるというのは聞いてるけど、1日経っても到達しないものなのだろうか。何か間違ってる可能性がある。</p>
 <p>取引記録を見る限りではoutputされてる。そして、zcashdのblockはそこまで到達していないことが原因だと予想する。zcashdのblockが下記のoutput blockに到達するまで待つ必要があるということなのかもしれない。</p>
 <p><a href="https://explorer.zcha.in/transactions/xxxx">https://explorer.zcha.in/transactions/xxxx</a></p>
@@ -123,8 +123,8 @@
 <p>miningもblockも一定の時間ずっとやりっぱなしだと急激に速度が速くなり、blockは最新に到達した(最新でなくても取引記録でblockを確認し、そのblockに到達してればOK)。</p>
 <p><code>zcash-cli listreceivedbyaddress 0 true</code>で確認してみると、登録したt-addressにcash outされており、うれしい。</p>
 <p>これをz-addressに転送することで匿名で取引しやすくなるのではないかなと思う。手数料とかはどうなんだろう、その辺あまり詳しくないし、実際に取引してみないと実感としてなんとも言えない。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ zcash-cli z_sendmany
-</span></span></code></pre></div><p>前にt-addressとz-addressの区別がよくわからないみたいな話をしたけど、公開アドレス(取引が公開されている口座)がt-addで匿名がz-addではないかなと今のところそんな感じの認識。ここで、t-addよりz-addを公開しといたほうが匿名送金なのでやりやすくていいんじゃないかなと思われる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ zcash-cli z_sendmany
+</code></pre></div><p>前にt-addressとz-addressの区別がよくわからないみたいな話をしたけど、公開アドレス(取引が公開されている口座)がt-addで匿名がz-addではないかなと今のところそんな感じの認識。ここで、t-addよりz-addを公開しといたほうが匿名送金なのでやりやすくていいんじゃないかなと思われる。</p>
 
 		
 

@@ -38,8 +38,8 @@ $ zcash-cli z_sendmany 前にt-addressとz-addressの区別がよくわからな
       <description>bitcoinはブロックチェーンのダウンロードにものすごい時間がかかります。これは取引記録のデータで、最新のデータに一致しなければならず、20GB~100GBの領域が必要になります。何度か触ってみないと分かりませんが、多分そんな感じ。
 で、bitcoindでダウンロード開始されるのですが、これがすごい遅いのですよね。torrentにもあるようでそちらでダウンロードしたほうが速いということらしいのですが、このあたりあまり良く分かりませんでしたので、bitcoindで開始しています。
 また、膨大な領域が必要になるためこれをメインに置くのは非効率で、開発にも支障をきたしかねませんので、外部に置いた~/.bitcoinを使うことにします。
-$ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf $ bitcoind -datadir=/media/sdb1/.bitcoin/ -listen=0 $ bitcoin-cli -datadir=/media/sdb1/.bitcoin/ -testnet getinfo | grep block or $ bitcoin-cli -datadir=/media/sdb1/.bitcoin/ getinfo | grep block # ブロック $ bitcoin-cli getblockcount # アドレスの発行(口座) $ bitcoin-cli getnewaddress # 残高照会 $ bitcoin-cli getbalance $ bitcoin-cli listunspent /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf
-testnet=3 server=1 rpcuser=bitcoinrpc rpcpassword=foo rpcallowip=127.0.0.1 rpcport=8332 </description>
+$ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf $ bitcoind -datadir=/media/sdb1/.bitcoin/ -listen=0 $ bitcoin-cli -datadir=/media/sdb1/.bitcoin/ -testnet getinfo | grep block or $ bitcoin-cli -datadir=/media/sdb1/.bitcoin/ getinfo | grep block # ブロック $ bitcoin-cli getblockcount # アドレスの発行(口座) $ bitcoin-cli getnewaddress # 残高照会 $ bitcoin-cli getbalance $ bitcoin-cli listunspent  /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf
+ testnet=3 server=1 rpcuser=bitcoinrpc rpcpassword=foo rpcallowip=127.0.0.1 rpcport=8332 </description>
     </item>
     
     <item>

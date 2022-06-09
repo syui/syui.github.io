@@ -110,19 +110,19 @@
 		<h2>Alpineでハマりそうな点(glibc)</h2>
 
 		<h2 id="alpineでハマりそうな点glibc">Alpineでハマりそうな点(glibc)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>FROM alpine:edge
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --update fontconfig libstdc++ libc6-compat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --no-cache ca-certificates
-</span></span><span style="display:flex;"><span>RUN mkdir /lib64 <span style="color:#f92672">&amp;&amp;</span> ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
-</span></span><span style="display:flex;"><span>RUN mkdir -p /usr/lib <span style="color:#f92672">&amp;&amp;</span> ln -s /lib/libz.so.1 /usr/lib/libz.so.1
-</span></span><span style="display:flex;"><span>RUN ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN echo -e <span style="color:#e6db74">&#34;@testing http://dl-4.alpinelinux.org/alpine/edge/testing&#34;</span> &gt;&gt; /etc/apk/repositories
-</span></span><span style="display:flex;"><span>RUN apk add --update cargo@testing
-</span></span><span style="display:flex;"><span>RUN cargo install mdbook
-</span></span></code></pre></div><p>参考 : <a href="https://github.com/gliderlabs/docker-alpine/issues/11">https://github.com/gliderlabs/docker-alpine/issues/11</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM alpine:edge
+
+RUN apk add --update fontconfig libstdc++ libc6-compat
+
+RUN apk add --no-cache ca-certificates
+RUN mkdir /lib64 <span style="color:#f92672">&amp;&amp;</span> ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+RUN mkdir -p /usr/lib <span style="color:#f92672">&amp;&amp;</span> ln -s /lib/libz.so.1 /usr/lib/libz.so.1
+RUN ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
+
+RUN echo -e <span style="color:#e6db74">&#34;@testing http://dl-4.alpinelinux.org/alpine/edge/testing&#34;</span> &gt;&gt; /etc/apk/repositories
+RUN apk add --update cargo@testing
+RUN cargo install mdbook
+</code></pre></div><p>参考 : <a href="https://github.com/gliderlabs/docker-alpine/issues/11">https://github.com/gliderlabs/docker-alpine/issues/11</a></p>
 <p>どうしても面倒くさい場合は以下のイメージを使いましょう。</p>
 <p><a href="https://github.com/sgerrand/alpine-pkg-glibc">https://github.com/sgerrand/alpine-pkg-glibc</a></p>
 <p><a href="https://hub.docker.com/r/frolvlad/alpine-glibc/">https://hub.docker.com/r/frolvlad/alpine-glibc/</a></p>

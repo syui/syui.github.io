@@ -113,9 +113,9 @@
 <p>自分の環境ではtmuxinatorはpane,layoutでmain-verticalが思ったように動作しない。</p>
 <p>で、これを<code>tmux list-window</code>の値にするんだけど、単にペインを作るだけでは上手く動作せず、一度ペインの幅を動かした後でないと機能しない。この点は割とハマった。</p>
 <p>あとは、以下のような感じでスクリプトを動かすんだけど、<code>send-keys</code>なども便利に使える。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">paneX</span>:
-</span></span><span style="display:flex;"><span>	- <span style="color:#ae81ff">tmux select-pane -t 2; tmux send-keys C-l; tmux select-pane -t 1; tmux send-keys B</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">paneX</span>:
+	- <span style="color:#ae81ff">tmux select-pane -t 2; tmux send-keys C-l; tmux select-pane -t 1; tmux send-keys B</span>
+</code></pre></div>
 		
 
 

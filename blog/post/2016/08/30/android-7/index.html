@@ -115,33 +115,33 @@
 <p>ただし、Android 7.0は今のところroot化は簡単にはできないぽい。</p>
 <p><a href="https://autoroot.chainfire.eu/">https://autoroot.chainfire.eu/</a></p>
 <p>一応、Nexus7(flo)には6.0.1の最新版が来ていたので、もろもろアップデートとルートログイン。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ adb reboot-bootloader
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Android 6.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://developers.google.com/android/nexus/images</span>
-</span></span><span style="display:flex;"><span>$ fastboot erase system
-</span></span><span style="display:flex;"><span>$ fastboot flash system system.img
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># CF-auto-root</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://autoroot.chainfire.eu/</span>
-</span></span><span style="display:flex;"><span>$ chmod +x root-mac.sh
-</span></span><span style="display:flex;"><span>$ ./root-mac.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Twrp 3.0.2</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://twrp.me/devices/asusnexus72013wifi.html</span>
-</span></span><span style="display:flex;"><span>$ fastboot flash recovery twrp-3.0.2-0-flo.img
-</span></span><span style="display:flex;"><span>$ fastboot boot twrp-3.0.2-0-flo.img
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xposed v86</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># http://dl-xda.xposed.info/framework/sdk23/x86/</span>
-</span></span><span style="display:flex;"><span>$ adb push xposed-v86-sdk23-x86.zip /sdcard/Download
-</span></span><span style="display:flex;"><span>Install -&gt; xposed-v86-sdk23-x86.zip
-</span></span><span style="display:flex;"><span>Reboot System
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># BusyBox</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://play.google.com/store/apps/details?id=stericson.busybox&amp;hl=en</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># /system/xbin - &gt; /su/xbin</span>
-</span></span></code></pre></div><p>しかし、こうしてみると面倒ですね。私は5-10分くらいで終わりましたが、みんなアップデートのたびにこんな面倒な対応しているのだろうか?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ adb reboot-bootloader
+
+<span style="color:#75715e"># Android 6.0.1</span>
+<span style="color:#75715e"># https://developers.google.com/android/nexus/images</span>
+$ fastboot erase system
+$ fastboot flash system system.img
+
+<span style="color:#75715e"># CF-auto-root</span>
+<span style="color:#75715e"># https://autoroot.chainfire.eu/</span>
+$ chmod +x root-mac.sh
+$ ./root-mac.sh
+
+<span style="color:#75715e"># Twrp 3.0.2</span>
+<span style="color:#75715e"># https://twrp.me/devices/asusnexus72013wifi.html</span>
+$ fastboot flash recovery twrp-3.0.2-0-flo.img
+$ fastboot boot twrp-3.0.2-0-flo.img
+
+<span style="color:#75715e"># Xposed v86</span>
+<span style="color:#75715e"># http://dl-xda.xposed.info/framework/sdk23/x86/</span>
+$ adb push xposed-v86-sdk23-x86.zip /sdcard/Download
+Install -&gt; xposed-v86-sdk23-x86.zip
+Reboot System
+
+<span style="color:#75715e"># BusyBox</span>
+<span style="color:#75715e"># https://play.google.com/store/apps/details?id=stericson.busybox&amp;hl=en</span>
+<span style="color:#75715e"># /system/xbin - &gt; /su/xbin</span>
+</code></pre></div><p>しかし、こうしてみると面倒ですね。私は5-10分くらいで終わりましたが、みんなアップデートのたびにこんな面倒な対応しているのだろうか?</p>
 <p>BusyBoxなど<code>/system/</code>以下を使うツールがディスク容量の関係で使えなくなっていました。<code>system.img</code>ディスクを拡張するか、別のPATHを使うかで対応できそうですが、後者で対応しときました。あと、TWRPは結構前から新しいのを使っていたのですが、スタイルが変更されていて非常にグッドですね。</p>
 <p>Nexus7はアップデート保証期間が過ぎているので、Android 7が来るのかは未定。この端末、使っている人が多いだろうし、アップデート来て欲しいですが、どうなんだろう。スペック的にはまだいけると思います。Androidはどちらにしろ高スペックなマシンでも低スペックなマシンでもあまり動作は変わらないと思う。最初はちょっと変わったように見えるけど、Linuxをいくらハイスペックマシンに乗せてもあまり変わらないように見える現象に似てる気がする。</p>
 

@@ -111,106 +111,106 @@
 
 		<p>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつを<a href="https://mastodon.zunda.ninja/@zundan">zunda</a>さんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuでは<code>SOURCE_VERSION</code>からhashを取れるっぽい。</p>
 <p><a href="https://github.com/zunda/mastodon/pull/27/files">https://github.com/zunda/mastodon/pull/27/files</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby:lib/tasks/version.rake" data-lang="ruby:lib/tasks/version.rake"><span style="display:flex;"><span>namespace <span style="color:#e6db74">:source</span> <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  desc <span style="color:#e6db74">&#39;Record source version&#39;</span>
-</span></span><span style="display:flex;"><span>  task <span style="color:#e6db74">:version</span> <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    hash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;SOURCE_VERSION&#39;</span><span style="color:#f92672">]</span>  <span style="color:#75715e"># available on Heroku while build</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> hash<span style="color:#f92672">.</span>blank?
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">begin</span>
-</span></span><span style="display:flex;"><span>        hash <span style="color:#f92672">=</span> <span style="color:#e6db74">`git rev-parse HEAD 2&gt;/dev/null`</span><span style="color:#f92672">.</span>strip
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ignore the error: fatal: Not a git repository</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">rescue</span> <span style="color:#66d9ef">Errno</span><span style="color:#f92672">::</span><span style="color:#66d9ef">ENOENT</span>  <span style="color:#75715e"># git command is not available</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">unless</span> hash<span style="color:#f92672">.</span>blank?
-</span></span><span style="display:flex;"><span>      hash_abb <span style="color:#f92672">=</span> hash<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">..</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;config/initializers/version.rb&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>f<span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write <span style="color:#f92672">&lt;&lt;~</span>_TEMPLATE
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># frozen_string_literal: true</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">module</span> Mastodon
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">module</span> Version
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">module_function</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">suffix</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34; at </span><span style="color:#e6db74">#{</span>hash_abb<span style="color:#e6db74">}</span><span style="color:#e6db74"> on ruby-</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">RUBY_VERSION</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">repository</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;tootsuite/mastodon&#39;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_tag</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>hash<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>        _TEMPLATE
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>task <span style="color:#e6db74">&#39;assets:precompile&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;source:version&#39;</span><span style="color:#f92672">]</span>
-</span></span></code></pre></div><p><code>rake assets:precompile</code>で<code>config/initializers/version.rb</code>が生成される仕組みで、表示はこの<code>version.rb</code>を参照します。形式は以下のような感じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/tasks/version.rake" data-lang="ruby:lib/tasks/version.rake">namespace <span style="color:#e6db74">:source</span> <span style="color:#66d9ef">do</span>
+  desc <span style="color:#e6db74">&#39;Record source version&#39;</span>
+  task <span style="color:#e6db74">:version</span> <span style="color:#66d9ef">do</span>
+    hash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;SOURCE_VERSION&#39;</span><span style="color:#f92672">]</span>  <span style="color:#75715e"># available on Heroku while build</span>
+    <span style="color:#66d9ef">if</span> hash<span style="color:#f92672">.</span>blank?
+      <span style="color:#66d9ef">begin</span>
+        hash <span style="color:#f92672">=</span> <span style="color:#e6db74">`git rev-parse HEAD 2&gt;/dev/null`</span><span style="color:#f92672">.</span>strip
+        <span style="color:#75715e"># ignore the error: fatal: Not a git repository</span>
+      <span style="color:#66d9ef">rescue</span> <span style="color:#66d9ef">Errno</span><span style="color:#f92672">::</span><span style="color:#66d9ef">ENOENT</span>  <span style="color:#75715e"># git command is not available</span>
+      <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">unless</span> hash<span style="color:#f92672">.</span>blank?
+      hash_abb <span style="color:#f92672">=</span> hash<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">..</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
+      <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;config/initializers/version.rb&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>f<span style="color:#f92672">|</span>
+        f<span style="color:#f92672">.</span>write <span style="color:#f92672">&lt;&lt;~</span>_TEMPLATE
+          <span style="color:#75715e"># frozen_string_literal: true</span>
+          <span style="color:#66d9ef">module</span> Mastodon
+            <span style="color:#66d9ef">module</span> Version
+              <span style="color:#66d9ef">module_function</span>
+              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">suffix</span>
+                <span style="color:#e6db74">&#34; at </span><span style="color:#e6db74">#{</span>hash_abb<span style="color:#e6db74">}</span><span style="color:#e6db74"> on ruby-</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">RUBY_VERSION</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+              <span style="color:#66d9ef">end</span>
+              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">repository</span>
+                <span style="color:#e6db74">&#39;tootsuite/mastodon&#39;</span>
+              <span style="color:#66d9ef">end</span>
+              <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_tag</span>
+                <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>hash<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+              <span style="color:#66d9ef">end</span>
+            <span style="color:#66d9ef">end</span>
+          <span style="color:#66d9ef">end</span>
+        _TEMPLATE
+      <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+task <span style="color:#e6db74">&#39;assets:precompile&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;source:version&#39;</span><span style="color:#f92672">]</span>
+</code></pre></div><p><code>rake assets:precompile</code>で<code>config/initializers/version.rb</code>が生成される仕組みで、表示はこの<code>version.rb</code>を参照します。形式は以下のような感じ。</p>
 <p><a href="https://github.com/tootsuite/mastodon/blob/main/lib/mastodon/version.rb">https://github.com/tootsuite/mastodon/blob/main/lib/mastodon/version.rb</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby:lib/mastodon/version.rb" data-lang="ruby:lib/mastodon/version.rb"><span style="display:flex;"><span><span style="color:#75715e"># frozen_string_literal: true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> Mastodon
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">module</span> Version
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">module_function</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">major</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minor</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">patch</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flags</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;rc1&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">suffix</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">to_a</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">[</span>major, minor, patch<span style="color:#f92672">].</span>compact
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">to_s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">[</span>to_a<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;.&#39;</span>), flags, suffix<span style="color:#f92672">].</span>join
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">repository</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;GITHUB_REPOSITORY&#39;</span>, <span style="color:#e6db74">&#39;tootsuite/mastodon&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_base_url</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;SOURCE_BASE_URL&#39;</span>, <span style="color:#e6db74">&#34;https://github.com/</span><span style="color:#e6db74">#{</span>repository<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># specify git tag or commit hash here</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_tag</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;SOURCE_TAG&#39;</span>, <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_url</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> source_tag
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>source_base_url<span style="color:#e6db74">}</span><span style="color:#e6db74">/tree/</span><span style="color:#e6db74">#{</span>source_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>
-</span></span><span style="display:flex;"><span>        source_base_url
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_agent</span>
-</span></span><span style="display:flex;"><span>      @user_agent <span style="color:#f92672">||=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Request</span><span style="color:#f92672">::</span><span style="color:#66d9ef">USER_AGENT</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> (Mastodon/</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Version</span><span style="color:#e6db74">}</span><span style="color:#e6db74">; +http</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>configuration<span style="color:#f92672">.</span>x<span style="color:#f92672">.</span>use_https ? <span style="color:#e6db74">&#39;s&#39;</span> : <span style="color:#e6db74">&#39;&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">://</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>configuration<span style="color:#f92672">.</span>x<span style="color:#f92672">.</span>web_domain<span style="color:#e6db74">}</span><span style="color:#e6db74">/)&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby:lib/mastodon/version.rb" data-lang="ruby:lib/mastodon/version.rb"><span style="color:#75715e"># frozen_string_literal: true</span>
+
+<span style="color:#66d9ef">module</span> Mastodon
+  <span style="color:#66d9ef">module</span> Version
+    <span style="color:#66d9ef">module_function</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">major</span>
+      <span style="color:#ae81ff">3</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minor</span>
+      <span style="color:#ae81ff">4</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">patch</span>
+      <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flags</span>
+      <span style="color:#e6db74">&#39;rc1&#39;</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">suffix</span>
+      <span style="color:#e6db74">&#39;&#39;</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">to_a</span>
+      <span style="color:#f92672">[</span>major, minor, patch<span style="color:#f92672">].</span>compact
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">to_s</span>
+      <span style="color:#f92672">[</span>to_a<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;.&#39;</span>), flags, suffix<span style="color:#f92672">].</span>join
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">repository</span>
+      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;GITHUB_REPOSITORY&#39;</span>, <span style="color:#e6db74">&#39;tootsuite/mastodon&#39;</span>)
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_base_url</span>
+      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;SOURCE_BASE_URL&#39;</span>, <span style="color:#e6db74">&#34;https://github.com/</span><span style="color:#e6db74">#{</span>repository<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#75715e"># specify git tag or commit hash here</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_tag</span>
+      <span style="color:#66d9ef">ENV</span><span style="color:#f92672">.</span>fetch(<span style="color:#e6db74">&#39;SOURCE_TAG&#39;</span>, <span style="color:#66d9ef">nil</span>)
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">source_url</span>
+      <span style="color:#66d9ef">if</span> source_tag
+        <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>source_base_url<span style="color:#e6db74">}</span><span style="color:#e6db74">/tree/</span><span style="color:#e6db74">#{</span>source_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+      <span style="color:#66d9ef">else</span>
+        source_base_url
+      <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_agent</span>
+      @user_agent <span style="color:#f92672">||=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Request</span><span style="color:#f92672">::</span><span style="color:#66d9ef">USER_AGENT</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> (Mastodon/</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Version</span><span style="color:#e6db74">}</span><span style="color:#e6db74">; +http</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>configuration<span style="color:#f92672">.</span>x<span style="color:#f92672">.</span>use_https ? <span style="color:#e6db74">&#39;s&#39;</span> : <span style="color:#e6db74">&#39;&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">://</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>configuration<span style="color:#f92672">.</span>x<span style="color:#f92672">.</span>web_domain<span style="color:#e6db74">}</span><span style="color:#e6db74">/)&#34;</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div>
 		
 
 

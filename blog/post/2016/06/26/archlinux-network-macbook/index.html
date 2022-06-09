@@ -110,22 +110,22 @@
 		<h2>archlinux-network-macbook</h2>
 
 		<p>MacBookにインストールしたArchLinuxのネットワークの調子がここ最近おかしかったのですが、どうやらドライバのアップデートが来て直った模様。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yaourt -S broadcom-wl-dkms
-</span></span><span style="display:flex;"><span>$ sudo pacman -S linux-headers
-</span></span></code></pre></div><p>あと、色々触っているうちに<code>netctl</code>をやめて<code>ip</code>を使ったネットワーク設定などをやってみたり。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># デバイス名を自動設定する機能をOFFにする, これでeth0, wlan0になります</span>
-</span></span><span style="display:flex;"><span>$ sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ipの場合、通常こんな感じで接続します, netctlよりも相当に面倒です</span>
-</span></span><span style="display:flex;"><span>$ export eth<span style="color:#f92672">=</span>eth0
-</span></span><span style="display:flex;"><span>$ sudo ip link set $eth up
-</span></span><span style="display:flex;"><span>$ sudo ip addr add 192.168.1.2/24 broadcast 192.168.1.255 dev $eth
-</span></span><span style="display:flex;"><span>$ sudo ip route add default via 192.168.11.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 自動起動の場合もscriptとsystemctlのunitを作成してenableしなければなりません</span>
-</span></span><span style="display:flex;"><span>$ sudo systemctl enable network@interface.service
-</span></span><span style="display:flex;"><span>$ sudo systemctl start network@interface.service
-</span></span></code></pre></div><p>これはArchLinux特有の問題でもないのだろうけれど、Updateが速いのでいろいろな面倒事に巻き込まれる確率は高まる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S broadcom-wl-dkms
+$ sudo pacman -S linux-headers
+</code></pre></div><p>あと、色々触っているうちに<code>netctl</code>をやめて<code>ip</code>を使ったネットワーク設定などをやってみたり。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># デバイス名を自動設定する機能をOFFにする, これでeth0, wlan0になります</span>
+$ sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+
+<span style="color:#75715e"># ipの場合、通常こんな感じで接続します, netctlよりも相当に面倒です</span>
+$ export eth<span style="color:#f92672">=</span>eth0
+$ sudo ip link set $eth up
+$ sudo ip addr add 192.168.1.2/24 broadcast 192.168.1.255 dev $eth
+$ sudo ip route add default via 192.168.11.1
+
+<span style="color:#75715e"># 自動起動の場合もscriptとsystemctlのunitを作成してenableしなければなりません</span>
+$ sudo systemctl enable network@interface.service
+$ sudo systemctl start network@interface.service
+</code></pre></div><p>これはArchLinux特有の問題でもないのだろうけれど、Updateが速いのでいろいろな面倒事に巻き込まれる確率は高まる。</p>
 
 		
 

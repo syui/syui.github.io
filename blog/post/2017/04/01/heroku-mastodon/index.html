@@ -139,51 +139,51 @@
 <p>mastodonの使い方だけど、基本的にはdockerで動かす形になる。</p>
 <p>簡単に言うとこちらのリポジトリ<a href="https://github.com/tootsuite/mastodon">tootsuite/mastodon</a>を見ながら使用されている技術などを読み解きながらHeroku Deployして色々やる。</p>
 <p>まずは確認から。なんとなく使われてる技術、どうやって動いてるのかなどをゆるく把握する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/tootsuite/mastodon/blob/master/README.md</span>
-</span></span><span style="display:flex;"><span>$ docker-compose build
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rake secret
-</span></span><span style="display:flex;"><span>ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cp .env.production.sample .env.production
-</span></span><span style="display:flex;"><span>$ vim !$
-</span></span><span style="display:flex;"><span>ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails db:migrate
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails assets:precompile
-</span></span><span style="display:flex;"><span>$ docker-compose up
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する)</span>
-</span></span><span style="display:flex;"><span>$ curl localhost:3000
-</span></span></code></pre></div><p>次に、Heroku Deployを実行してみる。簡単に.envに書いた値などをGUIに入れてく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># https://github.com/tootsuite/mastodon/blob/master/README.md</span>
+$ docker-compose build
+$ docker-compose run --rm web rake secret
+ここで作成されたキーが3個必要なので、上のコマンドを3回ほど実行
+
+$ cp .env.production.sample .env.production
+$ vim !$
+ここにキーを書いたり、基本設定を書いていく。具体的に必要な環境変数についてはheroku deployの方の設定ファイルなどが分かりやすいので下記参照。
+
+$ docker-compose run --rm web rails db:migrate
+$ docker-compose run --rm web rails assets:precompile
+$ docker-compose up
+
+<span style="color:#75715e"># LOCAL_DOMAINに書いたものにアクセス(最初はlocalhost:3000などで登録して確認する)</span>
+$ curl localhost:3000
+</code></pre></div><p>次に、Heroku Deployを実行してみる。簡単に.envに書いた値などをGUIに入れてく。</p>
 <p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md</a></p>
 <p>example  :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>LOCAL_DOMAIN<span style="color:#f92672">=</span>appname.herokuapp.com
-</span></span><span style="display:flex;"><span>LOCAL_HTTPS<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Amazonは使わないのでHerokuのworkerをONにすることで画像などを保存できるようになる(が永続化するかは不安定という予想)</span>
-</span></span><span style="display:flex;"><span>S3_ENABLED<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SMTP_SERVER<span style="color:#f92672">=</span>smtp.gmail.com
-</span></span><span style="display:flex;"><span>SMTP_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">587</span>
-</span></span><span style="display:flex;"><span>SMTP_LOGIN<span style="color:#f92672">=</span>username@gmail.com
-</span></span><span style="display:flex;"><span>SMPT_PASSWORD<span style="color:#f92672">=</span>2FA_APP_PASSWD
-</span></span><span style="display:flex;"><span>SMTP_FROM_ADDRESS<span style="color:#f92672">=</span>username@gmail.com
-</span></span></code></pre></div><p>通知はGmailを使う。2FAを設定している場合はアプリパスワードを発行する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">LOCAL_DOMAIN<span style="color:#f92672">=</span>appname.herokuapp.com
+LOCAL_HTTPS<span style="color:#f92672">=</span>true
+
+<span style="color:#75715e"># Amazonは使わないのでHerokuのworkerをONにすることで画像などを保存できるようになる(が永続化するかは不安定という予想)</span>
+S3_ENABLED<span style="color:#f92672">=</span>false
+
+SMTP_SERVER<span style="color:#f92672">=</span>smtp.gmail.com
+SMTP_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">587</span>
+SMTP_LOGIN<span style="color:#f92672">=</span>username@gmail.com
+SMPT_PASSWORD<span style="color:#f92672">=</span>2FA_APP_PASSWD
+SMTP_FROM_ADDRESS<span style="color:#f92672">=</span>username@gmail.com
+</code></pre></div><p>通知はGmailを使う。2FAを設定している場合はアプリパスワードを発行する。</p>
 <p>立ち上げた後は<code>https://appname.herokuapp.com/about</code>にてサインアップ。</p>
 <p>次に以下のコマンドなどを実行し、サインアップしたユーザーを管理者に昇格させる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku git:clone -a appname
-</span></span><span style="display:flex;"><span>$ cd appname
-</span></span><span style="display:flex;"><span>$ heroku run rails db:migrate
-</span></span><span style="display:flex;"><span>$ heroku rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>yourUsername
-</span></span><span style="display:flex;"><span>$ heroku config:add SINGLE_USER_MODE<span style="color:#f92672">=</span>true
-</span></span></code></pre></div><p>以下にアクセスして色々設定。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku git:clone -a appname
+$ cd appname
+$ heroku run rails db:migrate
+$ heroku rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>yourUsername
+$ heroku config:add SINGLE_USER_MODE<span style="color:#f92672">=</span>true
+</code></pre></div><p>以下にアクセスして色々設定。</p>
 <p><a href="https://appname.herokuapp.com/admin/settings">https://appname.herokuapp.com/admin/settings</a></p>
 <p>私はサブドメインで使おうかなーと言うことでCloudFlareにてCNAMEを設定する。なお、CryptoでSSLをFullにしないといけない(Heroku用)。HerokuでCusotom Domainを設定する。</p>
 <p>heroku : sub.main.com appname.herokuapp.com</p>
 <p>cloudflare : CNAME mastodon appname.herokuapp.com</p>
 <p>アクセスできることを確認後に<code>LOCAL_DOMAIN</code>を変更することで、多分だけど<code>@user@sub.main.com</code>を使えるようになる(ちょっと時間をおかなければならない)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku config:add LOCAL_DOMAIN<span style="color:#f92672">=</span>sub.main.com
-</span></span></code></pre></div><p>あとは、こちらに登録することで補完とかでるようになるのかも(フォローしたりやり取りをすると補完は出るようになる)。登録しなくても使える。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:add LOCAL_DOMAIN<span style="color:#f92672">=</span>sub.main.com
+</code></pre></div><p>あとは、こちらに登録することで補完とかでるようになるのかも(フォローしたりやり取りをすると補完は出るようになる)。登録しなくても使える。</p>
 <p><a href="https://instances.mastodon.xyz/list">https://instances.mastodon.xyz/list</a></p>
 <p>コードを編集したい場合は元のリポジトリなどからフォークとかクローンしたものを<code>heroku push</code>すればOKです。私もちょっと手を加えています。主にレイアウト関連ですが。</p>
 <h3 id="mastodon運用">Mastodon運用</h3>
@@ -196,160 +196,160 @@
 <h2 id="mastodon-on-heroku">Mastodon on Heroku</h2>
 <p><a href="https://dashboard.heroku.com/new?button-url=https://github.com/tootsuite/mastodon&amp;template=https://github.com/tootsuite/mastodon"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy"></a></p>
 <h2 id="mastodon-install-docker">Mastodon Install (Docker)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/tootsuite/mastodon.git
-</span></span><span style="display:flex;"><span>$ cd mastodon
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># db, redis:volumes uncomment</span>
-</span></span><span style="display:flex;"><span>$ vi docker-compose.yml
-</span></span><span style="display:flex;"><span>  db:
-</span></span><span style="display:flex;"><span>    restart: always
-</span></span><span style="display:flex;"><span>    image: postgres:alpine
-</span></span><span style="display:flex;"><span>    volumes:
-</span></span><span style="display:flex;"><span>      - ./postgres:/var/lib/postgresql/data
-</span></span><span style="display:flex;"><span>  redis:
-</span></span><span style="display:flex;"><span>    restart: always
-</span></span><span style="display:flex;"><span>    image: redis:alpine
-</span></span><span style="display:flex;"><span>    volumes:
-</span></span><span style="display:flex;"><span>      - ./redis:/data
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mkdir -p ./<span style="color:#f92672">{</span>postgress,radis<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ docker-compose build
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy 3 key</span>
-</span></span><span style="display:flex;"><span>$ zsh -c <span style="color:#e6db74">&#34;repeat 3 docker-compose run --rm web rake secret&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cp .env.production.sample .env.production
-</span></span><span style="display:flex;"><span>$ vi .env.production
-</span></span><span style="display:flex;"><span>LOCAL_DOMAIN<span style="color:#f92672">=</span>localhost:3000
-</span></span><span style="display:flex;"><span>LOCAL_HTTPS<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span>PAPERCLIP_SECRET<span style="color:#f92672">=</span>xxx1
-</span></span><span style="display:flex;"><span>SECRET_KEY_BASE<span style="color:#f92672">=</span>xxx2
-</span></span><span style="display:flex;"><span>OTP_SECRET<span style="color:#f92672">=</span>xxx3
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails db:migrate
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails assets:precompile
-</span></span><span style="display:flex;"><span>$ docker-compose up
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># update web</span>
-</span></span><span style="display:flex;"><span>$ docker-compose stop
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails assets:precompile
-</span></span><span style="display:flex;"><span>$ docker-compose start
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy</span>
-</span></span><span style="display:flex;"><span>$ docker-compose cp web ./file /mastodon/file
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ssh</span>
-</span></span><span style="display:flex;"><span>$ docker-compose exec web /bin/bash
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># reset</span>
-</span></span><span style="display:flex;"><span>$ docker-compose down
-</span></span><span style="display:flex;"><span>$ docker-compose build
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails db:migrate
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails assets:precompile
-</span></span><span style="display:flex;"><span>$ docker-compose up -d
-</span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># source build</span>
-</span></span><span style="display:flex;"><span>$ git pull ...
-</span></span><span style="display:flex;"><span>$ docker-compose build
-</span></span><span style="display:flex;"><span>$ docker-compose up -d
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># open brewser, sing up</span>
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username
-</span></span></code></pre></div><h2 id="dbのリストア">DBのリストア</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tootsuite/mastodon.git
+$ cd mastodon
+
+<span style="color:#75715e"># db, redis:volumes uncomment</span>
+$ vi docker-compose.yml
+  db:
+    restart: always
+    image: postgres:alpine
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+  redis:
+    restart: always
+    image: redis:alpine
+    volumes:
+      - ./redis:/data
+
+$ mkdir -p ./<span style="color:#f92672">{</span>postgress,radis<span style="color:#f92672">}</span>
+
+$ docker-compose build
+
+<span style="color:#75715e"># copy 3 key</span>
+$ zsh -c <span style="color:#e6db74">&#34;repeat 3 docker-compose run --rm web rake secret&#34;</span>
+
+$ cp .env.production.sample .env.production
+$ vi .env.production
+LOCAL_DOMAIN<span style="color:#f92672">=</span>localhost:3000
+LOCAL_HTTPS<span style="color:#f92672">=</span>false
+PAPERCLIP_SECRET<span style="color:#f92672">=</span>xxx1
+SECRET_KEY_BASE<span style="color:#f92672">=</span>xxx2
+OTP_SECRET<span style="color:#f92672">=</span>xxx3
+
+$ docker-compose run --rm web rails db:migrate
+$ docker-compose run --rm web rails assets:precompile
+$ docker-compose up
+
+<span style="color:#75715e"># update web</span>
+$ docker-compose stop
+$ docker-compose run --rm web rails assets:precompile
+$ docker-compose start
+
+<span style="color:#75715e"># copy</span>
+$ docker-compose cp web ./file /mastodon/file
+
+<span style="color:#75715e"># ssh</span>
+$ docker-compose exec web /bin/bash
+
+<span style="color:#75715e"># reset</span>
+$ docker-compose down
+$ docker-compose build
+$ docker-compose run --rm web rails db:migrate
+$ docker-compose run --rm web rails assets:precompile
+$ docker-compose up -d
+	
+<span style="color:#75715e"># source build</span>
+$ git pull ...
+$ docker-compose build
+$ docker-compose up -d
+
+<span style="color:#75715e"># open brewser, sing up</span>
+$ docker-compose run --rm web rails mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email
+$ docker-compose run --rm web rails mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username
+</code></pre></div><h2 id="dbのリストア">DBのリストア</h2>
 <p>私は、Heroku上でインスタンスを立ち上げています。しかし、Heorku(Free)はDBが<code>10000</code>レコード(ROWS)しか保存出来ませんので、無料枠で使うには、定期的にDBをリセットする必要が出てきます。</p>
 <p>Mastodonを立ち上げ管理者でログインした直後にDBをバックアップして、そのデータを保存しておく必要があります。この際、dbとの整合性を維持するためmastodonのversionを合わせる必要があるかもしれません。</p>
 <p>今回は、そのリストア方法になります。</p>
 <p>Mastodonは<code>psql</code>を利用しています。よって、以下のような感じでdumpしたデータをリストアできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># リセット(要注意)</span>
-</span></span><span style="display:flex;"><span>$ heroku pg:reset -a $appname
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># リストア</span>
-</span></span><span style="display:flex;"><span>$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $username -d $database ./$filename.dump
-</span></span></code></pre></div><p>エラーが出るようなら<code>heroku pg:psql</code>して修正するか若しくは、mastodonのversionをバックアップ時のものにダウングレードする必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># リセット(要注意)</span>
+$ heroku pg:reset -a $appname
+<span style="color:#75715e"># リストア</span>
+$ pg_restore --verbose --clean --no-acl --no-owner -h $host -U $username -d $database ./$filename.dump
+</code></pre></div><p>エラーが出るようなら<code>heroku pg:psql</code>して修正するか若しくは、mastodonのversionをバックアップ時のものにダウングレードする必要があります。</p>
 <h2 id="2faを無効にする">2FAを無効にする</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku pg:psql
-</span></span><span style="display:flex;"><span>UPDATE users SET otp_required_for_login<span style="color:#f92672">=</span>false WHERE email<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user@example.com&#39;</span>;
-</span></span></code></pre></div><h2 id="500が出て投稿できない動かない">500が出て投稿できない、動かない</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku pg:psql
+UPDATE users SET otp_required_for_login<span style="color:#f92672">=</span>false WHERE email<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;user@example.com&#39;</span>;
+</code></pre></div><h2 id="500が出て投稿できない動かない">500が出て投稿できない、動かない</h2>
 <p>v 1.4からは以下のコマンドを実行する必要があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake assets:precompile -a $app
-</span></span><span style="display:flex;"><span>$ heroku ps:restart -a $app
-</span></span></code></pre></div><p>それ以外では以下のコマンドで解決する場合があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake webpacker:compile -a $app
-</span></span></code></pre></div><h2 id="your-slug-size-exceeds-our-soft-limit-3xx-mb-which-may-affect-boot-time">Your slug size exceeds our soft limit (3XX MB) which may affect boot time.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+$ heroku run rake assets:precompile -a $app
+$ heroku ps:restart -a $app
+</code></pre></div><p>それ以外では以下のコマンドで解決する場合があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake webpacker:compile -a $app
+</code></pre></div><h2 id="your-slug-size-exceeds-our-soft-limit-3xx-mb-which-may-affect-boot-time">Your slug size exceeds our soft limit (3XX MB) which may affect boot time.</h2>
 <p>上記のようなエラーがデプロイ時に出た場合はプラグインをインストールしてキャッシュなどを削除します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku plugins:install heroku-repo
-</span></span><span style="display:flex;"><span>$ heroku repo:purge_cache -a $app
-</span></span></code></pre></div><h2 id="dbmigrateでエラーが出る場合">db:migrateでエラーが出る場合</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku plugins:install heroku-repo
+$ heroku repo:purge_cache -a $app
+</code></pre></div><h2 id="dbmigrateでエラーが出る場合">db:migrateでエラーが出る場合</h2>
 <p>以下を実行するとエラーが出る場合があります。エラー内容によって必要な処理が異なります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span></code></pre></div><h2 id="pgforeignkeyviolation">PG::ForeignKeyViolation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+</code></pre></div><h2 id="pgforeignkeyviolation">PG::ForeignKeyViolation</h2>
 <p>v1.4.1からv1.4.2の間に、外部キーが導入されたのでそれに関するエラーです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>PG::ForeignKeyViolation
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:maintenance:prepare_for_foreign_keys -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku ps:restart -a $app
-</span></span></code></pre></div><h2 id="pgduplicatetable-error">PG::DuplicateTable: ERROR</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+PG::ForeignKeyViolation
+
+$ heroku run rake mastodon:maintenance:prepare_for_foreign_keys -a $app
+
+$ heroku run rake db:migrate -a $app
+$ heroku ps:restart -a $app
+</code></pre></div><h2 id="pgduplicatetable-error">PG::DuplicateTable: ERROR</h2>
 <p>エラー内容には<code>PG::DuplicateTable: ERROR</code>のみならず<code>Index name 'index_accounts_on_uri' on table 'accounts' already exists</code>を含みます。</p>
 <p>これは<code>v 1.3 -&gt; v 1.4</code>にした時にでたエラーです。ただし、ダウングレードを数回行っているため、そこで入ったDBの値が悪さをしていたのかもしれません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>PG::DuplicateTable: ERROR
-</span></span><span style="display:flex;"><span>	account_domain_blocks
-</span></span><span style="display:flex;"><span>	conversations
-</span></span><span style="display:flex;"><span>	conversation_mutes
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku pg:psql
-</span></span><span style="display:flex;"><span>DROP TABLE account_domain_blocks;
-</span></span><span style="display:flex;"><span>DROP TABLE conversations;
-</span></span><span style="display:flex;"><span>DROP TABLE conversation_mutes;
-</span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>Index name <span style="color:#e6db74">&#39;index_accounts_on_uri&#39;</span> on table <span style="color:#e6db74">&#39;accounts&#39;</span> already exists
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku pg:psql
-</span></span><span style="display:flex;"><span>DROP INDEX index_accounts_on_uri;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku ps:restart -a $app
-</span></span></code></pre></div><h3 id="error-massage-sample">Error massage (Sample)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>&gt; ActiveRecord::StatementInvalid: PG::DuplicateTable: ERROR:  relation <span style="color:#e6db74">&#34;conversations&#34;</span> already exists
-</span></span><span style="display:flex;"><span>&gt; : CREATE TABLE <span style="color:#e6db74">&#34;conversations&#34;</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span> bigserial NOT NULL PRIMARY KEY, <span style="color:#e6db74">&#34;uri&#34;</span> character varying DEFAULT NULL, <span style="color:#e6db74">&#34;created_at&#34;</span> timestamp NOT NULL, <span style="color:#e6db74">&#34;updated_at&#34;</span> timestamp NOT NULL<span style="color:#f92672">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:migrate:reset -a $app
-</span></span><span style="display:flex;"><span>&gt; ActiveRecord::ProtectedEnvironmentError: You are attempting to run a destructive action against your <span style="color:#e6db74">&#39;production&#39;</span> database.
-</span></span><span style="display:flex;"><span>&gt; If you are sure you want to <span style="color:#66d9ef">continue</span>, run the same command with the environment variable:
-</span></span><span style="display:flex;"><span>&gt; DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>&gt; Index name <span style="color:#e6db74">&#39;index_accounts_on_uri&#39;</span> on table <span style="color:#e6db74">&#39;accounts&#39;</span> already exists
-</span></span></code></pre></div><h2 id="個人用インスタンス">個人用インスタンス</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md</span>
-</span></span><span style="display:flex;"><span>$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
-</span></span></code></pre></div><h2 id="bulidpacks">.bulidpacks</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake db:migrate -a $app
+PG::DuplicateTable: ERROR
+	account_domain_blocks
+	conversations
+	conversation_mutes
+
+$ heroku pg:psql
+DROP TABLE account_domain_blocks;
+DROP TABLE conversations;
+DROP TABLE conversation_mutes;
+		
+$ heroku run rake db:migrate -a $app
+Index name <span style="color:#e6db74">&#39;index_accounts_on_uri&#39;</span> on table <span style="color:#e6db74">&#39;accounts&#39;</span> already exists
+
+$ heroku pg:psql
+DROP INDEX index_accounts_on_uri;
+
+$ heroku run rake db:migrate -a $app
+$ heroku ps:restart -a $app
+</code></pre></div><h3 id="error-massage-sample">Error massage (Sample)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+&gt; ActiveRecord::StatementInvalid: PG::DuplicateTable: ERROR:  relation <span style="color:#e6db74">&#34;conversations&#34;</span> already exists
+&gt; : CREATE TABLE <span style="color:#e6db74">&#34;conversations&#34;</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span> bigserial NOT NULL PRIMARY KEY, <span style="color:#e6db74">&#34;uri&#34;</span> character varying DEFAULT NULL, <span style="color:#e6db74">&#34;created_at&#34;</span> timestamp NOT NULL, <span style="color:#e6db74">&#34;updated_at&#34;</span> timestamp NOT NULL<span style="color:#f92672">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate:reset -a $app
+&gt; ActiveRecord::ProtectedEnvironmentError: You are attempting to run a destructive action against your <span style="color:#e6db74">&#39;production&#39;</span> database.
+&gt; If you are sure you want to <span style="color:#66d9ef">continue</span>, run the same command with the environment variable:
+&gt; DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+&gt; Index name <span style="color:#e6db74">&#39;index_accounts_on_uri&#39;</span> on table <span style="color:#e6db74">&#39;accounts&#39;</span> already exists
+</code></pre></div><h2 id="個人用インスタンス">個人用インスタンス</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md</span>
+$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
+</code></pre></div><h2 id="bulidpacks">.bulidpacks</h2>
 <p>v 1.3からは必要なパッケージがいくつか増えています。Herokuサーバーにそれをインストールしてやる必要があります。Herokuでは<code>buildpacks</code>に<code>apt</code>を追加することでパッケージのインストールが可能になります。インストールするパッケージは<code>Aptfile</code>に書きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat .buildpacks
-</span></span><span style="display:flex;"><span>$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
-</span></span></code></pre></div><h2 id="gem-install-idn-ruby">gem install idn-ruby</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat .buildpacks
+$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
+</code></pre></div><h2 id="gem-install-idn-ruby">gem install idn-ruby</h2>
 <p>v 1.5では、<code>Aptfile</code>に<code>libidn11-dev</code>(centosなどではlibidn-develというパッケージ名)が追加されています。これは<code>wget</code>でダウンロードされ、<code>idn-ruby</code>が依存しています。しかし、Herokuではこのパッケージが元から入っているためか、Aptfileから<code>libidn11-dev</code>の行を削除しないと<code>gem install idn-ruby</code>がインストールできずビルドが完了しませんでした。</p>
 <p><code>v 1.5 rc1 - v 1.5 rc3</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run <span style="color:#e6db74">&#34;dpkg -l&#34;</span>
-</span></span><span style="display:flex;"><span>$ vim Aptfile
-</span></span><span style="display:flex;"><span>libidn11-dev という行を削除
-</span></span></code></pre></div><p>現在は<code>branch:master</code>にて<a href="https://github.com/tootsuite/mastodon/commit/161f72cce3547fabc945b002599880b137d970db">fix</a>されているので、<code>libidn11-dev</code>の行を削除する必要はありません。(Heroku)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run <span style="color:#e6db74">&#34;dpkg -l&#34;</span>
+$ vim Aptfile
+libidn11-dev という行を削除
+</code></pre></div><p>現在は<code>branch:master</code>にて<a href="https://github.com/tootsuite/mastodon/commit/161f72cce3547fabc945b002599880b137d970db">fix</a>されているので、<code>libidn11-dev</code>の行を削除する必要はありません。(Heroku)</p>
 <blockquote>
 <p>Aptfile</p>
 </blockquote>
 <pre tabindex="0"><code>+ libidn11
 libidn11-dev
 </code></pre><h2 id="gem-install-cld3">gem install cld3</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat Aptfile
-</span></span><span style="display:flex;"><span>$ echo protobuf-lite-devel &gt;&gt; Aptfile
-</span></span></code></pre></div><h2 id="gem-install-charlock_holmes">gem install charlock_holmes</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/rcaught/heroku-buildpack-cmake 
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat Aptfile
+$ echo protobuf-lite-devel &gt;&gt; Aptfile
+</code></pre></div><h2 id="gem-install-charlock_holmes">gem install charlock_holmes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">2</span> https://github.com/rcaught/heroku-buildpack-cmake 
+</code></pre></div><blockquote>
 <p>Aptfile</p>
 </blockquote>
 <pre tabindex="0"><code>libicu52
@@ -357,69 +357,69 @@ libicu-dev
 </code></pre><p><a href="https://github.com/brianmario/charlock_holmes/wiki/Installing-charlock-holmes-and-libicu-dev-on-heroku">https://github.com/brianmario/charlock_holmes/wiki/Installing-charlock-holmes-and-libicu-dev-on-heroku</a></p>
 <h2 id="generate_vapid_key">generate_vapid_key</h2>
 <p>v 1.5から<code>generate_vapid_key</code>を発行できるようになりました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
-</span></span></code></pre></div><h2 id="sidekiqのスレッド数を減らす">Sidekiqのスレッド数を減らす</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku config:set SIDEKIQ_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
-</span></span></code></pre></div><h2 id="push-rejected-failed-to-compile-nodejs-app">Push rejected, failed to compile Node.js app.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
+$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
+$ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
+</code></pre></div><h2 id="sidekiqのスレッド数を減らす">Sidekiqのスレッド数を減らす</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set SIDEKIQ_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
+</code></pre></div><h2 id="push-rejected-failed-to-compile-nodejs-app">Push rejected, failed to compile Node.js app.</h2>
 <p>HerokuにDeployする際、以下のエラーが出る場合は、<code>package.json</code>にバージョンを指定することで回避できます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git push heroku master
-</span></span><span style="display:flex;"><span>&gt; ! Push rejected, failed to compile Node.js app.
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push heroku master
+&gt; ! Push rejected, failed to compile Node.js app.
+</code></pre></div><blockquote>
 <p>package.json</p>
 </blockquote>
 <pre tabindex="0"><code>{
-  &#34;engines&#34;: {
-    &#34;yarn&#34;: &#34;0.27.5&#34;,
-    &#34;node&#34;: &#34;8.1.3&#34;
+  &quot;engines&quot;: {
+    &quot;yarn&quot;: &quot;0.27.5&quot;,
+    &quot;node&quot;: &quot;8.1.3&quot;
   }
 }
 </code></pre><p><a href="https://github.com/react-boilerplate/react-boilerplate/issues/1779">https://github.com/react-boilerplate/react-boilerplate/issues/1779</a></p>
 <h2 id="tootがdeleteできなくなった">tootがdeleteできなくなった</h2>
 <p>1.6(6c81f9d)でtootが削除できない状態でしたが、以下の手順で解決しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku buildpacks:remove https://github.com/rcaught/heroku-buildpack-cmake
-</span></span><span style="display:flex;"><span>$ git merge : master<span style="color:#f92672">(</span>efec5072<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>$ heroku repo:purge_cache -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set MAX_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">## tootを削除したはずなのに残ってる</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 1.6(6c81f9d)</span>
-</span></span><span style="display:flex;"><span>$ url<span style="color:#f92672">=</span>https://mstdn.syui.cf/api/v1/statuses/473
-</span></span><span style="display:flex;"><span>$ curl -X DELETE $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>&gt; <span style="color:#f92672">{}</span>
-</span></span><span style="display:flex;"><span>$ curl -X GET $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;id&#34;</span>: 473,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-09-15&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;in_reply_to_id&#34;</span>: null,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;in_reply_to_account_id&#34;</span>: null,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;sensitive&#34;</span>: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;spoiler_text&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;visibility&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;ja&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;uri&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn.syui.cf/users/syui/statuses/473&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;up : master(472df245)&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn.syui.cf/@syui/473&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;reblogs_count&#34;</span>: 0,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;favourites_count&#34;</span>: 0,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;favourited&#34;</span>: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;reblogged&#34;</span>: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;muted&#34;</span>: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;pinned&#34;</span>: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;reblog&#34;</span>: null,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;application&#34;</span>: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;website&#34;</span>: null
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><a href="https://github.com/tootsuite/mastodon/issues/4928">https://github.com/tootsuite/mastodon/issues/4928</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku buildpacks:remove https://github.com/rcaught/heroku-buildpack-cmake
+$ git merge : master<span style="color:#f92672">(</span>efec5072<span style="color:#f92672">)</span>
+$ heroku repo:purge_cache -a $app
+$ heroku config:set MAX_THREADS<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> -a $app
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">## tootを削除したはずなのに残ってる</span>
+<span style="color:#75715e">## 1.6(6c81f9d)</span>
+$ url<span style="color:#f92672">=</span>https://mstdn.syui.cf/api/v1/statuses/473
+$ curl -X DELETE $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span>
+&gt; <span style="color:#f92672">{}</span>
+$ curl -X GET $url -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;id&#34;</span>: 473,
+  <span style="color:#e6db74">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-09-15&#34;</span>,
+  <span style="color:#e6db74">&#34;in_reply_to_id&#34;</span>: null,
+  <span style="color:#e6db74">&#34;in_reply_to_account_id&#34;</span>: null,
+  <span style="color:#e6db74">&#34;sensitive&#34;</span>: false,
+  <span style="color:#e6db74">&#34;spoiler_text&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#e6db74">&#34;visibility&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
+  <span style="color:#e6db74">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;ja&#34;</span>,
+  <span style="color:#e6db74">&#34;uri&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn.syui.cf/users/syui/statuses/473&#34;</span>,
+  <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;up : master(472df245)&#34;</span>,
+  <span style="color:#e6db74">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn.syui.cf/@syui/473&#34;</span>,
+  <span style="color:#e6db74">&#34;reblogs_count&#34;</span>: 0,
+  <span style="color:#e6db74">&#34;favourites_count&#34;</span>: 0,
+  <span style="color:#e6db74">&#34;favourited&#34;</span>: false,
+  <span style="color:#e6db74">&#34;reblogged&#34;</span>: false,
+  <span style="color:#e6db74">&#34;muted&#34;</span>: false,
+  <span style="color:#e6db74">&#34;pinned&#34;</span>: false,
+  <span style="color:#e6db74">&#34;reblog&#34;</span>: null,
+  <span style="color:#e6db74">&#34;application&#34;</span>: <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>,
+    <span style="color:#e6db74">&#34;website&#34;</span>: null
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><a href="https://github.com/tootsuite/mastodon/issues/4928">https://github.com/tootsuite/mastodon/issues/4928</a></p>
 <h2 id="custom-emojiでsslのエラーが出る時">custom emojiでSSLのエラーが出る時</h2>
 <p>以下のようなエラーが出る場合があります。なぜなら、<code>img src=http://</code>となっているからです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">Mixed</span> <span style="color:#a6e22e">Content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">page</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">xxx</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">loaded</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">requested</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">insecure</span> <span style="color:#a6e22e">video</span> <span style="color:#a6e22e">xxxx</span>. <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">content</span> <span style="color:#a6e22e">should</span> <span style="color:#a6e22e">also</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">served</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>.
-</span></span></code></pre></div><p>Find and fix mixed content <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content">https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Mixed</span> <span style="color:#a6e22e">Content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">page</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">xxx</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">loaded</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">requested</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">insecure</span> <span style="color:#a6e22e">video</span> <span style="color:#a6e22e">xxxx</span>. <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">content</span> <span style="color:#a6e22e">should</span> <span style="color:#a6e22e">also</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">served</span> <span style="color:#a6e22e">over</span> <span style="color:#a6e22e">HTTPS</span>.
+</code></pre></div><p>Find and fix mixed content <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content">https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content</a></p>
 <p>しかし、以下のように設定するとうまく動作しました。知らずにPRを出してしまいました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set CDN_HOST<span style="color:#f92672">=</span>https://<span style="color:#e6db74">${</span>emojiが置いてある場所<span style="color:#e6db74">}</span> -a $app
-</span></span></code></pre></div><p><a href="https://github.com/tootsuite/mastodon/pull/5033">https://github.com/tootsuite/mastodon/pull/5033</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set CDN_HOST<span style="color:#f92672">=</span>https://<span style="color:#e6db74">${</span>emojiが置いてある場所<span style="color:#e6db74">}</span> -a $app
+</code></pre></div><p><a href="https://github.com/tootsuite/mastodon/pull/5033">https://github.com/tootsuite/mastodon/pull/5033</a></p>
 <h2 id="16でのherokufree運用メモ">1.6でのHeroku(Free)運用メモ</h2>
 <ul>
 <li>
@@ -441,228 +441,228 @@ libicu-dev
 <p>大体、<code>1500</code>tootでDBのレコードを<code>8000</code>程度消費しました。無料枠は<code>10000</code>なのでこのくらいになるとDBをリセットする必要が出てきます。この消費量はタイムラインに表示されるtootなどにも影響を及ぼします。そのため私は、フォロー0にしています。私の場合、<code>2ヶ月ほど</code>でDBをリセットする必要が出てきました。</p>
 <p>DBレコードの消費量はMastodonのVersion、フォローしている人のtoot頻度(TLの流れの速さ)、インスタンスの接続数などによっても変動してくると思われます。</p>
 <h2 id="react-infinite-scroller">react-infinite-scroller</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ yarn add react-infinite-scroller
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn add react-infinite-scroller
+</code></pre></div><blockquote>
 <p>mastodon/app/javascript/mastodon/features/public_timeline/index.js</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">InfiniteScroll</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-infinite-scroll-component&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">StatusListContainer</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../ui/containers/status_list_container&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Column</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../components/column&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ColumnHeader</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../components/column_header&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">refreshPublicTimeline</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">expandPublicTimeline</span>,
-</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/timelines&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">addColumn</span>, <span style="color:#a6e22e">removeColumn</span>, <span style="color:#a6e22e">moveColumn</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/columns&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">defineMessages</span>, <span style="color:#a6e22e">injectIntl</span>, <span style="color:#a6e22e">FormattedMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-intl&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ColumnSettingsContainer</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./containers/column_settings_container&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connectPublicStream</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/streaming&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineMessages</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;column.public&#39;</span>, <span style="color:#a6e22e">defaultMessage</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Federated timeline&#39;</span> },
-</span></span><span style="display:flex;"><span>});
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapStateToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; ({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">hasUnread</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">getIn</span>([<span style="color:#e6db74">&#39;timelines&#39;</span>, <span style="color:#e6db74">&#39;public&#39;</span>, <span style="color:#e6db74">&#39;unread&#39;</span>]) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>});
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">mapStateToProps</span>)
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">injectIntl</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PublicTimeline</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">PureComponent</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">propTypes</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dispatch</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">isRequired</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">intl</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>.<span style="color:#a6e22e">isRequired</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">columnId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">string</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">multiColumn</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">bool</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hasUnread</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">bool</span>,
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handlePin</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">columnId</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">removeColumn</span>(<span style="color:#a6e22e">columnId</span>));
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">addColumn</span>(<span style="color:#e6db74">&#39;PUBLIC&#39;</span>, {}));
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleMove</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">dir</span>) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">moveColumn</span>(<span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dir</span>));
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleHeaderClick</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">column</span>.<span style="color:#a6e22e">scrollTop</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">componentDidMount</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">refreshPublicTimeline</span>());
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">connectPublicStream</span>());
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">componentWillUnmount</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span>();
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span> =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">column</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleLoadMore</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">expandPublicTimeline</span>());
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">divs</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">divs</span>};
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">generateDivs</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">intl</span>, <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">hasUnread</span>, <span style="color:#a6e22e">multiColumn</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pinned</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!!</span><span style="color:#a6e22e">columnId</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">moreDivs</span>.<span style="color:#a6e22e">push</span>(
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Column</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setRef</span>}<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ColumnHeader</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">icon</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;globe&#39;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">active</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">hasUnread</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">intl</span>.<span style="color:#a6e22e">formatMessage</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">title</span>)}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onPin</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handlePin</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onMove</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleMove</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHeaderClick</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">pinned</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">pinned</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">multiColumn</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">multiColumn</span>}
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ColumnSettingsContainer</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ColumnHeader&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">StatusListContainer</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">timelineId</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;public&#39;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">loadMore</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleLoadMore</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">trackScroll</span><span style="color:#f92672">=</span>{<span style="color:#f92672">!</span><span style="color:#a6e22e">pinned</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">scrollKey</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`public_timeline-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">columnId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">emptyMessage</span><span style="color:#f92672">=</span>{<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">FormattedMessage</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;empty_column.public&#39;</span> <span style="color:#a6e22e">defaultMessage</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;There is nothing here! Write something publicly, or manually follow users from other instances to fill it up&#39;</span> <span style="color:#f92672">/&gt;</span>}
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Column&gt;</span>
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">divs</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">divs</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">moreDivs</span>)});
-</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">500</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">InfiniteScroll</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">next</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">hasMore</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">true</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">300</span>}
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">loader</span><span style="color:#f92672">=</span>{<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h4</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Loading</span>...<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h4&gt;}&gt;</span>
-</span></span><span style="display:flex;"><span>          {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">divs</span>}
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/InfiniteScroll&gt;</span>
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="リモートフォロー通知tlができなくなる問題">リモートフォロー、通知、TLができなくなる問題</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">InfiniteScroll</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-infinite-scroll-component&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">StatusListContainer</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../ui/containers/status_list_container&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Column</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../components/column&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ColumnHeader</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../components/column_header&#39;</span>;
+<span style="color:#66d9ef">import</span> {
+  <span style="color:#a6e22e">refreshPublicTimeline</span>,
+  <span style="color:#a6e22e">expandPublicTimeline</span>,
+} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/timelines&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">addColumn</span>, <span style="color:#a6e22e">removeColumn</span>, <span style="color:#a6e22e">moveColumn</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/columns&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">defineMessages</span>, <span style="color:#a6e22e">injectIntl</span>, <span style="color:#a6e22e">FormattedMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-intl&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ColumnSettingsContainer</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./containers/column_settings_container&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connectPublicStream</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../actions/streaming&#39;</span>;
+
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineMessages</span>({
+  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;column.public&#39;</span>, <span style="color:#a6e22e">defaultMessage</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Federated timeline&#39;</span> },
+});
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapStateToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; ({
+  <span style="color:#a6e22e">hasUnread</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">getIn</span>([<span style="color:#e6db74">&#39;timelines&#39;</span>, <span style="color:#e6db74">&#39;public&#39;</span>, <span style="color:#e6db74">&#39;unread&#39;</span>]) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>,
+});
+
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">mapStateToProps</span>)
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">injectIntl</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PublicTimeline</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">PureComponent</span> {
+
+  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">propTypes</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">dispatch</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">isRequired</span>,
+    <span style="color:#a6e22e">intl</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>.<span style="color:#a6e22e">isRequired</span>,
+    <span style="color:#a6e22e">columnId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">string</span>,
+    <span style="color:#a6e22e">multiColumn</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">bool</span>,
+    <span style="color:#a6e22e">hasUnread</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">bool</span>,
+  };
+
+  <span style="color:#a6e22e">handlePin</span> <span style="color:#f92672">=</span> () =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">columnId</span>) {
+      <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">removeColumn</span>(<span style="color:#a6e22e">columnId</span>));
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">addColumn</span>(<span style="color:#e6db74">&#39;PUBLIC&#39;</span>, {}));
+    }
+  }
+
+  <span style="color:#a6e22e">handleMove</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">dir</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+    <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">moveColumn</span>(<span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">dir</span>));
+  }
+
+  <span style="color:#a6e22e">handleHeaderClick</span> <span style="color:#f92672">=</span> () =&gt; {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">column</span>.<span style="color:#a6e22e">scrollTop</span>();
+  }
+
+  <span style="color:#a6e22e">componentDidMount</span> () {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">dispatch</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+
+    <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">refreshPublicTimeline</span>());
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">connectPublicStream</span>());
+  }
+
+  <span style="color:#a6e22e">componentWillUnmount</span> () {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span>) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span>();
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">disconnect</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    }
+  }
+
+  <span style="color:#a6e22e">setRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span> =&gt; {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">column</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>;
+  }
+
+  <span style="color:#a6e22e">handleLoadMore</span> <span style="color:#f92672">=</span> () =&gt; {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">expandPublicTimeline</span>());
+  }
+
+  <span style="color:#a6e22e">constructor</span> () {
+    <span style="color:#66d9ef">super</span>();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">divs</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">divs</span>};
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
+  }
+
+  <span style="color:#a6e22e">generateDivs</span> () {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">intl</span>, <span style="color:#a6e22e">columnId</span>, <span style="color:#a6e22e">hasUnread</span>, <span style="color:#a6e22e">multiColumn</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pinned</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!!</span><span style="color:#a6e22e">columnId</span>;
+    <span style="color:#a6e22e">moreDivs</span>.<span style="color:#a6e22e">push</span>(
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Column</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setRef</span>}<span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ColumnHeader</span>
+          <span style="color:#a6e22e">icon</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;globe&#39;</span>
+          <span style="color:#a6e22e">active</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">hasUnread</span>}
+          <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">intl</span>.<span style="color:#a6e22e">formatMessage</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">title</span>)}
+          <span style="color:#a6e22e">onPin</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handlePin</span>}
+          <span style="color:#a6e22e">onMove</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleMove</span>}
+          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHeaderClick</span>}
+          <span style="color:#a6e22e">pinned</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">pinned</span>}
+          <span style="color:#a6e22e">multiColumn</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">multiColumn</span>}
+        <span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ColumnSettingsContainer</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ColumnHeader&gt;</span>
+
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">StatusListContainer</span>
+          <span style="color:#a6e22e">timelineId</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;public&#39;</span>
+          <span style="color:#a6e22e">loadMore</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleLoadMore</span>}
+          <span style="color:#a6e22e">trackScroll</span><span style="color:#f92672">=</span>{<span style="color:#f92672">!</span><span style="color:#a6e22e">pinned</span>}
+          <span style="color:#a6e22e">scrollKey</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`public_timeline-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">columnId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+          <span style="color:#a6e22e">emptyMessage</span><span style="color:#f92672">=</span>{<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">FormattedMessage</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;empty_column.public&#39;</span> <span style="color:#a6e22e">defaultMessage</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;There is nothing here! Write something publicly, or manually follow users from other instances to fill it up&#39;</span> <span style="color:#f92672">/&gt;</span>}
+        <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Column&gt;</span>
+    );
+    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">divs</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">divs</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">moreDivs</span>)});
+    }, <span style="color:#ae81ff">500</span>);
+  }
+
+  <span style="color:#a6e22e">render</span> () {
+    <span style="color:#66d9ef">return</span> (
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">InfiniteScroll</span>
+          <span style="color:#a6e22e">next</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateDivs</span>}
+          <span style="color:#a6e22e">hasMore</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">true</span>}
+          <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">300</span>}
+          <span style="color:#a6e22e">loader</span><span style="color:#f92672">=</span>{<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h4</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Loading</span>...<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h4&gt;}&gt;</span>
+          {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">divs</span>}
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/InfiniteScroll&gt;</span>
+    );
+  }
+
+}
+</code></pre></div><h2 id="リモートフォロー通知tlができなくなる問題">リモートフォロー、通知、TLができなくなる問題</h2>
 <p>リセット前と同じidのアカウント作ったり、またはdbをrestoreすると、リモートフォロー、通知、メインTLなどが流れない現象が確認できました。</p>
 <p>この際、<code>db:restore</code>後に<code>db:reset</code>と<code>db:migrate</code>, <code>redis:cli</code>にて設定することでこの問題を解消することができるかもしれません。</p>
 <p>なお、<code>db:reset</code>するためまたid(user)を最初から作り直さなければなりません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1 -a $app</span>
-</span></span><span style="display:flex;"><span>$ heroku pg:reset -a $app
-</span></span><span style="display:flex;"><span>$ heroku redis:cli -a $app
-</span></span><span style="display:flex;"><span>	FLUSHALL
-</span></span><span style="display:flex;"><span>	dbsize
-</span></span><span style="display:flex;"><span>	quit
-</span></span><span style="display:flex;"><span>$ heroku rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake db:seed -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake assets:precompile -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:daily -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set ...
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># browserでsing up</span>
-</span></span><span style="display:flex;"><span>$ open -a Google<span style="color:#ae81ff">\ </span>Chrome https://mstdn.syui.cf
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$mail -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$USER -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app 
-</span></span></code></pre></div><p>その他:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> SAFETY_ASSURED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>or 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># db:migrate:reset</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
-</span></span></code></pre></div><h2 id="cache-clear">cache clear</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake mastodon:media:remove_remote -a $app
-</span></span></code></pre></div><h2 id="daily">daily</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake mastodon:daily -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>or 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:feeds:clear -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:media:clear -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:users:clear -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:push:refresh -a $app
-</span></span></code></pre></div><h2 id="sing-up-admin">sing up (admin)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># まずbrowserでsing upします。そして、以下のコマンドを叩きます。$email=&#34;入力したメールアドレス&#34;, $username=&#34;入力したユーザー名&#34;</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
-</span></span></code></pre></div><h2 id="list-of-rake-tasks">List-of-Rake-tasks</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/List-of-Rake-tasks.md</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:push:clear -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:feeds:clear_all -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:feeds:build -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
-</span></span></code></pre></div><h2 id="アップデート時にやっといたほうが良いコマンド">アップデート時にやっといたほうが良いコマンド</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake assets:precompile -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:daily -a $app
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku run rake mastodon:media:remove_remote -a $app</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku ps:restart -a $app</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku repo:purge_cache -a $app</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku run rails c -a $app</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Rails.cache.clear</span>
-</span></span></code></pre></div><h2 id="domain-names-and-ssl-for-heroku">Domain names and SSL for Heroku</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1 -a $app</span>
+$ heroku pg:reset -a $app
+$ heroku redis:cli -a $app
+	FLUSHALL
+	dbsize
+	quit
+$ heroku rake db:migrate -a $app
+$ heroku run rake db:seed -a $app
+$ heroku run rake assets:precompile -a $app
+$ heroku run rake mastodon:daily -a $app
+$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
+$ heroku config:set ...
+<span style="color:#75715e"># browserでsing up</span>
+$ open -a Google<span style="color:#ae81ff">\ </span>Chrome https://mstdn.syui.cf
+$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$mail -a $app
+$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$USER -a $app
+$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app 
+</code></pre></div><p>その他:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> SAFETY_ASSURED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
+
+or 
+
+<span style="color:#75715e"># db:migrate:reset</span>
+$ heroku run rake db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -a $app
+</code></pre></div><h2 id="cache-clear">cache clear</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:media:remove_remote -a $app
+</code></pre></div><h2 id="daily">daily</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake mastodon:daily -a $app
+
+or 
+
+$ heroku run rake mastodon:feeds:clear -a $app
+$ heroku run rake mastodon:media:clear -a $app
+$ heroku run rake mastodon:users:clear -a $app
+$ heroku run rake mastodon:push:refresh -a $app
+</code></pre></div><h2 id="sing-up-admin">sing up (admin)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>false -a $app
+
+<span style="color:#75715e"># まずbrowserでsing upします。そして、以下のコマンドを叩きます。$email=&#34;入力したメールアドレス&#34;, $username=&#34;入力したユーザー名&#34;</span>
+$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email -a $app
+$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username -a $app
+
+$ heroku config:set SINGLE_USER_MODE<span style="color:#f92672">=</span>true -a $app
+</code></pre></div><h2 id="list-of-rake-tasks">List-of-Rake-tasks</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/List-of-Rake-tasks.md</span>
+$ heroku run rake mastodon:push:clear -a $app
+$ heroku run rake mastodon:feeds:clear_all -a $app
+$ heroku run rake mastodon:feeds:build -a $app
+$ heroku run rake mastodon:webpush:generate_vapid_key -a $app
+</code></pre></div><h2 id="アップデート時にやっといたほうが良いコマンド">アップデート時にやっといたほうが良いコマンド</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+$ heroku run rake assets:precompile -a $app
+$ heroku run rake mastodon:daily -a $app
+<span style="color:#75715e"># heroku run rake mastodon:media:remove_remote -a $app</span>
+<span style="color:#75715e"># heroku ps:restart -a $app</span>
+<span style="color:#75715e"># heroku repo:purge_cache -a $app</span>
+<span style="color:#75715e"># heroku run rails c -a $app</span>
+	<span style="color:#75715e"># Rails.cache.clear</span>
+</code></pre></div><h2 id="domain-names-and-ssl-for-heroku">Domain names and SSL for Heroku</h2>
 <blockquote>
 <p>You should set the Heroku config vars of LOCAL_DOMAIN to your hostname, and LOCAL_HTTPS to &ldquo;true&rdquo; as well.</p>
 </blockquote>
 <p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Heroku-guide.md</a></p>
 <h3 id="herokuでは完全に無料でsslを使用することは不可能">Herokuでは完全に無料でSSLを使用することは不可能</h3>
 <p>SSL証明書を登録できるアプリはhobbyからなので、freeでは不可能です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ su
-</span></span><span style="display:flex;"><span>$ cd /etc/letsencrypt/live
-</span></span><span style="display:flex;"><span>$ ls
-</span></span><span style="display:flex;"><span>README          chain.pem       privkey.pem
-</span></span><span style="display:flex;"><span>cert.pem        fullchain.pem
-</span></span><span style="display:flex;"><span>$ heroku certs:add fullchain.pem privkey.pem -a $app --type sni
-</span></span><span style="display:flex;"><span> ▸    You need to be running on either Hobby or Professional dynos to be
-</span></span><span style="display:flex;"><span> ▸    able to use SNI SSL.
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
+$ cd /etc/letsencrypt/live
+$ ls
+README          chain.pem       privkey.pem
+cert.pem        fullchain.pem
+$ heroku certs:add fullchain.pem privkey.pem -a $app --type sni
+ ▸    You need to be running on either Hobby or Professional dynos to be
+ ▸    able to use SNI SSL.
+</code></pre></div><blockquote>
 <p>You need to be running on either Hobby or Professional dynos to be</p>
 <p>able to use SNI SSL.</p>
 </blockquote>
 <h3 id="cloudflareを利用することで見た目上のhttpsは実現可能">CloudFlareを利用することで見た目上のhttpsは実現可能</h3>
 <p>CloudFlareのCNAMEを設定することで見た目上のhttpsは実現可能です。しかし、この場合、LOCAL_DOMAINを<code>mstdn.syui.cf</code>みたいな形にした上でLOCAL_HTTPSを<code>false</code>にしなければならないので、色々な問題が生じる可能性があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># cloudflare</span>
-</span></span><span style="display:flex;"><span>CNAME mstdn appname.herokuapp.com
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># heroku</span>
-</span></span><span style="display:flex;"><span>$ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>www.example.com -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set LOCAL_HTTPS<span style="color:#f92672">=</span>false -a $app
-</span></span></code></pre></div><h3 id="無料で証明書を手動更新する方法">無料で証明書を手動更新する方法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># cloudflare</span>
+CNAME mstdn appname.herokuapp.com
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># heroku</span>
+$ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>www.example.com -a $app
+$ heroku config:set LOCAL_HTTPS<span style="color:#f92672">=</span>false -a $app
+</code></pre></div><h3 id="無料で証明書を手動更新する方法">無料で証明書を手動更新する方法</h3>
 <p>MastodonのDocsでみると、手動でやれば無料で使えるみたいな書き方なのですが、いまいちよく分かりません。検索してみると、<code>m/7$</code>が必要みたいな書き方が多いので、多分ですが、dynoのAppでは登録できないということだと思います。</p>
 <blockquote>
 <p><a href="https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries">Heroku SSL Dev Center</a>の記事に記載されている手順に従って、独自の証明書をアップロードしてください。</p>
@@ -670,88 +670,88 @@ libicu-dev
 <blockquote>
 <p>Herokuは、有料のdynosで動作するすべてのアプリケーションに対して、無料の自動証明書管理（ACM）を提供します。ACMを使用すると、Herokuは自動的にSSL証明書をプロビジョニングし、更新します。独自の証明書を手動でアップロードする場合は、この記事の手順に従ってください。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 証明書の発行はLet&#39;s Encryptを使用</span>
-</span></span><span style="display:flex;"><span>$ brew install certbot
-</span></span><span style="display:flex;"><span>$ sudo certbot certonly --manual
-</span></span><span style="display:flex;"><span>-------------------------------------------------
-</span></span><span style="display:flex;"><span>$ mkdir -p mastodon/public/.well-known/acme-challenge
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;yyyyyyyyyyyyyyyyyyy&#34;</span> &gt; mastodon/public/.well-known/acme-challenge/xxxxxxxxxxxxxx
-</span></span><span style="display:flex;"><span>$ cd mastodon
-</span></span><span style="display:flex;"><span>$ git add ./public/.well-known
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;upload file&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push heroku master
-</span></span></code></pre></div><p>これによって公開鍵と秘密鍵が作成されましたので、それをHerokuの方に登録します。登録にはhobby以上の料金設定が必要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ su
-</span></span><span style="display:flex;"><span>$ cd /etc/letsencrypt/live
-</span></span><span style="display:flex;"><span>$ ls
-</span></span><span style="display:flex;"><span>README          chain.pem       privkey.pem
-</span></span><span style="display:flex;"><span>cert.pem        fullchain.pem
-</span></span><span style="display:flex;"><span>$ heroku certs:add fullchain.pem privkey.pem -a $app --type sni
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use the --type sni flag if you have an SSL Endpoint add-on on your application already.</span>
-</span></span><span style="display:flex;"><span>$ heroku certs:info
-</span></span><span style="display:flex;"><span>$ curl -vI https://www.example.com
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 証明書の発行はLet&#39;s Encryptを使用</span>
+$ brew install certbot
+$ sudo certbot certonly --manual
+-------------------------------------------------
+$ mkdir -p mastodon/public/.well-known/acme-challenge
+$ echo <span style="color:#e6db74">&#34;yyyyyyyyyyyyyyyyyyy&#34;</span> &gt; mastodon/public/.well-known/acme-challenge/xxxxxxxxxxxxxx
+$ cd mastodon
+$ git add ./public/.well-known
+$ git commit -m <span style="color:#e6db74">&#34;upload file&#34;</span>
+$ git push heroku master
+</code></pre></div><p>これによって公開鍵と秘密鍵が作成されましたので、それをHerokuの方に登録します。登録にはhobby以上の料金設定が必要です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ su
+$ cd /etc/letsencrypt/live
+$ ls
+README          chain.pem       privkey.pem
+cert.pem        fullchain.pem
+$ heroku certs:add fullchain.pem privkey.pem -a $app --type sni
+<span style="color:#75715e"># Use the --type sni flag if you have an SSL Endpoint add-on on your application already.</span>
+$ heroku certs:info
+$ curl -vI https://www.example.com
+</code></pre></div><blockquote>
 <p>今日では、新しい無料のSSLサービスと無料のdyno時間を使用するためのより柔軟な方法という2つの重要なアップデートを発表しています。Heroku SSLは今日ベータ版として導入されており、今後数週間から数ヶ月にわたって公開される予定です。6月1日に開始するフレキシブルなdyno時間の開始が予定されています。</p>
 </blockquote>
 <p>2016年5月18日 : <a href="https://blog.heroku.com/announcing_heroku_free_ssl_beta_and_flexible_dyno_hours">https://blog.heroku.com/announcing_heroku_free_ssl_beta_and_flexible_dyno_hours</a></p>
 <p>2016年9月22日 : <a href="https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos">https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># これらのコマンドは現在必要ありません</span>
-</span></span><span style="display:flex;"><span>$ heroku labs:enable http-sni -a &lt;your app&gt;
-</span></span><span style="display:flex;"><span>$ heroku plugins:install heroku-certs
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use the --type sni flag if you have an SSL Endpoint add-on on your application already.</span>
-</span></span><span style="display:flex;"><span>$ heroku certs:add example.crt example.key -a &lt;your app&gt;
-</span></span></code></pre></div><p><a href="https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries">https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># これらのコマンドは現在必要ありません</span>
+$ heroku labs:enable http-sni -a &lt;your app&gt;
+$ heroku plugins:install heroku-certs
+<span style="color:#75715e"># Use the --type sni flag if you have an SSL Endpoint add-on on your application already.</span>
+$ heroku certs:add example.crt example.key -a &lt;your app&gt;
+</code></pre></div><p><a href="https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries">https://devcenter.heroku.com/articles/ssl#manually-uploading-certificates-and-intermediaries</a></p>
 <p><a href="https://medium.com/should-designers-code/how-to-set-up-ssl-with-lets-encrypt-on-heroku-for-free-266c185630db">https://medium.com/should-designers-code/how-to-set-up-ssl-with-lets-encrypt-on-heroku-for-free-266c185630db</a></p>
 <h3 id="lets-encrypt">Let&rsquo;s Encrypt</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install certbot
-</span></span><span style="display:flex;"><span>$ sudo certbot certonly --manual
-</span></span><span style="display:flex;"><span>$ sudo heroku certs:add /etc/letsencrypt/live/plumfeed.com/fullchain.pem /etc/letsencrypt/keys/0000_key-certbot.pem
-</span></span><span style="display:flex;"><span>$ curl -vI https://plumfeed.com
-</span></span></code></pre></div><p><a href="http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt">http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl genrsa -des3 -out server.pass.key <span style="color:#ae81ff">2048</span>
-</span></span><span style="display:flex;"><span>$ openssl rsa -in server.pass.key -out server.key
-</span></span><span style="display:flex;"><span>$ openssl req -nodes -new -key server.key -out server.csr
-</span></span></code></pre></div><p><a href="https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate">https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install certbot
+$ sudo certbot certonly --manual
+$ sudo heroku certs:add /etc/letsencrypt/live/plumfeed.com/fullchain.pem /etc/letsencrypt/keys/0000_key-certbot.pem
+$ curl -vI https://plumfeed.com
+</code></pre></div><p><a href="http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt">http://blog.jonnew.com/posts/heroku-ssl-and-a-free-cert-from-lets-encrypt</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -des3 -out server.pass.key <span style="color:#ae81ff">2048</span>
+$ openssl rsa -in server.pass.key -out server.key
+$ openssl req -nodes -new -key server.key -out server.csr
+</code></pre></div><p><a href="https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate">https://devcenter.heroku.com/articles/acquiring-an-ssl-certificate</a></p>
 <p><a href="https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos#feedback">https://blog.heroku.com/ssl-is-now-included-on-all-paid-dynos#feedback</a></p>
 <h3 id="lets-encrypt--dmathieusabayon">Let’s encrypt + dmathieu/sabayon</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/dmathieu/sabayon.git
-</span></span><span style="display:flex;"><span>$ cd sabayon
-</span></span><span style="display:flex;"><span>$ heroku create letsencrypt-app-for-&lt;name&gt;
-</span></span><span style="display:flex;"><span>$ git push heroku
-</span></span></code></pre></div><p><a href="https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/">https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/dmathieu/sabayon.git
+$ cd sabayon
+$ heroku create letsencrypt-app-for-&lt;name&gt;
+$ git push heroku
+</code></pre></div><p><a href="https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/">https://blog.odoruinu.net/2017/03/07/setup-lets-encrypt-on-heroku-with-automated-renewal/</a></p>
 <h3 id="有料で証明書を自動更新する方法">有料で証明書を自動更新する方法</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># こちらはweb=hobbyです, 有料設定なので気をつけてください</span>
-</span></span><span style="display:flex;"><span>$ heroku ps:resize web<span style="color:#f92672">=</span>hobby
-</span></span><span style="display:flex;"><span>$ heroku certs:auto:enable
-</span></span></code></pre></div><p><a href="https://devcenter.heroku.com/articles/automated-certificate-management">https://devcenter.heroku.com/articles/automated-certificate-management</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># こちらはweb=hobbyです, 有料設定なので気をつけてください</span>
+$ heroku ps:resize web<span style="color:#f92672">=</span>hobby
+$ heroku certs:auto:enable
+</code></pre></div><p><a href="https://devcenter.heroku.com/articles/automated-certificate-management">https://devcenter.heroku.com/articles/automated-certificate-management</a></p>
 <p><a href="https://devcenter.heroku.com/articles/ssl-endpoint">https://devcenter.heroku.com/articles/ssl-endpoint</a></p>
 <h3 id="enable-streaming-on-heroku">Enable streaming on heroku</h3>
 <p>PR : <a href="https://github.com/tootsuite/mastodon/pull/5158">https://github.com/tootsuite/mastodon/pull/5158</a></p>
 <p>issue : <a href="https://github.com/tootsuite/mastodon/issues/1119">https://github.com/tootsuite/mastodon/issues/1119</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set NODE_ENV<span style="color:#f92672">=</span>production -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set PGSSLMODE<span style="color:#f92672">=</span>require -a $app
-</span></span></code></pre></div><h3 id="sub-domain">Sub Domain</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set NODE_ENV<span style="color:#f92672">=</span>production -a $app
+$ heroku config:set PGSSLMODE<span style="color:#f92672">=</span>require -a $app
+</code></pre></div><h3 id="sub-domain">Sub Domain</h3>
 <p>サブドメインに設定する場合は、<code>WEB_DOMAIN</code>を使用すると、<code>@user@sub.main.com</code>のような形ではなく<code>@user@main.com</code>という形でアドレスがサブを除くトップドメインを利用できる形になります。但し、<a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md">ドキュメント</a>にもあるように様々な問題を発生させます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set WEB_DOMAIN<span style="color:#f92672">=</span>mstdn.syui.cf -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>syui.cf -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ curl -O mstdn.syui.cf/.well-known/host-meta
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 私の場合はtop domainをgitlabでhostしていますので以下のようにします。</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 具体的にはダウンロードしたhost-metaを同じ場所に置きます。</span>
-</span></span><span style="display:flex;"><span>$ mv syui.gitlab.io/public/.well-known/host-meta
-</span></span><span style="display:flex;"><span>$ cd syui.gitlab.io
-</span></span><span style="display:flex;"><span>$ git add public/.well-known/host-meta
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add host-meta&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push -u origin gh-pages
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set WEB_DOMAIN<span style="color:#f92672">=</span>mstdn.syui.cf -a $app
+$ heroku config:set LOCAL_DOMAIN<span style="color:#f92672">=</span>syui.cf -a $app
+
+$ curl -O mstdn.syui.cf/.well-known/host-meta
+
+<span style="color:#75715e"># 私の場合はtop domainをgitlabでhostしていますので以下のようにします。</span>
+<span style="color:#75715e"># 具体的にはダウンロードしたhost-metaを同じ場所に置きます。</span>
+$ mv syui.gitlab.io/public/.well-known/host-meta
+$ cd syui.gitlab.io
+$ git add public/.well-known/host-meta
+$ git commit -m <span style="color:#e6db74">&#34;add host-meta&#34;</span>
+$ git push -u origin gh-pages
+</code></pre></div><blockquote>
 <p>.well-known/host-meta</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">XRD</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://docs.oasis-open.org/ns/xri/xrd-1.0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lrdd&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application/xrd+xml&#34;</span> <span style="color:#a6e22e">template</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://mstdn.syui.cf/.well-known/webfinger?resource={uri}&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">XRD</span>&gt;
-</span></span></code></pre></div><p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+&lt;<span style="color:#f92672">XRD</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://docs.oasis-open.org/ns/xri/xrd-1.0&#34;</span>&gt;
+  &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lrdd&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application/xrd+xml&#34;</span> <span style="color:#a6e22e">template</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://mstdn.syui.cf/.well-known/webfinger?resource={uri}&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">XRD</span>&gt;
+</code></pre></div><p><a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md">https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md</a></p>
 <blockquote>
 <p>just leave the WEB_DOMAIN key commented out. If you do need it however, you’ll still have to enter a redirect rule for your root domain that points https://rootdomain/.well-known/host-meta to <a href="https://subdomain.rootdomain/.well-known/host-meta">https://subdomain.rootdomain/.well-known/host-meta</a>. I added a rule on Cloudflare to achieve this, but any approach will do.</p>
 </blockquote>
@@ -775,10 +775,10 @@ libicu-dev
 <h3 id="local_httpsfalse">LOCAL_HTTPS=false</h3>
 <p>現在の状況(不都合)をまとめます。これらが通知、リモートフォロー、TLが流れない問題に影響を及ぼしているかどうかは不明。個人的には無関係であり、db:reset, db:restoreなどの実行が影響したものだと考えていますが、複合的要因があるかもしれません。</p>
 <p>herokuがhobby以上でないと無料でSSL証明書を登録できませんので、LOCAL_HTTPS=falseにしています。これによって動作不良が起こる可能性を否定できません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku certs:add fullchain.pem privkey.pem -a app --type sni
-</span></span><span style="display:flex;"><span> ▸    You need to be running on either Hobby or Professional dynos to be
-</span></span><span style="display:flex;"><span> ▸    able to use SNI SSL.
-</span></span></code></pre></div><h3 id="streaming-not-working">Streaming not working</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku certs:add fullchain.pem privkey.pem -a app --type sni
+ ▸    You need to be running on either Hobby or Professional dynos to be
+ ▸    able to use SNI SSL.
+</code></pre></div><h3 id="streaming-not-working">Streaming not working</h3>
 <p>Webのユーザー画面、管理画面にてStreaming not workingのエラーが起こり、Chromeでは安全でないスクリプトを読み込むを実行しなければ正常に動作しません。これはheroku特有の問題も含みます。</p>
 <p>issue : <a href="https://github.com/tootsuite/mastodon/issues/1119">https://github.com/tootsuite/mastodon/issues/1119</a></p>
 <h3 id="161releasesからmasterlatestまでのアップデート">1.6.1(releases)からmaster(latest)までのアップデート</h3>
@@ -850,68 +850,68 @@ libicu-dev
 <p>私は、AWS S3を使っていませんので、別途ストレージを用意する必要があります。</p>
 <p>例えば、ユーザーアイコンの扱いについてですが、これは基本的にRails側(Herokuの場合, /var/lib/mastodon/public-system)に保存されると思われます。Heroku Railsのストレージは定期的に再起動し、再起動されるとストレージに保存されたファイルを削除します。</p>
 <p>ここで<code>PAPERCLIP_ROOT_URL</code>などを使うことによって保存先を指定することができます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># インスタンス内で表示するaccounts/の保存先を指定する</span>
-</span></span><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 他インスタンスで参照されるaccounts/の保存先を指定する</span>
-</span></span><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
-</span></span></code></pre></div><p>通常は、<code>/system/accounts/avatars/000/000/001/original/xxx.png</code>という画像URLが参照される。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># インスタンス内で表示するaccounts/の保存先を指定する</span>
+$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
+<span style="color:#75715e"># 他インスタンスで参照されるaccounts/の保存先を指定する</span>
+$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
+</code></pre></div><p>通常は、<code>/system/accounts/avatars/000/000/001/original/xxx.png</code>という画像URLが参照される。</p>
 <p><code>PAPERCLIP_ROOT_URL</code>を設定することでこれが変更されます。</p>
 <p><code>heroku run pwd -a $app</code> : <code>/app/public</code></p>
 <p><code>root</code> : <code>/home/mastodon/live/public</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker-compose run --rm web rails mastodon:media:remove_remote NUM_DAYS<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 画像を再ダウンロードし、画像URLも変更される</span>
-</span></span><span style="display:flex;"><span>$ docker-compose run --rm web rails mastodon:media:redownload_avatars
-</span></span></code></pre></div><p>ここで、APIを使ってデフォルトと設定後のユーザー情報を引き出してみました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose run --rm web rails mastodon:media:remove_remote NUM_DAYS<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#75715e"># 画像を再ダウンロードし、画像URLも変更される</span>
+$ docker-compose run --rm web rails mastodon:media:redownload_avatars
+</code></pre></div><p>ここで、APIを使ってデフォルトと設定後のユーザー情報を引き出してみました。</p>
 <blockquote>
 <p>デフォルトの設定</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;display_name&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;locked&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-10-14&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&lt;p&gt;&lt;/p&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/@syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;avatar&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/avatars/000/000/001/original/2fe43582417bfd37.png?1507954652&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;avatar_static&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/avatars/000/000/001/original/2fe43582417bfd37.png?1507954652&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/headers/000/000/001/original/c5968223d7486ab8.png?1507942898&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header_static&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/headers/000/000/001/original/c5968223d7486ab8.png?1507942898&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;followers_count&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;following_count&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;statuses_count&#34;</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
+  <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
+  <span style="color:#f92672">&#34;display_name&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#f92672">&#34;locked&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-10-14&#34;</span>,
+  <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&lt;p&gt;&lt;/p&gt;&#34;</span>,
+  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/@syui&#34;</span>,
+  <span style="color:#f92672">&#34;avatar&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/avatars/000/000/001/original/2fe43582417bfd37.png?1507954652&#34;</span>,
+  <span style="color:#f92672">&#34;avatar_static&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/avatars/000/000/001/original/2fe43582417bfd37.png?1507954652&#34;</span>,
+  <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/headers/000/000/001/original/c5968223d7486ab8.png?1507942898&#34;</span>,
+  <span style="color:#f92672">&#34;header_static&#34;</span>: <span style="color:#e6db74">&#34;http://mstdn-syui-2.herokuapp.com/system/accounts/headers/000/000/001/original/c5968223d7486ab8.png?1507942898&#34;</span>,
+  <span style="color:#f92672">&#34;followers_count&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#f92672">&#34;following_count&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#f92672">&#34;statuses_count&#34;</span>: <span style="color:#ae81ff">1</span>
+}
+</code></pre></div><blockquote>
 <p>PAPERCLIP_ROOT_PATH=/app/public, PAPERCLIP_ROOT_ROOT=https://syui.gitlab.io/img/mastodon</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;display_name&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;locked&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-10-13&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&lt;p&gt;&lt;/p&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://syui.cf/@syui&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;avatar&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/avatars/000/000/001/original/e5415b7a2f69e2cb.png&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;avatar_static&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/avatars/000/000/001/original/e5415b7a2f69e2cb.png&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/headers/000/000/001/original/11bfcd687af9cad0.png&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header_static&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/headers/000/000/001/original/11bfcd687af9cad0.png&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;followers_count&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;following_count&#34;</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;statuses_count&#34;</span>: <span style="color:#ae81ff">8</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;source&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;privacy&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sensitive&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>一度、他インスタンスで画像が認識, ダウンロードされてしまうとなかなかその設定が変更されません(情報によるとリモート時などに更新されるらしい)。<code>mastodon:daily</code>などが関係しているのかもしれませんが、よくわかっていません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
+  <span style="color:#f92672">&#34;acct&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
+  <span style="color:#f92672">&#34;display_name&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#f92672">&#34;locked&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2017-10-13&#34;</span>,
+  <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&lt;p&gt;&lt;/p&gt;&#34;</span>,
+  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://syui.cf/@syui&#34;</span>,
+  <span style="color:#f92672">&#34;avatar&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/avatars/000/000/001/original/e5415b7a2f69e2cb.png&#34;</span>,
+  <span style="color:#f92672">&#34;avatar_static&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/avatars/000/000/001/original/e5415b7a2f69e2cb.png&#34;</span>,
+  <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/headers/000/000/001/original/11bfcd687af9cad0.png&#34;</span>,
+  <span style="color:#f92672">&#34;header_static&#34;</span>: <span style="color:#e6db74">&#34;https://syui.gitlab.io/img/mastodon/accounts/headers/000/000/001/original/11bfcd687af9cad0.png&#34;</span>,
+  <span style="color:#f92672">&#34;followers_count&#34;</span>: <span style="color:#ae81ff">1</span>,
+  <span style="color:#f92672">&#34;following_count&#34;</span>: <span style="color:#ae81ff">1</span>,
+  <span style="color:#f92672">&#34;statuses_count&#34;</span>: <span style="color:#ae81ff">8</span>,
+  <span style="color:#f92672">&#34;source&#34;</span>: {
+    <span style="color:#f92672">&#34;privacy&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
+    <span style="color:#f92672">&#34;sensitive&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;note&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+  }
+}
+</code></pre></div><p>一度、他インスタンスで画像が認識, ダウンロードされてしまうとなかなかその設定が変更されません(情報によるとリモート時などに更新されるらしい)。<code>mastodon:daily</code>などが関係しているのかもしれませんが、よくわかっていません。</p>
 <p>私のインスタンスユーザーは他インスタンス上でアイコンが表示されなかった問題があったのですが、以下のコマンドでいけたような気がします。色々やってた時、タイミングよく<code>mastodon:daily</code>(他インスタンス上で)などが発動された可能性とかもあるので、まだ確定ではありませんが。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
-</span></span></code></pre></div><p>私は画像URLを調べてGitLab Pagesの<code>/public/img/mastodon</code>にアップロードし、なおかつMastodonのリポジトリにある/publicにaccoutns/をコピーし、git push heroku masterします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
+$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
+</code></pre></div><p>私は画像URLを調べてGitLab Pagesの<code>/public/img/mastodon</code>にアップロードし、なおかつMastodonのリポジトリにある/publicにaccoutns/をコピーし、git push heroku masterします。</p>
 <p>example img url: <code>accounts/avatars/000/000/001/original/xxx.png</code></p>
 <h3 id="loadaverageorgとのやり取りがうまく行かなかった問題">loadaverage.orgとのやり取りがうまく行かなかった問題</h3>
 <p>SSL周りの問題?で他のMastodonインスタンスのやり取りがうまく行かなかった問題を解消すると、今度は、Mastodon間はOKなのに、loadaverage.orgとのやり取りが上手く行かなかったことがありました。</p>
@@ -926,93 +926,93 @@ libicu-dev
 <p>heroku deployをしてuser設定をする, アイコンなどを設定する</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>LOCAL_DOMAIN<span style="color:#f92672">=</span>xxx.herokuapp.com
-</span></span><span style="display:flex;"><span>LOCAL_HTTPS<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;heroku app name&#34;</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username -a $app
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">LOCAL_DOMAIN<span style="color:#f92672">=</span>xxx.herokuapp.com
+LOCAL_HTTPS<span style="color:#f92672">=</span>false
+
+$ app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;heroku app name&#34;</span>
+$ heroku run rake mastodon:confirm_email USER_EMAIL<span style="color:#f92672">=</span>$email -a $app
+$ heroku run rake mastodon:make_admin USERNAME<span style="color:#f92672">=</span>$username -a $app
+</code></pre></div><ul>
 <li>envを変更して、updateする, 画像アイコンなどのURLはページからコピーしておく(同じディレクトリ構造でPAPERCLIP_ROOT_URL, PAPERCLIP_ROOT_PATHに置くため)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cp -rf accounts mastodn/public/
-</span></span><span style="display:flex;"><span>$ cd mastodon
-</span></span><span style="display:flex;"><span>$ git add .
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;img upload&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push heroku master
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># mastodon version=2.0</span>
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:media:remove_remote -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:media:remove_silenced -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake mastodon:daily -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>$ heroku run rake assets:precompile -a $app
-</span></span><span style="display:flex;"><span>$ heroku ps:restart -a $app
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config:set PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span>https://syui.gitlab.io/img/mastodon -a $app
+$ heroku config:set PAPERCLIP_ROOT_PATH<span style="color:#f92672">=</span>/app/public -a $app
+
+$ cp -rf accounts mastodn/public/
+$ cd mastodon
+$ git add .
+$ git commit -m <span style="color:#e6db74">&#34;img upload&#34;</span>
+$ git push heroku master
+
+<span style="color:#75715e"># mastodon version=2.0</span>
+$ heroku run rake mastodon:media:remove_remote -a $app
+$ heroku run rake mastodon:media:remove_silenced -a $app
+$ heroku run rake mastodon:daily -a $app
+$ heroku run rake db:migrate -a $app
+$ heroku run rake assets:precompile -a $app
+$ heroku ps:restart -a $app
+</code></pre></div><ul>
 <li>cloudflareで以下の構成で設定する</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>DNS : syui.cf xxx.herokuapp.com
-</span></span><span style="display:flex;"><span>DNS : www xxx.xx.herokudns.com
-</span></span><span style="display:flex;"><span>SSL : Flexible
-</span></span><span style="display:flex;"><span>	HTTP Strict Transport Security <span style="color:#f92672">(</span>HSTS<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		Enforce web security policy <span style="color:#66d9ef">for</span> your website.
-</span></span><span style="display:flex;"><span>		Status: On
-</span></span><span style="display:flex;"><span>		Max-Age: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>Disable<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		Include subdomains: On
-</span></span><span style="display:flex;"><span>		Preload: On
-</span></span><span style="display:flex;"><span>		No-sniff: On
-</span></span><span style="display:flex;"><span>	Always use HTTPS: OFF
-</span></span><span style="display:flex;"><span>	Authenticated Origin Pulls: OFF
-</span></span><span style="display:flex;"><span>	Opportunistic Encryption: OFF
-</span></span><span style="display:flex;"><span>	Automatic HTTPS Rewrites: ON <span style="color:#75715e"># cachetがfavicon.pngでhttpsエラーを吐くからである</span>
-</span></span><span style="display:flex;"><span>Firewall : 
-</span></span><span style="display:flex;"><span>	Security Level : Essentially Off
-</span></span></code></pre></div><h2 id="gitlab-pages-image-storage">GitLab Pages (Image Storage)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">DNS : syui.cf xxx.herokuapp.com
+DNS : www xxx.xx.herokudns.com
+SSL : Flexible
+	HTTP Strict Transport Security <span style="color:#f92672">(</span>HSTS<span style="color:#f92672">)</span>
+		Enforce web security policy <span style="color:#66d9ef">for</span> your website.
+		Status: On
+		Max-Age: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>Disable<span style="color:#f92672">)</span>
+		Include subdomains: On
+		Preload: On
+		No-sniff: On
+	Always use HTTPS: OFF
+	Authenticated Origin Pulls: OFF
+	Opportunistic Encryption: OFF
+	Automatic HTTPS Rewrites: ON <span style="color:#75715e"># cachetがfavicon.pngでhttpsエラーを吐くからである</span>
+Firewall : 
+	Security Level : Essentially Off
+</code></pre></div><h2 id="gitlab-pages-image-storage">GitLab Pages (Image Storage)</h2>
 <p>現在、画像ファイルの保存、読み込みを行うサーバーにgitlab.io(具体的には、GitLab Pages)を利用しています。</p>
 <p>しかし、このサーバーは反応が遅いので、できれば、GitHubの方に移行するか、若しくはアップロードや管理がしやすい他のサーバーに移行することを考えています。</p>
 <p>どうやってアップロードするのかというと、これは手動(自動化は可能)になるのですが、以下の方法が最も適切です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>host_meta<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.well-known//webfinger?resource&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>surl<span style="color:#f92672">=</span>$protocol://$host/$api_url/accounts/1/followers
-</span></span><span style="display:flex;"><span>sjson<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL $surl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>sbody<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#39;.[]|.acct&#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>sn<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">&#34;</span>$sjson<span style="color:#e6db74">&#34;</span> | jq length<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$sn<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>	sn<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#e6db74">${</span>sn<span style="color:#e6db74">}</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$sn;i++<span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>	avatar<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.avatar&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	echo $avatar
-</span></span><span style="display:flex;"><span>	acct<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.acct&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	url<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.url&#34;</span>|cut -d / -f -3<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	output<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL -H <span style="color:#e6db74">&#34;Accept: application/json&#34;</span> <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>host_meta<span style="color:#e6db74">}</span><span style="color:#e6db74">=acct:</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>|jq -r <span style="color:#e6db74">&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	curl -sL $output | awk -vRS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;/logo&gt;&#34;</span> <span style="color:#e6db74">&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gurl<span style="color:#f92672">=</span>$protocol://$host/$api_url/accounts/1/following
-</span></span><span style="display:flex;"><span>gjson<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL $gurl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>gbody<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#39;.[]|{avatar,acct,url}&#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>gn<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">&#34;</span>$gjson<span style="color:#e6db74">&#34;</span> | jq length<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$gn<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>	gn<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#e6db74">${</span>gn<span style="color:#e6db74">}</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$gn;i++<span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>	avatar<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.avatar&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	acct<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.acct&#34;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	url<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.url&#34;</span>|cut -d / -f -3<span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> ! echo <span style="color:#e6db74">&#34;</span>$gjson<span style="color:#e6db74">&#34;</span>| jq -r <span style="color:#e6db74">&#34;.[]|select(.acct == \&#34;</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;)&#34;</span> &gt; /dev/null 2&gt;&amp;1;<span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>		output<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL -H <span style="color:#e6db74">&#34;Accept: application/json&#34;</span> <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>host_meta<span style="color:#e6db74">}</span><span style="color:#e6db74">=acct:</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>|jq -r <span style="color:#e6db74">&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style="color:#e6db74">`</span>
-</span></span><span style="display:flex;"><span>		curl -sL $output | awk -vRS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;/logo&gt;&#34;</span> <span style="color:#e6db74">&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div><p>GitLabへのpushはtokenなどを使って自動化することもできます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">host_meta<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.well-known//webfinger?resource&#34;</span>
+
+surl<span style="color:#f92672">=</span>$protocol://$host/$api_url/accounts/1/followers
+sjson<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL $surl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">`</span>
+sbody<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#39;.[]|.acct&#39;</span><span style="color:#e6db74">`</span>
+sn<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">&#34;</span>$sjson<span style="color:#e6db74">&#34;</span> | jq length<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$sn<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+	sn<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#e6db74">${</span>sn<span style="color:#e6db74">}</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$sn;i++<span style="color:#f92672">))</span>
+<span style="color:#66d9ef">do</span>
+	avatar<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.avatar&#34;</span><span style="color:#e6db74">`</span>
+	echo $avatar
+	acct<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.acct&#34;</span><span style="color:#e6db74">`</span>
+	url<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $sjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.url&#34;</span>|cut -d / -f -3<span style="color:#e6db74">`</span>
+	output<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL -H <span style="color:#e6db74">&#34;Accept: application/json&#34;</span> <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>host_meta<span style="color:#e6db74">}</span><span style="color:#e6db74">=acct:</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>|jq -r <span style="color:#e6db74">&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style="color:#e6db74">`</span>
+	curl -sL $output | awk -vRS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;/logo&gt;&#34;</span> <span style="color:#e6db74">&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
+<span style="color:#66d9ef">done</span>
+
+gurl<span style="color:#f92672">=</span>$protocol://$host/$api_url/accounts/1/following
+gjson<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL $gurl -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$access_token<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">`</span>
+gbody<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#39;.[]|{avatar,acct,url}&#39;</span><span style="color:#e6db74">`</span>
+gn<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">&#34;</span>$gjson<span style="color:#e6db74">&#34;</span> | jq length<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$gn<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+	gn<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#e6db74">${</span>gn<span style="color:#e6db74">}</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>$gn;i++<span style="color:#f92672">))</span>
+<span style="color:#66d9ef">do</span>
+	avatar<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.avatar&#34;</span><span style="color:#e6db74">`</span>
+	acct<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.acct&#34;</span><span style="color:#e6db74">`</span>
+	url<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $gjson|jq -r <span style="color:#e6db74">&#34;.[</span>$i<span style="color:#e6db74">]|.url&#34;</span>|cut -d / -f -3<span style="color:#e6db74">`</span>
+	<span style="color:#66d9ef">if</span> ! echo <span style="color:#e6db74">&#34;</span>$gjson<span style="color:#e6db74">&#34;</span>| jq -r <span style="color:#e6db74">&#34;.[]|select(.acct == \&#34;</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;)&#34;</span> &gt; /dev/null 2&gt;&amp;1;<span style="color:#66d9ef">then</span>
+		output<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sSL -H <span style="color:#e6db74">&#34;Accept: application/json&#34;</span> <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>host_meta<span style="color:#e6db74">}</span><span style="color:#e6db74">=acct:</span><span style="color:#e6db74">${</span>acct<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>|jq -r <span style="color:#e6db74">&#39;.links|.[]|select(.type == &#34;application/atom+xml&#34;)|.href&#39;</span><span style="color:#e6db74">`</span>
+		curl -sL $output | awk -vRS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;/logo&gt;&#34;</span> <span style="color:#e6db74">&#39;/&lt;logo&gt;/{gsub(/.*&lt;logo&gt;|\n+/,&#34;&#34;);print;exit}&#39;</span>
+	<span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>GitLabへのpushはtokenなどを使って自動化することもできます。</p>
 <p>このコードは<code>.well-known//webfinger?resource</code>からatomを取得して、atomからavatarのURLを取得します。元となるデータはフォロー、フォロワーを参照します。本来的にはタイムラインも含めるべきですが(リツイートなどで表示する用)、タイムラインを気にしだすとそれを実行する頻度を頻繁にしなければなりませんし、それをやるストレージを用意しようとすると、やはり料金がかかってくると思われます。また、個人インスタンスなのでそれほど必要にはなりません。</p>
 <h2 id="dbのrows消費が激しい問題">DBのROWS消費が激しい問題</h2>
 <p>特定の時期に必ずDBのROWSが一気に増加する現象に度々遭遇しています。</p>
@@ -1033,17 +1033,17 @@ libicu-dev
 <p>しかし、このサイレント(silence)は一括して実行するコマンドがありません。管理者画面で操作するしかなさそうな感じなので、そのあたりが辛い。</p>
 <h2 id="keybaseio">keybase.io</h2>
 <p>この度、keybase.ioでsyui.cfのドメインを認証しました。管理者の場合はドキュメントに従ってファイルをアップロードするわけですが、ユーザーの場合は以下のように署名メッセージをtootすればいいでしょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ keybase sign -m <span style="color:#e6db74">&#34;Hi! I&#39;m @syui@syui.cf on Mastodon.&#34;</span>
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;BEGIN KEYBASE SALTPACK SIGNED MESSAGE. kXR7VktZdyH7rvq v5weRa0zkUoNUqZ OqTECTjU1QiHAv4 xzoy3uHNorgXQOG 8NRRqG1wSjpk1ty ibQ3OlfRNMpV1Cf badGHr1vJQZbAuE KVGaeoWXBTeOxLk gu1tp0ukOw2Xkg5 KdKa0J90MTq7C5J LeEdPwW9j1LFKa8 59LLeCUIq6kBIki HhsAMggwl33bcy8 hlNaQLwskpC98fi Yhb4C0iqjFXx9uI NAj6QuM. END KEYBASE SALTPACK SIGNED MESSAGE.&#34;</span> | keybase verify
-</span></span></code></pre></div><h2 id="dbresetの弊害">db:resetの弊害</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ keybase sign -m <span style="color:#e6db74">&#34;Hi! I&#39;m @syui@syui.cf on Mastodon.&#34;</span>
+$ echo <span style="color:#e6db74">&#34;BEGIN KEYBASE SALTPACK SIGNED MESSAGE. kXR7VktZdyH7rvq v5weRa0zkUoNUqZ OqTECTjU1QiHAv4 xzoy3uHNorgXQOG 8NRRqG1wSjpk1ty ibQ3OlfRNMpV1Cf badGHr1vJQZbAuE KVGaeoWXBTeOxLk gu1tp0ukOw2Xkg5 KdKa0J90MTq7C5J LeEdPwW9j1LFKa8 59LLeCUIq6kBIki HhsAMggwl33bcy8 hlNaQLwskpC98fi Yhb4C0iqjFXx9uI NAj6QuM. END KEYBASE SALTPACK SIGNED MESSAGE.&#34;</span> | keybase verify
+</code></pre></div><h2 id="dbresetの弊害">db:resetの弊害</h2>
 <blockquote>
 <p>db:resetしたあとは、一定期間、接続されているインスタンスとのやり取りが不可能になるかもしれない。</p>
 </blockquote>
 <p>一旦、db:resetしてアカウントを作成し直すと通知などが以前接続していた先に届かなくなります。つまり、やり取りができなくなるということですが、これを回避する方法が分かりません。</p>
 <p>db:reset前の<code>generate_vapid_key</code>を保存しておいて、これを使用することでもしかしたらやり取りができるようになるかもしれません。(結論として無理でした)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
-</span></span><span style="display:flex;"><span>$ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
-</span></span></code></pre></div><p>その他、<code>SECRET_KEY_BASE</code>, <code>PAPERCLIP_SECRET</code>や<code>PROCESS_SCHEDULER_URL</code>, <code>OTP_SECRET</code>なるものがあります。これらを保存しておいて、作り直す際は、これらを使用することで、もしかしたら他インスタンスとの接続において以前の状態を復元できるかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku config:set VAPID_PUBLIC_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
+$ heroku config:set VAPID_PRIVATE_KEY<span style="color:#f92672">=</span>XXXXXXX -a $app
+</code></pre></div><p>その他、<code>SECRET_KEY_BASE</code>, <code>PAPERCLIP_SECRET</code>や<code>PROCESS_SCHEDULER_URL</code>, <code>OTP_SECRET</code>なるものがあります。これらを保存しておいて、作り直す際は、これらを使用することで、もしかしたら他インスタンスとの接続において以前の状態を復元できるかもしれません。</p>
 <p>ここで特に重要になりそうなのが<code>SECRET_KEY_BASE</code>, <code>PAPERCLIP_SECRET</code>, <code>OTP_SECRET</code> ,<code>VAPID_PRIVATE_KEY</code>, <code>VAPID_PUBLIC_KEY</code>です。</p>
 <p>実験として以下の様なことをやってみました</p>
 <ul>
@@ -1063,22 +1063,22 @@ libicu-dev
 <p>間を置いてやり取り可能になっているというのは、期限が切れたものを再取得する際に更新される情報が鍵なのかもしれません。つまり、dailyやsidekiqで期限切れを起こさない限り以前のインスタンス接続情報が有効になるので、新しく作った同じアドレスのアカウントではやり取りができないということです。一度期限切れを起こすことで、初めてやり取りが可能になるのかもしれません。あと、復活させるまでアドレスは完全にない状態で404でした。その辺も関係してくるのだろうか。</p>
 <p><a href="http://cryks.hateblo.jp/entry/2017/04/18/125351">http://cryks.hateblo.jp/entry/2017/04/18/125351</a></p>
 <h3 id="とりあえず実行したコマンド一覧">とりあえず実行したコマンド一覧</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>heroku run rake db:seed -a $app
-</span></span><span style="display:flex;"><span>heroku run rake assets:precompile -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:daily -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:media:remove_remote -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:media:remove_silenced -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:push:clear -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:feeds:clear_all -a $app
-</span></span><span style="display:flex;"><span>heroku run rake mastodon:feeds:build -a $app
-</span></span><span style="display:flex;"><span>heroku repo:purge_cache -a $app
-</span></span><span style="display:flex;"><span>heroku ps:restart -a $app
-</span></span></code></pre></div><h3 id="とりあえずsidekiqで色々と手動実行する">とりあえずsidekiqで色々と手動実行する</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 管理 -&gt; sidekiq</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku run rake mastodon:push:refresh -a $app</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># スケジュールに設定されている項目を手動実行してみます</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">heroku run rake db:migrate -a $app
+heroku run rake db:seed -a $app
+heroku run rake assets:precompile -a $app
+heroku run rake mastodon:daily -a $app
+heroku run rake mastodon:media:remove_remote -a $app
+heroku run rake mastodon:media:remove_silenced -a $app
+heroku run rake mastodon:push:clear -a $app
+heroku run rake mastodon:feeds:clear_all -a $app
+heroku run rake mastodon:feeds:build -a $app
+heroku repo:purge_cache -a $app
+heroku ps:restart -a $app
+</code></pre></div><h3 id="とりあえずsidekiqで色々と手動実行する">とりあえずsidekiqで色々と手動実行する</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 管理 -&gt; sidekiq</span>
+<span style="color:#75715e"># heroku run rake mastodon:push:refresh -a $app</span>
+<span style="color:#75715e"># スケジュールに設定されている項目を手動実行してみます</span>
+</code></pre></div><ul>
 <li>
 <p>メインの方で当該インスタンスアカウントを完全に停止させるとメインの方のフォロワー欄から削除されました。それまではフォロワー欄から消えることはなく、残り続けていました。</p>
 </li>
@@ -1090,15 +1090,15 @@ libicu-dev
 </li>
 </ul>
 <h3 id="cannot-run-more-than-1-free-size-dynos">Cannot run more than 1 Free size dynos.</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span><span style="display:flex;"><span>Cannot run more than <span style="color:#ae81ff">1</span> Free size dynos. 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ git status
-</span></span><span style="display:flex;"><span>$ heroku ps
-</span></span><span style="display:flex;"><span>$ heroku ps:stop run.3333
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ heroku run rake db:migrate -a $app
-</span></span></code></pre></div><h2 id="参考">参考</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku run rake db:migrate -a $app
+Cannot run more than <span style="color:#ae81ff">1</span> Free size dynos. 
+
+$ git status
+$ heroku ps
+$ heroku ps:stop run.3333
+
+$ heroku run rake db:migrate -a $app
+</code></pre></div><h2 id="参考">参考</h2>
 <p><a href="https://github.com/zunda/mastodon/wiki">https://github.com/zunda/mastodon/wiki</a></p>
 
 		

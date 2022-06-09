@@ -115,12 +115,12 @@
 <p>まず、<code>branch:gh-pages</code>で実行する場合、そのままいけましたが、titleにスペースを入れるとなぜか失敗してた記憶があります。が、今は問題なさそうな感じでした。</p>
 <p>次に、<code>branch:master</code>で実行する場合、これはgithub側の問題ですが、githubが自動で実行するjekyll-deployなどが成功するも、なぜかページが上手く表示されないという現象が起こりました。index.htmlには全く問題がありませんし、ステータスはokになってるのですが、なぜ。</p>
 <p>なので、こんな感じのコマンドを実行し、jekyll-buildを停止。あと一応、CNAMEの問題かもしれないので置きました(自前でpushした場合は無くてもいけてた気がするけど)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           hugo --gc --minify --cleanDestinationDir
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           touch ./public/.nojekyll
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp ./CNAME ./public/</span>           
-</span></span></code></pre></div><p>これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">           hugo --gc --minify --cleanDestinationDir
+</span><span style="color:#e6db74">           touch ./public/.nojekyll
+</span><span style="color:#e6db74">           cp ./CNAME ./public/</span>           
+</code></pre></div><p>これでいけたのでよかった。ホームページはわかりやすさを重視して、文章を削りシンプルにしました。</p>
 
 		
 

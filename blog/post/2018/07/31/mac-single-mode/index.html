@@ -112,17 +112,17 @@
 		<p>macは<code>Cmd+S</code>を押しながら起動するとシングルモードで起動します。</p>
 <p>ここでは、diskの<code>/</code>などをmountしてpasswordなどをresetできたり、復旧に必要な環境を実行できたりします。</p>
 <p>まずはpasswordをresetする方法です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mount -uw /
-</span></span><span style="display:flex;"><span>$ launchctl load /System/Library/LaunchDaemons/com.apple.DirectoryServices.plist
-</span></span><span style="display:flex;"><span>$ dscl . -passwd /Users/username newpassword
-</span></span></code></pre></div><p>(現在もこれが有効なのか知りませんが、昔は有効でした)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount -uw /
+$ launchctl load /System/Library/LaunchDaemons/com.apple.DirectoryServices.plist
+$ dscl . -passwd /Users/username newpassword
+</code></pre></div><p>(現在もこれが有効なのか知りませんが、昔は有効でした)</p>
 <p>次に、シングルモードから復旧に必要な環境を立ち上げる方法です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mount -uw /
-</span></span><span style="display:flex;"><span>$ launchctl load -w /System/Library/LaunchDaemons/*.plist
-</span></span></code></pre></div><p><code>/System/Library/LaunchDaemons</code>は起動に必要な設定が入っています。なので、それをloadすることで普段使ってるユーザーのGUIがそのまま立ち上がるというわけです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mount -uw /
+$ launchctl load -w /System/Library/LaunchDaemons/*.plist
+</code></pre></div><p><code>/System/Library/LaunchDaemons</code>は起動に必要な設定が入っています。なので、それをloadすることで普段使ってるユーザーのGUIがそのまま立ち上がるというわけです。</p>
 <p>ここで、もし通常ユーザーの起動に必要なplistを間違ってunloadしてしまい起動できなくなってしまっている場合などは、そのGUIから端末を起動し<code>$ sudo launchctl load -w /path/to/foo.plist</code>などをやるといいですね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo launchctl list
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo launchctl list
+</code></pre></div>
 		
 
 

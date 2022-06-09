@@ -111,12 +111,12 @@
 
 		<p>slackでmessageのdeleteは面倒なのでAPI Tokenを使って処理します。</p>
 <p>例えば、botのmessageを一括削除する場合は以下。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl start docker
-</span></span><span style="display:flex;"><span>$ sudo docker pull kfei/slack-cleaner
-</span></span><span style="display:flex;"><span>$ sudo docker run -it kfei/slack-cleaner
-</span></span><span style="display:flex;"><span>$ slack-cleaner --token &lt;TOKEN&gt; --message --channel general --bot
-</span></span><span style="display:flex;"><span>$ slack-cleaner --token &lt;TOKEN&gt; --message --channel general --bot --perform
-</span></span></code></pre></div><p>Ref :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl start docker
+$ sudo docker pull kfei/slack-cleaner
+$ sudo docker run -it kfei/slack-cleaner
+$ slack-cleaner --token &lt;TOKEN&gt; --message --channel general --bot
+$ slack-cleaner --token &lt;TOKEN&gt; --message --channel general --bot --perform
+</code></pre></div><p>Ref :</p>
 <p><a href="https://api.slack.com/custom-integrations/legacy-tokens">https://api.slack.com/custom-integrations/legacy-tokens</a></p>
 <p><a href="https://github.com/kfei/slack-cleaner">https://github.com/kfei/slack-cleaner</a></p>
 <p>というか、何故か削除できないやつがかなりあるんですが。自分で作るしかないのか&hellip;。</p>

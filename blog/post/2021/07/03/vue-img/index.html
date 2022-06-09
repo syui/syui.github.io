@@ -110,158 +110,158 @@
 		<h2>お絵かきの枚数が増えてきたので自動表示してみた</h2>
 
 		<p>今まで新しい絵を追加するたびに、手動でhtmlを書き換えてたんですが、面倒だなあと思いつつ、しかし、載せるタイミングは操作できるので別にいいかと思っていたのですが、流石に枚数が増えてきたので自動化しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chara&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">a</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of cid&#34; :key=&#34;n&#34; :href=&#34;&#39;/img/c_&#39;+ ( &#39;00&#39; + index ).slice( -2 ) +&#39;.png&#39;&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/img/c_&#39;+ ( &#39;00&#39; + index ).slice( -2 ) +&#39;.png&#39;&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>			&lt;/<span style="color:#f92672">a</span>&gt;
-</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_IMGNUMBERC</span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">data</span> () {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">cid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">c</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
-</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">css</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">extract</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>pngは<code>static/img/c_0x.png</code>に置くと仮定して、自動化にはgh-actionsなどを活用してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ln -s ./static ./src/public
-</span></span><span style="display:flex;"><span>$ echo VUE_APP_IMGNUMBERC<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/c_*.png|wc -l<span style="color:#e6db74">`</span> &gt;&gt; .env
-</span></span><span style="display:flex;"><span>$ yarn add vue
-</span></span><span style="display:flex;"><span>$ yarn serve
-</span></span><span style="display:flex;"><span>$ yarn build
-</span></span></code></pre></div><p>hugoに対応させるため、以下のファイルを用意します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p static/img
-</span></span><span style="display:flex;"><span>$ cp -r src/dist/*.js static/img/ 
-</span></span><span style="display:flex;"><span>$ cp -r src/dist/*.map static/img/
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:content/img.md" data-lang="html:content/img.md"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>type: img
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><p>なお、cssを追加したい場合、App.vueの<code>&lt;style&gt;</code>に追加してbuild後に<code>src/dist/*.css</code>をhugoのdir、ここでは<code>static/img</code>ですが、そこにcpします。読み込む必要があるのでapp.jsを読み込むところに追記すればいいでしょう。</p>
-<pre tabindex="0"><code>&lt;link rel=&#34;stylesheet&#34; href=&#34;/img/app.css&#34; /&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chara&#34;</span>&gt;
+		&lt;<span style="color:#f92672">p</span>&gt;
+			&lt;<span style="color:#f92672">a</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of cid&#34; :key=&#34;n&#34; :href=&#34;&#39;/img/c_&#39;+ ( &#39;00&#39; + index ).slice( -2 ) +&#39;.png&#39;&#34;</span>&gt;
+				&lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/img/c_&#39;+ ( &#39;00&#39; + index ).slice( -2 ) +&#39;.png&#39;&#34;</span> /&gt;
+			&lt;/<span style="color:#f92672">a</span>&gt;
+		&lt;/<span style="color:#f92672">p</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> Number(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_IMGNUMBERC</span>);
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+	<span style="color:#a6e22e">data</span> () {
+		<span style="color:#66d9ef">return</span> {
+			<span style="color:#a6e22e">cid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">c</span>
+		}
+	}
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.js" data-lang="js:src/main.js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>
+
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
+}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:vue.config.js" data-lang="js:vue.config.js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>,
+      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].js&#39;</span>
+    }
+  },
+  <span style="color:#a6e22e">css</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">extract</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>,
+      <span style="color:#a6e22e">chunkFilename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[name].css&#39;</span>
+    },
+  },
+}
+</code></pre></div><p>pngは<code>static/img/c_0x.png</code>に置くと仮定して、自動化にはgh-actionsなどを活用してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ln -s ./static ./src/public
+$ echo VUE_APP_IMGNUMBERC<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ls ./static/img/c_*.png|wc -l<span style="color:#e6db74">`</span> &gt;&gt; .env
+$ yarn add vue
+$ yarn serve
+$ yarn build
+</code></pre></div><p>hugoに対応させるため、以下のファイルを用意します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p static/img
+$ cp -r src/dist/*.js static/img/ 
+$ cp -r src/dist/*.map static/img/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:content/img.md" data-lang="html:content/img.md">---
+type: img
+---
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/chunk-vendors.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.js</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>なお、cssを追加したい場合、App.vueの<code>&lt;style&gt;</code>に追加してbuild後に<code>src/dist/*.css</code>をhugoのdir、ここでは<code>static/img</code>ですが、そこにcpします。読み込む必要があるのでapp.jsを読み込むところに追記すればいいでしょう。</p>
+<pre tabindex="0"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/img/app.css&quot; /&gt;
 </code></pre><p>最後に、<code>content/</code>で指定した場所に<code>single.html</code>を用意します。なお、contentに書かず、こちらに直接書いたり、<code>partial</code>に置いて読み込んでもいいです。ただ、私の場合、なにか追加で載せたいことがあるので、こちらのほうがわかりやすいと思いました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html"><span style="display:flex;"><span>{{ partial &#34;head.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{ partial &#34;navbar.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
-</span></span><span style="display:flex;"><span>		{{ .Content }}
-</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>		{{ partial &#34;footer.html&#34; . }}
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ hugo serve
-</span></span><span style="display:flex;"><span>$ hugo
-</span></span></code></pre></div><p>仮にhugoで厳格にやるとしたら、以下のほうがいいですね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html"><span style="display:flex;"><span>{{ partial &#34;head.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{ partial &#34;navbar.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{ partial &#34;vue-img.html&#34; . }}
-</span></span><span style="display:flex;"><span>		{{ .Content }}
-</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>		{{ partial &#34;footer.html&#34; . }}
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:layout/partials/vue-img.html" data-lang="html:layout/partials/vue-img.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/chunk-vendors.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:content/img.md" data-lang="html:content/img.md"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>type: img
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>![](/img/特別読み込みたい.png)
-</span></span></code></pre></div><p>gh-actionsは、以下のようにします。なお、envはgitignoreしてもいいですが、clone後に色々と面倒なのでpushして<code>touch &amp;&amp; rm</code>します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">github pages</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">src</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build-deploy</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-18.04</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-node@v1</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">node-version</span>: <span style="color:#ae81ff">12</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ref</span>: <span style="color:#ae81ff">src</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">run</span>: <span style="color:#ae81ff">yarn install</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">hugo-version</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># extended: true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>: 
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">TZ</span>: <span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           touch .env
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           rm -r .env
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           echo VUE_APP_IMGNUMBERC=`ls ./static/img/c_*.png|wc -l` &gt;&gt; .env
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           yarn build
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/img
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/img
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           hugo</span>           
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">master</span>
-</span></span></code></pre></div><p><code>.gitignore</code>も一応。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>src/node_modules
-</span></span><span style="display:flex;"><span>src/dist
-</span></span><span style="display:flex;"><span>public
-</span></span></code></pre></div><p>vueのindentは<a href="https://github.com/leafOfTree/vim-vue-plugin">leafOfTree/vim-vue-plugin</a>が便利。</p>
-<pre tabindex="0"><code class="language-vim:" data-lang="vim:">Plug &#39;leafOfTree/vim-vue-plugin&#39;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html">{{ partial &#34;head.html&#34; . }}
+{{ partial &#34;navbar.html&#34; . }}
+{{ partial &#34;header.html&#34; . }}
+		{{ .Content }}
+		&lt;/<span style="color:#f92672">div</span>&gt;
+		{{ partial &#34;footer.html&#34; . }}
+	&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ hugo serve
+$ hugo
+</code></pre></div><p>仮にhugoで厳格にやるとしたら、以下のほうがいいですね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/img/single.html" data-lang="html:layout/img/single.html">{{ partial &#34;head.html&#34; . }}
+{{ partial &#34;navbar.html&#34; . }}
+{{ partial &#34;header.html&#34; . }}
+{{ partial &#34;vue-img.html&#34; . }}
+		{{ .Content }}
+		&lt;/<span style="color:#f92672">div</span>&gt;
+		{{ partial &#34;footer.html&#34; . }}
+	&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:layout/partials/vue-img.html" data-lang="html:layout/partials/vue-img.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">app</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.css</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">style</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/app.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">/img/chunk-vendors.js</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">preload</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">script</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:content/img.md" data-lang="html:content/img.md">---
+type: img
+---
+
+![](/img/特別読み込みたい.png)
+</code></pre></div><p>gh-actionsは、以下のようにします。なお、envはgitignoreしてもいいですが、clone後に色々と面倒なのでpushして<code>touch &amp;&amp; rm</code>します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/gh-pages.yml" data-lang="yml:.github/workflows/gh-pages.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">github pages</span>
+
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+    - <span style="color:#ae81ff">src</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build-deploy</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-18.04</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@master</span>
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-node@v1</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">node-version</span>: <span style="color:#ae81ff">12</span>
+        <span style="color:#f92672">ref</span>: <span style="color:#ae81ff">src</span>
+        <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
+    - <span style="color:#f92672">run</span>: <span style="color:#ae81ff">yarn install</span>
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">hugo-version</span>:
+        <span style="color:#75715e"># extended: true</span>
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+      <span style="color:#f92672">env</span>: 
+        <span style="color:#f92672">TZ</span>: <span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">           touch .env
+</span><span style="color:#e6db74">           rm -r .env
+</span><span style="color:#e6db74">           echo VUE_APP_IMGNUMBERC=`ls ./static/img/c_*.png|wc -l` &gt;&gt; .env
+</span><span style="color:#e6db74">           yarn build
+</span><span style="color:#e6db74">           cp -rf ./dist/*.js ./static/img
+</span><span style="color:#e6db74">           cp -rf ./dist/*.map ./static/img
+</span><span style="color:#e6db74">           hugo</span>           
+
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+        <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
+        <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">master</span>
+</code></pre></div><p><code>.gitignore</code>も一応。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">src/node_modules
+src/dist
+public
+</code></pre></div><p>vueのindentは<a href="https://github.com/leafOfTree/vim-vue-plugin">leafOfTree/vim-vue-plugin</a>が便利。</p>
+<pre tabindex="0"><code class="language-vim:" data-lang="vim:">Plug 'leafOfTree/vim-vue-plugin'
 
 let g:vim_vue_plugin_config = { 
-      \&#39;syntax&#39;: {
-      \   &#39;template&#39;: [&#39;html&#39;],
-      \   &#39;script&#39;: [&#39;javascript&#39;],
-      \   &#39;style&#39;: [&#39;css&#39;],
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
       \},
-      \&#39;full_syntax&#39;: [],
-      \&#39;initial_indent&#39;: [],
-      \&#39;attribute&#39;: 0,
-      \&#39;keyword&#39;: 0,
-      \&#39;foldexpr&#39;: 0,
-      \&#39;debug&#39;: 0,
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
       \}
 </code></pre>
 		

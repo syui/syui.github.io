@@ -110,16 +110,16 @@
 		<h2>mastdon-heroku-build</h2>
 
 		<p>古くからHeroku DeployしているUserはheroku buildpackが入ってないので以下のErrorがでると思われ、それをDeployできるようにした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push heroku master
-</span></span><span style="display:flex;"><span>Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
-</span></span></code></pre></div><p><a href="https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt">https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
-</span></span><span style="display:flex;"><span>$ heroku run bash -a apt-pg-test
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git</span>
-</span></span><span style="display:flex;"><span>$ echo libpq-dev &gt;&gt; Aptfile
-</span></span><span style="display:flex;"><span>$ git add Aptfile
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add : aptfile libpq-dev&#34;</span>
-</span></span></code></pre></div><p>URL :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push heroku master
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+</code></pre></div><p><a href="https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt">https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku buildpacks:add --index <span style="color:#ae81ff">1</span> https://github.com/heroku/heroku-buildpack-apt
+$ heroku run bash -a apt-pg-test
+<span style="color:#75715e"># heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git</span>
+$ echo libpq-dev &gt;&gt; Aptfile
+$ git add Aptfile
+$ git commit -m <span style="color:#e6db74">&#34;add : aptfile libpq-dev&#34;</span>
+</code></pre></div><p>URL :</p>
 <p><a href="http://tooky.co.uk/using-charklock_holmes-on-heroku/">http://tooky.co.uk/using-charklock_holmes-on-heroku/</a></p>
 <p>なお、mastodon(master)はfileの場所がコロコロ変わるし継続してmergeする状況ではないため、custom(original)はやめることにした。</p>
 <p>現在の最新は<code>1.4.0</code>, 使用は<code>1.3.2</code>です。</p>

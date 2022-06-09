@@ -129,26 +129,26 @@
 <script src="https://asciinema.org/a/kcpfgCl3tN7QDkXUoSVxYyWSX.js" id="asciicast-kcpfgCl3tN7QDkXUoSVxYyWSX" async></script>
 <p>基本的には、<code>~/scoop/shims/</code>にシンボリックリンクかな、それが置かれてます。実体は<code>~/scoop/apps/$APP_NAME/current/bin/$APP_NAME.exe</code>とかにある感じかな。</p>
 <p>なので、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ scoop install curl
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ cd ~/scoop/apps/curl/current/bin
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ./curl.exe github.com
-</span></span></code></pre></div><p>とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install curl
+
+$ cd ~/scoop/apps/curl/current/bin
+
+$ ./curl.exe github.com
+</code></pre></div><p>とかしても実行できる感じですね。まあ、appごとに構成は変わってきますが。</p>
 <p>もし仮にデフォルトのbucketにpackageが見つからなければ、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ scoop bucket add extras
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ scoop install mpv
-</span></span></code></pre></div><p>とかやって追加してくと、扱えるpackageが増えます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop bucket add extras
+
+$ scoop install mpv
+</code></pre></div><p>とかやって追加してくと、扱えるpackageが増えます。</p>
 <p>そんな感じで、<code>scoop</code>の紹介終わります。</p>
 <p>windowsは最高です!</p>
 <h2 id="動画">動画</h2>
 <p>ちなみに、gifっぽいterminal movieは久しぶりに<code>$ asciinema rec</code>とか使ってみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ asciinema rec
-</span></span><span style="display:flex;"><span>C-c
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ asciinema upload /path/to/xxx
-</span></span></code></pre></div><p>みたいな感じでやれば、webにuploadされるんで、urlにアクセスすればいいです。その前にaccountを取っておく必要がありますが。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ asciinema rec
+C-c
+
+$ asciinema upload /path/to/xxx
+</code></pre></div><p>みたいな感じでやれば、webにuploadされるんで、urlにアクセスすればいいです。その前にaccountを取っておく必要がありますが。</p>
 
 		
 
