@@ -161,7 +161,13 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./postgres:/var/lib/postgresql/data</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker-compose up
-</span></span><span style="display:flex;"><span>$ chromium localhost:3000/install
+</span></span></code></pre></div><p>失敗するときは、dockerのpsやimageを削除します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo docker ps -aq
+</span></span><span style="display:flex;"><span>$ sudo docker images -aq
+</span></span><span style="display:flex;"><span>$ sudo docker stop <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>$ sudo docker rm -f <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>$ sudo docker rmi -f <span style="color:#e6db74">`</span>sudo docker images -aq<span style="color:#e6db74">`</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chromium localhost:3000/install
 </span></span></code></pre></div><p>webでぽちぽちやると以下のファイルが生成されます。重要な設定部分を載せています。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:gitea/gitea/conf/app.ini" data-lang="yml:gitea/gitea/conf/app.ini"><span style="display:flex;"><span><span style="color:#66d9ef">[database]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
@@ -190,9 +196,9 @@
 </span></span><span style="display:flex;"><span>$ git push -u heroku main
 </span></span></code></pre></div><h3 id="heroku-user-port">heroku $USER, $PORT</h3>
 <p>herokuの場合、毎日web-serverのストレージがリセットされる際に$USER, $PORTが変わるので、それに対応しなければなりません。</p>
+<p>リセットされる都度、以下のような処理をどこかに入れて、<code>gitea web</code>するしかありません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo RUN_USER<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>whoami<span style="color:#e6db74">`</span> &gt;&gt; /data/gitea/conf/app.ini
-</span></span></code></pre></div><p>リセットされる都度、上記のような処理をどこかに入れて、<code>gitea web</code>するしかありません。</p>
-<p>カスタマイズしたい方は、<code>./docker/root</code>以下のファイルが参考になります。</p>
+</span></span></code></pre></div><p>カスタマイズしたい方は、<code>./docker/root/</code>以下のファイルが参考になります。</p>
 <p><code>heroku.yml</code>のrunはDockerfileにCMDがある場合は実行されません。ですから、仮に<code>heroku.yml</code>を優先したい場合は、DockerfileのCMDを削除してrunを書きましょう。</p>
 <blockquote>
 <p>Dockerfile</p>
@@ -212,8 +218,12 @@
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
-</span></span></code></pre></div><p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
+</span></span></code></pre></div><p>herokuの$USERが難しいのは、Dockerfileがrootで実行されるので、heroku.ymlで制御する必要があるからです。ただし、heroku.ymlでは<code>/data/gitea/conf</code>に書き込む権限がありません。</p>
+<p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
 <h3 id="git-push">git push</h3>
+<p>herokuがストレージをリセットする関係上、webで作成したrepo、つまり、web serverに書き込まれた<code>/data/git</code>は後々削除されます。</p>
+<p>ですから、localでrepo、つまり、<code>/gitea/git</code>を生成して、それをheroku-repoにpushする必要があります。</p>
+<p>ただし、herokuでつかうapp.iniとdocker-localで使うapp.iniは異なります。立ち上げる際は動くように調整する必要があります。</p>
 <p>giteaを使う場合は、作成したrepoをcloneしてpushできます。</p>
 <p>init, remoteで作成した<code>.git</code>だとそのままではpushできません。cloneした<code>.git</code>を使ってください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone xxx/xxx.git
