@@ -118,7 +118,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/go-gitea/gitea
 </span></span><span style="display:flex;"><span>$ cd gitea
 </span></span><span style="display:flex;"><span>$ vim docker-compose.yml 
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">gitea</span>:
@@ -160,8 +160,22 @@
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">gitea</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./postgres:/var/lib/postgresql/data</span>
+</span></span></code></pre></div><p>最小構成はこんな感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gitea/gitea:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./gitea:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;10022:10022&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=Japan</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SSH_PORT=10022</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker-compose up
-</span></span></code></pre></div><p>失敗するときは、dockerのpsやimageを削除します。</p>
+</span></span></code></pre></div><p>起動しないときは、dockerのpsやimageを削除します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo docker ps -aq
 </span></span><span style="display:flex;"><span>$ sudo docker images -aq
 </span></span><span style="display:flex;"><span>$ sudo docker stop <span style="color:#e6db74">`</span>sudo docker ps -aq<span style="color:#e6db74">`</span>
@@ -221,14 +235,24 @@
 </span></span></code></pre></div><p>herokuの$USERが難しいのは、Dockerfileがrootで実行されるので、heroku.ymlで制御する必要があるからです。ただし、heroku.ymlでは<code>/data/gitea/conf</code>に書き込む権限がありません。</p>
 <p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
 <h3 id="git-push">git push</h3>
-<p>herokuがストレージをリセットする関係上、webで作成したrepo、つまり、web serverに書き込まれた<code>/data/git</code>は後々削除されます。</p>
-<p>ですから、localでrepo、つまり、<code>/gitea/git</code>を生成して、それをheroku-repoにpushする必要があります。</p>
+<p>herokuがストレージを<a href="https://devcenter.heroku.com/ja/articles/dynos#restarting">リセット</a>する関係上、webで作成したrepo、つまり、web serverに書き込まれる<code>/data/git</code>は後々削除されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku ps:restart
+</span></span></code></pre></div><p>ですから、localでrepo、つまり、<code>/gitea/git</code>を生成して、それをheroku-repoにpushする必要があります。</p>
 <p>ただし、herokuでつかうapp.iniとdocker-localで使うapp.iniは異なります。立ち上げる際は動くように調整する必要があります。</p>
 <p>giteaを使う場合は、作成したrepoをcloneしてpushできます。</p>
 <p>init, remoteで作成した<code>.git</code>だとそのままではpushできません。cloneした<code>.git</code>を使ってください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone xxx/xxx.git
 </span></span><span style="display:flex;"><span>$ cd xxx
 </span></span><span style="display:flex;"><span>$ tree .git
+</span></span></code></pre></div><p>また、localでrepoを作成、更新するのが面倒な場合は、<code>/data/gitea/git/repositories/$user</code>にrepoの<code>.git</code>を<code>$repo.git</code>として置く方法があります。これをheroku-deployしなければなりません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone xxx/$user/$repo.git 
+</span></span><span style="display:flex;"><span>$ mkdir -p gitea/git/repositories/$user
+</span></span><span style="display:flex;"><span>$ mv $repo/.git ./gitea/git/repositories/$user/$repo.git
+</span></span><span style="display:flex;"><span>$ rm -rf $repo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git add gitea/git
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add git-repo&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push heroku main
 </span></span></code></pre></div>
 		
 
