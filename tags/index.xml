@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>genshin</title>
+      <link>https://syui.cf/tags/genshin/</link>
+      <pubDate>Thu, 09 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/genshin/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>git</title>
       <link>https://syui.cf/tags/git/</link>
@@ -32,15 +41,6 @@
       <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/heroku/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>genshin</title>
-      <link>https://syui.cf/tags/genshin/</link>
-      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/genshin/</guid>
       <description></description>
     </item>
     
