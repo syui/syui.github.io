@@ -203,6 +203,15 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo &#34;RUN_USER=`whoami`&#34; &gt;&gt; /data/gitea/conf/app.ini;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">Dockerfile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">release</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">web</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
 </span></span></code></pre></div><p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
 <h3 id="git-push">git push</h3>
 <p>giteaを使う場合は、作成したrepoをcloneしてpushできます。</p>
