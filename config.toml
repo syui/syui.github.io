@@ -31,3 +31,4 @@ paginate = 10000
 [outputs]
   home = ["JSON", "HTML"]
 
+#pygmentsCodeFences = false
