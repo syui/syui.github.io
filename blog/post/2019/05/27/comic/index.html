@@ -29,10 +29,7 @@
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
-		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
 		<script src="/js/analytics.js"></script>
-
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -42,11 +39,11 @@
 			}
 		</script>
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="/js/highlight-prompt.js"></script>
-		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/axios/dist/axios.min.js"></script>
 		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
 		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="preload" href="/bower_components/highlightjs/styles/monokai.css" as="style" onload="this.rel='stylesheet'">
+		<script async src="/bower_components/highlightjs/highlight.pack.min.js" ></script>
 	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -180,7 +177,10 @@
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <footer id="footer">© syui</footer>
 
+		<script src="/js/highlight-prompt.js"></script>
+		
 	</body>
 </html>
