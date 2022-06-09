@@ -177,28 +177,33 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_KEEP_EMAIL_PRIVATE</span>        <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_ALLOW_CREATE_ORGANIZATION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DEFAULT_ENABLE_TIMETRACKING</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NO_REPLY_ADDRESS</span>                  <span style="color:#f92672">=</span> <span style="color:#e6db74">noreply.localhost</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku git:remote -a $appname
 </span></span><span style="display:flex;"><span>$ heroku pg:credentials:url
 </span></span><span style="display:flex;"><span>$ heroku stack:set container
 </span></span></code></pre></div><p>Dockerfileの<code>ENV USER git</code>を消してください。基本的にはこれだけで動きます。</p>
-<pre tabindex="0"><code>$ vim Dockerfile
-#ENV USER git
-COPY ./gitea/ /data/
-
-$ vim heroku.yml
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git add gitea Dockerfile heroku.yml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim Dockerfile
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ENV USER git</span>
+</span></span><span style="display:flex;"><span>COPY ./gitea/ /data/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git add gitea Dockerfile heroku.yml
 </span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#34;add conf&#34;</span>
 </span></span><span style="display:flex;"><span>$ git push -u heroku main
-</span></span></code></pre></div><p>herokuの場合、毎日web-serverのストレージがリセットされる際に$USER, $PORTが変わるので、それに対応しなければなりません。</p>
+</span></span></code></pre></div><h3 id="heroku-user-port">heroku $USER, $PORT</h3>
+<p>herokuの場合、毎日web-serverのストレージがリセットされる際に$USER, $PORTが変わるので、それに対応しなければなりません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo RUN_USER<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>whoami<span style="color:#e6db74">`</span> &gt;&gt; /data/gitea/conf/app.ini
 </span></span></code></pre></div><p>リセットされる都度、上記のような処理をどこかに入れて、<code>gitea web</code>するしかありません。</p>
 <p>カスタマイズしたい方は、<code>./docker/root</code>以下のファイルが参考になります。</p>
+<p><code>heroku.yml</code>のrunはDockerfileにCMDがある場合は実行されません。ですから、仮に<code>heroku.yml</code>を優先したい場合は、DockerfileのCMDを削除してrunを書きましょう。</p>
+<blockquote>
+<p>Dockerfile</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#CMD [&#34;/bin/s6-svscan&#34;, &#34;/etc/s6&#34;]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="display:flex;"><span><span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">docker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo &#34;RUN_USER=`whoami`&#34; &gt;&gt; /data/gitea/conf/app.ini;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</span></span></code></pre></div><p>ref : <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime">https://devcenter.heroku.com/articles/container-registry-and-runtime#dockerfile-commands-and-runtime</a></p>
 <h3 id="git-push">git push</h3>
 <p>giteaを使う場合は、作成したrepoをcloneしてpushできます。</p>
 <p>init, remoteで作成した<code>.git</code>だとそのままではpushできません。cloneした<code>.git</code>を使ってください。</p>
