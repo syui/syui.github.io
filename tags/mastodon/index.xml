@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodonが紫になった</title>
+      <link>https://syui.cf/blog/post/2022/06/11/mastodon/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/06/11/mastodon/</guid>
+      <description>mastodonのアイコンが紫になった。
+https://github.com/mastodon/mastodon/pull/18592
+グラデーションがついてて、上の方が若干明るくなってる感じ。
+mastodoとtwitterの青色(系統)が同じなのは、例えば、並べてアイコン載せるときとかに視認性がよくないと思っていて、今回の変更は個人的に嬉しい。</description>
+    </item>
+    
     <item>
       <title>mammutのexampleをまとめてみる</title>
       <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>

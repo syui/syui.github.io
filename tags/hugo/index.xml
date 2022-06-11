@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugoのhighlightjsがうまく動作していなかったので調べてみた結果</title>
+      <link>https://syui.cf/blog/post/2022/06/10/hugo/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/06/10/hugo/</guid>
+      <description>なぜかpreviewでは表示されるのに、webでは表示されないのに気づいて、調べてみたらhugo versionの問題だった。
+具体的には、hugo v0.8xまでhighlightjs v9.xのbash(prompt)は下記のコードに変換されてた。
+&amp;lt;spac class=&amp;#34;prompt&amp;#34;&amp;gt;$ &amp;lt;/span&amp;gt; この生成のおかげでpromotはcopy(web)から除外しやすかった。
+$ whoami これが便利だったんだけど、それがなくなって個人的には不便な生成になってた。
+verの固定は好きじゃないんだけど、便利にhighlightを使える方法を見つけるまで固定することにした。
+- name: hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 0.89.4 hugoもhighlight, markupがかなり使えるようになってるので、移行するのもあり。</description>
+    </item>
+    
     <item>
       <title>プレイしてるゲームをまとめた</title>
       <link>https://syui.cf/blog/post/2022/05/29/hugo/</link>

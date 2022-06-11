@@ -7,7 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 09 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodonが紫になった</title>
+      <link>https://syui.cf/blog/post/2022/06/11/mastodon/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/06/11/mastodon/</guid>
+      <description>mastodonのアイコンが紫になった。
+https://github.com/mastodon/mastodon/pull/18592
+グラデーションがついてて、上の方が若干明るくなってる感じ。
+mastodoとtwitterの青色(系統)が同じなのは、例えば、並べてアイコン載せるときとかに視認性がよくないと思っていて、今回の変更は個人的に嬉しい。</description>
+    </item>
+    
+    <item>
+      <title>hugoのhighlightjsがうまく動作していなかったので調べてみた結果</title>
+      <link>https://syui.cf/blog/post/2022/06/10/hugo/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/06/10/hugo/</guid>
+      <description>なぜかpreviewでは表示されるのに、webでは表示されないのに気づいて、調べてみたらhugo versionの問題だった。
+具体的には、hugo v0.8xまでhighlightjs v9.xのbash(prompt)は下記のコードに変換されてた。
+&amp;lt;spac class=&amp;#34;prompt&amp;#34;&amp;gt;$ &amp;lt;/span&amp;gt; この生成のおかげでpromotはcopy(web)から除外しやすかった。
+$ whoami これが便利だったんだけど、それがなくなって個人的には不便な生成になってた。
+verの固定は好きじゃないんだけど、便利にhighlightを使える方法を見つけるまで固定することにした。
+- name: hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 0.89.4 hugoもhighlight, markupがかなり使えるようになってるので、移行するのもあり。</description>
+    </item>
+    
     <item>
       <title>原神、今後の方針2</title>
       <link>https://syui.cf/blog/post/2022/06/09/genshin/</link>

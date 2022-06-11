@@ -163,7 +163,7 @@ ul.cp_list li > span.icon-moon {
 
 .footer-link > a > span.icon-ai {
 	font-size:25px;
-	color: #d9d200;		
+	color: #beb801;
 	margin:10px;
 }
 
@@ -248,7 +248,7 @@ ul.cp_list li i.fas.fa-bars {
 }
 
 .footer-link > a > i.fab.fa-mastodon {
-	color:#5e8fcd;
+	color:#945ecd;
 }
 
 .footer-link > a > i.fab.fa-git-alt {
