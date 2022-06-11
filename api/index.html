@@ -113,36 +113,17 @@
 <script src="/tarot-api/chunk-vendors.js"></script>
 <script src="/tarot-api/app.js"></script>
 <link href="/tarot-api/app.css" rel="stylesheet">
-<h3 id="card-api">card api</h3>
-<p>draw cards for cli.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># user create</span>
-<span style="color:#75715e"># username : [a-z] 7 characters, lower-case letter</span>
-$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;${USER}&#34;}&#39;</span> api.syui.cf/users
+<h3 id="apisyuicf">api.syui.cf</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># create</span>
+$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;syui&#34;}&#39;</span> api.syui.cf/users
 
-<span style="color:#75715e"># user info</span>
-$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>
+<span style="color:#75715e"># info</span>
+$ curl api.syui.cf/users/1
 
-<span style="color:#75715e"># card draw</span>
-$ curl -X PUT api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span>/d
-$ curl api.syui.cf/users/<span style="color:#f92672">{</span>id<span style="color:#f92672">}</span> | jq .
-</code></pre></div><ul>
-<li>
-<p>1日に引ける回数には制限があります</p>
-</li>
-<li>
-<p>アカウント作成時に引いたカードは基本的に変更できません</p>
-</li>
-<li>
-<p>最初のカードと同じものをを引くとlv+1</p>
-</li>
-<li>
-<p>毎日変わるカードは1/100くらいの確率でレアカードが出ます</p>
-</li>
-<li>
-<p>レアカードを引くとlv+5</p>
-</li>
-</ul>
-
+<span style="color:#75715e"># update</span>
+$ curl -X PUT api.syui.cf/users/1/d
+$ curl api.syui.cf/users/1 | jq .
+</code></pre></div>
 		
 
 
