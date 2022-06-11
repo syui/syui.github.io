@@ -3,7 +3,7 @@
 {{ $o := index (split $s "/") 1 }}
 {{ if eq $t "post" }}
 <body onload="highlight_prompt()">
-	{{ else if eq $t "api" }} 
+	{{ else if eq $o "api" }} 
 <body onload="highlight_prompt()">
 	{{ else }}
 	<body>
