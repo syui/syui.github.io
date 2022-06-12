@@ -4,7 +4,6 @@ date = "2022-02-27"
 +++
 
 ```sh
-# info
 $ curl api.syui.cf/users/1
 ```
 
