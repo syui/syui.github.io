@@ -166,6 +166,10 @@ ul.cp_list li > span.icon-moon {
 	color: #beb801;
 	margin:10px;
 }
+.footer-link > a > span.icon-api {
+	font-size:25px;
+	margin:10px;
+}
 
 ul.cp_list li::before {
 	vertical-align: middle;
