@@ -23,18 +23,6 @@ type: img
 ![/img/min/yui_11.webp](/img/min/yui_11.webp)
 ![/img/min/yui_15.webp](/img/min/yui_15.webp)
 
-### フィールド
-
-![/img/min/f_02.webp](/img/min/f_02.webp)
-![/img/min/f_04.webp](/img/min/f_04.webp)
-![/img/min/f_05.webp](/img/min/f_05.webp)
-![/img/min/f_06.webp](/img/min/f_06.webp)
-
-![/img/min/f_07.webp](/img/min/f_07.webp)
-![/img/min/f_08.webp](/img/min/f_08.webp)
-![/img/min/f_09.webp](/img/min/f_09.webp)
-![/img/min/f_13.webp](/img/min/f_13.webp)
-
 ### キャラクター
 
 ![/img/min/ai_01.webp](/img/min/ai_01.webp)

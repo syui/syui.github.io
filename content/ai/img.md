@@ -28,18 +28,6 @@ aliases = "illust"
 ![](/img/min/yui_112.webp)
 ![](/img/min/yui_113.webp)
 
-### フィールド
-
-![](/img/min/f_02.webp)
-![](/img/min/f_04.webp)
-![](/img/min/f_05.webp)
-![](/img/min/f_06.webp)
-
-![](/img/min/f_07.webp)
-![](/img/min/f_08.webp)
-![](/img/min/f_09.webp)
-![](/img/min/f_13.webp)
-
 ### キャラクター
 
 ![](/img/min/ai_01.webp)
