@@ -6,17 +6,16 @@
 			</Loading>
 			<button @click="picker" ><i class="far fa-play-circle"></i> START</button>
 			<p v-if="random === 1 && cName.gif === 'true'">
-				<img v-show="!loading" :src="cName.file + '.gif'" />   <img :src="cnt.file + '.webp'" />
+				<img v-show="!loading" :src="cName.file + '.gif'" /> 
 			</p>
 			<p v-else-if="cName.file">
-				<img v-show="!loading" :src="cName.file + '.webp'" />   <img :src="cnt.file + '.webp'" />
+				<img v-show="!loading" :src="cName.file + '.webp'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
 
 		<blockquote>
 			<p v-if="cName.p">{{ cName.p }}</p>
 			<p v-else><strong></strong></p>
-			<p>{{ cnt.p }}</p>
 		</blockquote>
 
 	</div>
