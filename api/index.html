@@ -108,14 +108,6 @@
 		<h2>api</h2>
 
 		<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl api.syui.cf/users/1
-</code></pre></div><link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
-<div id="app"></div>
-<script src="/tarot-api/chunk-vendors.js"></script>
-<script src="/tarot-api/app.js"></script>
-<link href="/tarot-api/app.css" rel="stylesheet">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># play(draw)</span>
-$ curl -X PUT api.syui.cf/users/1/d
-$ curl api.syui.cf/users/1 | jq .
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;id&#34;</span>: 1,
   <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;syui&#34;</span>,
@@ -133,6 +125,13 @@ $ curl api.syui.cf/users/1 | jq .
   <span style="color:#e6db74">&#34;next&#34;</span>: <span style="color:#e6db74">&#34;20220612&#34;</span>,
   <span style="color:#e6db74">&#34;updated_at&#34;</span>: <span style="color:#e6db74">&#34;2022-06-11T11:17:31Z&#34;</span>
 <span style="color:#f92672">}</span>
+</code></pre></div><link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
+<div id="app"></div>
+<script src="/tarot-api/chunk-vendors.js"></script>
+<script src="/tarot-api/app.js"></script>
+<link href="/tarot-api/app.css" rel="stylesheet">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># play(draw)</span>
+$ curl -X PUT api.syui.cf/users/1/d
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># create</span>
 <span style="color:#75715e"># 現在、新規登録を停止しています</span>
 $ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;user&#34;:&#34;syui&#34;}&#39;</span> api.syui.cf/users
@@ -144,6 +143,23 @@ $ curl -X DELETE api.syui.cf/users/1
 <span style="color:#75715e"># update</span>
 <span style="color:#75715e"># 現在、要素の書き換えを停止しています</span>
 $ curl -X PATCH -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;battle&#34;:2}&#39;</span> api.syui.cf/users/1 
+</code></pre></div><h3 id="hint">hint</h3>
+<blockquote>
+<p>最初に引いたキャラを対戦で強くしていくapi</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl api.syui.cf/users/1
+<span style="color:#f92672">{</span>
+	<span style="color:#e6db74">&#34;win&#34;</span>: 0,
+	<span style="color:#e6db74">&#34;comment&#34;</span>: <span style="color:#e6db74">&#34;loss&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>このapiには遊びの要素があります。登録したユーザーに1人のキャラがランダムで割り当てられます。初期のステータスはランダムで決まり、1日に数回(上限2)、対戦することができます。対戦相手は<code>battle</code>で指定できます。自身のステータスと対戦相手のステータス、運によって勝敗が決まります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -X PATCH -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;battle&#34;:2}&#39;</span> api.syui.cf/users/1 
+</code></pre></div><p>対戦に勝つとステータスが0-20の間でランダムに上昇します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl api.syui.cf/users/1
+<span style="color:#f92672">{</span>
+	<span style="color:#e6db74">&#34;win&#34;</span>: 1,
+	<span style="color:#e6db74">&#34;comment&#34;</span>: <span style="color:#e6db74">&#34;attach+12&#34;</span>
+<span style="color:#f92672">}</span>
 </code></pre></div>
 		
 
