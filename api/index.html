@@ -125,12 +125,7 @@
   <span style="color:#e6db74">&#34;next&#34;</span>: <span style="color:#e6db74">&#34;20220612&#34;</span>,
   <span style="color:#e6db74">&#34;updated_at&#34;</span>: <span style="color:#e6db74">&#34;2022-06-11T11:17:31Z&#34;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
-<div id="app"></div>
-<script src="/tarot-api/chunk-vendors.js"></script>
-<script src="/tarot-api/app.js"></script>
-<link href="/tarot-api/app.css" rel="stylesheet">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># play(draw)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># play(draw)</span>
 $ curl -X PUT api.syui.cf/users/1/d
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># create</span>
 <span style="color:#75715e"># 現在、新規登録を停止しています</span>
@@ -147,7 +142,11 @@ $ curl -X PATCH -H <span style="color:#e6db74">&#34;Content-Type: application/js
 <blockquote>
 <p>最初に引いたキャラを対戦で強くしていくapi</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl api.syui.cf/users/1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">// 対戦の開始
+$ curl -X PUT api.syui.cf/users/1/d
+
+// 結果の確認
+$ curl api.syui.cf/users/1
 <span style="color:#f92672">{</span>
 	<span style="color:#e6db74">&#34;win&#34;</span>: 0,
 	<span style="color:#e6db74">&#34;comment&#34;</span>: <span style="color:#e6db74">&#34;loss&#34;</span>
@@ -160,7 +159,14 @@ $ curl -X PATCH -H <span style="color:#e6db74">&#34;Content-Type: application/js
 	<span style="color:#e6db74">&#34;win&#34;</span>: 1,
 	<span style="color:#e6db74">&#34;comment&#34;</span>: <span style="color:#e6db74">&#34;attach+12&#34;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div>
+</code></pre></div><p><code>status</code>には引いた同キャラのレア度を表示します。低い確率でレアカード<code>super</code>を排出します。対戦を重ねると<code>normal</code>がまれに変化することがあるかもしれません。</p>
+<p>自分の手持ちを確認するためには、以下のフォームに入力してください。</p>
+<link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
+<div id="app"></div>
+<script src="/tarot-api/chunk-vendors.js"></script>
+<script src="/tarot-api/app.js"></script>
+<link href="/tarot-api/app.css" rel="stylesheet">
+
 		
 
 
