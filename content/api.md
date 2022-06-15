@@ -47,5 +47,5 @@ $ curl -X DELETE api.syui.cf/users/1
 
 # update
 # 現在、要素の書き換えを停止しています
-$ curl -X PATCH -H "Content-Type: application/json" -d '{"limit":"false"}' api.syui.cf/users/1
+$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.cf/users/1 
 ```
