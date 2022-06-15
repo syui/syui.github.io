@@ -24,12 +24,6 @@ $ curl api.syui.cf/users/1
 }
 ```
 
-<link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
-<div id="app"></div>
-<script src="/tarot-api/chunk-vendors.js"></script>
-<script src="/tarot-api/app.js"></script>
-<link href="/tarot-api/app.css" rel="stylesheet">
-
 ```sh
 # play(draw)
 $ curl -X PUT api.syui.cf/users/1/d
@@ -54,6 +48,10 @@ $ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.c
 > 最初に引いたキャラを対戦で強くしていくapi
 
 ```sh
+// 対戦の開始
+$ curl -X PUT api.syui.cf/users/1/d
+
+// 結果の確認
 $ curl api.syui.cf/users/1
 {
 	"win": 0,
@@ -76,3 +74,13 @@ $ curl api.syui.cf/users/1
 	"comment": "attach+12"
 }
 ```
+
+`status`には引いた同キャラのレア度を表示します。低い確率でレアカード`super`を排出します。対戦を重ねると`normal`がまれに変化することがあるかもしれません。
+
+自分の手持ちを確認するためには、以下のフォームに入力してください。
+
+<link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
+<div id="app"></div>
+<script src="/tarot-api/chunk-vendors.js"></script>
+<script src="/tarot-api/app.js"></script>
+<link href="/tarot-api/app.css" rel="stylesheet">
