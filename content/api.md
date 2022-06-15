@@ -65,7 +65,7 @@ $ curl api.syui.cf/users/1
 $ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.cf/users/1 
 ```
 
-対戦に勝つとステータスが0-20の間でランダムに上昇します。
+対戦に勝つとステータスが0-20の間でランダムに上昇します。より強い相手に勝つとより大きく上昇する可能性があります。しかし、負ける確率も高くなります。
 
 ```sh
 $ curl api.syui.cf/users/1
