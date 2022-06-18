@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-06-11T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pogo/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pokemon/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/06/18/pogo/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/mastodon/</loc>
     <lastmod>2022-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/06/11/mastodon/</loc>
-    <lastmod>2022-06-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-06-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/hugo/</loc>
@@ -62,9 +71,6 @@
     <loc>https://syui.cf/tags/pokemas/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2022/05/20/pokemas/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -100,9 +106,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/05/07/manga/</loc>
     <lastmod>2022-05-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/pogo/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/05/03/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3go%E3%83%A1%E3%82%AC%E3%82%B7%E3%83%B3%E3%82%AB%E3%81%8C%E6%A5%BD%E3%81%97%E3%81%84/</loc>
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
