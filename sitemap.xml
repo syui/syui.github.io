@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.cf/ai/</loc>
-  </url><url>
-    <loc>https://syui.cf/ai/novel/</loc>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/ai/novel/07/</loc>
-  </url><url>
     <loc>https://syui.cf/blog/</loc>
     <lastmod>2022-06-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,6 +9,9 @@
     <lastmod>2022-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/make/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
     <lastmod>2022-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
@@ -1293,6 +1287,10 @@
     <loc>https://syui.cf/blog/post/2020/06/06/game/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/06/03/pogo/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/</loc>
+  </url><url>
+    <loc>https://syui.cf/ai/novel/</loc>
   </url><url>
     <loc>https://syui.cf/ai/novel/06/</loc>
   </url><url>
