@@ -5,7 +5,7 @@
 			    <div class="outer">
 				<div id="blog-archives" class="category">
 				    <ul class="cp_list">
-					{{ range .Pages.Reverse }}
+					{{ range .Data.Pages.Reverse }}
 					<li>
 					    <a href="{{.Permalink}}">{{.Title}}</a>
 					</li>

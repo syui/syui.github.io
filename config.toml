@@ -9,7 +9,7 @@ paginate = 10000
     post = "/archive/note/:slug"
 				m = "/m/post/:slug"
     blog = "/blog/post/:year/:month/:day/:slug"
-    novel = "/novel/yui/:slug"
+    #novel = "/novel/yui/:slug"
     app = "/app/dev/:filename"
 
 [author]

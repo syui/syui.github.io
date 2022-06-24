@@ -1,12 +1,15 @@
-{{ partial "head-ai.html" . }}
+{{ partial "head-blog-ai.html" . }}
 {{ partial "navbar-ai.html" . }}
 {{ partial "header.html" . }}
-
-{{ .Content }}
+       			<article>
+       			 	<div class="content">
+				    <h2>{{ .Title }}</h2>
+       			 		{{ .Content }}
+       			 		{{ partial "prev_next_post.html" . }}
+       			 	</div>
+       			</article>
 		</div>
-
-{{ partial "sns-ai.html" . }}
-</div>
 		{{ partial "footer.html" . }}
-</body>
+	</body>
 </html>
+
