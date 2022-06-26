@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>カードを作ってみた2</title>
+      <link>https://syui.cf/blog/post/2022/06/26/card/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/06/26/card/</guid>
+      <description>今回は前回からの失敗を踏まえ、本物のトレーディングカードっぽくなった気がする。
+使ったもの   きらきらホログラムラベルシール
+  クリアホログラムシート
+  きらきらホログラムラベルシール(オーロラ)がめちゃくちゃ良かった。
+これにはガラスチップというタイプがあるんだけど、こっちは必要ありません。ただ、これを貼って剥がせばガラスチップのキラがついた。難しかったけど。
+基本的に白トランプや既存カードに印刷したシールを貼り付けて、カッターで切るという手順です。気泡が入りやすいので注意。
+形式も統一しました。サイズ調整が難しかったです。wordで68mmx92mmを指定して印刷しました。</description>
+    </item>
+    
     <item>
       <title>カードを作ってみた</title>
       <link>https://syui.cf/blog/post/2022/06/23/card/</link>
