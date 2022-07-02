@@ -1,0 +1,22 @@
+{{ partial "head-ai.html" . }}
+{{ partial "navbar-ai.html" . }}
+{{ partial "img.html" . }}
+{{ partial "header.html" . }}
+<article>
+ 	<div class="content">
+			<p>過去のイラスト</p>
+			{{ with .Resources.Match "*.webp" }}
+			<div class="Carousel__slide">
+				<p>
+				{{ range . }}
+				<a href="{{ .RelPermalink }}"><img src="{{ .RelPermalink }}"></a>
+				{{ end }}
+				</p>
+			</div>
+			{{ end }}
+		</div>
+</article>
+</div>
+{{ partial "footer.html" . }}
+</body>
+</html>

@@ -6,7 +6,7 @@ aliases = "illust"
 
 <link rel="stylesheet" href="/css/img.css" />
 
-<p class="img-fa-bars"><a href="/ai/img/all"><i class="fas fa-bars"></i></a></p>
+<p class="img-fa-bars"><a href="/ai/imgall"><i class="fas fa-bars"></i></a></p>
 
 ![](/img/min/yui_89.webp)
 ![](/img/min/yui_100.webp)
