@@ -5,11 +5,12 @@
 				<vue-loading type="barsCylon" color="#99892b" :size="{ width: '50px', height: '50px' }"></vue-loading>    
 			</Loading>
 			<button @click="picker" ><i class="far fa-play-circle"></i> START</button>
+				<h3 v-if="cName.h">{{ cName.h }}</h3>
 			<p v-if="random === 1 && cName.gif === 'true'">
-				<img v-show="!loading" :src="cName.file + '.gif'" /> 
+				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.gif'" /> 
 			</p>
-			<p v-else-if="cName.file">
-				<img v-show="!loading" :src="cName.file + '.webp'" />
+			<p v-else-if="cName.id">
+				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.png'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
 
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-//import items from '/static/json/tarot.json';
+//import items from '/static/json/card.json';
 import axios from 'axios'
 import { VueLoading } from 'vue-loading-template';
 export default {
@@ -33,13 +34,13 @@ export default {
 			cName: "",
 			cnt: "",
 			loading: false,
-			tarotz:"/ai/tarot/tarot_00.webp",
+			tarotz:"/ai/card/card_0.png",
 			random:null
 		}
 	},
 	mounted() {
 		axios
-			.get('/json/tarot.json')
+			.get('/json/card.json')
 			.then(response => (this.items = response.data))
 	},
 	components: {
