@@ -10,7 +10,7 @@
 				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.gif'" /> 
 			</p>
 			<p v-else-if="cName.id">
-				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.png'" />
+				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.webp'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
 

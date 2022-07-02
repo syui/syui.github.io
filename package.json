@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@squoosh/cli": "^0.7.2",
     "core-js": "^3.6.4",
     "hooper": "^0.3.4",
     "vue": "^2.6.11",
