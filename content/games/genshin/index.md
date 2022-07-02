@@ -51,8 +51,10 @@ header_image = "/games/genshin.jpg"
 |2022|02|螺旋を星32でクリア|風元素がいないので、次は風元素のキャラを狙う|
 |2022|04|`ウェンティ`, `綾華`を引く|狙っていた全元素キャラが揃う|
 |2022|05|螺旋を星36でクリア|無課金+初見+新規の人は参考に|
+|2022|06|螺旋を通しでクリア|一度もリセットすることなく連続で攻略|
 
-![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220503_0002.jpg)
+[![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)
+[![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0002.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0002.png)
 
 ### 引いておきたいキャラ
 
