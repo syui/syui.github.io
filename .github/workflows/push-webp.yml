@@ -1,12 +1,8 @@
 name: push webp
-
 on:
-  workflow_run:
-    workflows: 
-      - github pages
-    branches: src
-    types:
-      - "completed"
+  push:
+    tags:
+    - webp*
 
 jobs:
   comment:
