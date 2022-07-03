@@ -1,7 +1,7 @@
 +++
-title = "ai | tarot"
+title = "ai | card"
 slug = ""
-aliases = "tarot"
+aliases = ["tarot"]
 +++
 
 <link rel="stylesheet" href="/css/img.css" />
