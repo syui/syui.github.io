@@ -5,13 +5,22 @@
     <loc>https://syui.cf/blog/</loc>
     <lastmod>2022-07-03T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://syui.cf/tags/card/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/genshin/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/make/</loc>
     <lastmod>2022-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
     <lastmod>2022-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/07/03/card/</loc>
     <lastmod>2022-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/03/genshin/</loc>
@@ -28,12 +37,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/01/genshin/</loc>
     <lastmod>2022-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/card/</loc>
-    <lastmod>2022-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/make/</loc>
-    <lastmod>2022-06-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/06/30/card/</loc>
     <lastmod>2022-06-30T00:00:00+00:00</lastmod>
@@ -3858,6 +3861,8 @@
   </url><url>
     <loc>https://syui.cf/syui/</loc>
   </url><url>
+    <loc>https://syui.cf/ai/card/</loc>
+  </url><url>
     <loc>https://syui.cf/ai/game/chara/</loc>
   </url><url>
     <loc>https://syui.cf/ai/game/docs/</loc>
@@ -3875,8 +3880,6 @@
     <loc>https://syui.cf/ai/manga/</loc>
   </url><url>
     <loc>https://syui.cf/ai/manga/en/</loc>
-  </url><url>
-    <loc>https://syui.cf/ai/tarot/</loc>
   </url><url>
     <loc>https://syui.cf/archive/</loc>
   </url><url>

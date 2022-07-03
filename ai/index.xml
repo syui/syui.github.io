@@ -9,6 +9,15 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ai | card</title>
+      <link>https://syui.cf/ai/card/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/ai/card/</guid>
+      <description>   </description>
+    </item>
+    
+    <item>
       <title>ai | charactor</title>
       <link>https://syui.cf/ai/game/chara/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -163,15 +172,6 @@ DOWNLOAD
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/ai/manga/en/</guid>
-      <description>   </description>
-    </item>
-    
-    <item>
-      <title>ai | tarot</title>
-      <link>https://syui.cf/ai/tarot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/ai/tarot/</guid>
       <description>   </description>
     </item>
     
