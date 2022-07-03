@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>squooshが壊れてた件</title>
-      <link>https://syui.cf/blog/post/2022/07/02/squoosh/</link>
-      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/blog/post/2022/07/02/squoosh/</guid>
-      <description>node v17で使います。
-$ brew install nvm $ nvm install 17 $ nvm use 17 $ npm i -g @squoosh/cli </description>
-    </item>
-    
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>i3でおすすめのvnc clientであるremmina</title>
       <link>https://syui.cf/blog/post/2021/05/13/vnc/</link>

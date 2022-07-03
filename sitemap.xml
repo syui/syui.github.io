@@ -3,22 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/07/03/genshin/</loc>
+    <lastmod>2022-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/mac/</loc>
     <lastmod>2022-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/linux/</loc>
+    <loc>https://syui.cf/tags/node/</loc>
     <lastmod>2022-07-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/02/squoosh/</loc>
     <lastmod>2022-07-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
-    <lastmod>2022-07-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/01/genshin/</loc>
     <lastmod>2022-07-01T00:00:00+00:00</lastmod>
@@ -782,6 +788,9 @@
     <loc>https://syui.cf/blog/post/2021/05/13/vnc/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://syui.cf/tags/linux/</loc>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/vnc/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
@@ -961,9 +970,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/01/20/illust/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/mac/</loc>
-    <lastmod>2021-01-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/01/19/shell/</loc>
     <lastmod>2021-01-19T00:00:00+00:00</lastmod>
