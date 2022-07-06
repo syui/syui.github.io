@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 03 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/card/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/card/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>カードを作ってみた5</title>
+      <link>https://syui.cf/blog/post/2022/07/06/card/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/07/06/card/</guid>
+      <description>カードに秘密鍵を刻印して認証する仕組みを作ってみました。
+$ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out public.pem $ openssl rsa -text -pubin &amp;lt; public.pem $ openssl rsa -text &amp;lt; private.pem modulus INTEGER, -- n = p*q publicExponent INTEGER, -- e = 65537 (=0x10001) privateExponent INTEGER, -- d == e^(-1) mod (p-1)*(q-1) prime1 INTEGER, -- p prime2 INTEGER, -- q exponent1 INTEGER, -- d mod (p-1) exponent2 INTEGER, -- d mod (q-1) coefficient INTEGER, -- q^(-1) mod p ### gh-actions openssl rsa -in pull-private.</description>
+    </item>
+    
     <item>
       <title>カードを作ってみた4</title>
       <link>https://syui.cf/blog/post/2022/07/03/card/</link>

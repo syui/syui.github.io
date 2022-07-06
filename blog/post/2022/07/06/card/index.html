@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.89.4" />
-		<title>syui.cf</title>
+		<title>カードを作ってみた5 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="カードを作ってみた5" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,13 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src="/js/analytics.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,8 +38,14 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-<link rel="alternate" type="application/json" href="https://syui.cf/index.json" title="syui.cf" />
-</head>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/axios/dist/axios.min.js"></script>
+		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css">
+		<script src="/bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -75,12 +69,12 @@
 
 
 
-	<body>
-		
+<body onload="highlight_prompt()">
+	
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -104,117 +98,76 @@
 </g>
 </svg>
  </a> </div>
+
 				
 			</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a href="https://mstdn.syui.cf/@syui" target="_blank"><i class="fab fa-mastodon"></i></a>
-		<a href="https://api.syui.cf/users/1"><span class="icon-api"></span></a>
-		<a href="https://git.syui.cf/syui" target="_blank"><i class="fab fa-git-alt"></i></a>
-		<a href="/ai"><span class="icon-ai"></span></a>
-		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2022-07-06 / <a href="/syui">@syui</a></div>
+		<h2>カードを作ってみた5</h2>
+
+		<p>カードに秘密鍵を刻印して認証する仕組みを作ってみました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -out private.pem <span style="color:#ae81ff">31</span>
+$ openssl rsa -in private.pem -pubout -out public.pem
+$ openssl rsa -text -pubin &lt; public.pem
+$ openssl rsa -text &lt; private.pem
+	modulus           INTEGER,  -- n <span style="color:#f92672">=</span> p*q
+	publicExponent    INTEGER,  -- e <span style="color:#f92672">=</span> <span style="color:#ae81ff">65537</span> <span style="color:#f92672">(=</span>0x10001<span style="color:#f92672">)</span>
+	privateExponent   INTEGER,  -- d <span style="color:#f92672">==</span> e^<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span> mod <span style="color:#f92672">(</span>p-1<span style="color:#f92672">)</span>*<span style="color:#f92672">(</span>q-1<span style="color:#f92672">)</span>
+	prime1            INTEGER,  -- p
+	prime2            INTEGER,  -- q
+	exponent1         INTEGER,  -- d mod <span style="color:#f92672">(</span>p-1<span style="color:#f92672">)</span>
+	exponent2         INTEGER,  -- d mod <span style="color:#f92672">(</span>q-1<span style="color:#f92672">)</span>
+	coefficient       INTEGER,  -- q^<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span> mod p
+
+<span style="color:#75715e">### gh-actions</span>
+openssl rsa -in pull-private.pem -pubout -out pull-public.pem
+a<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>openssl md5 public.pem|cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 2<span style="color:#e6db74">`</span>
+b<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>openssl md5 pull-public.pem|cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 2<span style="color:#e6db74">`</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$a<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$b<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+	echo verify
+<span style="color:#66d9ef">else</span>
+	exit
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><p>いろんな問題はあるけど、簡易版はこんな感じになりました。</p>
+<p>例えば、一つのカードにつき秘密鍵を一つだけ発行することにして、その所有者が秘密鍵をpull-reqすると認証できるようにします。</p>
+<p>送られた秘密鍵から公開鍵を作り、アップロードされている公開鍵に一致すれば、jsonのowner要素にpull-req(username)を入れて更新する仕組み。</p>
+<p>問題の一つとしては、鍵長をカードに刻印できるほど短くしてしまうと、総当たり攻撃で簡単に突破されてしまいます。</p>
+<p>2つ目の問題として、公開鍵のmd5で一致するか見ていますが、本来は個々の処理を計算に置き換えるべきでしょう。</p>
+<p>rsaは、例えば<code>prime1 x prime2 = modules</code>になります。秘密鍵に記述された数値を計算していくと、公開鍵に記述された数値になることをもってペアであるか判断します。具体的な計算式は上記に載せています。</p>
+<p>私は処理書くのも面倒なので、送られてきた秘密鍵をもとに公開鍵を作り、それが一致するか見るだけにしています。</p>
+<p>ここまで鍵長が短いと署名もできませんので、カードに見栄え良く刻印できる文字列のみで完璧な認証を作るのは難しいのかもしれません。</p>
+<p>ref : <a href="https://inaz2.hatenablog.com/entry/2013/11/27/225953">https://inaz2.hatenablog.com/entry/2013/11/27/225953</a></p>
+
+		
 
 
-<div class="content-top">
+<nav id="article-nav">
+	
 
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2022-07-06<p><a id="fmove" href="https://syui.cf/blog/post/2022/07/06/card/" class="lmove">カードを作ってみた5</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-07-05<p><a href="https://syui.cf/blog/post/2022/07/05/genshin/" class="lmove">原神、各国実装と同時の星5キャラは引いたほうがいい?</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-07-03<p><a href="https://syui.cf/blog/post/2022/07/03/genshin/" class="lmove">原神、武器がやばい</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-07-03<p><a href="https://syui.cf/blog/post/2022/07/03/card/" class="lmove">カードを作ってみた4</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-07-02<p><a href="https://syui.cf/blog/post/2022/07/02/squoosh/" class="lmove">squooshが壊れてた件</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-07-01<p><a href="https://syui.cf/blog/post/2022/07/01/genshin/" class="lmove">原神、通しで螺旋攻略</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2022-06-30<p><a href="https://syui.cf/blog/post/2022/06/30/card/" class="lmove">カードを作ってみた3</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-		</ul>
-	</div>
-</div>
+    
+</nav>
 
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
 
+
+		
+		
+		<strong>tags:</strong>
+		<a href="https://syui.cf/tags/make/">make</a>, <a href="https://syui.cf/tags/card/">card</a>
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
-
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
 
-
+		<script src="/js/highlight-prompt.js"></script>
 	</body>
 </html>
