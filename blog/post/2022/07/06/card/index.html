@@ -124,7 +124,7 @@ $ openssl rsa -text &lt; private.pem
 	coefficient       INTEGER,  -- q^<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span> mod p
 
 <span style="color:#75715e">### gh-actions</span>
-openssl rsa -in pull-private.pem -pubout -out pull-public.pem
+$ openssl rsa -in pull-private.pem -pubout -out pull-public.pem
 a<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>openssl md5 public.pem|cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 2<span style="color:#e6db74">`</span>
 b<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>openssl md5 pull-public.pem|cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 2<span style="color:#e6db74">`</span>
 
@@ -135,7 +135,7 @@ b<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>openssl
 <span style="color:#66d9ef">fi</span>
 </code></pre></div><p>いろんな問題はあるけど、簡易版はこんな感じになりました。</p>
 <p>例えば、一つのカードにつき秘密鍵を一つだけ発行することにして、その所有者が秘密鍵をpull-reqすると認証できるようにします。</p>
-<p>送られた秘密鍵から公開鍵を作り、アップロードされている公開鍵に一致すれば、jsonのowner要素にpull-req(username)を入れて更新する仕組み。</p>
+<p>送られた秘密鍵から公開鍵を作り、アップロードされている公開鍵に一致すれば、jsonのowner要素にpull-reqのusernameを入れて更新する仕組み。</p>
 <p>問題の一つとしては、鍵長をカードに刻印できるほど短くしてしまうと、総当たり攻撃で簡単に突破されてしまいます。</p>
 <p>2つ目の問題として、公開鍵のmd5で一致するか見ていますが、本来は個々の処理を計算に置き換えるべきでしょう。</p>
 <p>rsaは、例えば<code>prime1 x prime2 = modulus</code>になります。秘密鍵に記述された数値を計算していくと、公開鍵に記述された数値になることをもってペアであるか判断します。具体的な計算式は上記に載せています。</p>
