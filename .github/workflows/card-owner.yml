@@ -32,7 +32,7 @@ jobs:
         echo verify
         cat static/json/card.json
         cat static/json/card.json|jq ".[]|select(.id == $i)+ {\"owner\": \"${{ github.event.pull_request.user.login }}\"}" >> static/json/a
-        jq -s 'flatten | group_by(.id) | map(reduce .[] as $x ({}; . * $x))' a static/json/card.json >> static/json/b
+        jq -s 'flatten | group_by(.id) | map(reduce .[] as $x ({}; . * $x))' static/json/a static/json/card.json >> static/json/b
         if cat static/json/b|jq . ;then
         mv static/json/b static/json/card.json 
         git add static/json/card.json
