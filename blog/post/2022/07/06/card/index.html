@@ -110,7 +110,6 @@
 
 		<p>カードに秘密鍵を刻印して認証する仕組みを作ってみました。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/ai_card_0004.jpg" alt=""></p>
-<p>c</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -out private.pem <span style="color:#ae81ff">31</span>
 $ openssl rsa -in private.pem -pubout -out public.pem
 $ openssl rsa -text -pubin &lt; public.pem
