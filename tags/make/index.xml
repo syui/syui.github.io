@@ -15,6 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2022/07/06/card/</guid>
       <description>カードに秘密鍵を刻印して認証する仕組みを作ってみました。
+c
 $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out public.pem $ openssl rsa -text -pubin &amp;lt; public.pem $ openssl rsa -text &amp;lt; private.pem modulus INTEGER, -- n = p*q publicExponent INTEGER, -- e = 65537 (=0x10001) privateExponent INTEGER, -- d == e^(-1) mod (p-1)*(q-1) prime1 INTEGER, -- p prime2 INTEGER, -- q exponent1 INTEGER, -- d mod (p-1) exponent2 INTEGER, -- d mod (q-1) coefficient INTEGER, -- q^(-1) mod p ### gh-actions openssl rsa -in pull-private.</description>
     </item>
     
