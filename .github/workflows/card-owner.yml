@@ -44,6 +44,8 @@ jobs:
         jq -s 'flatten | group_by(.id) | map(reduce .[] as $x ({}; . * $x))' static/json/a static/json/card.json >> static/json/b
         if cat static/json/b|jq . ;then
         mv static/json/b static/json/card.json 
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add static/json/card.json
         git commit -m "card_owner"
         fi
