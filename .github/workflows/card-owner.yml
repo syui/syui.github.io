@@ -6,6 +6,8 @@ on:
     types: [opened, review_requested, edited, synchronize, reopened]
     paths:
       - 'static/public-key/**'
+  push:
+    branches: [src]
 
 jobs:
   comment:
