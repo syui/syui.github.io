@@ -1,0 +1,51 @@
+name: pull-req card owner
+on:  
+  pull_request:  
+    types: [opened]  
+    paths:
+      - 'static/public-key/**'
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v23.1
+      with:
+          files: |
+            *.pme
+
+    - name: List all changed files
+      run: |
+        for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+        i=${file%%.*}
+        if [ -f $i.pme ];then
+        a=`openssl md5 $file|cut -d " " -f 2`
+        b=`openssl md5 $i.pme|cut -d " " -f 2`
+        fi
+        if [ "$a" = "$b" ];then
+        echo verify
+        cat static/json/card.json
+        cat static/json/card.json|jq ".[]|select(.id == $i)+ {\"owner\": \"${{ github.event.pull_request.user.login }}\"}" >> static/json/a
+        jq -s 'flatten | group_by(.id) | map(reduce .[] as $x ({}; . * $x))' a static/json/card.json >> static/json/b
+        if cat static/json/b|jq . ;then
+        mv static/json/b static/json/card.json 
+        git add static/json/card.json
+        git commit -m "card_owner"
+        fi
+        else
+        exit
+        fi
+        done
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: src
+
