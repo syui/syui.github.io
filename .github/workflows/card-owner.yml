@@ -39,7 +39,7 @@ jobs:
         if [ "$a" = "$b" ];then
         echo verify
         cat static/json/card.json
-        cat static/json/card.json|jq ".[]|select(.id == $i)+ {\"owner\": \"${{ github.event.pull_request.user.login }}\"}" >> static/json/a
+        cat static/json/card.json|jq ".[]|select(.id == $i)+ {\"owner\": \"${{ github.actor }}\"}" >> static/json/a
         jq -s 'flatten | group_by(.id) | map(reduce .[] as $x ({}; . * $x))' static/json/a static/json/card.json >> static/json/b
         if cat static/json/b|jq . ;then
         mv static/json/b static/json/card.json 
