@@ -18,16 +18,16 @@ jobs:
       uses: tj-actions/changed-files@v23.1
       with:
           files: |
-            *.pme
+            *.pem
 
     - name: List all changed files
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
         i=${file%%.*}
-        if [ -f $i.pme ];then
+        if [ -f $i.pem ];then
         openssl rsa -in $i.pem -pubout -out public.pem
         a=`openssl md5 public.pem|cut -d " " -f 2`
-        b=`openssl md5 ${i}-public.pme|cut -d " " -f 2`
+        b=`openssl md5 $i-public.pem|cut -d " " -f 2`
         fi
         if [ "$a" = "$b" ];then
         echo verify
