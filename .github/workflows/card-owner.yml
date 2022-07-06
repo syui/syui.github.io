@@ -1,6 +1,9 @@
 name: pull-req card owner
 on:  
   pull_request:  
+    branches:
+      - src
+      - card
     types: [opened]  
     paths:
       - 'static/public-key/**'
