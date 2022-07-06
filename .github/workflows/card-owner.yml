@@ -4,6 +4,11 @@ on:
     types: [opened]  
     paths:
       - 'static/public-key/**'
+  push:
+    branches:
+      - src
+    paths:
+      - 'static/public-key/**'
 
 jobs:
   comment:
