@@ -7,17 +7,29 @@ on:
     paths:
       - 'static/public-key/**'
   push:
-    branches: [src]
+    branches:
+      - src
+    paths:
+      - 'static/public-key/**'
 
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v23.1
+      with:
+          files: |
+            *.pem
 
     - name: List all changed files
       run: |
-        for file in $(git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} --name-only --diff-filter=A -- '*.pem') ; do
+        for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
         i=${file%%.*}
         if [ -f $i.pem ];then
         openssl rsa -in $i.pem -pubout -out public.pem
