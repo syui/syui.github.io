@@ -3,7 +3,7 @@ on:
   pull_request:  
     branches:
       - src
-    types: [opened, review_requested, edited, synchronize]  
+    types: [opened, review_requested, edited, synchronize, reopened]
     paths:
       - 'static/public-key/**'
   push:
