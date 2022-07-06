@@ -25,7 +25,8 @@ jobs:
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
         i=${file%%.*}
         if [ -f $i.pme ];then
-        a=`openssl md5 $file|cut -d " " -f 2`
+        openssl rsa -in private.pem -pubout -out public.pem
+        a=`openssl md5 public.pem|cut -d " " -f 2`
         b=`openssl md5 $i.pme|cut -d " " -f 2`
         fi
         if [ "$a" = "$b" ];then
