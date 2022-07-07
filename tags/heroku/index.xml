@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pleromaをherokuで立てる[2022年度版]</title>
+      <link>https://syui.cf/blog/post/2022/07/07/pleroma/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/07/07/pleroma/</guid>
+      <description>この前、#stackoverflowでelixirのphoenixが好きなフレームワーク1位に選ばれていました。
+ref : https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html
+正直、驚きました。しかも、好きな言語ランキングでも1位のrustに続いてelixirが2位でした。elixir、そんな人気だったん&amp;hellip;?
+そんなelixirのphoenixですが、mastodonに似たblog(sns)サービスであるpleromaがphoenixで書かれています。pleromaを触ってると、phoenixのことも自然にわかってくると思います。
+ということで、今回は、herokuでpleromaを立ててみます。herokuのelixir, phoenix対応はstatckやbuildpackの関係上、かなりつらい状況です。buildpackを自身で動くよう調整し公開する必要があるかもしれません。
+したがって、dockerで立てたほうがいいでしょう。もしcontainerを利用しない場合、現在のelixir対応では運用が行き詰まる可能性があります。
+https://github.com/angristan/docker-pleroma
+基本的には、DockerfileのENTRYPOINTを削除して、heroku.ymlを書きます。
+#ENTRYPOINT [&amp;quot;/pleroma/docker-entrypoint.sh&amp;quot;] build: docker: web: Dockerfile config: MIX_ENV: prod SECRET_KEY_BASE: $SECRET_KEY_BASE DATABASE_URL: $DATABASE_URL DB_NAME: $DB_NAME DB_HOST: $DB_HOST DB_USER: $DB_USER DB_PASS: $DB_PASS DOMAIN: $DOMAIN ADMIN_EMAIL: $ADMIN_EMAIL NOTIFY_EMAIL: $NOTIFY_EMAIL run: web: $HOME/bin/pleroma_ctl migrate &amp;amp;&amp;amp; exec $HOME/bin/pleroma start それぞれの環境変数は、以下のコマンドで入れていけばいいでしょう。
+$ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $ heroku config:set DB_USER=xxx . . . 次に、config.exsを書きますが、herokuに対応した書き方が必要です。
+config :pleroma, Pleroma.Web.Endpoint, url: [scheme: &amp;#34;https&amp;#34;, host: &amp;#34;xxx.herokuapp.com&amp;#34;, port: {:system, &amp;#34;PORT&amp;#34;}], http: [ip: {0, 0, 0, 0}, port: {:system, &amp;#34;PORT&amp;#34;}] config :pleroma, :instance, name: System.</description>
+    </item>
+    
     <item>
       <title>giteaのcleanとupdate</title>
       <link>https://syui.cf/blog/post/2022/06/08/gitea/</link>

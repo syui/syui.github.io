@@ -8,22 +8,34 @@
     <loc>https://syui.cf/ai/novel/</loc>
     <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/docker/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/heroku/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pleroma/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/07/07/pleroma/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/ai/novel/07/</loc>
     <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/tags/card/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/make/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/06/card/</loc>
@@ -102,9 +114,6 @@
     <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/06/08/gitea/</loc>
-    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/heroku/</loc>
     <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/06/05/genshin/</loc>
@@ -2022,9 +2031,6 @@
     <loc>https://syui.cf/blog/post/2019/04/04/misskey/</loc>
     <lastmod>2019-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/pleroma/</loc>
-    <lastmod>2019-04-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2019/04/04/pleroma/</loc>
     <lastmod>2019-04-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -2162,9 +2168,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2018/12/07/sbs/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/docker/</loc>
-    <lastmod>2018-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2018/12/05/gitlab-docker/</loc>
     <lastmod>2018-12-05T00:00:00+00:00</lastmod>
