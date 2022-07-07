@@ -18,7 +18,7 @@
 ref : https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html
 正直、驚きました。しかも、好きな言語ランキングでも1位のrustに続いてelixirが2位でした。elixir、そんな人気だったん&amp;hellip;?
 そんなelixirのphoenixですが、mastodonに似たblog(sns)サービスであるpleromaがphoenixで書かれています。pleromaを触ってると、phoenixのことも自然にわかってくると思います。
-ということで、今回は、herokuでpleromaを立ててみます。herokuのelixir, phoenix対応はstatckやbuildpackの関係上、かなりつらい状況です。buildpackを自身で動くよう調整し公開する必要があるかもしれません。
+ということで、今回は、herokuでpleromaを立ててみます。herokuのelixir, phoenix対応はstackやbuildpackの関係上、かなりつらい状況です。buildpackを自身で動くよう調整し公開する必要があるかもしれません。
 したがって、dockerで立てたほうがいいでしょう。もしcontainerを利用しない場合、現在のelixir対応では運用が行き詰まる可能性があります。
 https://github.com/angristan/docker-pleroma
 基本的には、DockerfileのENTRYPOINTを削除して、heroku.ymlを書きます。
