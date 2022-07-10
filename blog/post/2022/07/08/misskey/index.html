@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>pleromaをherokuで立てる[2022年度版] | syui.cf</title>
+		<title>misskeyをherokuで立てる[2022年度版] | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="pleromaをherokuで立てる[2022年度版]" />
+		<meta property="og:title" content="misskeyをherokuで立てる[2022年度版]" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,76 +105,45 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2022-07-07 / <a href="/syui">@syui</a></div>
-		<h2>pleromaをherokuで立てる[2022年度版]</h2>
+		<div class="post-time-date">2022-07-08 / <a href="/syui">@syui</a></div>
+		<h2>misskeyをherokuで立てる[2022年度版]</h2>
 
-		<p>この前、<a href="https://twitter.com/StackOverflow/status/1539608579291971584">#stackoverflow</a>でelixirのphoenixが好きなフレームワーク1位に選ばれていました。</p>
-<p>ref : <a href="https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html">https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html</a></p>
-<p>正直、驚きました。しかも、好きな言語ランキングでも1位のrustに続いてelixirが2位でした。elixir、そんな人気だったん&hellip;?</p>
-<p>そんなelixirのphoenixですが、mastodonに似たblog(sns)サービスである<a href="https://git.pleroma.social/pleroma/pleroma">pleroma</a>がphoenixで書かれています。pleromaを触ってると、phoenixのことも自然にわかってくると思います。</p>
-<p>ということで、今回は、herokuでpleromaを立ててみます。herokuのelixir, phoenix対応はstackやbuildpackの関係上、かなりつらい状況です。buildpackを自身で動くよう調整し公開する必要があるかもしれません。</p>
-<p>したがって、dockerで立てたほうがいいでしょう。もしcontainerを利用しない場合、現在のelixir対応では運用が行き詰まる可能性があります。</p>
-<p><a href="https://github.com/angristan/docker-pleroma">https://github.com/angristan/docker-pleroma</a></p>
-<p>基本的には、<code>Dockerfile</code>のENTRYPOINTを削除して、heroku.ymlを書きます。</p>
-<pre tabindex="0"><code>#ENTRYPOINT [&quot;/pleroma/docker-entrypoint.sh&quot;]
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:heroku.yml" data-lang="yml:heroku.yml"><span style="color:#f92672">build</span>:
-  <span style="color:#f92672">docker</span>:
-    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">Dockerfile</span>
-  <span style="color:#f92672">config</span>:
-    <span style="color:#f92672">MIX_ENV</span>: <span style="color:#ae81ff">prod</span>
-    <span style="color:#f92672">SECRET_KEY_BASE</span>: <span style="color:#ae81ff">$SECRET_KEY_BASE</span>
-    <span style="color:#f92672">DATABASE_URL</span>: <span style="color:#ae81ff">$DATABASE_URL</span>
-    <span style="color:#f92672">DB_NAME</span>: <span style="color:#ae81ff">$DB_NAME</span>
-    <span style="color:#f92672">DB_HOST</span>: <span style="color:#ae81ff">$DB_HOST</span>
-    <span style="color:#f92672">DB_USER</span>: <span style="color:#ae81ff">$DB_USER</span>
-    <span style="color:#f92672">DB_PASS</span>: <span style="color:#ae81ff">$DB_PASS</span>
-    <span style="color:#f92672">DOMAIN</span>: <span style="color:#ae81ff">$DOMAIN</span>
-    <span style="color:#f92672">ADMIN_EMAIL</span>: <span style="color:#ae81ff">$ADMIN_EMAIL</span>
-    <span style="color:#f92672">NOTIFY_EMAIL</span>: <span style="color:#ae81ff">$NOTIFY_EMAIL</span>
+		<p>pleromaと同じくmisskeyをherokuで立てるのにも多少の苦労があるかもしれません。さらに運用するとなると様々な問題が絡んできます。</p>
+<p>今回もherokuでmisskeyのインスタンスを立ち上げるまでのヒントを書いていければと思います。</p>
+<p>ref : <a href="https://misskey-hub.net/docs/install/manual.html">https://misskey-hub.net/docs/install/manual.html</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/misskey-dev/misskey.git
+$ cd misskey
+$ cp .config/example.yml .config/default.yml
+$ vim .config/default.yml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.config/default.yml" data-lang="yml:.config/default.yml"><span style="color:#f92672">db</span>:
+  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$DB_HOST</span>
+  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$DB_PORT</span>
+  <span style="color:#f92672">db</span>: <span style="color:#ae81ff">$DB_NAME</span>
+  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">$DB_USER</span>
+  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$DB_PASS</span>
+  <span style="color:#f92672">extra</span>:
+    <span style="color:#f92672">ssl</span>: { <span style="color:#f92672">rejectUnauthorized</span>: <span style="color:#66d9ef">false</span> }
 
-<span style="color:#f92672">run</span>:
-  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">$HOME/bin/pleroma_ctl migrate &amp;&amp; exec $HOME/bin/pleroma start</span>
-</code></pre></div><p>それぞれの環境変数は、以下のコマンドで入れていけばいいでしょう。</p>
+<span style="color:#f92672">redis</span>:
+  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$REDIS_HOST</span>
+  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$REDIS_PORT</span>
+  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$REDIS_PASS</span>
+</code></pre></div><p>まずmisskeyと<a href="https://devcenter.heroku.com/articles/connecting-heroku-postgres">heroku-postgres</a>を接続するポイントは、<code>ssl:true</code>ではなく<code>ssl:{ rejectUnauthorized: false }</code>です。</p>
+<p>必要な情報は以下から得ましょう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create heroku-postgresql:hobby-dev
 $ heroku pg:credentials:url
-$ heroku config:set DB_USER<span style="color:#f92672">=</span>xxx
-.
-.
-.
-</code></pre></div><p>次に、<code>config.exs</code>を書きますが、herokuに対応した書き方が必要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">config :pleroma, Pleroma.Web.Endpoint,
-  url: [scheme: <span style="color:#e6db74">&#34;https&#34;</span>, host: <span style="color:#e6db74">&#34;xxx.herokuapp.com&#34;</span>, port: {:system, <span style="color:#e6db74">&#34;PORT&#34;</span>}],
-  http: [ip: {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}, port: {:system, <span style="color:#e6db74">&#34;PORT&#34;</span>}]
 
-config :pleroma, :instance,
-  name: System.get_env(<span style="color:#e6db74">&#34;INSTANCE_NAME&#34;</span>, <span style="color:#e6db74">&#34;pleroma.syui.cf&#34;</span>),
-  email: System.get_env(<span style="color:#e6db74">&#34;ADMIN_EMAIL&#34;</span>),
-  notify_email: System.get_env(<span style="color:#e6db74">&#34;NOTIFY_EMAIL&#34;</span>),
-  limit: <span style="color:#ae81ff">5000</span>,
-  registrations_open: false,
-  federating: true,
-  healthcheck: true
-
-config :pleroma, :media_proxy,
-  enabled: false,
-  redirect_on_failure: true,
-  base_url: <span style="color:#e6db74">&#34;https://cache.domain.tld&#34;</span>
-
-config :pleroma, Pleroma.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  #url: System.get_env(<span style="color:#e6db74">&#34;DATABASE_URL&#34;</span>),
-  username: System.get_env(<span style="color:#e6db74">&#34;DB_USER&#34;</span>, <span style="color:#e6db74">&#34;pleroma&#34;</span>),
-  password: System.fetch_env<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;DB_PASS&#34;</span>),
-  database: System.get_env(<span style="color:#e6db74">&#34;DB_NAME&#34;</span>, <span style="color:#e6db74">&#34;pleroma&#34;</span>),
-  hostname: System.get_env(<span style="color:#e6db74">&#34;DB_HOST&#34;</span>, <span style="color:#e6db74">&#34;db&#34;</span>),
-  pool_size: <span style="color:#ae81ff">10</span>,
-  ssl: true
-</code></pre></div><p>インスタンスの新規登録を禁止するには<code>registrations_open</code>を<code>false</code>に変更します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku stack:set container
-$ git add .
-$ git commit -m <span style="color:#e6db74">&#34;first&#34;</span>
-$ git push heroku main
-</code></pre></div><p>ref : <a href="https://docs-develop.pleroma.social/backend/administration/CLI_tasks/user/#create-a-user">https://docs-develop.pleroma.social/backend/administration/CLI_tasks/user/#create-a-user</a></p>
+$ heroku addons:create heroku-redis:hobby-dev
+$ heroku redis:credentials
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn install
+$ yarn build
+$ yarn run init
+$ yarn start
+</code></pre></div><p>redisへの接続に問題があります。<code>ioredis</code>が使われるようになったみたいです。</p>
+<p><a href="https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js">https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js</a></p>
+<p>編集するファイルとしては、<code>packages/backend/src</code>にある db/redis, server/index.ts, config/load.ts などです。</p>
+<p><code>process.env.PORT</code>や<code>process.env.HEROKU_REDIS_AQUA_URL</code>, <code>process.env.HEROKU_REDIS_AQUA_URL</code>などを設定してみるといいかも。</p>
+<p>Procfileには、<code>web: NODE_ENV=production yarn migrate &amp;&amp; yarn start</code>を書きます。</p>
 
 		
 
@@ -183,10 +152,6 @@ $ git push heroku main
 	
 
     
-    <a href="https://syui.cf/blog/post/2022/07/08/misskey/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-right"></i> misskeyをherokuで立てる[2022年度版]
-    </a>
-    
 </nav>
 
 
@@ -194,7 +159,7 @@ $ git push heroku main
 		
 		
 		<strong>tags:</strong>
-		<a href="https://syui.cf/tags/pleroma/">pleroma</a>, <a href="https://syui.cf/tags/heroku/">heroku</a>, <a href="https://syui.cf/tags/docker/">docker</a>
+		<a href="https://syui.cf/tags/misskey/">misskey</a>, <a href="https://syui.cf/tags/heroku/">heroku</a>
 		<div class="utterances">
 			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>

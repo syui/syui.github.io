@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/misskey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/misskey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>misskeyをherokuで立てる[2022年度版]</title>
+      <link>https://syui.cf/blog/post/2022/07/08/misskey/</link>
+      <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/07/08/misskey/</guid>
+      <description>pleromaと同じくmisskeyをherokuで立てるのにも多少の苦労があるかもしれません。さらに運用するとなると様々な問題が絡んできます。
+今回もherokuでmisskeyのインスタンスを立ち上げるまでのヒントを書いていければと思います。
+ref : https://misskey-hub.net/docs/install/manual.html
+$ git clone https://github.com/misskey-dev/misskey.git $ cd misskey $ cp .config/example.yml .config/default.yml $ vim .config/default.yml db: host: $DB_HOST port: $DB_PORT db: $DB_NAME user: $DB_USER pass: $DB_PASS extra: ssl: { rejectUnauthorized: false } redis: host: $REDIS_HOST port: $REDIS_PORT pass: $REDIS_PASS まずmisskeyとheroku-postgresを接続するポイントは、ssl:trueではなくssl:{ rejectUnauthorized: false }です。
+必要な情報は以下から得ましょう。
+$ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $ heroku addons:create heroku-redis:hobby-dev $ heroku redis:credentials $ yarn install $ yarn build $ yarn run init $ yarn start redisへの接続に問題があります。ioredisが使われるようになったみたいです。</description>
+    </item>
+    
     <item>
       <title>misskeyにheroku deploy buttonを付けてみた</title>
       <link>https://syui.cf/blog/post/2019/04/10/misskey-heroku-deploy/</link>
