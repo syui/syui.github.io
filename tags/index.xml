@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>illust</title>
+      <link>https://syui.cf/tags/illust/</link>
+      <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/illust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>novel</title>
+      <link>https://syui.cf/tags/novel/</link>
+      <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/novel/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>heroku</title>
       <link>https://syui.cf/tags/heroku/</link>
@@ -185,15 +203,6 @@
       <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/mobile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>illust</title>
-      <link>https://syui.cf/tags/illust/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/illust/</guid>
       <description></description>
     </item>
     
@@ -644,15 +653,6 @@
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/anime/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>novel</title>
-      <link>https://syui.cf/tags/novel/</link>
-      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/novel/</guid>
       <description></description>
     </item>
     
