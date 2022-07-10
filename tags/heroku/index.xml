@@ -19,7 +19,7 @@
 ref : https://misskey-hub.net/docs/install/manual.html
 $ git clone https://github.com/misskey-dev/misskey.git $ cd misskey $ cp .config/example.yml .config/default.yml $ vim .config/default.yml db: host: $DB_HOST port: $DB_PORT db: $DB_NAME user: $DB_USER pass: $DB_PASS extra: ssl: { rejectUnauthorized: false } redis: host: $REDIS_HOST port: $REDIS_PORT pass: $REDIS_PASS まずmisskeyとheroku-postgresを接続するポイントは、ssl:trueではなくssl:{ rejectUnauthorized: false }です。
 必要な情報は以下から得ましょう。
-$ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $ heroku addons:create heroku-redis:hobby-dev $ heroku redis:credentials $ yarn install $ yarn build $ yarn run init $ yarn start redisへの接続に問題があります。ioredisが使われるようになったみたいです。</description>
+$ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $ heroku addons:create heroku-redis:hobby-dev $ heroku redis:credentials $ yarn install $ yarn build $ yarn run init $ yarn start redisへの接続に問題があります。heroku-redisの接続制限的に厳しいのかもしれません。ioredisが使われるようになったみたいです。</description>
     </item>
     
     <item>

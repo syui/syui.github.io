@@ -139,7 +139,7 @@ $ heroku redis:credentials
 $ yarn build
 $ yarn run init
 $ yarn start
-</code></pre></div><p>redisへの接続に問題があります。<code>ioredis</code>が使われるようになったみたいです。</p>
+</code></pre></div><p>redisへの接続に問題があります。heroku-redisの接続制限的に厳しいのかもしれません。<code>ioredis</code>が使われるようになったみたいです。</p>
 <p><a href="https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js">https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js</a></p>
 <p>編集するファイルとしては、<code>packages/backend/src</code>にある db/redis, server/index.ts, config/load.ts などです。</p>
 <p><code>process.env.PORT</code>や<code>process.env.HEROKU_REDIS_AQUA_URL</code>, <code>process.env.HEROKU_REDIS_AQUA_URL</code>などを設定してみるといいかも。</p>
