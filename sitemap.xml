@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/ai/</loc>
+    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/ai/novel/</loc>
+    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/ai/novel/09/</loc>
+    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
     <lastmod>2022-07-08T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,17 +26,11 @@
     <loc>https://syui.cf/blog/post/2022/07/08/misskey/</loc>
     <lastmod>2022-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/ai/</loc>
-    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/ai/novel/</loc>
-    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/ai/novel/08/</loc>
+    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/docker/</loc>
     <lastmod>2022-07-07T00:00:00+00:00</lastmod>
