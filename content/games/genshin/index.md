@@ -77,11 +77,9 @@ header_image = "/games/genshin.jpg"
 |---|---|---|---|---|---|
 |2021|06|4,000|-3,000|1,000|クレー|
 |2021|09|15,000|-7,000|8,000|雷電|
-|2021|12|22,000|0|22,000||
 |2022|01|28,000|-23,000|5,000|鍾離, 甘雨|
-|2022|03|15,000|0|15,000||
 |2022|04|20,000|-20,000|0|ウェンティ, 綾華|
-|2022|05|7,000|0|7,000||
+|2022|07|17,000|-1,000|16,000|万葉|
 
 <a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
 
@@ -161,9 +159,9 @@ header_image = "/games/genshin.jpg"
 |行秋|89|1|12|12|
 |香菱|80|1|4|12|
 |綾華|89|9|9|9|
-|ウェンティ(予定)|89|1|9|10|
-|万葉(予定)|89|1|10|10|
-|ベネット(予定)|89|1|12|12|
+|ウェンティ|89|1|9|10|
+|万葉|89|1|9|10|
+|ベネット|89|1|12|12|
 
 #### クレー
 
@@ -219,6 +217,11 @@ header_image = "/games/genshin.jpg"
 
 <a href="/games/genshin/genshin_chara_ganyu_fix.png"><img src="/games/genshin/genshin_chara_ganyu_fix.png"></a>
 
+#### 万葉
+
+<a href="/games/genshin/genshin_chara_kazuha.png"><img src="/games/genshin/genshin_chara_kazuha.png"></a>
+
+
 #### 行秋
 
 <a href="/games/genshin/genshin_chara_xingqiu.png"><img src="/games/genshin/genshin_chara_xingqiu.png"></a>
@@ -246,7 +249,7 @@ https://shinshin.moe
 
 |元素|キャラ1|キャラ2|保有|
 |---|---|---|---|
-|風|**万葉**|ウェンティ|--/無凸|
+|風|万葉|ウェンティ|無凸/無凸|
 |岩|鍾離||無凸|
 |雷|雷電||無凸|
 |草|||--|
@@ -288,7 +291,7 @@ https://shinshin.moe
 
 |元素|神|キャラ|保有|
 |---|---|---|---|
-|風|ウェンティ|万葉|無凸/--|
+|風|ウェンティ|万葉|無凸/無凸|
 |岩|鍾離|**???**|無凸/--|
 |雷|雷電|**???**|無凸/--|
 |草|**???**|**???**|--/--|
