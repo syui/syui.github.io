@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>misskeyをherokuで立てる[2022年度版] | syui.cf</title>
+		<title>原神、万葉を引いた | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="misskeyをherokuで立てる[2022年度版]" />
+		<meta property="og:title" content="原神、万葉を引いた" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,45 +105,19 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2022-07-08 / <a href="/syui">@syui</a></div>
-		<h2>misskeyをherokuで立てる[2022年度版]</h2>
+		<div class="post-time-date">2022-07-15 / <a href="/syui">@syui</a></div>
+		<h2>原神、万葉を引いた</h2>
 
-		<p>pleromaと同じくmisskeyをherokuで立てるのにも多少の苦労があるかもしれません。さらに運用するとなると様々な問題が絡んできます。</p>
-<p>今回もherokuでmisskeyのインスタンスを立ち上げるまでのヒントを書いていければと思います。</p>
-<p>ref : <a href="https://misskey-hub.net/docs/install/manual.html">https://misskey-hub.net/docs/install/manual.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/misskey-dev/misskey.git
-$ cd misskey
-$ cp .config/example.yml .config/default.yml
-$ vim .config/default.yml
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.config/default.yml" data-lang="yml:.config/default.yml"><span style="color:#f92672">db</span>:
-  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$DB_HOST</span>
-  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$DB_PORT</span>
-  <span style="color:#f92672">db</span>: <span style="color:#ae81ff">$DB_NAME</span>
-  <span style="color:#f92672">user</span>: <span style="color:#ae81ff">$DB_USER</span>
-  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$DB_PASS</span>
-  <span style="color:#f92672">extra</span>:
-    <span style="color:#f92672">ssl</span>: { <span style="color:#f92672">rejectUnauthorized</span>: <span style="color:#66d9ef">false</span> }
-
-<span style="color:#f92672">redis</span>:
-  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">$REDIS_HOST</span>
-  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">$REDIS_PORT</span>
-  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">$REDIS_PASS</span>
-</code></pre></div><p>まずmisskeyと<a href="https://devcenter.heroku.com/articles/connecting-heroku-postgres">heroku-postgres</a>を接続するポイントは、<code>ssl:true</code>ではなく<code>ssl:{ rejectUnauthorized: false }</code>です。</p>
-<p>必要な情報は以下から得ましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create heroku-postgresql:hobby-dev
-$ heroku pg:credentials:url
-
-$ heroku addons:create heroku-redis:hobby-dev
-$ heroku redis:credentials
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ yarn install
-$ yarn build
-$ yarn run init
-$ yarn start
-</code></pre></div><p>redisへの接続に問題があります。heroku-redisの接続制限的に厳しいのかもしれません。<code>ioredis</code>が使われるようになったみたいです。</p>
-<p><a href="https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js">https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js</a></p>
-<p>編集するファイルとしては、<code>packages/backend/src</code>にある db/redis, server/index.ts, config/load.ts などです。</p>
-<p><code>process.env.PORT</code>や<code>process.env.HEROKU_REDIS_AQUA_URL</code>, <code>process.env.HEROKU_REDIS_AQUA_URL</code>などを設定してみるといいかも。</p>
-<p>Procfileには、<code>web: NODE_ENV=production yarn migrate &amp;&amp; yarn start</code>を書きます。</p>
+		<p>万葉を引きました。</p>
+<p><img src="/games/genshin/genshin_chara_kazuha.png" alt=""></p>
+<p>使ってみると「こ、こいつ&hellip;つ、つよすぎる&hellip;！！」みたいなキャラでした。</p>
+<p>ウェンティより圧倒的に強く、状況によって、例えば、元素反応が近くにあったり、敵にあったりする場合ですが、原神の中で一番強いのでは？</p>
+<p>今回のガチャは、余ってた運命を使い9連で出てしまいました！！</p>
+<p>原石を消費していません。</p>
+<p>早めに出るガチャ、そろそろ来ると思っていましたが、まさか、ここまでとは&hellip;。</p>
+<p>万葉を引いたあと、即座に撤退しています。原石は、草神に温存する予定。</p>
+<p>ただ、ガチャというのは、早く出ることもあれば、遅く出ることもあるわけで。</p>
+<p>草神&hellip;天井かもしれん。</p>
 
 		
 
@@ -152,8 +126,8 @@ $ yarn start
 	
 
     
-    <a href="https://syui.cf/blog/post/2022/07/10/illust/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-right"></i> イラスト描いた114&#43;小説書いた7-9
+    <a href="https://syui.cf/blog/post/2022/07/16/card/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-right"></i> カードを作ってみた6
     </a>
     
 </nav>
@@ -162,8 +136,8 @@ $ yarn start
 
 		
 		
-		<strong>tags:</strong>
-		<a href="https://syui.cf/tags/misskey/">misskey</a>, <a href="https://syui.cf/tags/heroku/">heroku</a>
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/genshin/">genshin</a>
 		<div class="utterances">
 			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
