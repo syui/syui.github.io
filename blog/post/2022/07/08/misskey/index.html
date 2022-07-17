@@ -143,8 +143,18 @@ $ yarn start
 <p><a href="https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js">https://devcenter.heroku.com/ja/articles/connecting-heroku-redis#connecting-in-node-js</a></p>
 <p>編集するファイルとしては、<code>packages/backend/src</code>にある db/redis, server/index.ts, config/load.ts などです。</p>
 <p><code>process.env.PORT</code>や<code>process.env.HEROKU_REDIS_AQUA_URL</code>, <code>process.env.HEROKU_REDIS_AQUA_URL</code>などを設定してみるといいかも。</p>
-<p>Procfileには、<code>web: NODE_ENV=production yarn migrate &amp;&amp; yarn start</code>を書きます。</p>
-
+<p>Procfileには、<code>web: NODE_ENV=production yarn start</code>を書きます。</p>
+<h3 id="rediscloud">rediscloud</h3>
+<p>回避策として<code>addons:rediscloud</code>を使用すると動きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create rediscloud:30
+$ heroku config
+redis://default:<span style="color:#e6db74">${</span>REDIS_CLOUD_PASS<span style="color:#e6db74">}</span>@<span style="color:#e6db74">${</span>REDIS_CLOUD_HOST<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>REDIS_CLOUD_PORT<span style="color:#e6db74">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.config/default.yml" data-lang=".config/default.yml"><span style="color:#f92672">redis</span>:
+  <span style="color:#f92672">host</span>: <span style="color:#ae81ff">${REDIS_CLOUD_HOST}</span>
+  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">${REDIS_CLOUD_PORT}</span>
+  <span style="color:#f92672">family</span>: <span style="color:#ae81ff">4</span>  <span style="color:#75715e"># 0=Both, 4=IPv4, 6=IPv6</span>
+  <span style="color:#f92672">pass</span>: <span style="color:#ae81ff">${REDIS_CLOUD_PASS}</span>
+</code></pre></div>
 		
 
 
