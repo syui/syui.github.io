@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gnu-socialをherokuで立てる[2022年度版]</title>
+      <link>https://syui.cf/blog/post/2022/07/18/gnusocial/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/07/18/gnusocial/</guid>
+      <description>gnu-socialも触ってみました。今回もherokuでdeployするヒントを書いていきたいと思います。
+いろいろな変化があるものの、srcは相変わらず古い感じがします。
+3.0 https://code.undefinedhackers.net/GNUsocial/gnu-social
+ postgres + nginx  とりあえず、bin/configureにdockerfileを作成するscriptがありますので実行するようです。Makefileにいろんなコマンドが定義されているようですが、項目を読めばだいたい分かるでしょう。
+$ git clone https://code.undefinedhackers.net/GNUsocial/gnu-social $ cd gnu-social $ ./bin/configure $ make $ sudo docker ps -a $ paru -S php-pear $ sudo pecl install vips $ sudo vim /etc/php/php.ini extension=iconv extension=vips 以下を追記、または編集します。
+&amp;#34;require&amp;#34;: { &amp;#34;php&amp;#34;: &amp;#34;^8.1.0&amp;#34;, &amp;#34;ext-vips&amp;#34;:&amp;#34;*&amp;#34;, &amp;#34;jcupitt/vips&amp;#34;: &amp;#34;1.0.9&amp;#34; } $ composer update --ignore-platform-reqs $ git add composer.* $ heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt  Aptfile
+ php-pear herokunの場合、残念ながらphp-vipsがsupportされていません。
+したがって、buildpacksを自前で用意するしかないのですが、用意してやってみたところ、peclが動作しません。</description>
+    </item>
+    
     <item>
       <title>イラスト描いた115</title>
       <link>https://syui.cf/blog/post/2022/07/17/illust/</link>
