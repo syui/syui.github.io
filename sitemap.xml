@@ -3,18 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/cloudflare/</loc>
-    <lastmod>2022-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
-    <lastmod>2022-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/zig/</loc>
+    <lastmod>2022-08-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/08/03/zig-cli/</loc>
+    <lastmod>2022-08-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/cloudflare/</loc>
     <lastmod>2022-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/02/zig-wasm-cloudflare/</loc>

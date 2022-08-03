@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>zigをwasmにしてcloudflareにdeployする | syui.cf</title>
+		<title>zigでcliを作る | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="zigをwasmにしてcloudflareにdeployする" />
+		<meta property="og:title" content="zigでcliを作る" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,81 +105,72 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2022-08-02 / <a href="/syui">@syui</a></div>
-		<h2>zigをwasmにしてcloudflareにdeployする</h2>
+		<div class="post-time-date">2022-08-03 / <a href="/syui">@syui</a></div>
+		<h2>zigでcliを作る</h2>
 
-		<p><code>zig</code>はprogramming-langの一つです。rustに似ていますが、c++寄りだと思います。</p>
-<p>zigの利点はなんといってもwasmへのbuildの手軽さだと思います。</p>
-<p>wasmはwebから実行できるbinaryです。</p>
-<p>今後、webなどでもzigが採用されるケースが増えてくるかもしれません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install zig
-$ mkdir zig-first-project
-$ cd zig-first-project
-$ zig init-exe
-$ cat src/main.zig
-$ cat build.zig
-$ zig build
-$ ./zig-out/bin/zig-first-project
-</code></pre></div><p>hello-worldしてみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zig:src/main.zig" data-lang="zig:src/main.zig"><span style="color:#66d9ef">const</span> std <span style="color:#f92672">=</span> @import(<span style="color:#e6db74">&#34;std&#34;</span>);
-
-<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> main() <span style="color:#66d9ef">anyerror</span><span style="color:#f92672">!</span><span style="color:#66d9ef">void</span> {
-    <span style="color:#66d9ef">const</span> stdout <span style="color:#f92672">=</span> std.io.getStdOut().writer();
-    <span style="color:#66d9ef">try</span> stdout.print(<span style="color:#e6db74">&#34;hello, world!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, .{});
-}
-</code></pre></div><p>ここまでで<a href="https://github.com/ziglang/zig.vim">ziglang/zig.vim</a>を入れておいたほうがいいでしょう。zigはコード内にある<code>\t</code>の扱いが特殊です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;ziglang/zig.vim&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>以下はcloudflare <a href="https://blog.cloudflare.com/running-zig-with-wasi-on-cloudflare-workers/">blog</a>にあるexampleです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zig:src/main.zig" data-lang="zig:src/main.zig"><span style="color:#66d9ef">const</span> std <span style="color:#f92672">=</span> @import(<span style="color:#e6db74">&#34;std&#34;</span>);
-
-<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> main() <span style="color:#66d9ef">anyerror</span><span style="color:#f92672">!</span><span style="color:#66d9ef">void</span> {
-    <span style="color:#75715e">// setup allocator
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> gpa <span style="color:#f92672">=</span> std.heap.GeneralPurposeAllocator(.{}){};
-    <span style="color:#66d9ef">defer</span> std.debug.assert(<span style="color:#f92672">!</span>gpa.deinit());
-    <span style="color:#66d9ef">const</span> allocator <span style="color:#f92672">=</span> gpa.allocator();
-
-    <span style="color:#75715e">// setup streams
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> stdout <span style="color:#f92672">=</span> std.io.getStdOut().writer();
-    <span style="color:#66d9ef">const</span> in <span style="color:#f92672">=</span> std.io.getStdIn();
-    <span style="color:#66d9ef">var</span> reader <span style="color:#f92672">=</span> std.io.bufferedReader(in.reader()).reader();
-
-    <span style="color:#66d9ef">var</span> counter<span style="color:#f92672">:</span> <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-
-    <span style="color:#75715e">// read input line by line
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">try</span> reader.readUntilDelimiterOrEofAlloc(allocator, <span style="color:#ae81ff">&#39;\n&#39;</span>, std.math.maxInt(<span style="color:#66d9ef">usize</span>))) <span style="color:#f92672">|</span>line<span style="color:#f92672">|</span> {
-        <span style="color:#66d9ef">defer</span> allocator.free(line);
-        <span style="color:#66d9ef">try</span> stdout.print(<span style="color:#e6db74">&#34;{d}</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">{s}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, .{counter, line});
-        counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-    }
-}
-</code></pre></div><p>単純に文字を渡すと行番号を追加して返します。</p>
-<blockquote>
-<p>just read some text from stdin and print it to stdout with line numbers, like running cat -n. But it does show just how easy the Workers paradigm is. This Zig program works identically on the command-line on my laptop and as an HTTP API deployed on Cloudflare Workers.</p>
-</blockquote>
+		<p>zigは、現時点で外部パッケージを読み込む機能がありません。rustならCargo.toml、rubyならGemfile、goならgo.modがあります。</p>
+<p>zigには、いくつか有志が仕組みを作っていますが、決定的なものは存在しません。</p>
+<ul>
+<li>
+<p><a href="https://github.com/mattnite/gyro">https://github.com/mattnite/gyro</a></p>
+</li>
+<li>
+<p><a href="https://github.com/marler8997/zig-build-repos">https://github.com/marler8997/zig-build-repos</a></p>
+</li>
+</ul>
+<p>したがって、build.zigにpathを書いていく必要があります。今回は、cli-toolを作ってみます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zig:build.zig" data-lang="zig:build.zig"><span style="color:#66d9ef">const</span> std <span style="color:#f92672">=</span> @import(<span style="color:#e6db74">&#34;std&#34;</span>);
 
 <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> build(b<span style="color:#f92672">:</span> <span style="color:#f92672">*</span>std.build.Builder) <span style="color:#66d9ef">void</span> {
-    <span style="color:#66d9ef">const</span> target <span style="color:#f92672">=</span> b.standardTargetOptions(.{});
     <span style="color:#66d9ef">const</span> mode <span style="color:#f92672">=</span> b.standardReleaseOptions();
-    <span style="color:#66d9ef">const</span> exe <span style="color:#f92672">=</span> b.addExecutable(<span style="color:#e6db74">&#34;zig-first-project&#34;</span>, <span style="color:#e6db74">&#34;src/main.zig&#34;</span>);
-    exe.setTarget(target);
-    exe.setBuildMode(mode);
-    exe.install();
-}
-</code></pre></div><p>cloudflare workersではwasiがsupportされています。wasm-build, workers-deployまでをやってみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ zig build -Dtarget<span style="color:#f92672">=</span>wasm32-wasi
-$ ls zig-out/bin/*.wasm
-$ echo <span style="color:#e6db74">&#34;Hello\nWorld&#34;</span> | wasmtime ./zig-out/bin/zig-first-project.wasm
-<span style="color:#ae81ff">1</span>       Hello
-<span style="color:#ae81ff">2</span>       World
 
-$ npx wrangler@wasm login
-$ npx wrangler@wasm publish --name print-with-line-numbers --compatibility-date<span style="color:#f92672">=</span>2022-07-07  ./zig-out/bin/zig-first-project.wasm
-</code></pre></div><p>これでdeployは完了です。取得されたworkersのaddressに文字列をpostしてみましょう。wasm-binaryが実行され、反応を返します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="color:#e6db74">&#34;hello\nworld&#34;</span> | curl https://print-with-line-numbers.$USER.workers.dev -X POST --data-binary @-
-<span style="color:#ae81ff">1</span>       hello
-<span style="color:#ae81ff">2</span>       world
-</code></pre></div><p>このようにめちゃくちゃ便利なcloudflare workersですが、cloudflareが提供する<code>workers.dev</code>のidは開発者なら取っておいたほうがよさそうです。</p>
+    <span style="color:#66d9ef">const</span> lib <span style="color:#f92672">=</span> b.addStaticLibrary(<span style="color:#e6db74">&#34;zig-cli&#34;</span>, <span style="color:#e6db74">&#34;zig-cli/src/main.zig&#34;</span>);
+    lib.setBuildMode(mode);
+    lib.install();
+
+    <span style="color:#66d9ef">const</span> main_tests <span style="color:#f92672">=</span> b.addTest(<span style="color:#e6db74">&#34;zig-cli/src/tests.zig&#34;</span>);
+    main_tests.setBuildMode(mode);
+
+    <span style="color:#66d9ef">const</span> test_step <span style="color:#f92672">=</span> b.step(<span style="color:#e6db74">&#34;test&#34;</span>, <span style="color:#e6db74">&#34;Run library tests&#34;</span>);
+    test_step.dependOn(<span style="color:#f92672">&amp;</span>main_tests.step);
+
+    <span style="color:#66d9ef">const</span> origin <span style="color:#f92672">=</span> b.addExecutable(<span style="color:#e6db74">&#34;random&#34;</span>, <span style="color:#e6db74">&#34;example/random.zig&#34;</span>);
+    origin.addPackagePath(<span style="color:#e6db74">&#34;zig-cli&#34;</span>, <span style="color:#e6db74">&#34;zig-cli/src/main.zig&#34;</span>);
+    origin.setBuildMode(mode);
+    origin.install();
+
+    b.default_step.dependOn(<span style="color:#f92672">&amp;</span>origin.step);
+}
+</code></pre></div><p><a href="https://github.com/sam701/zig-cli">https://github.com/sam701/zig-cli</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/sam701/zig-cli
+$ mkdir -p example
+$ vim example/random.zig
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zig:example/random.zig" data-lang="zig:example/random.zig"><span style="color:#66d9ef">const</span> std <span style="color:#f92672">=</span> @import(<span style="color:#e6db74">&#34;std&#34;</span>);
+<span style="color:#66d9ef">const</span> cli <span style="color:#f92672">=</span> @import(<span style="color:#e6db74">&#34;zig-cli&#34;</span>);
+<span style="color:#66d9ef">const</span> RndGen <span style="color:#f92672">=</span> std.rand.DefaultPrng;
+
+<span style="color:#66d9ef">var</span> gpa <span style="color:#f92672">=</span> std.heap.GeneralPurposeAllocator(.{}){};
+<span style="color:#66d9ef">const</span> allocator <span style="color:#f92672">=</span> gpa.allocator();
+
+<span style="color:#66d9ef">var</span> app <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>cli.Command{
+    .name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;random&#34;</span>,
+    .help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;get random number&#34;</span>,
+    .action <span style="color:#f92672">=</span> run_server,
+};
+
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> main() <span style="color:#f92672">!</span><span style="color:#66d9ef">void</span> {
+    <span style="color:#66d9ef">return</span> cli.run(app, allocator);
+}
+
+<span style="color:#66d9ef">fn</span> run_server(_<span style="color:#f92672">:</span> []<span style="color:#66d9ef">const</span> []<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">u8</span>) <span style="color:#f92672">!</span><span style="color:#66d9ef">void</span> {
+    <span style="color:#66d9ef">var</span> rnd <span style="color:#f92672">=</span> RndGen.init(<span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">var</span> some_random_num <span style="color:#f92672">=</span> rnd.random().int(<span style="color:#66d9ef">i32</span>);
+    std.log.debug(<span style="color:#e6db74">&#34;{d}&#34;</span>, .{some_random_num});
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ zig build
+$ ./zig-out/bin/random
+</code></pre></div><p>ref : <a href="https://www.reddit.com/r/Zig/comments/wc5rcb/hows_the_current_story_with_zig_in_terms_of/">https://www.reddit.com/r/Zig/comments/wc5rcb/hows_the_current_story_with_zig_in_terms_of/</a></p>
+<p>ref : <a href="https://www.reddit.com/r/Zig/comments/wcvksf/what_is_missing_in_the_zig_ecosystem/">https://www.reddit.com/r/Zig/comments/wcvksf/what_is_missing_in_the_zig_ecosystem/</a></p>
 
 		
 
@@ -188,18 +179,14 @@ $ npx wrangler@wasm publish --name print-with-line-numbers --compatibility-date<
 	
 
     
-    <a href="https://syui.cf/blog/post/2022/08/03/zig-cli/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-right"></i> zigでcliを作る
-    </a>
-    
 </nav>
 
 
 
 		
 		
-		<strong>tags:</strong>
-		<a href="https://syui.cf/tags/zig/">zig</a>, <a href="https://syui.cf/tags/cloudflare/">cloudflare</a>
+		<strong>tag:</strong>
+		<a href="https://syui.cf/tags/zig/">zig</a>
 		<div class="utterances">
 			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>

@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 02 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zigでcliを作る</title>
+      <link>https://syui.cf/blog/post/2022/08/03/zig-cli/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/08/03/zig-cli/</guid>
+      <description>zigは、現時点で外部パッケージを読み込む機能がありません。rustならCargo.toml、rubyならGemfile、goならgo.modがあります。
+zigには、いくつか有志が仕組みを作っていますが、決定的なものは存在しません。
+  https://github.com/mattnite/gyro
+  https://github.com/marler8997/zig-build-repos
+  したがって、build.zigにpathを書いていく必要があります。今回は、cli-toolを作ってみます。
+const std = @import(&amp;#34;std&amp;#34;); pub fn build(b: *std.build.Builder) void { const mode = b.standardReleaseOptions(); const lib = b.addStaticLibrary(&amp;#34;zig-cli&amp;#34;, &amp;#34;zig-cli/src/main.zig&amp;#34;); lib.setBuildMode(mode); lib.install(); const main_tests = b.addTest(&amp;#34;zig-cli/src/tests.zig&amp;#34;); main_tests.setBuildMode(mode); const test_step = b.step(&amp;#34;test&amp;#34;, &amp;#34;Run library tests&amp;#34;); test_step.dependOn(&amp;amp;main_tests.step); const origin = b.addExecutable(&amp;#34;random&amp;#34;, &amp;#34;example/random.zig&amp;#34;); origin.addPackagePath(&amp;#34;zig-cli&amp;#34;, &amp;#34;zig-cli/src/main.zig&amp;#34;); origin.setBuildMode(mode); origin.install(); b.default_step.dependOn(&amp;amp;origin.step); } https://github.com/sam701/zig-cli
+$ git clone https://github.com/sam701/zig-cli $ mkdir -p example $ vim example/random.zig const std = @import(&amp;#34;std&amp;#34;); const cli = @import(&amp;#34;zig-cli&amp;#34;); const RndGen = std.</description>
+    </item>
+    
     <item>
       <title>zigをwasmにしてcloudflareにdeployする</title>
       <link>https://syui.cf/blog/post/2022/08/02/zig-wasm-cloudflare/</link>
