@@ -508,6 +508,10 @@ a:hover > .navbar-light .navbar-brand {
     font-size: 33px;
 }
 
+.navbar-nav-right a span.icon-ai {
+    font-size: 33px;
+}
+
 .navbar-nav-right > a > i {
 	padding: 10px;
 }
@@ -525,6 +529,11 @@ a.navbar-brand {
 	padding: 15px;
 }
 
+.navbar-nav > span.navbar-title-icon > a > span.icon-ai {
+	font-size: 1.5rem;
+	padding: 15px;
+}
+
 .navbar-nav > span.navbar-title-text {
 	padding: 0 40px 0 40px;
 }
@@ -532,6 +541,18 @@ a.navbar-brand {
 .navbar-nav > span.navbar-title-text > a.navbar-title {
 	font-size: 26px;
 }
+
+.navbar-nav > span.navbar-title-text-ai > a.navbar-title {
+	padding: 0 40px 0 5px;
+	font-size: 26px;
+}
+
+.navbar-nav > span.navbar-title-text-phoenix > a.navbar-title {
+	font-size: 26px;
+	padding: 0 5px 0 40px;
+}
+
+
 
 @media (max-width: 1099px) {
 	.navbar-nav-right{
@@ -553,3 +574,4 @@ a.navbar-brand {
 		padding: 0 10px 0 10px;
 	}
 }
+
