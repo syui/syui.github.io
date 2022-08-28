@@ -14,7 +14,7 @@
       <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2022/08/27/fly-heroku/</guid>
-      <description>herokuがplan:free(hobby)を廃止し、m/$31になったので、herokuからfly.ioへ移行を考えています。
+      <description>herokuがplan:free(hobby)を廃止し、mo/$31になったので、herokuからfly.ioへ移行を考えています。
  Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.
  https://blog.heroku.com/next-chapter
 herokuのこれまでの評価は、素晴らしかったです。感謝しかありません。ありがとう！
