@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/fly/</loc>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/heroku/</loc>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/08/27/fly-heroku/</loc>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-08-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/figure/</loc>
     <lastmod>2022-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/make/</loc>
-    <lastmod>2022-08-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-08-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/20/figure/</loc>
@@ -78,9 +87,6 @@
     <lastmod>2022-07-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/18/gnusocial/</loc>
-    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/heroku/</loc>
     <lastmod>2022-07-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/17/illust/</loc>

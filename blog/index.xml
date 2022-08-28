@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 20 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>herokuからfly.ioへの移行</title>
+      <link>https://syui.cf/blog/post/2022/08/27/fly-heroku/</link>
+      <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/08/27/fly-heroku/</guid>
+      <description>herokuがplan:free(hobby)を廃止し、m/$31になったので、herokuからfly.ioへ移行を考えています。
+ Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.
+ https://blog.heroku.com/next-chapter
+herokuのこれまでの評価は、素晴らしかったです。感謝しかありません。ありがとう！
+fly.io plan:free(hobby) クレジットカードを登録するとplan:hobbyが使えるようになります。クレジットカードはできればVプリカ(visaプリペイドカード)などを使用するようにしてください。登録できない場合に通常のクレジットカードで登録するしかありません。このへんは未検証です。
+ Add a payment method to get even more free allowances.
+VM: shared-cpu	2,340 hours per month	Run 3 shared-cpu-1x VMs with 256MB RAM full time. Volumes	3GB	Provision 3GB of persistent volumes for permanent storage Bandwidth	160GB per month	See outbound data transfer for regional breakdown Anycast IPs	Unlimited IPv6, 1 IPv4 per active app	Additional IPv4 addresses are $2 per month Certificates	10 active certificates	Add 10 certificates to your apps</description>
+    </item>
+    
     <item>
       <title>フィギュアを作った4-6</title>
       <link>https://syui.cf/blog/post/2022/08/20/figure/</link>
