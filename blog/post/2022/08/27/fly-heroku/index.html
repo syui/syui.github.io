@@ -254,7 +254,7 @@ $ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootct
 $ fly vol create -c fly.redis.toml xxx_redis --size <span style="color:#ae81ff">1</span>
 $ fly deploy --config fly.redis.toml --build-target redis-server
 </code></pre></div><p>dockerからなのか、ちょっとしたことですぐに動かなくなります。例えば、mediaのurlがうまく取得できない場合でもそういった事が起こるので、注意が必要です。問題が発生した場合、pgをresetしたほうが早いです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly vol create xxx_uploads --size <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly vol create mastodon_uploads --size <span style="color:#ae81ff">1</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># こういったやり方で画像をuploadしている場合は動かなくなる</span>
 PAPERCLIP_SECRET<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span>
 PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.com/syui/xxx/raw&#34;</span>
