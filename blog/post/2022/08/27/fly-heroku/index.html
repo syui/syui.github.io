@@ -108,7 +108,7 @@
 		<div class="post-time-date">2022-08-27 / <a href="/syui">@syui</a></div>
 		<h2>herokuからfly.ioへの移行</h2>
 
-		<p>herokuがplan:free(hobby)を廃止し、<code>mo/$31</code>になったので、<a href="https://heroku.com/">heroku</a>から<a href="https://fly.io/">fly.io</a>へ移行を考えています。</p>
+		<p>herokuがplan:free(hobby)が廃止され、<code>mo/$31</code>になるので、<a href="https://heroku.com/">heroku</a>から<a href="https://fly.io/">fly.io</a>へ移行を考えています。</p>
 <blockquote>
 <p>Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.</p>
 </blockquote>
@@ -236,13 +236,6 @@ $ fly secrets unset DATABASE_URL
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly pg create --name xxx-pg
 $ fly pg attach -a xxx xxx-pg
 <span style="color:#75715e"># fly deploy -c fly.setup.toml</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ssh console
-<span style="color:#75715e"># https://zenn.dev/kumasun/articles/12dcc7b3e91722945228</span>
-<span style="color:#75715e"># 新しくアカウントを作る</span>
-$ cd mastodon
-$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts create $USER --email<span style="color:#f92672">=</span>$EMAIL --confirmed --role admin 
-<span style="color:#75715e"># 既存のアカウントを上書き</span>
-$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts modify $USER --email<span style="color:#f92672">=</span>$EMAIL --confirm --role admin
 </code></pre></div><p>次は、redis-serverを作ります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.redis.toml" data-lang="toml:fly.redis.toml"><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;xxx-redis&#34;</span>
 
@@ -260,7 +253,15 @@ PAPERCLIP_SECRET<span style="color:#f92672">=</span><span style="color:#e6db74">
 PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.com/syui/xxx/raw&#34;</span>
 </code></pre></div><p>最終的には、appを<code>deploy</code>します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly deploy
-</code></pre></div><p>herokuに比べてすごく遅いです。sidekiqが遅く、redisが原因だと思われます。しかし、これ以上の方法があるとは思えません。</p>
+$ fly open
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ssh console
+<span style="color:#75715e"># https://zenn.dev/kumasun/articles/12dcc7b3e91722945228</span>
+<span style="color:#75715e"># 新しくアカウントを作る</span>
+$ cd mastodon
+$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts create $USER --email<span style="color:#f92672">=</span>$EMAIL --confirmed --role admin 
+<span style="color:#75715e"># 既存のアカウントを上書き</span>
+$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts modify $USER --email<span style="color:#f92672">=</span>$EMAIL --confirm --role admin
+</code></pre></div><p>sidekiqが遅い場合があり、redisが原因だと思われます。しかし、これ以上の方法があるとは思えません。</p>
 <p>あと、fly.io(cli)は、バグっているので、まあまあの割合で有効に動作しないことがあります。なにかおかしいと思ったときは、そういうこともあるということで。私の場合、secretsに入れたはずのやつが消えたり、消したはずのやつが残ってたり、DATABASE_URLを消したあとにもattachで追加できなくなったりといったことが頻発しました。</p>
 <h4 id="mastodondockerfile">mastodon/dockerfile</h4>
 <blockquote>
@@ -330,10 +331,9 @@ RUN gem pristine --all
 
 ARG PROD_PACKAGES<span style="color:#f92672">=</span>xxx libglib2.0-0
 </code></pre></div><h4 id="postgres">postgres</h4>
-<p>fly-postgres(pg)はpublicではなくprivateです。container内からしかアクセスできません。ただし、localからアクセスできるようになっています。</p>
-<p>heroku-pgのdumpをfly-pgに追加します。</p>
+<p>fly-postgres(pg)はpublicではなくprivateです。container内からしかアクセスできません。ただし、localからアクセスする手段があります。それを使いheroku-pgのdumpをfly-pgに追加します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku config
-$ fly postgres create
+$ fly pg create
 $ fly proxy <span style="color:#ae81ff">5432</span> -a xxx
 ---
 <span style="color:#75715e"># host=localhost</span>
@@ -342,7 +342,7 @@ $ pg_dump --no-owner -C -d $HEROKU_DATABASE_URL | psql -d $DATABASE_URL
 ---
 $ fly pg attach --app $app $app_db
 <span style="color:#75715e"># DATABASE_URLにsecrets setしている場合はattachは動きません。unsetしてください</span>
-$ fly secrets unset
+$ fly secrets unset DATABASE_URL
 </code></pre></div><h4 id="redis">redis</h4>
 <p>fly.ioはredisがつらい。もしかしたらherokuのrediscloud使えばいいかも。でも<code>REDIS_URL</code>に入れてもうまく動作しなかった。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku addons:create rediscloud
