@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fly on syui.cf</title>
-    <link>https://syui.cf/tags/fly/</link>
-    <description>Recent content in fly on syui.cf</description>
+    <title>northflank on syui.cf</title>
+    <link>https://syui.cf/tags/northflank/</link>
+    <description>Recent content in northflank on syui.cf</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/fly/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/northflank/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fly.ioとnorthflankの感想</title>
       <link>https://syui.cf/blog/post/2022/08/31/heroku-fly-northflank/</link>
@@ -20,21 +20,6 @@ fly.ioが個人的には合っていると思いました。
 fly.ioはdockerで動かしますが、goなどのbuild, deployが非常に快適でわかりやすかったです。mastodonはredisが入っているため動かすには工夫が必要ですが、go, rust, phoenixなどはそれらが必要ない場合が多く、go, rustはsingle-binaryなので、fly.tomlも書きやすい。
 gitea 例えば、giteaはfly.ioで簡単に動きました。dockerを利用するので当たり前かもしれませんが、herokuでは相当の工夫が必要でした。
 # create a directory to store fly.io application config mkdir gitea-on-fly # enter into the newly created directory cd gitea-on-fly # tell fly.io you wish to create a new application in the amsterdam region (there are many other regions you could pick too) # pick any name for the app that you&amp;#39;d like, in the example we are using `gitea-on-fly` flyctl launch --name gitea-on-fly --no-deploy --region ams # give the newely create application persistant storage, so your data persists between app updates flyctl volumes create gitea_data --size 1 --region ams --app gitea-on-fly app = &amp;#34;gitea-on-fly&amp;#34; kill_timeout = 5 [build] image = &amp;#34;gitea/gitea:latest&amp;#34; # latest is the most recent stable release [env] GITEA__database__DB_TYPE=&amp;#34;sqlite3&amp;#34; GITEA__database__PATH=&amp;#34;/data/gitea/gitea.</description>
-    </item>
-    
-    <item>
-      <title>herokuからfly.ioへの移行</title>
-      <link>https://syui.cf/blog/post/2022/08/27/fly-heroku/</link>
-      <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/blog/post/2022/08/27/fly-heroku/</guid>
-      <description>herokuのplan:free(hobby)が廃止され、mo/$31になるので、herokuからfly.ioへ移行を考えています。
- Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.
- https://blog.heroku.com/next-chapter
-herokuのこれまでの評価は、素晴らしかったです。感謝しかありません。ありがとう！
-fly.io plan:free(hobby) クレジットカードを登録するとplan:hobbyが使えるようになります。クレジットカードはできればVプリカ(visaプリペイドカード)などを使用するようにしてください。登録できない場合に通常のクレジットカードで登録するしかありません。このへんは未検証です。
- Add a payment method to get even more free allowances.
-VM: shared-cpu	2,340 hours per month	Run 3 shared-cpu-1x VMs with 256MB RAM full time. Volumes	3GB	Provision 3GB of persistent volumes for permanent storage Bandwidth	160GB per month	See outbound data transfer for regional breakdown Anycast IPs	Unlimited IPv6, 1 IPv4 per active app	Additional IPv4 addresses are $2 per month Certificates	10 active certificates	Add 10 certificates to your apps</description>
     </item>
     
   </channel>
