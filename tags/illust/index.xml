@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>diffusion img2imgでイラストを再生成してみた</title>
+      <link>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</link>
+      <pubDate>Sat, 03 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</guid>
+      <description>diffusionというツールがあり、huggingface.coからtokenをもらってAIによる画像ファイルを生成できます。
+なお、cudaをサポートしている環境下で実行してください。
+$ pip install transformers scipy ftfy $ pip install git+https://github.com/huggingface/diffusers.git import torch from diffusers import StableDiffusionPipeline from torch import autocast MODEL_ID = &amp;#34;CompVis/stable-diffusion-v1-4&amp;#34; DEVICE = &amp;#34;cuda&amp;#34; YOUR_TOKEN = &amp;#34;xxx&amp;#34; pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, revision=&amp;#34;fp16&amp;#34;, torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN) pipe.to(DEVICE) prompt = &amp;#34;a dog painted by Katsuhika Hokusai&amp;#34; with autocast(DEVICE): image = pipe(prompt, guidance_scale=7.5)[&amp;#34;sample&amp;#34;][0] image.save(&amp;#34;test.png&amp;#34;) $ python3 t.py 次に、img2imgを使って画像ファイルを参照した上で生成してみます。input.pngを置いておきます。
+import torch from diffusers import StableDiffusionPipeline from torch import autocast MODEL_ID = &amp;#34;CompVis/stable-diffusion-v1-4&amp;#34; DEVICE = &amp;#34;cuda&amp;#34; YOUR_TOKEN = &amp;#34;xxx&amp;#34; pipe = StableDiffusionPipeline.</description>
+    </item>
+    
     <item>
       <title>イラスト描いた117</title>
       <link>https://syui.cf/blog/post/2022/08/17/illust/</link>

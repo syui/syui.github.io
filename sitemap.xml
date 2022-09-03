@@ -2,8 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/ai/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-08-31T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/diffusion/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/python/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/fly/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
@@ -15,12 +36,6 @@
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/northflank/</loc>
-    <lastmod>2022-08-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-08-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/27/fly-heroku/</loc>
@@ -40,9 +55,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/18/figure/</loc>
     <lastmod>2022-08-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2022-08-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/17/illust/</loc>
     <lastmod>2022-08-17T00:00:00+00:00</lastmod>
