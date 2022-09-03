@@ -69,7 +69,7 @@ with autocast("cuda"):
 images[0].save("output.png")
 ```
 
-localでのpythoの動作環境が難しいなら[google colab](https://colab.research.google.com)を使う方法もあります。
+localでのpython動作環境が難しいなら[google colab](https://colab.research.google.com)を使う方法もあります。
 
 その他、モデルをcloneしてくる方法もあるようです。
 
