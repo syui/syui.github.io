@@ -87,18 +87,11 @@ $ mv sd-v1-4.ckpt model.ckpt
 
 $ python optimizedSD/optimized_txt2img.py --prompt "Cyberpunk style Tokyo landscape" --H 512 --W 512 --seed 27 --n_iter 2 --n_samples 10 --ddim_steps 50
 $ ls outputs/txt2img-samples/
-
 ```
-
-![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0001.png)
-
-![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0002.png)
 
 ref : https://zenn.dev/koyoarai_/articles/02f3ed864c6127bb2049
 
-### windows + cuda + wsl + anaconda
-
-windowsだけでやる分には以下のような感じになります。
+windowsでやるには以下のような感じになります。
 
 ```sh
 # cuda 11.6
@@ -115,11 +108,31 @@ $ conda activate ldm
 $ conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
 $ conda install jupyter pandas matplotlib -c conda-forge
 $ pip install diffusers transformers scipy ftfy
-$ python optimizedSD/optimized_txt2img.py --prompt "Cyberpunk style Tokyo landscape" --H 512 --W 512 --seed 27 --n_iter 2 --n_samples 10 --ddim_steps 50
-$ ls outputs/txt2img-samples/
 ```
 
 次回からは`$ conda activate ldm`で使います。
+
+```sh
+$ conda activate ldm
+$ cd ~/stable-diffusion
+$ python optimizedSD/optimized_txt2img.py --prompt "Cyberpunk style Tokyo landscape" --H 512 --W 512 --seed 27 --n_iter 2 --n_samples 10 --ddim_steps 50
+
+# ~/input.png
+# convert -resize 700x510 o.png input.png
+$ python optimizedSD/optimized_img2img.py --prompt "kawaii girl rim light" --init-img C:\Users\syui\input.png --strength 0.2 --n_iter 2 --n_samples 2 --H 300 --W 230
+
+$ python optimizedSD/inpaint_gradio.py --init-img C:\Users\syui\input.png
+# open localhost:7860
+
+$ ls outputs/*
+$ tree outputs/
+```
+
+![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0001.png)
+
+![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0002.png)
+
+![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0003.png)
 
 pythonの`import torch, torch.cuda.is_available()`がfalseの場合、pytorchがcudaと連携されていません。
 
@@ -132,16 +145,7 @@ torch.cuda.is_available()
 
 > RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 4.00 GiB total capacity; 3.42 GiB already allocated; 0 bytes free; 3.48 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
 
-```sh
-# ~/input.png
-# convert -resize 700x510 o.png input.png
-$ python optimizedSD/optimized_img2img.py --prompt "kawaii girl rim light" --init-img C:\Users\syui\input.png --strength 0.2 --n_iter 2 --n_samples 2 --H 300 --W 230
-
-$ python optimizedSD/inpaint_gradio.py --init-img C:\Users\syui\input.png
-# open localhost:7860
-```
-
-![](https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0003.png)
+### windows + cuda + wsl + anaconda
 
 次はwslで構築する方法です。memoryは多めに必要です。anaconda上でmodelをdlして使う方法です。
 
