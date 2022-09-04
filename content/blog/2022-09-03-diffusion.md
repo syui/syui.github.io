@@ -105,8 +105,6 @@ windowsだけでやる分には以下のような感じになります。
 $ scoop bucket add extras
 $ scoop install anaconda3 python
 $ conda init powershell
-$ conda create -n stable-diffusion python=3.9
-$ conda activate stable-diffusion
 $ git clone https://github.com/basujindal/stable-diffusion
 $ mkdir -p ~/stable-diffusion/models/ldm/stable-diffusion-v1
 $ mv sd-v1-4.ckpt ~/stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
@@ -120,6 +118,8 @@ $ pip install diffusers transformers scipy ftfy
 $ python optimizedSD/optimized_txt2img.py --prompt "Cyberpunk style Tokyo landscape" --H 512 --W 512 --seed 27 --n_iter 2 --n_samples 10 --ddim_steps 50
 $ ls outputs/txt2img-samples/
 ```
+
+次回からは`$ conda activate ldm`で使います。
 
 次はwslで構築する方法です。memoryは多めに必要です。anaconda上でmodelをdlして使う方法です。
 
@@ -157,7 +157,7 @@ torch.cuda.is_available()
 ```sh
 # ~/input.png
 # convert -resize 700x510 o.png input.png
-$ python optimizedSD/optimized_img2img.py --prompt "Austrian alps" --init-img C:\Users\syui\input.png --strength 0.8 --n_iter 2 --n_samples 10 --H 300 --W 230
+$ python optimizedSD/optimized_img2img.py --prompt "kawaii girl rim light" --init-img C:\Users\syui\input.png --strength 0.2 --n_iter 2 --n_samples 2 --H 300 --W 230
 ```
 
 ref : https://tadaoyamaoka.hatenablog.com/entry/2022/08/23/222813
