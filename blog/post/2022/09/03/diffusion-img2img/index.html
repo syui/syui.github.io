@@ -172,12 +172,8 @@ $ mv sd-v1-4.ckpt model.ckpt
 
 $ python optimizedSD/optimized_txt2img.py --prompt <span style="color:#e6db74">&#34;Cyberpunk style Tokyo landscape&#34;</span> --H <span style="color:#ae81ff">512</span> --W <span style="color:#ae81ff">512</span> --seed <span style="color:#ae81ff">27</span> --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">10</span> --ddim_steps <span style="color:#ae81ff">50</span>
 $ ls outputs/txt2img-samples/
-
-</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0001.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0002.png" alt=""></p>
-<p>ref : <a href="https://zenn.dev/koyoarai_/articles/02f3ed864c6127bb2049">https://zenn.dev/koyoarai_/articles/02f3ed864c6127bb2049</a></p>
-<h3 id="windows--cuda--wsl--anaconda">windows + cuda + wsl + anaconda</h3>
-<p>windowsだけでやる分には以下のような感じになります。</p>
+</code></pre></div><p>ref : <a href="https://zenn.dev/koyoarai_/articles/02f3ed864c6127bb2049">https://zenn.dev/koyoarai_/articles/02f3ed864c6127bb2049</a></p>
+<p>windowsでやるには以下のような感じになります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># cuda 11.6</span>
 $ scoop bucket add extras
 $ scoop install anaconda3 python
@@ -192,9 +188,23 @@ $ conda activate ldm
 $ conda install pytorch torchvision torchaudio cudatoolkit<span style="color:#f92672">=</span>11.6 -c pytorch -c conda-forge
 $ conda install jupyter pandas matplotlib -c conda-forge
 $ pip install diffusers transformers scipy ftfy
-$ python optimizedSD/optimized_txt2img.py --prompt <span style="color:#e6db74">&#34;Cyberpunk style Tokyo landscape&#34;</span> --H <span style="color:#ae81ff">512</span> --W <span style="color:#ae81ff">512</span> --seed <span style="color:#ae81ff">27</span> --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">10</span> --ddim_steps <span style="color:#ae81ff">50</span>
-$ ls outputs/txt2img-samples/
 </code></pre></div><p>次回からは<code>$ conda activate ldm</code>で使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda activate ldm
+$ cd ~/stable-diffusion
+$ python optimizedSD/optimized_txt2img.py --prompt <span style="color:#e6db74">&#34;Cyberpunk style Tokyo landscape&#34;</span> --H <span style="color:#ae81ff">512</span> --W <span style="color:#ae81ff">512</span> --seed <span style="color:#ae81ff">27</span> --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">10</span> --ddim_steps <span style="color:#ae81ff">50</span>
+
+<span style="color:#75715e"># ~/input.png</span>
+<span style="color:#75715e"># convert -resize 700x510 o.png input.png</span>
+$ python optimizedSD/optimized_img2img.py --prompt <span style="color:#e6db74">&#34;kawaii girl rim light&#34;</span> --init-img C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\i</span>nput.png --strength 0.2 --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">2</span> --H <span style="color:#ae81ff">300</span> --W <span style="color:#ae81ff">230</span>
+
+$ python optimizedSD/inpaint_gradio.py --init-img C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\i</span>nput.png
+<span style="color:#75715e"># open localhost:7860</span>
+
+$ ls outputs/*
+$ tree outputs/
+</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0001.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0002.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0003.png" alt=""></p>
 <p>pythonの<code>import torch, torch.cuda.is_available()</code>がfalseの場合、pytorchがcudaと連携されていません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py:test.py" data-lang="py:test.py"><span style="color:#f92672">import</span> torch
 torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available()
@@ -202,13 +212,7 @@ torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span
 <blockquote>
 <p>RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 4.00 GiB total capacity; 3.42 GiB already allocated; 0 bytes free; 3.48 GiB reserved in total by PyTorch) If reserved memory is &raquo; allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># ~/input.png</span>
-<span style="color:#75715e"># convert -resize 700x510 o.png input.png</span>
-$ python optimizedSD/optimized_img2img.py --prompt <span style="color:#e6db74">&#34;kawaii girl rim light&#34;</span> --init-img C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\i</span>nput.png --strength 0.2 --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">2</span> --H <span style="color:#ae81ff">300</span> --W <span style="color:#ae81ff">230</span>
-
-$ python optimizedSD/inpaint_gradio.py --init-img C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\s</span>yui<span style="color:#ae81ff">\i</span>nput.png
-<span style="color:#75715e"># open localhost:7860</span>
-</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/diffusion-img2img-0003.png" alt=""></p>
+<h3 id="windows--cuda--wsl--anaconda">windows + cuda + wsl + anaconda</h3>
 <p>次はwslで構築する方法です。memoryは多めに必要です。anaconda上でmodelをdlして使う方法です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ wsl --install -d ubuntu-20.04
 $ shutdown /r /f /t <span style="color:#ae81ff">0</span>
