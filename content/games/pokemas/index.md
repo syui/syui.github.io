@@ -91,6 +91,7 @@ https://pokemonmasters.pokemongo-raku.com/posts/4602
 ![](/games/pokemas/pokemas_01.jpg)
 
 ![](/games/pokemas/pokemas_02.jpg)
+![](/games/pokemas/pokemas_03.jpg)
 
 狙ってたけど取れなかったキャラはおらず、大体は天井分までダイヤをためてガチャを回すようにしています。
 
@@ -106,7 +107,7 @@ https://pokemonmasters.pokemongo-raku.com/posts/4602
 
 基本的には、速攻か毒殺を選択すればいいと思います。
 
-![](/games/pokemas/pokemas_03.png)
+![](/games/pokemas/pokemas_a01.png)
 
 ### 楽曲開放
 
