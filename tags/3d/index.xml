@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>trinoでfigureを3d scanしてみた</title>
+      <link>https://syui.cf/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。
+  trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。
+前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+    
     <item>
       <title>3Dモデルを作ってみる1</title>
       <link>https://syui.cf/blog/post/2020/01/24/3d/</link>

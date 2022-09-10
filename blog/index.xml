@@ -7,7 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>trinoでfigureを3d scanしてみた</title>
+      <link>https://syui.cf/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。
+  trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。
+前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+    
+    <item>
+      <title>原神、ちょびちょびが来た</title>
+      <link>https://syui.cf/blog/post/2022/09/06/genshin/</link>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/06/genshin/</guid>
+      <description>原神をプレイしてると、ふわふわ浮いて「ちょび、ちょび」言ってる丸っこいやつをつけてる人がいて、あれはなんだろうとずっと思ってたんだけど、うちにも来た。
+よう来た、よう来た。ゆっくりしておいき。</description>
+    </item>
+    
+    <item>
+      <title>ポケマス、レッド引いた</title>
+      <link>https://syui.cf/blog/post/2022/09/05/pokemas/</link>
+      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/05/pokemas/</guid>
+      <description>レッドは爆死して天井だったけど、サトシとシロナはすぐに出てくれたので良かった。
+レッド強すぎて絶対に引くべき。あと、ピカチュウが熱い。ポケマスも独自路線や一定の需要を掴みかけている雰囲気ある。
+ポケモンではピカチュウは最弱だった。それ故、ピカチュウはポケモンの顔ではあるけど、誰も使っていない。
+アニメでは大活躍しているから意外かもだけど、強いピカチュウを使いたいと思っていた人もファンの中にはいたはず。
+だから、サトシやレッドが最強のピカチュウを使って戦うというシュチエーションに熱いものを感じる。
+現在、ポケマスというゲームでは最強のポケモンがピカチュウになってる。これは、どのポケモンゲームにも見かけなかった現象なので、気になる人、ポケマスをプレイしよう。
+関係ないけどポケモンのフィギュア持ってるので写真あげときます。
+ちなみに、アルセウス以外は他の人にあげたので今はいません。</description>
+    </item>
+    
+    <item>
+      <title>イラストAIの活用法</title>
+      <link>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</link>
+      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</guid>
+      <description>イラストAI(画像生成AI)としてhuggingfaceのdiffusionなどが話題になっています。今回はpromptを調整することでいい感じの画像を作ってみました。
+&amp;#34;a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv&amp;#34; &amp;#34;japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing, genshin&amp;#34; 下記は生成したイラストの一部です。
+今回は少しだけ思想的な話をすることにします。
+はじめに まずはじめに、私のことを少し書きます。
+私がイラストAIを触ったのは、実は今回が初めてではありません。
+ずっと昔、もう数年以上前になりますが、このような画像生成AIを触る機会がありました。
+そのときにいくつかの画像を出力してみたことがあります。
+そのときに思ったのは、queryをこねくり回していても面白くないし、楽しくない、でした。
+思った通りの出力を得るのは難しく、連続、継続する作品をこのようなAIで作理上げることは難しい、と思いました。
+そして、その時にいろいろなことを考える機会がありました。
+確かに、AIは一般的に見て評価されそうな絵やきれいな画像を出力することができます。
+しかし、私は一般的に評価される絵やきれいな絵を描こうと思ったことは実は今まで一度もない。
+もちろん、評価されること、きれいなことは素晴らしい。できれば、評価され、きれいに描けたら嬉しいと思っている反面、そこを目指したことは一度もない。
+私が絵を描くときは、できる限り物語やキャラクターを描くようにしています。その方向に結びつける絵を描いてきました。その絵は、単なる一枚絵ではなく、物語、あるいはキャラクターを補完するために使われます。
+もちろん、それが上手に描ければ嬉しいのですが、それより重要なのは、物語やキャラクターに結びついているか否かや、その上で成り立つかどうかでした。</description>
+    </item>
+    
     <item>
       <title>diffusion img2imgでイラストを再生成してみた</title>
       <link>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</link>

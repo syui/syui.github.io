@@ -2,28 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.cf/tags/ai/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/3d/</loc>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/diffusion/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/python/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/skechfab/</loc>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/10/skechfab/</loc>
+    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/06/genshin/</loc>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pokemas/</loc>
+    <lastmod>2022-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pokemon/</loc>
+    <lastmod>2022-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/05/pokemas/</loc>
+    <lastmod>2022-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/ai/</loc>
+    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/diffusion/</loc>
+    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/python/</loc>
+    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</loc>
+    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</loc>
     <lastmod>2022-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/fly/</loc>
@@ -68,12 +95,6 @@
     <loc>https://syui.cf/blog/post/2022/08/15/figure/</loc>
     <lastmod>2022-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/pokemas/</loc>
-    <lastmod>2022-08-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/pokemon/</loc>
-    <lastmod>2022-08-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2022/08/11/pokemas/</loc>
     <lastmod>2022-08-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -115,9 +136,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/16/card/</loc>
     <lastmod>2022-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2022-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/07/15/genshin/</loc>
     <lastmod>2022-07-15T00:00:00+00:00</lastmod>
@@ -1660,9 +1678,6 @@
     <loc>https://syui.cf/blog/post/2020/01/25/pokemon/</loc>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/01/25/dotfiles/</loc>
-  </url><url>
-    <loc>https://syui.cf/tags/3d/</loc>
-    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2020/01/24/3d/</loc>
     <lastmod>2020-01-24T00:00:00+00:00</lastmod>
