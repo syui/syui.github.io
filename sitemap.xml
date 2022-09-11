@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/note/</loc>
+    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/post/</loc>
+    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/archive/note/17/</loc>
+    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/3d/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,12 +24,6 @@
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/skechfab/</loc>
-    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/10/skechfab/</loc>
@@ -430,12 +439,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/01/25/genshin/</loc>
     <lastmod>2022-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/note/</loc>
-    <lastmod>2022-01-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/post/</loc>
-    <lastmod>2022-01-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/archive/note/16/</loc>
     <lastmod>2022-01-23T00:00:00+00:00</lastmod>
