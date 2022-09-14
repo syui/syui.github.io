@@ -1,6 +1,6 @@
 +++
 date = "2021-12-25"
-lastmod = "2022-08-01"
+lastmod = "2022-09-01"
 tags = ["genshin","game"]
 title = "原神"
 slug = "genshin"
@@ -114,6 +114,8 @@ header_image = "/games/genshin.jpg"
 携帯ゲーム機信仰があり、windowsやps5でプレイすることもできますが、ipadでのプレイにこだわってます。やっぱり、どこでもプレイできるのは便利です。
 
 原神が落ちるようになった場合、ipadを再起動すると直ることがあります。
+
+追記 : ipad 7th(32GB) -> ipad 9th(64GB)に移行。グラフィック最大でも快適にプレイできています。
 
 ### 育成中のキャラ
 

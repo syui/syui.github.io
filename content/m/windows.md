@@ -58,3 +58,32 @@ virtualboxのimgを起動時にbackgraundで実行するには、以下のよう
 
 https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon
 
+### winget
+
+wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。
+
+```sh
+$ ssh windows
+
+$ winget -v
+# 7.2.6
+$ winget upgrade microsoft.powershell
+# 7.3.0
+$ winget install microsoft.powershell.preview
+
+$ pwsh-preview
+
+# winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも
+$ vim c:/programdata/ssh/sshd_config
+PasswordAuthentication no
+ForceCommand pwsh-preview
+
+$ net stop sshd
+$ net start sshd
+
+$ exit
+$ ssh windows
+powershell 7.3.0-preview
+
+$ winget upgrade --all
+```
