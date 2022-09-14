@@ -3,15 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/pwsh/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/ios/</loc>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/iphone/</loc>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/14/iphone-ios-16/</loc>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/pwsh/</loc>
     <lastmod>2022-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/windows/</loc>
@@ -286,9 +295,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/05/20/pokemas/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/iphone/</loc>
-    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/mobile/</loc>
     <lastmod>2022-05-19T00:00:00+00:00</lastmod>
@@ -579,9 +585,6 @@
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/11/11/goodreader/</loc>
-    <lastmod>2021-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/ios/</loc>
     <lastmod>2021-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/11/07/genshin/</loc>

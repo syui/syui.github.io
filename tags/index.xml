@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios</title>
+      <link>https://syui.cf/tags/ios/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iphone</title>
+      <link>https://syui.cf/tags/iphone/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/iphone/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pwsh</title>
       <link>https://syui.cf/tags/pwsh/</link>
@@ -333,15 +351,6 @@
     </item>
     
     <item>
-      <title>iphone</title>
-      <link>https://syui.cf/tags/iphone/</link>
-      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/iphone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>mobile</title>
       <link>https://syui.cf/tags/mobile/</link>
       <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
@@ -536,15 +545,6 @@
       <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/qiita/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ios</title>
-      <link>https://syui.cf/tags/ios/</link>
-      <pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/ios/</guid>
       <description></description>
     </item>
     
