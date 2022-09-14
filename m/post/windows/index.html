@@ -132,7 +132,32 @@
 <p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
 <p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>
 <p><a href="https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon">https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</a></p>
+<h3 id="winget">winget</h3>
+<p>wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ssh windows
 
+$ winget -v
+<span style="color:#75715e"># 7.2.6</span>
+$ winget upgrade microsoft.powershell
+<span style="color:#75715e"># 7.3.0</span>
+$ winget install microsoft.powershell.preview
+
+$ pwsh-preview
+
+<span style="color:#75715e"># winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも</span>
+$ vim c:/programdata/ssh/sshd_config
+PasswordAuthentication no
+ForceCommand pwsh-preview
+
+$ net stop sshd
+$ net start sshd
+
+$ exit
+$ ssh windows
+powershell 7.3.0-preview
+
+$ winget upgrade --all
+</code></pre></div>
 		
 
 

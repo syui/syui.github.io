@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 11 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pwsh</title>
+      <link>https://syui.cf/tags/pwsh/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/pwsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://syui.cf/tags/windows/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/windows/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>note</title>
       <link>https://syui.cf/tags/note/</link>
@@ -567,15 +585,6 @@
     </item>
     
     <item>
-      <title>windows</title>
-      <link>https://syui.cf/tags/windows/</link>
-      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>desktop</title>
       <link>https://syui.cf/tags/desktop/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
@@ -860,15 +869,6 @@
       <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/ipad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pwsh</title>
-      <link>https://syui.cf/tags/pwsh/</link>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/pwsh/</guid>
       <description></description>
     </item>
     

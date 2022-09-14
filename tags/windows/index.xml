@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wingetでpwshをupgradeしてopensshで使う</title>
+      <link>https://syui.cf/blog/post/2022/09/13/windows-winget-pwsh-openssh/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/13/windows-winget-pwsh-openssh/</guid>
+      <description>wingetが便利になってたので、wingetで最新のpwsh(powershell)をインストールして使ってみます。
+$ ssh windows $ winget -v # 7.2.6 $ winget upgrade microsoft.powershell # 7.3.0 $ winget install microsoft.powershell.preview $ pwsh-preview # winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも $ vim c:/programdata/ssh/sshd_config PasswordAuthentication no ForceCommand pwsh-preview $ net stop sshd $ net start sshd $ exit $ ssh windows powershell 7.3.0-preview $ winget upgrade --all winget、便利。</description>
+    </item>
+    
     <item>
       <title>windowsの使い方</title>
       <link>https://syui.cf/m/post/windows/</link>
@@ -28,7 +38,9 @@ virtualboxのimgを起動時にbackgraundで実行するには、以下のよう
 &amp;#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&amp;#34; startvm arch --type headless auto-login 起動時のパスワードを省略する設定です。
 仮にユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要のチェックボックスが表示されない場合、レジストリの値が2になっているので変更する必要があります。
 regeditを開き、HKEY_LOCAL_MACHINE &amp;gt; SOFTWARE &amp;gt; Microsoft &amp;gt;Windows NT &amp;gt; CurrentVersion &amp;gt; PasswordLess &amp;gt; Deviceを0にします。
-https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</description>
+https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon
+winget wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。
+$ ssh windows $ winget -v # 7.2.6 $ winget upgrade microsoft.</description>
     </item>
     
     <item>

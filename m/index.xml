@@ -28,7 +28,9 @@ virtualboxのimgを起動時にbackgraundで実行するには、以下のよう
 &amp;#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&amp;#34; startvm arch --type headless auto-login 起動時のパスワードを省略する設定です。
 仮にユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要のチェックボックスが表示されない場合、レジストリの値が2になっているので変更する必要があります。
 regeditを開き、HKEY_LOCAL_MACHINE &amp;gt; SOFTWARE &amp;gt; Microsoft &amp;gt;Windows NT &amp;gt; CurrentVersion &amp;gt; PasswordLess &amp;gt; Deviceを0にします。
-https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</description>
+https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon
+winget wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。
+$ ssh windows $ winget -v # 7.2.6 $ winget upgrade microsoft.</description>
     </item>
     
   </channel>
