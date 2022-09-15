@@ -12,6 +12,7 @@ slug = "diffusion-windows"
 ```sh:prompt.txt
 "a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv"
 "japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing, genshin"
+"mysterious fantasy night sky in spectacular iridescent clouds, twinkling stars, trending on artstation, award winning digital art, anime, pixiv, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing"
 ```
 
 下記は生成したイラストの一部です。
