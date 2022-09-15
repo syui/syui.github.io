@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/illust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>イラスト描いた118</title>
+      <link>https://syui.cf/blog/post/2022/09/15/illust/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/15/illust/</guid>
+      <description>今回は、キャラは自分で描きましたが、背景はAIが描きました。
+背景考えるの毎回大変だったんだよなあ&amp;hellip;。
+とはいえ、このまま背景をAIに頼ると、自分で背景を考える構築力が落ちると思っていて、統一感を保つのが難しくなります。
+背景も個性が出る部分だと思うので、やはり、自分で描くのが一番いいのかもしれない。
+とはいえ、たまには、めんどくさいときなんかはAIに頼るのも悪くないかもしれないと思っていて、AIもパラメータ、調整や修正のコツを学んでいけたらなあと思っています。</description>
+    </item>
+    
     <item>
       <title>イラストAIの活用法</title>
       <link>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</link>
