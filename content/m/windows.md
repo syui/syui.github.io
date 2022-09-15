@@ -24,7 +24,7 @@ Match Group administrators
        AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
 ```
 
-ADD userの場合、publickey認証が通らないことがあるようです。このようにして`c:/users/$user/.ssh/authorized_keys`に置いてみましょう。
+ADD userの場合、publickey認証が通らないことがあるようです。このようにして`c:/users/$user/.ssh/authorized_keys`に置いてみましょう。pathに`authorizedKeyPath`:`c:/users/$user/.ssh/authorized_keys`を追加します。
 
 > c:/programdata/ssh/sshd_config
 
@@ -47,6 +47,16 @@ $ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\
 default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。
 
 > Permission denied (publickey,keyboard-interactive).
+
+scpで`Connection closed`が出る場合、pathが通っていない可能性があります。
+
+`sshd_config`でfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。
+
+```sh
+$ get-command fstp
+
+$ Set-Item Env:Path "c:C:\Program Files\OpenSSH;$ENV:Path"
+```
 
 ### ultravnc
 
