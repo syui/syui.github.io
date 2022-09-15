@@ -112,15 +112,30 @@
 <p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
 <h3 id="openssh">openssh</h3>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
-<p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublic-keyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install microsoft.openssh.beta
+</code></pre></div><p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
        AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+</code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。</p>
+<blockquote>
+<p>c:/programdata/ssh/sshd_config</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">PasswordAuthentication no
+PermitEmptyPasswords yes
+AuthorizedKeysFile      .ssh/authorized_keys
+<span style="color:#75715e">#Match Group administrators</span>
+<span style="color:#75715e">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span>
 </code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
 <p><a href="https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration">https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
-</code></pre></div><h3 id="ultravnc">ultravnc</h3>
+</code></pre></div><p>default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。</p>
+<blockquote>
+<p>Permission denied (publickey,keyboard-interactive).</p>
+</blockquote>
+<h3 id="ultravnc">ultravnc</h3>
 <p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
-<p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install uvncbvba.UltraVnc
+</code></pre></div><p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
 <p>したがって、exeやstartup(shell:startup)は、<code>プロパティ &gt; 管理者としてこのプログラムを実行する</code>にチェックを入れます。</p>
 <p>また、場合によっては<code>nusrmgr.cpl</code>から<code>制御設定の変更</code>が必要になるかもしれません。</p>
 <h3 id="virtualbox">virtualbox</h3>
@@ -148,6 +163,10 @@ $ pwsh-preview
 $ vim c:/programdata/ssh/sshd_config
 PasswordAuthentication no
 ForceCommand pwsh-preview
+
+<span style="color:#75715e"># default-shellにする手順(forcecommandより早くなるけど注意が必要)</span>
+$ get-command pwsh-preview
+$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7-preview\preview\pwsh-preview.cmd&#34;</span> -PropertyType String -Force
 
 $ net stop sshd
 $ net start sshd

@@ -15,20 +15,7 @@
       
       <guid>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</guid>
       <description>イラストAI(画像生成AI)としてhuggingfaceのdiffusionなどが話題になっています。今回はpromptを調整することでいい感じの画像を作ってみました。
-&amp;#34;a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv&amp;#34; &amp;#34;japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing, genshin&amp;#34; 下記は生成したイラストの一部です。
-今回は少しだけ思想的な話をすることにします。
-はじめに まずはじめに、私のことを少し書きます。
-私がイラストAIを触ったのは、実は今回が初めてではありません。
-ずっと昔、もう数年以上前になりますが、このような画像生成AIを触る機会がありました。
-そのときにいくつかの画像を出力してみたことがあります。
-そのときに思ったのは、queryをこねくり回していても面白くないし、楽しくない、でした。
-思った通りの出力を得るのは難しく、連続、継続する作品をこのようなAIで作り上げるのは難しい、と思いました。
-そして、その時にいろいろなことを考える機会がありました。
-確かに、AIは一般的に見て評価されそうな絵やきれいな画像を出力することができます。
-しかし、私は一般的に評価される絵やきれいな絵を描こうと思ったことは実は一度もない。
-もちろん、評価されること、きれいなことは素晴らしい。できれば、評価され、きれいに描けたら嬉しいと思っている反面、そこを目指したことは一度もありません。
-私が絵を描くときは、できる限り物語やキャラクターを描くようにしています。その方向に結びつける絵を描いてきました。その絵は、単なる一枚絵ではなく、物語、あるいはキャラクターを補完するために使われます。
-もちろん、それが上手に描ければ嬉しいのですが、それより重要なのは、物語やキャラクターに結びついているか否かや、その上で成り立つかどうかでした。</description>
+&amp;#34;a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv&amp;#34; &amp;#34;japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing, genshin&amp;#34; &amp;#34;mysterious fantasy night sky in spectacular iridescent clouds, twinkling stars, trending on artstation, award winning digital art, anime, pixiv, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing&amp;#34; 下記は生成したイラストの一部です。</description>
     </item>
     
     <item>
