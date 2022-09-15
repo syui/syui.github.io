@@ -116,7 +116,7 @@
 </code></pre></div><p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
        AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-</code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。</p>
+</code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。pathに<code>authorizedKeyPath</code>:<code>c:/users/$user/.ssh/authorized_keys</code>を追加します。</p>
 <blockquote>
 <p>c:/programdata/ssh/sshd_config</p>
 </blockquote>
@@ -132,7 +132,12 @@ AuthorizedKeysFile      .ssh/authorized_keys
 <blockquote>
 <p>Permission denied (publickey,keyboard-interactive).</p>
 </blockquote>
-<h3 id="ultravnc">ultravnc</h3>
+<p>scpで<code>Connection closed</code>が出る場合、pathが通っていない可能性があります。</p>
+<p><code>sshd_config</code>でfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ get-command fstp
+
+$ Set-Item Env:Path <span style="color:#e6db74">&#34;c:C:\Program Files\OpenSSH;</span>$ENV<span style="color:#e6db74">:Path&#34;</span>
+</code></pre></div><h3 id="ultravnc">ultravnc</h3>
 <p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install uvncbvba.UltraVnc
 </code></pre></div><p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
