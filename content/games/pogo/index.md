@@ -3,6 +3,7 @@ date = "2021-12-26"
 tags = ["pokemongo","pokemon","game"]
 title = "Pokemon GO"
 slug = "pogo"
+aliases = "/m/post/pogo"
 header_image = "/games/pogo.jpg"
 +++
 

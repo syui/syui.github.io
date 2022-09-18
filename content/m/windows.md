@@ -1,9 +1,11 @@
 +++
 date = "2021-09-23"
 tags = ["windows", "m"]
-title = "windowsの使い方"
+title = "windows"
 slug = "windows"
 +++
+
+windowsの使い方をまとめます。
 
 ### local account
 
