@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/3d/</loc>
+    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/18/3dscan/</loc>
+    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/figure/</loc>
     <lastmod>2022-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/game/</loc>
@@ -56,9 +65,6 @@
     <loc>https://syui.cf/archive/note/17/</loc>
     <lastmod>2022-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/3d/</loc>
-    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/tags/skechfab/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -106,9 +112,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/08/27/fly-heroku/</loc>
     <lastmod>2022-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/figure/</loc>
-    <lastmod>2022-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/make/</loc>
     <lastmod>2022-08-20T00:00:00+00:00</lastmod>

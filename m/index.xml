@@ -9,12 +9,13 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/m/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>windowsの使い方</title>
+      <title>windows</title>
       <link>https://syui.cf/m/post/windows/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/m/post/windows/</guid>
-      <description>local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
+      <description>windowsの使い方をまとめます。
+local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
 openssh https://github.com/PowerShell/Win32-OpenSSH
 $ winget install microsoft.openssh.beta sshd_configはc:programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublickeyを記述します。ここでは、c:programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。
 Match Group administrators AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys ADD userの場合、publickey認証が通らないことがあるようです。このようにしてc:/users/$user/.ssh/authorized_keysに置いてみましょう。pathにauthorizedKeyPath:c:/users/$user/.ssh/authorized_keysを追加します。
@@ -26,7 +27,7 @@ $ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultS
  scpでConnection closedが出る場合、pathが通っていない可能性があります。
 sshd_configでfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。
 $ get-command fstp $ Set-Item Env:Path &amp;#34;c:C:\Program Files\OpenSSH;$ENV:Path&amp;#34; ultravnc https://www.uvnc.com/downloads/ultravnc.html
-$ winget install uvncbvba.UltraVnc 管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</description>
+$ winget install uvncbvba.</description>
     </item>
     
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>windows | syui.cf</title>
+		<title>3Dモデルの作成、scaniverseとtrinoの比較 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="windows" />
+		<meta property="og:title" content="3Dモデルの作成、scaniverseとtrinoの比較" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,12 +105,21 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2021-09-23 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2022-09-18 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/windows/">windows</a>
+		<a href="https://syui.cf/tags/3d/">3d</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.cf/tags/figure/">figure</a>
 		
 		
 		
@@ -120,103 +129,40 @@
 		
 		
 		
-		
-		
-		
-		, <a href="https://syui.cf/tags/m/">m</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/windows">windows</a></p>
 		
 		</div>
 
-		<h2>windows</h2>
+		<h2>3Dモデルの作成、scaniverseとtrinoの比較</h2>
 
-		<p>windowsの使い方をまとめます。</p>
-<h3 id="local-account">local account</h3>
-<p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
-<h3 id="openssh">openssh</h3>
-<p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install microsoft.openssh.beta
-</code></pre></div><p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
-       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-</code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。pathに<code>authorizedKeyPath</code>:<code>c:/users/$user/.ssh/authorized_keys</code>を追加します。</p>
-<blockquote>
-<p>c:/programdata/ssh/sshd_config</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">PasswordAuthentication no
-PermitEmptyPasswords yes
-AuthorizedKeysFile      .ssh/authorized_keys
-<span style="color:#75715e">#Match Group administrators</span>
-<span style="color:#75715e">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span>
-</code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
-<p><a href="https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration">https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
-</code></pre></div><p>default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。</p>
-<blockquote>
-<p>Permission denied (publickey,keyboard-interactive).</p>
-</blockquote>
-<p>scpで<code>Connection closed</code>が出る場合、pathが通っていない可能性があります。</p>
-<p><code>sshd_config</code>でfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ get-command fstp
+		<p>scaniverseが<code>LiDAR</code>なしでも使えるようになりました。これはnianticが買収してから無料になった3Dモデルが作成できるアプリです。</p>
+<p>trinoは以前から<code>LiDAR</code>なしでも使えて便利だったようですが、ここに来てscaniverseが有力になりました。</p>
+<p>したがって、この2つのアプリを簡単に比較してみたいと思います。</p>
+<p>以下は同じものをスキャンした例です。</p>
+<h3 id="trino">trino</h3>
+<div class="sketchfab-embed-wrapper"> <iframe title="figure" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/3dff1270f7bd4782a43818d49f47caf9/embed?autostart=1&camera=0" width="640" height="480"> </iframe> </div>
+<h3 id="scaniverse">scaniverse</h3>
+<div class="sketchfab-embed-wrapper"> <iframe title="figure" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9e65c253cacd42c2b5d579a8e5523b72/embed?autostart=1&camera=0" width="640" height="480"> </iframe> </div>
+<p>公平に見て、scaniverseのほうが使い勝手が良かったのと、trinoではモデル生成できなかった写真立て(カード立て)がscaniverseではできました。</p>
+<div class="sketchfab-embed-wrapper"> <iframe title="card" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1302a17f9198447d9278558f1452aa1d/embed?autostart=1&camera=0" width="640" height="480"> </iframe> </div>
+<p>したがって、現時点でscaniverseのほうがおすすめです。</p>
+<p>しかし、しっかりとした3Dモデルはtrinoのほうが作れていると感じます。</p>
+<p>scaniverseは一見してきれいに見えますが、表面的な部分のみで、内側を読み取るのは苦手なようです。</p>
+<p>scaniverseは、内部を作り込むのではなく、無理やり表面に結合するというような形になることが多かった。</p>
+<p>これは、<code>LiDAR</code>が使えるかどうかで変わってくるのかもしれません。</p>
 
-$ Set-Item Env:Path <span style="color:#e6db74">&#34;c:C:\Program Files\OpenSSH;</span>$ENV<span style="color:#e6db74">:Path&#34;</span>
-</code></pre></div><h3 id="ultravnc">ultravnc</h3>
-<p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install uvncbvba.UltraVnc
-</code></pre></div><p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
-<p>したがって、exeやstartup(shell:startup)は、<code>プロパティ &gt; 管理者としてこのプログラムを実行する</code>にチェックを入れます。</p>
-<p>また、場合によっては<code>nusrmgr.cpl</code>から<code>制御設定の変更</code>が必要になるかもしれません。</p>
-<h3 id="virtualbox">virtualbox</h3>
-<p><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
-<p>virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:startup/vm-arch.bat" data-lang="sh:startup/vm-arch.bat"><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
-</code></pre></div><h3 id="auto-login">auto-login</h3>
-<p>起動時のパスワードを省略する設定です。</p>
-<p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
-<p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>
-<p><a href="https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon">https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</a></p>
-<h3 id="winget">winget</h3>
-<p>wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ssh windows
-
-$ winget -v
-<span style="color:#75715e"># 7.2.6</span>
-$ winget upgrade microsoft.powershell
-<span style="color:#75715e"># 7.3.0</span>
-$ winget install microsoft.powershell.preview
-
-$ pwsh-preview
-
-<span style="color:#75715e"># winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも</span>
-$ vim c:/programdata/ssh/sshd_config
-PasswordAuthentication no
-ForceCommand pwsh-preview
-
-<span style="color:#75715e"># default-shellにする手順(forcecommandより早くなるけど注意が必要)</span>
-$ get-command pwsh-preview
-$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7-preview\preview\pwsh-preview.cmd&#34;</span> -PropertyType String -Force
-
-$ net stop sshd
-$ net start sshd
-
-$ exit
-$ ssh windows
-powershell 7.3.0-preview
-
-$ winget upgrade --all
-</code></pre></div>
 		
 
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2022/09/18/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、無課金の1年で育成や武器、螺旋はどこまでできる？
+					</a></p>
+    
+    
+	</div>
+</nav>
 
 
 
