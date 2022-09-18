@@ -4,22 +4,46 @@
 <article>
 	<div class="content">
 		{{ if ne .Lastmod .Date }}<div class="post-time-date">update : {{ .Lastmod.Format "2006-01-02" }}</div>{{ end }}
-		<div class="post-time-date">{{ .Date.Local.Format "2006-01-02" }} / <a href="/syui">@{{ .Site.Author.name }}</a></div>
+		<div class="post-time-date">{{ .Date.Local.Format "2006-01-02" }} / <a href="/syui">@{{ .Site.Author.name }}</a>
+
+		{{ $taxo := "tags" }}
+		{{ with .Param $taxo }}
+		<p><i class="fa-regular fa-folder"></i> {{ if gt (len .) 1 }}{{ end }}
+		{{ range $index, $director := . }}
+		{{- if gt $index 0 }}, {{ end -}}
+		{{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+		<a href="{{ .Permalink }}">{{ $director }}</a>
+		{{ $s := path.Dir (.Permalink | relURL) }}
+		{{ $dirFile := path.Split $s }}
+		{{ $dirPath := print "/games/" $dirFile.File }}
+		{{ $dirCheck := os.FileExists $dirPath }}
+		{{ if os.FileExists $dirPath }}
+		{{ $.Scratch.Set "check" $dirCheck }}
+		{{ $.Scratch.Set "path" $dirPath }}
+		{{ $.Scratch.Set "name" $dirFile.File }}
+		{{ end }}
+		{{ $dirPath := print "/m/" $dirFile.File ".md"}}
+		{{ $dirPathFix := print "/m/post/" $dirFile.File }}
+		{{ $dirCheck := os.FileExists $dirPath }}
+		{{ if os.FileExists $dirPath }}
+		{{ $.Scratch.Set "check" $dirCheck }}
+		{{ $.Scratch.Set "path" $dirPathFix }}
+		{{ $.Scratch.Set "name" $dirFile.File }}
+		{{ end }}
+		{{- end -}}
+		{{- end -}}
+		{{ end }}
+		{{ if $.Scratch.Get "check" }}
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="{{ $.Scratch.Get "path" }}">{{ $.Scratch.Get "name" }}</a></p>
+		{{ end }}
+		</div>
+
 		<h2>{{ .Title }}</h2>
 
 		{{ .Content }}
 		{{ partial "prev_next_post.html" . }}
 
-		{{ $taxo := "tags" }}
-		{{ with .Param $taxo }}
-		<strong>tag{{ if gt (len .) 1 }}s{{ end }}:</strong>
-		{{ range $index, $director := . }}
-		{{- if gt $index 0 }}, {{ end -}}
-		{{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-		<a href="{{ .Permalink }}">{{ $director }}</a>
-		{{- end -}}
-		{{- end -}}
-		{{ end }}
+
 		<div class="utterances">
 			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
 		</div>
