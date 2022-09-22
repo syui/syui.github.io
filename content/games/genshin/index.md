@@ -57,20 +57,29 @@ header_image = "/games/genshin.jpg"
 |2022|06|螺旋を通しでクリア|一度もリセットすることなく連続で攻略|
 
 [![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)
-[![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0002.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0002.png)
 
-### 引いておきたいキャラ
+### 引いておきたいキャラと武器
 
 個人的に引いておきたいキャラをランキング形式でまとめます。特に無課金では、強いキャラを狙っていかないと厳しいと感じています。方針としては、原石を貯める、強いキャラを狙う、強いキャラを育てるという感じになると思われます。
 
+#### キャラ
+
 |順位|名前|
 |---|---|
-|1| 鍾離|
-|2| 雷電|
+|1| 雷電|
+|2| 鍾離|
 |3| 万葉|
 |4| 綾華|
 
-![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220424_0001.jpg)
+#### 武器
+
+|順位|名前|
+|---|---|
+|1| 草薙の稲光|
+|2| 護摩の杖|
+|3| 蒼古なる自由への誓い|
+|4| 終焉を嘆く詩|
+
 
 行秋(完凸)とベネット(1凸)は配布、交換、すり抜けで狙う方針。
 
@@ -86,7 +95,6 @@ header_image = "/games/genshin.jpg"
 
 - 変換で得た運命も合算しています
 
-<a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
 
 ### プレイ環境
 
@@ -121,6 +129,8 @@ header_image = "/games/genshin.jpg"
 追記 : ipad 7th(32GB) -> ipad 9th(64GB)に移行。グラフィック最大でも快適にプレイできています。
 
 ### 育成中のキャラ
+
+<a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
 
 |キャラ|LV|通常|スキル|爆発|
 |---|---|---|---|---|
@@ -173,6 +183,10 @@ header_image = "/games/genshin.jpg"
 #### 香菱
 
 <a href="/games/genshin/genshin_chara_xiangling_fix2.png"><img src="/games/genshin/genshin_chara_xiangling_fix2.png"></a>
+
+#### 蛍
+
+<a href="/games/genshin/genshin_chara_hotaru.png"><img src="/games/genshin/genshin_chara_hotaru.png"></a>
 
 https://shinshin.moe
 
@@ -539,6 +553,8 @@ LVに関しても同じことが言えます。もちろん、経験値が無駄
 ### ステータスや聖遺物について
 
 聖遺物厳選は、基本的に必要ありません。自己満足の部類であるため厳選するタイミングは、やることがなくなった時点が最適です。
+
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220424_0001.jpg)
 
 あるいは基準を下げて厳選し、早めに終えるのが得策だと思います。
 
