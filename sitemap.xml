@@ -2,13 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/blog/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/illust/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2022/09/22/illust/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/3d/</loc>
     <lastmod>2022-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/18/3dscan/</loc>
-    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/blog/</loc>
     <lastmod>2022-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/figure/</loc>
@@ -20,20 +32,11 @@
     <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2022-09-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
-    <lastmod>2022-09-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2022/09/18/genshin/</loc>
     <lastmod>2022-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/17/genshin/</loc>
     <lastmod>2022-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/illust/</loc>
-    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/15/illust/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
