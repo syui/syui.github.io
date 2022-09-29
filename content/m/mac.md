@@ -1,0 +1,75 @@
++++
+date = "2022-09-29"
+tags = ["mac","m"]
+title = "mac"
+slug = "mac"
++++
+
+まず、どのos(linuxを除く)にも言えることですが、macでもすべての項目をdisableしていく作業、つまり、設定をスキップしたり、「後で設定する」を選択していく作業から始まります。
+
+最初にインストールしたソフトウェアとサービスの一覧です。
+
+### 使ってるソフトウェア
+
+- xcode, etc... : https://developer.apple.com/jp/
+
+- chrome : https://www.google.com/chrome/
+
+- google日本語入力 : https://www.google.co.jp/ime/
+
+- iterm2 : https://iterm2.com/
+
+- homebrew : https://github.com/Homebrew/brew
+
+- karabiner : https://github.com/pqrs-org/Karabiner-Elements
+
+- shiftit : https://github.com/fikovnik/ShiftIt
+
+- keepassxc : https://github.com/keepassxreboot/keepassxc
+
+### 使ってるサービス
+
+- github : https://github.com/
+
+- twitter : https://twitter.com/
+
+- google : https://www.google.com/
+
+- youtube : https://www.youtube.com/
+
+- heroku : https://heroku.com/
+
+- fly.io : https://fly.io/
+
+- northflank : https://northflank.com/
+
+- sketchfab : https://sketchfab.com/
+
+- amazon : https://www.amazon.co.jp/
+
+- mailgun : https://mailgun.com/
+
+- cloudflare : https://www.cloudflare.com/
+
+- freenom : https://www.freenom.com/
+
+### macの個人設定
+
+まず、電源offのショートカットがないので作ります。
+
+- `キーボード -> ショートカット -> アプリケーション -> システム終了...` : Ctrl + Command + L
+
+ここで`システム終了...`と`...`まで日本語入力して設定します。これは、メニュー項目の表示にあたります。macは表示項目で操作するようです。
+
+ファイアウォールがdisableになっているので、enableにします。
+
+- `セキュリティとプライバシー -> ファイアウォール`
+
+gpg-keyを忘れないようにimportします。
+
+```sh
+$ gpg --export-secret-keys 67AC97A939D3EA19 > sec.key
+------
+$ brew install gpg
+$ gpg --import sec.key
+```
