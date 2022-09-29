@@ -53,6 +53,12 @@ slug = "mac"
 
 - freenom : https://www.freenom.com/
 
+- wiki : https://wiki.archlinux.jp/
+
+- slack : https://archlinuxjp.slack.com/
+
+- reddit : https://www.reddit.com/
+
 ### macの個人設定
 
 まず、電源offのショートカットがないので作ります。
