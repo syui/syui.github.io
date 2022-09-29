@@ -7,7 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 25 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macbook airの初期設定</title>
+      <link>https://syui.cf/blog/post/2022/09/29/macbook/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/29/macbook/</guid>
+      <description>macbook air(m1)をカスタムオプションでapple storeから購入したので、初期設定でやったことをまとめます。
+m1を選択した理由は、先っぽが尖っているからです。この形状が昔から好きだったので、m1を選択しました。
+まず、どのos(linuxを除く)にも言えることですが、macでもすべての項目をdisableしていく作業、つまり、設定をスキップしたり、「後で設定する」を選択していく作業から始まります。
+最初にインストールしたソフトウェアとサービスの一覧です。
+使ってるソフトウェア   xcode, etc&amp;hellip; : https://developer.apple.com/jp/
+  chrome : https://www.google.com/chrome/
+  google日本語入力 : https://www.google.co.jp/ime/
+  iterm2 : https://iterm2.com/
+  homebrew : https://github.com/Homebrew/brew
+  karabiner : https://github.com/pqrs-org/Karabiner-Elements
+  shiftit : https://github.com/fikovnik/ShiftIt
+  keepassxc : https://github.com/keepassxreboot/keepassxc
+  使ってるサービス   github : https://github.com/
+  twitter : https://twitter.com/
+  google : https://www.google.com/
+  youtube : https://www.</description>
+    </item>
+    
     <item>
       <title>イラスト描いた121</title>
       <link>https://syui.cf/blog/post/2022/09/25/illust/</link>
