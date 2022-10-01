@@ -30,7 +30,7 @@ Pokemon GOをプレイしています。
 
 niantic campfilreが来たので、アイコン描きました。
 
-リザードンとアルセウスが好きなので、Pokemon Goで使ってるのアバターをもとに描きました。
+リザードンとアルセウスが好きなので、Pokemon Goで使ってるアバターをもとに描きました。
 
 ![](/games/pogo/pogo_05.png)
 ![](/games/pogo/pogo_04.png)
