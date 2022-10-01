@@ -8,12 +8,6 @@ aliases = "/m/post/pokemas"
 header_image = "/games/pokemas.jpg"
 +++
 
-<style>
-.containerx p img {
-    width: 100%;
-    padding: 0;
-}
-</style>
 
 トレーナーのストーリーを作ってるゲーム。
 

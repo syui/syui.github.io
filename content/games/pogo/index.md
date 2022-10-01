@@ -7,13 +7,6 @@ aliases = "/m/post/pogo"
 header_image = "/games/pogo.jpg"
 +++
 
-<style>
-.containerx p img {
-    width: 100%;
-    padding: 0;
-}
-</style>
-
 Pokemon GOをプレイしています。
 
 ポケモンをいつもポケットに持ち運べるというのは最高です。
@@ -32,3 +25,12 @@ Pokemon GOをプレイしています。
 ![](/games/pogo/pogo_01.png)
 ![](/games/pogo/pogo_02.png)
 ![](/games/pogo/pogo_03.png)
+
+### niantic campfire
+
+niantic campfilreが来たので、アイコン描きました。
+
+リザードンとアルセウスが好きなので、Pokemon Goで使ってるのアバターをもとに描きました。
+
+![](/games/pogo/pogo_05.png)
+![](/games/pogo/pogo_04.png)
