@@ -1,38 +1,15 @@
-+++
-title = "ai | img"
-slug = "img"
-aliases = "illust"
-+++
-
-<link rel="stylesheet" href="/css/img.css" />
-
-<p class="img-fa-bars"><a href="/ai/imgall"><i class="fas fa-bars"></i></a></p>
-
 ![](/img/min/yui_11.webp)
 ![](/img/min/yui_15.webp)
-![](/img/min/yui_20.webp)
 ![](/img/min/yui_28.webp)
-![](/img/min/yui_30.webp)
 ![](/img/min/yui_59.webp)
 ![](/img/min/yui_76.webp)
 ![](/img/min/yui_77.webp)
-![](/img/min/yui_78.webp)
 ![](/img/min/yui_85.webp)
 ![](/img/min/yui_88.webp)
 ![](/img/min/yui_89.webp)
 ![](/img/min/yui_90.webp)
 ![](/img/min/yui_97.webp)
 ![](/img/min/yui_100.webp)
-![](/img/min/yui_103.webp)
-![](/img/min/yui_108.webp)
-![](/img/min/yui_109.webp)
-![](/img/min/yui_110.webp)
-![](/img/min/yui_112.webp)
-![](/img/min/yui_113.webp)
-![](/img/min/yui_115.webp)
-![](/img/min/yui_120.webp)
-![](/img/min/yui_123.webp)
-
 
 ### キャラクター
 
