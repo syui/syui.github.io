@@ -2,7 +2,15 @@
 {{ partial "navbar-ai.html" . }}
 {{ partial "header.html" . }}
 
-{{ .Content }}
+{{ $s := path.Dir (.Permalink | relURL) }}
+{{ $t := index (split $s "/") 2 }}
+{{ $o := index (split $s "/") 1 }}
+
+{{ if eq $t "img" }}
+	{{ partial "img.html" . }}
+{{ else }}
+	{{ .Content }}
+{{ end }}
 		</div>
 
 {{ partial "sns-ai.html" . }}
