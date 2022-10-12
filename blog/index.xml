@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>くいなちゃん描いた3</title>
+      <link>https://syui.cf/blog/post/2022/10/12/illust/</link>
+      <pubDate>Wed, 12 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/10/12/illust/</guid>
+      <description>kuina-chan</description>
+    </item>
+    
+    <item>
+      <title>くいなちゃん描いた2</title>
+      <link>https://syui.cf/blog/post/2022/10/11/illust/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/10/11/illust/</guid>
+      <description>kuina-chan</description>
+    </item>
+    
     <item>
       <title>イラスト描いた123</title>
       <link>https://syui.cf/blog/post/2022/10/08/illust/</link>
@@ -10310,13 +10328,12 @@ $ ssh root@192.168.1.x $ uname -a # パスワードの変更、alpine $ passwd $
     </item>
     
     <item>
-      <title>イラスト描いてみた13</title>
+      <title>くいなちゃん描いた1</title>
       <link>https://syui.cf/blog/post/2019/10/05/illust/</link>
       <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2019/10/05/illust/</guid>
-      <description>https://syui.cf/illust/
-絵を描いてみたい気分だったので、kuina-chanを描いてみました。
+      <description>絵を描いてみたい気分だったので、kuina-chanを描いてみました。
 kuina-chan-license は、なんかいい感じなので、絵が描けます。
 あといつも通り、文章をなんか書きます。
 特徴 kuina-chanに似てないって?鎌とリボンがあるでしょおお！
