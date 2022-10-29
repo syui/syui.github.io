@@ -239,7 +239,21 @@ $ gpg --import sec.key
 <p>intel版のmacbook airには、archlinuxを入れています。また、usbに入れているarchも起動できるので、外出時などに便利です。</p>
 <p>iphoneのインターネット共有(テザリング)でglobal-ipから使います。</p>
 <p><a href="https://github.com/cghdev/gotunl">gotunl</a>でvpn serverにアクセスし、local-networkに入ります。</p>
+<p>なお、<code>gotunl</code>を使うには、あらかじめ公式client(electron)をinstallして、profileを<a href="https://syui.cf/m/post/arch/">import</a>しておく必要があります。</p>
+<p><a href="https://pritunl.com">https://pritunl.com</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="color:#66d9ef">[pritunl]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Server</span> <span style="color:#f92672">=</span> https://repo.pritunl.com/stable/pacman<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -Syu pritunl-client-electron
+$ sudo pacman -S pritunl-client-electron-numix-theme
+$ pritunl-client-electron
+<span style="color:#75715e"># ここでprofile(.vpn)をimport</span>
 
+$ git clone https://github.com/cghdev/gotunl.git
+$ cd gotunl
+$ go install
+$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
+$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
+</code></pre></div>
 		
 
 

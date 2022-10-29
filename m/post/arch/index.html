@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>arch | syui.cf</title>
+		<title>archlinux | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="arch" />
+		<meta property="og:title" content="archlinux" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -138,14 +138,16 @@
 		
 		</div>
 
-		<h2>arch</h2>
+		<h2>archlinux</h2>
 
-		<p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
+		<p>archlinuxのinstaller(script)です。</p>
+<p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fdisk -l
 sda
 $ export x<span style="color:#f92672">=</span>a
 $ curl -sL git.io/air | zsh
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cfdisk /dev/sda
+</code></pre></div><p>archlinuxの一般的なinstall手順です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cfdisk /dev/sda
 sda1 200M linux-system
 sda2 8GB linux-system
 write<span style="color:#f92672">(</span>yes<span style="color:#f92672">)</span>, quit
@@ -201,6 +203,79 @@ $ systemctl restart sshd
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:guest.txt" data-lang="sh:guest.txt">$ ssh-keygen -f ~/.ssh/xxx
 $ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
+</code></pre></div><h3 id="app">app</h3>
+<p>window managerはi3(xorg), sway(wayland)を使用しています。かつては<code>awesome</code>を使用していました。</p>
+<p>file managerは<code>pcmanfm</code>です。かつては<code>spacefm</code>を使用していました。</p>
+<p>login managerは<code>lightdm</code>です。かつては<code>slim</code>を使用していました。</p>
+<p>アイコンは<code>blueman</code>, <code>network-manager(nm-applet)</code>, <code>pulseaudio</code>, <code>fcitx</code>, <code>clipman</code>, <code>rofi</code>など。</p>
+<p>キーバインドは<code>xdotool</code>, <code>xmodmap</code>, <code>xbindkeys</code>などを使用しています。</p>
+<p>screenshotは、<code>grim</code>を使用しています。</p>
+<h3 id="vpn">vpn</h3>
+<p>vpn serverとclientは<code>pritunl</code>が便利です。</p>
+<p><a href="https://pritunl.com">https://pritunl.com</a></p>
+<h4 id="vpn-server">vpn server</h4>
+<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。</p>
+<p>ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。</p>
+<p><a href="https://github.com/goofball222/pritunl">https://github.com/goofball222/pritunl</a></p>
+<p><a href="https://hub.docker.com/r/goofball222/pritunl">https://hub.docker.com/r/goofball222/pritunl</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">mongo</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunldb</span>
+    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunldb</span>
+    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./db:/data/db</span>
+
+  <span style="color:#f92672">pritunl</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">goofball222/pritunl:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunl</span>
+    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunl</span>
+    <span style="color:#f92672">depends_on</span>:
+        - <span style="color:#ae81ff">mongo</span>
+    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+    <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">sysctls</span>:
+      - <span style="color:#ae81ff">net.ipv6.conf.all.disable_ipv6=0</span>
+    <span style="color:#f92672">links</span>:
+      - <span style="color:#ae81ff">mongo</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
+      - <span style="color:#ae81ff">443</span>:<span style="color:#ae81ff">443</span>
+      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span>
+      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span><span style="color:#ae81ff">/udp</span>
+      - <span style="color:#ae81ff">14036</span>:<span style="color:#ae81ff">14036</span><span style="color:#ae81ff">/udp</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">TZ=UTC</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
+$ mkdir -p mongo
+$ sudo docker-compose up -d
+</code></pre></div><p>browser(chromiumなど)で<code>localhost</code>にアクセスし、web-uiから初期設定を行います。defaultのuserとpassは両方ともpritunlです。</p>
+<p>profileをdownloadしてiosに共有しておきます。なお、global-ipは通常は変動しますので、固定ipを持っていない場合は、ddnsの登録を行ったうえでそれを使用するか、ipが変わったとき通知するか、してください。</p>
+<p>固定ipやddnsの場合は、profileを書き換える必要はありませんが、そうでない場合は、profileのglobal-ipを書き換える必要があります。書き換えは<code>goodreader</code>などが便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- remote 123.45.67.89 $port udp
++ remote 89.45.67.123 $port udp
+</code></pre></div><p>vpn serverを常時起動しておくのは電力の無駄でsecurity上もよくありません。したがって、できればポートフォワーディング用のserverを用意して、使用するときに起動したほうがいいと思います。</p>
+<p>また、securityを考慮するなら、ポートフォワーディング用のserver自体を必要最小限にし、wol serverにした上で、ssh serverをwolで起動する役割のみを与えます。wolしたあとは、sshの踏み台にして、private-key自体はiosに置いておくという形が理想的だと思います。そのssh serverにアクセスしたあとはvpn serverを立ち上げ、lanに入ればいいでしょう。ただし、手間がかかりますから、そのへんのsecurityは使用頻度を考慮した上で考えればいいと思います。</p>
+<h4 id="vpn-client">vpn client</h4>
+<p><a href="https://github.com/cghdev/gotunl">gotunl</a>でvpn serverにアクセスし、local-networkに入ります。</p>
+<p>なお、<code>gotunl</code>を使うには、あらかじめ公式client(electron)をinstallして、profileを<a href="https://syui.cf/m/post/arch/">import</a>しておく必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="color:#66d9ef">[pritunl]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Server</span> <span style="color:#f92672">=</span> https://repo.pritunl.com/stable/pacman<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -Syu pritunl-client-electron
+$ sudo pacman -S pritunl-client-electron-numix-theme
+$ pritunl-client-electron
+<span style="color:#75715e"># ここでprofile(.vpn)をimport</span>
+
+$ git clone https://github.com/cghdev/gotunl.git
+$ cd gotunl
+$ go install
+$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
+$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
 </code></pre></div>
 		
 
