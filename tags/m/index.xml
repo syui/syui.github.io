@@ -51,16 +51,17 @@ $ cfdisk /dev/sda sda1 200M linux-system sda2 8GB linux-system write(yes), quit 
   medly
   scaniverse
   metatrader 5
+  slack
   twitter
   mastodon
-  pokemon go
+  ibispaint x
   termius iosでは主にtermiusを使用しています。これがないと、私のスマホは恐ろしいほど不便になります。
 私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。
 つまり、local-networkに入れないと何もできません。
 ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。
 wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。
 ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。
-version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - ./db:/data/db pritunl: image: goofball222/pritunl:latest container_name: pritunl hostname: pritunl depends_on: - mongo network_mode: bridge privileged: true sysctls: - net.</description>
+version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - .</description>
     </item>
     
     <item>
@@ -69,7 +70,7 @@ version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/m/post/mac/</guid>
-      <description>macの使い方をまとめます。
+      <description>macの使い方をまとめます。macbook air(m1)を使っています。
 最初にインストールしたソフトウェアとサービスの一覧です。
 使ってるソフトウェア   xcode, etc&amp;hellip; : https://developer.apple.com/jp/
   chrome : https://www.google.com/chrome/
@@ -80,10 +81,8 @@ version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name
   shiftit : https://github.com/fikovnik/ShiftIt
   keepassxc : https://github.com/keepassxreboot/keepassxc
   virtualbox : https://download.virtualbox.org/virtualbox/
-  使ってるサービス   github : https://github.com/
-  twitter : https://twitter.com/
-  google : https://www.google.com/
-  youtube : https://www.</description>
+  Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.com/
+  使ってるサービス   github : https://github.</description>
     </item>
     
     <item>

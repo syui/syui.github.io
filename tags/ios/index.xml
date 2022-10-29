@@ -25,16 +25,17 @@
   medly
   scaniverse
   metatrader 5
+  slack
   twitter
   mastodon
-  pokemon go
+  ibispaint x
   termius iosでは主にtermiusを使用しています。これがないと、私のスマホは恐ろしいほど不便になります。
 私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。
 つまり、local-networkに入れないと何もできません。
 ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。
 wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。
 ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。
-version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - ./db:/data/db pritunl: image: goofball222/pritunl:latest container_name: pritunl hostname: pritunl depends_on: - mongo network_mode: bridge privileged: true sysctls: - net.</description>
+version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - .</description>
     </item>
     
     <item>
