@@ -90,3 +90,25 @@ iphoneのインターネット共有(テザリング)でglobal-ipから使いま
 
 [gotunl](https://github.com/cghdev/gotunl)でvpn serverにアクセスし、local-networkに入ります。
 
+なお、`gotunl`を使うには、あらかじめ公式client(electron)をinstallして、profileを[import](https://syui.cf/m/post/arch/)しておく必要があります。
+
+https://pritunl.com
+
+```sh:/etc/pacman.conf
+[pritunl]
+Server = https://repo.pritunl.com/stable/pacman
+```
+
+```sh
+$ sudo pacman -Syu pritunl-client-electron
+$ sudo pacman -S pritunl-client-electron-numix-theme
+$ pritunl-client-electron
+# ここでprofile(.vpn)をimport
+
+$ git clone https://github.com/cghdev/gotunl.git
+$ cd gotunl
+$ go install
+$ ./${GOPATH}/bin/gotunl -l
+$ ./${GOPATH}/bin/gotunl -c 1
+```
+
