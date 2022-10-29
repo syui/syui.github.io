@@ -59,6 +59,7 @@ Defaults env_keep += "HOME"
 $ su $user
 $ crontab -e
 0 0 * * * sudo rm -rf /var/lib/pacman/db.lck && sudo pacman -Syu --noconfirm
+$ systemctl enable cronie
 
 $ exit
 $ reboot
@@ -75,7 +76,7 @@ $ systemctl restart sshd
 
 ```sh:gest.txt
 $ ssh-keygen -f ~/.ssh/xxx
-$ ssh-copy-id -i ~/.ssh/xxx.pub $user@192.168.11.15
+$ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
 ```
 
