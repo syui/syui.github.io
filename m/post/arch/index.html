@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>i3でおすすめのvnc clientであるremmina | syui.cf</title>
+		<title>arch | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="i3でおすすめのvnc clientであるremmina" />
+		<meta property="og:title" content="arch" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,21 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2021-05-13 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2022-10-29 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/vnc/">vnc</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.cf/tags/arch/">arch</a>
+		<a href="https://syui.cf/tags/arch/">arch</a>
 		
 		
 		
@@ -132,7 +123,7 @@
 		
 		
 		
-		, <a href="https://syui.cf/tags/linux/">linux</a>
+		, <a href="https://syui.cf/tags/m/">m</a>
 		
 		
 		
@@ -147,28 +138,79 @@
 		
 		</div>
 
-		<h2>i3でおすすめのvnc clientであるremmina</h2>
+		<h2>arch</h2>
 
-		<p>vnc clinetは色々ありますが、個人的には、<code>remmina</code>が最もおすすめです。linuxでは主にこちらを使っています。</p>
-<p>remminaは、非常に柔軟性のあるvnc clientで、i3でも普通に動作すると思います。また、コマンドオプションも豊富です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S remmina
-$ remmina -c vnc://<span style="color:#e6db74">${</span>user<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>password<span style="color:#e6db74">}</span>@192.168.xx.xxx
-</code></pre></div><p><a href="https://wiki.archlinux.jp/index.php/Remmina">https://wiki.archlinux.jp/index.php/Remmina</a></p>
+		<p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fdisk -l
+sda
+$ export x<span style="color:#f92672">=</span>a
+$ curl -sL git.io/air | zsh
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cfdisk /dev/sda
+sda1 200M linux-system
+sda2 8GB linux-system
+write<span style="color:#f92672">(</span>yes<span style="color:#f92672">)</span>, quit
 
+$ mkfs.vfat /sda1
+$ mkfs.ext4 /sda2
+$ mount /dev/sda2 /mnt
+$ pacstrap -K /mnt base linux base-devel
+$ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+
+$ arch-chroot /mnt
+$ user<span style="color:#f92672">=</span>syui
+$ echo xxx &gt;&gt; /etc/hostname
+$ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils zsh-syntax-highlighting cronie jq
+$ grub-install --force --recheck /dev/sda
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+$ vim /etc/systemd/network/eth.network
+<span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>en*
+<span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+<span style="color:#75715e">#DHCP=ipv4</span>
+Address<span style="color:#f92672">=</span>192.168.11.15
+Gateway<span style="color:#f92672">=</span>192.168.11.1
+DNS<span style="color:#f92672">=</span>192.168.11.1
+<span style="color:#f92672">[</span>DHCP<span style="color:#f92672">]</span>
+<span style="color:#75715e">#RouteMetric=10</span>
+$ systemctl enabel systemd-networkd
+$ ip link
+$ systemctl enable dhcpcd
+$ systemctl enable sshd 
+
+$ useradd -m -G wheel -s /bin/zsh $user
+$ passwd
+$ passwd $user
+$ vim /etc/sudoers
+Defaults env_keep <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;HOME&#34;</span>
+%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
+%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/reboot, /usr/bin/poweroff, /usr/bin/rm -rf /var/lib/pacman/db.lck
+
+$ su $user
+$ crontab -e
+<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> * * * sudo rm -rf /var/lib/pacman/db.lck <span style="color:#f92672">&amp;&amp;</span> sudo pacman -Syu --noconfirm
+
+$ exit
+$ reboot
+</code></pre></div><h3 id="ssh">ssh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:host.txt" data-lang="sh:host.txt">$ vim /etc/ssh/sshd_config
+Port 2299
+PasswordAuthentication no
+$ systemctl restart sshd
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:gest.txt" data-lang="sh:gest.txt">$ ssh-keygen -f ~/.ssh/xxx
+$ ssh-copy-id -i ~/.ssh/xxx.pub $user@192.168.11.15
+$ ssh -p 2299 $user@192.168.11.15
+</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2021/05/12/xterm/" id="article-nav-older" class="article-nav-link-wrap">
-xtermとsixelでterminalに画像を表示する
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/m/post/mac/" id="article-nav-older" class="article-nav-link-wrap">
+mac
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2021/05/14/nike/" id="article-nav-newer" class="article-nav-link-wrap">
-     はじめて42kmを走ってみた
-				</a></p>
     
 	</div>
 </nav>

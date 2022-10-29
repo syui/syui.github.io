@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/m/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/m/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>arch</title>
+      <link>https://syui.cf/m/post/arch/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/arch/</guid>
+      <description>https://github.com/syui/arch
+$ fdisk -l sda $ export x=a $ curl -sL git.io/air | zsh $ cfdisk /dev/sda sda1 200M linux-system sda2 8GB linux-system write(yes), quit $ mkfs.vfat /sda1 $ mkfs.ext4 /sda2 $ mount /dev/sda2 /mnt $ pacstrap -K /mnt base linux base-devel $ genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab $ arch-chroot /mnt $ user=syui $ echo xxx &amp;gt;&amp;gt; /etc/hostname $ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils zsh-syntax-highlighting cronie jq $ grub-install --force --recheck /dev/sda $ grub-mkconfig -o /boot/grub/grub.</description>
+    </item>
+    
     <item>
       <title>mac</title>
       <link>https://syui.cf/m/post/mac/</link>
