@@ -127,3 +127,10 @@ powershell 7.3.0-preview
 
 $ winget upgrade --all
 ```
+
+### synthv
+
+作曲アプリです。
+
+https://dreamtonics.com/synthesizerv/
+

@@ -5,7 +5,7 @@ title = "mac"
 slug = "mac"
 +++
 
-macの使い方をまとめます。
+macの使い方をまとめます。macbook air(m1)を使っています。
 
 最初にインストールしたソフトウェアとサービスの一覧です。
 
@@ -28,6 +28,8 @@ macの使い方をまとめます。
 - keepassxc : https://github.com/keepassxreboot/keepassxc
 
 - virtualbox : https://download.virtualbox.org/virtualbox/
+
+- Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.com/
 
 ### 使ってるサービス
 

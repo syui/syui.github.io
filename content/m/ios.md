@@ -29,11 +29,13 @@ iosで使用しているアプリを紹介します。
 
 - metatrader 5
 
+- slack
+
 - twitter
 
 - mastodon
 
-- pokemon go
+- ibispaint x
 
 ### termius
 
