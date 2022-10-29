@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Nexus7でカメラの画面が真っ暗な時の対処法 | syui.cf</title>
+		<title>android | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="Nexus7でカメラの画面が真っ暗な時の対処法" />
+		<meta property="og:title" content="android" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,7 +105,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2017-03-22 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2022-10-29 / <a href="/syui">@syui</a>
 
 		
 		
@@ -123,32 +123,117 @@
 		
 		
 		
+		, <a href="https://syui.cf/tags/m/">m</a>
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/android">android</a></p>
 		
 		</div>
 
-		<h2>Nexus7でカメラの画面が真っ暗な時の対処法</h2>
+		<h2>android</h2>
 
-		<p>認証システムのQRコードを読み取る際、カメラを起動する必要があって、私はいつもカメラを無効にしているのだけど、それを有効にして必要な権限(なんでこんなものまで必要なんだと思うものもある)を与え、Google Play開発者サービスのいくつかの権限もついでに与えて、カメラを起動するも画面が真っ暗になっているので、10分ほどハマった話。</p>
-<p>結果としては、Nexus7の内部に挟んでいる紙が原因だった。(オバケタッチなどを回避するため)</p>
-<p>カメラってなんであんなたくさんの権限を要求してるのか分からないし、イン、アウトあるけど、インは要らないのではと考えてる。私は使ったことないし、オプションでもいい気がする。</p>
+		<p>nexus7(2013)はroot権限を取って使っています。</p>
+<p>公式imgは以下にあります。</p>
+<p>flo : <a href="https://developers.google.com/android/images">https://developers.google.com/android/images</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb reboot-bootloader
+$ fastboot flash boot boot.img
+$ fastboot erase system
+$ fastboot flash system system.img
+$ fastboot reboot
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb reboot bootloader
+$ fastboot oem unlock
+<span style="color:#75715e"># https://developers.google.com/android/images</span>
+<span style="color:#75715e"># ./flash-all.sh</span>
+$ fastboot flash recovery twrp-xxx.img
+$ adb reboot recovery
+$ adb push xxx.zip /sdcard/
+$ adb reboot system 
+$ adb install xxx.apk
+<span style="color:#75715e"># http://www.apkmirror.com/</span>
+</code></pre></div><p>lineage osを使うことで、nexus7にandroid12をインストールできます。</p>
+<p>twrp : <a href="https://twrp.me/asus/asusnexus72013wifi.html">https://twrp.me/asus/asusnexus72013wifi.html</a></p>
+<p>lineage os 19.1 : <a href="https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-19-1-2022-03-18.3569067/">https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-19-1-2022-03-18.3569067/</a></p>
+<p>gapps : <a href="https://drive.google.com/drive/folders/1O-I01LDvno57ztnxIW_bSnVWEk8-6Ics">https://drive.google.com/drive/folders/1O-I01LDvno57ztnxIW_bSnVWEk8-6Ics</a></p>
+<p>bitgapps : <a href="https://github.com/BiTGApps">https://github.com/BiTGApps</a></p>
+<p>magisk : <a href="https://github.com/topjohnwu/Magisk">https://github.com/topjohnwu/Magisk</a></p>
+<p><code>sysrepart_1380_20.zip</code>のパーティションの処理が失敗する場合は、<a href="https://developers.google.com/android/images">公式img</a>で初期化するといいかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb reboot-bootloader
+$ fastboot flash recovery twrp.img
+$ fastboot boot twrp.img
 
+$ adb push sysrepart.zip /sdcard/
+<span style="color:#75715e"># twrp -&gt; install -&gt; sysrepart</span>
+
+$ adb push lineageos.zip /sdcard/
+$ adb push opengaaps.zip /sdcard/
+<span style="color:#75715e"># twrp -&gt; install -&gt; lineage, opengaaps</span>
+</code></pre></div><p>最近の権限管理はmagiskが定番のようです。</p>
+<pre tabindex="0"><code>$ adb install magisk.apk
+# magiskでlineageのboot.imgにpatchを当てる
+
+$ adb pull /sdcard/Downloads/magisk_patched.img
+$ adb reboot-bootloader
+$ fastboot flash boot magisk_patched.img
+</code></pre><h3 id="アプリ">アプリ</h3>
+<ul>
+<li>
+<p>Terminal Emulator for Android</p>
+</li>
+<li>
+<p>BusyBox</p>
+</li>
+<li>
+<p>Hacker’s Keyboard</p>
+</li>
+<li>
+<p>AFWall+</p>
+</li>
+<li>
+<p>Clipper - Clipboard Manager</p>
+</li>
+<li>
+<p>AdAway</p>
+</li>
+<li>
+<p>Perfect Viewer</p>
+</li>
+</ul>
+<h3 id="archlinux">archlinux</h3>
+<p>archlinuxを使うには、archのimgを作成してchrootでアクセスします。大抵のコマンドはbusyboxを使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ export bbox<span style="color:#f92672">=</span>/data/adb/magisk/busybox
+$ export imgfile<span style="color:#f92672">=</span>/sdcard/linux/archlinux.img
+$ $bbox losetup -d /dev/block/loop255
+$ $bbox losetup /dev/block/loop255 $imgfile
+$ $bbox mount -o bind /sdcard $mnt/sdcard
+$ $bbox chroot $mnt /root/init.sh <span style="color:#66d9ef">$(</span>basename $imgfile<span style="color:#66d9ef">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:init.sh" data-lang="sh:init.sh">export PATH<span style="color:#f92672">=</span>/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin
+/bin/sshd
+</code></pre></div><p><img src="https://files.mastodon.social/media_attachments/files/108/011/206/558/360/931/small/9d34e56d3a9a274d.png" alt=""></p>
+<h3 id="過去の情報">過去の情報</h3>
+<p>以前はsupersuの作者が提供していたscriptを実行し、exproitをついて権限を取得していました。</p>
+<p><a href="http://download.chainfire.eu/347/CF-Root/CF-Auto-Root/CF-Auto-Root-flo-razor-nexus7.zip">CF-Auto-Root-flo-razor-nexus7.zip</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ adb reboot-bootloader
+$ chmod +x root-mac.sh 
+$ ./root-mac.sh 
+</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2017/03/21/game/" id="article-nav-older" class="article-nav-link-wrap">
-Nintendo Switchかっこいい
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/m/post/arch/" id="article-nav-older" class="article-nav-link-wrap">
+arch
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2017/03/23/life/" id="article-nav-newer" class="article-nav-link-wrap">
-     ランニングで普通の速度を計測してみた
-				</a></p>
     
 	</div>
 </nav>

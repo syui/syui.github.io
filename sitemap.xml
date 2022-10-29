@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/android/</loc>
+    <lastmod>2022-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/m/post/android/</loc>
+    <lastmod>2022-10-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/tags/arch/</loc>
     <lastmod>2022-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/m/post/arch/</loc>
+    <lastmod>2022-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/ios/</loc>
+    <lastmod>2022-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/m/post/ios/</loc>
     <lastmod>2022-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/m/</loc>
@@ -106,9 +118,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/15/illust/</loc>
     <lastmod>2022-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/ios/</loc>
-    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/iphone/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
@@ -415,9 +424,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2022/04/14/pokemas/</loc>
     <lastmod>2022-04-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/android/</loc>
-    <lastmod>2022-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/nexus7/</loc>
     <lastmod>2022-03-24T00:00:00+00:00</lastmod>

@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android</title>
+      <link>https://syui.cf/m/post/android/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/android/</guid>
+      <description>nexus7(2013)はroot権限を取って使っています。
+公式imgは以下にあります。
+flo : https://developers.google.com/android/images
+$ adb reboot-bootloader $ fastboot flash boot boot.img $ fastboot erase system $ fastboot flash system system.img $ fastboot reboot $ adb reboot bootloader $ fastboot oem unlock # https://developers.google.com/android/images # ./flash-all.sh $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip /sdcard/ $ adb reboot system $ adb install xxx.apk # http://www.apkmirror.com/ lineage osを使うことで、nexus7にandroid12をインストールできます。
+twrp : https://twrp.me/asus/asusnexus72013wifi.html
+lineage os 19.1 : https://forum.</description>
+    </item>
+    
     <item>
       <title>nexus7にandroid12を入れる</title>
       <link>https://syui.cf/blog/post/2022/03/24/nexus7/</link>

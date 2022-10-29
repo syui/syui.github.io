@@ -9,6 +9,20 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Sat, 29 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/m/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>android</title>
+      <link>https://syui.cf/m/post/android/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/android/</guid>
+      <description>nexus7(2013)はroot権限を取って使っています。
+公式imgは以下にあります。
+flo : https://developers.google.com/android/images
+$ adb reboot-bootloader $ fastboot flash boot boot.img $ fastboot erase system $ fastboot flash system system.img $ fastboot reboot $ adb reboot bootloader $ fastboot oem unlock # https://developers.google.com/android/images # ./flash-all.sh $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip /sdcard/ $ adb reboot system $ adb install xxx.apk # http://www.apkmirror.com/ lineage osを使うことで、nexus7にandroid12をインストールできます。
+twrp : https://twrp.me/asus/asusnexus72013wifi.html
+lineage os 19.1 : https://forum.</description>
+    </item>
+    
+    <item>
       <title>arch</title>
       <link>https://syui.cf/m/post/arch/</link>
       <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
@@ -16,6 +30,35 @@
       <guid>https://syui.cf/m/post/arch/</guid>
       <description>https://github.com/syui/arch
 $ fdisk -l sda $ export x=a $ curl -sL git.io/air | zsh $ cfdisk /dev/sda sda1 200M linux-system sda2 8GB linux-system write(yes), quit $ mkfs.vfat /sda1 $ mkfs.ext4 /sda2 $ mount /dev/sda2 /mnt $ pacstrap -K /mnt base linux base-devel $ genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab $ arch-chroot /mnt $ user=syui $ echo xxx &amp;gt;&amp;gt; /etc/hostname $ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils zsh-syntax-highlighting cronie jq $ grub-install --force --recheck /dev/sda $ grub-mkconfig -o /boot/grub/grub.</description>
+    </item>
+    
+    <item>
+      <title>ios</title>
+      <link>https://syui.cf/m/post/ios/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/m/post/ios/</guid>
+      <description>iosで使用しているアプリを紹介します。
+アプリ   termius
+  openvpn
+  goodreader
+  authenticator(google)
+  bitwarden(使っていない)
+  firefox focus
+  reddit
+  medly
+  scaniverse
+  metatrader 5
+  twitter
+  mastodon
+  pokemon go
+  termius iosでは主にtermiusを使用しています。これがないと、私のスマホは恐ろしいほど不便になります。
+私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。
+つまり、local-networkに入れないと何もできません。
+ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。
+wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。
+ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。
+version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - ./db:/data/db pritunl: image: goofball222/pritunl:latest container_name: pritunl hostname: pritunl depends_on: - mongo network_mode: bridge privileged: true sysctls: - net.</description>
     </item>
     
     <item>

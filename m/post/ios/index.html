@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Nexus7でカメラの画面が真っ暗な時の対処法 | syui.cf</title>
+		<title>ios | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="Nexus7でカメラの画面が真っ暗な時の対処法" />
+		<meta property="og:title" content="ios" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2017-03-22 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2022-10-29 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/android/">android</a>
+		<a href="https://syui.cf/tags/ios/">ios</a>
 		
 		
 		
@@ -123,17 +123,114 @@
 		
 		
 		
+		, <a href="https://syui.cf/tags/m/">m</a>
 		
 		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/android">android</a></p>
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/ios">ios</a></p>
 		
 		</div>
 
-		<h2>Nexus7でカメラの画面が真っ暗な時の対処法</h2>
+		<h2>ios</h2>
 
-		<p>認証システムのQRコードを読み取る際、カメラを起動する必要があって、私はいつもカメラを無効にしているのだけど、それを有効にして必要な権限(なんでこんなものまで必要なんだと思うものもある)を与え、Google Play開発者サービスのいくつかの権限もついでに与えて、カメラを起動するも画面が真っ暗になっているので、10分ほどハマった話。</p>
-<p>結果としては、Nexus7の内部に挟んでいる紙が原因だった。(オバケタッチなどを回避するため)</p>
-<p>カメラってなんであんなたくさんの権限を要求してるのか分からないし、イン、アウトあるけど、インは要らないのではと考えてる。私は使ったことないし、オプションでもいい気がする。</p>
+		<p>iosで使用しているアプリを紹介します。</p>
+<h3 id="アプリ">アプリ</h3>
+<ul>
+<li>
+<p>termius</p>
+</li>
+<li>
+<p>openvpn</p>
+</li>
+<li>
+<p>goodreader</p>
+</li>
+<li>
+<p>authenticator(google)</p>
+</li>
+<li>
+<p>bitwarden(使っていない)</p>
+</li>
+<li>
+<p>firefox focus</p>
+</li>
+<li>
+<p>reddit</p>
+</li>
+<li>
+<p>medly</p>
+</li>
+<li>
+<p>scaniverse</p>
+</li>
+<li>
+<p>metatrader 5</p>
+</li>
+<li>
+<p>twitter</p>
+</li>
+<li>
+<p>mastodon</p>
+</li>
+<li>
+<p>pokemon go</p>
+</li>
+</ul>
+<h3 id="termius">termius</h3>
+<p>iosでは主に<code>termius</code>を使用しています。これがないと、私のスマホは恐ろしいほど不便になります。</p>
+<p>私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。</p>
+<p>つまり、local-networkに入れないと何もできません。</p>
+<p>ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。</p>
+<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。</p>
+<p>ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">mongo</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunldb</span>
+    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunldb</span>
+    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./db:/data/db</span>
+
+  <span style="color:#f92672">pritunl</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">goofball222/pritunl:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunl</span>
+    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunl</span>
+    <span style="color:#f92672">depends_on</span>:
+        - <span style="color:#ae81ff">mongo</span>
+    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+    <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">sysctls</span>:
+      - <span style="color:#ae81ff">net.ipv6.conf.all.disable_ipv6=0</span>
+    <span style="color:#f92672">links</span>:
+      - <span style="color:#ae81ff">mongo</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
+      - <span style="color:#ae81ff">443</span>:<span style="color:#ae81ff">443</span>
+      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span>
+      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span><span style="color:#ae81ff">/udp</span>
+      - <span style="color:#ae81ff">14036</span>:<span style="color:#ae81ff">14036</span><span style="color:#ae81ff">/udp</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">TZ=UTC</span>
+</code></pre></div><p>profileをdownloadしてiosに共有しておきます。なお、global-ipは通常は変動しますので、固定ipを持っていない場合は、ddnsの登録を行ったうえでそれを使用するか、ipが変わったとき通知するか、してください。</p>
+<p>固定ipやddnsの場合は、profileを書き換える必要はありませんが、そうでない場合は、profileのglobal-ipを書き換える必要があります。書き換えは<code>goodreader</code>などが便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- remote 123.45.67.89 $port udp
++ remote 89.45.67.123 $port udp
+</code></pre></div><p>vpn serverを常時起動しておくのは電力の無駄でsecurity上もよくありません。したがって、できればポートフォワーディング用のserverを用意して、使用するときに起動したほうがいいと思います。</p>
+<p>また、securityを考慮するなら、ポートフォワーディング用のserver自体を必要最小限にし、wol serverにした上で、ssh serverをwolで起動する役割のみを与えます。wolしたあとは、sshの踏み台にして、private-key自体はiosに置いておくという形が理想的だと思います。そのssh serverにアクセスしたあとはvpn serverを立ち上げ、lanに入ればいいでしょう。ただし、手間がかかりますから、そのへんのsecurityは使用頻度を考慮した上で考えればいいと思います。</p>
+<p><code>termius</code>はsftpを使えるので特に便利です。</p>
+<p><code>goodreader</code>は最新のopensshのprivate-keyに対応していません。</p>
 
 		
 
@@ -141,13 +238,13 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2017/03/21/game/" id="article-nav-older" class="article-nav-link-wrap">
-Nintendo Switchかっこいい
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/m/post/mac/" id="article-nav-older" class="article-nav-link-wrap">
+mac
 					</a></p>
     
     
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2017/03/23/life/" id="article-nav-newer" class="article-nav-link-wrap">
-     ランニングで普通の速度を計測してみた
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/m/post/arch/" id="article-nav-newer" class="article-nav-link-wrap">
+     arch
 				</a></p>
     
 	</div>
