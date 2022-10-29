@@ -81,3 +81,12 @@ $ gpg --export-secret-keys 67AC97A939D3EA19 > sec.key
 $ brew install gpg
 $ gpg --import sec.key
 ```
+
+### intel mac
+
+intel版のmacbook airには、archlinuxを入れています。また、usbに入れているarchも起動できるので、外出時などに便利です。
+
+iphoneのインターネット共有(テザリング)でglobal-ipから使います。
+
+[gotunl](https://github.com/cghdev/gotunl)でvpn serverにアクセスし、local-networkに入ります。
+

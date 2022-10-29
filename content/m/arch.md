@@ -74,7 +74,7 @@ PasswordAuthentication no
 $ systemctl restart sshd
 ```
 
-```sh:gest.txt
+```sh:guest.txt
 $ ssh-keygen -f ~/.ssh/xxx
 $ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
