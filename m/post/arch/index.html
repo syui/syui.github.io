@@ -189,6 +189,7 @@ Defaults env_keep <span style="color:#f92672">+=</span> <span style="color:#e6db
 $ su $user
 $ crontab -e
 <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> * * * sudo rm -rf /var/lib/pacman/db.lck <span style="color:#f92672">&amp;&amp;</span> sudo pacman -Syu --noconfirm
+$ systemctl enable cronie
 
 $ exit
 $ reboot
@@ -198,7 +199,7 @@ Port 2299
 PasswordAuthentication no
 $ systemctl restart sshd
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:gest.txt" data-lang="sh:gest.txt">$ ssh-keygen -f ~/.ssh/xxx
-$ ssh-copy-id -i ~/.ssh/xxx.pub $user@192.168.11.15
+$ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
 </code></pre></div>
 		
