@@ -90,6 +90,8 @@ $ fastboot flash boot magisk_patched.img
 
 archlinuxを使うには、archのimgを作成してchrootでアクセスします。大抵のコマンドはbusyboxを使います。
 
+imgは[armv7](https://archlinuxarm.org/about/downloads)のarchを使って作成します。pacmanのmirrorも変わってきますので注意です。
+
 ```sh
 $ export bbox=/data/adb/magisk/busybox
 $ export imgfile=/sdcard/linux/archlinux.img
