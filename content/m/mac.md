@@ -101,5 +101,5 @@ iphoneのインターネット共有(テザリング)でglobal-ipから使いま
 
 [gotunl](https://github.com/cghdev/gotunl)で[vpn server](https://syui.cf/m/post/arch/)にアクセスし、local-networkに入ります。
 
-なお、`gotunl`を使うには、あらかじめ公式[client](https://pritunl.com)をinstallして、profileをimportしておく必要があります。詳しくはarchlinuxの記事で解説しています。
+なお、`gotunl`を使うには、あらかじめ公式[client](https://pritunl.com)をinstallして、profileをimportしておく必要があります。詳しくは[archlinux](https://syui.cf/m/post/arch/)の記事で解説しています。
 

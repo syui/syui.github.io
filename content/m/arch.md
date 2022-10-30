@@ -105,6 +105,25 @@ screenshotは、`grim`を使用しています。
 
 音楽動画はffmpeg, vlc, mpv, mplayerあたりが便利です。
 
+### aur
+
+`yay`か`paru`が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。
+
+ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。
+
+pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。
+
+https://aur.archlinux.org/paru.git
+
+```sh
+$ sudo pacman -S --needed base-devel
+$ git clone https://aur.archlinux.org/paru.git
+$ cd paru
+$ makepkg -si
+$ ./paru
+```
+
+
 ### vpn
 
 vpn serverとclientは`pritunl`が便利です。
