@@ -140,12 +140,12 @@
 
 		<h2>mac</h2>
 
-		<p>macの使い方をまとめます。macbook air(m1)を使っています。</p>
+		<p>macの使い方をまとめます。macbook air(m1, intel)を使っています。</p>
 <p>最初にインストールしたソフトウェアとサービスの一覧です。</p>
 <h3 id="使ってるソフトウェア">使ってるソフトウェア</h3>
 <ul>
 <li>
-<p>xcode, etc&hellip; : <a href="https://developer.apple.com/jp/">https://developer.apple.com/jp/</a></p>
+<p>xcode, commandline tools, etc&hellip; : <a href="https://developer.apple.com/">https://developer.apple.com/</a></p>
 </li>
 <li>
 <p>chrome : <a href="https://www.google.com/chrome/">https://www.google.com/chrome/</a></p>
@@ -170,6 +170,9 @@
 </li>
 <li>
 <p>virtualbox : <a href="https://download.virtualbox.org/virtualbox/">https://download.virtualbox.org/virtualbox/</a></p>
+</li>
+<li>
+<p>clipy : <a href="https://clipy-app.com/">https://clipy-app.com/</a></p>
 </li>
 <li>
 <p>Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : <a href="https://piaprostudio.com/">https://piaprostudio.com/</a></p>
@@ -240,9 +243,12 @@ $ brew install gpg
 $ gpg --import sec.key
 </code></pre></div><h3 id="intel-mac">intel mac</h3>
 <p>intel版のmacbook airには、archlinuxを入れています。また、usbに入れているarchも起動できるので、外出時などに便利です。</p>
-<p>iphoneのインターネット共有(テザリング)でglobal-ipから使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:bootloaderにiconを表示する.txt" data-lang="sh:bootloaderにiconを表示する.txt">$ sudo mount /dev/sdb1 /mnt
+$ sudo cp ~/pics/arch.icns /mnt/.volumeicon.icns
+$ sudo cp ~/pics/apple.icns /.volumeicon.icns
+</code></pre></div><p>iphoneのインターネット共有(テザリング)でglobal-ipから使います。</p>
 <p><a href="https://github.com/cghdev/gotunl">gotunl</a>で<a href="https://syui.cf/m/post/arch/">vpn server</a>にアクセスし、local-networkに入ります。</p>
-<p>なお、<code>gotunl</code>を使うには、あらかじめ公式<a href="https://pritunl.com">client</a>をinstallして、profileを<a href="https://syui.cf/m/post/arch/">import</a>しておく必要があります。詳しくはarchlinuxの記事で解説しています。</p>
+<p>なお、<code>gotunl</code>を使うには、あらかじめ公式<a href="https://pritunl.com">client</a>をinstallして、profileをimportしておく必要があります。詳しくはarchlinuxの記事で解説しています。</p>
 
 		
 

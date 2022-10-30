@@ -14,9 +14,9 @@
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/m/post/mac/</guid>
-      <description>macの使い方をまとめます。macbook air(m1)を使っています。
+      <description>macの使い方をまとめます。macbook air(m1, intel)を使っています。
 最初にインストールしたソフトウェアとサービスの一覧です。
-使ってるソフトウェア   xcode, etc&amp;hellip; : https://developer.apple.com/jp/
+使ってるソフトウェア   xcode, commandline tools, etc&amp;hellip; : https://developer.apple.com/
   chrome : https://www.google.com/chrome/
   google日本語入力 : https://www.google.co.jp/ime/
   iterm2 : https://iterm2.com/
@@ -25,8 +25,8 @@
   shiftit : https://github.com/fikovnik/ShiftIt
   keepassxc : https://github.com/keepassxreboot/keepassxc
   virtualbox : https://download.virtualbox.org/virtualbox/
-  Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.com/
-  使ってるサービス   github : https://github.</description>
+  clipy : https://clipy-app.com/
+  Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.</description>
     </item>
     
     <item>
