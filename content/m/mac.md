@@ -6,13 +6,13 @@ title = "mac"
 slug = "mac"
 +++
 
-macの使い方をまとめます。macbook air(m1)を使っています。
+macの使い方をまとめます。macbook air(m1, intel)を使っています。
 
 最初にインストールしたソフトウェアとサービスの一覧です。
 
 ### 使ってるソフトウェア
 
-- xcode, etc... : https://developer.apple.com/jp/
+- xcode, commandline tools, etc... : https://developer.apple.com/
 
 - chrome : https://www.google.com/chrome/
 
@@ -29,6 +29,8 @@ macの使い方をまとめます。macbook air(m1)を使っています。
 - keepassxc : https://github.com/keepassxreboot/keepassxc
 
 - virtualbox : https://download.virtualbox.org/virtualbox/
+
+- clipy : https://clipy-app.com/
 
 - Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.com/
 
@@ -89,9 +91,15 @@ $ gpg --import sec.key
 
 intel版のmacbook airには、archlinuxを入れています。また、usbに入れているarchも起動できるので、外出時などに便利です。
 
+```sh:bootloaderにiconを表示する.txt
+$ sudo mount /dev/sdb1 /mnt
+$ sudo cp ~/pics/arch.icns /mnt/.volumeicon.icns
+$ sudo cp ~/pics/apple.icns /.volumeicon.icns
+```
+
 iphoneのインターネット共有(テザリング)でglobal-ipから使います。
 
 [gotunl](https://github.com/cghdev/gotunl)で[vpn server](https://syui.cf/m/post/arch/)にアクセスし、local-networkに入ります。
 
-なお、`gotunl`を使うには、あらかじめ公式[client](https://pritunl.com)をinstallして、profileを[import](https://syui.cf/m/post/arch/)しておく必要があります。詳しくはarchlinuxの記事で解説しています。
+なお、`gotunl`を使うには、あらかじめ公式[client](https://pritunl.com)をinstallして、profileをimportしておく必要があります。詳しくはarchlinuxの記事で解説しています。
 

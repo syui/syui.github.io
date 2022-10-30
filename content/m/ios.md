@@ -6,7 +6,7 @@ title = "ios"
 slug = "ios"
 +++
 
-iosで使用しているアプリを紹介します。
+iosで使用しているアプリを紹介します。iphone se3とipad9を使っています。
 
 ### アプリ
 

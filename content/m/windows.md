@@ -6,7 +6,7 @@ title = "windows"
 slug = "windows"
 +++
 
-windowsの使い方をまとめます。
+windowsの使い方をまとめます。windows11を使用しています。ryzen+geforceです。
 
 ### local account
 
