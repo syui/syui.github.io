@@ -191,49 +191,19 @@
 <p>私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。</p>
 <p>つまり、local-networkに入れないと何もできません。</p>
 <p>ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。</p>
-<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。</p>
-<p>ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">mongo</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo:latest</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunldb</span>
-    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunldb</span>
-    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">./db:/data/db</span>
-
-  <span style="color:#f92672">pritunl</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">goofball222/pritunl:latest</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunl</span>
-    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunl</span>
-    <span style="color:#f92672">depends_on</span>:
-        - <span style="color:#ae81ff">mongo</span>
-    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
-    <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">sysctls</span>:
-      - <span style="color:#ae81ff">net.ipv6.conf.all.disable_ipv6=0</span>
-    <span style="color:#f92672">links</span>:
-      - <span style="color:#ae81ff">mongo</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-      - <span style="color:#ae81ff">443</span>:<span style="color:#ae81ff">443</span>
-      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span>
-      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span><span style="color:#ae81ff">/udp</span>
-      - <span style="color:#ae81ff">14036</span>:<span style="color:#ae81ff">14036</span><span style="color:#ae81ff">/udp</span>
-    <span style="color:#f92672">environment</span>:
-      - <span style="color:#ae81ff">TZ=UTC</span>
-</code></pre></div><p>profileをdownloadしてiosに共有しておきます。なお、global-ipは通常は変動しますので、固定ipを持っていない場合は、ddnsの登録を行ったうえでそれを使用するか、ipが変わったとき通知するか、してください。</p>
-<p>固定ipやddnsの場合は、profileを書き換える必要はありませんが、そうでない場合は、profileのglobal-ipを書き換える必要があります。書き換えは<code>goodreader</code>などが便利です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- remote 123.45.67.89 $port udp
-+ remote 89.45.67.123 $port udp
-</code></pre></div><p>vpn serverを常時起動しておくのは電力の無駄でsecurity上もよくありません。したがって、できればポートフォワーディング用のserverを用意して、使用するときに起動したほうがいいと思います。</p>
-<p>また、securityを考慮するなら、ポートフォワーディング用のserver自体を必要最小限にし、wol serverにした上で、ssh serverをwolで起動する役割のみを与えます。wolしたあとは、sshの踏み台にして、private-key自体はiosに置いておくという形が理想的だと思います。そのssh serverにアクセスしたあとはvpn serverを立ち上げ、lanに入ればいいでしょう。ただし、手間がかかりますから、そのへんのsecurityは使用頻度を考慮した上で考えればいいと思います。</p>
+<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能と<a href="https://syui.cf/m/post/arch/">vpn server</a>を使用します。詳しくは、archlinuxの記事に書いています。</p>
 <p><code>termius</code>はsftpを使えるので特に便利です。</p>
 <p><code>goodreader</code>は最新のopensshのprivate-keyに対応していません。</p>
+<h3 id="checkm8">checkm8</h3>
+<p><code>checkm8</code>の登場により、iosのroot権限を得るのは、さほど難しくなくなりました。私もいくつかの古い端末でrootを取っているios端末はありますが、特に利便性を感じていないので、使っていません。sshは可能です。しかし、そこまで早くはないし、むしろ遅いので、ios端末をサードパーティでカスタマイズする必要性を私はあまり感じませんでした。</p>
+<p><a href="https://checkra.in">https://checkra.in</a></p>
+<p><a href="https://github.com/axi0mX/ipwndfu">https://github.com/axi0mX/ipwndfu</a></p>
+<p>とりあえずやることとしては、<code>ipwndfu</code>を使います。dfu modeに入って、usb接続した上で、ipwndfuの診断及びexploitを実行をします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./ipwndfu -p
+</code></pre></div><p>rootを取ったあとは、サードパーティのアプリを入れられるようになるので、cydia, altstore, reprovision,  unc0verあたりが便利です。</p>
+<p>cydiaは自動で入る事が多いですが、ここでopensshもinstallできます。</p>
+<p>iosのrootを取るときに気をつけなければならないのは、shsh(署名)です。upgradeやdowngradeに関わってきます。shshは保存しておくのがいいでしょう。</p>
+<p>最初に述べましたが、iosのroot化は、そこまでできることは多くないと思います。androidとの比較になりますが、android(root)より圧倒的に不便と言えるでしょう。</p>
 
 		
 

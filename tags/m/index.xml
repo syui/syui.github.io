@@ -59,9 +59,14 @@ $ cfdisk /dev/sda sda1 200M linux-system sda2 8GB linux-system write(yes), quit 
 私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。
 つまり、local-networkに入れないと何もできません。
 ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。
-wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。
-ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverはtermiusに登録しておきましょう。
-version: &amp;#39;3&amp;#39; services: mongo: image: mongo:latest container_name: pritunldb hostname: pritunldb network_mode: bridge volumes: - .</description>
+wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。詳しくは、archlinuxの記事に書いています。
+termiusはsftpを使えるので特に便利です。
+goodreaderは最新のopensshのprivate-keyに対応していません。
+checkm8 checkm8の登場により、iosのroot権限を得るのは、さほど難しくなくなりました。私もいくつかの古い端末でrootを取っているios端末はありますが、特に利便性を感じていないので、使っていません。sshは可能です。しかし、そこまで早くはないし、むしろ遅いので、ios端末をサードパーティでカスタマイズする必要性を私はあまり感じませんでした。
+https://checkra.in
+https://github.com/axi0mX/ipwndfu
+とりあえずやることとしては、ipwndfuを使います。dfu modeに入って、usb接続した上で、ipwndfuの診断及びexploitを実行をします。
+$ ./ipwndfu -p rootを取ったあとは、サードパーティのアプリを入れられるようになるので、cydia, altstore, reprovision, unc0verあたりが便利です。</description>
     </item>
     
     <item>
