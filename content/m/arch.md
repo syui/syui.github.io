@@ -1,5 +1,6 @@
 +++
 date = "2022-10-29"
+lastmod = "2022-10-30"
 tags = ["arch","m"]
 title = "archlinux"
 slug = "arch"

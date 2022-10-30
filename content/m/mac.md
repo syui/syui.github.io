@@ -1,5 +1,6 @@
 +++
 date = "2022-09-29"
+lastmod = "2022-10-30"
 tags = ["mac","m"]
 title = "mac"
 slug = "mac"

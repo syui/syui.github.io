@@ -1,5 +1,6 @@
 +++
 date = "2021-09-23"
+lastmod = "2022-10-30"
 tags = ["windows", "m"]
 title = "windows"
 slug = "windows"
@@ -132,5 +133,58 @@ $ winget upgrade --all
 
 作曲アプリです。
 
-https://dreamtonics.com/synthesizerv/
+https://dreamtonics.com/synthesizerv
 
+### stable-diffution
+
+AIによるイラスト生成です。
+
+model-fileをdownloadします。今回は`stable-diffusion-v1-4`を使用します。novelaiのmodelがすごいらしい。他のmodelも`model.ckpt`に置き換えると動きます。
+
+[huggingface.co](https://huggingface.co/)
+
+```sh
+# huggingface.coで同意すればcloneできるようになる 
+$ git clone https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
+$ mv stable-diffusion-v-1-4-original stable-diffusion/models/ldm/stable-diffusion-v1
+$ mv sd-v1-4.ckpt model.ckpt 
+```
+
+次に`anaconda`でstable-diffusionのpython環境を構築します。[cuda 11.6](https://developer.nvidia.com/cuda-toolkit-archive)をinstallしておいてください。
+
+```sh
+# cuda 11.6
+$ scoop bucket add extras
+$ scoop install anaconda3 python
+$ conda init powershell
+$ git clone https://github.com/basujindal/stable-diffusion
+$ mkdir -p ~/stable-diffusion/models/ldm/stable-diffusion-v1
+$ mv sd-v1-4.ckpt ~/stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
+$ cd stable-diffusion
+$ conda env create -f environment.yaml
+$ conda activate ldm
+# pytorchはcuda 11.6に対応しています
+$ conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
+$ conda install jupyter pandas matplotlib -c conda-forge
+$ pip install diffusers transformers scipy ftfy
+```
+
+次回からは`$ conda activate ldm`で使います。
+
+```sh
+$ conda activate ldm
+$ cd ~/stable-diffusion
+
+# query(txt)から生成
+$ python optimizedSD/optimized_txt2img.py --prompt "japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing" --H 512 --W 512 --seed 27 --n_iter 2 --n_samples 10 --ddim_steps 50
+
+# imgから生成
+# convert -resize 700x510 o.png input.png
+$ python optimizedSD/optimized_img2img.py --prompt "japanese anime of a beaultiful girl, pixiv, light novel, digital painting, 8k" --init-img C:\Users\syui\input.png --strength 0.2 --n_iter 2 --n_samples 2 --H 300 --W 230
+
+# web-uiからパラメータを調整
+$ python optimizedSD/inpaint_gradio.py --init-img C:\Users\syui\input.png
+# open localhost:7860
+
+$ ls outputs/*
+```
