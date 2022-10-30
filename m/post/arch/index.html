@@ -213,7 +213,17 @@ $ ssh -p 2299 $user@192.168.11.15
 <p>screenshotは、<code>grim</code>を使用しています。</p>
 <p>その他、画像関連はimagemagick, gimp, inkscape, kritaあたりが便利です。</p>
 <p>音楽動画はffmpeg, vlc, mpv, mplayerあたりが便利です。</p>
-<h3 id="vpn">vpn</h3>
+<h3 id="aur">aur</h3>
+<p><code>yay</code>か<code>paru</code>が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。</p>
+<p>ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。</p>
+<p>pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
+<p><a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S --needed base-devel
+$ git clone https://aur.archlinux.org/paru.git
+$ cd paru
+$ makepkg -si
+$ ./paru
+</code></pre></div><h3 id="vpn">vpn</h3>
 <p>vpn serverとclientは<code>pritunl</code>が便利です。</p>
 <p><a href="https://pritunl.com">https://pritunl.com</a></p>
 <h4 id="vpn-server">vpn server</h4>
