@@ -7,7 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fly.ioとmastodon</title>
+      <link>https://syui.cf/blog/post/2022/11/17/mastodon/</link>
+      <pubDate>Thu, 17 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/11/17/mastodon/</guid>
+      <description>fly.ioを使ってみて、数ヶ月が経過したのでレビューです。
+https://fly.io
+fly.ioではmastodonを動かしており、安定して動作しています。
+したがって、fly.ioの評価は最高です。cliからも使いやすく、一度立ち上げると、dockerfileを使用することもあり、トラブルが起こりにくい印象。
+また、毎月$5以内ならサービスしてくれるようで、数ヶ月の運用が$0でした。この辺も非常にありがたい。
+fly.ioのようなサービスは個人開発者、特に趣味でやっている開発者にとって必要です。例えば、投資家の方々や大企業は、fly.ioのスポンサーしてくれると嬉しい。
+fly.ioは非常におすすめです。
+最近になってmastodonにbotを入れました。
+botを作るの楽しいのと、前から使っていたclientが改良されていくので嬉しい。botはarchlinuxで動いています。
+clientは以下のframework等を使うと非常に便利。
+  https://github.com/ksk001100/seahorse
+  https://docs.rs/mammut/latest/mammut/
+  botにdiffusionコマンドを追加したんだけど、そのおかげで画像生成する機会が増えました。stable-diffusionは、面倒で全く触ってなかった。
+新しい絵もできました。AIと手書きの合作です。
+上記の絵はAIとの合作なのですが、生成した画像の人物が崩れていて、もったいないと思ったので、人物を手書きすることにしました。以下の2つが元になっています。
+  手動で画風を合わせるの、けっこう大変。</description>
+    </item>
+    
     <item>
       <title>mastodonが紫になった</title>
       <link>https://syui.cf/blog/post/2022/06/11/mastodon/</link>

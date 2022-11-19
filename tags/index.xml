@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodon</title>
+      <link>https://syui.cf/tags/mastodon/</link>
+      <pubDate>Thu, 17 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>game</title>
       <link>https://syui.cf/tags/game/</link>
@@ -347,15 +356,6 @@
       <pubDate>Sun, 19 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/sim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mastodon</title>
-      <link>https://syui.cf/tags/mastodon/</link>
-      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/mastodon/</guid>
       <description></description>
     </item>
     
