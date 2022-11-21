@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>fly.ioとmastodon | syui.cf</title>
+		<title>fly.ioとmatrix | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="fly.ioとmastodon" />
+		<meta property="og:title" content="fly.ioとmatrix" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2022-11-17 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2022-11-21 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/mastodon/">mastodon</a>
+		<a href="https://syui.cf/tags/matrix/">matrix</a>
 		
 		
 		
@@ -123,33 +123,97 @@
 		
 		</div>
 
-		<h2>fly.ioとmastodon</h2>
+		<h2>fly.ioとmatrix</h2>
 
-		<p><code>fly.io</code>を使ってみて、数ヶ月が経過したのでレビューです。</p>
-<p><a href="https://fly.io">https://fly.io</a></p>
-<p>fly.ioでは<a href="https://github.com/mastodon/mastodon">mastodon</a>を動かしており、安定して動作しています。</p>
-<p>したがって、fly.ioの評価は最高です。cliからも使いやすく、一度立ち上げると、dockerfileを使用することもあり、トラブルが起こりにくい印象。</p>
-<p>また、毎月<code>$5</code>以内ならサービスしてくれるようで、数ヶ月の運用が<code>$0</code>でした。この辺も非常にありがたい。</p>
-<p>fly.ioのようなサービスは個人開発者、特に趣味でやっている開発者にとって必要です。例えば、投資家の方々や大企業は、fly.ioのスポンサーしてくれると嬉しい。</p>
-<p>fly.ioは非常におすすめです。</p>
-<p>最近になってmastodonにbotを入れました。</p>
-<p>botを作るの楽しいのと、前から使っていたclientが改良されていくので嬉しい。botは<a href="https://www.archlinux.jp/">archlinux</a>で動いています。</p>
-<p>clientは以下のframework等を使うと非常に便利。</p>
-<ul>
-<li>
-<p><a href="https://github.com/ksk001100/seahorse">https://github.com/ksk001100/seahorse</a></p>
-</li>
-<li>
-<p><a href="https://docs.rs/mammut/latest/mammut/">https://docs.rs/mammut/latest/mammut/</a></p>
-</li>
-</ul>
-<p>botにdiffusionコマンドを追加したんだけど、そのおかげで画像生成する機会が増えました。<a href="https://github.com/CompVis/stable-diffusion">stable-diffusion</a>は、面倒で全く触ってなかった。</p>
-<p>新しい絵もできました。AIと手書きの合作です。</p>
-<p><img src="/img/yui_124.png" alt=""></p>
-<p>上記の絵はAIとの合作なのですが、生成した画像の人物が崩れていて、もったいないと思ったので、人物を手書きすることにしました。以下の2つが元になっています。</p>
-<iframe src="https://mastodon.social/@syui/109358065305956601/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://static-cdn.mastodon.social/embed.js" async="async"></script>
-<iframe src="https://mastodon.social/@syui/109362755591494337/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://static-cdn.mastodon.social/embed.js" async="async"></script>
-<p>手動で画風を合わせるの、けっこう大変。</p>
+		<p>今回は、fly.ioでmatrix-serverを立ててみました。serverは<code>dendrite</code>を採用します。</p>
+<p><a href="https://github.com/matrix-org/dendrite">https://github.com/matrix-org/dendrite</a></p>
+<p>fly.ioにはいくつか制約があり、dockerfileをdeployすることになります。</p>
+<p>したがって、versionを<code>matrixdotorg/dendrite-monolith:v0.3.11</code>に固定します。configはv1を使用します。</p>
+<p><code>matrixdotorg/dendrite-monolith:latest</code>はconfig v1,2に関わらずpanic(golang)を起こします。</p>
+<p>そのうちconfigはv2で書き直す予定ですが、v2で書いた人は教えてもらえると嬉しいです。configは重要な箇所だけ載せています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:dendrite.yaml" data-lang="yml:dendrite.yaml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1</span>
+
+<span style="color:#f92672">global</span>:
+  <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">matrix.syui.cf</span>
+  <span style="color:#f92672">well_known_server_name</span>: <span style="color:#e6db74">&#34;syui.cf:443&#34;</span>
+
+  <span style="color:#f92672">kafka</span>:
+    <span style="color:#f92672">addresses</span>:
+      - <span style="color:#ae81ff">kafka:9092</span>
+
+    <span style="color:#f92672">topic_prefix</span>: <span style="color:#ae81ff">Dendrite</span>
+    
+    <span style="color:#f92672">use_naffka</span>: <span style="color:#66d9ef">true</span>
+
+    <span style="color:#f92672">naffka_database</span>:
+      <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">file:///data/dendrite.db</span>
+      <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
+      <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
+      <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
+$ sudo docker run --rm -it -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/key -w /key --entrypoint /usr/bin/generate-keys matrixdotorg/dendrite-monolith:v0.3.11 --tls-cert server.crt --tls-key server.key --private-key matrix_key.pem
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:Dockerfile.txt" data-lang="sh:Dockerfile.txt">FROM matrixdotorg/dendrite-monolith:v0.3.11
+
+COPY matrix_key.pem dendrite.yaml server.crt server.key /etc/dendrite/
+CMD [&#34;--config&#34;,&#34;/etc/dendrite/dendrite.yaml&#34;, &#34;--tls-cert&#34;, &#34;/etc/dendrite/server.crt&#34;, &#34;--tls-key&#34;, &#34;/etc/dendrite/server.key&#34;]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:fly.toml" data-lang="yml:fly.toml"><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;xxx&#34;</span>
+
+<span style="color:#a6e22e">kill_signal</span> = <span style="color:#e6db74">&#34;SIGINT&#34;</span>
+<span style="color:#a6e22e">kill_timeout</span> = <span style="color:#ae81ff">20</span>
+
+[[<span style="color:#a6e22e">services</span>]]
+  <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8008</span>
+  <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+
+	[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">concurrency</span>]
+	<span style="color:#a6e22e">hard_limit</span> = <span style="color:#ae81ff">100</span>
+    <span style="color:#a6e22e">soft_limit</span> = <span style="color:#ae81ff">80</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
+    <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;443&#34;</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
+    <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;8443&#34;</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">tcp_checks</span>]]
+    <span style="color:#a6e22e">interval</span> = <span style="color:#e6db74">&#34;10s&#34;</span>
+    <span style="color:#a6e22e">grace_period</span> = <span style="color:#e6db74">&#34;5s&#34;</span>
+    <span style="color:#a6e22e">timeout</span> = <span style="color:#e6db74">&#34;2s&#34;</span>
+
+[<span style="color:#a6e22e">mounts</span>]
+<span style="color:#a6e22e">source</span>=<span style="color:#e6db74">&#34;xxx_data&#34;</span>
+<span style="color:#a6e22e">destination</span>=<span style="color:#e6db74">&#34;/data&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ app<span style="color:#f92672">=</span>xxx
+$ flyctl launch --name $app --no-deploy --region ams
+$ flyctl volumes create <span style="color:#e6db74">${</span>app<span style="color:#e6db74">}</span>_data --size <span style="color:#ae81ff">1</span> --region ams --app $app
+
+<span style="color:#75715e"># これはwebからやったほうがいい </span>
+$ flyctl certs add $domain
+<span style="color:#75715e"># add : $app.fly.dev</span>
+<span style="color:#75715e"># add : $mydomain</span>
+
+<span style="color:#75715e"># deployする際はignoreに注意</span>
+$ cat .dockerignore
+
+$ flyctl deploy
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># userを作成します</span>
+<span style="color:#75715e"># https://matrix-org.github.io/dendrite/administration/createusers</span>
+$ flyctl ssh console
+$ /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username USERNAME -password xxx
+</code></pre></div><p>DNSでA(ipv4),AAAA(ipv6), SRVなども設定しておいてください。sub-domainの場合はmain-domainの<code>.well-known/matrix/server</code>に以下のようなファイルを置きます。</p>
+<p><a href="https://matrix-org.github.io/dendrite/installation/domainname">https://matrix-org.github.io/dendrite/installation/domainname</a></p>
+<pre tabindex="0"><code>{
+    &quot;m.server&quot;: &quot;matrix.example.com:8448&quot;
+}
+</code></pre><p>ここから<a href="https://federationtester.matrix.org/">test</a>したあと、<a href="https://matrix.org/">web</a>から<a href="https://matrix.to/">login</a>しましょう。</p>
+<p>matrixの仕組みはmastodonに似ています。</p>
+<p>例えば、<a href="https://app.element.io/#/login">element-web</a>では他サーバーを選択した上で、<code>$app.fly.dev</code>を使用してloginできます。</p>
+<p>login後は<code>$domain</code>になります。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/matrix-server-origin.png" alt=""></p>
+<h3 id="ref">ref</h3>
+<p><a href="https://codeberg.org/gerald/dendrite-on-flyio">https://codeberg.org/gerald/dendrite-on-flyio</a></p>
 
 		
 
@@ -157,14 +221,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2022/11/05/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、雷電ナショナルを超えるもの
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2022/11/17/mastodon/" id="article-nav-older" class="article-nav-link-wrap">
+fly.ioとmastodon
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2022/11/21/matrix-dendrite/" id="article-nav-newer" class="article-nav-link-wrap">
-     fly.ioとmatrix
-				</a></p>
     
 	</div>
 </nav>
