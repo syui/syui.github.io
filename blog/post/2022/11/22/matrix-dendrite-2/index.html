@@ -133,13 +133,11 @@
 <p>例えば、elementがそれに当たります。自分が使っているserverを指定します。</p>
 <p><a href="https://app.element.io/">https://app.element.io/</a></p>
 <p>matrixは、serverからのapiとclientの組み合わせで使います。</p>
-<p>mastodonとの違いはserverがui(html)を提供しないところです。</p>
-<p>これは、clientがui(html)を提供します。</p>
-<p>matrix-serverを立てれば、様々なclientを用いて、他のmatrix-serverにいる人とやり取りできます。</p>
+<p>mastodonとの違いはserverがui(html)を提供しないところです。これは、clientがui(html)を提供します。</p>
 <p>やり取りは主にchat形式になります。roomが存在し、気に入ったroomに入り、投稿と閲覧を行います。</p>
 <p>dmも可能です。この場合も通常はroomが作成されます。</p>
 <h3 id="dendrite">dendrite</h3>
-<p>前回、matrix-serverをdendriteで立てたのですが、今回はdendriteをupgradeを試みてわかったことを書きます。</p>
+<p>前回、matrix-serverをdendriteで立てたのですが、今回はdendriteのupgradeを試みてわかったことを書きます。</p>
 <p>dendriteは、goで書かれたmatrix-serverです。</p>
 <p>monolith, polylithがあり、polylithは大規模用です。single-userはmonolithを選択しましょう。</p>
 <p>まず、DBですが、postgresql(pgsql)を使用しましょう。sqliteは正常に動作しません。</p>
@@ -151,7 +149,7 @@
 
 <span style="color:#f92672">global</span>:
   <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">xxx.fly.dev</span>
-  <span style="color:#f92672">well_known_server_name</span>: <span style="color:#e6db74">&#34;syui.cf:443&#34;</span>
+  <span style="color:#75715e">#well_known_server_name: &#34;syui.cf:443&#34;</span>
   <span style="color:#f92672">private_key</span>: <span style="color:#ae81ff">/etc/dendrite/matrix_key.pem</span>
   <span style="color:#f92672">key_validity_period</span>: <span style="color:#ae81ff">168h0m0s</span>
   <span style="color:#f92672">trusted_third_party_id_servers</span>:
@@ -551,7 +549,7 @@
     <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/var/log/dendrite</span>
 </code></pre></div><p>ref : <a href="https://codeberg.org/gerald/dendrite-on-flyio/src/branch/main/dendrite-example.yaml">https://codeberg.org/gerald/dendrite-on-flyio/src/branch/main/dendrite-example.yaml</a></p>
 <h4 id="registration_shared_secret">registration_shared_secret</h4>
-<p><code>registration_disabled</code>がtrueの場合、上記のコマンドでaccoutが作成できません。<code>registration_shared_secret</code>が必要です。</p>
+<p><code>registration_disabled</code>がtrueの場合、<code>create-account</code>コマンドでaccoutが作成できません。<code>registration_shared_secret</code>が必要です。</p>
 <p>config(v1)のv0.5.0までなかったようですが、config(v2)のv0.6.0から追加されました。spam対策のようですが、非常に厄介です。</p>
 <pre tabindex="0"><code>client_api:
   registration_disabled: false
