@@ -7,7 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 21 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dendriteをupgradeしてみた</title>
+      <link>https://syui.cf/blog/post/2022/11/22/matrix-dendrite-2/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/11/22/matrix-dendrite-2/</guid>
+      <description>matrix micro-blogのmastodonがtwitterに似ているのなら、chatのmatrixはslackに似ています。
+mastodon, matrixの類似点は分散であるところです。
+matrixのaddressは@user:example.comとなります。
+matrixには様々なclientがあり、とくにwebのclientが手軽です。
+例えば、elementがそれに当たります。自分が使っているserverを指定します。
+https://app.element.io/
+matrixは、serverからのapiとclientの組み合わせで使います。
+mastodonとの違いはserverがui(html)を提供しないところです。
+これは、clientがui(html)を提供します。
+matrix-serverを立てれば、様々なclientを用いて、他のmatrix-serverにいる人とやり取りできます。
+やり取りは主にchat形式になります。roomが存在し、気に入ったroomに入り、投稿と閲覧を行います。
+dmも可能です。この場合も通常はroomが作成されます。
+dendrite 前回、matrix-serverをdendriteで立てたのですが、今回はdendriteをupgradeを試みてわかったことを書きます。
+dendriteは、goで書かれたmatrix-serverです。
+monolith, polylithがあり、polylithは大規模用です。single-userはmonolithを選択しましょう。
+まず、DBですが、postgresql(pgsql)を使用しましょう。sqliteは正常に動作しません。
+https://matrix-org.github.io/dendrite/installation/database
+latestもpgsqlならconfig(v2)で動作します。v1との違いはdatabaseとjetstreamあたりです。
+latest config flyでdomainの$app.fly.devをcertしておいてください。
+version: 2 global: server_name: xxx.fly.dev well_known_server_name: &amp;#34;syui.cf:443&amp;#34; private_key: /etc/dendrite/matrix_key.pem key_validity_period: 168h0m0s trusted_third_party_id_servers: - matrix.org - vector.im database: connection_string: postgres://db.internal:5432/den?sslmode=disable max_open_conns: 100 max_idle_conns: 5 conn_max_lifetime: -1 jetstream: in_memory: false storage_path: /data/ topic_prefix: Dendrite  metrics: enabled: false basic_auth: username: metrics password: metrics dns_cache: enabled: true cache_size: 4000 cache_lifetime: 300 app_service_api: database: connection_string: postgres://db.</description>
+    </item>
+    
     <item>
       <title>fly.ioとmatrix</title>
       <link>https://syui.cf/blog/post/2022/11/21/matrix-dendrite/</link>
