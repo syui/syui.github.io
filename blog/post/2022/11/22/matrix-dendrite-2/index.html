@@ -159,7 +159,7 @@
   - <span style="color:#ae81ff">vector.im</span>
 
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">100</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">5</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
@@ -182,7 +182,7 @@
 
 <span style="color:#f92672">app_service_api</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
@@ -216,7 +216,7 @@
 
 <span style="color:#f92672">federation_sender</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
@@ -231,14 +231,14 @@
 
 <span style="color:#f92672">key_server</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
 
 <span style="color:#f92672">media_api</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
@@ -259,14 +259,14 @@
 
 <span style="color:#f92672">room_server</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
 
 <span style="color:#f92672">signing_key_server</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
@@ -283,19 +283,19 @@
 
 <span style="color:#f92672">sync_api</span>:
   <span style="color:#f92672">database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
 
 <span style="color:#f92672">user_api</span>:
   <span style="color:#f92672">account_database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
   <span style="color:#f92672">device_database</span>:
-    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/den?sslmode=disable</span>
+    <span style="color:#f92672">connection_string</span>: <span style="color:#ae81ff">postgres://db.internal:5432/?sslmode=disable</span>
     <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
     <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
     <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
