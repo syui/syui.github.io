@@ -160,7 +160,9 @@ ul.cp_list li > span.icon-moon {
 	color: #f4a316;		
 	font-size: 23px;
 }
-
+i.fa-brands.fa-slack {
+    color: #b8cfe0;
+}
 .footer-link > a > span.icon-ai {
 	font-size:25px;
 	color: #beb801;
