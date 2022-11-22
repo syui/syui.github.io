@@ -575,7 +575,7 @@ ulimit -u <span style="color:#ae81ff">4096</span>
 exec /usr/bin/dendrite-monolith-server --tls-cert /etc/dendrite/server.crt --tls-key /etc/dendrite/server.key --config /etc/dendrite/dendrite.yaml
 </code></pre></div><p><a href="https://matrix-org.github.io/dendrite/installation/start/optimisation">https://matrix-org.github.io/dendrite/installation/start/optimisation</a></p>
 <p><a href="https://fly.io/laravel-bytes/integrating-the-elastic-stack-elk-into-a-laravel-app-on-fly/">https://fly.io/laravel-bytes/integrating-the-elastic-stack-elk-into-a-laravel-app-on-fly/</a></p>
-<h3 id="fly-cretificate">fly cretificate</h3>
+<h4 id="fly-cretificate">fly cretificate</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ flyctl ips list
 $ flyctl certs create example.com
 $ flyctl certs show example.com
@@ -590,8 +590,12 @@ $ flyctl certs show example.com
   <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">example.com</span>
   <span style="color:#f92672">well_known_server_name</span>: <span style="color:#e6db74">&#34;example.com:443&#34;</span>
 </code></pre></div><p>fly cret+cloudflareで連携したdomainが通らなかった。</p>
-<h3 id="panic">panic</h3>
+<h4 id="panic">panic</h4>
 <p>様々な問題を解決してもpanic(golang)で動かないことがあります。これは、fly.ioのcpu, memoryの問題っぽい気がしますが、planをupgradeすれば解決するかもしれません。</p>
+<h4 id="遅い">遅い</h4>
+<p>遅い、とにかく遅い&hellip;。</p>
+<p>matrix.orgとsyui.cfでやり取りしてみたのですが、非常に遅かったので、今後、高速化をやっていきたいのですが、fly.ioのplanを上げるしかないのか、あるいは、dendrite-configとかでなんとかなるものなのか、わかりません。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/matrix-server-origin_0003.png" alt=""></p>
 
 		
 
