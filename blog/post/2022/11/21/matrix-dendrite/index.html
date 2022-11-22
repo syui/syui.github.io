@@ -134,7 +134,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:dendrite.yaml" data-lang="yml:dendrite.yaml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1</span>
 
 <span style="color:#f92672">global</span>:
-  <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">matrix.syui.cf</span>
+  <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">syui.cf</span>
   <span style="color:#f92672">well_known_server_name</span>: <span style="color:#e6db74">&#34;syui.cf:443&#34;</span>
 
   <span style="color:#f92672">kafka</span>:
@@ -150,7 +150,12 @@
       <span style="color:#f92672">max_open_conns</span>: <span style="color:#ae81ff">10</span>
       <span style="color:#f92672">max_idle_conns</span>: <span style="color:#ae81ff">2</span>
       <span style="color:#f92672">conn_max_lifetime</span>: -<span style="color:#ae81ff">1</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
+</code></pre></div><p>DNSでA(ipv4),AAAA(ipv6), SRVなども設定しておいてください。sub-domainの場合はmain-domainの<code>.well-known/matrix/server</code>に以下のようなファイルを置きます。</p>
+<p><a href="https://matrix-org.github.io/dendrite/installation/domainname">https://matrix-org.github.io/dendrite/installation/domainname</a></p>
+<pre tabindex="0"><code>{
+    &quot;m.server&quot;: &quot;matrix.example.com:8448&quot;
+}
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start docker
 $ sudo docker run --rm -it -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/key -w /key --entrypoint /usr/bin/generate-keys matrixdotorg/dendrite-monolith:v0.3.11 --tls-cert server.crt --tls-key server.key --private-key matrix_key.pem
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:Dockerfile.txt" data-lang="sh:Dockerfile.txt">FROM matrixdotorg/dendrite-monolith:v0.3.11
 
@@ -202,12 +207,7 @@ $ flyctl deploy
 <span style="color:#75715e"># https://matrix-org.github.io/dendrite/administration/createusers</span>
 $ flyctl ssh console
 $ /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username USERNAME -password xxx
-</code></pre></div><p>DNSでA(ipv4),AAAA(ipv6), SRVなども設定しておいてください。sub-domainの場合はmain-domainの<code>.well-known/matrix/server</code>に以下のようなファイルを置きます。</p>
-<p><a href="https://matrix-org.github.io/dendrite/installation/domainname">https://matrix-org.github.io/dendrite/installation/domainname</a></p>
-<pre tabindex="0"><code>{
-    &quot;m.server&quot;: &quot;matrix.example.com:8448&quot;
-}
-</code></pre><p>ここから<a href="https://federationtester.matrix.org/">test</a>したあと、<a href="https://matrix.org/">web</a>から<a href="https://matrix.to/">login</a>しましょう。</p>
+</code></pre></div><p>ここから<a href="https://federationtester.matrix.org/">test</a>したあと、<a href="https://matrix.org/">web</a>から<a href="https://matrix.to/">login</a>しましょう。</p>
 <p>matrixの仕組みはmastodonに似ています。</p>
 <p>例えば、<a href="https://app.element.io/#/login">element-web</a>では他サーバーを選択した上で、<code>$app.fly.dev</code>を使用してloginできます。</p>
 <p>login後は<code>$domain</code>になります。</p>
