@@ -24,7 +24,7 @@ matrixは、serverからのapiとclientの組み合わせで使います。
 mastodonとの違いはserverがui(html)を提供しないところです。これは、clientがui(html)を提供します。
 やり取りは主にchat形式になります。roomが存在し、気に入ったroomに入り、投稿と閲覧を行います。
 dmも可能です。この場合も通常はroomが作成されます。
-dendrite 前回、matrix-serverをdendriteで立てたのですが、今回はdendriteのupgradeを試みてわかったことを書きます。
+dendrite 前回、matrixのdendrite-serverを立てたのですが、今回はdendriteのupgradeを試みてわかったことを書きます。
 dendriteは、goで書かれたmatrix-serverです。
 monolith, polylithがあり、polylithは大規模用です。single-userはmonolithを選択しましょう。
 まず、DBですが、postgresql(pgsql)を使用しましょう。sqliteは正常に動作しません。

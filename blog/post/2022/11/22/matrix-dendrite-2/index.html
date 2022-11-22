@@ -137,7 +137,7 @@
 <p>やり取りは主にchat形式になります。roomが存在し、気に入ったroomに入り、投稿と閲覧を行います。</p>
 <p>dmも可能です。この場合も通常はroomが作成されます。</p>
 <h3 id="dendrite">dendrite</h3>
-<p>前回、matrix-serverをdendriteで立てたのですが、今回はdendriteのupgradeを試みてわかったことを書きます。</p>
+<p>前回、matrixのdendrite-serverを立てたのですが、今回はdendriteのupgradeを試みてわかったことを書きます。</p>
 <p>dendriteは、goで書かれたmatrix-serverです。</p>
 <p>monolith, polylithがあり、polylithは大規模用です。single-userはmonolithを選択しましょう。</p>
 <p>まず、DBですが、postgresql(pgsql)を使用しましょう。sqliteは正常に動作しません。</p>
@@ -594,6 +594,19 @@ $ flyctl certs show example.com
 <p>遅い、とにかく遅い&hellip;。</p>
 <p>matrix.orgとsyui.cfでやり取りしてみたのですが、非常に遅かったので、今後、高速化をやっていきたいのですが、fly.ioのplanを上げるしかないのか、あるいは、dendrite-configとかでなんとかなるものなのか、わかりません。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/matrix-server-origin_0003.png" alt=""></p>
+<h3 id="注釈">注釈</h3>
+<p>正確には、matrixはprotocolで、dendriteがserver、elementがclientです。</p>
+<p>しかし、matrixをserverと表現することがあります。なぜなら、そのほうが伝わりやすいからです。</p>
+<p>例えばここでdendrite-serverは&hellip;と書いてもなんのことかわかりません。</p>
+<p>ですが、matrix-serverと書くと「ああ、あのchatのserverか」とわかりますよね。</p>
+<p>これは、mastodonにを紹介するときにもよくあることです。</p>
+<p>例えば、mastodonを紹介するとき、mastodonをprotocolのように扱ってしまうことがあるのです。</p>
+<p>mastodonはserver, clientであり、protocolではありません。</p>
+<p>mastodonは昔、ostatusというprotocolで動いていましたが、すぐにactivitypubに移行して、それからずっとactivitypubです。</p>
+<p>しかし、mastodonは広く認知されているので、protocolのように扱い、そのように表現してしまうことが多々あるような気がしています。</p>
+<p>mastodonのように広がり、繋がるsnsという場合、厳密には、activitypub等のprotocolで繋がっているのであって、mastodon自体は単なるserverでありclientです。</p>
+<p>protocolより遥かに狭いものなのですが、mastodonは有名なので、protocolのように広い概念のようなものとして表現し、扱ってしまうことがあります。あまり気にしていませんが。</p>
+<p>とは言え、ここで書かれていることは、正確ではないため、注釈しておくことにします。</p>
 
 		
 
