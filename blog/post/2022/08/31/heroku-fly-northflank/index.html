@@ -202,7 +202,41 @@ flyctl volumes create gitea_data --size <span style="color:#ae81ff">1</span> --r
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ flyctl deploy
 $ flyctl open
 </code></pre></div><p><a href="https://blog.gitea.io/2022/04/running-gitea-on-fly.io/">https://blog.gitea.io/2022/04/running-gitea-on-fly.io/</a></p>
-<h3 id="ent-ogent">ent-ogent</h3>
+<h4 id="cloudflare--flyio--giteassh">cloudflare + fly.io + gitea(ssh)</h4>
+<p>cloudflare : <code>dns -&gt; cname -&gt; disable proxy(dns only)</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># add key</span>
+$ ssh-keygen -t ed25519 -f ~/.ssh/xxx
+$ cat ~/.ssh/xxx|pbcopy
+<span style="color:#75715e"># gitea -&gt; account -&gt; ssh -&gt; key -&gt; paste </span>
+
+$ ssh -vT git@xxx.fly.dev
+$ ssh -vT git@example.com
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git remote add ssh git@xxx.fly.dev:syui/repo.git
+$ git remote add origin git@example.com:syui/repo.git
+$ git remote add http https://example.com/syui/repo.git
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.git/config.txt" data-lang="sh:.git/config.txt">[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote &#34;ssh&#34;]
+	url = git@xxx.fly.dev:user/repo.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote &#34;origin&#34;]
+	url = git@example.com:user/repo.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote &#34;http&#34;]
+	url = https://example.com/user/repo.git
+	fetch = +refs/heads/*:refs/remotes/http/*
+[branch &#34;main&#34;]
+	remote = origin
+	merge = refs/heads/main
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git push ssh main
+$ git push origin main
+$ git push http main
+</code></pre></div><h3 id="ent-ogent">ent-ogent</h3>
 <p>fly.ioではent-ogentも簡単でした。</p>
 <p><a href="https://entgo.io/ja/blog/2022/02/15/generate-rest-crud-with-ent-and-ogen/">https://entgo.io/ja/blog/2022/02/15/generate-rest-crud-with-ent-and-ogen/</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;ent-ogent&#34;</span>
