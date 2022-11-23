@@ -163,6 +163,16 @@ ul.cp_list li > span.icon-moon {
 i.fa-brands.fa-slack {
     color: #b8cfe0;
 }
+
+a.matrix-icon {
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 24px;
+	color: rgb(194 194 194);
+	position: relative;
+	bottom: 4px;
+}
+
 .footer-link > a > span.icon-ai {
 	font-size:25px;
 	color: #beb801;
