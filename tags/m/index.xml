@@ -9,11 +9,11 @@
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/m/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>fly.io</title>
-      <link>https://syui.cf/m/post/flyio/</link>
+      <title>fly</title>
+      <link>https://syui.cf/m/post/fly/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/m/post/flyio/</guid>
+      <guid>https://syui.cf/m/post/fly/</guid>
       <description>fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。
 # アプリの作成 $ fly apps create $app # アプリの削除 $ fly apps destroy $app # メモリを512Mに設定する $ fly scale memory 512 # volume(hdd)領域を3Gで作成する $ fly vol create --region nrt --size 3 $app # pg(postgres)を作る $ fly pg create $app-db # pgのupdate等 $ fly image update $app-db $ fly pg restart -a $app-db pgの注意 fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。
 # pgを接続する $ fly pg attach -a $app $app-db # pgの接続を解除する $ fly pg detach -a $app $app-db pgのbackup, restore pgは1日おきにsnapshotを作成します。</description>
