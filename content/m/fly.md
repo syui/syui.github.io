@@ -2,8 +2,8 @@
 date = "2022-11-25"
 lastmod = "2022-11-26"
 tags = ["fly","m"]
-title = "fly.io"
-slug = "flyio"
+title = "fly"
+slug = "fly"
 +++
 
 fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。
