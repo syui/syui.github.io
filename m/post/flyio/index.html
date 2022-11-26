@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>fly.ioとmastodon | syui.cf</title>
+		<title>fly.io | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="fly.ioとmastodon" />
+		<meta property="og:title" content="fly.io" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -104,13 +104,13 @@
 
 <article>
 	<div class="content">
-		
-		<div class="post-time-date">2022-11-17 / <a href="/syui">@syui</a>
+		<div class="post-time-date">update : 2022-11-26</div>
+		<div class="post-time-date">2022-11-25 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/mastodon/">mastodon</a>
+		<a href="https://syui.cf/tags/fly/">fly</a>
 		
 		
 		
@@ -119,11 +119,11 @@
 		
 		
 		
-		, <a href="https://syui.cf/tags/fly/">fly</a>
 		
 		
 		
 		
+		, <a href="https://syui.cf/tags/m/">m</a>
 		
 		
 		
@@ -138,33 +138,95 @@
 		
 		</div>
 
-		<h2>fly.ioとmastodon</h2>
+		<h2>fly.io</h2>
 
-		<p><code>fly.io</code>を使ってみて、数ヶ月が経過したのでレビューです。</p>
-<p><a href="https://fly.io">https://fly.io</a></p>
-<p>fly.ioでは<a href="https://github.com/mastodon/mastodon">mastodon</a>を動かしており、安定して動作しています。</p>
-<p>したがって、fly.ioの評価は最高です。cliからも使いやすく、一度立ち上げると、dockerfileを使用することもあり、トラブルが起こりにくい印象。</p>
-<p>また、毎月<code>$5</code>以内ならサービスしてくれるようで、数ヶ月の運用が<code>$0</code>でした。この辺も非常にありがたい。</p>
-<p>fly.ioのようなサービスは個人開発者、特に趣味でやっている開発者にとって必要です。例えば、投資家の方々や大企業は、fly.ioのスポンサーしてくれると嬉しい。</p>
-<p>fly.ioは非常におすすめです。</p>
-<p>最近になってmastodonにbotを入れました。</p>
-<p>botを作るの楽しいのと、前から使っていたclientが改良されていくので嬉しい。botは<a href="https://www.archlinux.jp/">archlinux</a>で動いています。</p>
-<p>clientは以下のframework等を使うと非常に便利。</p>
-<ul>
-<li>
-<p><a href="https://github.com/ksk001100/seahorse">https://github.com/ksk001100/seahorse</a></p>
-</li>
-<li>
-<p><a href="https://docs.rs/mammut/latest/mammut/">https://docs.rs/mammut/latest/mammut/</a></p>
-</li>
-</ul>
-<p>botにdiffusionコマンドを追加したんだけど、そのおかげで画像生成する機会が増えました。<a href="https://github.com/CompVis/stable-diffusion">stable-diffusion</a>は、面倒で全く触ってなかった。</p>
-<p>新しい絵もできました。AIと手書きの合作です。</p>
-<p><img src="/img/yui_124.png" alt=""></p>
-<p>上記の絵はAIとの合作なのですが、生成した画像の人物が崩れていて、もったいないと思ったので、人物を手書きすることにしました。以下の2つが元になっています。</p>
-<iframe src="https://mastodon.social/@syui/109358065305956601/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://static-cdn.mastodon.social/embed.js" async="async"></script>
-<iframe src="https://mastodon.social/@syui/109362755591494337/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://static-cdn.mastodon.social/embed.js" async="async"></script>
-<p>手動で画風を合わせるの、けっこう大変。</p>
+		<p>fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># アプリの作成</span>
+$ fly apps create $app
+<span style="color:#75715e"># アプリの削除</span>
+$ fly apps destroy $app
+
+<span style="color:#75715e"># メモリを512Mに設定する</span>
+$ fly scale memory <span style="color:#ae81ff">512</span>
+
+<span style="color:#75715e"># volume(hdd)領域を3Gで作成する</span>
+$ fly vol create --region nrt --size <span style="color:#ae81ff">3</span> $app
+
+<span style="color:#75715e"># pg(postgres)を作る</span>
+$ fly pg create $app-db
+
+<span style="color:#75715e"># pgのupdate等</span>
+$ fly image update $app-db
+$ fly pg restart -a $app-db
+</code></pre></div><h3 id="pgの注意">pgの注意</h3>
+<p>fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># pgを接続する</span>
+$ fly pg attach -a $app $app-db
+<span style="color:#75715e"># pgの接続を解除する</span>
+$ fly pg detach -a $app $app-db
+</code></pre></div><h3 id="pgのbackup-restore">pgのbackup, restore</h3>
+<p>pgは1日おきにsnapshotを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># db backup list &amp; restore</span>
+$ fly vol list -a $app-db
+$ fly vol snapshots list vol_xxxxxxxxx
+$ fly pg create --snapshot-id vs_xxxxxxxx
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># pgにlocalから接続する</span>
+$ fly proxy <span style="color:#ae81ff">5432</span> -a $app-db
+$ psql postgres://postgres:&lt;operator_password&gt;@localhost:5432
+$ fly pg connect -a $app $app-db
+-----
+$ pg_restore --no-owner -h localhost -p <span style="color:#ae81ff">15432</span> -U postgres -d $app-db pg.dump
+</code></pre></div><h3 id="flytoml">fly.toml</h3>
+<p>基本的には<code>./fly.toml</code>を参照します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat fly.toml
+app <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$app<span style="color:#e6db74">&#34;</span>
+
+$ fly status
+$ fly logs
+
+$ fly deploy
+$ fly open
+</code></pre></div><h3 id="dns等の設定">dns等の設定</h3>
+<p>appのcertificateに$app.fly.devを作成後に$sub-domain.comを作成します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly certs add $app.fly.dev
+$ fly certs add $sub-domain.com
+$ fly certs list
+cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
+
+<span style="color:#75715e"># cloudflare</span>
+cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
+cname : $sub-domain.com, $app.fly.dev
+</code></pre></div><h3 id="redis">redis</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:Dockerfile.txt" data-lang="sh:Dockerfile.txt">ADD start-redis-server.sh /usr/bin/
+RUN chmod +x /usr/bin/start-redis-server.sh
+CMD [&#34;start-redis-server.sh&#34;]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:start-redis-server.sh" data-lang="sh:start-redis-server.sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>sysctl vm.overcommit_memory<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+sysctl net.core.somaxconn<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>
+redis-server --dir /data/ --appendonly yes
+</code></pre></div><h3 id="process-file-descriptor-limit-is-currently">Process file descriptor limit is currently</h3>
+<blockquote>
+<p>$ fly logs</p>
+<p>Process file descriptor limit is currently</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:Dockerfile.txt" data-lang="sh:Dockerfile.txt">ADD entorypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entorypoint.sh 
+ENTORYPOINT [&#34;entorypoint.sh&#34;]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:entorypoint.sh" data-lang="sh:entorypoint.sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>ulimit -n <span style="color:#ae81ff">65535</span>
+ulimit -u <span style="color:#ae81ff">4096</span>
+exec $@
+</code></pre></div><h3 id="mastodon">mastodon</h3>
+<p>pg(volume)が一杯になっても確認する術がほとんどありません。freeの運用には注意しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># sizeを大きくする(小さくすることはできない)</span>
+$ fly vol list -a $app-db
+$ fly vol extend $id -s <span style="color:#ae81ff">2</span>
+</code></pre></div><p>pg-volumeが一杯になると動作が停止しますが、原因が判明するのに時間がかかってしまいました。</p>
+<p>freeで運用するには、mastodonを立ち上げてadmin, ownerのaccountを作成し、初期設定を行った時点で、pg voloumeをsnapshotからcreateして、そのcontinerを保存しておきます。一杯になった時点でdetach, attachで切り替えます。できない場合は、<code>DATABASE_URL</code>を環境変数に入れます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$  fly ssh console -C <span style="color:#e6db74">&#39;tootctl accounts modify $USER --confirm --role Owner&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly vol snapshots list vol_xxxxxxxxx
+$ fly pg create --snapshot-id vs_xxxxxxxx
+</code></pre></div><p>ref : <a href="https://github.com/tmm1/flyapp-mastodon">https://github.com/tmm1/flyapp-mastodon</a></p>
 
 		
 
@@ -172,14 +234,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2022/11/05/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、雷電ナショナルを超えるもの
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/m/post/android/" id="article-nav-older" class="article-nav-link-wrap">
+android
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2022/11/21/matrix-dendrite/" id="article-nav-newer" class="article-nav-link-wrap">
-     fly.ioとmatrix
-				</a></p>
     
 	</div>
 </nav>
