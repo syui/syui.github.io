@@ -148,6 +148,8 @@ ref : https://github.com/tmm1/flyapp-mastodon
 
 ### pg detach
 
+detachするとpasswordが変わります。
+
 ```sh
 $ fly secrets unset DATABASE_URL
 $ fly pg connect -a  $app-db
@@ -155,4 +157,6 @@ DROP DATABASE $app WITH (FORCE);
 DROP USER $app WITH (FORCE);
 
 $ fly pg detach -a $app $app-db
+
+$ fly pg attach -a $app $app-db
 ```
