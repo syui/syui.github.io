@@ -226,12 +226,15 @@ $ fly vol extend $id -s <span style="color:#ae81ff">2</span>
 $ fly pg create --snapshot-id vs_xxxxxxxx
 </code></pre></div><p>ref : <a href="https://github.com/tmm1/flyapp-mastodon">https://github.com/tmm1/flyapp-mastodon</a></p>
 <h3 id="pg-detach">pg detach</h3>
+<p>detachするとpasswordが変わります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly secrets unset DATABASE_URL
 $ fly pg connect -a  $app-db
 DROP DATABASE $app WITH <span style="color:#f92672">(</span>FORCE<span style="color:#f92672">)</span>;
 DROP USER $app WITH <span style="color:#f92672">(</span>FORCE<span style="color:#f92672">)</span>;
 
 $ fly pg detach -a $app $app-db
+
+$ fly pg attach -a $app $app-db
 </code></pre></div>
 		
 
