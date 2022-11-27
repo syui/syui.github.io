@@ -6,7 +6,7 @@ title = "fly"
 slug = "fly"
 +++
 
-fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。
+fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。`fly.toml`においてmountできるvolumeは1つです。
 
 ```sh
 # アプリの作成
@@ -28,18 +28,16 @@ $ fly image update $app-db
 $ fly pg restart -a $app-db
 ```
 
-### pgの注意
+### pg attach
 
 fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。
 
 ```sh
 # pgを接続する
 $ fly pg attach -a $app $app-db
-# pgの接続を解除する
-$ fly pg detach -a $app $app-db
 ```
 
-### pgのbackup, restore
+### pg backup, restore
 
 pgは1日おきにsnapshotを作成します。
 
@@ -74,7 +72,7 @@ $ fly deploy
 $ fly open
 ```
 
-### dns等の設定
+### dns, ssl
 
 appのcertificateに$app.fly.devを作成後に$sub-domain.comを作成します。
 
@@ -104,7 +102,7 @@ sysctl net.core.somaxconn=1024
 redis-server --dir /data/ --appendonly yes
 ```
 
-### Process file descriptor limit is currently
+### limit currently
 
 > $ fly logs
 > 
@@ -123,7 +121,7 @@ ulimit -u 4096
 exec $@
 ```
 
-### mastodon
+### full volume
 
 pg(volume)が一杯になっても確認する術がほとんどありません。freeの運用には注意しましょう。
 
@@ -135,7 +133,7 @@ $ fly vol extend $id -s 2
 
 pg-volumeが一杯になると動作が停止しますが、原因が判明するのに時間がかかってしまいました。
 
-freeで運用するには、mastodonを立ち上げてadmin, ownerのaccountを作成し、初期設定を行った時点で、pg voloumeをsnapshotからcreateして、そのcontinerを保存しておきます。一杯になった時点でdetach, attachで切り替えます。できない場合は、`DATABASE_URL`を環境変数に入れます。
+freeで運用するには、mastodonを立ち上げてadmin, ownerのaccountを作成し、初期設定を行った時点で、pg volumeをsnapshotからcreateして、そのcontinerを保存しておきます。一杯になった時点でdetach, attachで切り替えます。できない場合は、`DATABASE_URL`を環境変数に入れます。
 
 ```sh
 $  fly ssh console -C 'tootctl accounts modify $USER --confirm --role Owner'
@@ -148,3 +146,13 @@ $ fly pg create --snapshot-id vs_xxxxxxxx
 
 ref : https://github.com/tmm1/flyapp-mastodon
 
+### pg detach
+
+```sh
+$ fly secrets unset DATABASE_URL
+$ fly pg connect -a  $app-db
+DROP DATABASE $app WITH (FORCE);
+DROP USER $app WITH (FORCE);
+
+$ fly pg detach -a $app $app-db
+```
