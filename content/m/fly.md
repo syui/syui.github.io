@@ -152,7 +152,7 @@ detachするとpasswordが変わります。
 
 ```sh
 $ fly secrets unset DATABASE_URL
-$ fly pg connect -a  $app-db
+$ fly pg connect -a $app-db
 DROP DATABASE $app WITH (FORCE);
 DROP USER $app WITH (FORCE);
 
