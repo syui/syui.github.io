@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodonにbotを立ててみた</title>
+      <link>https://syui.cf/blog/post/2022/12/03/msbot/</link>
+      <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/12/03/msbot/</guid>
+      <description>この前、botでも立ててみようかなと思ったので、mastodon(single-mode)にbotを立ててみることにしました。
+rustで書いてたclientを拡張できたので、とてもよかった。botの構築には今使ってるclientを組み込むことにしました。
+例えば、botに話しかけると、賢すぎる。bot、すごい。
+今できるのは、mastodonをupdateしたり
+commitやdockerを見たり、検索したり
+codeをreviewしてもらったり
+画像を生成してもらったり
+&amp;hellip;などです。
+呼び出しをmentionにしたのは、負担を軽くするためかな。timelineを監視するより、notify(通知)を監視したほうが負担は少なそう。
+botはserverに常駐させるため、できる限り負担は少ないほうがいいですし、また、mastodon server(web server)自体を自分が運営してることもあり、api request、つまりweb serverへの負担も少ないほうがよさそう。
+timelineを毎回取得、あるいはlatestのみの取得でもあっても、頻繁に更新される性質があるため、notifyの取得のほうがserverへの負担は少ないと思われます。微々たるもので、あまり変わらないかもしれませんが。
+とりあえず、botを立ててよかった。楽しい。</description>
+    </item>
+    
     <item>
       <title>dendriteをupgradeしてみた</title>
       <link>https://syui.cf/blog/post/2022/11/22/matrix-dendrite-2/</link>
