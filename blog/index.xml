@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxでsystemd-nspawnを使いcontinerを立ててみた</title>
+      <link>https://syui.cf/blog/post/2022/12/05/archlinux-systemd-nspaw-continer/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/12/05/archlinux-systemd-nspaw-continer/</guid>
+      <description>botに複数の仮想環境を構築する必要があったので、今回はsystemd-nspawnを採用してみることにしました。
+結論から言うと、systemd-nspawnはとっつきにくいですが、一度使えるようになっておくと、本格的に便利だと感じました。
+ただ、とっつきにくさがすごい。コマンドも複数あって混乱を招くと思われます。
+archwikiの最初の説明が以下です。
+$ mkdir -p ~/arch $ sudo pacstrap -c ~/arch # -D : chroot $ sudo systemd-nspawn -D ~/arch $ passwd $ logout # -b : コンテナ起動 $ sudo systemd-nspawn -b -D ~/arch # -n : ネットワーク $ sudo systemd-nspawn -b -D ~/arch -n これは色んな意味で正しいのですが、私の環境では動作しません。
+設定したpasswordでloginできない。ttyのsecurityが働いているからです。なお、設定していないと空なのでenterでloginできるはず(たぶん)。
+Arch Linux 6.0.11-arch1-1 (pts/1) arch login: arch-nspawn login: root Login incorrect ここでホストから~/arch/etc/securettyを編集し、ここではpts/1でloginしようとしているため、これを追記します。pts/0ならpts/0ですし、その他ならそのttyを記述してください。
+$ sudo vim ~/arch/etc/securetty さて、loginできたとしましょう。
+一旦、poweroffして仮想環境(continer)を落とします。exitでもいいですが、logoutはおすすめしません。Ctrl+Dで抜けられません。exitの場合、continerはupしたままになります。
+$ poweroff $ machinectl list 次に、本来のsystemd-nspawnの一般的な使い方を説明します。</description>
+    </item>
+    
     <item>
       <title>mastodonにbotを立ててみた</title>
       <link>https://syui.cf/blog/post/2022/12/03/msbot/</link>
