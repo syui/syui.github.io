@@ -1,6 +1,6 @@
 +++
 date = "2022-10-29"
-lastmod = "2022-10-30"
+lastmod = "2022-12-05"
 tags = ["arch","m"]
 title = "archlinux"
 slug = "arch"
@@ -221,3 +221,138 @@ $ ./${GOPATH}/bin/gotunl -l
 $ ./${GOPATH}/bin/gotunl -c 1
 ```
 
+### continer(systemd-nspawn)
+
+```sh
+$ mkdir -p ~/arch
+$ sudo pacstrap -c ~/arch base
+# -D : chroot
+$ sudo systemd-nspawn -D ~/arch
+$ passwd
+$ logout
+# -b : コンテナ起動
+$ sudo systemd-nspawn -b -D ~/arch
+# -n : ネットワーク
+$ sudo systemd-nspawn -b -D ~/arch -n
+```
+
+これは色んな意味で正しいのですが、私の環境では動作しません。
+
+設定したpasswordでloginできない。なお、設定していないと空なのでenterでloginできるはず(たぶん)。ttyのsecurityが働いているからです。
+
+```sh
+Arch Linux 6.0.11-arch1-1 (pts/1)
+arch login:
+arch-nspawn login: root
+Login incorrect
+```
+
+ここでホストから`~/arch/etc/securetty`を編集し、ここでは`pts/1`でloginしようとしているため、これを追記します。`pts/0`なら`pts/0`です。その他ならそのttyを記述してください。
+
+```sh
+$ sudo vim ~/arch/etc/securetty
+```
+
+一旦、`poweroff`して仮想環境(continer)を落とします。
+
+```sh
+$ poweroff
+$ machinectl list
+```
+
+次に、本来の`systemd-nspawn`の一般的な使い方を説明します。
+
+```sh
+$ machinectl --help
+
+$ sudo mv ~/arch /var/lib/machines/
+$ sudo machinectl list-images
+$ sudo machinectl start arch
+$ sudo machinectl login arch
+
+# vmの削除
+$ sudo machinectl remove arch
+
+# vmをdown
+$ sudo machinectl poweroff arch
+$ sudo machinectl terminate arch
+```
+
+continerにアクセスする場合、loginはおすすめしません。Ctrl+Dで抜けられません
+
+shellの場合はexitで抜けられます。continerはupしたままになります。
+
+```sh
+$ sudo machinectl shell arch
+```
+
+`/var/lib/machines`においたcontiner image(dir)をmachinectlで呼び出します。
+
+これは、`systemctl`の`systemd-nspawn@arch`でも同じようなことができます。
+
+```sh
+# archというcontinerをstart
+$ sudo systemctl start systemd-nspawn@arch
+$ sudo machinectl start arch
+
+# archというccontinerをPC起動時に立ち上げる
+$ sudo systemctl enable systemd-nspawn@arch
+$ sudo machinectl enable arch
+
+$ sudo systemctl daemon-reload
+```
+
+machinectl, systemd-nspawn, systemctlのどれを使ってもいいですが、個人的にはmachinectlをおすすめします。しかし、それぞれが使い方に微妙な違いを含んでいます。
+
+machinectlは主にvm操作で、pacstrapはarchの構築、systemctlはホスト環境の構築、systemd-nspawnはdir(chroot)操作です。
+
+```sh
+# イメージのダウンロード
+$ sudo machinectl pull-tar --verify=no http://localhost:8000/arch.tar.gz arch
+
+# アーカイブ
+$ sudo machinectl export-tar --format=[gz, bzip2, xz] [コンテナ名] [ファイル名]
+# xz でマルチスレッド圧縮をする例 (一番お勧め！)
+$ maxz() { machinectl export-tar $1 $1.tar && nice -n 20 xz -z -f -T $(nproc) -vv $1.tar; }
+$ maxz gbase
+# インポート
+$ sudo machinectl import-tar [ファイル名] [コンテナ名]
+
+# docker imgをインポート
+$ sudo docker export $(docker create debian:latest) | machinectl import-tar - debian
+
+# hostのnetworkを使う, VirtualEthernetもconfiguredにすると有効
+$ networkctl
+IDX LINK    TYPE     OPERATIONAL SETUP
+  1 lo      loopback carrier     unmanaged
+  2 eth0  ether    routable    configured
+  3 ve-arch ether    no-carrier  configuring
+$ sudo vim /etc/systemd/nspawn/arch.nspawn
+```
+
+```sh:/etc/systemd/nspawn/arch.nspawn
+[Network]
+VirtualEthernet=no
+```
+
+```sh
+# ssh接続
+$ ssh-keygen -f ~/.ssh/test
+$ sudo cat ~/.ssh/test.pub >> /var/lib/machines/arch/root/.ssh/authorized_keys
+
+$ sudo machinectl shell arch
+$ pacman -S openssh
+$ vim /etc/ssh/sshd_config
+$ systemctl enable sshd
+$ systemctl start ssh
+$ exit
+
+$ ssh root@localhost -p xxx -i ~/.ssh/test
+```
+
+```sh
+$ sudo machinectl clone arch backup
+$ sudo machinectl poweroff arch
+$ sudo machinectl remove arch
+$ sudo machinectl clone backup arch
+```
