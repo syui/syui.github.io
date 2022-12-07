@@ -104,7 +104,7 @@
 
 <article>
 	<div class="content">
-		<div class="post-time-date">update : 2022-10-30</div>
+		<div class="post-time-date">update : 2022-12-05</div>
 		<div class="post-time-date">2022-10-29 / <a href="/syui">@syui</a>
 
 		
@@ -289,6 +289,97 @@ $ cd gotunl
 $ go install
 $ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
 $ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
+</code></pre></div><h3 id="continersystemd-nspawn">continer(systemd-nspawn)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/arch
+$ sudo pacstrap -c ~/arch base
+<span style="color:#75715e"># -D : chroot</span>
+$ sudo systemd-nspawn -D ~/arch
+$ passwd
+$ logout
+<span style="color:#75715e"># -b : コンテナ起動</span>
+$ sudo systemd-nspawn -b -D ~/arch
+<span style="color:#75715e"># -n : ネットワーク</span>
+$ sudo systemd-nspawn -b -D ~/arch -n
+</code></pre></div><p>これは色んな意味で正しいのですが、私の環境では動作しません。</p>
+<p>設定したpasswordでloginできない。なお、設定していないと空なのでenterでloginできるはず(たぶん)。ttyのsecurityが働いているからです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Arch Linux 6.0.11-arch1-1 <span style="color:#f92672">(</span>pts/1<span style="color:#f92672">)</span>
+arch login:
+arch-nspawn login: root
+Login incorrect
+</code></pre></div><p>ここでホストから<code>~/arch/etc/securetty</code>を編集し、ここでは<code>pts/1</code>でloginしようとしているため、これを追記します。<code>pts/0</code>なら<code>pts/0</code>です。その他ならそのttyを記述してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vim ~/arch/etc/securetty
+</code></pre></div><p>一旦、<code>poweroff</code>して仮想環境(continer)を落とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ poweroff
+$ machinectl list
+</code></pre></div><p>次に、本来の<code>systemd-nspawn</code>の一般的な使い方を説明します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ machinectl --help
+
+$ sudo mv ~/arch /var/lib/machines/
+$ sudo machinectl list-images
+$ sudo machinectl start arch
+$ sudo machinectl login arch
+
+<span style="color:#75715e"># vmの削除</span>
+$ sudo machinectl remove arch
+
+<span style="color:#75715e"># vmをdown</span>
+$ sudo machinectl poweroff arch
+$ sudo machinectl terminate arch
+</code></pre></div><p>continerにアクセスする場合、loginはおすすめしません。Ctrl+Dで抜けられません</p>
+<p>shellの場合はexitで抜けられます。continerはupしたままになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo machinectl shell arch
+</code></pre></div><p><code>/var/lib/machines</code>においたcontiner image(dir)をmachinectlで呼び出します。</p>
+<p>これは、<code>systemctl</code>の<code>systemd-nspawn@arch</code>でも同じようなことができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># archというcontinerをstart</span>
+$ sudo systemctl start systemd-nspawn@arch
+$ sudo machinectl start arch
+
+<span style="color:#75715e"># archというccontinerをPC起動時に立ち上げる</span>
+$ sudo systemctl enable systemd-nspawn@arch
+$ sudo machinectl enable arch
+
+$ sudo systemctl daemon-reload
+</code></pre></div><p>machinectl, systemd-nspawn, systemctlのどれを使ってもいいですが、個人的にはmachinectlをおすすめします。しかし、それぞれが使い方に微妙な違いを含んでいます。</p>
+<p>machinectlは主にvm操作で、pacstrapはarchの構築、systemctlはホスト環境の構築、systemd-nspawnはdir(chroot)操作です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># イメージのダウンロード</span>
+$ sudo machinectl pull-tar --verify<span style="color:#f92672">=</span>no http://localhost:8000/arch.tar.gz arch
+
+<span style="color:#75715e"># アーカイブ</span>
+$ sudo machinectl export-tar --format<span style="color:#f92672">=[</span>gz, bzip2, xz<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span>
+<span style="color:#75715e"># xz でマルチスレッド圧縮をする例 (一番お勧め！)</span>
+$ maxz<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> machinectl export-tar $1 $1.tar <span style="color:#f92672">&amp;&amp;</span> nice -n <span style="color:#ae81ff">20</span> xz -z -f -T <span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> -vv $1.tar; <span style="color:#f92672">}</span>
+$ maxz gbase
+<span style="color:#75715e"># インポート</span>
+$ sudo machinectl import-tar <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># docker imgをインポート</span>
+$ sudo docker export <span style="color:#66d9ef">$(</span>docker create debian:latest<span style="color:#66d9ef">)</span> | machinectl import-tar - debian
+
+<span style="color:#75715e"># hostのnetworkを使う, VirtualEthernetもconfiguredにすると有効</span>
+$ networkctl
+IDX LINK    TYPE     OPERATIONAL SETUP
+  <span style="color:#ae81ff">1</span> lo      loopback carrier     unmanaged
+  <span style="color:#ae81ff">2</span> eth0  ether    routable    configured
+  <span style="color:#ae81ff">3</span> ve-arch ether    no-carrier  configuring
+$ sudo vim /etc/systemd/nspawn/arch.nspawn
+</code></pre></div><pre tabindex="0"><code class="language-sh:/etc/systemd/nspawn/arch.nspawn" data-lang="sh:/etc/systemd/nspawn/arch.nspawn">[Network]
+VirtualEthernet=no
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># ssh接続</span>
+$ ssh-keygen -f ~/.ssh/test
+$ sudo cat ~/.ssh/test.pub &gt;&gt; /var/lib/machines/arch/root/.ssh/authorized_keys
+
+$ sudo machinectl shell arch
+$ pacman -S openssh
+$ vim /etc/ssh/sshd_config
+$ systemctl enable sshd
+$ systemctl start ssh
+$ exit
+
+$ ssh root@localhost -p xxx -i ~/.ssh/test
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo machinectl clone arch backup
+$ sudo machinectl poweroff arch
+$ sudo machinectl remove arch
+$ sudo machinectl clone backup arch
 </code></pre></div>
 		
 

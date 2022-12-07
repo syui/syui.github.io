@@ -147,7 +147,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/arch
 $ sudo pacstrap -c ~/arch base
 <span style="color:#75715e"># -D : chroot</span>
-$ sudo  systemd-nspawn -D ~/arch
+$ sudo systemd-nspawn -D ~/arch
 $ passwd
 $ logout
 <span style="color:#75715e"># -b : コンテナ起動</span>
@@ -155,7 +155,7 @@ $ sudo systemd-nspawn -b -D ~/arch
 <span style="color:#75715e"># -n : ネットワーク</span>
 $ sudo systemd-nspawn -b -D ~/arch -n
 </code></pre></div><p>これは色んな意味で正しいのですが、私の環境では動作しません。</p>
-<p>設定したpasswordでloginできない。ttyのsecurityが働いているからです。なお、設定していないと空なのでenterでloginできるはず(たぶん)。</p>
+<p>設定したpasswordでloginできない。なお、設定していないと空なのでenterでloginできるはず(たぶん)。ttyのsecurityが働いているからです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Arch Linux 6.0.11-arch1-1 <span style="color:#f92672">(</span>pts/1<span style="color:#f92672">)</span>
 arch login:
 arch-nspawn login: root
@@ -163,7 +163,7 @@ Login incorrect
 </code></pre></div><p>ここでホストから<code>~/arch/etc/securetty</code>を編集し、ここでは<code>pts/1</code>でloginしようとしているため、これを追記します。<code>pts/0</code>なら<code>pts/0</code>ですし、その他ならそのttyを記述してください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vim ~/arch/etc/securetty
 </code></pre></div><p>さて、loginできたとしましょう。</p>
-<p>一旦、<code>poweroff</code>して仮想環境(continer)を落とします。exitでもいいですが、logoutはおすすめしません。Ctrl+Dで抜けられません。exitの場合、continerはupしたままになります。</p>
+<p>一旦、<code>poweroff</code>して仮想環境(continer)を落とします。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ poweroff
 $ machinectl list
 </code></pre></div><p>次に、本来のsystemd-nspawnの一般的な使い方を説明します。</p>
@@ -176,6 +176,14 @@ $ sudo machinectl login arch
 
 <span style="color:#75715e"># vmの削除</span>
 $ sudo machinectl remove arch
+
+<span style="color:#75715e"># vmにshell</span>
+<span style="color:#75715e"># loginはおすすめしません。Ctrl+Dで抜けられません。shellの場合はexitできます。continerはupしたままになります。</span>
+$ sudo machinectl shell arch
+
+<span style="color:#75715e"># vmをdown</span>
+$ sudo machinectl poweroff arch
+$ sudo machinectl terminate arch
 </code></pre></div><p><code>/var/lib/machines</code>においたcontiner image(dir)をmachinectlで呼び出します。</p>
 <p>これは、<code>systemctl</code>の<code>systemd-nspawn@arch</code>でも同じようなことができます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># archというcontinerをstart</span>
@@ -193,18 +201,18 @@ $ sudo systemctl daemon-reload
 <p>dockerのほうが遥かにわかりやすいですね。</p>
 <p>ですが、archer(archlinuxを普段使いしる人)にとっては、慣れると扱いやすいし、便利そうだと感じています。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># イメージのダウンロード</span>
-$ machinectl pull-tar --verify<span style="color:#f92672">=</span>no http://localhost:8000/arch.tar.gz arch
+$ sudo machinectl pull-tar --verify<span style="color:#f92672">=</span>no http://localhost:8000/arch.tar.gz arch
 
 <span style="color:#75715e"># アーカイブ</span>
-$ machinectl export-tar --format<span style="color:#f92672">=[</span>gz, bzip2, xz<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span>
+$ sudo machinectl export-tar --format<span style="color:#f92672">=[</span>gz, bzip2, xz<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span>
 <span style="color:#75715e"># xz でマルチスレッド圧縮をする例 (一番お勧め！)</span>
 $ maxz<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> machinectl export-tar $1 $1.tar <span style="color:#f92672">&amp;&amp;</span> nice -n <span style="color:#ae81ff">20</span> xz -z -f -T <span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> -vv $1.tar; <span style="color:#f92672">}</span>
 $ maxz gbase
 <span style="color:#75715e"># インポート</span>
-$ machinectl import-tar <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span>
+$ sudo machinectl import-tar <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span>
 
 <span style="color:#75715e"># docker imgをインポート</span>
-$ docker export <span style="color:#66d9ef">$(</span>docker create debian:latest<span style="color:#66d9ef">)</span> | machinectl import-tar - debian
+$ sudo docker export <span style="color:#66d9ef">$(</span>docker create debian:latest<span style="color:#66d9ef">)</span> | machinectl import-tar - debian
 
 
 <span style="color:#75715e"># hostのnetworkを使う, VirtualEthernetもconfiguredにすると有効</span>
@@ -218,9 +226,9 @@ $ sudo vim /etc/systemd/nspawn/arch.nspawn
 VirtualEthernet=no
 </code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># ssh接続</span>
 $ ssh-keygen -f ~/.ssh/test
-$ cat ~/.ssh/test.pub &gt;&gt; /var/lib/machines/arch/root/.ssh/authorized_keys
+$ sudo cat ~/.ssh/test.pub &gt;&gt; /var/lib/machines/arch/root/.ssh/authorized_keys
 
-$ machinectl shell arch
+$ sudo machinectl shell arch
 $ pacman -S openssh
 $ vim /etc/ssh/sshd_config
 $ systemctl enable sshd
@@ -232,10 +240,10 @@ $ ssh root@localhost -p xxx -i ~/.ssh/test
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/mastodon_bot_20221203_0005.png" alt=""></p>
 <p>例えば、botに一つの仮想環境をあてがい、その中で使える機能を限定して、1日に1回、もしくは呼び出すごとにresetされるように運用するのがいいかも。</p>
 <p>その場合、cronとcloneを駆使してやるとよさそう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ machinectl clone arch backup
-$ machinectl poweroff arch
-$ machinectl remove arch
-$ machinectl clone backup arch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo machinectl clone arch backup
+$ sudo machinectl poweroff arch
+$ sudo machinectl remove arch
+$ sudo machinectl clone backup arch
 </code></pre></div><h3 id="ref">ref</h3>
 <p><a href="https://wiki.archlinux.org/title/systemd-nspawn">https://wiki.archlinux.org/title/systemd-nspawn</a></p>
 <p><a href="https://blog.usaturn.net/contents/2016/manage_spawn_container/">https://blog.usaturn.net/contents/2016/manage_spawn_container/</a></p>
