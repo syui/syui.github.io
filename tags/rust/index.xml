@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>matrixのclientを作ってみた</title>
+      <link>https://syui.cf/blog/post/2022/12/10/matrix-client/</link>
+      <pubDate>Sat, 10 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/12/10/matrix-client/</guid>
+      <description>matrix-rust-sdk
+どんな感じで書けばいいのかexampleを載せておきます。そのままでは動きませんが。
+#[allow(unused_mut)] let mut client_builder = Client::builder().homeserver_url(homeserver_url); #[cfg(feature = &amp;#34;sled&amp;#34;)] { let home = dirs::home_dir().expect(&amp;#34;no home directory found&amp;#34;).join(&amp;#34;sdk&amp;#34;); client_builder = client_builder.sled_store(home, None)?; } #[cfg(feature = &amp;#34;indexeddb&amp;#34;)] { client_builder = client_builder.indexeddb_store(&amp;#34;sdk&amp;#34;, None).await?; } let client = client_builder.build().await?; // login client .login_username(username, password) .initial_device_display_name(&amp;#34;sdk&amp;#34;) .send() .await?; // sync client.sync_once(SyncSettings::default()).await.unwrap().next_batch; let sync_token = client.sync_once(SyncSettings::default()).await.unwrap().next_batch; let settings = SyncSettings::default().token(sync_token); client.sync(settings).await?; client.sync(SyncSettings::default()).await?; let alias = &amp;#34;#example:matrix.org&amp;#34;; let id = &amp;#34;!example:matrix.org&amp;#34;; let message = &amp;#34;test&amp;#34;; // room_id let room_id = &amp;lt;&amp;amp;RoomId&amp;gt;::try_from(id).</description>
+    </item>
+    
     <item>
       <title>windowsでのsixel</title>
       <link>https://syui.cf/blog/post/2022/02/11/sixel/</link>
