@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>card</title>
+      <link>https://syui.cf/tags/card/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/card/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make</title>
+      <link>https://syui.cf/tags/make/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/make/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>matrix</title>
       <link>https://syui.cf/tags/matrix/</link>
@@ -270,15 +288,6 @@
     </item>
     
     <item>
-      <title>make</title>
-      <link>https://syui.cf/tags/make/</link>
-      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/make/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>covid</title>
       <link>https://syui.cf/tags/covid/</link>
       <pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate>
@@ -320,15 +329,6 @@
       <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/gnu-social/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>card</title>
-      <link>https://syui.cf/tags/card/</link>
-      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/card/</guid>
       <description></description>
     </item>
     

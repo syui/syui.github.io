@@ -7,7 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>カードを作ってみた7</title>
+      <link>https://syui.cf/blog/post/2022/12/15/card/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/12/15/card/</guid>
+      <description>久しぶりに改めてカードを作ってみることにしました。
+以前のカードはベースを紙にしていました。
+しかし、紙ベースだと劣化が激しいような気がしたのです。
+もちろん、たった数ヶ月でそこまでの変化はありませんでしたが、なんとなく数年後に色あせてくるのが見えるような気がしました。
+個人的には納得できるものではありませんでした。
+そこで、改めてカードを作り直してみることにしたのです。
+これまで作ったカードはすべて「試作品箱」に移し、手持ちのカードはゼロ。
+ゼロからのスタートです。
+新しいカードは、ベースにプラスチック版を採用することにしました。
+暑さはこんくらいです。3mmくらいかな。わかんないけど。
+そして、プラスチック板をベースにした初めてのカードが出来上がりました。
+シールはホログラムに印刷を行い、それを保護するガラスチップのシールを上に貼ります。
+ホログラムだけだと色々問題が出てきてしまうのは以前作ったカードでわかっていました。
+そして、最後に切り取りを行いますが、これをカッターやハサミでやってしまうと、微妙なところに歪みが発生してしまうことがあります。したがって、裁断機を使いました。
+実はこのカードを作成したのは数ヶ月前です。ブログに書いていませんでした。
+数ヶ月、カードの様子を見ていましたが、とても納得のできる仕上がりです。
+劣化が感じられませんし、手に持った感覚もしっかりしています。
+これからカードを作るときは、この方式を採用していきたい。</description>
+    </item>
+    
     <item>
       <title>matrixのclientを作ってみた</title>
       <link>https://syui.cf/blog/post/2022/12/10/matrix-client/</link>
