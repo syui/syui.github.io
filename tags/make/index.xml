@@ -35,6 +35,35 @@
     </item>
     
     <item>
+      <title>3Dモデルの作成、scaniverseとtrinoの比較</title>
+      <link>https://syui.cf/blog/post/2022/09/18/3dscan/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/18/3dscan/</guid>
+      <description>scaniverseがLiDARなしでも使えるようになりました。これはnianticが買収してから無料になった3Dモデルが作成できるアプリです。
+trinoは以前からLiDARなしでも使えて便利だったようですが、ここに来てscaniverseが有力になりました。
+したがって、この2つのアプリを簡単に比較してみたいと思います。
+以下は同じものをスキャンした例です。
+trino   scaniverse   公平に見て、scaniverseのほうが使い勝手が良かったのと、trinoではモデル生成できなかった写真立て(カード立て)がscaniverseではできました。
+  したがって、現時点でscaniverseのほうがおすすめです。
+しかし、しっかりとした3Dモデルはtrinoのほうが作れていると感じます。
+scaniverseは一見してきれいに見えますが、表面的な部分のみで、内側を読み取るのは苦手なようです。
+scaniverseは、内部を作り込むのではなく、無理やり表面に結合するというような形になることが多かった。
+これは、LiDARが使えるかどうかで変わってくるのかもしれません。</description>
+    </item>
+    
+    <item>
+      <title>trinoでfigureを3d scanしてみた</title>
+      <link>https://syui.cf/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。
+  trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。
+前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+    
+    <item>
       <title>フィギュアを作った4-6</title>
       <link>https://syui.cf/blog/post/2022/08/20/figure/</link>
       <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
@@ -544,6 +573,25 @@ $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out 
 ちなみに、作ってるキャラは、アイというオリジナルです。
 ですが、全然思うようにいかず&amp;hellip;。
 もしこれで色を塗り始めたら、とんでもないことになりそうなので、余った粘土に目を描いたり、色を塗ったりと、練習してからの方が良さそう。</description>
+    </item>
+    
+    <item>
+      <title>3Dモデルを作ってみる1</title>
+      <link>https://syui.cf/blog/post/2020/01/24/3d/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2020/01/24/3d/</guid>
+      <description>この前、ふと3Dモデルでも作ってみたいなーと思い立ち、作ってみることに。
+まずは簡単なものからと思ったので、アムのコインを3D化してみます。
+ coin by syui on Sketchfab  3Dモデルを作るのはこれが初めてですが、
+はっきりいいましょう、こんだけ作るのもすごい大変だったと！
+まずは3Dモデルってどうやって作るのか調べてみると、いい感じに自分でもできそうなやり方があったので、それでやってみて、1, 2時間くらいかかったと思う。
+作ったあとは、obj,mtl,jpgをzipに圧縮してsketchfabにアップロードしてみました。
+しかし、1ヶ月に1回のアップロード制限はきついかも。ただ、uploadすると3D-editorが使えるので非常に有用だと思います。
+3Dモデルの簡単な作り方 今回は、丸図形を用意して、テクスチャに当て、大きさの調整、x,y軸などを調整して完成という流れ。
+最初はエディタの使い方とか全然わかりませんが、なんとなくガチャガチャやってたらわかってくるのではと思ったので、ガチャガチャやってました。
+で、こんな感じのものを簡易に作成して、blenderとかsketchfabの3D-editorとかで修正していけばいいのかなあという感じで今のとこ思ってます。(違うかも
+アムのコイン yuiの最後のほう(43話くらい)に登場するアイテム。宇宙で最も流行している特殊な通貨のこと。</description>
     </item>
     
   </channel>
