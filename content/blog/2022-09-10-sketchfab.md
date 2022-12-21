@@ -1,6 +1,6 @@
 +++
 date = "2022-09-10"
-tags = ["skechfab","3d"]
+tags = ["skechfab","3d","make"]
 title = "trinoでfigureを3d scanしてみた"
 slug = "skechfab"
 +++
