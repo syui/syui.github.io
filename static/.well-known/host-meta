@@ -2,6 +2,3 @@
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
   <Link rel="lrdd" type="application/xrd+xml" template="https://mstdn.syui.cf/.well-known/webfinger?resource={uri}"/>
 </XRD>
-<XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-  <Link rel="lrdd" type="application/xrd+xml" template="https://goto.syui.cf/.well-known/webfinger?resource={uri}"/>
-</XRD>
