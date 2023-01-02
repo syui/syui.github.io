@@ -19,6 +19,8 @@ header_image = "/games/genshin.jpg"
 
 美しい世界で旅ができますので、おすすめです。
 
+<a href="/games/genshin/genshin_top_00.jpg"><img src="/games/genshin/genshin_top_00.jpg"></a>
+
 ### プレイスタイル
 
 私のこれまでのプレイスタイルを少しだけ話します。
@@ -53,7 +55,7 @@ header_image = "/games/genshin.jpg"
 |2022|05|螺旋を星36でクリア|無課金+初見+新規の人は参考に|
 |2022|06|螺旋を通しでクリア|一度もリセットすることなく連続で攻略|
 |2022|07|`万葉`を引く|各元素につき2体の強キャラ育成を目指す|
-|2022|11|`ナヒーダ`を引く|爆死したことでナヒーダの完凸を決意|
+|2022|11|`ナヒーダ`を引く|ガチャを爆死したことでナヒーダの完凸を決意|
 
 [![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)
 
@@ -96,7 +98,7 @@ header_image = "/games/genshin.jpg"
 
 ### プレイ環境
 
-追記 : ipad 7th(32GB) -> ipad 9th(64GB)に移行。グラフィック最大でも快適にプレイできています。
+> 追記 : ipad 7th(32GB) -> ipad 9th(64GB)に移行。グラフィック最大でも快適にプレイできています。
 
 プレイ環境は`ipad 7th(32GB)`です。購入する際、ゲームプレイを想定していませんでした。
 
@@ -161,10 +163,6 @@ header_image = "/games/genshin.jpg"
 
 <a href="/games/genshin/genshin_chara_klee_fix2.png"><img src="/games/genshin/genshin_chara_klee_fix2.png"></a>
 
-#### ナヒーダ
-
-<a href="/games/genshin/genshin_chara_nahida.png"><img src="/games/genshin/genshin_chara_nahida.png"></a>
-
 #### 雷電
 
 <a href="/games/genshin/genshin_chara_raiden_fix2.png"><img src="/games/genshin/genshin_chara_raiden_fix2.png"></a>
@@ -204,6 +202,10 @@ header_image = "/games/genshin.jpg"
 #### 蛍
 
 <a href="/games/genshin/genshin_chara_hotaru.png"><img src="/games/genshin/genshin_chara_hotaru.png"></a>
+
+#### ナヒーダ
+
+<a href="/games/genshin/genshin_chara_nahida.png"><img src="/games/genshin/genshin_chara_nahida.png"></a>
 
 https://shinshin.moe
 
