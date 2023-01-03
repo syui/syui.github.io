@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2022-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/genshin/</loc>
-    <lastmod>2022-12-31T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/rust/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2023/01/02/rust-json-request/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2022-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/genshin/</loc>
     <lastmod>2022-12-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/12/31/genshin/</loc>
@@ -51,9 +57,6 @@
     <lastmod>2022-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/12/10/matrix-client/</loc>
-    <lastmod>2022-12-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/rust/</loc>
     <lastmod>2022-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/arch/</loc>

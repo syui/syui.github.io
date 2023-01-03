@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rustでdeeplのcliを作った</title>
+      <link>https://syui.cf/blog/post/2023/01/02/rust-json-request/</link>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/01/02/rust-json-request/</guid>
+      <description>deeplは翻訳サービスです。
+https://www.deepl.com/ja/docs-api
+今回は、主にrustのjson, requestのexampleを載せる趣旨で書きます。
+cargo 面倒なので最初にcargo.tomlに書きそうなpkgを載せておきます。
+seahorse = &amp;#34;*&amp;#34; dotenv = &amp;#34;0.15&amp;#34; serde_derive = &amp;#34;1.0&amp;#34; serde_json = &amp;#34;1.0&amp;#34; serde = &amp;#34;*&amp;#34; config = { git = &amp;#34;https://github.com/mehcode/config-rs&amp;#34;, branch = &amp;#34;master&amp;#34; } shellexpand = &amp;#34;*&amp;#34; toml = &amp;#34;*&amp;#34; reqwest = &amp;#34;*&amp;#34; tokio = { version = &amp;#34;1&amp;#34;, features = [&amp;#34;full&amp;#34;] } json { &amp;#34;translations&amp;#34;: [ { &amp;#34;detected_source_language&amp;#34;: &amp;#34;JA&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;I&amp;#39;m not sure if I should use reqwest for response as well.&amp;#34; } ] } serde_jsonを使います。</description>
+    </item>
+    
     <item>
       <title>matrixのclientを作ってみた</title>
       <link>https://syui.cf/blog/post/2022/12/10/matrix-client/</link>
