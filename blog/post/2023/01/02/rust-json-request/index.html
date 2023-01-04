@@ -368,6 +368,14 @@ $ trans-rs tt <span style="color:#e6db74">&#34;test&#34;</span> -l ja
     .output().expect(<span style="color:#e6db74">&#34;jq&#34;</span>);
 <span style="color:#66d9ef">let</span> o <span style="color:#f92672">=</span> String::from_utf8_lossy(<span style="color:#f92672">&amp;</span>output.stdout);
 <span style="color:#66d9ef">let</span> o <span style="color:#f92672">=</span>  o.to_string();
+</code></pre></div><h3 id="features">features</h3>
+<p>reqwest + tokio + featuresを使う場合、cargo.tomlに以下のようなfeaturesのsupportを追加してください。</p>
+<blockquote>
+<p>.await? doesn&rsquo;t have a size known at compile-time</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust:Cargo.toml" data-lang="rust:Cargo.toml"><span style="color:#a6e22e">reqwest</span> = { <span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#a6e22e">features</span> = [<span style="color:#e6db74">&#34;json&#34;</span>] }
+<span style="color:#a6e22e">futures</span> = <span style="color:#e6db74">&#34;0.3.5&#34;</span>
+<span style="color:#a6e22e">tokio</span> = { <span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#a6e22e">features</span> = [<span style="color:#e6db74">&#34;full&#34;</span>] }
 </code></pre></div>
 		
 
