@@ -7,7 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mitra</title>
+      <link>https://syui.cf/blog/post/2023/01/09/mitra/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/01/09/mitra/</guid>
+      <description>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。
+https://codeberg.org/silverpill/mitra
+https://codeberg.org/silverpill/mitra-web
+gotosocialに似ていて、matrixの設計を参考にしているように感じられます。
+$ git clone https://codeberg.org/silverpill/mitra $ cd mitra $ cp config.yaml.example config.yaml $ cargo build --release --features production $ cat .env.local ENVIRONMENT=development #ENVIRONMENT=production CONFIG_PATH=./config.yaml #CONFIG_PATH=/app/server/config.yaml #VUE_APP_BACKEND_URL=https://xxx:8383 $ git clone https://codeberg.org/silverpill/mitra-web $ cd mitra-web $ npm install --no-save $ npx allow-scripts $ npm run build $ mv dist ../ database_url: postgres://mitra:mitra@127.0.0.1:55432/mitra storage_dir: files web_client_dir: dist http_host: &amp;#39;127.0.0.1&amp;#39; http_port: 8380 instance_uri: xxx:8380 instance_title: Mitra instance_short_description: My instance instance_description: My instance registrations_open: true $ docker-compose up -d $ .</description>
+    </item>
+    
+    <item>
+      <title>gotosocialを建ててみた時の話</title>
+      <link>https://syui.cf/blog/post/2023/01/08/gotosocial/</link>
+      <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/01/08/gotosocial/</guid>
+      <description>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。
+https://github.com/superseriousbusiness/gotosocial
+golangを採用しているというのが大きく、dbもsqliteです。最もシンプルな構成だと思います。
+sqliteは、あまり速くはないもののshellとの親和性が非常に高いため、dbの中では最も扱いやすい部類に入ります。あくまで個人感想。
+fly.ioは、sqliteをvol mountで使用できるためserverを立てる必要がありません。したがって、全て一つのserver内で完結します。
+例えば、mastodonの場合、web &amp;amp; api server, redis-server, pg-serverと3つが必要になります。
+ただし、gotosocialは、最低限のweb-uiしか持ちません。したがって、通常操作するには、uiをつけるか、あるいはclientから行う必要があります。
+これは、matrixの設計に似ています。
+web-client : https://pinafore.social/
+android : https://tusky.app/
+fly.io  Dockerfile
+ FROM superseriousbusiness/gotosocial WORKDIR /gotosocial ADD config.yaml /gotosocial/ CMD [&amp;quot;--config-path&amp;quot;, &amp;quot;/gotosocial/config.yaml&amp;quot;] $ app=xxx $ fly launch --name $app $ fly vol create ${app}_data --size 1 -a $app config  config.yaml
+ host: &amp;quot;$app.fly.dev&amp;quot; db-type: &amp;quot;sqlite&amp;quot; db-address: &amp;quot;/data/goto/sqlite.db&amp;quot; accounts-registration-open: false  fly.toml
+ [mounts] source=&amp;quot;$app_data&amp;quot; destination=&amp;quot;/data/goto&amp;quot; deploy $ fly deploy create user $ fly ssh consosh consolee $ /gotosocial/gotosocial --config-path /gotosocial/config.</description>
+    </item>
+    
     <item>
       <title>イラスト描いた126</title>
       <link>https://syui.cf/blog/post/2023/01/04/illust/</link>

@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 02 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mitra</title>
+      <link>https://syui.cf/blog/post/2023/01/09/mitra/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/01/09/mitra/</guid>
+      <description>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。
+https://codeberg.org/silverpill/mitra
+https://codeberg.org/silverpill/mitra-web
+gotosocialに似ていて、matrixの設計を参考にしているように感じられます。
+$ git clone https://codeberg.org/silverpill/mitra $ cd mitra $ cp config.yaml.example config.yaml $ cargo build --release --features production $ cat .env.local ENVIRONMENT=development #ENVIRONMENT=production CONFIG_PATH=./config.yaml #CONFIG_PATH=/app/server/config.yaml #VUE_APP_BACKEND_URL=https://xxx:8383 $ git clone https://codeberg.org/silverpill/mitra-web $ cd mitra-web $ npm install --no-save $ npx allow-scripts $ npm run build $ mv dist ../ database_url: postgres://mitra:mitra@127.0.0.1:55432/mitra storage_dir: files web_client_dir: dist http_host: &amp;#39;127.0.0.1&amp;#39; http_port: 8380 instance_uri: xxx:8380 instance_title: Mitra instance_short_description: My instance instance_description: My instance registrations_open: true $ docker-compose up -d $ .</description>
+    </item>
+    
     <item>
       <title>rustでdeeplのcliを作った</title>
       <link>https://syui.cf/blog/post/2023/01/02/rust-json-request/</link>

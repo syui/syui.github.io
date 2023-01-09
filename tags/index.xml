@@ -7,22 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>illust</title>
-      <link>https://syui.cf/tags/illust/</link>
-      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      <title>activitypub</title>
+      <link>https://syui.cf/tags/activitypub/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/tags/illust/</guid>
+      <guid>https://syui.cf/tags/activitypub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rust</title>
       <link>https://syui.cf/tags/rust/</link>
-      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sns</title>
+      <link>https://syui.cf/tags/sns/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/sns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://syui.cf/tags/golang/</link>
+      <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>illust</title>
+      <link>https://syui.cf/tags/illust/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/illust/</guid>
       <description></description>
     </item>
     
@@ -630,15 +657,6 @@
     </item>
     
     <item>
-      <title>golang</title>
-      <link>https://syui.cf/tags/golang/</link>
-      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>twitter</title>
       <link>https://syui.cf/tags/twitter/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
@@ -806,15 +824,6 @@
       <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/archlinux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sns</title>
-      <link>https://syui.cf/tags/sns/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/sns/</guid>
       <description></description>
     </item>
     
