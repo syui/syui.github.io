@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>gotosocialを建ててみた時の話 | syui.cf</title>
+		<title>gotosocialを立ててみた時の話 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="gotosocialを建ててみた時の話" />
+		<meta property="og:title" content="gotosocialを立ててみた時の話" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -141,7 +141,7 @@
 		
 		</div>
 
-		<h2>gotosocialを建ててみた時の話</h2>
+		<h2>gotosocialを立ててみた時の話</h2>
 
 		<p>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。</p>
 <p><a href="https://github.com/superseriousbusiness/gotosocial">https://github.com/superseriousbusiness/gotosocial</a></p>
@@ -167,20 +167,14 @@ CMD [&quot;--config-path&quot;, &quot;/gotosocial/config.yaml&quot;]
 $ fly launch --name $app
 $ fly vol create <span style="color:#e6db74">${</span>app<span style="color:#e6db74">}</span>_data --size <span style="color:#ae81ff">1</span> -a $app
 </code></pre></div><h3 id="config">config</h3>
-<blockquote>
-<p>config.yaml</p>
-</blockquote>
-<pre tabindex="0"><code>host: &quot;$app.fly.dev&quot;
-db-type: &quot;sqlite&quot;
-db-address: &quot;/data/goto/sqlite.db&quot;
-accounts-registration-open: false
-</code></pre><blockquote>
-<p>fly.toml</p>
-</blockquote>
-<pre tabindex="0"><code>[mounts]
-source=&quot;$app_data&quot;
-destination=&quot;/data/goto&quot;
-</code></pre><h3 id="deploy">deploy</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yaml" data-lang="yaml:config.yaml"><span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;$app.fly.dev&#34;</span>
+<span style="color:#f92672">db-type</span>: <span style="color:#e6db74">&#34;sqlite&#34;</span>
+<span style="color:#f92672">db-address</span>: <span style="color:#e6db74">&#34;/data/goto/sqlite.db&#34;</span>
+<span style="color:#f92672">accounts-registration-open</span>: <span style="color:#66d9ef">false</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml">[<span style="color:#a6e22e">mounts</span>]
+<span style="color:#a6e22e">source</span>=<span style="color:#e6db74">&#34;$app_data&#34;</span>
+<span style="color:#a6e22e">destination</span>=<span style="color:#e6db74">&#34;/data/goto&#34;</span>
+</code></pre></div><h3 id="deploy">deploy</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly deploy
 </code></pre></div><h3 id="create-user">create user</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ssh consosh consolee
@@ -197,12 +191,9 @@ $ /gotosocial/gotosocial --config-path /gotosocial/config.yaml admin account pro
 &lt;XRD xmlns=&quot;http://docs.oasis-open.org/ns/xri/xrd-1.0&quot;&gt;
   &lt;Link rel=&quot;lrdd&quot; type=&quot;application/xrd+xml&quot; template=&quot;https://example.com/.well-known/webfinger?resource={uri}&quot;/&gt;
 &lt;/XRD&gt;
-</code></pre><blockquote>
-<p>config.yaml</p>
-</blockquote>
-<pre tabindex="0"><code>host: &quot;$app.fly.dev&quot;
-account-domain: &quot;example.com&quot;
-</code></pre><h3 id="post">post</h3>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yaml" data-lang="yaml:config.yaml"><span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;$app.fly.dev&#34;</span>
+<span style="color:#f92672">account-domain</span>: <span style="color:#e6db74">&#34;example.com&#34;</span>
+</code></pre></div><h3 id="post">post</h3>
 <p>setting : /user</p>
 <p>web client : <a href="https://pinafore.social">https://pinafore.social</a></p>
 
