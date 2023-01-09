@@ -149,12 +149,13 @@
 $ mkdir -p ~/.config/nvim
 $ touch ~/.config/nvim/init.lua
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua:~/.config/nvim/init.lua" data-lang="lua:~/.config/nvim/init.lua">require(<span style="color:#e6db74">&#34;keymaps&#34;</span>)
-</code></pre></div><pre tabindex="0"><code class="language-lua:~/.config/nvim/lua/" data-lang="lua:~/.config/nvim/lua/">-- vim.api.nvim_set_keymap(&quot;&quot;, &quot;&lt;space&gt;&quot;, &quot;&lt;Nop&gt;&quot;, { noremap = true, silent = true })
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-keymap(&quot;&quot;, &quot;&lt;space&gt;&quot;, &quot;&lt;Nop&gt;&quot;, opts)
-</code></pre><p>これはvimでいう<code>&lt;leader&gt;</code>をマッピングする設定です。<code>&lt;space&gt;</code>にします。</p>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua:~/.config/nvim/lua/keymaps.lua" data-lang="lua:~/.config/nvim/lua/keymaps.lua"><span style="color:#75715e">-- vim.api.nvim_set_keymap(&#34;&#34;, &#34;&lt;space&gt;&#34;, &#34;&lt;Nop&gt;&#34;, { noremap = true, silent = true })</span>
+<span style="color:#66d9ef">local</span> opts <span style="color:#f92672">=</span> { noremap <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, silent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> }
+<span style="color:#66d9ef">local</span> keymap <span style="color:#f92672">=</span> vim.api.nvim_set_keymap
+keymap(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&lt;space&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;Nop&gt;&#34;</span>, opts)
+</code></pre></div><p>これはvimでいう<code>&lt;leader&gt;</code>をマッピングする設定です。<code>&lt;space&gt;</code>にします。</p>
 <p>続いてpluginをインストールします。<code>packer</code>を使います。</p>
+<p><a href="https://github.com/wbthomason/packer.nvim">https://github.com/wbthomason/packer.nvim</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone --depth <span style="color:#ae81ff">1</span> https://github.com/wbthomason/packer.nvim<span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span> ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua:~/.config/nvim/lua/plugins.lua" data-lang="lua:~/.config/nvim/lua/plugins.lua">vim.cmd <span style="color:#e6db74">[[packadd packer.nvim]]</span>
