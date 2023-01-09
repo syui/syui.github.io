@@ -1,7 +1,7 @@
 +++
 date = "2023-01-08"
 tags = ["golang","sns","activitypub"]
-title = "gotosocialを建ててみた時の話"
+title = "gotosocialを立ててみた時の話"
 slug = "gotosocial"
 +++
 
@@ -46,18 +46,14 @@ $ fly vol create ${app}_data --size 1 -a $app
 
 ### config
 
-> config.yaml
-
-```
+```yaml:config.yaml
 host: "$app.fly.dev"
 db-type: "sqlite"
 db-address: "/data/goto/sqlite.db"
 accounts-registration-open: false
 ```
 
-> fly.toml
-
-```
+```toml:fly.toml
 [mounts]
 source="$app_data"
 destination="/data/goto"
@@ -93,9 +89,7 @@ https://github.com/felx/mastodon-documentation/blob/master/Running-Mastodon/Serv
 </XRD>
 ```
 
-> config.yaml
-
-```
+```yaml:config.yaml
 host: "$app.fly.dev"
 account-domain: "example.com"
 ```
