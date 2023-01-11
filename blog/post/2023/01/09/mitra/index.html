@@ -144,9 +144,10 @@
 		<h2>mitraをfly.ioにdeployしてみた</h2>
 
 		<p>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。</p>
+<p>uiとbackendが素晴らしく、とてもシンプルです。</p>
 <p><a href="https://codeberg.org/silverpill/mitra">https://codeberg.org/silverpill/mitra</a></p>
 <p><a href="https://codeberg.org/silverpill/mitra-web">https://codeberg.org/silverpill/mitra-web</a></p>
-<p>gotosocialに似ていて、matrixの設計を参考にしているように感じられます。</p>
+<p>gotosocialと同じくmatrixの設計を参考にしているように感じられました。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/mitra_20230111_0001.png" alt=""></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://codeberg.org/silverpill/mitra
 $ cd mitra
@@ -210,8 +211,6 @@ RUN mkdir -p /app/files
 
 [<span style="color:#a6e22e">experimental</span>]
 <span style="color:#a6e22e">cmd</span> = <span style="color:#e6db74">&#34;./mitra&#34;</span>
-<span style="color:#75715e">#allowed_public_ports = []</span>
-<span style="color:#75715e">#auto_rollback = true</span>
 
 [[<span style="color:#a6e22e">services</span>]]
   <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8380</span>
