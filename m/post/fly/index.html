@@ -185,15 +185,14 @@ $ fly logs
 $ fly deploy
 $ fly open
 </code></pre></div><h3 id="dns-ssl">dns, ssl</h3>
-<p>appのcertificateに$app.fly.devを作成後に$sub-domain.comを作成します。</p>
+<p>appのcertificateに<code>$app.fly.dev</code>を作成後に<code>$sub.domain.com</code>を作成します。cloudflareのcnameでは、たまに両方を<code>proxied</code>にする必要があります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly certs add $app.fly.dev
-$ fly certs add $sub-domain.com
+$ fly certs add $sub.domain.com
 $ fly certs list
-cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
 
 <span style="color:#75715e"># cloudflare</span>
-cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
-cname : $sub-domain.com, $app.fly.dev
+cname : _acme-challenge.$app, $app.fly.dev.xxx.flydns.net, proxied
+cname : $sub.domain.com, $app.fly.dev, dns-only
 </code></pre></div><h3 id="redis">redis</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:Dockerfile.txt" data-lang="sh:Dockerfile.txt">ADD start-redis-server.sh /usr/bin/
 RUN chmod +x /usr/bin/start-redis-server.sh
