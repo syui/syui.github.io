@@ -168,14 +168,18 @@ $ mv dist ../
 <span style="color:#f92672">storage_dir</span>: <span style="color:#ae81ff">files</span>
 <span style="color:#f92672">web_client_dir</span>: <span style="color:#ae81ff">dist</span>
 <span style="color:#f92672">http_host</span>: <span style="color:#e6db74">&#39;127.0.0.1&#39;</span>
+<span style="color:#75715e">#http_host: &#39;0.0.0.0&#39;</span>
 <span style="color:#f92672">http_port</span>: <span style="color:#ae81ff">8380</span>
-<span style="color:#f92672">instance_uri</span>: <span style="color:#ae81ff">xxx:8380</span>
+<span style="color:#f92672">instance_uri</span>: <span style="color:#ae81ff">example.com</span>
+<span style="color:#75715e">#instance_uri: example.com:8380</span>
 <span style="color:#f92672">instance_title</span>: <span style="color:#ae81ff">Mitra</span>
 <span style="color:#f92672">instance_short_description</span>: <span style="color:#ae81ff">My instance</span>
 <span style="color:#f92672">instance_description</span>: <span style="color:#ae81ff">My instance</span>
 <span style="color:#f92672">registrations_open</span>: <span style="color:#66d9ef">true</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose up -d
 $ ./target/release/mitra
+---
+$ curl -sL http://127.0.0.1:8380/api/v1/instance
 </code></pre></div><p>fly.ioのdockerでやろうと思うと、けっこう大変です。</p>
 <p><code>.dockerignore</code>に<code>mitra/{target,files}</code>を追加しておいてください。</p>
 <blockquote>
@@ -214,13 +218,13 @@ RUN mkdir -p /app/files
     <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
     <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;443&#34;</span>
 
-  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
-    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
-    <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;5001&#34;</span>
-
-  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
-    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
-    <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;8001&#34;</span>
+<span style="color:#75715e">#  [[services.ports]]</span>
+<span style="color:#75715e">#    handlers = [&#34;tls&#34;, &#34;http&#34;]</span>
+<span style="color:#75715e">#    port = &#34;5001&#34;</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e">#  [[services.ports]]</span>
+<span style="color:#75715e">#    handlers = [&#34;tls&#34;, &#34;http&#34;]</span>
+<span style="color:#75715e">#    port = &#34;8001&#34;</span>
 
   [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">tcp_checks</span>]]
     <span style="color:#a6e22e">interval</span> = <span style="color:#e6db74">&#34;10s&#34;</span>
