@@ -74,17 +74,16 @@ $ fly open
 
 ### dns, ssl
 
-appのcertificateに$app.fly.devを作成後に$sub-domain.comを作成します。
+appのcertificateに`$app.fly.dev`を作成後に`$sub.domain.com`を作成します。cloudflareのcnameでは、たまに両方を`proxied`にする必要があります。
 
 ```sh
 $ fly certs add $app.fly.dev
-$ fly certs add $sub-domain.com
+$ fly certs add $sub.domain.com
 $ fly certs list
-cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
 
 # cloudflare
-cname : _acme-challenge.$app, $sub-domain.xxx.flydns.net
-cname : $sub-domain.com, $app.fly.dev
+cname : _acme-challenge.$app, $app.fly.dev.xxx.flydns.net, proxied
+cname : $sub.domain.com, $app.fly.dev, dns-only
 ```
 
 ### redis
@@ -160,3 +159,4 @@ $ fly pg detach -a $app $app-db
 
 $ fly pg attach -a $app $app-db
 ```
+
