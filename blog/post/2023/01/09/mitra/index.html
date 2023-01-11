@@ -147,6 +147,7 @@
 <p><a href="https://codeberg.org/silverpill/mitra">https://codeberg.org/silverpill/mitra</a></p>
 <p><a href="https://codeberg.org/silverpill/mitra-web">https://codeberg.org/silverpill/mitra-web</a></p>
 <p>gotosocialに似ていて、matrixの設計を参考にしているように感じられます。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/mitra_20230111_0001.png" alt=""></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://codeberg.org/silverpill/mitra
 $ cd mitra
 $ cp config.yaml.example config.yaml
@@ -156,7 +157,9 @@ ENVIRONMENT<span style="color:#f92672">=</span>development
 <span style="color:#75715e">#ENVIRONMENT=production</span>
 CONFIG_PATH<span style="color:#f92672">=</span>./config.yaml
 <span style="color:#75715e">#CONFIG_PATH=/app/server/config.yaml</span>
-<span style="color:#75715e">#VUE_APP_BACKEND_URL=https://xxx:8383</span>
+<span style="color:#75715e">#VUE_APP_BACKEND_URL=https://example.com</span>
+<span style="color:#75715e">#VUE_APP_BACKEND_URL=http://example.com:8380</span>
+<span style="color:#75715e">#PORT=8380</span>
 
 $ git clone https://codeberg.org/silverpill/mitra-web
 $ cd mitra-web
@@ -176,7 +179,10 @@ $ mv dist ../
 <span style="color:#f92672">instance_short_description</span>: <span style="color:#ae81ff">My instance</span>
 <span style="color:#f92672">instance_description</span>: <span style="color:#ae81ff">My instance</span>
 <span style="color:#f92672">registrations_open</span>: <span style="color:#66d9ef">true</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose up -d
+</code></pre></div><p>ssl : <code>instance_uri: example.com</code></p>
+<p>http : <code>instance_uri: example.com:8380</code></p>
+<p>fly.ioでは<code>instance_uri: example.com</code>を使用します。portを指定すると502になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker-compose up -d
 $ ./target/release/mitra
 ---
 $ curl -sL http://127.0.0.1:8380/api/v1/instance
@@ -198,41 +204,45 @@ RUN mkdir -p /app/files
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;xxx&#34;</span>
 <span style="color:#a6e22e">kill_signal</span> = <span style="color:#e6db74">&#34;SIGINT&#34;</span>
 <span style="color:#a6e22e">kill_timeout</span> = <span style="color:#ae81ff">10</span>
-<span style="color:#a6e22e">processes</span> = []
 
 [<span style="color:#a6e22e">env</span>]
 <span style="color:#a6e22e">PORT</span> = <span style="color:#e6db74">&#34;8380&#34;</span>
 
 [<span style="color:#a6e22e">experimental</span>]
 <span style="color:#a6e22e">cmd</span> = <span style="color:#e6db74">&#34;./mitra&#34;</span>
+<span style="color:#a6e22e">allowed_public_ports</span> = []
+<span style="color:#a6e22e">auto_rollback</span> = <span style="color:#66d9ef">true</span>
 
 [[<span style="color:#a6e22e">services</span>]]
+  <span style="color:#a6e22e">http_checks</span> = []
   <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8380</span>
+  <span style="color:#a6e22e">processes</span> = [<span style="color:#e6db74">&#34;app&#34;</span>]
   <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
-
+  <span style="color:#a6e22e">script_checks</span> = []
   [<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">concurrency</span>]
-    <span style="color:#a6e22e">hard_limit</span> = <span style="color:#ae81ff">100</span>
-    <span style="color:#a6e22e">soft_limit</span> = <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">hard_limit</span> = <span style="color:#ae81ff">25</span>
+    <span style="color:#a6e22e">soft_limit</span> = <span style="color:#ae81ff">20</span>
+    <span style="color:#a6e22e">type</span> = <span style="color:#e6db74">&#34;connections&#34;</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">force_https</span> = <span style="color:#66d9ef">true</span>
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;http&#34;</span>]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">80</span>
 
   [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
     <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
-    <span style="color:#a6e22e">port</span> = <span style="color:#e6db74">&#34;443&#34;</span>
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">443</span>
 
 <span style="color:#75715e">#  [[services.ports]]</span>
 <span style="color:#75715e">#    handlers = [&#34;tls&#34;, &#34;http&#34;]</span>
-<span style="color:#75715e">#    port = &#34;5001&#34;</span>
+<span style="color:#75715e">#    port = 5001</span>
 <span style="color:#75715e">#</span>
 <span style="color:#75715e">#  [[services.ports]]</span>
 <span style="color:#75715e">#    handlers = [&#34;tls&#34;, &#34;http&#34;]</span>
-<span style="color:#75715e">#    port = &#34;8001&#34;</span>
-
-  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">tcp_checks</span>]]
-    <span style="color:#a6e22e">interval</span> = <span style="color:#e6db74">&#34;10s&#34;</span>
-    <span style="color:#a6e22e">grace_period</span> = <span style="color:#e6db74">&#34;5s&#34;</span>
-    <span style="color:#a6e22e">timeout</span> = <span style="color:#e6db74">&#34;2s&#34;</span>
+<span style="color:#75715e">#    port = 8001</span>
 
 [<span style="color:#a6e22e">mounts</span>]
-<span style="color:#a6e22e">source</span>=<span style="color:#e6db74">&#34;xxx_data&#34;</span>
+<span style="color:#a6e22e">source</span>=<span style="color:#e6db74">&#34;mitra_data&#34;</span>
 <span style="color:#a6e22e">destination</span>=<span style="color:#e6db74">&#34;/app/files&#34;</span>
 </code></pre></div><h3 id="deploy">deploy</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ flyctl deploy --remote-only
@@ -248,8 +258,8 @@ RUN mkdir -p /app/files
 <pre tabindex="0"><code class="language-sh:.env.local" data-lang="sh:.env.local">#ENVIRONMENT=development
 ENVIRONMENT=production
 CONFIG_PATH=./config.yaml
-VUE_APP_BACKEND_URL=http://example.com:8380
-PORT=8381
+#VUE_APP_BACKEND_URL=https://example.com
+#PORT=8380
 </code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yaml" data-lang="yaml:config.yaml"><span style="color:#f92672">ipfs_api_url</span>: <span style="color:#e6db74">&#39;http://127.0.0.1:5001&#39;</span>
 <span style="color:#f92672">ipfs_gateway_url</span>: <span style="color:#e6db74">&#39;http://127.0.0.1:8001&#39;</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ips list
@@ -258,8 +268,10 @@ $ flyctl ips release 12.34.56.78
 <li><a href="https://community.fly.io/t/announcement-shared-anycast-ipv4/9384">https://community.fly.io/t/announcement-shared-anycast-ipv4/9384</a></li>
 </ul>
 <h3 id="node">node</h3>
-<p>m1だとcompileしないといけないらしい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nvm install v14
+<p>m1だとcompileしないといけないらしいので時間がかかります。</p>
+<p>archとかでやったほうがいいかも。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ paru -S nvm
+$ nvm install v14
 $ nvm use v14
 </code></pre></div>
 		
