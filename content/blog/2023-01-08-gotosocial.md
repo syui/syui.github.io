@@ -1,6 +1,6 @@
 +++
 date = "2023-01-08"
-tags = ["golang","sns","activitypub"]
+tags = ["golang","sns","activitypub","fly"]
 title = "gotosocialを立ててみた時の話"
 slug = "gotosocial"
 +++

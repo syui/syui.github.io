@@ -17,8 +17,8 @@ $ fly apps destroy $app
 # メモリを512Mに設定する
 $ fly scale memory 512
 
-# volume(hdd)領域を3Gで作成する
-$ fly vol create --region nrt --size 3 $app
+# volume(hdd)領域を1Gで作成する
+$ fly vol create --region nrt --size 1 $app
 
 # pg(postgres)を作る
 $ fly pg create $app-db
