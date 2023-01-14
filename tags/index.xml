@@ -18,6 +18,15 @@
     </item>
     
     <item>
+      <title>fly</title>
+      <link>https://syui.cf/tags/fly/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/fly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>rust</title>
       <link>https://syui.cf/tags/rust/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
@@ -167,15 +176,6 @@
       <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/mastodon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fly</title>
-      <link>https://syui.cf/tags/fly/</link>
-      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/fly/</guid>
       <description></description>
     </item>
     

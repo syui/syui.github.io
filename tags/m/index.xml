@@ -15,7 +15,7 @@
       
       <guid>https://syui.cf/m/post/fly/</guid>
       <description>fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。fly.tomlにおいてmountできるvolumeは1つです。
-# アプリの作成 $ fly apps create $app # アプリの削除 $ fly apps destroy $app # メモリを512Mに設定する $ fly scale memory 512 # volume(hdd)領域を3Gで作成する $ fly vol create --region nrt --size 3 $app # pg(postgres)を作る $ fly pg create $app-db # pgのupdate等 $ fly image update $app-db $ fly pg restart -a $app-db pg attach fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。
+# アプリの作成 $ fly apps create $app # アプリの削除 $ fly apps destroy $app # メモリを512Mに設定する $ fly scale memory 512 # volume(hdd)領域を1Gで作成する $ fly vol create --region nrt --size 1 $app # pg(postgres)を作る $ fly pg create $app-db # pgのupdate等 $ fly image update $app-db $ fly pg restart -a $app-db pg attach fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。
 # pgを接続する $ fly pg attach -a $app $app-db pg backup, restore pgは1日おきにsnapshotを作成します。</description>
     </item>
     
