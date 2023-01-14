@@ -195,7 +195,34 @@ use({ <span style="color:#e6db74">&#34;L3MON4D3/LuaSnip&#34;</span> })
 use({ <span style="color:#e6db74">&#34;neovim/nvim-lspconfig&#34;</span> })
 use({ <span style="color:#e6db74">&#34;williamboman/mason.nvim&#34;</span> })
 use({ <span style="color:#e6db74">&#34;williamboman/mason-lspconfig.nvim&#34;</span> })
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">:MasonInstall
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua:lua/lsp.lua" data-lang="lua:lua/lsp.lua">require(<span style="color:#e6db74">&#34;mason&#34;</span>).setup({
+ ui <span style="color:#f92672">=</span> {
+  icons <span style="color:#f92672">=</span> {
+   package_installed <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;✓&#34;</span>,
+   package_pending <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;➜&#34;</span>,
+   package_uninstalled <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;✗&#34;</span>
+  }
+ }
+})
+<span style="color:#66d9ef">local</span> nvim_lsp <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#39;lspconfig&#39;</span>)
+<span style="color:#66d9ef">local</span> mason_lspconfig <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#39;mason-lspconfig&#39;</span>)
+mason_lspconfig.setup_handlers({
+ <span style="color:#66d9ef">function</span>(server_name)
+  <span style="color:#66d9ef">local</span> opts <span style="color:#f92672">=</span> {}
+
+  <span style="color:#66d9ef">if</span> server_name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;sumneko_lua&#34;</span> <span style="color:#66d9ef">then</span>
+   opts.settings <span style="color:#f92672">=</span> {
+    Lua <span style="color:#f92672">=</span> {
+     diagnostics <span style="color:#f92672">=</span> { globals <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;vim&#39;</span> } },
+    }
+   }
+  <span style="color:#66d9ef">end</span>
+
+  nvim_lsp[server_name].setup(opts)
+ <span style="color:#66d9ef">end</span>
+})
+
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">:MasonInstall lua-language-server
 </code></pre></div><p>こんな感じで使っていけば良さそう。以上です。</p>
 <h3 id="ref">ref</h3>
 <ul>
