@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>terminalのOSC52を使いclipboardを共有する | syui.cf</title>
+		<title>twitter devのban祭りに参加した | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="terminalのOSC52を使いclipboardを共有する" />
+		<meta property="og:title" content="twitter devのban祭りに参加した" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-01-15 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-01-14 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/terminal/">terminal</a>
+		<a href="https://syui.cf/tags/twitter/">twitter</a>
 		
 		
 		
@@ -119,7 +119,7 @@
 		
 		
 		
-		, <a href="https://syui.cf/tags/vim/">vim</a>
+		, <a href="https://syui.cf/tags/api/">api</a>
 		
 		
 		
@@ -128,7 +128,7 @@
 		
 		
 		
-		, <a href="https://syui.cf/tags/clipboard/">clipboard</a>
+		, <a href="https://syui.cf/tags/go/">go</a>
 		
 		
 		
@@ -141,36 +141,101 @@
 		
 		</div>
 
-		<h2>terminalのOSC52を使いclipboardを共有する</h2>
+		<h2>twitter devのban祭りに参加した</h2>
 
-		<p>terminalのOSC52という機能を使うと、ssh-sessionでもcopyしたものがsystemのclipboardに入ります。これらはosの互換性に関係ないため幅広く使えます。</p>
-<p>ただし、clipboardの共有は、往々にしてセキュリティ問題があるため注意してください。</p>
-<p>また、<code>tmux</code>ではできなかったので、<code>iterm2</code>の別タブで行いました。</p>
-<p>iterm2の設定は、<code>General -&gt; Selection -&gt; Application ... access clipboard</code>です。</p>
-<p>まず、<code>tty-copy</code>はコマンドです。<code>tty-copy text</code>というように使います。ssh先でもssh元のclipboardに入ります。</p>
-<p><a href="https://github.com/jirutka/tty-copy">https://github.com/jirutka/tty-copy</a></p>
-<p>次にvim-pluginです。</p>
-<p><a href="https://github.com/ojroques/vim-oscyank">https://github.com/ojroques/vim-oscyank</a></p>
-<p>例えば、<code>yy</code>で同時に<code>OSCYankReg</code>が実行されてsystemのclipboardに入れる設定です。</p>
-<pre tabindex="0"><code>Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+		<p>twitter devにて、app(client)がbanされはじめているらしいという情報があり、自分が作ったやつは大丈夫かなと思い確認してみると、大丈夫そうだったので、ついでにmastodonのbotと連携させて遊んでたら&hellip;</p>
+<blockquote class="twitter-tweet"><p lang="und" dir="ltr">/usr/bin/jq<br>&quot;<a href="https://t.co/zZHO828PqJ">https://t.co/zZHO828PqJ</a>&quot;<br>&quot;4.0.0 (compatible; Mitra 1.9.0)&quot;</p>&mdash; syui (@syui__) <a href="https://twitter.com/syui__/status/1614122043431342080?ref_src=twsrc%5Etfw">January 14, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>結果としてban祭りに参加。</p>
+<p>現在、read権限はあるんだけど、write権限が突然消えました。</p>
+<p>twitter devで確認してみると</p>
+<blockquote>
+<p>This App has violated Twitter Rules and policies. As a result, certain functions will be limited</p>
+<p>本アプリは、Twitterのルールやポリシーに違反しています。そのため、一部の機能が制限されます。</p>
+</blockquote>
+<p>ということらしい。</p>
+<blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://twitter.com/hashtag/stablediffusion?src=hash&amp;ref_src=twsrc%5Etfw">#stablediffusion</a> <a href="https://t.co/LfESE70tv6">pic.twitter.com/LfESE70tv6</a></p>&mdash; syui (@syui__) <a href="https://twitter.com/syui__/status/1614117533786984448?ref_src=twsrc%5Etfw">January 14, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>絵が駄目だったのか、mastodonのlinkがダメだったのか、あるいはそれ以外が原因か&hellip;わかりませんが、楽しかったからいいか。</p>
+<p>仕組みとしては、botに<code>twitter-mode</code>を実装して、twitter-modeがenableのときに特定のコマンド出力をtwitterにも所定の形式で投稿するようにしました。</p>
+<p>timerなども実装してたので、例えば、時間を指定すると毎日stable-diffusionで画像を生成して投稿してくれる機能にも対応しました。twitter-modeに含めただけだけど。</p>
+<p>そういえば、goで書いているclientのgh-actions(releases)が以前から壊れてて、直さないとなあと思ってたので、ついでに直したのと、clientに今回の投稿に必要なオプションを追加したりしました。gh-actionsは<code>gox</code>をやめて<code>goreleaser</code>を使い始めた。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.github/workflows/releases.yml" data-lang="yml:.github/workflows/releases.yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">release</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">pull_request</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">master</span>
+    <span style="color:#f92672">types</span>:
+      - <span style="color:#ae81ff">closed</span>
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">tags</span>:
+      - <span style="color:#e6db74">&#34;v[0-9]+.[0-9]+.[0-9]+&#34;</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">goreleaser</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">1</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Go</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-go@v3</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">go-version</span>: <span style="color:#ae81ff">1.19</span>
+          <span style="color:#f92672">check-latest</span>: <span style="color:#66d9ef">true</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run GoReleaser</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">goreleaser/goreleaser-action@v1</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">version</span>: <span style="color:#ae81ff">latest</span>
+          <span style="color:#f92672">args</span>: <span style="color:#ae81ff">release --rm-dist</span>
+        <span style="color:#f92672">env</span>:
+          <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+          <span style="color:#f92672">C_KEY</span>: <span style="color:#ae81ff">${{ secrets.C_KEY }}</span>
+          <span style="color:#f92672">CS_KEY</span>: <span style="color:#ae81ff">${{ secrets.CS_KEY }}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:.goreleaser.yml" data-lang="yml:.goreleaser.yml"><span style="color:#f92672">project_name</span>: <span style="color:#ae81ff">twg</span>
+<span style="color:#f92672">env</span>:
+  - <span style="color:#ae81ff">GO111MODULE=on</span>
+<span style="color:#f92672">before</span>:
+  <span style="color:#f92672">hooks</span>:
+    - <span style="color:#ae81ff">go mod tidy</span>
+<span style="color:#f92672">builds</span>:
+  - <span style="color:#f92672">main</span>: <span style="color:#ae81ff">.</span>
+    <span style="color:#f92672">binary</span>: <span style="color:#ae81ff">twg</span>
+    <span style="color:#f92672">ldflags</span>:
+      - -<span style="color:#ae81ff">s -w</span>
+      - -<span style="color:#ae81ff">X main.Version={{.Version}}</span>
+      - -<span style="color:#ae81ff">X main.Revision={{.ShortCommit}}</span>
+      - -<span style="color:#ae81ff">X github.com/syui/twg/oauth.ckey={{ .Env.C_KEY }}</span>
+      - -<span style="color:#ae81ff">X github.com/syui/twg/oauth.cskey={{ .Env.CS_KEY }}</span>
+    <span style="color:#f92672">env</span>:
+      - <span style="color:#ae81ff">CGO_ENABLED=0</span>
 
-&quot;let g:oscyank_silent = v:true
-let g:oscyank_term = 'tmux'
-autocmd TextYankPost * if v:event.operator is 'y' &amp;&amp; v:event.regname is '' | execute 'OSCYankReg &quot;' | endif
-autocmd TextYankPost * if v:event.operator is 'y' &amp;&amp; v:event.regname is '+' | execute 'OSCYankReg +' | endif
-</code></pre><p>ただ、tmux上で動作しないのがよくわからない。</p>
-<p>tmuxには<code>set-option -g set-clipboard on</code>等を設定して、commandやpluginもtmuxに該当する項目があるのに動作しませんでした。</p>
-
+<span style="color:#f92672">archives</span>:
+  - <span style="color:#f92672">name_template</span>: <span style="color:#e6db74">&#39;{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}&#39;</span>
+    <span style="color:#f92672">replacements</span>:
+      <span style="color:#f92672">darwin</span>: <span style="color:#ae81ff">darwin</span>
+      <span style="color:#f92672">linux</span>: <span style="color:#ae81ff">linux</span>
+      <span style="color:#f92672">windows</span>: <span style="color:#ae81ff">windows</span>
+      <span style="color:#f92672">386</span>: <span style="color:#ae81ff">i386</span>
+      <span style="color:#f92672">amd64</span>: <span style="color:#ae81ff">x86_64</span>
+    <span style="color:#f92672">format_overrides</span>:
+      - <span style="color:#f92672">goos</span>: <span style="color:#ae81ff">windows</span>
+        <span style="color:#f92672">format</span>: <span style="color:#ae81ff">zip</span>
+<span style="color:#f92672">release</span>:
+  <span style="color:#f92672">prerelease</span>: <span style="color:#ae81ff">auto</span>
+</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/01/14/twitter/" id="article-nav-older" class="article-nav-link-wrap">
-twitter devのban祭りに参加した
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/01/09/mitra/" id="article-nav-older" class="article-nav-link-wrap">
+mitraをfly.ioにdeployしてみた
 					</a></p>
     
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2023/01/15/nvim/" id="article-nav-newer" class="article-nav-link-wrap">
+     terminalのOSC52を使いclipboardを共有する
+				</a></p>
     
 	</div>
 </nav>

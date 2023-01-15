@@ -7,7 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 27 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>twitter devのban祭りに参加した</title>
+      <link>https://syui.cf/blog/post/2023/01/14/twitter/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/01/14/twitter/</guid>
+      <description>twitter devにて、app(client)がbanされはじめているらしいという情報があり、自分が作ったやつは大丈夫かなと思い確認してみると、大丈夫そうだったので、ついでにmastodonのbotと連携させて遊んでたら&amp;hellip;
+/usr/bin/jq
+&amp;quot;https://t.co/zZHO828PqJ&amp;quot;
+&amp;quot;4.0.0 (compatible; Mitra 1.9.0)&amp;quot;
+&amp;mdash; syui (@syui__) January 14, 2023  結果としてban祭りに参加。
+現在、read権限はあるんだけど、write権限が突然消えました。
+twitter devで確認してみると
+ This App has violated Twitter Rules and policies. As a result, certain functions will be limited
+本アプリは、Twitterのルールやポリシーに違反しています。そのため、一部の機能が制限されます。
+ ということらしい。
+#stablediffusion pic.twitter.com/LfESE70tv6
+&amp;mdash; syui (@syui__) January 14, 2023  絵が駄目だったのか、mastodonのlinkがダメだったのか、あるいはそれ以外が原因か&amp;hellip;わかりませんが、楽しかったからいいか。
+仕組みとしては、botにtwitter-modeを実装して、twitter-modeがenableのときに特定のコマンド出力をtwitterにも所定の形式で投稿するようにしました。
+timerなども実装してたので、例えば、時間を指定すると毎日stable-diffusionで画像を生成して投稿してくれる機能にも対応しました。twitter-modeに含めただけだけど。
+そういえば、goで書いているclientのgh-actions(releases)が以前から壊れてて、直さないとなあと思ってたので、ついでに直したのと、clientに今回の投稿に必要なオプションを追加したりしました。gh-actionsはgoxをやめてgoreleaserを使い始めた。
+name: release on: pull_request: branches: - master types: - closed push: tags: - &amp;#34;v[0-9]+.[0-9]+.[0-9]+&amp;#34; jobs: goreleaser: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v1 with: fetch-depth: 1 - name: Setup Go uses: actions/setup-go@v3 with: go-version: 1.</description>
+    </item>
+    
     <item>
       <title>cardをcliから引けるようにした</title>
       <link>https://syui.cf/blog/post/2022/02/27/golang-api-ent/</link>
