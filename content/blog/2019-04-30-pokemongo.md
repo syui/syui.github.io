@@ -7,7 +7,7 @@ slug = "pokemon"
 
 せっかくポケモントレーナーのイラストを書いたので、アニメーションでも作ってみようかなと思って作ってみました。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/illust_pokemongo_2019-03.gif)
+![](https://raw.githubusercontent.com/syui/img/master/old/illust_pokemongo_2019-03.gif)
 
 mp4でBGM付きのやつを作ろうかなとも思ったけど、そこまでの気力はなかった。BGMのほか、効果音とかも作らないとだし。
 

@@ -7,7 +7,7 @@ slug = "pokemon-go"
 
 ## 図鑑142/151(メダルに書いてある252?)
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pokemon_go_142.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pokemon_go_142.png)
 
 図鑑、未だに未完成だけど一応142匹捕まえたぽい。
 

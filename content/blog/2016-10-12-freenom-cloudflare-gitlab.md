@@ -25,17 +25,17 @@ $ dig syui.cf +nostats +nocomments ns
 
 最後に`CloudFlare`にてSSLの設定を行います。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_11.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_11.png)
 
 ここの`Crypto`, `Page Rules`を選択して適時設定。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_12.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_12.png)
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_13.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_13.png)
 
 結果をブラウザで確認。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_16.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_16.png)
 
 ## なぜ.cfを選択したのか
 

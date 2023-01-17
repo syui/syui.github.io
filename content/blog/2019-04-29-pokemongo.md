@@ -9,12 +9,12 @@ slug = "pokemon"
 
 ポケモンGoもちょっと一区切りついたし、イラストでも欲しいなーとか思って。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/illust_pokemongo_2019.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/illust_pokemongo_2019.png)
 
 https://pogo.syui.cf/post/2019/04/23/pogo/
 
 おまけ
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/illust_pokemongo_2019-02.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/illust_pokemongo_2019-02.png)
 
 

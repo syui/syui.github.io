@@ -5,6 +5,6 @@ title = "thanks"
 slug = "z-blog-daily-end-point"
 +++
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/gitlab_cal_all_2017_09_20.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/gitlab_cal_all_2017_09_20.png)
 
 thank you very much !

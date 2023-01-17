@@ -63,7 +63,7 @@ $ docker exec -it 12345678 /bin/sh
 $ open -a Google\ Chrome "http://localhost:4000"
 ```
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-up.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pleroma-docker-up.png)
 
 ここまでできたら、あとは、`pleroma`の仕組みを見ていくだけですね。
 
@@ -93,7 +93,7 @@ $ mix register_user <name> <nickname> <email> <bio> <password>
 $ open -a Google\ Chrome "http://localhost:4000"
 ```
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-user.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pleroma-docker-user.png)
 
 いけました。こんな感じで。
 

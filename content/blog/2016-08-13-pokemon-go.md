@@ -9,7 +9,7 @@ slug = "pokemon-go"
 
 レベル27, 捕まえた数138, 始めた日2016/07/26
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pokemon_go.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pokemon_go.png)
 
 ...先ほどレベルが上がったので改定
 

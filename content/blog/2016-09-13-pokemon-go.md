@@ -29,7 +29,7 @@ http://pokemongo.nianticlabs.com/en/post/ver-update-091016/
 
 - RebootしてMagiskからRootをOFFにし、Xposedが動いていることを確認後、Pokemon Goを起動ログイン(成功)
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pokemon_go_android_0370.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pokemon_go_android_0370.png)
 
 ちなみに、SuperSU-MagiskではRootをOFFにしてもXposedがEnable状態ならPokemon Goを起動ログインできないので注意。
 

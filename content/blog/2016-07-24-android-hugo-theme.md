@@ -5,7 +5,7 @@ title = "Nexus7(2013)でWebサイトを編集するのが快適な理由"
 slug = "android-hugo-theme"
 +++
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/android-hugo-theme-03.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/android-hugo-theme-03.png)
 
 写真多分でかいです、すいません。できれば端末回転で横にすればよかたんだけど面倒くさかった
 
@@ -73,7 +73,7 @@ $ update-ca-trust
 
 私の場合はこんな感じです。テーマのプレビューまでを実行しています。あと、`chroot`のため多少の面倒が起こるのがわかります。ここでは主に権限上の問題ですね。回避したい方(本気で環境を整えたい人)は適時対応してください。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/android-hugo-theme-02.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/android-hugo-theme-02.png)
 
 ``` bash
 $ cd
@@ -93,7 +93,7 @@ $ hugo server
 
 私は、Editorを`Vim`, Shellは`zsh`を使います。また、`peco`などを常用したりするので、それらを適時インストールすれば開発環境は便利になります。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/android-hugo-theme-04.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/android-hugo-theme-04.png)
 
 - zsh-completions
 

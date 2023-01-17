@@ -7,7 +7,7 @@ slug = "switch"
 
 実は最初にちょっとプレイしただけだったマリオカート8を今更ながらクリアしました。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/switch_mario_kart_01.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/switch_mario_kart_01.png)
 
 ## 自分の走り方
 

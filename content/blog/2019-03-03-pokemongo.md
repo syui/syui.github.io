@@ -67,7 +67,7 @@ var demo = new Vue({
 
 ということで、最近の進捗。Gen4の伝説が増えてきてうれしい。
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pokemongo_2019_03_03_s01.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pokemongo_2019_03_03_s01.png)
 
-![](https://raw.githubusercontent.com/mba-hack/images/master/pokemongo_2019_03_03_s02.png)
+![](https://raw.githubusercontent.com/syui/img/master/old/pokemongo_2019_03_03_s02.png)
 
