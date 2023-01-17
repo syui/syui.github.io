@@ -140,12 +140,12 @@
 <p>ちなみに、A(root)の<a href="https://about.gitlab.com/2016/04/07/gitlab-pages-setup/#custom-domains">104.208.235.32</a>はGitLabのWebサーバーのものです。あとはCloudFlareで取得したネームサーバーを<code>Freenom</code>に登録します。登録されたか確認するのは以下のコマンド。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dig syui.cf +nostats +nocomments ns
 </code></pre></div><p>最後に<code>CloudFlare</code>にてSSLの設定を行います。</p>
-<p><img src="https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_11.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_11.png" alt=""></p>
 <p>ここの<code>Crypto</code>, <code>Page Rules</code>を選択して適時設定。</p>
-<p><img src="https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_12.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_13.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_12.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_13.png" alt=""></p>
 <p>結果をブラウザで確認。</p>
-<p><img src="https://raw.githubusercontent.com/mba-hack/images/master/freenom_gitlab_16.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/old/freenom_gitlab_16.png" alt=""></p>
 <h2 id="なぜcfを選択したのか">なぜ.cfを選択したのか</h2>
 <p>無料のなかで色々あるのになぜ<code>.cf</code>を選択したのかというと、何となくです。</p>
 <p>まあ、<code>.com</code>の<code>.c</code>が一致していることと、また個人的に<code>cf</code>はよく見かけるような気がするので(気のせいかもしれないけど)。</p>

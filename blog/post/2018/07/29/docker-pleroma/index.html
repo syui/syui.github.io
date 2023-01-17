@@ -174,7 +174,7 @@ $ docker exec -it <span style="color:#ae81ff">12345678</span> /bin/sh
 	&gt; $ mix ecto.create <span style="color:#f92672">&amp;&amp;</span> mix ecto.migrate
 	&gt; $ exit
 $ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
-</code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-up.png" alt=""></p>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/old/pleroma-docker-up.png" alt=""></p>
 <p>ここまでできたら、あとは、<code>pleroma</code>の仕組みを見ていくだけですね。</p>
 <p><code>pleroma</code>は単純にWebからのリクエストを受け、必要に応じてその内容をDBに保存します。今回使用したDBは<code>postgres</code>です。登録されたユーザー情報などもすべてこのDBに保存されます。</p>
 <p><code>phoenix</code>の仕組みとしては、<code>config/</code>以下の設定ファイルにてDBへのアクセスやサーバー設定を行います。どの順番に読み込まれるか、もしくは読まれないかを注意してください。<code>config/config.exs</code>の順に読み込まれ、最後の行の<code>import_config &quot;#{Mix.env()}.exs&quot;</code>の記述がそれに当たります。そして、DBへのアクセスに必要な情報等は、<code>.secret.exs</code>に記述することが通常です。また、実際運用する際は、<code>Ecto.Adapters.Postgres</code>は変更する必要が出てきますね。</p>
@@ -193,7 +193,7 @@ $ mix register_user &lt;name&gt; &lt;nickname&gt; &lt;email&gt; &lt;bio&gt; &lt;
 
 <span style="color:#75715e"># Webから先程登録した情報でログイン</span>
 $ open -a Google<span style="color:#ae81ff">\ </span>Chrome <span style="color:#e6db74">&#34;http://localhost:4000&#34;</span>
-</code></pre></div><p><img src="https://raw.githubusercontent.com/mba-hack/images/master/pleroma-docker-user.png" alt=""></p>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/old/pleroma-docker-user.png" alt=""></p>
 <p>いけました。こんな感じで。</p>
 <p>実際、これを一から運用するとなると、かなり大変です。Webサーバーにするサーバーをレンタルし、DBにするストレージ等を契約して(ユーザーを持つ場合、画像等により年々、容量が増え続けるので、このあたりは特によく考えないといけない。AWS等は相当安いらしいけど)、次にドメインを借りて、SSL証明書等(サーバー管理者ならLet&rsquo;s Encryptを利用できる)を取得、Webサーバーに設定して、サイトにアクセスできるようにしなければなりません。</p>
 <p>反対に、これをPaaS等が提供するコンテナ技術を利用すると、結構楽だと思います。</p>
