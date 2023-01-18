@@ -91,9 +91,33 @@ $ ssh -p 2299 $user@192.168.11.15
 
 window managerはi3(xorg), sway(wayland)を使用しています。かつては`awesome`を使用していました。
 
+```sh
+$ mkdir -p ~/.config/sway
+$ cp -rf /etc/sway/config ~/.config/sway/
+$ pacman -S sway swaybg xorg-xwayland polkit dmenu foot
+```
+
 file managerは`pcmanfm`です。かつては`spacefm`を使用していました。
 
+```sh
+# 自動マウント
+$ pacman -S pcmanfm gvfs
+```
+
 login managerは`lightdm`です。かつては`slim`を使用していました。
+
+```sh
+$ pacman -S lightdm
+$ systemctl enable lightdm
+$ groupadd -r autologin
+$ gpasswd -a USERNAME autologin
+```
+
+```sh:/etc/lightdm/lightdm.conf
+[Seat:*]
+autologin-user=syui
+autologin-session=sway
+```
 
 アイコンは`blueman`, `network-manager(nm-applet)`, `pulseaudio`, `fcitx`, `clipman`, `rofi`など。
 
@@ -122,7 +146,6 @@ $ cd paru
 $ makepkg -si
 $ ./paru
 ```
-
 
 ### vpn
 
