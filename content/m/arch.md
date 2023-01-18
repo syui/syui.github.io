@@ -70,6 +70,14 @@ $ exit
 $ reboot
 ```
 
+### timezone
+
+```sh
+$ rm -rf /etc/localtime
+$ ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+$ timedatectl set-timezone Asia/Tokyo 
+```
+
 ### ssh
 
 ```sh:host.txt
@@ -85,9 +93,25 @@ $ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
 ```
 
-### app
+### aur
 
-[アプリケーション一覧](https://wiki.archlinux.jp/index.php/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%B8%80%E8%A6%A7)
+`yay`か`paru`が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。
+
+ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。
+
+pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。
+
+https://aur.archlinux.org/paru.git
+
+```sh
+$ sudo pacman -S --needed base-devel
+$ git clone https://aur.archlinux.org/paru.git
+$ cd paru
+$ makepkg -si
+$ ./paru
+```
+
+### desktop
 
 window managerはi3(xorg), sway(wayland)を使用しています。かつては`awesome`を使用していました。
 
@@ -129,22 +153,24 @@ screenshotは、`grim`を使用しています。
 
 音楽動画はffmpeg, vlc, mpv, mplayerあたりが便利です。
 
-### aur
-
-`yay`か`paru`が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。
-
-ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。
-
-pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。
-
-https://aur.archlinux.org/paru.git
+### theme
 
 ```sh
-$ sudo pacman -S --needed base-devel
-$ git clone https://aur.archlinux.org/paru.git
-$ cd paru
-$ makepkg -si
-$ ./paru
+$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
+$ ls /usr/share/{icon*,theme*,font*}
+$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
+$ vim ~/.gitrc-2.0
+$ gtk-icon-theme-name = "Arc"
+$ gtk-theme-name = "Arc"
+$ gtk-font-name = "awesome-terminal-fonts"
+```
+
+### fcron
+
+cronie, fcron
+
+```sh
+$ sudo pacman -S fcron
 ```
 
 ### vpn
@@ -379,3 +405,4 @@ $ sudo machinectl poweroff arch
 $ sudo machinectl remove arch
 $ sudo machinectl clone backup arch
 ```
+
