@@ -206,9 +206,21 @@ $ ssh -p 2299 $user@192.168.11.15
 </code></pre></div><h3 id="app">app</h3>
 <p><a href="https://wiki.archlinux.jp/index.php/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%B8%80%E8%A6%A7">アプリケーション一覧</a></p>
 <p>window managerはi3(xorg), sway(wayland)を使用しています。かつては<code>awesome</code>を使用していました。</p>
-<p>file managerは<code>pcmanfm</code>です。かつては<code>spacefm</code>を使用していました。</p>
-<p>login managerは<code>lightdm</code>です。かつては<code>slim</code>を使用していました。</p>
-<p>アイコンは<code>blueman</code>, <code>network-manager(nm-applet)</code>, <code>pulseaudio</code>, <code>fcitx</code>, <code>clipman</code>, <code>rofi</code>など。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/.config/sway
+$ cp -rf /etc/sway/config ~/.config/sway/
+$ pacman -S sway swaybg xorg-xwayland polkit dmenu foot
+</code></pre></div><p>file managerは<code>pcmanfm</code>です。かつては<code>spacefm</code>を使用していました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 自動マウント</span>
+$ pacman -S pcmanfm gvfs
+</code></pre></div><p>login managerは<code>lightdm</code>です。かつては<code>slim</code>を使用していました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S lightdm
+$ systemctl enable lightdm
+$ groupadd -r autologin
+$ gpasswd -a USERNAME autologin
+</code></pre></div><pre tabindex="0"><code class="language-sh:/etc/lightdm/lightdm.conf" data-lang="sh:/etc/lightdm/lightdm.conf">[Seat:*]
+autologin-user=syui
+autologin-session=sway
+</code></pre><p>アイコンは<code>blueman</code>, <code>network-manager(nm-applet)</code>, <code>pulseaudio</code>, <code>fcitx</code>, <code>clipman</code>, <code>rofi</code>など。</p>
 <p>キーバインドは<code>xdotool</code>, <code>xmodmap</code>, <code>xbindkeys</code>などを使用しています。</p>
 <p>screenshotは、<code>grim</code>を使用しています。</p>
 <p>その他、画像関連はimagemagick, gimp, inkscape, kritaあたりが便利です。</p>
