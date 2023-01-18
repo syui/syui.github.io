@@ -195,6 +195,10 @@ $ systemctl enable cronie
 
 $ exit
 $ reboot
+</code></pre></div><h3 id="timezone">timezone</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rm -rf /etc/localtime
+$ ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+$ timedatectl set-timezone Asia/Tokyo 
 </code></pre></div><h3 id="ssh">ssh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:host.txt" data-lang="sh:host.txt">$ vim /etc/ssh/sshd_config
 Port 2299
@@ -203,8 +207,17 @@ $ systemctl restart sshd
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:guest.txt" data-lang="sh:guest.txt">$ ssh-keygen -f ~/.ssh/xxx
 $ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
-</code></pre></div><h3 id="app">app</h3>
-<p><a href="https://wiki.archlinux.jp/index.php/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%B8%80%E8%A6%A7">アプリケーション一覧</a></p>
+</code></pre></div><h3 id="aur">aur</h3>
+<p><code>yay</code>か<code>paru</code>が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。</p>
+<p>ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。</p>
+<p>pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
+<p><a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S --needed base-devel
+$ git clone https://aur.archlinux.org/paru.git
+$ cd paru
+$ makepkg -si
+$ ./paru
+</code></pre></div><h3 id="desktop">desktop</h3>
 <p>window managerはi3(xorg), sway(wayland)を使用しています。かつては<code>awesome</code>を使用していました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/.config/sway
 $ cp -rf /etc/sway/config ~/.config/sway/
@@ -225,16 +238,17 @@ autologin-session=sway
 <p>screenshotは、<code>grim</code>を使用しています。</p>
 <p>その他、画像関連はimagemagick, gimp, inkscape, kritaあたりが便利です。</p>
 <p>音楽動画はffmpeg, vlc, mpv, mplayerあたりが便利です。</p>
-<h3 id="aur">aur</h3>
-<p><code>yay</code>か<code>paru</code>が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。</p>
-<p>ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。</p>
-<p>pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
-<p><a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S --needed base-devel
-$ git clone https://aur.archlinux.org/paru.git
-$ cd paru
-$ makepkg -si
-$ ./paru
+<h3 id="theme">theme</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
+$ ls /usr/share/<span style="color:#f92672">{</span>icon*,theme*,font*<span style="color:#f92672">}</span>
+$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
+$ vim ~/.gitrc-2.0
+$ gtk-icon-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+$ gtk-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+$ gtk-font-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;awesome-terminal-fonts&#34;</span>
+</code></pre></div><h3 id="fcron">fcron</h3>
+<p>cronie, fcron</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S fcron
 </code></pre></div><h3 id="vpn">vpn</h3>
 <p>vpn serverとclientは<code>pritunl</code>が便利です。</p>
 <p><a href="https://pritunl.com">https://pritunl.com</a></p>
