@@ -161,7 +161,7 @@ $ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 $ arch-chroot /mnt
 $ user<span style="color:#f92672">=</span>syui
 $ echo xxx &gt;&gt; /etc/hostname
-$ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils zsh-syntax-highlighting cronie jq
+$ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils jq
 $ grub-install --force --recheck /dev/sda
 $ grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -186,19 +186,72 @@ $ passwd $user
 $ vim /etc/sudoers
 Defaults env_keep <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;HOME&#34;</span>
 %wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
-%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/reboot, /usr/bin/poweroff, /usr/bin/rm -rf /var/lib/pacman/db.lck
-
-$ su $user
-$ crontab -e
-<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> * * * sudo rm -rf /var/lib/pacman/db.lck <span style="color:#f92672">&amp;&amp;</span> sudo pacman -Syu --noconfirm
-$ systemctl enable cronie
+%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/reboot, /usr/bin/poweroff
 
 $ exit
 $ reboot
+</code></pre></div><h3 id="macbook-airintel">macbook air(intel)</h3>
+<p>macは<code>/dev/sda1</code>のrootに<code>.volumeicon.icns</code>を置くとアイコンを設定できます。</p>
+<p>icns : <a href="https://www.iconfinder.com">https://www.iconfinder.com</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">## macbook air(intel)</span>
+$ cd;mkdir boot
+$ mount /dev/sda1 boot
+$ grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>boot
+
+$ tree -L <span style="color:#ae81ff">2</span> ./boot
+.
+├── .volumeicon.icns
+├── EFI
+│   └── arch/grubx64.efi
+├── System
+│   └── Library/CoreServices/Boot.efi
+└── grub
+    ├── fonts
+    ├── grub.cfg
+    ├── grubenv
+    ├── locale
+    ├── themes
+    └── x86_64-efi
+</code></pre></div><h3 id="usb">usb</h3>
+<p>img : <a href="http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/">http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ d<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date <span style="color:#e6db74">&#39;+%Y.%m&#39;</span><span style="color:#e6db74">`</span>
+$ curl -sLO http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/$d.01/archlinux-$d.01-x86_64.iso
+$ diskutil list
+$ sudo dd bs<span style="color:#f92672">=</span>4M <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>./archlinux-$d.01-x86_64.iso of<span style="color:#f92672">=</span>/dev/disk4 conv<span style="color:#f92672">=</span>fsync oflag<span style="color:#f92672">=</span>direct status<span style="color:#f92672">=</span>progress
+</code></pre></div><h3 id="locale">locale</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vim /etc/locale.gen
+ja_JP.UTF-8 UTF-8
+
+$ locale-gen
+$ vim /etc/locale.conf
+LANG<span style="color:#f92672">=</span>ja_JP.UTF-8
 </code></pre></div><h3 id="timezone">timezone</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ rm -rf /etc/localtime
+$ pacman -S tzdata
 $ ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 $ timedatectl set-timezone Asia/Tokyo 
+</code></pre></div><h3 id="zsh">zsh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S zsh
+$ pacman -S powerline zsh-completions zsh-syntax-highlighting
+
+$ vim ~/.zshrc
+source /usr/share/powerline/bindings/zsh/powerline.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath<span style="color:#f92672">=(</span>usr/share/zsh/site-functions $fpath<span style="color:#f92672">)</span>
+autoload -Uz compinit <span style="color:#f92672">&amp;&amp;</span> compinit
+</code></pre></div><h3 id="zip">zip</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pacman -S atool
+$ pacman -S p7zip
+
+<span style="color:#75715e"># 解凍</span>
+$ aunpack test.zip
+
+<span style="color:#75715e"># 圧縮</span>
+$ apack test.zip $dir
+
+<span style="color:#75715e"># rar</span>
+$ pacman -S unrar
+$ aunpack test.rar
 </code></pre></div><h3 id="ssh">ssh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:host.txt" data-lang="sh:host.txt">$ vim /etc/ssh/sshd_config
 Port 2299
@@ -207,10 +260,37 @@ $ systemctl restart sshd
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:guest.txt" data-lang="sh:guest.txt">$ ssh-keygen -f ~/.ssh/xxx
 $ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
 $ ssh -p 2299 $user@192.168.11.15
-</code></pre></div><h3 id="aur">aur</h3>
-<p><code>yay</code>か<code>paru</code>が人気です。aurは、大抵の場合、公式packageにないapp(package)をinstallするときに使います。</p>
+</code></pre></div><h3 id="pacman">pacman</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># install</span>
+$ pacman -S zsh
+
+<span style="color:#75715e"># search</span>
+$ pacman -Ss zsh
+
+<span style="color:#75715e"># uninstall</span>
+$ pacman -R zsh
+$ pacman -Rc zsh
+
+<span style="color:#75715e"># clean</span>
+$ pacman -Scc
+</code></pre></div><p>例えば、下記はcore, extra, communityのpkg(package) binaryをmirrorlistからdownloadするという意味です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="color:#66d9ef">[core]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">
+</span><span style="color:#66d9ef">[extra]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">
+</span><span style="color:#66d9ef">[community]</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>速度は使用回線の場所からmirror-serverの場所により変化します。</p>
+<pre tabindex="0"><code class="language-sh:/etc/pacman.d/mirrorlist" data-lang="sh:/etc/pacman.d/mirrorlist"># japan
+Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch
+</code></pre><p>armのmirrorは別です。armのjp-mirrorは<code>asashi linux</code>が用意してくれているようです。</p>
+<pre tabindex="0"><code class="language-sh:/etc/pacman.d/mirrorlist" data-lang="sh:/etc/pacman.d/mirrorlist">Server = jp.mirror.archlinuxarm.org/$arch/$repo
+</code></pre><h3 id="aur">aur</h3>
+<p><code>yay</code>と<code>paru</code>が人気です。aurは公式にないappをinstallするときに使います。もちろん、公式にあるpkgをbuildしたいときにも使えます。</p>
 <p>ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。</p>
-<p>pacmanでinstallされるpackageは、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
+<p>pacmanでinstallされるpkg(core,community,etc&hellip;)は、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
 <p><a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S --needed base-devel
 $ git clone https://aur.archlinux.org/paru.git
@@ -218,7 +298,7 @@ $ cd paru
 $ makepkg -si
 $ ./paru
 </code></pre></div><h3 id="desktop">desktop</h3>
-<p>window managerはi3(xorg), sway(wayland)を使用しています。かつては<code>awesome</code>を使用していました。</p>
+<p>window managerは<code>i3(xorg)</code>, <code>sway(wayland)</code>を使用しています。かつては<code>awesome</code>を使用していました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p ~/.config/sway
 $ cp -rf /etc/sway/config ~/.config/sway/
 $ pacman -S sway swaybg xorg-xwayland polkit dmenu foot
@@ -236,9 +316,10 @@ autologin-session=sway
 </code></pre><p>アイコンは<code>blueman</code>, <code>network-manager(nm-applet)</code>, <code>pulseaudio</code>, <code>fcitx</code>, <code>clipman</code>, <code>rofi</code>など。</p>
 <p>キーバインドは<code>xdotool</code>, <code>xmodmap</code>, <code>xbindkeys</code>などを使用しています。</p>
 <p>screenshotは、<code>grim</code>を使用しています。</p>
-<p>その他、画像関連はimagemagick, gimp, inkscape, kritaあたりが便利です。</p>
-<p>音楽動画はffmpeg, vlc, mpv, mplayerあたりが便利です。</p>
+<p>その他、画像関連は<code>imagemagick</code>, <code>gimp</code>, <code>inkscape</code>, <code>krita</code>あたりが便利です。</p>
+<p>音楽動画は<code>ffmpeg</code>, <code>vlc</code>, <code>mpv</code>あたりが便利です。</p>
 <h3 id="theme">theme</h3>
+<p>例えば、<code>pcmanfm</code>のthemeはgtk2です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
 $ ls /usr/share/<span style="color:#f92672">{</span>icon*,theme*,font*<span style="color:#f92672">}</span>
 $ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
@@ -246,16 +327,23 @@ $ vim ~/.gitrc-2.0
 $ gtk-icon-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
 $ gtk-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
 $ gtk-font-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;awesome-terminal-fonts&#34;</span>
-</code></pre></div><h3 id="fcron">fcron</h3>
+</code></pre></div><h3 id="cron">cron</h3>
 <p>cronie, fcron</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S fcron
+$ fcrontab -e
+<span style="color:#75715e"># auto update</span>
+<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> * * * sudo rm -rf /var/lib/pacman/db.lck <span style="color:#f92672">&amp;&amp;</span> sudo pacman -Syu --noconfirm
+$ systemctl enable fcron
+</code></pre></div><p><code>/etc/sudoers</code>に以下のような設定が必要です。これは、<code>sudo xxx</code>とする際にpasswordを要求しないコマンドを設定します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/rm -rf /var/lib/pacman/db.lck
 </code></pre></div><h3 id="vpn">vpn</h3>
 <p>vpn serverとclientは<code>pritunl</code>が便利です。</p>
 <p><a href="https://pritunl.com">https://pritunl.com</a></p>
 <h4 id="vpn-server">vpn server</h4>
 <p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。</p>
 <p>ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverは<a href="https://syui.cf/m/post/ios/">termius</a>に登録しておきましょう。</p>
-<p><a href="https://github.com/goofball222/pritunl">https://github.com/goofball222/pritunl</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S docker docker-compose
+</code></pre></div><p><a href="https://github.com/goofball222/pritunl">https://github.com/goofball222/pritunl</a></p>
 <p><a href="https://hub.docker.com/r/goofball222/pritunl">https://hub.docker.com/r/goofball222/pritunl</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
