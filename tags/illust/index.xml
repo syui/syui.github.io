@@ -182,12 +182,12 @@ import torch from diffusers import StableDiffusionPipeline from torch import aut
     </item>
     
     <item>
-      <title>雲を描いた</title>
+      <title>壁紙作った</title>
       <link>https://syui.cf/blog/post/2022/05/11/illust/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2022/05/11/illust/</guid>
-      <description>雲は適当にぼかしとかシャープを駆使して描きました。壁紙にしようと思い作ってみた。</description>
+      <description></description>
     </item>
     
     <item>
