@@ -141,7 +141,7 @@ autoload -Uz compinit && compinit
 
 ```sh
 $ pacman -S atool
-$ pacman -S p7zip
+$ pacman -S zip
 
 # 解凍
 $ aunpack test.zip
