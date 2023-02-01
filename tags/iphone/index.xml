@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iphone se1の部品交換</title>
+      <link>https://syui.cf/blog/post/2023/02/01/iphonese/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/01/iphonese/</guid>
+      <description>バッテリーとディスプレイを交換しました。新品みたいな感じになったので良かった。
+現在、se3を使ってるんだけど、古いse1にはsecurity-patchも降ってきてるし、未だにメインでも十分使えると思ってる。この機種がとても気に入ってる。
+iphone5sを何度か分解していて中身はほぼ一緒なので、今回は勘でやった。ディスプレイはカメラとボタンを外さないといけなかったので、ちょっと面倒だった。
+macbook air(intel)も何度か分解、修理してて、バッテリー、ディスプレイ、キーボード交換をやってる。この機種も構造がほぼ一緒なので、分解は慣れてたんだけど、今使い始めてる機種はそうではないので、ちょっと寂しい。
+でも壊れたら新しいの買ったあとに、壊れたやつも修理して使い続けると思う。
+ifixit 修理する権利</description>
+    </item>
+    
     <item>
       <title>iphone se1からse3に移行した</title>
       <link>https://syui.cf/blog/post/2022/09/14/iphone-ios-16/</link>
