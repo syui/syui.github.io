@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/macbook/</loc>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2023/02/02/macbook/</loc>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/make/</loc>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/iphone/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/02/01/iphonese/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/01/22/illust/</loc>
@@ -117,9 +126,6 @@
     <lastmod>2022-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/card/</loc>
-    <lastmod>2022-12-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/make/</loc>
     <lastmod>2022-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/12/15/card/</loc>
@@ -2101,9 +2107,6 @@
     <lastmod>2019-10-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2019/10/21/hugo/</loc>
-    <lastmod>2019-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/macbook/</loc>
     <lastmod>2019-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2019/10/21/macbook/</loc>
