@@ -8,6 +8,8 @@ slug = "windows"
 
 windowsの使い方をまとめます。windows11を使用しています。ryzen+geforceです。
 
+
+
 ### local account
 
 windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
@@ -128,6 +130,10 @@ powershell 7.3.0-preview
 
 $ winget upgrade --all
 ```
+
+### sysinternals
+
+https://learn.microsoft.com/ja-jp/sysinternals/downloads/
 
 ### synthv
 
