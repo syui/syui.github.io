@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/badge/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/make/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2023/02/03/badge/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/macbook/</loc>
     <lastmod>2023-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/02/02/macbook/</loc>
-    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/make/</loc>
-    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/</loc>
-    <lastmod>2023-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/</loc>
     <lastmod>2023-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/iphone/</loc>
@@ -290,10 +296,10 @@
     <loc>https://syui.cf/archive/note/17/</loc>
     <lastmod>2022-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/skechfab/</loc>
+    <loc>https://syui.cf/blog/post/2022/09/10/skechfab/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/blog/post/2022/09/10/skechfab/</loc>
+    <loc>https://syui.cf/tags/skechfab/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/09/06/genshin/</loc>
@@ -664,9 +670,6 @@
   </url><url>
     <loc>https://syui.cf/archive/note/15/</loc>
     <lastmod>2022-01-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/badge/</loc>
-    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/01/21/badge/</loc>
     <lastmod>2022-01-21T00:00:00+00:00</lastmod>
@@ -1288,6 +1291,9 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2021/01/23/illust/</loc>
     <lastmod>2021-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2021/01/21/badge/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2021/01/20/illust/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>

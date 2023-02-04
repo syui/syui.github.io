@@ -95,7 +95,7 @@ $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out 
     </item>
     
     <item>
-      <title>カードを作ってみた</title>
+      <title>カードを作ってみた1</title>
       <link>https://syui.cf/blog/post/2022/06/23/card/</link>
       <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       
