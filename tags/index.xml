@@ -7,7 +7,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 04 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>damus</title>
+      <link>https://syui.cf/tags/damus/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/damus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mastodon</title>
+      <link>https://syui.cf/tags/mastodon/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nostr</title>
+      <link>https://syui.cf/tags/nostr/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/nostr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://syui.cf/tags/rust/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sns</title>
+      <link>https://syui.cf/tags/sns/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/sns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twitter</title>
+      <link>https://syui.cf/tags/twitter/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>icon</title>
       <link>https://syui.cf/tags/icon/</link>
@@ -126,15 +180,6 @@
     </item>
     
     <item>
-      <title>twitter</title>
-      <link>https://syui.cf/tags/twitter/</link>
-      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/twitter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>activitypub</title>
       <link>https://syui.cf/tags/activitypub/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
@@ -149,24 +194,6 @@
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/fly/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rust</title>
-      <link>https://syui.cf/tags/rust/</link>
-      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/rust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sns</title>
-      <link>https://syui.cf/tags/sns/</link>
-      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/sns/</guid>
       <description></description>
     </item>
     
@@ -257,15 +284,6 @@
       <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mastodon</title>
-      <link>https://syui.cf/tags/mastodon/</link>
-      <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/mastodon/</guid>
       <description></description>
     </item>
     

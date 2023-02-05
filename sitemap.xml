@@ -3,15 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.cf/blog/</loc>
-    <lastmod>2023-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/icon/</loc>
-    <lastmod>2023-02-04T00:00:00+00:00</lastmod>
+    <loc>https://syui.cf/tags/damus/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2023/02/05/damus/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/mastodon/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/nostr/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/rust/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/sns/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/</loc>
-    <lastmod>2023-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/twitter/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/icon/</loc>
     <lastmod>2023-02-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/02/04/icon/</loc>
@@ -74,9 +95,6 @@
     <loc>https://syui.cf/tags/go/</loc>
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/twitter/</loc>
-    <lastmod>2023-01-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/blog/post/2023/01/14/twitter/</loc>
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
@@ -87,12 +105,6 @@
     <lastmod>2023-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/01/09/mitra/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/rust/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/sns/</loc>
     <lastmod>2023-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/golang/</loc>
@@ -157,9 +169,6 @@
   </url><url>
     <loc>https://syui.cf/tags/docker/</loc>
     <lastmod>2022-12-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/mastodon/</loc>
-    <lastmod>2022-12-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/12/03/msbot/</loc>
     <lastmod>2022-12-03T00:00:00+00:00</lastmod>
