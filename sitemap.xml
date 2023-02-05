@@ -11,9 +11,6 @@
     <loc>https://syui.cf/blog/post/2023/02/05/damus/</loc>
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.cf/tags/mastodon/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.cf/tags/nostr/</loc>
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
@@ -27,9 +24,6 @@
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/twitter/</loc>
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/icon/</loc>
@@ -93,6 +87,9 @@
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/go/</loc>
+    <lastmod>2023-01-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/twitter/</loc>
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/01/14/twitter/</loc>
@@ -169,6 +166,9 @@
   </url><url>
     <loc>https://syui.cf/tags/docker/</loc>
     <lastmod>2022-12-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/mastodon/</loc>
+    <lastmod>2022-12-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2022/12/03/msbot/</loc>
     <lastmod>2022-12-03T00:00:00+00:00</lastmod>

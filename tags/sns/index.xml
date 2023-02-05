@@ -21,9 +21,10 @@
   verify https://gist.github.com/metasikander/609a538e6a03b2f67e5c8de625baed3e
 public-keyはhexに変換します。
 https://damus.io/key/
-# domain root $ cd public $ vim ./.well-known/nostr.json { &amp;#34;names&amp;#34;: { &amp;#34;&amp;lt;name&amp;gt;&amp;#34;: &amp;#34;&amp;lt;pubkey&amp;gt;&amp;#34; } } client とりあえずpostしてみた。
+# domain root $ cd public $ vim ./.well-known/nostr.json { &amp;#34;names&amp;#34;: { &amp;#34;&amp;lt;name&amp;gt;&amp;#34;: &amp;#34;&amp;lt;pubkey&amp;gt;&amp;#34; } } web client https://snort.social
+cli client とりあえずcli client作ってpostしてみた。
 exampleとしてはこんな感じになるんじゃないかというのを色々なパターンで書いてみた。
-pub mod data; use std::env; use url::Url; use data::Data as Datas; use seahorse::{App, Command, Context}; use nostr::{Event, EventBuilder, Metadata}; use nostr::key::{FromBech32, Keys}; use nostr::message::ClientMessage; use tungstenite::{connect, Message as WsMessage}; const WS_ENDPOINT: &amp;amp;str = &amp;#34;wss://relay.damus.io&amp;#34;; use nostr_sdk::{Client}; use nostr::SubscriptionFilter; use nostr::util::time::timestamp; fn main() { let args: Vec&amp;lt;String&amp;gt; = env::args().</description>
+pub mod data; use std::env; use url::Url; use data::Data as Datas; use seahorse::{App, Command, Context}; use nostr::{Event, EventBuilder, Metadata}; use nostr::key::{FromBech32, Keys}; use nostr::message::ClientMessage; use tungstenite::{connect, Message as WsMessage}; const WS_ENDPOINT: &amp;amp;str = &amp;#34;wss://relay.</description>
     </item>
     
     <item>

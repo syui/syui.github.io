@@ -18,15 +18,6 @@
     </item>
     
     <item>
-      <title>mastodon</title>
-      <link>https://syui.cf/tags/mastodon/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/mastodon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>nostr</title>
       <link>https://syui.cf/tags/nostr/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
@@ -50,15 +41,6 @@
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/sns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>twitter</title>
-      <link>https://syui.cf/tags/twitter/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/twitter/</guid>
       <description></description>
     </item>
     
@@ -180,6 +162,15 @@
     </item>
     
     <item>
+      <title>twitter</title>
+      <link>https://syui.cf/tags/twitter/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>activitypub</title>
       <link>https://syui.cf/tags/activitypub/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
@@ -284,6 +275,15 @@
       <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mastodon</title>
+      <link>https://syui.cf/tags/mastodon/</link>
+      <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/mastodon/</guid>
       <description></description>
     </item>
     
