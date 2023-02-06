@@ -7,7 +7,7 @@ slug = "diffusion-windows"
 
 イラストAI(画像生成AI)として[huggingface](https://huggingface.co/)の[diffusion](https://github.com/huggingface/diffusers)などが話題になっています。今回はpromptを調整することでいい感じの画像を作ってみました。
 
-![](https://raw.githubusercontent.com/syui/img/master/ai/test_01.png)
+![](https://raw.githubusercontent.com/syui/img/master/ai/0001.jpg)
 
 ```sh:prompt.txt
 "a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv"
@@ -17,9 +17,9 @@ slug = "diffusion-windows"
 
 下記は生成したイラストの一部です。
 
-![](https://raw.githubusercontent.com/syui/img/master/ai/test_02.png)
-![](https://raw.githubusercontent.com/syui/img/master/ai/test_03.png)
-![](https://raw.githubusercontent.com/syui/img/master/ai/test_04.png)
+![](https://raw.githubusercontent.com/syui/img/master/ai/0002.jpg)
+![](https://raw.githubusercontent.com/syui/img/master/ai/0003.jpg)
+![](https://raw.githubusercontent.com/syui/img/master/ai/0004.jpg)
 
 今回は少しだけ思想的な話をすることにします。
 
