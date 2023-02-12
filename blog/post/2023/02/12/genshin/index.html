@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.89.4" />
-		<title>syui.cf</title>
+		<title>原神、ナヒーダ完全体を目指す3 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.cf" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="原神、ナヒーダ完全体を目指す3" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
 		<meta property="og:url" content="https://syui.cf" />
 		<meta property="og:site_name" content="syui.cf" />
@@ -24,24 +23,13 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.cf/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="https://syui.cf/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.cf/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.cf/js/terminal.quick.js"></script>
-		<script src="https://syui.cf/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.cf/build/bundle.js"></script>
-		<script src="https://syui.cf/js/analytics.js"></script>
+		<script src="/js/analytics.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -50,8 +38,14 @@
 			  "url": "https://syui.cf/"
 			}
 		</script>
-<link rel="alternate" type="application/json" href="https://syui.cf/index.json" title="syui.cf" />
-</head>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/axios/dist/axios.min.js"></script>
+		<script src="/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css">
+		<script src="/bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -75,12 +69,12 @@
 
 
 
-	<body>
-		
+<body onload="highlight_prompt()">
+	
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -104,118 +98,105 @@
 </g>
 </svg>
  </a> </div>
+
 				
 			</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a rel="me" href="https://mstdn.syui.cf/@syui" target="_blank"><i class="fab fa-mastodon"></i></a>
-		<a href="https://matrix.to/#/@syui:syui.cf" target="_blank" class="matrix-icon">[m]</a>
-		<a href="https://git.syui.cf/syui" target="_blank"><i class="fab fa-git-alt"></i></a>
-		<a href="/ai"><span class="icon-ai"></span></a>
-		<a href="https://api.syui.cf/users/1"><span class="icon-api"></span></a>
-		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2023-02-12 / <a href="/syui">@syui</a>
 
-
-<div class="content-top">
-
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2023-02-12<p><a id="fmove" href="https://syui.cf/blog/post/2023/02/12/genshin/" class="lmove">原神、ナヒーダ完全体を目指す3</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-10<p><a href="https://syui.cf/blog/post/2023/02/10/genshin/" class="lmove">原神、ナヒーダ完全体を目指す2</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-09<p><a href="https://syui.cf/blog/post/2023/02/09/genshin/" class="lmove">原神、ナヒーダ完全体を目指す1</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-05<p><a href="https://syui.cf/blog/post/2023/02/05/damus/" class="lmove">damusをはじめてみた</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-04<p><a href="https://syui.cf/blog/post/2023/02/04/icon/" class="lmove">アイコンのリデザインした</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-03<p><a href="https://syui.cf/blog/post/2023/02/03/badge/" class="lmove">バッジ作ってみた2</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-02-02<p><a href="https://syui.cf/blog/post/2023/02/02/macbook/" class="lmove">ステッカーを作ってみた2</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-		</ul>
-	</div>
-</div>
-
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
-
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.cf/tags/genshin/">genshin</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/games/genshin">genshin</a></p>
+		
 		</div>
 
+		<h2>原神、ナヒーダ完全体を目指す3</h2>
+
+		<h3 id="次のピックアップ">次のピックアップ</h3>
+<p>ナヒーダの2回目のピックアップ時期に関して予想します。</p>
+<p>おそらく<code>v3.6</code>になると予想されます。</p>
+<p>これまでの傾向(風国、岩国、雷国)からすると、初回ピックアップの次は<code>+0.4</code>らしい。</p>
+<p>現在は<code>v3.4</code>なので、<code>+0.1</code>を1ヶ月として、おそらく2ヶ月後の4月くらいになると思われます。</p>
+<p>無課金では、1ヶ月で原石は<code>7,000</code>ほど貯まるようです。</p>
+<p>現在の手持ちが<code>23000</code>と仮定すると、2ヶ月後には<code>37,000</code>と推定されます。</p>
+<p>私は期待値で7000を1キャラとし、すり抜けで14000と計算しています。</p>
+<p>ただし、運が悪かった場合は9000を1キャラとし、18000と考えます。これを前提とすると、前回すり抜けていることを織り込んで54000-9000=45000となります。</p>
+<p>7000で計算した場合とは2000x5=10000の違いがあります。</p>
+<p>しかし、全部すり抜ける可能性は低く、残る3凸までを全て天井で引く確率は低いと考えられます。最終的には期待値を前後する値になると思います。</p>
+<p>現時点での目標は35,000なので、2ヶ月後にはかろうじて到達する予定。</p>
+<h3 id="凸のエフェクト">凸のエフェクト</h3>
+<p>原神は凸によってエフェクトが変わったりするキャラがたくさんいます。</p>
+<p>ナヒーダは完凸すると元素爆発のエフェクトが変わるらしい。</p>
+<p>個人的には、こういうのが一番凸するモチベーションに影響します。</p>
+<h3 id="天賦">天賦</h3>
+<p>やっと天賦がMAXになった。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/genshin_20230201_0002.jpg" alt=""></p>
+<h3 id="雷のような怒りナヒーダ">雷のような怒り、ナヒーダ</h3>
+<blockquote>
+<p>過負荷、感電、超電導、超開花反応によるダメージ＋40％、超激化反応によるダメージアップ効果＋20%。</p>
+<p>上記元素反応または原激化反応を起こすと、元素スキルのクールタイム-1秒。0.8秒毎に最大1回のみ発動可能。</p>
+</blockquote>
+<p>前回、<code>雷のような怒り</code>を装備したら面白いんじゃないかと思って、試してみたのですが&hellip;。</p>
+<p>あまりに弱すぎて死んだ。</p>
+<p>何も効果が乗らない聖遺物付けてるのと同じくらい?</p>
+<p>ナヒーダで攻撃してると<code>原激化</code>って表示があるんですが、多分、クールタイムは減少してるのかな。わかんないけど、してるような気もする。</p>
+<p>で、この効果に関して言うと、指定されてる元素反応が発生した場合、ダメージ+40%になると思っています。つまり、過負荷が1000だったとしたら、1400ですね。ですが、違うかもしれません。</p>
+<p>次にダメージアップ効果に関してですが、まあ単純に考えて超激化が起こった時のダメージ<code>+20%</code>だと思っています。違うかもしれません。</p>
+<p>次に、指定された元素反応または原激化が起こった時、スキルのクールタイム-1だと思っています。原激化は雷と草が合わされば発生すると思っていて、まず雷を当てて、次に草を当てると、原激化になると思っています。これはナヒーダでも起こせると思っています。ですが、違うかもしれません。</p>
+<p>とりあえず、この聖遺物はナヒーダには合わない。雷攻撃が可能なキャラに持たせるしかなさそう。</p>
+<p>例えば、万葉は雷ダメージも出せるので、全てのセット効果を有効に活用できるかもしれない。強いかどうかは別にして。</p>
+<p>結局のところ、そのキャラに合った聖遺物を付けるのが一番よさそうという結論になりました。</p>
+<p>ナヒーダなら鍾離に森林でも持たせて金メッキ、あるいは森林がいいと思う。</p>
+<p>ナヒーダを強く使うにも、聖遺物をなんとか工夫するのではなく、聖遺物はキャラに合ったものを付け、その上で、キャラ特有の効果によって補佐するのが一番良さそう</p>
+<p>今気に入ってるのは、ベネット+万葉+雷電(全員熟知)で、燃やしてからのナヒーダ爆発かな&hellip;。</p>
+
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/02/10/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、ナヒーダ完全体を目指す2
+					</a></p>
+    
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
 
-
+		<script src="/js/highlight-prompt.js"></script>
 	</body>
 </html>
