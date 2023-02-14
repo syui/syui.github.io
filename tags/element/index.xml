@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>element on syui.cf</title>
+    <link>https://syui.cf/tags/element/</link>
+    <description>Recent content in element on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/element/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>element webをcloudflare pagesでhostしてみた</title>
+      <link>https://syui.cf/blog/post/2023/02/13/matrix-element-web/</link>
+      <pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/13/matrix-element-web/</guid>
+      <description>config.json : https://github.com/vector-im/element-web/blob/develop/docs/config.md
+dist : https://github.com/vector-im/element-web/releases
+まずdistファイルをdownloadします。それをdist/以下に展開し、dist/config.jsonを置きます。
+cloudflare pagesにてrepositorieを連携し、public-rootをdistに設定します。
+commitすれば自動でcloudflare pagesにdeployされます。
+  https://github.com/vector-im/element-web
+  https://developers.cloudflare.com/pages
+  感想 cloudflare pagesもめちゃくちゃ使いやすいし、element webも非常に展開しやすくなってる。
+そのため、elementは基本的にユーザーの負担なしで運用できる環境が整っています。
+github, cloudflareなど各種サービスのpages(web-server)を使えばいいし、通常使用でのtrafficはそこまでweb-serverの負担にならない。
+もしこだわりがあるなら、hostしてみてもいいかもしれません。
+とはいえ、app.element.ioで事足りるというのは、そのとおり。</description>
+    </item>
+    
+  </channel>
+</rss>
