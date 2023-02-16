@@ -25,7 +25,9 @@ commitすれば自動でcloudflare pagesにdeployされます。
 そのため、elementは基本的にユーザーの負担なしで運用できる環境が整っています。
 github, cloudflareなど各種サービスのpages(web-server)を使えばいいし、通常使用でのtrafficはそこまでweb-serverの負担にならない。
 もしこだわりがあるなら、hostしてみてもいいかもしれません。
-とはいえ、app.element.ioで事足りるというのは、そのとおり。</description>
+とはいえ、app.element.ioで事足りるというのは、そのとおり。
+github pages github pagesでも動作したので追記しておきます。
+ https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site  </description>
     </item>
     
     <item>
