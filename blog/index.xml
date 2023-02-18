@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 16 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、なぜ熟知型なのか</title>
+      <link>https://syui.cf/blog/post/2023/02/18/genshin/</link>
+      <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/18/genshin/</guid>
+      <description>最近、いわゆる熟知型というものを採用しています。
+特にナヒーダを入れる場合、ほぼ全てのキャラを熟知特化にしてます。
+なぜなら、このほうが火力が出て螺旋のタイムが大幅に改善されるからです。
+例えば、雷電をナヒーダと組ませる場合でも熟知にしたほうが火力が出ます。
+具体的には、ナヒーダを裏にした雷電の爆発特化(会心+チャージ)より火力が出ます。
+これは敵の性質や持っている武器、聖遺物や凸の影響が大きいのかもしれません。
+例えば、雷電は完凸、武器も完凸、LVも天賦もMAXで完璧な聖遺物を付けているという状況だと変わってくると思います。
+私は、無課金でプレイしているため、武器もない、聖遺物もない、凸もない、LVも低く、天賦も低い、素材もモラもない、という状況です。
+そのため、熟知を上げて元素反応で火力を上げていくスタイルがシンプルで強い。
+とりあえず、私の環境では、熟知型PTのほうが火力が出るみたい。</description>
+    </item>
+    
     <item>
       <title>イラスト描いてみた128</title>
       <link>https://syui.cf/blog/post/2023/02/16/illust/</link>
