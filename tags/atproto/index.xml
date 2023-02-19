@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>atproto on syui.cf</title>
+    <link>https://syui.cf/tags/atproto/</link>
+    <description>Recent content in atproto on syui.cf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyのatprotoをbuildしてみた</title>
+      <link>https://syui.cf/blog/post/2023/02/19/bluesky-atproto/</link>
+      <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/19/bluesky-atproto/</guid>
+      <description> https://github.com/bluesky-social/atproto  開発にはlernaを採用しているぽい。
+$ git clone https://github.com/bluesky-social/atproto $ cd atproto $ node -v $ nvm use v18 # https://www.npmjs.com/package/lerna $ npm i -g lerna $ npm i $ lerna run build or $ npm run build $ ls packages/*/dist/ $ ls packages/*/*.env $ cat packages/*/*.env DB_POSTGRES_URL=&amp;#34;postgres://bsky:yksb@localhost/pds_dev&amp;#34; $ npm run verify $ npm run prettier $ npm run test  https://github.com/bluesky-social/atproto-website  $ npm run dev </description>
+    </item>
+    
+  </channel>
+</rss>
