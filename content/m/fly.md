@@ -18,10 +18,11 @@ $ fly apps destroy $app
 $ fly scale memory 512
 
 # volume(hdd)領域を1Gで作成する
-$ fly vol create --region nrt --size 1 $app
+$ fly vol create --region nrt --size 1 $app_db
 
 # pg(postgres)を作る
-$ fly pg create $app-db
+$ fly pg create -n $app-db
+$ fly pg attach -a $app $app-db
 
 # pgのupdate等
 $ fly image update $app-db
