@@ -144,25 +144,68 @@ $ node -v
 $ nvm use v18
 
 <span style="color:#75715e"># https://www.npmjs.com/package/lerna</span>
+$ npm i -g node-gyp
+$ npm i -g npm
 $ npm i -g lerna
+
 $ npm i
 $ lerna run build
 or 
 $ npm run build
 
-$ ls packages/*/dist/
+
+$ lerna run build
+lerna notice cli v6.5.1
+ &gt;  Lerna <span style="color:#f92672">(</span>powered by Nx<span style="color:#f92672">)</span>   The task graph has a circular dependency
+   @atproto/api:build --&gt; @atproto/pds:build --&gt; @atproto/api:build
+    ✔  @atproto/nsid:build <span style="color:#f92672">(</span>643ms<span style="color:#f92672">)</span>
+    ✔  @atproto/common:build <span style="color:#f92672">(</span>647ms<span style="color:#f92672">)</span>
+    ✔  @atproto/uri:build <span style="color:#f92672">(</span>653ms<span style="color:#f92672">)</span>
+    ✔  @atproto/crypto:build <span style="color:#f92672">(</span>684ms<span style="color:#f92672">)</span>
+    ✔  @atproto/lexicon:build <span style="color:#f92672">(</span>774ms<span style="color:#f92672">)</span>
+    ✔  @atproto/handle:build <span style="color:#f92672">(</span>852ms<span style="color:#f92672">)</span>
+    ✔  @atproto/plc:build <span style="color:#f92672">(</span>901ms<span style="color:#f92672">)</span>
+    ✔  @atproto/aws:build <span style="color:#f92672">(</span>987ms<span style="color:#f92672">)</span>
+    ✔  @atproto/xrpc:build <span style="color:#f92672">(</span>657ms<span style="color:#f92672">)</span>
+    ✔  @atproto/did-resolver:build <span style="color:#f92672">(</span>661ms<span style="color:#f92672">)</span>
+    ✔  @atproto/lex-cli:build <span style="color:#f92672">(</span>1s<span style="color:#f92672">)</span>
+    ✔  @atproto/xrpc-server:build <span style="color:#f92672">(</span>708ms<span style="color:#f92672">)</span>
+    ✔  @atproto/repo:build <span style="color:#f92672">(</span>655ms<span style="color:#f92672">)</span>
+    ✔  @atproto/pds:build <span style="color:#f92672">(</span>767ms<span style="color:#f92672">)</span>
+    ✔  @atproto/api:build <span style="color:#f92672">(</span>539ms<span style="color:#f92672">)</span>
+    ✔  @atproto/dev-env:build <span style="color:#f92672">(</span>727ms<span style="color:#f92672">)</span>
+ &gt;  Lerna <span style="color:#f92672">(</span>powered by Nx<span style="color:#f92672">)</span>   Successfully ran target build <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">16</span> projects <span style="color:#f92672">(</span>5s<span style="color:#f92672">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ls packages/*/dist/
 
 $ ls packages/*/*.env
 $ cat packages/*/*.env
 DB_POSTGRES_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;postgres://bsky:yksb@localhost/pds_dev&#34;</span>
-
-$ npm run verify
-$ npm run prettier
-$ npm run test
 </code></pre></div><ul>
 <li><a href="https://github.com/bluesky-social/atproto-website">https://github.com/bluesky-social/atproto-website</a></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm run dev
+</code></pre></div><h3 id="packagespds">packages/pds</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd packages/pds
+$ cat pacakge.json
+
+$ yarn install
+$ yarn codegen
+$ open -a docker
+$ yarn test:pg
+$ yarn verify
+
+<span style="color:#75715e"># env:DB_POSTGRES_UR, HOSTNAME</span>
+$ yarn build
+$ yarn start
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly proxy <span style="color:#ae81ff">5432</span> -a xxx
+DB_POSTGRES_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;postgres://xxx@127.0.0.1:5432/xxx&#34;</span>
+$ node dist/bin.js
+---
+<span style="color:#75715e"># bluesky for ios</span>
+server : 192.168.x.x:2853
+---
+<span style="color:#75715e"># https://gitlab.com/bnewbold/adenosine/-/blob/main/notes/atproto_quickstart.md</span>
+$ http get $HOST/xrpc/com.atproto.getAccountsConfig
 </code></pre></div>
 		
 

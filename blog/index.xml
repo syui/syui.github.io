@@ -14,8 +14,8 @@
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/blog/post/2023/02/19/bluesky-atproto/</guid>
-      <description> https://github.com/bluesky-social/atproto  開発にはlernaを採用しているぽい。
-$ git clone https://github.com/bluesky-social/atproto $ cd atproto $ node -v $ nvm use v18 # https://www.npmjs.com/package/lerna $ npm i -g lerna $ npm i $ lerna run build or $ npm run build $ ls packages/*/dist/ $ ls packages/*/*.env $ cat packages/*/*.env DB_POSTGRES_URL=&amp;#34;postgres://bsky:yksb@localhost/pds_dev&amp;#34; $ npm run verify $ npm run prettier $ npm run test  https://github.com/bluesky-social/atproto-website  $ npm run dev </description>
+      <description>https://github.com/bluesky-social/atproto  開発にはlernaを採用しているぽい。
+$ git clone https://github.com/bluesky-social/atproto $ cd atproto $ node -v $ nvm use v18 # https://www.npmjs.com/package/lerna $ npm i -g node-gyp $ npm i -g npm $ npm i -g lerna $ npm i $ lerna run build or $ npm run build $ lerna run build lerna notice cli v6.5.1 &amp;gt; Lerna (powered by Nx) The task graph has a circular dependency @atproto/api:build --&amp;gt; @atproto/pds:build --&amp;gt; @atproto/api:build ✔ @atproto/nsid:build (643ms) ✔ @atproto/common:build (647ms) ✔ @atproto/uri:build (653ms) ✔ @atproto/crypto:build (684ms) ✔ @atproto/lexicon:build (774ms) ✔ @atproto/handle:build (852ms) ✔ @atproto/plc:build (901ms) ✔ @atproto/aws:build (987ms) ✔ @atproto/xrpc:build (657ms) ✔ @atproto/did-resolver:build (661ms) ✔ @atproto/lex-cli:build (1s) ✔ @atproto/xrpc-server:build (708ms) ✔ @atproto/repo:build (655ms) ✔ @atproto/pds:build (767ms) ✔ @atproto/api:build (539ms) ✔ @atproto/dev-env:build (727ms) &amp;gt; Lerna (powered by Nx) Successfully ran target build for 16 projects (5s) $ ls packages/*/dist/ $ ls packages/*/*.</description>
     </item>
     
     <item>

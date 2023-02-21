@@ -150,10 +150,11 @@ $ fly apps destroy $app
 $ fly scale memory <span style="color:#ae81ff">512</span>
 
 <span style="color:#75715e"># volume(hdd)領域を1Gで作成する</span>
-$ fly vol create --region nrt --size <span style="color:#ae81ff">1</span> $app
+$ fly vol create --region nrt --size <span style="color:#ae81ff">1</span> $app_db
 
 <span style="color:#75715e"># pg(postgres)を作る</span>
-$ fly pg create $app-db
+$ fly pg create -n $app-db
+$ fly pg attach -a $app $app-db
 
 <span style="color:#75715e"># pgのupdate等</span>
 $ fly image update $app-db
