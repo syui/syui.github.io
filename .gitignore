@@ -41,3 +41,4 @@ src-**
 */*node_*
 **node_module*
 **.zsh
+package-lock.json
