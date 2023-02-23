@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bsky.socialにアカウントを作ってみた</title>
+      <link>https://syui.cf/blog/post/2023/02/23/bluesky-atproto/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/23/bluesky-atproto/</guid>
+      <description>今回は、atp(at-protocol)のself-hostingではなく、bsky.socialにaccountを作成してみました。優しい人がbsky.socialのinvite-codeを発行してくれたので、嬉しい。
+ at://syui.bsky.social   invite-codeは、こちらの資料がわかりやすいと思います。
+rustで書かれたadenosineというclientが便利です。
+ https://gitlab.com/bnewbold/adenosine  $ git clone https://gitlab.com/bnewbold/adenosine $ cd !$:t $ brew install cmake $ cargo build $ export ATP_HOST=https://bsky.social $ ./target/debug/adenosine ls at://syui.bsky.social at://syui.bsky.social/app.bsky.actor.profile $ ./target/debug/adenosine ls at://syui.bsky.social/app.bsky.actor.profile at://did:plc:uqzpqmrjnptsxezjx4xuh2mn/app.bsky.actor.profile/self $ ./target/debug/adenosine get at://did:plc:uqzpqmrjnptsxezjx4xuh2mn/app.bsky.actor.profile/self { &amp;#34;cid&amp;#34;: &amp;#34;bafyreihkjxz4tl36t5ofn74rsl4lglahdqnpprmbcuza2t5b5kfwysfehu&amp;#34;, &amp;#34;indexedAt&amp;#34;: &amp;#34;2023-02-23T01:14:43.377Z&amp;#34;, &amp;#34;takedownId&amp;#34;: null, &amp;#34;uri&amp;#34;: &amp;#34;at://did:plc:uqzpqmrjnptsxezjx4xuh2mn/app.bsky.actor.profile/self&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;$type&amp;#34;: &amp;#34;app.bsky.actor.profile&amp;#34;, &amp;#34;avatar&amp;#34;: { &amp;#34;cid&amp;#34;: &amp;#34;bafkreid6kcc5pnn4b3ar7mj6vi3eiawhxgkcrw3edgbqeacyrlnlcoetea&amp;#34;, &amp;#34;mimeType&amp;#34;: &amp;#34;image/jpeg&amp;#34; }, &amp;#34;banner&amp;#34;: { &amp;#34;cid&amp;#34;: &amp;#34;bafkreif5z5mbbubxuck3kn4fx7guqeznnlm4ujw7pseozn73p3k6czj5xa&amp;#34;, &amp;#34;mimeType&amp;#34;: &amp;#34;image/jpeg&amp;#34; }, &amp;#34;description&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;displayName&amp;#34;: &amp;#34;&amp;#34; } } atはprotocolでblueskyがserverに当たるのかな。</description>
+    </item>
+    
     <item>
       <title>blueskyのatprotoをdeployしてみた</title>
       <link>https://syui.cf/blog/post/2023/02/22/bluesky-atproto/</link>
