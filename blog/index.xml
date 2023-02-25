@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyのclientを少しだけやってみた</title>
+      <link>https://syui.cf/blog/post/2023/02/25/bluesky-atproto/</link>
+      <pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/25/bluesky-atproto/</guid>
+      <description>今回は、blueskyのclientを作ってcliからpostしてみたので、なにか書きます。
+これはbsky.social特有のものかもしれませんが、requestを投げる先と投げる要素が結構変わっていたので、ハマりました。あとtypoに気づかずmatrixに質問を投げるなどやらかしていました。
+基本的には公式のlexiconsを見ていけばいい感じでした。
+https://atproto.com/lexicons/com-atproto-account
+blueskyではpostの一式をrecordと呼びます。
+createdAtを自分で入れなきゃなのなぜでしょう。あと、validateはtrueなのでfalseにしてもいいかも。
+下記のscriptは解説のために載せているだけなので読み替えてください。
+例えば、date %3Nはgnu-dateです。
+#!/bin/sh # com.atproto.session.create # com.atproto.repo.createRecord #brew install coreutils #PATH=&amp;#34;/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH&amp;#34; date=`date &amp;#34;+%Y-%m-%dT%H:%M:%S.%3NZ&amp;#34;` host=bsky.social user=$USER pass=xxx curl -X POST -H &amp;#34;Content-Type: application/json&amp;#34; \  -d &amp;#34;{\&amp;#34;handle\&amp;#34;:\&amp;#34;$user.$host\&amp;#34;,\&amp;#34;password\&amp;#34;:\&amp;#34;$pass\&amp;#34;}&amp;#34; \  https://$host/xrpc/com.atproto.session.create &amp;gt; token.json token=`cat token.json|jq -r .accessJwt` did=`cat token.json|jq -r .did` url=https://$host/xrpc/com.atproto.repo.createRecord json=&amp;#39;{ &amp;#34;did&amp;#34;: &amp;#34;did:plc:xxx&amp;#34;, &amp;#34;collection&amp;#34;: &amp;#34;app.bsky.feed.post&amp;#34;, &amp;#34;record&amp;#34;: { &amp;#34;text&amp;#34;: &amp;#34;t&amp;#34;, &amp;#34;createdAt&amp;#34;: &amp;#34;2023-02-25T05:06:50.330Z&amp;#34;, &amp;#34;$type&amp;#34;: &amp;#34;app.bsky.feed.post&amp;#34; } }&amp;#39; curl -X POST -H &amp;#34;Content-Type: application/json&amp;#34; \  -H &amp;#34;Authorization: Bearer $token&amp;#34; \  -d &amp;#34;$json&amp;#34; $url #[tokio::main] async fn feed_req(url: String, user: String, col: String) -&amp;gt; reqwest::Result&amp;lt;()&amp;gt; { let client = reqwest::Client::new(); let body = client.</description>
+    </item>
+    
     <item>
       <title>bsky.socialにアカウントを作ってみた</title>
       <link>https://syui.cf/blog/post/2023/02/23/bluesky-atproto/</link>
