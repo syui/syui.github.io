@@ -161,7 +161,13 @@ ul.cp_list li > span.icon-moon {
 	font-size: 23px;
 }
 i.fa-brands.fa-slack {
-    color: #b8cfe0;
+	color: #b8cfe0;
+}
+
+i.fa-solid.fa-at {
+	font-size: 25px;
+	/*background-color: #cccccc21;*/
+	color: rgba(52 135 236);
 }
 
 a.matrix-icon {
@@ -223,7 +229,7 @@ pre > code {
 	text-align: center;
 }
 .footer-link > a > i {
-	padding:10px;
+	padding:9px;
 }
 
 h2 {
