@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fly.ioのpgがおかしくなった</title>
+      <link>https://syui.cf/blog/post/2023/02/28/flyio/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/02/28/flyio/</guid>
+      <description>全体的にfly.ioのappのvm:pgがおかしくなって、それに対応した話。
+Could not proxy HTTP request. Retrying in 1000 ms なんでおかしくなったのかというと、おそらく、fly.io側で仕様変更があったためだと思ってる。pgを新しく作成すると今までの形式とは違ったものになっていて、具体的には、top&amp;lt;number&amp;gt;.nearest.of.&amp;lt;appname&amp;gt;.internal -&amp;gt; [ipv6-private]になってる。
+対応としてはpgのfly.tomlを読み込んで、それを修正後にdeployします。
+$ mkdir pg $ cd pg $ fly config save --app &amp;lt;pg-app-name&amp;gt; $ vim fly.toml - [[services]] - [] + [[services]] + internal_port = 5432 # Postgres instance + protocol = &amp;#34;tcp&amp;#34; + [[services.ports]] + handlers = [&amp;#34;pg_tls&amp;#34;] + port = 5432 $ fly image show --app &amp;lt;pg-app-name&amp;gt; $ fly deploy . --app &amp;lt;pg-app-name&amp;gt; --image flyio/postgres:&amp;lt;major-version&amp;gt;  https://fly.</description>
+    </item>
+    
     <item>
       <title>blueskyのweb uiを作ってみた</title>
       <link>https://syui.cf/blog/post/2023/02/26/bluesky-atproto/</link>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>blueskyのweb uiを作ってみた | syui.cf</title>
+		<title>fly.ioのpgがおかしくなった | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="blueskyのweb uiを作ってみた" />
+		<meta property="og:title" content="fly.ioのpgがおかしくなった" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,21 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-02-26 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-02-28 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/bluesky/">bluesky</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.cf/tags/atproto/">atproto</a>
+		<a href="https://syui.cf/tags/fly/">fly</a>
 		
 		
 		
@@ -129,52 +120,70 @@
 		
 		
 		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/fly">fly</a></p>
 		
 		</div>
 
-		<h2>blueskyのweb uiを作ってみた</h2>
+		<h2>fly.ioのpgがおかしくなった</h2>
 
-		<p>今回は、blueskyのweb uiを作ってみました。bluesky、楽しい。</p>
-<p>こちらのページにアクセスして、usernameを入れると、投稿が出てきます。</p>
-<p><a href="https://syui.cf/bsky">https://syui.cf/bsky</a></p>
-<p>一番難儀したのがcssです。srcは<code>/bsky</code>にあります。vueで書かれています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">com.atproto.repo.listRecords
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
-	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
-		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bluesky-avatar&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:src</span><span style="color:#e6db74">=&#34;user.data.avatar&#34;</span>/&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-	&lt;<span style="color:#f92672">div</span> <span style="color:#f92672">v-if</span><span style="color:#e6db74">=&#34;user&#34; class=&#34;bluesky-user&#34;&gt;
-</span><span style="color:#e6db74">		&lt;p&gt;&lt;a :href=&#34;this.bskyurl&#34;&gt;@{{ user.data.handle }}&lt;/a&gt;&lt;/p&gt;
-</span><span style="color:#e6db74">		&lt;p&gt;{{ user.data.did }}&lt;/p&gt;
-</span><span style="color:#e6db74">	&lt;/div&gt;
-</span><span style="color:#e6db74">	&lt;form @submit.prevent=&#34;submit&#34;&gt;
-</span><span style="color:#e6db74">		&lt;input v-model=&#34;id&#34; placeholder=&#34;id&#34; value=&#34;id&#34;&gt;
-</span><span style="color:#e6db74">		&lt;input type=&#34;submit&#34;&gt;
-</span><span style="color:#e6db74">	&lt;/form&gt; 
-</span><span style="color:#e6db74">	&lt;div v-if=&#34;record&#34; class=&#34;bluesky-record&#34;&gt;
-</span><span style="color:#e6db74">		&lt;li v-for=&#34;i in record.data.records&#34;&gt;
-</span><span style="color:#e6db74">			&lt;p&gt;&lt;span class=&#34;name&#34;&gt;{{ name }}&lt;/span&gt;&lt;/p&gt;
-</span><span style="color:#e6db74">			&lt;p&gt;&lt;span class=&#34;text&#34;&gt;{{ i.value.text }}&lt;/span&gt;&lt;/p&gt;
-</span><span style="color:#e6db74">			&lt;p&gt;&lt;span class=&#34;time&#34;&gt;&lt;a :href=&#34;i.uri&#34;</span>&gt;{{ <span style="color:#a6e22e">i.value.createdAt</span> }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
-		&lt;/<span style="color:#f92672">li</span>&gt;
-	&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;/<span style="color:#f92672">template</span>&gt;
-</code></pre></div><p>なお、vueはjsのframeworkなので&quot;jsで書かれています&quot;という表現が正しいのですが、jsのframeworkはlangという認識でもあるので私はこのように表現することが多いです。reactとかもそうですね。</p>
+		<p>全体的にfly.ioのappのvm:pgがおかしくなって、それに対応した話。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Could not proxy HTTP request. Retrying in <span style="color:#ae81ff">1000</span> ms
+</code></pre></div><p>なんでおかしくなったのかというと、おそらく、fly.io側で仕様変更があったためだと思ってる。pgを新しく作成すると今までの形式とは違ったものになっていて、具体的には、<code>top&lt;number&gt;.nearest.of.&lt;appname&gt;.internal -&gt; [ipv6-private]</code>になってる。</p>
+<p>対応としてはpgのfly.tomlを読み込んで、それを修正後にdeployします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir pg
+$ cd pg
+$ fly config save --app &lt;pg-app-name&gt;
+$ vim fly.toml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="color:#a6e22e">-</span> [[<span style="color:#a6e22e">services</span>]]
+<span style="color:#a6e22e">-</span> []
 
+<span style="color:#960050;background-color:#1e0010">+</span> [[<span style="color:#a6e22e">services</span>]]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">5432</span> <span style="color:#75715e"># Postgres instance</span>
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+<span style="color:#960050;background-color:#1e0010">+</span> [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;pg_tls&#34;</span>]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">5432</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly image show --app &lt;pg-app-name&gt;
+$ fly deploy . --app &lt;pg-app-name&gt; --image flyio/postgres:&lt;major-version&gt;
+</code></pre></div><ul>
+<li><a href="https://fly.io/docs/postgres/connecting/connecting-external/">https://fly.io/docs/postgres/connecting/connecting-external/</a></li>
+</ul>
+<p>fly.ioのpgはなかなか厄介で、一度変更があると、detach, attachができなくなります。この変更は内部的なものも含みます。つまり、ユーザー側は、なぜいきなりdetach, attachできなくなったのかわからないでしょうね。今回も同じ構成でfly.ioのpgが動作しなくなりました。</p>
+<h3 id="ipv6-private">ipv6-private</h3>
+<p><code>top&lt;number&gt;.nearest.of.&lt;appname&gt;.internal -&gt; [ipv6]</code></p>
+<ul>
+<li><a href="https://fly.io/docs/reference/private-networking/#fly-internal-addresses">https://fly.io/docs/reference/private-networking/#fly-internal-addresses</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ips allocate-v6 --private -a &lt;postgres-app-name&gt;
+$ fly pg detach -a $app $app-pg-db
+$ fly pg attach -a $app $app-pg-db
+postgres://$app:$pass@<span style="color:#f92672">[</span>:0:0:0:0<span style="color:#f92672">]</span>:5432/$app?sslmode<span style="color:#f92672">=</span>disable
+</code></pre></div><p><code>restart</code>しても治らなかった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly pg restart
+</code></pre></div><h3 id="baackup-restore">baackup-restore</h3>
+<p>pgを残したい方はbackupして、新しいpgを作成し、restoreするのがおすすめですが、detach, attachできない場合は不可能。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly postgres list
+$ fly volumes list -a &lt;postgres-app-name&gt;
+$ fly volumes snapshots list &lt;volume-id&gt;
+$ fly postgres create --snapshot-id &lt;snapshot-id&gt;
+$ fly pg detach --app &lt;app-name&gt; &lt;postgres-app-name&gt;
+$ fly pg attach --app &lt;app-name&gt; &lt;postgres-app-name&gt;
+</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/02/26/illust/" id="article-nav-older" class="article-nav-link-wrap">
-イラスト描いてみた129
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/02/26/bluesky-atproto/" id="article-nav-older" class="article-nav-link-wrap">
+blueskyのweb uiを作ってみた
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2023/02/28/flyio/" id="article-nav-newer" class="article-nav-link-wrap">
-     fly.ioのpgがおかしくなった
-				</a></p>
     
 	</div>
 </nav>
