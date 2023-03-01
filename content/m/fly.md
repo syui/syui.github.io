@@ -161,3 +161,84 @@ $ fly pg detach -a $app $app-db
 $ fly pg attach -a $app $app-db
 ```
 
+### ssl cert
+
+```sh
+$ fly ips allocate-v4
+$ fly ips allocate-v6
+```
+
+```sh
+$ fly certs create $app.fly.dev
+$ fly certs create example.com
+```
+
+### pg error
+
+```sh
+Could not proxy HTTP request. Retrying in 1000 ms
+```
+
+なんでおかしくなったのかというと、おそらく、fly.io側で仕様変更があったためだと思ってる。pgを新しく作成すると今までの形式とは違ったものになっていて、具体的には、`top<number>.nearest.of.<appname>.internal -> [ipv6-private]`になってる。
+
+対応としてはpgのfly.tomlを読み込んで、それを修正後にdeployします。
+
+```sh
+$ mkdir pg
+$ cd pg
+$ fly config save --app <pg-app-name>
+$ vim fly.toml
+```
+
+```toml:fly.toml
+- [[services]]
+- []
+
++ [[services]]
++   internal_port = 5432 # Postgres instance
++   protocol = "tcp"
++ [[services.ports]]
++   handlers = ["pg_tls"]
++   port = 5432
+```
+
+```sh
+$ fly image show --app <pg-app-name>
+$ fly deploy . --app <pg-app-name> --image flyio/postgres:<major-version>
+```
+
+- https://fly.io/docs/postgres/connecting/connecting-external/
+
+fly.ioのpgはなかなか厄介で、一度変更があると、detach, attachができなくなります。この変更は内部的なものも含みます。つまり、ユーザー側は、なぜいきなりdetach, attachできなくなったのかわからないでしょうね。今回も同じ構成でfly.ioのpgが動作しなくなりました。
+
+### ipv6-private
+
+`top<number>.nearest.of.<appname>.internal -> [ipv6]`
+
+- https://fly.io/docs/reference/private-networking/#fly-internal-addresses
+
+```sh
+$ fly ips allocate-v6 --private -a <postgres-app-name>
+$ fly pg detach -a $app $app-pg-db
+$ fly pg attach -a $app $app-pg-db
+postgres://$app:$pass@[:0:0:0:0]:5432/$app?sslmode=disable
+```
+
+`restart`しても治らなかった。
+
+```sh
+$ fly pg restart
+```
+
+### baackup-restore
+
+pgを残したい方はbackupして、新しいpgを作成し、restoreするのがおすすめですが、detach, attachできない場合は不可能。
+
+```sh
+$ fly postgres list
+$ fly volumes list -a <postgres-app-name>
+$ fly volumes snapshots list <volume-id>
+$ fly postgres create --snapshot-id <snapshot-id>
+$ fly pg detach --app <app-name> <postgres-app-name>
+$ fly pg attach --app <app-name> <postgres-app-name>
+```
