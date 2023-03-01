@@ -235,6 +235,53 @@ DROP USER $app WITH <span style="color:#f92672">(</span>FORCE<span style="color:
 $ fly pg detach -a $app $app-db
 
 $ fly pg attach -a $app $app-db
+</code></pre></div><h3 id="ssl-cert">ssl cert</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ips allocate-v4
+$ fly ips allocate-v6
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly certs create $app.fly.dev
+$ fly certs create example.com
+</code></pre></div><h3 id="pg-error">pg error</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Could not proxy HTTP request. Retrying in <span style="color:#ae81ff">1000</span> ms
+</code></pre></div><p>なんでおかしくなったのかというと、おそらく、fly.io側で仕様変更があったためだと思ってる。pgを新しく作成すると今までの形式とは違ったものになっていて、具体的には、<code>top&lt;number&gt;.nearest.of.&lt;appname&gt;.internal -&gt; [ipv6-private]</code>になってる。</p>
+<p>対応としてはpgのfly.tomlを読み込んで、それを修正後にdeployします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir pg
+$ cd pg
+$ fly config save --app &lt;pg-app-name&gt;
+$ vim fly.toml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="color:#a6e22e">-</span> [[<span style="color:#a6e22e">services</span>]]
+<span style="color:#a6e22e">-</span> []
+
+<span style="color:#960050;background-color:#1e0010">+</span> [[<span style="color:#a6e22e">services</span>]]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">5432</span> <span style="color:#75715e"># Postgres instance</span>
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+<span style="color:#960050;background-color:#1e0010">+</span> [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;pg_tls&#34;</span>]
+<span style="color:#960050;background-color:#1e0010">+</span>   <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">5432</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly image show --app &lt;pg-app-name&gt;
+$ fly deploy . --app &lt;pg-app-name&gt; --image flyio/postgres:&lt;major-version&gt;
+</code></pre></div><ul>
+<li><a href="https://fly.io/docs/postgres/connecting/connecting-external/">https://fly.io/docs/postgres/connecting/connecting-external/</a></li>
+</ul>
+<p>fly.ioのpgはなかなか厄介で、一度変更があると、detach, attachができなくなります。この変更は内部的なものも含みます。つまり、ユーザー側は、なぜいきなりdetach, attachできなくなったのかわからないでしょうね。今回も同じ構成でfly.ioのpgが動作しなくなりました。</p>
+<h3 id="ipv6-private">ipv6-private</h3>
+<p><code>top&lt;number&gt;.nearest.of.&lt;appname&gt;.internal -&gt; [ipv6]</code></p>
+<ul>
+<li><a href="https://fly.io/docs/reference/private-networking/#fly-internal-addresses">https://fly.io/docs/reference/private-networking/#fly-internal-addresses</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly ips allocate-v6 --private -a &lt;postgres-app-name&gt;
+$ fly pg detach -a $app $app-pg-db
+$ fly pg attach -a $app $app-pg-db
+postgres://$app:$pass@<span style="color:#f92672">[</span>:0:0:0:0<span style="color:#f92672">]</span>:5432/$app?sslmode<span style="color:#f92672">=</span>disable
+</code></pre></div><p><code>restart</code>しても治らなかった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly pg restart
+</code></pre></div><h3 id="baackup-restore">baackup-restore</h3>
+<p>pgを残したい方はbackupして、新しいpgを作成し、restoreするのがおすすめですが、detach, attachできない場合は不可能。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fly postgres list
+$ fly volumes list -a &lt;postgres-app-name&gt;
+$ fly volumes snapshots list &lt;volume-id&gt;
+$ fly postgres create --snapshot-id &lt;snapshot-id&gt;
+$ fly pg detach --app &lt;app-name&gt; &lt;postgres-app-name&gt;
+$ fly pg attach --app &lt;app-name&gt; &lt;postgres-app-name&gt;
 </code></pre></div>
 		
 
