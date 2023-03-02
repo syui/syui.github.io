@@ -57,7 +57,8 @@ rustで書かれたadenosineというclientが便利です。
       
       <guid>https://syui.cf/blog/post/2023/02/22/bluesky-atproto/</guid>
       <description>https://github.com/bluesky-social/atproto  今回は、at-protocol-serverを立てて、そのdomainからbluesky for iosでloginしてみました。localhostではなくglobal-ipからです。
- $ git clone https://github.com/bluesky-social/atproto $ cd atproto $ ls packages/*/*example AVAILABLE_USER_DOMAINS=&amp;#34;.test,.example.com&amp;#34; $ vim packages/dev-env/src/index.ts `http://${process.env.HOSTNAME}:${this.port}` dbPostgresUrl: process.env.DB_POSTGRES_URL const db = plc.Database.memory() availableUserDomains: [&amp;#39;.test&amp;#39;,&amp;#39;.example.com&amp;#39;] 基本的に.testのAVAILABLE_USER_DOMAINSがないと、UnsupportedDomainのpackages/dev-env/dist/cli.jsからerrorがでます。
+
+$ git clone https://github.com/bluesky-social/atproto $ cd atproto $ ls packages/*/*example AVAILABLE_USER_DOMAINS=&amp;#34;.test,.example.com&amp;#34; $ vim packages/dev-env/src/index.ts `http://${process.env.HOSTNAME}:${this.port}` dbPostgresUrl: process.env.DB_POSTGRES_URL const db = plc.Database.memory() availableUserDomains: [&amp;#39;.test&amp;#39;,&amp;#39;.example.com&amp;#39;] 基本的に.testのAVAILABLE_USER_DOMAINSがないと、UnsupportedDomainのpackages/dev-env/dist/cli.jsからerrorがでます。
 XRPCError: Not a supported handle domain at ServiceClient.call (/app/packages/dev-env/dist/cli.js:91476:15) at process.processTicksAndRejections (node:internal/process/task_queues:95:5) at async generateMockSetup (/app/packages/dev-env/dist/cli.js:123766:17) at async start (/app/packages/dev-env/dist/cli.js:123976:3) { status: 400, error: &amp;#39;UnsupportedDomain&amp;#39;, success: false } 特にhosting先のport等の設定が大変だった印象。
 at-protocolはよくわかってないんだけど、今回色々とやってみて、少しだけ分かってきたような気もしてる。
 重要なのはpds, plc serverかな。これらを別々でも同一でもいいので、実行して、相互に接続できるようにする必要がある感じ。

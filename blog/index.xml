@@ -7,7 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、ナヒーダ完全体を目指す4</title>
+      <link>https://syui.cf/blog/post/2023/03/02/genshin/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/02/genshin/</guid>
+      <description>ここでいう完全体とは、無課金で完凸、全天賦MAXにして、聖遺物を厳選し、翼(緑)と精霊(草)を付けたナヒーダのこと。
+ 現在のナヒーダは3凸です。
+螺旋やりました。ナヒーダ強い。
+運命 運命の換算は200くらい。次は40くらいで確定だから160で2凸しなければならない計算。すり抜けなければいけます。が、すり抜けるとダメですね。
+最大180x2=360まで貯めると確実ですが、おそらく、200前後でいけるのではないかと思います。
+ちなみに、あと100円課金すれば完凸できるような場合でも課金なし。それが自分で決めたルールなので。
+完凸にかかる金額 完凸にかかる金額は、大体、15万前後と言われているみたい。武器を入れると、30万くらい?
+無課金の最適ルート 私が今のところ思ってる無課金での最適ルートを書きます。
+  星4キャラで強いと言われている行秋、ベネット、香菱を育成する
+  足りない元素の星5キャラを狙い、空きを埋めていくよう計画する
+  元素が埋められた時点で夜蘭の完凸を目指す
+  これが攻略において最も適したルートだと個人的には思います。
+ナヒーダはかわいい? ナヒーダが実装される前にひと目見て、ナヒーダの完凸を決意したわけですが、しかし、実装後のナヒーダについて、あまり書いていなかったので、なにか書きます。
+「かわいい」は中身に宿る。見た目に宿るわけではありません。
+その意味で、ナヒーダをかわいいと思ったことはありませんでした。子供だと思ったこともありません。まあ、これに関しては他キャラに関しても私は何も思わないわけですが。
+例えば、クレーを見ると、かわいいって思うんだけど、ナヒーダに関しては全く思わない。
+それは「かわいい」というものが、見た目ではなく、中身に宿ることを意味します。
+ただ、ナヒーダは強いかと聞かれると、強いです。特に完凸は強いと思います。</description>
+    </item>
+    
     <item>
       <title>fly.ioのpgがおかしくなった</title>
       <link>https://syui.cf/blog/post/2023/02/28/flyio/</link>
@@ -78,7 +104,8 @@ rustで書かれたadenosineというclientが便利です。
       
       <guid>https://syui.cf/blog/post/2023/02/22/bluesky-atproto/</guid>
       <description>https://github.com/bluesky-social/atproto  今回は、at-protocol-serverを立てて、そのdomainからbluesky for iosでloginしてみました。localhostではなくglobal-ipからです。
- $ git clone https://github.com/bluesky-social/atproto $ cd atproto $ ls packages/*/*example AVAILABLE_USER_DOMAINS=&amp;#34;.test,.example.com&amp;#34; $ vim packages/dev-env/src/index.ts `http://${process.env.HOSTNAME}:${this.port}` dbPostgresUrl: process.env.DB_POSTGRES_URL const db = plc.Database.memory() availableUserDomains: [&amp;#39;.test&amp;#39;,&amp;#39;.example.com&amp;#39;] 基本的に.testのAVAILABLE_USER_DOMAINSがないと、UnsupportedDomainのpackages/dev-env/dist/cli.jsからerrorがでます。
+
+$ git clone https://github.com/bluesky-social/atproto $ cd atproto $ ls packages/*/*example AVAILABLE_USER_DOMAINS=&amp;#34;.test,.example.com&amp;#34; $ vim packages/dev-env/src/index.ts `http://${process.env.HOSTNAME}:${this.port}` dbPostgresUrl: process.env.DB_POSTGRES_URL const db = plc.Database.memory() availableUserDomains: [&amp;#39;.test&amp;#39;,&amp;#39;.example.com&amp;#39;] 基本的に.testのAVAILABLE_USER_DOMAINSがないと、UnsupportedDomainのpackages/dev-env/dist/cli.jsからerrorがでます。
 XRPCError: Not a supported handle domain at ServiceClient.call (/app/packages/dev-env/dist/cli.js:91476:15) at process.processTicksAndRejections (node:internal/process/task_queues:95:5) at async generateMockSetup (/app/packages/dev-env/dist/cli.js:123766:17) at async start (/app/packages/dev-env/dist/cli.js:123976:3) { status: 400, error: &amp;#39;UnsupportedDomain&amp;#39;, success: false } 特にhosting先のport等の設定が大変だった印象。
 at-protocolはよくわかってないんだけど、今回色々とやってみて、少しだけ分かってきたような気もしてる。
 重要なのはpds, plc serverかな。これらを別々でも同一でもいいので、実行して、相互に接続できるようにする必要がある感じ。
