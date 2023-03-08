@@ -201,7 +201,11 @@ curl -sL -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/j
 </li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/bluesky_20230307_0001.jpg" alt=""></p>
-<h3 id="did">did</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># restore</span>
+<span style="color:#75715e"># account delete : syui.bsky.social</span>
+$ atr h syui.bsky.social
+<span style="color:#75715e"># note: invite code x2</span>
+</code></pre></div><h3 id="did">did</h3>
 <p>atのhandleはusernameのようなものです。didがidですね。</p>
 <p>didはnostrでいうpubkeyのようなもので、ユーザー固有で変更できないもの、確実なものとして、基本的には内部でdidが参照されています。</p>
 <p>handleはあくまでaliasのようなもので、search, mention, loginなどの処理のときに人間にわかりやすいようにしている感じです。</p>
