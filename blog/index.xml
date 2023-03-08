@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyでhandle.updateしてみた</title>
+      <link>https://syui.cf/blog/post/2023/03/08/bluesky/</link>
+      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/08/bluesky/</guid>
+      <description>bluesky(bsky.social)では現在、handle.updateが追加されていて、いわゆるcustom-domain(custom-handle)のようなことができるようになっています。これをhandle.updateと呼びます。
+具体的には、syui.bsky.social -&amp;gt; syui.cfなどにhandleを変更することができます。
+で、実際にこのhandle.updateをやってみた感想を書きます。
+web, cliの両方に簡単に機能を追加しましたので、誰でもできると思います。
+web bsky.syui.cf -&amp;gt; login -&amp;gt; profile -&amp;gt; handle.update
+note: re-login
+cli $ sudo pacman -S rust --noconfirm $ git clone https://github.com/syui/atr $ cd !$:t $ cargo build host = &amp;#34;bsky.social&amp;#34; pass = &amp;#34;password&amp;#34; user = &amp;#34;syui.bsky.social&amp;#34; $ ./target/debug/atr h xxx.bsky.social $ ./target/debug/atr h example.com # note: change config.toml # user = &amp;#34;example.com&amp;#34; $ ./target/debug/atr a $ ./target/debug/atr profile shell shellでも書いてみました。大体はこんな感じです。
+#!/bin/zsh  # session.</description>
+    </item>
+    
     <item>
       <title>原神、ナヒーダ完全体を目指す4</title>
       <link>https://syui.cf/blog/post/2023/03/02/genshin/</link>
