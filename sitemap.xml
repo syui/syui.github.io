@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.cf/tags/atproto/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.cf/blog/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/tags/bluesky/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.cf/blog/post/2023/03/21/bluesky/</loc>
     <lastmod>2023-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/tags/illust/</loc>
@@ -16,12 +25,6 @@
   </url><url>
     <loc>https://syui.cf/blog/post/2023/03/21/illust/</loc>
     <lastmod>2023-03-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/atproto/</loc>
-    <lastmod>2023-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.cf/tags/bluesky/</loc>
-    <lastmod>2023-03-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.cf/blog/post/2023/03/13/bluesky/</loc>
     <lastmod>2023-03-13T00:00:00+00:00</lastmod>

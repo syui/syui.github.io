@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>イラスト描いてみた130 | syui.cf</title>
+		<title>blueskyのatをdeployしてみた3 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="イラスト描いてみた130" />
+		<meta property="og:title" content="blueskyのatをdeployしてみた3" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -110,7 +110,16 @@
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/illust/">illust</a>
+		<a href="https://syui.cf/tags/bluesky/">bluesky</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.cf/tags/atproto/">atproto</a>
 		
 		
 		
@@ -123,37 +132,25 @@
 		
 		</div>
 
-		<h2>イラスト描いてみた130</h2>
+		<h2>blueskyのatをdeployしてみた3</h2>
 
-		<p><img src="/img/yui_130.png" alt=""></p>
-<h3 id="ちょっとだけ個人的な話をしてみる">ちょっとだけ個人的な話をしてみる</h3>
-<p>お絵かきをはじめて130枚目のイラストになります。</p>
-<p>特に記念すべき数字というわけでもないんですが、今回は少しだけ変わったことがあったので、それについて書きます。</p>
-<p>私のイラストはtwitterに上げるときもあれば、上げないときもあって、ほとんどは描いても上げないかな。ブログに上げるだけのことが多いです。</p>
-<p>twitterに上げるときは、likeが1つ付くときもあれば、付かないときもあって、付かないことのほうが圧倒的に多いと思います。</p>
-<p>今回の絵は、twitterではなく、blueskyに上げてみました。</p>
-<p>blueskyで絵を投稿してる人を見かけて、私もなにか書こうかなと思ったのです。</p>
-<p>twitterよりも圧倒的に人が少ないはずのblueskyのほうが反応があったので、嬉しい。</p>
-<p>ただ、この現象自体は、少し前から確認されていました。</p>
-<p>絵について適当になにか書きます。</p>
-<p>私は、絵を全く描けないのですが、こうやってsnsに投稿していて、思うところがあります。</p>
-<p>私が見たいと思っているのは、その人が反映された絵なので、初心者であればあるほど面白いと思っているのです。</p>
-<p>絵には、その人の特徴が現れます。</p>
-<p>多くの人はうまく描きたいと願い、練習をするかもしれません。</p>
-<p>しかし、その練習はなんのためなのか。</p>
-<p>多くの人から称賛を受けるための上手な絵を描きたいと願うのか、あるいは、自分が書きたい絵を描けるよう自己実現を願うのか。</p>
-<p>前者はAIが最も得意とする分野です。AIに書かせたほうが良い結果が生まれるでしょう。</p>
-<p>ですが、後者の「本当はこう描きたかったのに、それができなかった。できるようになりたい」という想いはどうでしょう。</p>
-<p>私は、他の人の絵を見るとき、上手いか下手かなどに興味がありません。</p>
-<p>その人が現れているか否か。それだけを見ています。</p>
-<p>ですから、初心者であればあるほど、その人の特徴が絵には現れるので、私は好きだったりするのです。</p>
-<p>みんなもお絵描きしよう。楽しいですよ。</p>
-<h3 id="nostrの話">nostrの話</h3>
-<p>絵とは全く関係ないですが、nostrは情報価値の判断、そして、流通が速すぎます。</p>
-<p>独自のコミュニティが日本語で機能しています。</p>
-<p>情報通な人ほど、早めにここの情報に触れておくことを強くおすすめします。</p>
-<p>これは絵とは全く関係がありません。コンピュータや情報、未来に関係します。</p>
-<p>今後、起こりうることのいくつかは、すでにnostrで実現されていると思います。おそらく、そんな感じ。</p>
+		<p>awsやらfly.ioやらで少しずつ負荷を確認してたのですが、今回は本番環境にdeployしてみた話です。</p>
+<p><a href="https://syui.ai">https://syui.ai</a></p>
+<iframe src="https://mstdn.syui.cf/@syui/110060627865211327/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="100%" allowfullscreen="allowfullscreen"></iframe><script src="https://mstdn.syui.cf/embed.js" async="async"></script>
+<p>基本的にはこれまでのdeploy方法と変わりません。ポイントも同じです。</p>
+<p>fly.ioの場合は、port:80,443を<code>2583</code>に投げてやればOKです。</p>
+<p><code>aws-s3</code>, <code>cloudfront</code>を使わないため<code>cfg.publicUrl</code>が機能しなかったので、<code>imgUriEndpoint</code>を変更しました。今回もgithub-pagesを使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:packages/pds/src/index.ts" data-lang="js:packages/pds/src/index.ts"><span style="color:#a6e22e">imgUriEndpoint</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`https://img.syui.ai/image`</span>
+</code></pre></div><p>dist, public, staticなどにjpgを置いてbuildすることでアクセスできるかもですが、やってみた限りでは無理でした。この辺はまだあまり見れていません。</p>
+<h3 id="domainとmailについて">domainとmailについて</h3>
+<p>少し前に<code>syui.ai</code>のdomainを購入し、appleのicloud+に加入して<code>custom mail</code>を使い始めました。</p>
+<p><code>.ai</code>はけっこう高かった気がするんだけど、欲しかったので買った。</p>
+<p>今まではfreenomで取得した<code>.cf</code>を無料で使ってきました。</p>
+<p>mailもmailgunの設定でgmailに転送していたので、無料でした。</p>
+<p>freenomとmailgunは非常に良いサービスです。かなり長い期間使ってきましたが、一度も問題が起こったことはありません。これらサービスには感謝です。</p>
+<p>正直、最初はこんな長く続けるとは思ってなかったのです。</p>
+<p>楽しく遊んでたら、色々なものをホストして、いつの間にか超肥大化してた。そんな感じです。</p>
+<p>ただ、atのself-hostはsyui.aiでいいとして、pageとかを作りたい場合、完全にfly.ioかつnodeで構築するしかなさそう。あるいは、他でhostしてhttp,httpsの場合はredirectみたいな処理を入れるかです。また、<code>.well-known/</code>を設定しづらい気がしてて、A(root)にするのはあまり良くないかも。</p>
 
 		
 
@@ -161,14 +158,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/03/13/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
-blueskyのatをdeployしてみた2
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/03/21/illust/" id="article-nav-older" class="article-nav-link-wrap">
+イラスト描いてみた130
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2023/03/21/bluesky/" id="article-nav-newer" class="article-nav-link-wrap">
-     blueskyのatをdeployしてみた3
-				</a></p>
     
 	</div>
 </nav>
