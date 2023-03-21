@@ -20,6 +20,8 @@ https://syui.ai
 fly.ioの場合は、port:80,443を2583に投げてやればOKです。
 aws-s3, cloudfrontを使わないためcfg.publicUrlが機能しなかったので、imgUriEndpointを変更しました。今回もgithub-pagesを使います。
 imgUriEndpoint = `https://img.syui.ai/image` dist, public, staticなどにjpgを置いてbuildすることでアクセスできるかもですが、やってみた限りでは無理でした。この辺はまだあまり見れていません。
+invite code  packages/pds/src/api/com/atproto/account/createInviteCode.ts
+ # com.atproto.server.createInviteCode $ url=https://$host/xrpc/com.atproto.account.createInviteCode $ json=&amp;#34;{\&amp;#34;useCount\&amp;#34;:5}&amp;#34; $ curl -X POST -u admin:${admin_password} -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;$json&amp;#34; $url ref : https://github.com/bluesky-social/atproto/pull/204/commits/f0558a0dfb79c9275ddeb0e01b48c3b1b8cef4dc
 domainとmailについて 少し前にsyui.aiのdomainを購入し、appleのicloud+に加入してcustom mailを使い始めました。
 .aiはけっこう高かった気がするんだけど、欲しかったので買った。
 今まではfreenomで取得した.cfを無料で使ってきました。

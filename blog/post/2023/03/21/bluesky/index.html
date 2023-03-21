@@ -142,6 +142,15 @@
 <p><code>aws-s3</code>, <code>cloudfront</code>を使わないため<code>cfg.publicUrl</code>が機能しなかったので、<code>imgUriEndpoint</code>を変更しました。今回もgithub-pagesを使います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:packages/pds/src/index.ts" data-lang="js:packages/pds/src/index.ts"><span style="color:#a6e22e">imgUriEndpoint</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`https://img.syui.ai/image`</span>
 </code></pre></div><p>dist, public, staticなどにjpgを置いてbuildすることでアクセスできるかもですが、やってみた限りでは無理でした。この辺はまだあまり見れていません。</p>
+<h3 id="invite-code">invite code</h3>
+<blockquote>
+<p>packages/pds/src/api/com/atproto/account/createInviteCode.ts</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># com.atproto.server.createInviteCode</span>
+$ url<span style="color:#f92672">=</span>https://$host/xrpc/com.atproto.account.createInviteCode
+$ json<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;useCount\&#34;:5}&#34;</span>
+$ curl -X POST -u admin:<span style="color:#e6db74">${</span>admin_password<span style="color:#e6db74">}</span> -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;</span>$json<span style="color:#e6db74">&#34;</span> $url 
+</code></pre></div><p>ref : <a href="https://github.com/bluesky-social/atproto/pull/204/commits/f0558a0dfb79c9275ddeb0e01b48c3b1b8cef4dc">https://github.com/bluesky-social/atproto/pull/204/commits/f0558a0dfb79c9275ddeb0e01b48c3b1b8cef4dc</a></p>
 <h3 id="domainとmailについて">domainとmailについて</h3>
 <p>少し前に<code>syui.ai</code>のdomainを購入し、appleのicloud+に加入して<code>custom mail</code>を使い始めました。</p>
 <p><code>.ai</code>はけっこう高かった気がするんだけど、欲しかったので買った。</p>
