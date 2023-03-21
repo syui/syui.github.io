@@ -7,7 +7,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>イラスト描いてみた130</title>
+      <link>https://syui.cf/blog/post/2023/03/21/illust/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/21/illust/</guid>
+      <description>ちょっとだけ個人的な話をしてみる お絵かきをはじめて130枚目のイラストになります。
+特に記念すべき数字というわけでもないんですが、今回は少しだけ変わったことがあったので、それについて書きます。
+私のイラストをtwitterに上げるときもあれば、上げるないときもあって、ほとんどは描いても上げないかな。ブログに上げるだけのことが多いです。
+twitterに上げるときは、likeが1つ付くときもあれば、付かないときもあって、付かないことのほうが圧倒的に多いと思います。
+今回の絵は、twitterではなく、blueskyに上げてみました。
+blueskyで絵を投稿してる人を見かけて、私もなにか書こうかなと思ったのです。
+twitterよりも圧倒的に人が少ないはずのblueskyのほうが反応があったので、嬉しい。
+ただ、この現象自体は、少し前から確認されていました。
+絵について適当になにか書きます。
+私は、絵を全く描けないのですが、こうやってsnsに投稿していて、思うところがあります。
+私が見たいと思っているのは、その人が反映された絵なので、初心者であればあるほど面白いと思っているのです。
+絵には、その人の特徴が現れます。
+多くの人はうまく描きたいと願い、練習をするかもしれません。
+しかし、その練習はなんのためなのか。
+多くの人から称賛を受けるための上手な絵を描きたいと願うのか、あるいは、自分が書きたい絵を描けるよう自己実現を願うのか。
+前者はAIが最も得意とする分野です。AIに書かせたほうが良い結果が生まれるでしょう。
+ですが、後者の「本当はこう描きたかったのに、それができなかった。できるようになりたい」は違うと思います。
+私は、他の人の絵を見るとき、上手いか下手かなどには興味がありません。昔からそうでした。
+その人が現れているか否か。それだけを見ている節があります。
+ですから、初心者であればあるほど、その人の特徴が絵には現れるので、私は好きだったりします。
+みんなもお絵描きしよう。楽しいですよ。
+nostrの話 絵とは全く関係ないですが、nostrは情報価値の判断、そして、流通が速すぎます。
+独自のコミュニティが日本語で機能しています。
+情報通な人ほど、早めにここの情報に触れておくことを強くおすすめします。
+これは絵とは全く関係がありません。コンピュータや情報、未来に関係します。
+今後、起こりうることのいくつかは、すでにnostrで実現されていると思います。おそらく、そんな感じ。</description>
+    </item>
+    
+    <item>
+      <title>blueskyをdeployしてみた2</title>
+      <link>https://syui.cf/blog/post/2023/03/13/bluesky/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/13/bluesky/</guid>
+      <description>前回、deployしてみた感触ではtoken errorが出ていて、それを解消すれば良さそうに思ってたんだけど、気になる情報があったので、今回はそれにあたってみた。
+atはplc.directoryに登録しなければいけなかったみたいで、その登録ができていなかったぽい。
+重要なのはserverDidでserverを立てる際はここに登録した値を入れる必要があるみたいです。
+$ git clone https://github.com/syui/atproto $ cd !$:t # error : python, not found better-sqlite3 $ nvm use 18 $ npm config edit python=/usr/bin/python3 $ npm i node-gyp npm lerna $ npm i better-sqlite3 $ npm i 今回、blueskyでKingYoSunさんに助けてもらいました。ありがとうございます。
+https://github.com/KingYoSun/atproto-aws/tree/main
+plc.directoryにdomainなどを登録して、didを取得するまでをやります。これをserverDidに使用する感じだと思います。
+import * as cbor from &amp;#39;@ipld/dag-cbor&amp;#39; import * as uint8arrays from &amp;#39;uint8arrays&amp;#39; console.log(`signingKey=${keypair.did()}`) console.log(`recoveryKey=${keypair.did()}`) const obj = { type: &amp;#39;create&amp;#39;, signingKey: keypair.did(), recoveryKey: keypair.did(), handle: &amp;#39;${ADMIN_USER_NAME}.${DOMAIN}&amp;#39;, service: &amp;#39;https://${DOMAIN}&amp;#39;, prev: null, } const data = new Uint8Array(cbor.</description>
+    </item>
+    
     <item>
       <title>blueskyでhandle.updateしてみた</title>
       <link>https://syui.cf/blog/post/2023/03/08/bluesky/</link>

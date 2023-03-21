@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyをdeployしてみた2</title>
+      <link>https://syui.cf/blog/post/2023/03/13/bluesky/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/13/bluesky/</guid>
+      <description>前回、deployしてみた感触ではtoken errorが出ていて、それを解消すれば良さそうに思ってたんだけど、気になる情報があったので、今回はそれにあたってみた。
+atはplc.directoryに登録しなければいけなかったみたいで、その登録ができていなかったぽい。
+重要なのはserverDidでserverを立てる際はここに登録した値を入れる必要があるみたいです。
+$ git clone https://github.com/syui/atproto $ cd !$:t # error : python, not found better-sqlite3 $ nvm use 18 $ npm config edit python=/usr/bin/python3 $ npm i node-gyp npm lerna $ npm i better-sqlite3 $ npm i 今回、blueskyでKingYoSunさんに助けてもらいました。ありがとうございます。
+https://github.com/KingYoSun/atproto-aws/tree/main
+plc.directoryにdomainなどを登録して、didを取得するまでをやります。これをserverDidに使用する感じだと思います。
+import * as cbor from &amp;#39;@ipld/dag-cbor&amp;#39; import * as uint8arrays from &amp;#39;uint8arrays&amp;#39; console.log(`signingKey=${keypair.did()}`) console.log(`recoveryKey=${keypair.did()}`) const obj = { type: &amp;#39;create&amp;#39;, signingKey: keypair.did(), recoveryKey: keypair.did(), handle: &amp;#39;${ADMIN_USER_NAME}.${DOMAIN}&amp;#39;, service: &amp;#39;https://${DOMAIN}&amp;#39;, prev: null, } const data = new Uint8Array(cbor.</description>
+    </item>
+    
     <item>
       <title>blueskyでhandle.updateしてみた</title>
       <link>https://syui.cf/blog/post/2023/03/08/bluesky/</link>

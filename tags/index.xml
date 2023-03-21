@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>illust</title>
+      <link>https://syui.cf/tags/illust/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/tags/illust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>atproto</title>
       <link>https://syui.cf/tags/atproto/</link>
-      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/atproto/</guid>
       <description></description>
@@ -20,7 +29,7 @@
     <item>
       <title>bluesky</title>
       <link>https://syui.cf/tags/bluesky/</link>
-      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/bluesky/</guid>
       <description></description>
@@ -41,15 +50,6 @@
       <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.cf/tags/fly/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>illust</title>
-      <link>https://syui.cf/tags/illust/</link>
-      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.cf/tags/illust/</guid>
       <description></description>
     </item>
     

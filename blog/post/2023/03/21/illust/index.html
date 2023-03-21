@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>blueskyでhandle.updateしてみた | syui.cf</title>
+		<title>イラスト描いてみた130 | syui.cf</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,7 +13,7 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="blueskyでhandle.updateしてみた" />
+		<meta property="og:title" content="イラスト描いてみた130" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.cf/favicon.png" />
@@ -105,21 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-03-08 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-03-21 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.cf/tags/bluesky/">bluesky</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.cf/tags/atproto/">atproto</a>
+		<a href="https://syui.cf/tags/illust/">illust</a>
 		
 		
 		
@@ -132,84 +123,37 @@
 		
 		</div>
 
-		<h2>blueskyでhandle.updateしてみた</h2>
+		<h2>イラスト描いてみた130</h2>
 
-		<p>bluesky(bsky.social)では現在、handle.updateが追加されていて、いわゆるcustom-domain(custom-handle)のようなことができるようになっています。これを<code>handle.update</code>と呼びます。</p>
-<p>具体的には、<code>syui.bsky.social -&gt; syui.cf</code>などにhandleを変更することができます。</p>
-<p>で、実際にこのhandle.updateをやってみた感想を書きます。</p>
-<p>web, cliの両方に簡単に機能を追加しましたので、誰でもできると思います。</p>
-<h3 id="web">web</h3>
-<p><a href="https://bsky.syui.cf/login">bsky.syui.cf</a> -&gt; login -&gt; profile -&gt; handle.update</p>
-<p>note: re-login</p>
-<h3 id="cli">cli</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo pacman -S rust --noconfirm
-$ git clone https://github.com/syui/atr
-$ cd !$:t
-$ cargo build
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:~/.config/atr/config.toml" data-lang="toml:~/.config/atr/config.toml"><span style="color:#a6e22e">host</span> = <span style="color:#e6db74">&#34;bsky.social&#34;</span>
-<span style="color:#a6e22e">pass</span> = <span style="color:#e6db74">&#34;password&#34;</span>
-<span style="color:#a6e22e">user</span> = <span style="color:#e6db74">&#34;syui.bsky.social&#34;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./target/debug/atr h xxx.bsky.social
-$ ./target/debug/atr h example.com
-<span style="color:#75715e"># note: change config.toml</span>
-<span style="color:#75715e"># user = &#34;example.com&#34;</span>
-
-$ ./target/debug/atr a
-$ ./target/debug/atr profile
-</code></pre></div><h3 id="shell">shell</h3>
-<p>shellでも書いてみました。大体はこんな感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/zsh
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># session.create</span>
-user<span style="color:#f92672">=</span>syui.bsky.social
-pass<span style="color:#f92672">=</span>xxx
-url<span style="color:#f92672">=</span>https://bsky.social/xrpc/com.atproto.session.create
-curl -sL -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;{\&#34;handle\&#34;:\&#34;</span>$user<span style="color:#e6db74">\&#34;,\&#34;password\&#34;:\&#34;</span>$pass<span style="color:#e6db74">\&#34;}&#34;</span> $url &gt;! token.json
-cat token.json|jq .
-
-<span style="color:#75715e"># get : did, accessJwt</span>
-did<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat token.json|jq -r .did<span style="color:#e6db74">`</span>
-token<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>cat token.json|jq -r .accessJwt<span style="color:#e6db74">`</span>
-
-<span style="color:#75715e"># handle.update</span>
-url<span style="color:#f92672">=</span>https://bsky.social/xrpc/com.atproto.handle.update
-json<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;handle\&#34;:\&#34;syui.cf\&#34;}&#34;</span>
-curl -sL -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$token<span style="color:#e6db74">&#34;</span> -d <span style="color:#e6db74">&#34;</span>$json<span style="color:#e6db74">&#34;</span> $url
-</code></pre></div><h3 id="handleupdate">handle.update</h3>
-<p>なぜatではhandle.customと言わず、handle.updateという単語が採用されているのでしょう。</p>
-<p>atでは、handleを削除した場合、そのhandleは空き状態になります。</p>
-<p>つまり、誰でも取得できるようになります。</p>
-<p>これはatの設計思想だと思われます。</p>
-<p>handleを凍結するか、空きにするかで設計思想が異なります。それぞれにメリット、デメリットがあります。</p>
-<p>atはhandleの空きを積極的に作ることで、ユーザーがお気に入りのhandleを取得しやすくなっています。</p>
-<p>これは、handle.updateの処理にも影響します。</p>
-<p>handle.updateとは、handleの完全な移行を意味します。</p>
-<p>具体的には、以前のhandleは削除され、空き状態になり、誰でも取得できるようになります。</p>
-<p>これについては、matrixでwhy氏に教えてもらいました。</p>
-<p>ですから、handle.customではなくhandle.updateという単語が採用されているのだと思います。</p>
-<p>しかし、一般的にはhandle.customのほうがわかりやすいので、私もそのように表記することがあります。</p>
-<p>ですが、実態は、handleの完全な移行であり、以前のhandleは削除されるという認識です。</p>
-<p>handle.update後のerror時の処理ですが、<code>handle = email</code>でre-loginすると解消されます。</p>
-<h3 id="handlesave">handle.save</h3>
-<p>これは、atの設計思想からあまりおすすめできるものではありませんが、<code>bsky.social</code>のhandleを確保しておきたい場合、以下のような処理を行いましょう。</p>
-<ol>
-<li>
-<p>handle.updateする</p>
-</li>
-<li>
-<p>以前のhandleでaccountをcreateする</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/bluesky_20230307_0001.jpg" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># restore</span>
-<span style="color:#75715e"># account delete : syui.bsky.social</span>
-$ atr h syui.bsky.social
-<span style="color:#75715e"># note: invite code x2</span>
-</code></pre></div><h3 id="did">did</h3>
-<p>atのhandleはusernameのようなものです。didがidですね。</p>
-<p>didはnostrでいうpubkeyのようなもので、ユーザー固有で変更できないもの、確実なものとして、基本的には内部でdidが参照されています。</p>
-<p>handleはあくまでaliasのようなもので、search, mention, loginなどの処理のときに人間にわかりやすいようにしている感じです。</p>
-<p>とはいえ、人間にとってhandleのほうが重要ですね。</p>
+		<p><img src="/img/yui_130.png" alt=""></p>
+<h3 id="ちょっとだけ個人的な話をしてみる">ちょっとだけ個人的な話をしてみる</h3>
+<p>お絵かきをはじめて130枚目のイラストになります。</p>
+<p>特に記念すべき数字というわけでもないんですが、今回は少しだけ変わったことがあったので、それについて書きます。</p>
+<p>私のイラストをtwitterに上げるときもあれば、上げるないときもあって、ほとんどは描いても上げないかな。ブログに上げるだけのことが多いです。</p>
+<p>twitterに上げるときは、likeが1つ付くときもあれば、付かないときもあって、付かないことのほうが圧倒的に多いと思います。</p>
+<p>今回の絵は、twitterではなく、blueskyに上げてみました。</p>
+<p>blueskyで絵を投稿してる人を見かけて、私もなにか書こうかなと思ったのです。</p>
+<p>twitterよりも圧倒的に人が少ないはずのblueskyのほうが反応があったので、嬉しい。</p>
+<p>ただ、この現象自体は、少し前から確認されていました。</p>
+<p>絵について適当になにか書きます。</p>
+<p>私は、絵を全く描けないのですが、こうやってsnsに投稿していて、思うところがあります。</p>
+<p>私が見たいと思っているのは、その人が反映された絵なので、初心者であればあるほど面白いと思っているのです。</p>
+<p>絵には、その人の特徴が現れます。</p>
+<p>多くの人はうまく描きたいと願い、練習をするかもしれません。</p>
+<p>しかし、その練習はなんのためなのか。</p>
+<p>多くの人から称賛を受けるための上手な絵を描きたいと願うのか、あるいは、自分が書きたい絵を描けるよう自己実現を願うのか。</p>
+<p>前者はAIが最も得意とする分野です。AIに書かせたほうが良い結果が生まれるでしょう。</p>
+<p>ですが、後者の「本当はこう描きたかったのに、それができなかった。できるようになりたい」は違うと思います。</p>
+<p>私は、他の人の絵を見るとき、上手いか下手かなどには興味がありません。昔からそうでした。</p>
+<p>その人が現れているか否か。それだけを見ている節があります。</p>
+<p>ですから、初心者であればあるほど、その人の特徴が絵には現れるので、私は好きだったりします。</p>
+<p>みんなもお絵描きしよう。楽しいですよ。</p>
+<h3 id="nostrの話">nostrの話</h3>
+<p>絵とは全く関係ないですが、nostrは情報価値の判断、そして、流通が速すぎます。</p>
+<p>独自のコミュニティが日本語で機能しています。</p>
+<p>情報通な人ほど、早めにここの情報に触れておくことを強くおすすめします。</p>
+<p>これは絵とは全く関係がありません。コンピュータや情報、未来に関係します。</p>
+<p>今後、起こりうることのいくつかは、すでにnostrで実現されていると思います。おそらく、そんな感じ。</p>
 
 		
 
@@ -217,14 +161,10 @@ $ atr h syui.bsky.social
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/03/02/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、ナヒーダ完全体を目指す4
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.cf/blog/post/2023/03/13/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
+blueskyをdeployしてみた2
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.cf/blog/post/2023/03/13/bluesky/" id="article-nav-newer" class="article-nav-link-wrap">
-     blueskyをdeployしてみた2
-				</a></p>
     
 	</div>
 </nav>
