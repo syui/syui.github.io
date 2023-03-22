@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>syui.aiというdomainを買ってみた</title>
+      <link>https://syui.cf/blog/post/2023/03/22/domain/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.cf/blog/post/2023/03/22/domain/</guid>
+      <description>今回はdomainを何に使おうか迷ってる話です。
+domainを買うと言っても、自分の中では.io, .aiの2つしか候補がありませんでした。
+そして、.aiを選びました。
+何に使うのかですが、理想としては.cfを.aiに置き換えることです。domainを2つも管理したくない気持ちがあります。
+しかし、これは現実的ではないかもしれません。あまりに.cfに色んなものをhostしすぎた。
+したがって、徐々に.aiをメインで使っていくようにするのが良さそう。
+具体的には、mail, blog, socialとかに使っていきたい。今までと変わらない感じだけど。
+現在、at.syui.aiにself-hostしたatへの投稿を表示しています。
+ここをblogやweb-siteにしてsyui.aiからredirectするのもいいかもしれません。
+今の所は過去に作ったものはそのまま残して、新しく作ったものをsyui.aiにhostしていく予定です。
+しかし、結局は.cfを使い続けるかもしれませんね。この辺、どうなるか、私にもわかりません。
+.cfはずっと気に入って使っていたdomainで、.aiは昔から欲しかったdomainです。
+とりあえず、やりたかったこと第一弾として、本来ならatでは2文字のhandleは取れないんだけど(3文字から)、2文字のhandleでやってみた。
+でもactivitypubやmatrixの形式のほうがかっこいいかもしれませんね。
+activity : @ai@syui.ai
+matrix : @ai:syui.ai
+いや、微妙かな&amp;hellip;。</description>
+    </item>
+    
     <item>
       <title>blueskyのatをdeployしてみた3</title>
       <link>https://syui.cf/blog/post/2023/03/21/bluesky/</link>
