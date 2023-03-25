@@ -16,9 +16,9 @@
 		<meta property="og:title" content="{{ .Title }}" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}syui{{ end }}" />
-		<meta property="og:image" content="{{ if $.Param "page_image" }}{{ $.Param "page_image" }}{{ else }}https://syui.cf/icon/ai.png{{ end }}" />
-		<meta property="og:url" content="https://syui.cf" />
-		<meta property="og:site_name" content="syui.cf" />
+		<meta property="og:image" content="{{ if $.Param "page_image" }}{{ $.Param "page_image" }}{{ else }}{{ .Site.BaseURL }}/icon/ai.png{{ end }}" />
+		<meta property="og:url" content="{{ .Site.BaseURL }}" />
+		<meta property="og:site_name" content="{{ .Site.Title }}" />
 		<link rel="icon" href="/icon/ai/favicon.ico" />
 		<link rel="shortcut icon" href="/icon/ai/favicon.ico" />
 		<link rel="apple-touch-icon" href="/icon/ai/apple-touch-icon.png" />
@@ -46,8 +46,8 @@
 			{
 			  "@context": "http://schema.org",
 			  "@type": "WebSite",
-			  "name": "syui.cf",
-			  "url": "https://syui.cf/"
+					"name": "{{ .Site.Title }}",
+					"url": "{{ .Site.BaseURL }}"
 			}
 		</script>
 {{ range .AlternativeOutputFormats -}}

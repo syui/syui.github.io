@@ -1,6 +1,6 @@
-baseurl = "https://syui.cf"
+baseurl = "https://syui.ai"
 languageCode = "ja-jp"
-title = "syui.cf"
+title = "syui.ai"
 copyright = "&copy; 2019. All rights reserved."
 #canonifyurls = true
 paginate = 10000
