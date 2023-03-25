@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>study on syui.cf</title>
-    <link>https://syui.cf/tags/study/</link>
-    <description>Recent content in study on syui.cf</description>
+    <title>study on syui.ai</title>
+    <link>https://syui.ai/tags/study/</link>
+    <description>Recent content in study on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 01 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/study/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/study/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>憲法の私人間効力など</title>
-      <link>https://syui.cf/blog/post/2017/03/01/study/</link>
+      <link>https://syui.ai/blog/post/2017/03/01/study/</link>
       <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/03/01/study/</guid>
+      <guid>https://syui.ai/blog/post/2017/03/01/study/</guid>
       <description>前回、(1)憲法は国王の権力を制限するために考えられた、(2)法解釈は条文が明確であっても、それが多くの人の幸福につながらないなら意味を読み替えて解釈されることもある、みたいな話をしました。
 それと関連がありそうなのが、憲法の私人間効力の話です。法学という名の法の解釈学において「なぜ法を解釈するのか?」ではなく「どのように法を解釈するのか?」という話になってきます。ただ、なぜ法を解釈するのかという理由については、法解釈する上では通常、その都度説明しなければならないので、一応、まずはそれについて説明します。
 簡単には、憲法は本来的には国家権力を制限するためのものですが、それが私人間(例えば民事訴訟)の紛争解決に使われる場合があります。理由としては、私人間でも人権侵害があれば、憲法を適用しない理由はないというような感じです。法の目的は「個人の尊重」であり「多くの人の幸福」ですので、自然にそうなります。ここまでは前回も説明した話でしたね。
@@ -29,10 +29,10 @@
     
     <item>
       <title>法治主義など</title>
-      <link>https://syui.cf/blog/post/2017/02/28/study/</link>
+      <link>https://syui.ai/blog/post/2017/02/28/study/</link>
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/02/28/study/</guid>
+      <guid>https://syui.ai/blog/post/2017/02/28/study/</guid>
       <description>はじめに、適当の意味 まず、私がこのブログで書いている内容は、基本、すごく適当です。よく(適当)と表示されていますよね。
 ここで「適当」という言葉の意味は文字通りで、私は文章を書く際に何かを参照することはほとんどないためです。
 私は思いついたことを思いついたまま書き連ねていく方式を採用していて、その意味ですごい適当なのです。
@@ -82,10 +82,10 @@ http://www.ab.cyberhome.ne.jp/~shiva/
     
     <item>
       <title>当事者主義など</title>
-      <link>https://syui.cf/blog/post/2017/02/27/study/</link>
+      <link>https://syui.ai/blog/post/2017/02/27/study/</link>
       <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/02/27/study/</guid>
+      <guid>https://syui.ai/blog/post/2017/02/27/study/</guid>
       <description>当事者主義 これは民事訴訟でも刑事訴訟でも同じなのですけど、裁判というのは、大抵、当事者主義を採用しています。当事者というのは、訴えまたは訴えられることによって判決の名宛人になる人のことです。
 ここで、当事者主義というのは何なのかというと、紛争は当事者間で法的に解決すべき問題だという感じのものです。
 例えば、翻訳結果の使用に関しての権利主張があったとして(権利主張があるまでは法的な問題は発生しない)、それは、第三者が当事者に向かって法的主張を行う問題ではなく、あくまで権利を侵害された者が、その権利を侵害したとされる者、被告(人)に対して訴訟を提起し、その権利の回復を求める問題なのだと思います。

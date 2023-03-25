@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>curl on syui.cf</title>
-    <link>https://syui.cf/tags/curl/</link>
-    <description>Recent content in curl on syui.cf</description>
+    <title>curl on syui.ai</title>
+    <link>https://syui.ai/tags/curl/</link>
+    <description>Recent content in curl on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/curl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>コマンドラインからjavascriptでレンダリングされたHTMLソースを取得する方法</title>
-      <link>https://syui.cf/blog/post/2020/07/04/curl/</link>
+      <link>https://syui.ai/blog/post/2020/07/04/curl/</link>
       <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2020/07/04/curl/</guid>
+      <guid>https://syui.ai/blog/post/2020/07/04/curl/</guid>
       <description>phantomjs curlではjavascriptを有効にしたブラウザと同じHTMLソースの取得が難しいことがあります。このような場合、phantomjsを使用すると便利です。
 $ npm i -g phantomjs phantom 公式サイトにてバイナリも配布されてるので、nodeでのインストールが依存関係などで失敗する場合、こちらをダウンロード、解凍して実行権限を与えると良いでしょう。
 https://phantomjs.org/download.html
@@ -25,10 +25,10 @@ https://paul.kinlan.me/domcurl/
     
     <item>
       <title>画像URLから画像をダウンロードできない場合の対処法</title>
-      <link>https://syui.cf/blog/post/2018/11/17/curl/</link>
+      <link>https://syui.ai/blog/post/2018/11/17/curl/</link>
       <pubDate>Sat, 17 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/11/17/curl/</guid>
+      <guid>https://syui.ai/blog/post/2018/11/17/curl/</guid>
       <description>自分の場合、画像を自動ダウンロードして、暇がある時に、定期的にチェックしたりしてるんだけど(みんなやってるよね)、この前、スクリプトが動いてなかったので、見てみた。
 具体的には、nginxにある条件が追加されてて、意図としては、ブラウザでしか開けないようにしているんだろうというか、正確には、ダウンローダーのような直接、画像URLを取得して画像をダウンロードする的な行為を無効化したいんだろうなとか思った。そういうときは、こんな感じで。
 $ curl -sLO https://db.example.com/file/01.jpg -H &amp;#34;Referer: https://example.com&amp;#34; </description>

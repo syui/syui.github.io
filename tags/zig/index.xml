@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>zig on syui.cf</title>
-    <link>https://syui.cf/tags/zig/</link>
-    <description>Recent content in zig on syui.cf</description>
+    <title>zig on syui.ai</title>
+    <link>https://syui.ai/tags/zig/</link>
+    <description>Recent content in zig on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/zig/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/zig/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>zigでcliを作る</title>
-      <link>https://syui.cf/blog/post/2022/08/03/zig-cli/</link>
+      <link>https://syui.ai/blog/post/2022/08/03/zig-cli/</link>
       <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/08/03/zig-cli/</guid>
+      <guid>https://syui.ai/blog/post/2022/08/03/zig-cli/</guid>
       <description>zigは、現時点で外部パッケージを読み込む機能がありません。rustならCargo.toml、rubyならGemfile、goならgo.modがあります。
 zigには、いくつか有志が仕組みを作っていますが、決定的なものは存在しません。
   https://github.com/mattnite/gyro
@@ -25,10 +25,10 @@ $ git clone https://github.com/sam701/zig-cli $ mkdir -p example $ vim example/r
     
     <item>
       <title>zigをwasmにしてcloudflareにdeployする</title>
-      <link>https://syui.cf/blog/post/2022/08/02/zig-wasm-cloudflare/</link>
+      <link>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</link>
       <pubDate>Tue, 02 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/08/02/zig-wasm-cloudflare/</guid>
+      <guid>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</guid>
       <description>zigはprogramming-langの一つです。rustに似ていますが、c++寄りだと思います。
 zigの利点はなんといってもwasmへのbuildの手軽さだと思います。
 wasmはwebから実行できるbinaryです。

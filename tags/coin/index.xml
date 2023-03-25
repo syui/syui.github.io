@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>coin on syui.cf</title>
-    <link>https://syui.cf/tags/coin/</link>
-    <description>Recent content in coin on syui.cf</description>
+    <title>coin on syui.ai</title>
+    <link>https://syui.ai/tags/coin/</link>
+    <description>Recent content in coin on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/coin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/coin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>zcash-cli t-address</title>
-      <link>https://syui.cf/blog/post/2017/06/05/coin/</link>
+      <link>https://syui.ai/blog/post/2017/06/05/coin/</link>
       <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/06/05/coin/</guid>
+      <guid>https://syui.ai/blog/post/2017/06/05/coin/</guid>
       <description>t-addressの確認がわからなかったのだけど、以下のコマンドで行ける。
 zcash-cli listreceivedbyaddress 0 true zcash-cli getaddressesbyaccount &amp;#34;&amp;#34; t-addressも一度作成したものはずっと保存されてるらしい。
 あと、poolからcash outしたけど、未だにt-addressに到達してないのはなぜだろう。時間がかかるというのは聞いてるけど、1日経っても到達しないものなのだろうか。何か間違ってる可能性がある。
@@ -31,10 +31,10 @@ $ zcash-cli z_sendmany 前にt-addressとz-addressの区別がよくわからな
     
     <item>
       <title>bitcoin</title>
-      <link>https://syui.cf/blog/post/2017/06/04/coin/</link>
+      <link>https://syui.ai/blog/post/2017/06/04/coin/</link>
       <pubDate>Sun, 04 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/06/04/coin/</guid>
+      <guid>https://syui.ai/blog/post/2017/06/04/coin/</guid>
       <description>bitcoinはブロックチェーンのダウンロードにものすごい時間がかかります。これは取引記録のデータで、最新のデータに一致しなければならず、20GB~100GBの領域が必要になります。何度か触ってみないと分かりませんが、多分そんな感じ。
 で、bitcoindでダウンロード開始されるのですが、これがすごい遅いのですよね。torrentにもあるようでそちらでダウンロードしたほうが速いということらしいのですが、このあたりあまり良く分かりませんでしたので、bitcoindで開始しています。
 また、膨大な領域が必要になるためこれをメインに置くのは非効率で、開発にも支障をきたしかねませんので、外部に置いた~/.bitcoinを使うことにします。
@@ -44,10 +44,10 @@ $ vim /media/sdb1/.bitcoin/.bitcoin/bitcoin.conf $ bitcoind -datadir=/media/sdb1
     
     <item>
       <title>zcash</title>
-      <link>https://syui.cf/blog/post/2017/06/03/coin/</link>
+      <link>https://syui.ai/blog/post/2017/06/03/coin/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/06/03/coin/</guid>
+      <guid>https://syui.ai/blog/post/2017/06/03/coin/</guid>
       <description>なんとなく仮想通貨についてわかってきたけど、まだまだ慣れない感じです。
 zcashdした時に以下のエラーが出る場合、大抵は、CPU、メモリ不足です。
 Cannot obtain a lock on data directory ~/.zcash t-addressの扱いが全くよくわからないのですが、ソロマイニングできる状態で発行できるアドレスで、一時的、つまりzcashdを実行している時に有効な口座みたいな感じだと思われます。
@@ -59,10 +59,10 @@ $ zcashd $ zcash-cli getnewaddress $ zcash-cli t_listaddresses error code: -3260
     
     <item>
       <title>bitcoin-zcash</title>
-      <link>https://syui.cf/blog/post/2017/06/02/coin/</link>
+      <link>https://syui.ai/blog/post/2017/06/02/coin/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/06/02/coin/</guid>
+      <guid>https://syui.ai/blog/post/2017/06/02/coin/</guid>
       <description>bitcoin, zcashなどやり取りが複雑だと思うし、正直、コイン自体がなければ送受信の練習すら出来ないので使い方を把握できないというのがあって、数コインだけでもマイニングして、送金などの練習をしたいということでDockerでマイニングのためのイメージを作成した。
 https://github.com/syui/docker-nheqminer
 大抵はreadmeに書いてあるのでわかると思います。

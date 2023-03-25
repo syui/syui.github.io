@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>keybase on syui.cf</title>
-    <link>https://syui.cf/tags/keybase/</link>
-    <description>Recent content in keybase on syui.cf</description>
+    <title>keybase on syui.ai</title>
+    <link>https://syui.ai/tags/keybase/</link>
+    <description>Recent content in keybase on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>keybaseにmastodonがやって来ました</title>
-      <link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link>
+      <link>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</guid>
       <description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。
 まず、mastodonがkeybase proofに対応するjsonを出力する実装、その他を行い、keybaseが大手mastodonドメインを自サーバー内に登録することによって、連携が可能になりました。ここで、最も連携に重要だったポイントは、keybaseサーバーに特定のドメインが登録されるということでしたので、タイトルを後者にしました。
 しかし、そんなことはどうでもいいです。ユーザーにとって重要なのは、keybaseが何であるのかや、プロフィールにチェックマーク(認証マーク)が付くことだけですから。
@@ -31,10 +31,10 @@ keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&
     
     <item>
       <title>keybase.pubを使って、keybaseへのリンクにmastodon認証マークを付ける方法</title>
-      <link>https://syui.cf/blog/post/2019/02/27/keybase/</link>
+      <link>https://syui.ai/blog/post/2019/02/27/keybase/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/02/27/keybase/</guid>
+      <guid>https://syui.ai/blog/post/2019/02/27/keybase/</guid>
       <description>keybase.pubというものがあります。これは、keybase.ioが提供するweb serverで、index.md,htmlを置くと、web pageを表示できます。
 https://keybase.pub
 使い方は簡単で、アプリをインストールして、/keybase/public/${USER}にhtml,mdファイルを置きます。ここがrootになります。そして、domainは、${USER}.keybase.pubになります。

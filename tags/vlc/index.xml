@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vlc on syui.cf</title>
-    <link>https://syui.cf/tags/vlc/</link>
-    <description>Recent content in vlc on syui.cf</description>
+    <title>vlc on syui.ai</title>
+    <link>https://syui.ai/tags/vlc/</link>
+    <description>Recent content in vlc on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vlc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vlc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VLCで倍速再生する際に、ピッチを調整する</title>
-      <link>https://syui.cf/blog/post/2018/12/07/vlc/</link>
+      <link>https://syui.ai/blog/post/2018/12/07/vlc/</link>
       <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/12/07/vlc/</guid>
+      <guid>https://syui.ai/blog/post/2018/12/07/vlc/</guid>
       <description>archlinuxのmpv, mplayer, cvlcが全滅していて、現在、非常に倍速再生に支障をきたす感じになっている。
 これが一般的なものか、個人的なものかはわかりませんが、mpv, mplayerは倍速再生にmplayer -speed 3 -af scaletempoとかしても、なぜか声が途切れ途切れになる現象に遭遇していて、ちょっと&amp;hellip;いや、かなり聞き取りづらいです。
 cvlcは、cvlc -I ncursesが落ちる。

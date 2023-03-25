@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fly on syui.cf</title>
-    <link>https://syui.cf/tags/fly/</link>
-    <description>Recent content in fly on syui.cf</description>
+    <title>fly on syui.ai</title>
+    <link>https://syui.ai/tags/fly/</link>
+    <description>Recent content in fly on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/fly/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/fly/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fly.ioのpgがおかしくなった</title>
-      <link>https://syui.cf/blog/post/2023/02/28/flyio/</link>
+      <link>https://syui.ai/blog/post/2023/02/28/flyio/</link>
       <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/28/flyio/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/28/flyio/</guid>
       <description>全体的にfly.ioのappのvm:pgがおかしくなって、それに対応した話。
 Could not proxy HTTP request. Retrying in 1000 ms なんでおかしくなったのかというと、おそらく、fly.io側で仕様変更があったためだと思ってる。pgを新しく作成すると今までの形式とは違ったものになっていて、具体的には、top&amp;lt;number&amp;gt;.nearest.of.&amp;lt;appname&amp;gt;.internal -&amp;gt; [ipv6-private]になってる。
 対応としてはpgのfly.tomlを読み込んで、それを修正後にdeployします。
@@ -22,10 +22,10 @@ $ mkdir pg $ cd pg $ fly config save --app &amp;lt;pg-app-name&amp;gt; $ vim fly
     
     <item>
       <title>mitraをfly.ioにdeployしてみた</title>
-      <link>https://syui.cf/blog/post/2023/01/09/mitra/</link>
+      <link>https://syui.ai/blog/post/2023/01/09/mitra/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/09/mitra/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/09/mitra/</guid>
       <description>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。
 uiとbackendが素晴らしく、とてもシンプルです。
 https://codeberg.org/silverpill/mitra
@@ -36,10 +36,10 @@ $ git clone https://codeberg.org/silverpill/mitra $ cd mitra $ cp config.yaml.ex
     
     <item>
       <title>gotosocialを立ててみた時の話</title>
-      <link>https://syui.cf/blog/post/2023/01/08/gotosocial/</link>
+      <link>https://syui.ai/blog/post/2023/01/08/gotosocial/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/08/gotosocial/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/08/gotosocial/</guid>
       <description>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。
 https://github.com/superseriousbusiness/gotosocial
 golangを採用しているというのが大きく、dbもsqliteです。最もシンプルな構成だと思います。
@@ -56,10 +56,10 @@ fly.io  Dockerfile
     
     <item>
       <title>fly</title>
-      <link>https://syui.cf/m/post/fly/</link>
+      <link>https://syui.ai/m/post/fly/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/m/post/fly/</guid>
+      <guid>https://syui.ai/m/post/fly/</guid>
       <description>fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。fly.tomlにおいてmountできるvolumeは1つです。
 # アプリの作成 $ fly apps create $app # アプリの削除 $ fly apps destroy $app # メモリを512Mに設定する $ fly scale memory 512 # volume(hdd)領域を1Gで作成する $ fly vol create --region nrt --size 1 $app_db # pg(postgres)を作る $ fly pg create -n $app-db $ fly pg attach -a $app $app-db # pgのupdate等 $ fly image update $app-db $ fly pg restart -a $app-db pg attach fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。
 # pgを接続する $ fly pg attach -a $app $app-db pg backup, restore pgは1日おきにsnapshotを作成します。</description>
@@ -67,10 +67,10 @@ fly.io  Dockerfile
     
     <item>
       <title>dendriteをupgradeしてみた</title>
-      <link>https://syui.cf/blog/post/2022/11/22/matrix-dendrite-2/</link>
+      <link>https://syui.ai/blog/post/2022/11/22/matrix-dendrite-2/</link>
       <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/11/22/matrix-dendrite-2/</guid>
+      <guid>https://syui.ai/blog/post/2022/11/22/matrix-dendrite-2/</guid>
       <description>matrix micro-blogのmastodonがtwitterに似ているのなら、chatのmatrixはslackに似ています。
 mastodon, matrixの類似点は分散であるところです。
 matrixのaddressは@user:example.comとなります。
@@ -93,10 +93,10 @@ version: 2 global: server_name: xxx.fly.dev #well_known_server_name: &amp;#34;sy
     
     <item>
       <title>fly.ioとmatrix</title>
-      <link>https://syui.cf/blog/post/2022/11/21/matrix-dendrite/</link>
+      <link>https://syui.ai/blog/post/2022/11/21/matrix-dendrite/</link>
       <pubDate>Mon, 21 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/11/21/matrix-dendrite/</guid>
+      <guid>https://syui.ai/blog/post/2022/11/21/matrix-dendrite/</guid>
       <description>今回は、fly.ioでmatrix-serverを立ててみました。serverはdendriteを採用します。
 https://github.com/matrix-org/dendrite
 fly.ioにはいくつか制約があり、dockerfileをdeployすることになります。
@@ -110,10 +110,10 @@ https://matrix-org.github.io/dendrite/installation/domainname
     
     <item>
       <title>fly.ioとmastodon</title>
-      <link>https://syui.cf/blog/post/2022/11/17/mastodon/</link>
+      <link>https://syui.ai/blog/post/2022/11/17/mastodon/</link>
       <pubDate>Thu, 17 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/11/17/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2022/11/17/mastodon/</guid>
       <description>fly.ioを使ってみて、数ヶ月が経過したのでレビューです。
 https://fly.io
 fly.ioではmastodonを動かしており、安定して動作しています。
@@ -134,10 +134,10 @@ clientは以下のframework等を使うと非常に便利。
     
     <item>
       <title>fly.ioとnorthflankの感想</title>
-      <link>https://syui.cf/blog/post/2022/08/31/heroku-fly-northflank/</link>
+      <link>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</link>
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/08/31/heroku-fly-northflank/</guid>
+      <guid>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</guid>
       <description>herokuの移行先として挙げられるfly.io, northflankの感想になります。
 https://news.ycombinator.com/item?id=32599398
 fly.ioが個人的には合っていると思いました。
@@ -148,10 +148,10 @@ gitea 例えば、giteaはfly.ioで簡単に動きました。dockerを利用す
     
     <item>
       <title>herokuからfly.ioへの移行</title>
-      <link>https://syui.cf/blog/post/2022/08/27/fly-heroku/</link>
+      <link>https://syui.ai/blog/post/2022/08/27/fly-heroku/</link>
       <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/08/27/fly-heroku/</guid>
+      <guid>https://syui.ai/blog/post/2022/08/27/fly-heroku/</guid>
       <description>herokuのplan:free(hobby)が廃止され、mo/$31になるので、herokuからfly.ioへ移行を考えています。
  Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.
  https://blog.heroku.com/next-chapter

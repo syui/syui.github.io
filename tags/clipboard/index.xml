@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>clipboard on syui.cf</title>
-    <link>https://syui.cf/tags/clipboard/</link>
-    <description>Recent content in clipboard on syui.cf</description>
+    <title>clipboard on syui.ai</title>
+    <link>https://syui.ai/tags/clipboard/</link>
+    <description>Recent content in clipboard on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/clipboard/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/clipboard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>terminalのOSC52を使いclipboardを共有する</title>
-      <link>https://syui.cf/blog/post/2023/01/15/nvim/</link>
+      <link>https://syui.ai/blog/post/2023/01/15/nvim/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/15/nvim/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/15/nvim/</guid>
       <description>terminalのOSC52という機能を使うと、ssh-sessionでもcopyしたものがsystemのclipboardに入ります。これらはosの互換性に関係ないため幅広く使えます。
 ただし、clipboardの共有は、往々にしてセキュリティ問題があるため注意してください。
 また、tmuxではできなかったので、iterm2の別タブで行いました。

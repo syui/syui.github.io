@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>phx on syui.cf</title>
-    <link>https://syui.cf/tags/phx/</link>
-    <description>Recent content in phx on syui.cf</description>
+    <title>phx on syui.ai</title>
+    <link>https://syui.ai/tags/phx/</link>
+    <description>Recent content in phx on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/phx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/phx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>phxでmail notifyを実装した</title>
-      <link>https://syui.cf/blog/post/2018/08/24/phx/</link>
+      <link>https://syui.ai/blog/post/2018/08/24/phx/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/24/phx/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/24/phx/</guid>
       <description>導入 今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。
 iconの取得はmailからgravatar.comを使ってるんじゃないですかね(知りませんが)。コード読めという話ですね。
 さて、ではrepoのcloneからいきましょー。今回もexample chatみたいな感じのやつです。

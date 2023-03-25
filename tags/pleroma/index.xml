@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pleroma on syui.cf</title>
-    <link>https://syui.cf/tags/pleroma/</link>
-    <description>Recent content in pleroma on syui.cf</description>
+    <title>pleroma on syui.ai</title>
+    <link>https://syui.ai/tags/pleroma/</link>
+    <description>Recent content in pleroma on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/pleroma/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/pleroma/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pleromaをherokuで立てる[2022年度版]</title>
-      <link>https://syui.cf/blog/post/2022/07/07/pleroma/</link>
+      <link>https://syui.ai/blog/post/2022/07/07/pleroma/</link>
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/07/07/pleroma/</guid>
+      <guid>https://syui.ai/blog/post/2022/07/07/pleroma/</guid>
       <description>この前、#stackoverflowでelixirのphoenixが好きなフレームワーク1位に選ばれていました。
 ref : https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html
 正直、驚きました。しかも、好きな言語ランキングでも1位のrustに続いてelixirが2位でした。elixir、そんな人気だったん&amp;hellip;?
@@ -29,10 +29,10 @@ config :pleroma, Pleroma.Web.Endpoint, url: [scheme: &amp;#34;https&amp;#34;, ho
     
     <item>
       <title>pleromaをherokuで立てる</title>
-      <link>https://syui.cf/blog/post/2019/04/04/pleroma/</link>
+      <link>https://syui.ai/blog/post/2019/04/04/pleroma/</link>
       <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/04/04/pleroma/</guid>
+      <guid>https://syui.ai/blog/post/2019/04/04/pleroma/</guid>
       <description>pleroma on heroku.
 herokuでpleromaを動かします。動いた環境を記録します。
 heroku info remote: * Stack heroku-18 remote: * Erlang 21.2 remote: * Elixir 1.7 src : https://git.pleroma.social/pleroma/pleroma , fd7dd8f9a2f052531bb17fe51d3678787bd8b4c8
@@ -44,10 +44,10 @@ $ git push heroku master remote: -----&amp;gt; Fetching app dependencies with mi
     
     <item>
       <title>dockerでpleromaを起動してみる</title>
-      <link>https://syui.cf/blog/post/2018/07/29/docker-pleroma/</link>
+      <link>https://syui.ai/blog/post/2018/07/29/docker-pleroma/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/07/29/docker-pleroma/</guid>
+      <guid>https://syui.ai/blog/post/2018/07/29/docker-pleroma/</guid>
       <description>導入 分散型SNSの一つにpleromaというものがあります。分散型SNSというのは、GNU Social(PHP), Mastodon(Ruby)のようなものです。
 pleromaは、ElixirのPhoenixというフレームワークで書かれたWebアプリ&amp;hellip;と言っていいか分かりませんが、そんな感じのものです。
 ご存知の通り、ElixirのPhoneixは非常にレスポンスと言うか、自動更新周りの処理がエコでして、pleromaも非常に軽い感じで動作します。

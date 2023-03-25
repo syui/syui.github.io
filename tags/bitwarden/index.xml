@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bitwarden on syui.cf</title>
-    <link>https://syui.cf/tags/bitwarden/</link>
-    <description>Recent content in bitwarden on syui.cf</description>
+    <title>bitwarden on syui.ai</title>
+    <link>https://syui.ai/tags/bitwarden/</link>
+    <description>Recent content in bitwarden on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/bitwarden/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/bitwarden/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bitwardenをself-hostで試してみた</title>
-      <link>https://syui.cf/blog/post/2021/08/14/bitwarden/</link>
+      <link>https://syui.ai/blog/post/2021/08/14/bitwarden/</link>
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/08/14/bitwarden/</guid>
+      <guid>https://syui.ai/blog/post/2021/08/14/bitwarden/</guid>
       <description>password managerのbitwardenを試してみました。self-hostしますので、herokuを使います。
 https://bitwarden.com
 bitwardenはossのcloud pass managerみたいなものだと思われます。web domainを使ってdbにアクセスし、そっから情報を読み込みます。

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gitea on syui.cf</title>
-    <link>https://syui.cf/tags/gitea/</link>
-    <description>Recent content in gitea on syui.cf</description>
+    <title>gitea on syui.ai</title>
+    <link>https://syui.ai/tags/gitea/</link>
+    <description>Recent content in gitea on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/gitea/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/gitea/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>giteaのcleanとupdate</title>
-      <link>https://syui.cf/blog/post/2022/06/08/gitea/</link>
+      <link>https://syui.ai/blog/post/2022/06/08/gitea/</link>
       <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/06/08/gitea/</guid>
+      <guid>https://syui.ai/blog/post/2022/06/08/gitea/</guid>
       <description>現在、giteaをherokuで動かしてるんだけど、この前、postgres(pgsql)のメンテンナンスがあるとかで一時停止されて、メンテナンス後に動作しなくなってたので再度動かしてみたときの知見。
 https://git.syui.cf/syui
 まず、メンテナンス後にherokuのpgsqlがwebとcliで情報が違ってたので、cliを参考にすること。
@@ -24,10 +24,10 @@ $ git clone https://github.com/go-gitea/gitea $ cd gitea $ vim docker-compose.ym
     
     <item>
       <title>herokuでgiteaが動かなくなってた</title>
-      <link>https://syui.cf/blog/post/2021/06/27/heroku-gitea/</link>
+      <link>https://syui.ai/blog/post/2021/06/27/heroku-gitea/</link>
       <pubDate>Sun, 27 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/06/27/heroku-gitea/</guid>
+      <guid>https://syui.ai/blog/post/2021/06/27/heroku-gitea/</guid>
       <description>$USERではなく、whoamiで取るようにしました。
 herokuはUSERとPORTが変動しますので、仕組みに応じて環境変数を書き換える必要があります。今回もgiteaのdockerfileを使用します。
 https://git.syui.cf/syui/gitea

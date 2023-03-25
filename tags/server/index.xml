@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>server on syui.cf</title>
-    <link>https://syui.cf/tags/server/</link>
-    <description>Recent content in server on syui.cf</description>
+    <title>server on syui.ai</title>
+    <link>https://syui.ai/tags/server/</link>
+    <description>Recent content in server on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>google-cloud-kubernetes</title>
-      <link>https://syui.cf/blog/post/2017/09/16/server/</link>
+      <link>https://syui.ai/blog/post/2017/09/16/server/</link>
       <pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/09/16/server/</guid>
+      <guid>https://syui.ai/blog/post/2017/09/16/server/</guid>
       <description>AWS(Amazon Web Service)の対抗であるGoogle Cloud PlatformのContainer Engineがかなり便利なのですが、注意点があるので、それについて。
 Google Cloud Platform(以降、GCP)は、無料枠で使うにしてもまずクレジットカードの登録が必要です。プリペイドカード(V-プリカなど)での登録は不可能です。
 また、無料枠で使うにはコツがいります。具体的にはデフォルトの設定では一定期間後に多大な料金が課金されるような仕組みになっていると思うので注意が必要な感じです。
@@ -29,10 +29,10 @@ f1-microというのは、ようは自分の端末から常時接続できるIaa
     
     <item>
       <title>cloudflare</title>
-      <link>https://syui.cf/blog/post/2017/04/14/server/</link>
+      <link>https://syui.ai/blog/post/2017/04/14/server/</link>
       <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/14/server/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/14/server/</guid>
       <description>現在、freenomで取得したドメインからsyui.gitlab.ioへリダイレクトして繋いでるんだけど、そのためのネームサーバー及びSSLの設定に使ってるCloudFlareが522 Errorを吐きまくるので、接続が安定しない問題があった。
 https://support.cloudflare.com/hc/en-us/articles/200171906-Error-522
 https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/

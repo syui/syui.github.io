@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>card on syui.cf</title>
-    <link>https://syui.cf/tags/card/</link>
-    <description>Recent content in card on syui.cf</description>
+    <title>card on syui.ai</title>
+    <link>https://syui.ai/tags/card/</link>
+    <description>Recent content in card on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/card/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/card/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>カードを作ってみた7</title>
-      <link>https://syui.cf/blog/post/2022/12/15/card/</link>
+      <link>https://syui.ai/blog/post/2022/12/15/card/</link>
       <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/12/15/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/12/15/card/</guid>
       <description>久しぶりに改めてカードを作ってみることにしました。
 以前のカードはベースを紙にしていました。
 しかし、紙ベースだと劣化が激しいような気がしたのです。
@@ -36,29 +36,29 @@
     
     <item>
       <title>カードを作ってみた6</title>
-      <link>https://syui.cf/blog/post/2022/07/16/card/</link>
+      <link>https://syui.ai/blog/post/2022/07/16/card/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/07/16/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/07/16/card/</guid>
       <description>上の方はザラザラした特別仕様、下はクリアカードの完成版です。</description>
     </item>
     
     <item>
       <title>カードを作ってみた5</title>
-      <link>https://syui.cf/blog/post/2022/07/06/card/</link>
+      <link>https://syui.ai/blog/post/2022/07/06/card/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/07/06/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/07/06/card/</guid>
       <description>カードに秘密鍵を刻印して認証する仕組みを作ってみました。
 $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out public.pem $ openssl rsa -text -pubin &amp;lt; public.pem $ openssl rsa -text &amp;lt; private.pem modulus INTEGER, -- n = p*q publicExponent INTEGER, -- e = 65537 (=0x10001) privateExponent INTEGER, -- d == e^(-1) mod (p-1)*(q-1) prime1 INTEGER, -- p prime2 INTEGER, -- q exponent1 INTEGER, -- d mod (p-1) exponent2 INTEGER, -- d mod (q-1) coefficient INTEGER, -- q^(-1) mod p ### gh-actions $ openssl rsa -in pull-private.</description>
     </item>
     
     <item>
       <title>カードを作ってみた4</title>
-      <link>https://syui.cf/blog/post/2022/07/03/card/</link>
+      <link>https://syui.ai/blog/post/2022/07/03/card/</link>
       <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/07/03/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/07/03/card/</guid>
       <description>カードを作ってみて、めちゃくちゃ満足感あったし、楽しかった。
 こっちのページでできる占いは実際にカードで持ってるやつだけにした。
 /ai/card
@@ -68,10 +68,10 @@ $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out 
     
     <item>
       <title>カードを作ってみた3</title>
-      <link>https://syui.cf/blog/post/2022/06/30/card/</link>
+      <link>https://syui.ai/blog/post/2022/06/30/card/</link>
       <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/06/30/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/06/30/card/</guid>
       <description>今回作ってみたのはクリアカードです。
 使ったもの   きらきらホログラムラベルシール(ガラスチップ) / クリアシール用紙A4
   セルフラメシート
@@ -81,10 +81,10 @@ $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out 
     
     <item>
       <title>カードを作ってみた2</title>
-      <link>https://syui.cf/blog/post/2022/06/26/card/</link>
+      <link>https://syui.ai/blog/post/2022/06/26/card/</link>
       <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/06/26/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/06/26/card/</guid>
       <description>今回は前回からの失敗を踏まえ、本物のトレーディングカードっぽくなった気がする。
 使ったもの   きらきらホログラムラベルシール
   クリアホログラムシート
@@ -96,10 +96,10 @@ $ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out 
     
     <item>
       <title>カードを作ってみた1</title>
-      <link>https://syui.cf/blog/post/2022/06/23/card/</link>
+      <link>https://syui.ai/blog/post/2022/06/23/card/</link>
       <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/06/23/card/</guid>
+      <guid>https://syui.ai/blog/post/2022/06/23/card/</guid>
       <description>動機 最初は、ほんの出来心でした。ポケカが増えてきたので、ポケモンのレアカードを額縁に入れて飾ろうとしたのです。
 しかし、飾ってみると、どうもしっくり来ませんでした。
 そこで、フォトシールというやつが余っていたので、それをポケカの上に貼り、オリジナルカードっぽいものを作ってみました。

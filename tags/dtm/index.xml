@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dtm on syui.cf</title>
-    <link>https://syui.cf/tags/dtm/</link>
-    <description>Recent content in dtm on syui.cf</description>
+    <title>dtm on syui.ai</title>
+    <link>https://syui.ai/tags/dtm/</link>
+    <description>Recent content in dtm on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/dtm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/dtm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>7曲目を作った時の話</title>
-      <link>https://syui.cf/blog/post/2019/10/16/dtm/</link>
+      <link>https://syui.ai/blog/post/2019/10/16/dtm/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/10/16/dtm/</guid>
+      <guid>https://syui.ai/blog/post/2019/10/16/dtm/</guid>
       <description>簡単にですけど、7曲目を作った時の話をもっと詳しく書いてみようという感じで、思い出せる限り書いていきたいと思います。
 曲自体は、半日で作って、2,3日で調整しました。何度も聴いて違和感のある部分を修正する作業のほうが時間がかかりました。
 何故かと言うと、そもそも違和感に気づくまでに時間をあける必要があるからだと思います。連続で聴いてると、何がいいのか悪いのかわからないことも多いのです。なので、完成してもとりあえず、1日は置いたほうがいいかもしれません。
@@ -39,10 +39,10 @@ synthvで出力して、audacityで闇音レンリの歌と伴奏を合成。こ
     
     <item>
       <title>DTMでボカロ曲を作ってみた</title>
-      <link>https://syui.cf/blog/post/2018/08/06/dtm/</link>
+      <link>https://syui.ai/blog/post/2018/08/06/dtm/</link>
       <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/06/dtm/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/06/dtm/</guid>
       <description>導入 私はいくつか曲を作ってきたわけですが、最後に作った曲だけが、なんか納得いかなかったんですよね。
 どこに納得がいってなかったかと言うと「安心して聞いてられない雰囲気がある」みたいな、そんなふわっとした、要は抽象的なものなんですが、そんな感じでした。
 技術的に言えば多分、イントロ部分を作っていないみたいなことになるでしょうか。それ以外にも色々ありましたが、私が最初に改善しようとするポイントとしてはその点でした。つまり、ちゃんとイントロ作れよってことなんですけどね。

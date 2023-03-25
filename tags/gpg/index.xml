@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gpg on syui.cf</title>
-    <link>https://syui.cf/tags/gpg/</link>
-    <description>Recent content in gpg on syui.cf</description>
+    <title>gpg on syui.ai</title>
+    <link>https://syui.ai/tags/gpg/</link>
+    <description>Recent content in gpg on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gitlab gpg</title>
-      <link>https://syui.cf/blog/post/2019/02/19/gpg/</link>
+      <link>https://syui.ai/blog/post/2019/02/19/gpg/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/02/19/gpg/</guid>
+      <guid>https://syui.ai/blog/post/2019/02/19/gpg/</guid>
       <description>いつからだったかわかりませんが、gpg keysがunverifiedだったので、verifiedにするテスト。
 https://gitlab.com/help/user/project/repository/gpg_signed_commits/index.md
 追記 :
@@ -23,10 +23,10 @@ $ git config --local user.email example@example.com </description>
     
     <item>
       <title>gitlab-gpg</title>
-      <link>https://syui.cf/blog/post/2017/09/13/gpg/</link>
+      <link>https://syui.ai/blog/post/2017/09/13/gpg/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/09/13/gpg/</guid>
+      <guid>https://syui.ai/blog/post/2017/09/13/gpg/</guid>
       <description>いつの間にかGitLabでGPGの検証が来ていましたので設定してみましたが、色々とハマりどころ満載でした。(あくまで個人的事情によりですが)
 https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
 まずGitHubとGitLabでGPGの検証方法がだいぶ異なっているので再設定する羽目になりました。共通するキーを使えなかった。その時のメモ。
@@ -46,10 +46,10 @@ https://docs.gitlab.com/ee/user/project/gpg_signed_commits/
     
     <item>
       <title>gpg-mac</title>
-      <link>https://syui.cf/blog/post/2017/06/07/gpg/</link>
+      <link>https://syui.ai/blog/post/2017/06/07/gpg/</link>
       <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/06/07/gpg/</guid>
+      <guid>https://syui.ai/blog/post/2017/06/07/gpg/</guid>
       <description>この処理によってパスフレーズを短縮可能。OSによってパスフレーズの短縮手法は異なる。
 $ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
  use-standard-socket pinentry-program /usr/local/bin/pinentry-mac </description>
@@ -57,10 +57,10 @@ $ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
     
     <item>
       <title>gpg-keys-2</title>
-      <link>https://syui.cf/blog/post/2017/04/02/gpg/</link>
+      <link>https://syui.ai/blog/post/2017/04/02/gpg/</link>
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/02/gpg/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/02/gpg/</guid>
       <description>GPGでの失敗談です。
 一つ目はgpg send-keysした後に、search-keysしたのですが、その時、登録されていなかったみたいだったので、一度、その鍵を削除したあと、再度、searchしてみたら登録されてたという。これ、公開鍵を削除できないパターンなんじゃ&amp;hellip;。
 二つ目はGPG鍵を新しくしたので、古い鍵をGitHubから削除したのですが、過去のコミットがUnverifiedになってしまったという。
@@ -72,10 +72,10 @@ $ brew install gpg2 gpg-agent pinentry-mac  ~/.gnupg/gpg-agent.conf
     
     <item>
       <title>gpg-key</title>
-      <link>https://syui.cf/blog/post/2017/04/01/gpg/</link>
+      <link>https://syui.ai/blog/post/2017/04/01/gpg/</link>
       <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/01/gpg/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/01/gpg/</guid>
       <description>AURにPGP登録したこともあって簡潔に情報をまとめておきます。
 https://aur.archlinux.org/account/syui
 # GPG鍵の作成 $ gpg --gen-key # 公開鍵を表示 $ gpg --list-keys $ gpg --armor --export XXXXXX # フィンガープリントのリスト $ gpg --fingerprint 外部のサーバーに登録する。デフォルトではkeys.gnupg.netな感じ?

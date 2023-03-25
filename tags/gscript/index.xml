@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gscript on syui.cf</title>
-    <link>https://syui.cf/tags/gscript/</link>
-    <description>Recent content in gscript on syui.cf</description>
+    <title>gscript on syui.ai</title>
+    <link>https://syui.ai/tags/gscript/</link>
+    <description>Recent content in gscript on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/gscript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/gscript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google Apps Scriptで翻訳してみた</title>
-      <link>https://syui.cf/blog/post/2019/12/15/gscript/</link>
+      <link>https://syui.ai/blog/post/2019/12/15/gscript/</link>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/15/gscript/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/15/gscript/</guid>
       <description>今回使用するのは、Google Apps Scriptというものです。Google Translate APIが有料しか無かったのでこちらを使うことにしました。
 ハマりどころが多かったので、ポイントだけ。
 まず、公開時(リリース時)は、必ずNewでバージョンをつけないと、更新されないみたいです。空にした場合、2,3,4と自動で番号が付きます。同じバージョンを選ぶと、内容は保存されているみたいですが、デプロイされていない状態だと思われます。

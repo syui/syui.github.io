@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vpn on syui.cf</title>
-    <link>https://syui.cf/tags/vpn/</link>
-    <description>Recent content in vpn on syui.cf</description>
+    <title>vpn on syui.ai</title>
+    <link>https://syui.ai/tags/vpn/</link>
+    <description>Recent content in vpn on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 25 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vpn serverを一瞬で立ち上げ、外出先から接続する方法</title>
-      <link>https://syui.cf/blog/post/2019/05/25/vpn/</link>
+      <link>https://syui.ai/blog/post/2019/05/25/vpn/</link>
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/05/25/vpn/</guid>
+      <guid>https://syui.ai/blog/post/2019/05/25/vpn/</guid>
       <description>Free Wi-Fiなどを利用する際は、VPNに接続すると安全です。仕組みは、通信が暗号化されるトンネルのようなものを作り、そこにトラフィックを通すことで通信内容の傍受などを阻害する効果があります。つまり、Free Wi-Fiを利用して何らかのサービスにログインする際にidやpassを読み取られる危険などがあるわけですが、それを回避できます。
 また、VPNを使うとVPN Serverを経由するため、IP AddressがそのServerのものに変わります。(ただし、使用するツールや環境変数に依存する場合あり)。
 しかし、VPNはなかなか面倒で一番良いのは、サービスにインストールして使えるようにすることですが、費用がかかります。
@@ -26,10 +26,10 @@ $ mkdir mongo $ sudo docker-compose up -d  docker-compose.yml
     
     <item>
       <title>archlinuxで手軽にvpn serverを立てる</title>
-      <link>https://syui.cf/blog/post/2018/08/08/softethervpn/</link>
+      <link>https://syui.ai/blog/post/2018/08/08/softethervpn/</link>
       <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/08/softethervpn/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/08/softethervpn/</guid>
       <description>導入 archlinuxには、いろいろな用途があります。
 私がarchlinuxを使っている一番の理由は、広範囲に渡って利用できるからです。
 archlinuxは、serverとしてもdesktopとしても優秀で、usbに入れて持ち運ぶにしても、containerとしても最適です。

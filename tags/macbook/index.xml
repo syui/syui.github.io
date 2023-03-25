@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>macbook on syui.cf</title>
-    <link>https://syui.cf/tags/macbook/</link>
-    <description>Recent content in macbook on syui.cf</description>
+    <title>macbook on syui.ai</title>
+    <link>https://syui.ai/tags/macbook/</link>
+    <description>Recent content in macbook on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/macbook/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/macbook/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ステッカーを作ってみた2</title>
-      <link>https://syui.cf/blog/post/2023/02/02/macbook/</link>
+      <link>https://syui.ai/blog/post/2023/02/02/macbook/</link>
       <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/02/macbook/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/02/macbook/</guid>
       <description>初代macbook airはステッカーなしですが、macbook airが増えるにつれ見分けがつかないため、ステッカーを貼るようになりました。あとリンゴマーク部分のプロテクト。
  macbook air 13-inch (m1)  今回はカード制作の知識を生かして、透明なオーロラシールを採用。
 昔、サークル型のステッカーは切り取る作業に苦労した覚えがあるんですよ。
@@ -26,19 +26,19 @@
     
     <item>
       <title>ステッカーを作ってみた1</title>
-      <link>https://syui.cf/blog/post/2021/01/21/badge/</link>
+      <link>https://syui.ai/blog/post/2021/01/21/badge/</link>
       <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/01/21/badge/</guid>
+      <guid>https://syui.ai/blog/post/2021/01/21/badge/</guid>
       <description> macbook air 11-inch (intel)  </description>
     </item>
     
     <item>
       <title>macbook airのバッテリー交換</title>
-      <link>https://syui.cf/blog/post/2019/10/21/macbook/</link>
+      <link>https://syui.ai/blog/post/2019/10/21/macbook/</link>
       <pubDate>Mon, 21 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/10/21/macbook/</guid>
+      <guid>https://syui.ai/blog/post/2019/10/21/macbook/</guid>
       <description>macbook airは2012のものでarchlinuxを入れて使ってますが、ある日、突然起動しなくなりました。これはバッテリーが原因で、バッテリーを外すと、起動します。
 以下、バッテリー交換した時の状況をまとめます。
   archのバッテリー関係のドライバ、linux-kernelあたりに問題があって、ヘタってるバッテリーが充電できない感じだった。更に、電源からではなくバッテリーから接続しようとしてるので、起動しない。ここらへんの動作は、バッテリーの寿命にも影響した可能性。これは後で判明する
@@ -51,10 +51,10 @@
     
     <item>
       <title>MacBook Air 11-inchのキーボードが故障したので修理した</title>
-      <link>https://syui.cf/blog/post/2018/07/23/mba11/</link>
+      <link>https://syui.ai/blog/post/2018/07/23/mba11/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/07/23/mba11/</guid>
+      <guid>https://syui.ai/blog/post/2018/07/23/mba11/</guid>
       <description>導入 MacBook Airのキーボードは基本的に脆いもので、数年使用しているとキーが飛んだり、壊れたりしてしまいます。
 そのため、本来的には外付けキーボードで使うべきだったのですが、そのことに気付いたのは、内蔵キーボードが壊れてからでした。
 よって、今回は、海外から部品を取り寄せて修理したわけなのですが、幸運にも上手くいったので、その時の話を少しだけ書いていきたいと思います。

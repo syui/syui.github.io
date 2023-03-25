@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>none on syui.cf</title>
-    <link>https://syui.cf/tags/none/</link>
-    <description>Recent content in none on syui.cf</description>
+    <title>none on syui.ai</title>
+    <link>https://syui.ai/tags/none/</link>
+    <description>Recent content in none on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 12 Jun 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/none/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jun 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/none/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>m</title>
-      <link>https://syui.cf/blog/post/2016/06/12/m/</link>
+      <link>https://syui.ai/blog/post/2016/06/12/m/</link>
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/12/m/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/12/m/</guid>
       <description>個人用のメモのプラグインをアップデートしました。
 内容としては、「jsonで書かないオプションを追加し、それが現時点での最新記事(未来の日付)に保存されていく」という仕組み。
 そして、これは、jsonで書いた記事よりも優先的にポストされていく仕組みです。
@@ -25,10 +25,10 @@
     
     <item>
       <title>gitlab-ci</title>
-      <link>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</link>
+      <link>https://syui.ai/blog/post/2016/06/11/gitlab-ci/</link>
       <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/11/gitlab-ci/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/11/gitlab-ci/</guid>
       <description>GitLab CIを試してみているのですが、結構遅いです。
 ただ、最終的には実行してくれる感じなのでWerckerよりは良くなってくのかも。
 あと、Elmのテンプレートが上手くビルドできなかった。gulp buildで引っかかります。ローカルではOK。
@@ -38,10 +38,10 @@ image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package
     
     <item>
       <title>置き去りにされた子の話</title>
-      <link>https://syui.cf/blog/post/2016/06/10/private/</link>
+      <link>https://syui.ai/blog/post/2016/06/10/private/</link>
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/10/private/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/10/private/</guid>
       <description>置き去りにされた子の話 最近、話題になってたニュースというと、置き去りにされた子が行方不明になったという感じの話でした。
 今回は、これについて個人的な考えを述べます。
 まず、世間の反応については予想通りでした。
@@ -110,10 +110,10 @@ image: node:latest before_script: - npm i -g elm@0.16.0 bower gulp - elm-package
     
     <item>
       <title>英語で記事を書くためには何が必要か</title>
-      <link>https://syui.cf/blog/post/2016/06/09/english/</link>
+      <link>https://syui.ai/blog/post/2016/06/09/english/</link>
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/09/english/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/09/english/</guid>
       <description>英語で記事を書くためには何が必要か https://grammarly.com/
 このようなサービスが便利です。
 とあとは、本ですね。海外での英語の教科書(洋書)が良いらしいです。具体的には、Grammar in Useなどが人気です。和書は使わないほうが良いとのこと。
@@ -123,10 +123,10 @@ Grammar in Use Intermediate</description>
     
     <item>
       <title>Webの何が面倒くさいって</title>
-      <link>https://syui.cf/blog/post/2016/06/08/web/</link>
+      <link>https://syui.ai/blog/post/2016/06/08/web/</link>
       <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/08/web/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/08/web/</guid>
       <description>Webの何が面倒くさいって Webの何が面倒くさいかというと、表示確認とその調整です。
 表示はデバイスごとによって異なります。OSごとによっても、ブラウザごとによっても異なります。
 例えば、コンピュータのみで確認を行うため色々なものが用意されていたりします。iPhone用の表示だとか。
@@ -139,20 +139,20 @@ Grammar in Use Intermediate</description>
     
     <item>
       <title>芝をどこまで続けられるか</title>
-      <link>https://syui.cf/blog/post/2016/06/08/blog/</link>
+      <link>https://syui.ai/blog/post/2016/06/08/blog/</link>
       <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/08/blog/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/08/blog/</guid>
       <description>芝をどこまで続けられるか このブログ、ソースコードを公開することにしていて、その理由の一つが芝です。
 本ブログでも芝を表示するようにしてから、Publicの連続更新が可視化されるようになったので、毎日更新を目指したいですね。</description>
     </item>
     
     <item>
       <title>新しくメモプラグインを作成した</title>
-      <link>https://syui.cf/blog/post/2016/06/07/m/</link>
+      <link>https://syui.ai/blog/post/2016/06/07/m/</link>
       <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/07/m/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/07/m/</guid>
       <description>新しくメモプラグインを作成した 新しくメモプラグインを作成しました。
 コードも前回の1/100(割りとマジ)くらいになりました。
 また、不都合もありません。コードが少ないので当たり前か&amp;hellip;。
@@ -165,10 +165,10 @@ Grammar in Use Intermediate</description>
     
     <item>
       <title>移転</title>
-      <link>https://syui.cf/blog/post/2016/06/07/start/</link>
+      <link>https://syui.ai/blog/post/2016/06/07/start/</link>
       <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2016/06/07/start/</guid>
+      <guid>https://syui.ai/blog/post/2016/06/07/start/</guid>
       <description>移転 1年間更新してたサブでやってたブログを移転しました。
 具体的にはこれですね。
 syui.github.io/middleman

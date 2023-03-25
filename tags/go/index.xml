@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on syui.cf</title>
-    <link>https://syui.cf/tags/go/</link>
-    <description>Recent content in go on syui.cf</description>
+    <title>go on syui.ai</title>
+    <link>https://syui.ai/tags/go/</link>
+    <description>Recent content in go on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>twitter devのban祭りに参加した</title>
-      <link>https://syui.cf/blog/post/2023/01/14/twitter/</link>
+      <link>https://syui.ai/blog/post/2023/01/14/twitter/</link>
       <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/14/twitter/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/14/twitter/</guid>
       <description>twitter devにて、app(client)がbanされはじめているらしいという情報があり、自分が作ったやつは大丈夫かなと思い確認してみると、大丈夫そうだったので、ついでにmastodonのbotと連携させて遊んでたら&amp;hellip;
 /usr/bin/jq
 &amp;quot;https://t.co/zZHO828PqJ&amp;quot;
@@ -34,10 +34,10 @@ name: release on: pull_request: branches: - master types: - closed push: tags: -
     
     <item>
       <title>cardをcliから引けるようにした</title>
-      <link>https://syui.cf/blog/post/2022/02/27/golang-api-ent/</link>
+      <link>https://syui.ai/blog/post/2022/02/27/golang-api-ent/</link>
       <pubDate>Sun, 27 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/02/27/golang-api-ent/</guid>
+      <guid>https://syui.ai/blog/post/2022/02/27/golang-api-ent/</guid>
       <description>こんな感じでカードを引けます。
 # user create # username : [a-z] 7 characters, lower-case letter $ curl -X POST -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{&amp;#34;user&amp;#34;:&amp;#34;${USER}&amp;#34;}&amp;#39; api.syui.cf/users # user info $ curl api.syui.cf/users/{id} # card draw $ curl -X PUT api.syui.cf/users/{id}/d $ curl api.syui.cf/users/{id} | jq . ページは /api に作りました。ここでは自分で引いたやつだけ表示させています。
 apiからデータを取得する際、cros-originのerrが出ますが、proxy-serverを立てることで無理やり回避。
@@ -46,10 +46,10 @@ apiからデータを取得する際、cros-originのerrが出ますが、proxy-
     
     <item>
       <title>goのentでapi serverを作ってみた</title>
-      <link>https://syui.cf/blog/post/2022/02/23/golang/</link>
+      <link>https://syui.ai/blog/post/2022/02/23/golang/</link>
       <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/02/23/golang/</guid>
+      <guid>https://syui.ai/blog/post/2022/02/23/golang/</guid>
       <description>最初は、gormを使っていました。
 gormは非常に見通しがよく、わかりやすかったです。
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; &amp;#34;os&amp;#34; &amp;#34;aicard/database&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;github.com/labstack/echo/v4&amp;#34; &amp;#34;gorm.io/gorm&amp;#34; ) type User struct { Id int `json:&amp;#34;id&amp;#34; param:&amp;#34;id&amp;#34; gorm:&amp;#34;primary_key&amp;#34;` Name string `json:&amp;#34;name&amp;#34; gorm:&amp;#34;unique,collate:utf8,length:7` CreatedAt time.Time UpdatedAt time.Time DeletedAt gorm.DeletedAt `gorm:&amp;#34;index&amp;#34;` } func hello(c echo.Context) error { return c.String(http.StatusOK, &amp;#34;Hello, World!&amp;#34;) } func getUsers(c echo.Context) error { users := []User{} database.DB.Find(&amp;amp;users) return c.JSON(http.StatusOK, users) } func getUser(c echo.Context) error { user := User{} if err := c.Bind(&amp;amp;user); err !</description>

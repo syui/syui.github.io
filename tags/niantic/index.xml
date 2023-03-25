@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>niantic on syui.cf</title>
-    <link>https://syui.cf/tags/niantic/</link>
-    <description>Recent content in niantic on syui.cf</description>
+    <title>niantic on syui.ai</title>
+    <link>https://syui.ai/tags/niantic/</link>
+    <description>Recent content in niantic on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/niantic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/niantic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>niantic profile web</title>
-      <link>https://syui.cf/blog/post/2022/03/24/niantic-profile/</link>
+      <link>https://syui.ai/blog/post/2022/03/24/niantic-profile/</link>
       <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/03/24/niantic-profile/</guid>
+      <guid>https://syui.ai/blog/post/2022/03/24/niantic-profile/</guid>
       <description>niantic profile(web)がreleasesされました。
 https://my.nianticlabs.com
 niantic idを登録(予約)している人は少なく、体感だと2/100くらいでした。niantic profileの役割は今後、徐々に拡大される可能性があるので、今のうちにidをとっておくのがおすすめです。
@@ -23,10 +23,10 @@ niantic idを登録(予約)している人は少なく、体感だと2/100くら
     
     <item>
       <title>niantic idを予約してみた</title>
-      <link>https://syui.cf/blog/post/2021/11/05/niantic/</link>
+      <link>https://syui.ai/blog/post/2021/11/05/niantic/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/11/05/niantic/</guid>
+      <guid>https://syui.ai/blog/post/2021/11/05/niantic/</guid>
       <description>現在、nianticがこれまでにリリースした3つのゲームをプレイしていたユーザーに対して、niantic idへの予約が招待されています。
   ingress
   pokemongo

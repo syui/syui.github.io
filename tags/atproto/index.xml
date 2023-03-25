@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>atproto on syui.cf</title>
-    <link>https://syui.cf/tags/atproto/</link>
-    <description>Recent content in atproto on syui.cf</description>
+    <title>atproto on syui.ai</title>
+    <link>https://syui.ai/tags/atproto/</link>
+    <description>Recent content in atproto on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blueskyのatをdeployしてみた3</title>
-      <link>https://syui.cf/blog/post/2023/03/21/bluesky/</link>
+      <link>https://syui.ai/blog/post/2023/03/21/bluesky/</link>
       <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/03/21/bluesky/</guid>
+      <guid>https://syui.ai/blog/post/2023/03/21/bluesky/</guid>
       <description>awsやらfly.ioやらで少しずつ負荷を確認してたのですが、今回は本番環境にdeployしてみた話です。
 https://syui.ai
  基本的にはこれまでのdeploy方法と変わりません。ポイントも同じです。
@@ -34,10 +34,10 @@ freenomとmailgunは非常に良いサービスです。かなり長い期間使
     
     <item>
       <title>blueskyのatをdeployしてみた2</title>
-      <link>https://syui.cf/blog/post/2023/03/13/bluesky/</link>
+      <link>https://syui.ai/blog/post/2023/03/13/bluesky/</link>
       <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/03/13/bluesky/</guid>
+      <guid>https://syui.ai/blog/post/2023/03/13/bluesky/</guid>
       <description>前回、deployしてみた感触ではtoken errorが出ていて、それを解消すれば良さそうに思ってたんだけど、気になる情報があったので、今回はそれにあたってみた。
 atはplc.directoryに登録しなければいけなかったみたいで、その登録ができていなかったぽい。
 重要なのはserverDidでserverを立てる際はここに登録した値を入れる必要があるみたいです。
@@ -49,10 +49,10 @@ import * as cbor from &amp;#39;@ipld/dag-cbor&amp;#39; import * as uint8arrays f
     
     <item>
       <title>blueskyでhandle.updateしてみた</title>
-      <link>https://syui.cf/blog/post/2023/03/08/bluesky/</link>
+      <link>https://syui.ai/blog/post/2023/03/08/bluesky/</link>
       <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/03/08/bluesky/</guid>
+      <guid>https://syui.ai/blog/post/2023/03/08/bluesky/</guid>
       <description>bluesky(bsky.social)では現在、handle.updateが追加されていて、いわゆるcustom-domain(custom-handle)のようなことができるようになっています。これをhandle.updateと呼びます。
 具体的には、syui.bsky.social -&amp;gt; syui.cfなどにhandleを変更することができます。
 で、実際にこのhandle.updateをやってみた感想を書きます。
@@ -65,10 +65,10 @@ cli $ sudo pacman -S rust --noconfirm $ git clone https://github.com/syui/atr $ 
     
     <item>
       <title>blueskyのweb uiを作ってみた</title>
-      <link>https://syui.cf/blog/post/2023/02/26/bluesky-atproto/</link>
+      <link>https://syui.ai/blog/post/2023/02/26/bluesky-atproto/</link>
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/26/bluesky-atproto/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/26/bluesky-atproto/</guid>
       <description>今回は、blueskyのweb uiを作ってみました。bluesky、楽しい。
 こちらのページにアクセスして、usernameを入れると、投稿が出てきます。
 https://syui.cf/bsky
@@ -78,10 +78,10 @@ com.atproto.repo.listRecords &amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;ap
     
     <item>
       <title>blueskyのclientを少しだけやってみた</title>
-      <link>https://syui.cf/blog/post/2023/02/25/bluesky-atproto/</link>
+      <link>https://syui.ai/blog/post/2023/02/25/bluesky-atproto/</link>
       <pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/25/bluesky-atproto/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/25/bluesky-atproto/</guid>
       <description>今回は、blueskyのclientを作ってcliからpostしてみたので、なにか書きます。
 これはbsky.social特有のものかもしれませんが、requestを投げる先と投げる要素が結構変わっていたので、ハマりました。あとtypoに気づかずmatrixに質問を投げるなどやらかしていました。
 基本的には公式のlexiconsを見ていけばいい感じでした。
@@ -95,10 +95,10 @@ createdAtを自分で入れなきゃなのなぜでしょう。あと、validate
     
     <item>
       <title>bsky.socialにアカウントを作ってみた</title>
-      <link>https://syui.cf/blog/post/2023/02/23/bluesky-atproto/</link>
+      <link>https://syui.ai/blog/post/2023/02/23/bluesky-atproto/</link>
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/23/bluesky-atproto/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/23/bluesky-atproto/</guid>
       <description>今回は、atp(at-protocol)のself-hostingではなく、bsky.socialにaccountを作成してみました。優しい人がbsky.socialのinvite-codeを発行してくれたので、嬉しい。
  at://syui.bsky.social   invite-codeは、こちらの資料がわかりやすいと思います。
 rustで書かれたadenosineというclientが便利です。
@@ -107,10 +107,10 @@ rustで書かれたadenosineというclientが便利です。
     
     <item>
       <title>blueskyのatprotoをdeployしてみた</title>
-      <link>https://syui.cf/blog/post/2023/02/22/bluesky-atproto/</link>
+      <link>https://syui.ai/blog/post/2023/02/22/bluesky-atproto/</link>
       <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/22/bluesky-atproto/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/22/bluesky-atproto/</guid>
       <description>https://github.com/bluesky-social/atproto  今回は、at-protocol-serverを立てて、そのdomainからbluesky for iosでloginしてみました。localhostではなくglobal-ipからです。
 
 $ git clone https://github.com/bluesky-social/atproto $ cd atproto $ ls packages/*/*example AVAILABLE_USER_DOMAINS=&amp;#34;.test,.example.com&amp;#34; $ vim packages/dev-env/src/index.ts `http://${process.env.HOSTNAME}:${this.port}` dbPostgresUrl: process.env.DB_POSTGRES_URL const db = plc.Database.memory() availableUserDomains: [&amp;#39;.test&amp;#39;,&amp;#39;.example.com&amp;#39;] 基本的に.testのAVAILABLE_USER_DOMAINSがないと、UnsupportedDomainのpackages/dev-env/dist/cli.jsからerrorがでます。
@@ -124,10 +124,10 @@ at-protocolはよくわかってないんだけど、今回色々とやってみ
     
     <item>
       <title>blueskyのatprotoをbuildしてみた</title>
-      <link>https://syui.cf/blog/post/2023/02/19/bluesky-atproto/</link>
+      <link>https://syui.ai/blog/post/2023/02/19/bluesky-atproto/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/19/bluesky-atproto/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/19/bluesky-atproto/</guid>
       <description>https://github.com/bluesky-social/atproto  開発にはlernaを採用しているぽい。
 $ git clone https://github.com/bluesky-social/atproto $ cd atproto $ node -v $ nvm use v18 # https://www.npmjs.com/package/lerna $ npm i -g node-gyp $ npm i -g npm $ npm i -g lerna $ npm i $ lerna run build or $ npm run build $ lerna run build lerna notice cli v6.5.1 &amp;gt; Lerna (powered by Nx) The task graph has a circular dependency @atproto/api:build --&amp;gt; @atproto/pds:build --&amp;gt; @atproto/api:build ✔ @atproto/nsid:build (643ms) ✔ @atproto/common:build (647ms) ✔ @atproto/uri:build (653ms) ✔ @atproto/crypto:build (684ms) ✔ @atproto/lexicon:build (774ms) ✔ @atproto/handle:build (852ms) ✔ @atproto/plc:build (901ms) ✔ @atproto/aws:build (987ms) ✔ @atproto/xrpc:build (657ms) ✔ @atproto/did-resolver:build (661ms) ✔ @atproto/lex-cli:build (1s) ✔ @atproto/xrpc-server:build (708ms) ✔ @atproto/repo:build (655ms) ✔ @atproto/pds:build (767ms) ✔ @atproto/api:build (539ms) ✔ @atproto/dev-env:build (727ms) &amp;gt; Lerna (powered by Nx) Successfully ran target build for 16 projects (5s) $ ls packages/*/dist/ $ ls packages/*/*.</description>
     </item>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>xq on syui.cf</title>
-    <link>https://syui.cf/tags/xq/</link>
-    <description>Recent content in xq on syui.cf</description>
+    <title>xq on syui.ai</title>
+    <link>https://syui.ai/tags/xq/</link>
+    <description>Recent content in xq on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/xq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/xq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>golangのcli toolをurfave/cli/v2に移行する</title>
-      <link>https://syui.cf/blog/post/2019/12/18/xq/</link>
+      <link>https://syui.ai/blog/post/2019/12/18/xq/</link>
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/18/xq/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/18/xq/</guid>
       <description>urfave/cliがv1からv2へ移行したみたいで、このlibで作ったcli toolがCIを通したgo getなどに失敗するようになっていたので対応。(一部だけ
 https://github.com/urfave/cli/blob/master/docs/v2/manual.md
 $ GO111MODULE=on go get github.com/urfave/cli/v2 ~/go/src/github.com/urfave/cli/v2 (from $GOROOT) $ go mod init $ echo export GO111MODULE=on &amp;gt;&amp;gt; ~/.zshrc $ . !$ $ go get -v -u github.com/urfave/cli/v2 これでv1 -&amp;gt; v2で変更された箇所を書き換えれば、buildが通ります。

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vim on syui.cf</title>
-    <link>https://syui.cf/tags/vim/</link>
-    <description>Recent content in vim on syui.cf</description>
+    <title>vim on syui.ai</title>
+    <link>https://syui.ai/tags/vim/</link>
+    <description>Recent content in vim on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>terminalのOSC52を使いclipboardを共有する</title>
-      <link>https://syui.cf/blog/post/2023/01/15/nvim/</link>
+      <link>https://syui.ai/blog/post/2023/01/15/nvim/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/15/nvim/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/15/nvim/</guid>
       <description>terminalのOSC52という機能を使うと、ssh-sessionでもcopyしたものがsystemのclipboardに入ります。これらはosの互換性に関係ないため幅広く使えます。
 ただし、clipboardの共有は、往々にしてセキュリティ問題があるため注意してください。
 また、tmuxではできなかったので、iterm2の別タブで行いました。
@@ -29,10 +29,10 @@ tmuxにはset-option -g set-clipboard on等を設定して、commandやpluginも
     
     <item>
       <title>nvimを使ってみる</title>
-      <link>https://syui.cf/blog/post/2023/01/07/nvim/</link>
+      <link>https://syui.ai/blog/post/2023/01/07/nvim/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/07/nvim/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/07/nvim/</guid>
       <description>neovim、いわゆるnvimですが、今まで全く使ってなかったので、今回は少しカスタマイズして使ってみました。
 vimscriptとluaで書けますが、luaで書いていこうと思います。したがって、pluginから何から全て移行です。
 $ sudo pacman -S neovim $ mkdir -p ~/.config/nvim $ touch ~/.config/nvim/init.lua require(&amp;#34;keymaps&amp;#34;) -- vim.api.nvim_set_keymap(&amp;#34;&amp;#34;, &amp;#34;&amp;lt;space&amp;gt;&amp;#34;, &amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;, { noremap = true, silent = true }) local opts = { noremap = true, silent = true } local keymap = vim.api.nvim_set_keymap keymap(&amp;#34;&amp;#34;, &amp;#34;&amp;lt;space&amp;gt;&amp;#34;, &amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;, opts) これはvimでいう&amp;lt;leader&amp;gt;をマッピングする設定です。&amp;lt;space&amp;gt;にします。

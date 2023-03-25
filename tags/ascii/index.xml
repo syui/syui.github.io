@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ascii on syui.cf</title>
-    <link>https://syui.cf/tags/ascii/</link>
-    <description>Recent content in ascii on syui.cf</description>
+    <title>ascii on syui.ai</title>
+    <link>https://syui.ai/tags/ascii/</link>
+    <description>Recent content in ascii on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/ascii/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ascii/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CLIでlocation mapを表示する</title>
-      <link>https://syui.cf/blog/post/2019/01/30/ascii/</link>
+      <link>https://syui.ai/blog/post/2019/01/30/ascii/</link>
       <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/01/30/ascii/</guid>
+      <guid>https://syui.ai/blog/post/2019/01/30/ascii/</guid>
       <description>location mapをcliからqueryして表示したいと思ったので、調べてみたら、面白そうなツールがいくつか見つかりました。
 $ whois example.com $ nslookup exmaple.com 8.8.8.8 #google dns server # https://github.com/yaronn/blessed-contrib $ git clone https://github.com/yaronn/blessed-contrib.git $ cd blessed-contrib $ node examples/map-query-location.js `curl -sL ipinfo.io/8.8.8.8/loc` # https://github.com/rastapasta/mapscii $ sudo npm install -g mapscii $ mapscii mapsciiはsecrity的にあまりよろしくなさそうな感じですかね。
  blessed-contrib/examples/map-query-location.js

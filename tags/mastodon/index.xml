@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mastodon on syui.cf</title>
-    <link>https://syui.cf/tags/mastodon/</link>
-    <description>Recent content in mastodon on syui.cf</description>
+    <title>mastodon on syui.ai</title>
+    <link>https://syui.ai/tags/mastodon/</link>
+    <description>Recent content in mastodon on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mastodonにbotを立ててみた</title>
-      <link>https://syui.cf/blog/post/2022/12/03/msbot/</link>
+      <link>https://syui.ai/blog/post/2022/12/03/msbot/</link>
       <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/12/03/msbot/</guid>
+      <guid>https://syui.ai/blog/post/2022/12/03/msbot/</guid>
       <description>この前、botでも立ててみようかなと思ったので、mastodon(single-mode)にbotを立ててみることにしました。
 rustで書いてたclientを拡張できたので、とてもよかった。botの構築には今使ってるclientを組み込むことにしました。
 例えば、botに話しかけると&amp;hellip;賢すぎる。bot、すごい。
@@ -30,10 +30,10 @@ timelineを毎回取得、あるいはlatestのみの取得でもあっても、
     
     <item>
       <title>fly.ioとmastodon</title>
-      <link>https://syui.cf/blog/post/2022/11/17/mastodon/</link>
+      <link>https://syui.ai/blog/post/2022/11/17/mastodon/</link>
       <pubDate>Thu, 17 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/11/17/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2022/11/17/mastodon/</guid>
       <description>fly.ioを使ってみて、数ヶ月が経過したのでレビューです。
 https://fly.io
 fly.ioではmastodonを動かしており、安定して動作しています。
@@ -54,10 +54,10 @@ clientは以下のframework等を使うと非常に便利。
     
     <item>
       <title>mastodonが紫になった</title>
-      <link>https://syui.cf/blog/post/2022/06/11/mastodon/</link>
+      <link>https://syui.ai/blog/post/2022/06/11/mastodon/</link>
       <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/06/11/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2022/06/11/mastodon/</guid>
       <description>mastodonのアイコンが紫になった。
 https://github.com/mastodon/mastodon/pull/18592
 グラデーションがついてて、上の方が若干明るくなってる感じ。
@@ -66,10 +66,10 @@ mastodonとtwitterの青色(系統)が同じなのは、例えば、並べてア
     
     <item>
       <title>mammutのexampleをまとめてみる</title>
-      <link>https://syui.cf/blog/post/2022/02/06/rust-mammut/</link>
+      <link>https://syui.ai/blog/post/2022/02/06/rust-mammut/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/02/06/rust-mammut/</guid>
+      <guid>https://syui.ai/blog/post/2022/02/06/rust-mammut/</guid>
       <description>mastodon apiのrust libであるmammutですが、exampleがあるとわかりやすいと思ったので、作ってみました。
 まず、mastodonへのrequestはこんな感じになります。
 curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$host/oauth/token \ 	-d &amp;#34;{ \&amp;#34;client_id\&amp;#34;: \&amp;#34;$client_id\&amp;#34;, \&amp;#34;client_secret\&amp;#34;: \&amp;#34;$client_secret\&amp;#34;, \&amp;#34;grant_type\&amp;#34;: \&amp;#34;password\&amp;#34;, \&amp;#34;username\&amp;#34;: \&amp;#34;$username\&amp;#34;, \&amp;#34;password\&amp;#34;: \&amp;#34;$password\&amp;#34;, \&amp;#34;scope\&amp;#34;: \&amp;#34;$scope\&amp;#34; }&amp;#34; mammutではDataとして認証に必要な要素がまとめられてますので、各種要素を入れてMastodon::from_data(data)すると認証できます。
@@ -78,10 +78,10 @@ curl -H &amp;#34;Content-Type: application/json&amp;#34; -X POST -Ss https://$ho
     
     <item>
       <title>rustでmastodon clientをはじめてみた</title>
-      <link>https://syui.cf/blog/post/2022/02/05/rust/</link>
+      <link>https://syui.ai/blog/post/2022/02/05/rust/</link>
       <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/02/05/rust/</guid>
+      <guid>https://syui.ai/blog/post/2022/02/05/rust/</guid>
       <description>今までmastodonはzshでapi叩いてやってたんですが、他言語でもclientを作ろうかなと前々から思ってて、今回はrustではじめてみた。
 大抵の場合、本人が使うときにしか機能追加されない模様。
 使ってるうち便利にしていければと思ってます。
@@ -90,10 +90,10 @@ https://github.com/syui/msr</description>
     
     <item>
       <title>mastodonをruby-3.0.3で動かしてみた</title>
-      <link>https://syui.cf/blog/post/2021/12/05/mastodon/</link>
+      <link>https://syui.ai/blog/post/2021/12/05/mastodon/</link>
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/12/05/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2021/12/05/mastodon/</guid>
       <description>今までrbenvでversion管理してたんだけど、archlinuxにruby-3.0.3が来ていたので、これがmastodonのgemfileと合いそうだったので上げてみた。heroku-runtimeも3.0.3ですし、今だとrbenvは必要ありません。
 $ cd mastodon $ rbenv local system $ ruby -v 3.0.3 $ sudo gem i bundler $ export PATH=&amp;#34;$HOME/.gem/ruby/3.0.0/bin:$PATH&amp;#34; $ rm Gemfile.lock $ bundle あとはGemfile.lockをherokuにcommit, deployすればいいです。
 また、nodeのnpm(yarn)でerrが出てたので、package.jsonも変更してます。
@@ -106,10 +106,10 @@ https://docs.joinmastodon.org/user/contacts/</description>
     
     <item>
       <title>mastodonでcommit-hashとdeploy-rubyをあわせて表示してみる</title>
-      <link>https://syui.cf/blog/post/2021/05/10/mastodon/</link>
+      <link>https://syui.ai/blog/post/2021/05/10/mastodon/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/05/10/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2021/05/10/mastodon/</guid>
       <description>mastodonって下の方に現在のverが表示されてますよね。ここに、commit-hashとrubyを表示するやつをzundaさんがpull-reqついでに開発してたので、それを使うといいでしょう。herokuではSOURCE_VERSIONからhashを取れるっぽい。
 https://github.com/zunda/mastodon/pull/27/files
 namespace :source do desc &amp;#39;Record source version&amp;#39; task :version do hash = ENV[&amp;#39;SOURCE_VERSION&amp;#39;] # available on Heroku while build if hash.blank? begin hash = `git rev-parse HEAD 2&amp;gt;/dev/null`.strip # ignore the error: fatal: Not a git repository rescue Errno::ENOENT # git command is not available end end unless hash.blank? hash_abb = hash[0..7] File.open(&amp;#39;config/initializers/version.rb&amp;#39;, &amp;#39;w&amp;#39;) do |f| f.write &amp;lt;&amp;lt;~_TEMPLATE # frozen_string_literal: true module Mastodon module Version module_function def suffix &amp;#34; at #{hash_abb}on ruby-#{RUBY_VERSION}&amp;#34; end def repository &amp;#39;tootsuite/mastodon&amp;#39; end def source_tag &amp;#34;#{hash}&amp;#34; end end end _TEMPLATE end end end end task &amp;#39;assets:precompile&amp;#39; =&amp;gt; [&amp;#39;source:version&amp;#39;] rake assets:precompileでconfig/initializers/version.</description>
@@ -117,10 +117,10 @@ namespace :source do desc &amp;#39;Record source version&amp;#39; task :version 
     
     <item>
       <title>mastodon v3.4.0をruby v3.0.1でdeployしてみた</title>
-      <link>https://syui.cf/blog/post/2021/05/09/mastodon/</link>
+      <link>https://syui.ai/blog/post/2021/05/09/mastodon/</link>
       <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/05/09/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2021/05/09/mastodon/</guid>
       <description>mastodon v3.4.0のpre-verがmasterにcommitされています。
 heroku-20はruby v3.0.1に対応していて、mastodon v3.4.0はruby &amp;lt; v3.1.0なので、heroku(deploy-server)のruby verを上げてみました。Gemfile.lockをheroku用に更新してdeployすればokです。
  Heroku supports the following Ruby versions and the associated Rubygems. A supported version means that you can expect our tools and platform to work with a given version. It also means you can receive technical support. Here are our supported Ruby versions:
@@ -133,10 +133,10 @@ $ git clone https://github.com/tootsuite/mastodon $ cd ./mastodon $ heroku git:r
     
     <item>
       <title>mastodonからtwitterに投稿する</title>
-      <link>https://syui.cf/blog/post/2019/12/21/mastodon/</link>
+      <link>https://syui.ai/blog/post/2019/12/21/mastodon/</link>
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/21/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/21/mastodon/</guid>
       <description>この前、golangで使ってるlibがv2にupdateしたとかで書き直さなきゃいけなくて、面倒だと思ってたんだけど、mastodonとtwitter連携が面白そうだったので、それをネタにツールを書き直して、ついでに仕組みを作ってみました。
 具体的には、mastodonにtwitterタグを付けて投稿すると、twitterにも投稿されるようにしてみる。
 仕組みは、gh-actionsのcronが最短で5分ごとに回してくれるのに目をつけ、これ使えるなと思ってたので、使ってみた。(5分じゃgithubさんの負担大きすぎなので、15分で様子見してる。
@@ -147,10 +147,10 @@ name: mastodon tweet on: push: branches: - master schedule: - cron: &amp;#39;*/1
     
     <item>
       <title>Dolphinというシングルユーザー用のActivityPub serverを立ててみた</title>
-      <link>https://syui.cf/blog/post/2019/11/16/dolphin/</link>
+      <link>https://syui.ai/blog/post/2019/11/16/dolphin/</link>
       <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/11/16/dolphin/</guid>
+      <guid>https://syui.ai/blog/post/2019/11/16/dolphin/</guid>
       <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。
 今回、misskeyというmastodonに似たプロジェクトがあるのですが、その姉妹プロジェクトであるdolphinがシングルユーザー、つまり、お一人様インスタンスと呼ばれるサーバーに特化しているようなので、herokuで立ててみました。
 以前、misskeyを触ったこともあり、ハマりどころは特になし。
@@ -160,10 +160,10 @@ $ git clone -b master git://github.com/syuilo/dolphin.git $ cd dolphin $ cp .con
     
     <item>
       <title>keybaseにmastodonがやって来ました</title>
-      <link>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</link>
+      <link>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/04/11/keybase-mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</guid>
       <description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。
 まず、mastodonがkeybase proofに対応するjsonを出力する実装、その他を行い、keybaseが大手mastodonドメインを自サーバー内に登録することによって、連携が可能になりました。ここで、最も連携に重要だったポイントは、keybaseサーバーに特定のドメインが登録されるということでしたので、タイトルを後者にしました。
 しかし、そんなことはどうでもいいです。ユーザーにとって重要なのは、keybaseが何であるのかや、プロフィールにチェックマーク(認証マーク)が付くことだけですから。
@@ -181,20 +181,20 @@ keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&
     
     <item>
       <title>mastodon 1.4-1.5</title>
-      <link>https://syui.cf/blog/post/2017/08/22/mastodon/</link>
+      <link>https://syui.ai/blog/post/2017/08/22/mastodon/</link>
       <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/08/22/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2017/08/22/mastodon/</guid>
       <description>1.4から1.5は自分の場合だけど以下の手順でアップデートできた。
 # Aptfile -&amp;gt; libidn11-dev の行を削除してpush $ heroku run rake db:migrate -a $APP_NAME heroku Cannot run more than 1 Free size dynos. $ heroku kill DYNO --app $APP_NAME $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
     </item>
     
     <item>
       <title>mastodon 1.3-1.4</title>
-      <link>https://syui.cf/blog/post/2017/08/21/mastodon/</link>
+      <link>https://syui.ai/blog/post/2017/08/21/mastodon/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/08/21/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2017/08/21/mastodon/</guid>
       <description>私の場合、dbをreset, restoreした後にmastodon 1.4 -&amp;gt; down 1.2 -&amp;gt; up 1.3 -&amp;gt; up 1.4 -&amp;gt; up 1.5という手順を踏むことにした。
 しかし、1.3から1.4のアップデートすると、heroku serverにrake db:migrateした時点でPG::DuplicateTable: ERRORなどが出るので、結果として500で投稿(toot)などが出来ない問題の対処法。
 $ heroku run rake db:migrate -a $APP_NAME PG::DuplicateTable: ERROR account_domain_blocks conversation conversation_mutes $ heroku pg:psql DROP TABLE account_domain_blocks; DROP TABLE conversation CASCADE; DROP TABLE conversation_mutes; $ heroku run rake db:migrate -a $APP_NAME Index name &#39;index_accounts_on_uri&#39; on table &#39;accounts&#39; already exists $ heroku pg:psql DROP INDEX index_accounts_on_uri; $ heroku run rake db:migrate -a $APP_NAME $ heroku run rake assets:precompile -a $APP_NAME $ heroku ps:restart -a $APP_NAME </description>
@@ -202,10 +202,10 @@ $ heroku run rake db:migrate -a $APP_NAME PG::DuplicateTable: ERROR account_doma
     
     <item>
       <title>mastodon-2fa-disable</title>
-      <link>https://syui.cf/blog/post/2017/07/12/mastodon/</link>
+      <link>https://syui.ai/blog/post/2017/07/12/mastodon/</link>
       <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/07/12/mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2017/07/12/mastodon/</guid>
       <description>アップデートに問題があって、2FAでコードを入力しても何故かログインできず、リカバリコードを使い切ってしまった場合の対処法。
 https://github.com/tootsuite/mastodon/issues/2488
 DBにアクセスして2FAを無効にする。
@@ -214,10 +214,10 @@ $ heroku pg:psql $ UPDATE users SET otp_required_for_login=false WHERE email=&am
     
     <item>
       <title>Heroku&#43;Mastodon</title>
-      <link>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</link>
+      <link>https://syui.ai/blog/post/2017/04/01/heroku-mastodon/</link>
       <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/01/heroku-mastodon/</guid>
       <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。herokuで立ててみたので、その運営に関するまとめです。
 https://mstdn.syui.cf/
 TwitterとMastodon Twitterには前から不穏な空気はあって、主に経営が云々という理由などからですが、一体どこに移転しようかということを思っていたユーザーは多かったのではないでしょうか。

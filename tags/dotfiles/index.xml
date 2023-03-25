@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dotfiles on syui.cf</title>
-    <link>https://syui.cf/tags/dotfiles/</link>
-    <description>Recent content in dotfiles on syui.cf</description>
+    <title>dotfiles on syui.ai</title>
+    <link>https://syui.ai/tags/dotfiles/</link>
+    <description>Recent content in dotfiles on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/dotfiles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/dotfiles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>開発環境を作り直してみる3</title>
-      <link>https://syui.cf/blog/post/2020/01/25/dotfiles/</link>
+      <link>https://syui.ai/blog/post/2020/01/25/dotfiles/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2020/01/25/dotfiles/</guid>
+      <guid>https://syui.ai/blog/post/2020/01/25/dotfiles/</guid>
       <description>開発環境をイチから作りなおしてみる企画やってます。
 https://git.syui.cf/syui/dotfiles
 powerline.zsh https://github.com/syui/powerline.zsh
@@ -30,10 +30,10 @@ git add + git diff git addするときにdiffをfzf --previewで確認する^g</
     
     <item>
       <title>開発環境を作り直してみる2</title>
-      <link>https://syui.cf/blog/post/2020/01/22/dotfiles/</link>
+      <link>https://syui.ai/blog/post/2020/01/22/dotfiles/</link>
       <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2020/01/22/dotfiles/</guid>
+      <guid>https://syui.ai/blog/post/2020/01/22/dotfiles/</guid>
       <description>https://git.syui.cf/syui/dotfiles
 fzf fzfに関しては、vim **&amp;lt;tab&amp;gt;などが使えます。--previewで画面分割しながらtree,catしたものを表示できます。
 grepの代わりになるrgとcatの代わりになるbatがおすすめで、コマンドオプションなどに追加。あと.git以下は拾わないようにしたりとか、ファイルのみとか。
@@ -42,10 +42,10 @@ $ brew install rg bat bindkey &amp;#39;^b&amp;#39; fzf-file-widget export FZF_DE
     
     <item>
       <title>開発環境を作り直してみる1</title>
-      <link>https://syui.cf/blog/post/2020/01/20/dotfiles/</link>
+      <link>https://syui.ai/blog/post/2020/01/20/dotfiles/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2020/01/20/dotfiles/</guid>
+      <guid>https://syui.ai/blog/post/2020/01/20/dotfiles/</guid>
       <description>ゲームのシナリオを書こうと思ったけど、やる気でないので、こういうときは他のことしたほうがいいと思って、カオスになってた開発環境の整理をはじめました。
 以前から整理しようと思っていたgithubのdotfilesのbranchを切らず、自前のgit-serverで整理していこうかなと思っています。別に移行するわけではありませんが、今は整理されてないリポジトリ群を見たくない&amp;hellip;。
 https://git.syui.cf/syui/dotfiles
@@ -62,10 +62,10 @@ git-repoにcdするとき劇遅になるので、zle reset-promptして必要が
     
     <item>
       <title>Packer &#43; Vagrant &#43; Ansibleで構築するdotfiles</title>
-      <link>https://syui.cf/blog/post/2019/12/23/dotfiles/</link>
+      <link>https://syui.ai/blog/post/2019/12/23/dotfiles/</link>
       <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/23/dotfiles/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/23/dotfiles/</guid>
       <description>アドベントカレンダーに参加しています。
  dotfiles Advent Calendar 2019  今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。
 自動化スクリプトが動かなくなってた話 私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。

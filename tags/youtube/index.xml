@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>youtube on syui.cf</title>
-    <link>https://syui.cf/tags/youtube/</link>
-    <description>Recent content in youtube on syui.cf</description>
+    <title>youtube on syui.ai</title>
+    <link>https://syui.ai/tags/youtube/</link>
+    <description>Recent content in youtube on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>動画を作ってみた3</title>
-      <link>https://syui.cf/blog/post/2021/05/11/pogo/</link>
+      <link>https://syui.ai/blog/post/2021/05/11/pogo/</link>
       <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/05/11/pogo/</guid>
+      <guid>https://syui.ai/blog/post/2021/05/11/pogo/</guid>
       <description>初回にカバンの中身を紹介しましたが、その続編になります。ポケモンのミュウも最後にちょっとだけ登場します。中二病っぽい内容になっていますが、ご了承ください。
  </description>
     </item>
     
     <item>
       <title>youtubeのヘッダーやアイコンを作ってみた</title>
-      <link>https://syui.cf/blog/post/2021/04/14/icon/</link>
+      <link>https://syui.ai/blog/post/2021/04/14/icon/</link>
       <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/04/14/icon/</guid>
+      <guid>https://syui.ai/blog/post/2021/04/14/icon/</guid>
       <description>ポケモンのオオタチが好きなので作ったアイコンとか。</description>
     </item>
     
     <item>
       <title>ポケモンGoのチャンネルを開設してみた</title>
-      <link>https://syui.cf/blog/post/2021/04/09/pokemongo/</link>
+      <link>https://syui.ai/blog/post/2021/04/09/pokemongo/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/04/09/pokemongo/</guid>
+      <guid>https://syui.ai/blog/post/2021/04/09/pokemongo/</guid>
       <description>チャンネル開設後、まず第一弾として動画を上げました。面白かったら幸いです。
 なぜこんなことをやり始めたのか なぜこんなことをやり始めたのか？後に動画内でも説明することがあるかもしれませんが、一言でいうと、撮影や配信できるようになるためです。
 私はipadで撮影してるんですけど、こうやってipadさえあれば、外に出て撮影や編集して、気軽に配信できるようになれたらいいな、という思いがありました。
@@ -57,10 +57,10 @@ ipadがすごい ビデオカメラなんて持ってないので、ipad(7th)で
     
     <item>
       <title>はじめての撮影とポケモンGo</title>
-      <link>https://syui.cf/blog/post/2021/04/03/pokemongo/</link>
+      <link>https://syui.ai/blog/post/2021/04/03/pokemongo/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/04/03/pokemongo/</guid>
+      <guid>https://syui.ai/blog/post/2021/04/03/pokemongo/</guid>
       <description>youtuberの人はすごいなーと前から思ってたので、今回は自分でも動画を作ってみることにしました。
 おそらく、はじめての撮影や動画編集には、様々な困難が予想されるはずです。また、完成した動画の質の違いにも驚かされることになるでしょうね。
 で、自分でもやってみると、結果的に予想通りだったので、それを踏まえ、良かった点や悪かった点を挙げていければなあと思います。
@@ -97,10 +97,10 @@ iPad 7thの画質がすごくよかったので、これは使えるって思い
     
     <item>
       <title>youtubeでlistを作ってみた</title>
-      <link>https://syui.cf/blog/post/2019/10/29/youtube/</link>
+      <link>https://syui.ai/blog/post/2019/10/29/youtube/</link>
       <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/10/29/youtube/</guid>
+      <guid>https://syui.ai/blog/post/2019/10/29/youtube/</guid>
       <description>自分が好きそうな曲のリストを作ってみました。nightcoreというジャンルが好き。youtubeでlistを作るのはこれがはじめてかもしれない。聴いてると横に似てる曲がポンポン出てくるので適当に追加。
  リストの公開について 正直、リストを公開しようかどうしようか迷いました。なぜなら違法動画だとか色々なことを言われることを恐れたからです。リスト公開には、メリットが一つもなく、デメリットしかありません。
 しかし、そういった理由から今の時代、有益な情報の公開、共有が阻害されているような気がしましたので、一転して公開することにしました。

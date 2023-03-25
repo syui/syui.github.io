@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>js on syui.cf</title>
-    <link>https://syui.cf/tags/js/</link>
-    <description>Recent content in js on syui.cf</description>
+    <title>js on syui.ai</title>
+    <link>https://syui.ai/tags/js/</link>
+    <description>Recent content in js on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 09 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>jquery-sync</title>
-      <link>https://syui.cf/blog/post/2017/04/09/js/</link>
+      <link>https://syui.ai/blog/post/2017/04/09/js/</link>
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/09/js/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/09/js/</guid>
       <description>補足 昨日、mediumの公式sdk(golang製)と書くところをgolangの公式sdkと書いたりしてたので、分かりにくかったため訂正します。golang製の公式sdkと記述しても良かったと思うし、そう書こうとしてたのだと思うけど、間違えてた。
 結構表現的な間違いがあり、かつそれを訂正する機会がないこともあるので、その辺、勝手に読み替えてもらえれば嬉しいです。
 今日は、OAuth認証でAuthorizationURLのcodeを取得するのにページを作成した時の話。

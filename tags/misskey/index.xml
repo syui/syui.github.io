@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>misskey on syui.cf</title>
-    <link>https://syui.cf/tags/misskey/</link>
-    <description>Recent content in misskey on syui.cf</description>
+    <title>misskey on syui.ai</title>
+    <link>https://syui.ai/tags/misskey/</link>
+    <description>Recent content in misskey on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/misskey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/misskey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>misskeyをherokuで立てる[2022年度版]</title>
-      <link>https://syui.cf/blog/post/2022/07/08/misskey/</link>
+      <link>https://syui.ai/blog/post/2022/07/08/misskey/</link>
       <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/07/08/misskey/</guid>
+      <guid>https://syui.ai/blog/post/2022/07/08/misskey/</guid>
       <description>pleromaと同じくmisskeyをherokuで立てるのにも多少の苦労があるかもしれません。さらに運用するとなると様々な問題が絡んできます。
 今回もherokuでmisskeyのインスタンスを立ち上げるまでのヒントを書いていければと思います。
 ref : https://misskey-hub.net/docs/install/manual.html
@@ -24,10 +24,10 @@ $ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $
     
     <item>
       <title>misskeyにheroku deploy buttonを付けてみた</title>
-      <link>https://syui.cf/blog/post/2019/04/10/misskey-heroku-deploy/</link>
+      <link>https://syui.ai/blog/post/2019/04/10/misskey-heroku-deploy/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/04/10/misskey-heroku-deploy/</guid>
+      <guid>https://syui.ai/blog/post/2019/04/10/misskey-heroku-deploy/</guid>
       <description>今回は、misskeyにherokuへのdeployを簡単にするボタンを付けてみた時の話をします。
 とはいえ、一応、自分なりの考えは、ちょびっとだけ書いといたほうがいいだろうとも思ったので、ほんの少しだけなにか書きます。適当にですけど。
 あ、ボタンの方はこちらになります。forkしてコードをちょっとだけ変更して付けました。
@@ -69,10 +69,10 @@ misskeyに幸あれ
     
     <item>
       <title>misskeyをherokuで立てる</title>
-      <link>https://syui.cf/blog/post/2019/04/04/misskey/</link>
+      <link>https://syui.ai/blog/post/2019/04/04/misskey/</link>
       <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/04/04/misskey/</guid>
+      <guid>https://syui.ai/blog/post/2019/04/04/misskey/</guid>
       <description>misskey on heroku.
 misskeyという分散snsをherokuというpaasで動かしてみた記録です。
 remote: * Stack heroku-18 remote: NPM_CONFIG_LOGLEVEL=error remote: NODE_ENV=production remote: NODE_MODULES_CACHE=true remote: NODE_VERBOSE=false remote: Resolving node version 10.x... remote: Downloading and installing node 10.15.3... remote: Using default npm version: 6.4.1 remote: &amp;gt; misskey@10.98.3 install misskeyをherokuで動作させるポイントとしては、.config/default.ymlとheroku $PORTです。

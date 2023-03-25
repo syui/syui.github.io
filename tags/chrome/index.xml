@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chrome on syui.cf</title>
-    <link>https://syui.cf/tags/chrome/</link>
-    <description>Recent content in chrome on syui.cf</description>
+    <title>chrome on syui.ai</title>
+    <link>https://syui.ai/tags/chrome/</link>
+    <description>Recent content in chrome on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chrome v70に上げたらCmd&#43;Qで終了しなくなった</title>
-      <link>https://syui.cf/blog/post/2018/10/20/chrome/</link>
+      <link>https://syui.ai/blog/post/2018/10/20/chrome/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/10/20/chrome/</guid>
+      <guid>https://syui.ai/blog/post/2018/10/20/chrome/</guid>
       <description>タイトルのとおりだけど、具体的には、「終了するにはCmd+Qを押します」みたいな表示が出るようになった。
 最初は、chrome70のchrome://flagsとかで新しい機能がenableになったのかなと思ったけど、違った。
 これ、メニューのオプションからChrome -&amp;gt; 終了する前に警告メッセージを表示するにチェックが入ってることで有効になるみたい。
@@ -22,10 +22,10 @@
     
     <item>
       <title>headless-chrome</title>
-      <link>https://syui.cf/blog/post/2017/05/09/chrome/</link>
+      <link>https://syui.ai/blog/post/2017/05/09/chrome/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/05/09/chrome/</guid>
+      <guid>https://syui.ai/blog/post/2017/05/09/chrome/</guid>
       <description>https://developers.google.com/web/updates/2017/04/headless-chrome
 http://bufferings.hatenablog.com/entry/2017/05/03/181713
 このあたりの情報が参考になりそうだった。</description>
@@ -33,10 +33,10 @@ http://bufferings.hatenablog.com/entry/2017/05/03/181713
     
     <item>
       <title>chrome://pluginsの仕様変更?</title>
-      <link>https://syui.cf/blog/post/2017/02/04/chrome/</link>
+      <link>https://syui.ai/blog/post/2017/02/04/chrome/</link>
       <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/02/04/chrome/</guid>
+      <guid>https://syui.ai/blog/post/2017/02/04/chrome/</guid>
       <description>最新バージョンのChromeでabout://pluginsを無効にできない(再起動すると戻る)問題があって、これはどうしたものかと迷った後、一旦、Safariに移行している。仕様なのかバグなのかわからない。
 Safari使いにくい。
 追記 : 仕様だったらしい。わかりにくい気がしますね。

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jailbreak on syui.cf</title>
-    <link>https://syui.cf/tags/jailbreak/</link>
-    <description>Recent content in jailbreak on syui.cf</description>
+    <title>jailbreak on syui.ai</title>
+    <link>https://syui.ai/tags/jailbreak/</link>
+    <description>Recent content in jailbreak on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 13 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/jailbreak/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/jailbreak/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iosのjailbreakでsshdを設定してみた</title>
-      <link>https://syui.cf/blog/post/2019/10/13/ios2/</link>
+      <link>https://syui.ai/blog/post/2019/10/13/ios2/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/10/13/ios2/</guid>
+      <guid>https://syui.ai/blog/post/2019/10/13/ios2/</guid>
       <description>jailbreakのしきたりにはまだ慣れなくて、とりあえずopensshを入れて、sshdの最低限の設定を行いました。
 cydiaでopensshを入れると、sshdは自動でstartされるらしいです。とりあえず、iphoneにsshして、初期設定しました。
 その際、iosのlocal ipは固定にしておいたほうがいいでしょう。ネットワーク設定 -&amp;gt; 静的

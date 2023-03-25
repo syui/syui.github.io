@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mail on syui.cf</title>
-    <link>https://syui.cf/tags/mail/</link>
-    <description>Recent content in mail on syui.cf</description>
+    <title>mail on syui.ai</title>
+    <link>https://syui.ai/tags/mail/</link>
+    <description>Recent content in mail on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/mail/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/mail/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cloudflare mailとmailgun</title>
-      <link>https://syui.cf/blog/post/2022/01/22/mail/</link>
+      <link>https://syui.ai/blog/post/2022/01/22/mail/</link>
       <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/01/22/mail/</guid>
+      <guid>https://syui.ai/blog/post/2022/01/22/mail/</guid>
       <description>mailは全く使ってなくて、spam-mailに分類されてそのまま見ないこともあるため、個人的に、やり取りするには不確実性が高いものになってます。
 私は、gmailをベースにmailgunでaddress(syui@syui.cf)に転送していました。
 ただ、2022.1.16あたりからroutingが動いてないことに気づき、mailgun-logを見る限りでは単なるmailgun側の障害だったようですが、その時に送信ができなくなってることに気づきました。(送信自体は全くしないので)
@@ -30,10 +30,10 @@ https://blog.cloudflare.com/ja-jp/introducing-email-routing-ja-jp/
     
     <item>
       <title>phxでmail notifyを実装した</title>
-      <link>https://syui.cf/blog/post/2018/08/24/phx/</link>
+      <link>https://syui.ai/blog/post/2018/08/24/phx/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/24/phx/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/24/phx/</guid>
       <description>導入 今度は、少し機能多めのchatでもと思ってherokuにたててみました。login機能が付きます。
 iconの取得はmailからgravatar.comを使ってるんじゃないですかね(知りませんが)。コード読めという話ですね。
 さて、ではrepoのcloneからいきましょー。今回もexample chatみたいな感じのやつです。
@@ -45,10 +45,10 @@ notifyの実装 通知の手段は色々あるんですけど、mailが簡単そ
     
     <item>
       <title>mailgun&#43;cloudflare</title>
-      <link>https://syui.cf/blog/post/2017/05/23/mail/</link>
+      <link>https://syui.ai/blog/post/2017/05/23/mail/</link>
       <pubDate>Tue, 23 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/05/23/mail/</guid>
+      <guid>https://syui.ai/blog/post/2017/05/23/mail/</guid>
       <description>mailgunを使えばdomain addressのmail serverとして機能するかもしれないという話。
 CNAMEはDNS Onlyを選択します。
 # Optional DNS Records ## The CNAME record is necessary for tracking opens, clicks, and unsubscribes. CNAME email.mg.syui.cf mailgun.org Automatic (DNS Only) 最初は登録したdomainがdisableになってますが、supportに連絡するとenableになります。具体的にはこちらに答えます。
@@ -60,10 +60,10 @@ https://hail2u.net/blog/internet/mailgun-as-an-email-solution-for-cloudflare.htm
     
     <item>
       <title>ちょっとMXレコードについて調べてみた</title>
-      <link>https://syui.cf/blog/post/2017/04/15/mail/</link>
+      <link>https://syui.ai/blog/post/2017/04/15/mail/</link>
       <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/15/mail/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/15/mail/</guid>
       <description>CloudFlareで以下のような記述があった。
  An MX record was not found for your root domain. An MX record is required for mail to reach @syui.cf addresses.
  これはMXレコードを追加すればメールアドレスに到達できるとも読めるのでちょっと調べてみた。

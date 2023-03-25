@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>diffusion on syui.cf</title>
-    <link>https://syui.cf/tags/diffusion/</link>
-    <description>Recent content in diffusion on syui.cf</description>
+    <title>diffusion on syui.ai</title>
+    <link>https://syui.ai/tags/diffusion/</link>
+    <description>Recent content in diffusion on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/diffusion/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/diffusion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>イラストAIの活用法</title>
-      <link>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</link>
+      <link>https://syui.ai/blog/post/2022/09/04/diffusion-windows/</link>
       <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/09/04/diffusion-windows/</guid>
+      <guid>https://syui.ai/blog/post/2022/09/04/diffusion-windows/</guid>
       <description>イラストAI(画像生成AI)としてhuggingfaceのdiffusionなどが話題になっています。今回はpromptを調整することでいい感じの画像を作ってみました。
 &amp;#34;a magical fantasy royal castle town that sits on a magnificent floating island, sunset scenery, trending on artstation, award winning digital art, anime, pixiv&amp;#34; &amp;#34;japanese anime of a beaultiful girl, fantasy costume, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing, genshin&amp;#34; &amp;#34;mysterious fantasy night sky in spectacular iridescent clouds, twinkling stars, trending on artstation, award winning digital art, anime, pixiv, fantasy background, be autiful composition, cinematic lighting, pixiv, light novel, digital painting, extremely, detailed, sharp focus, ray tracing, 8k, cinematic postprocessing&amp;#34; 下記は生成したイラストの一部です。</description>
     </item>
     
     <item>
       <title>diffusion img2imgでイラストを再生成してみた</title>
-      <link>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</link>
+      <link>https://syui.ai/blog/post/2022/09/03/diffusion-img2img/</link>
       <pubDate>Sat, 03 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2022/09/03/diffusion-img2img/</guid>
+      <guid>https://syui.ai/blog/post/2022/09/03/diffusion-img2img/</guid>
       <description>diffusionというツールがあり、huggingface.coからtokenをもらってAIによる画像ファイルを生成できます。
 なお、cudaをサポートしている環境下で実行してください。
 $ pip install transformers scipy ftfy $ pip install git+https://github.com/huggingface/diffusers.git import torch from diffusers import StableDiffusionPipeline from torch import autocast MODEL_ID = &amp;#34;CompVis/stable-diffusion-v1-4&amp;#34; DEVICE = &amp;#34;cuda&amp;#34; YOUR_TOKEN = &amp;#34;xxx&amp;#34; pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, revision=&amp;#34;fp16&amp;#34;, torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN) pipe.to(DEVICE) prompt = &amp;#34;a dog painted by Katsuhika Hokusai&amp;#34; with autocast(DEVICE): image = pipe(prompt, guidance_scale=7.5)[&amp;#34;sample&amp;#34;][0] image.save(&amp;#34;test.png&amp;#34;) $ python3 t.py 次に、img2imgを使って画像ファイルを参照した上で生成してみます。input.pngを置いておきます。

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>archlinux on syui.cf</title>
-    <link>https://syui.cf/tags/archlinux/</link>
-    <description>Recent content in archlinux on syui.cf</description>
+    <title>archlinux on syui.ai</title>
+    <link>https://syui.ai/tags/archlinux/</link>
+    <description>Recent content in archlinux on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 23 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Packer &#43; Vagrant &#43; Ansibleで構築するdotfiles</title>
-      <link>https://syui.cf/blog/post/2019/12/23/dotfiles/</link>
+      <link>https://syui.ai/blog/post/2019/12/23/dotfiles/</link>
       <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/23/dotfiles/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/23/dotfiles/</guid>
       <description>アドベントカレンダーに参加しています。
  dotfiles Advent Calendar 2019  今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。
 自動化スクリプトが動かなくなってた話 私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。
@@ -35,10 +35,10 @@ $ vagrant login $ vagrant box add syui/arch arch.box --force $ vim vagrantfile V
     
     <item>
       <title>archlinuxで手軽にvpn serverを立てる</title>
-      <link>https://syui.cf/blog/post/2018/08/08/softethervpn/</link>
+      <link>https://syui.ai/blog/post/2018/08/08/softethervpn/</link>
       <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/08/softethervpn/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/08/softethervpn/</guid>
       <description>導入 archlinuxには、いろいろな用途があります。
 私がarchlinuxを使っている一番の理由は、広範囲に渡って利用できるからです。
 archlinuxは、serverとしてもdesktopとしても優秀で、usbに入れて持ち運ぶにしても、containerとしても最適です。
@@ -59,10 +59,10 @@ $ sudo pacman -S dhclient --noconfirm $ yay -S softethervpn $ sudo systemctl sta
     
     <item>
       <title>spacefmからpcmanfmに移行した</title>
-      <link>https://syui.cf/blog/post/2018/08/07/pcmanfm/</link>
+      <link>https://syui.ai/blog/post/2018/08/07/pcmanfm/</link>
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2018/08/07/pcmanfm/</guid>
+      <guid>https://syui.ai/blog/post/2018/08/07/pcmanfm/</guid>
       <description>導入 今までarchlinuxでは、fmはspacefmを使ってきました。あ、fmというのはfile managerのことなんですけど、わかりにくかったら、すみません。
 で、普通に快適だったんですけど、昔はpacmanに置かれてたspacefmのpackageが、いつの間にかaur行きになってしまい、いや、自分の記憶によれば昔は確かにdefault mirrorにあったはずだと思うんですよね、で、一旦、packageがaur行きになってしまわれると、pacmanのようにbinaryをdownloadするだけではダメですからね。updateの都度にsrc(source)からbuildする必要がでてくるわけなので、これは非常に面倒くさいわけです、時間もかかりますし。
 そのため、さっさとpacmanにあるpcmanに移行しようと&amp;hellip;パックマンとパクマン(ピーシーマンかもしれんけど)、名前、間違いやすそうだな&amp;hellip;随分前からそう考えていたたわけなんですが、なかなか気分が乗らずにずっと来てしまいました。最近、OS環境構築するのがめんどくさすぎて、移行とかめんどくさすぎてやる気が出なくてですね、つまり、あれです、開発環境の構築とかめんどくさすぎる病を患ってしまっているわけですね。

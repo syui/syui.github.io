@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>activitypub on syui.cf</title>
-    <link>https://syui.cf/tags/activitypub/</link>
-    <description>Recent content in activitypub on syui.cf</description>
+    <title>activitypub on syui.ai</title>
+    <link>https://syui.ai/tags/activitypub/</link>
+    <description>Recent content in activitypub on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/activitypub/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/activitypub/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mitraをfly.ioにdeployしてみた</title>
-      <link>https://syui.cf/blog/post/2023/01/09/mitra/</link>
+      <link>https://syui.ai/blog/post/2023/01/09/mitra/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/09/mitra/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/09/mitra/</guid>
       <description>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。
 uiとbackendが素晴らしく、とてもシンプルです。
 https://codeberg.org/silverpill/mitra
@@ -24,10 +24,10 @@ $ git clone https://codeberg.org/silverpill/mitra $ cd mitra $ cp config.yaml.ex
     
     <item>
       <title>gotosocialを立ててみた時の話</title>
-      <link>https://syui.cf/blog/post/2023/01/08/gotosocial/</link>
+      <link>https://syui.ai/blog/post/2023/01/08/gotosocial/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/08/gotosocial/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/08/gotosocial/</guid>
       <description>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。
 https://github.com/superseriousbusiness/gotosocial
 golangを採用しているというのが大きく、dbもsqliteです。最もシンプルな構成だと思います。

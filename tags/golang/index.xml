@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on syui.cf</title>
-    <link>https://syui.cf/tags/golang/</link>
-    <description>Recent content in golang on syui.cf</description>
+    <title>golang on syui.ai</title>
+    <link>https://syui.ai/tags/golang/</link>
+    <description>Recent content in golang on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gotosocialを立ててみた時の話</title>
-      <link>https://syui.cf/blog/post/2023/01/08/gotosocial/</link>
+      <link>https://syui.ai/blog/post/2023/01/08/gotosocial/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/08/gotosocial/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/08/gotosocial/</guid>
       <description>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。
 https://github.com/superseriousbusiness/gotosocial
 golangを採用しているというのが大きく、dbもsqliteです。最もシンプルな構成だと思います。
@@ -30,10 +30,10 @@ fly.io  Dockerfile
     
     <item>
       <title>twg v0.4.5 [twitter clinet on go]</title>
-      <link>https://syui.cf/blog/post/2021/08/09/twitter/</link>
+      <link>https://syui.ai/blog/post/2021/08/09/twitter/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2021/08/09/twitter/</guid>
+      <guid>https://syui.ai/blog/post/2021/08/09/twitter/</guid>
       <description>twitter上でのやり取りが不便だったので、自分で使ってるtwgというclientをupdateしました。あと、imageをtweetする機能もつけました。
 app keyが入れてあるので、releaseからdlしてください。twitter apiのconsumer_key, consumer_secret_keyを持っている人は、srcをbuildして使えます。
 https://github.com/syui/twg/releases
@@ -45,10 +45,10 @@ on: push: branches: - master create: tags: - v*.*.* jobs: release: # job_id name
     
     <item>
       <title>xqというcli toolにtxtをjson{body:}に出力するオプションを追加してみた</title>
-      <link>https://syui.cf/blog/post/2020/05/17/golang/</link>
+      <link>https://syui.ai/blog/post/2020/05/17/golang/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2020/05/17/golang/</guid>
+      <guid>https://syui.ai/blog/post/2020/05/17/golang/</guid>
       <description>shellのcatでは、github-apiのpostでjson errorが出る場合があったので、xqにtxt, mdなどのファイルをjsonのbodyに入れて出力するコマンドを追加してみました。
 $ xq j ./index.md {&amp;#34;body&amp;#34;:&amp;#34;+++\ndate = \&amp;#34;2020-05-17JST\&amp;#34;\ntags = [\&amp;#34;golang\&amp;#34;]\ntitle = \&amp;#34;\&amp;#34;\nslug = \&amp;#34;golang\&amp;#34;\n+++\n\n\n[xq](https://github.com/syui/xq)にtxt, mdをjsonのbodyに入れるコマンドを追加した。\n\n```sh\n$xq j ./index.md\n```\n&amp;#34;} これでgh-actionsに以下のような書き方ができます。
 $ curl -X POST \  -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \  -d &amp;#34;`xq j index.txt`&amp;#34; \  ${URL} github-apiのpostは、titleなども加えられるのでbodyだけでは応用性は低いですが、個人的に使わない機能を追加してもしょうがないので、必要最小限で。
@@ -58,10 +58,10 @@ $ curl -X POST \  -H &amp;#34;Authorization: token ${GITHUB_TOKEN}&amp;#34; \  -
     
     <item>
       <title>golangで作ったxqをアップデートした</title>
-      <link>https://syui.cf/blog/post/2019/12/25/golang-xq/</link>
+      <link>https://syui.ai/blog/post/2019/12/25/golang-xq/</link>
       <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/25/golang-xq/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/25/golang-xq/</guid>
       <description>xqはxmlをjsonに変換するコマンドラインツールです。必要があったので必要な分だけ作ったやつ。
 https://github.com/syui/xq
 $ go get -v -u github.com/syui/xq $ xq -v xq version 0.3.4 $ curl -sLO https://syui.cf/blog/index.xml $ xq ./index.xml | jq . ですが、今回、その名の通り[q]ueryできるようにしてみました、一部ですが。
@@ -72,10 +72,10 @@ $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.
     
     <item>
       <title>go-json-base64</title>
-      <link>https://syui.cf/blog/post/2017/04/10/golang/</link>
+      <link>https://syui.ai/blog/post/2017/04/10/golang/</link>
       <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/10/golang/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/10/golang/</guid>
       <description>なぜか，サービスにこのクライアントを入れてイベントをPublishするとなぜかData部分のJSONがbase64エンコードされている……. 結論から言うと，Go1.8未満のバージョンで json.RawMessage を json.Marshal するとbase64エンコードされてしまうのが原因．
  http://blog.upamune.com/entry/2017/04/07/165658
 これに類似する問題、ちょっとハマったのでメモ。</description>
@@ -83,10 +83,10 @@ $ xq l l ./index.xml https://syui.cf/blog/post/2019/12/24/music/ $ xq p ./index.
     
     <item>
       <title>medium-go-releases</title>
-      <link>https://syui.cf/blog/post/2017/04/08/golang/</link>
+      <link>https://syui.ai/blog/post/2017/04/08/golang/</link>
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/08/golang/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/08/golang/</guid>
       <description>追記 昨日紹介したMedium ClientですがURLが間違ってました、すいません。最近、読み直さないことが多くなってきて文章が間違いだらけだったり、URLなどの根本的なミスが&amp;hellip;。
 https://github.com/syui/medigo
 本文 GitHubのリリースページからダウンロードできるようにしてみたのです。golangはマルチビルド簡単でバイナリ配布が楽ですね。
@@ -99,10 +99,10 @@ https://github.com/syui/medigo/releases
     
     <item>
       <title>medium-go</title>
-      <link>https://syui.cf/blog/post/2017/04/07/golang/</link>
+      <link>https://syui.ai/blog/post/2017/04/07/golang/</link>
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/07/golang/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/07/golang/</guid>
       <description>medium clientをgolangで書いた。
 https://github.com/syui/medigo
 $ cd $GOPATH/bin $ curl -LO https://github.com/syui/medigo/releases/download/0.1/darwin_amd64_medigo $ mv darwin_amd64_medigo medigo $ chmod +x medigo $ export PATH=$PATH:$GOPATH/bin # 最初はOAuth認証のためブラウザが開く $ medigo $ medigo h COMMANDS: post, p carte post sub-command : draft(d), public(p) key, k token json sub-command : AccessToken(a), RefreshToken(r), SelfToken(s) user, u user info oauth, o get oauth-access-token self, s get self-access-token refresh, r refresh access-token help, h Shows a list of commands or help for one command 前回は試せなかったので、設定ファイルから読み込む方法でclient_idなどを読み込むようにしてみたりとか色々。エディタとかと連携したら面白そうだけどやってない。</description>
@@ -110,10 +110,10 @@ $ cd $GOPATH/bin $ curl -LO https://github.com/syui/medigo/releases/download/0.1
     
     <item>
       <title>ipinfo-go-releases</title>
-      <link>https://syui.cf/blog/post/2017/03/30/golang/</link>
+      <link>https://syui.ai/blog/post/2017/03/30/golang/</link>
       <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/03/30/golang/</guid>
+      <guid>https://syui.ai/blog/post/2017/03/30/golang/</guid>
       <description>昨日紹介したgolang製のツール、preview版ではなくversionでリリースしてみた。
 https://github.com/syui/ipinfo/releases
 マルチビルドしてるので色々なOSで使えるはず、多分。
@@ -125,10 +125,10 @@ $ cd $GOPATH/bin $ curl -LO https://github.com/syui/ipinfo/releases/download/0.1
     
     <item>
       <title>ipinfo-go</title>
-      <link>https://syui.cf/blog/post/2017/03/29/golang/</link>
+      <link>https://syui.ai/blog/post/2017/03/29/golang/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/03/29/golang/</guid>
+      <guid>https://syui.ai/blog/post/2017/03/29/golang/</guid>
       <description>https://github.com/syui/ipinfo
 golangで書いた。色々と試したいこともあったので、ごちゃごちゃしている。
 きっかけは、ある記事でお天気APIをgoで使うチュートリアルみたいなものがあって、続きはあなたが書きましょう、APIでオススメはこれみたいなのが紹介されていたので。 http://postd.cc/how-i-start-go/

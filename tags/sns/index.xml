@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sns on syui.cf</title>
-    <link>https://syui.cf/tags/sns/</link>
-    <description>Recent content in sns on syui.cf</description>
+    <title>sns on syui.ai</title>
+    <link>https://syui.ai/tags/sns/</link>
+    <description>Recent content in sns on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.cf/tags/sns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/sns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>damusをはじめてみた</title>
-      <link>https://syui.cf/blog/post/2023/02/05/damus/</link>
+      <link>https://syui.ai/blog/post/2023/02/05/damus/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/02/05/damus/</guid>
+      <guid>https://syui.ai/blog/post/2023/02/05/damus/</guid>
       <description>damusはnostr protocolに対応したiosのclientです。
   https://github.com/nostr-protocol/nostr
   https://github.com/damus-io/damus
@@ -29,10 +29,10 @@ pub mod data; use std::env; use url::Url; use data::Data as Datas; use seahorse:
     
     <item>
       <title>mitraをfly.ioにdeployしてみた</title>
-      <link>https://syui.cf/blog/post/2023/01/09/mitra/</link>
+      <link>https://syui.ai/blog/post/2023/01/09/mitra/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/09/mitra/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/09/mitra/</guid>
       <description>mitraは、rustで書かれた仮想通貨のwalletと連携可能なインスタンスです。
 uiとbackendが素晴らしく、とてもシンプルです。
 https://codeberg.org/silverpill/mitra
@@ -43,10 +43,10 @@ $ git clone https://codeberg.org/silverpill/mitra $ cd mitra $ cp config.yaml.ex
     
     <item>
       <title>gotosocialを立ててみた時の話</title>
-      <link>https://syui.cf/blog/post/2023/01/08/gotosocial/</link>
+      <link>https://syui.ai/blog/post/2023/01/08/gotosocial/</link>
       <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2023/01/08/gotosocial/</guid>
+      <guid>https://syui.ai/blog/post/2023/01/08/gotosocial/</guid>
       <description>gotosocialは今現在最も簡単に建てられるactivitypubのインスタンスです。
 https://github.com/superseriousbusiness/gotosocial
 golangを採用しているというのが大きく、dbもsqliteです。最もシンプルな構成だと思います。
@@ -63,10 +63,10 @@ fly.io  Dockerfile
     
     <item>
       <title>Herokuで立てる分散SNS</title>
-      <link>https://syui.cf/blog/post/2019/12/22/heroku-sns/</link>
+      <link>https://syui.ai/blog/post/2019/12/22/heroku-sns/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2019/12/22/heroku-sns/</guid>
+      <guid>https://syui.ai/blog/post/2019/12/22/heroku-sns/</guid>
       <description>今回は、Herokuで立てる分散SNSの話です。
 アドベントカレンダーに参加しています。
   Heroku Advent Calendar 2019
@@ -81,10 +81,10 @@ Herokuは、個人的に最も良心的かつ使い勝手が良く安定したPa
     
     <item>
       <title>mastdon-heroku-build</title>
-      <link>https://syui.cf/blog/post/2017/05/26/sns/</link>
+      <link>https://syui.ai/blog/post/2017/05/26/sns/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/05/26/sns/</guid>
+      <guid>https://syui.ai/blog/post/2017/05/26/sns/</guid>
       <description>古くからHeroku DeployしているUserはheroku buildpackが入ってないので以下のErrorがでると思われ、それをDeployできるようにした。
 $ git push heroku master Gem::Ext::BuildError: ERROR: Failed to build gem native extension. https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt
 $ heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt $ heroku run bash -a apt-pg-test # heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git $ echo libpq-dev &amp;gt;&amp;gt; Aptfile $ git add Aptfile $ git commit -m &amp;#34;add : aptfile libpq-dev&amp;#34; URL :
@@ -95,10 +95,10 @@ http://tooky.co.uk/using-charklock_holmes-on-heroku/
     
     <item>
       <title>Mastodonの画像キャッシュやタイムライン</title>
-      <link>https://syui.cf/blog/post/2017/04/26/sns/</link>
+      <link>https://syui.ai/blog/post/2017/04/26/sns/</link>
       <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/26/sns/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/26/sns/</guid>
       <description>Mastodonの購読は少し複雑になっていて、/lib/tasksにあるスクリプトによって処理するよう管理者に促されており、cronで定期的に実行するような感じ。
 https://github.com/tootsuite/mastodon/blob/master/lib/tasks/mastodon.rake
 Herokuの場合はSchedulerというものがあって、これで定期的に処理を実行可能なので設定する。
@@ -109,10 +109,10 @@ https://github.com/tootsuite/documentation/blob/master/Using-the-API/Streaming-A
     
     <item>
       <title>Mastodonのインスタンにオートスクロールなどを付けた</title>
-      <link>https://syui.cf/blog/post/2017/04/25/sns/</link>
+      <link>https://syui.ai/blog/post/2017/04/25/sns/</link>
       <pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/25/sns/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/25/sns/</guid>
       <description>機能としては、ユーザーのパブリックページにjk移動やオートスクロールを付けた。 /@syui
 ハマりどころが多すぎて何から解説していいのかわからないけど、覚えている限りで適当に書いてく。
 まず、/publicに置いたファイルが更新されてなかったのでハマりまくった。ソースからスクリプトを見てみると、デプロイしたにも関わらず変更されてない箇所があった。
@@ -131,19 +131,19 @@ Mastodon本体を変更すれば速いんだけど、しかし、あまり変更
     
     <item>
       <title>MastodonのEmoji</title>
-      <link>https://syui.cf/blog/post/2017/04/18/sns/</link>
+      <link>https://syui.ai/blog/post/2017/04/18/sns/</link>
       <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/18/sns/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/18/sns/</guid>
       <description>:emoji:みたいな短縮で書いたのだけど、モバイルのブラウザではテキストをコピーしないと表示されなかった。</description>
     </item>
     
     <item>
       <title>Heroku&#43;Mastodon</title>
-      <link>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</link>
+      <link>https://syui.ai/blog/post/2017/04/01/heroku-mastodon/</link>
       <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://syui.cf/blog/post/2017/04/01/heroku-mastodon/</guid>
+      <guid>https://syui.ai/blog/post/2017/04/01/heroku-mastodon/</guid>
       <description>activitypubというprotocolがあります。わかりやすく言うと、分散snsのprotocolです。このprotocolを使ったserverで有名なのはmastodonです。herokuで立ててみたので、その運営に関するまとめです。
 https://mstdn.syui.cf/
 TwitterとMastodon Twitterには前から不穏な空気はあって、主に経営が云々という理由などからですが、一体どこに移転しようかということを思っていたユーザーは多かったのではないでしょうか。
