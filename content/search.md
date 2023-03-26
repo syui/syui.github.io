@@ -1,7 +1,7 @@
 ---
-title: "syui.cf | search"
+title: "syui.ai | search"
 type: search
-page_image : "https://syui.cf/favicon.png"
+page_image : "https://syui.ai/favicon.png"
 description: "search"
 ---
 

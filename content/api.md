@@ -4,7 +4,7 @@ date = "2022-02-27"
 +++
 
 ```sh
-$ curl api.syui.cf/users/1
+$ curl api.syui.ai/users/1
 {
   "id": 1,
   "user": "syui",
@@ -26,21 +26,21 @@ $ curl api.syui.cf/users/1
 
 ```sh
 # play(draw)
-$ curl -X PUT api.syui.cf/users/1/d
+$ curl -X PUT api.syui.ai/users/1/d
 ```
 
 ```sh
 # create
 # 現在、新規登録を停止しています
-$ curl -X POST -H "Content-Type: application/json" -d '{"user":"syui"}' api.syui.cf/users
+$ curl -X POST -H "Content-Type: application/json" -d '{"user":"syui"}' api.syui.ai/users
 
 # delete
 # 現在、ユーザーの削除を停止しています
-$ curl -X DELETE api.syui.cf/users/1
+$ curl -X DELETE api.syui.ai/users/1
 
 # update
 # 現在、要素の書き換えを停止しています
-$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.cf/users/1 
+$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.ai/users/1 
 ```
 
 ### hint
@@ -49,10 +49,10 @@ $ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.c
 
 ```sh
 // 対戦の開始
-$ curl -X PUT api.syui.cf/users/1/d
+$ curl -X PUT api.syui.ai/users/1/d
 
 // 結果の確認
-$ curl api.syui.cf/users/1
+$ curl api.syui.ai/users/1
 {
 	"win": 0,
 	"comment": "loss"
@@ -63,7 +63,7 @@ $ curl api.syui.cf/users/1
 
 ```sh
 // 対戦相手の指定
-$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.cf/users/1 
+$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.ai/users/1 
 ```
 
 自身のステータスと対戦相手のステータス、運によって勝敗が決まります。
@@ -72,7 +72,7 @@ $ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.c
 
 ```sh
 // commentに直前の内容が表示されたりする
-$ curl api.syui.cf/users/1
+$ curl api.syui.ai/users/1
 {
 	"win": 1,
 	"comment": "attach+12"

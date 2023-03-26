@@ -1,5 +1,5 @@
 ---
-title: archive | syui.cf
+title: archive | syui.ai
 type: archive
 ---
 

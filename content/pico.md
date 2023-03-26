@@ -1,5 +1,5 @@
 ---
-title: "pico | syui.cf"
+title: "pico | syui.ai"
 type: pico
 ---
 

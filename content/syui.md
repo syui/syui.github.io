@@ -1,5 +1,5 @@
 ---
-title: "about | syui.cf"
+title: "about | syui.ai"
 aliases:
     - /about
 type: syui

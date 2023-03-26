@@ -1,5 +1,5 @@
 ---
-title: "illust | syui.cf"
+title: "illust | syui.ai"
 aliases:
     - /illust
 type: img

@@ -1,5 +1,5 @@
 ---
-title: "icon | syui.cf"
+title: "icon | syui.ai"
 aliases:
     - /design
 type: icon

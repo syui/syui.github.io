@@ -1,5 +1,5 @@
 ---
-title: "moji | syui.cf"
+title: "moji | syui.ai"
 type: moji
 ---
 

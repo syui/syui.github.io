@@ -1,5 +1,5 @@
 ---
-title: "music | syui.cf"
+title: "music | syui.ai"
 type: music
 ---
 

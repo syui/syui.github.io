@@ -1,4 +1,4 @@
 ---
-title: "about | syui.cf"
+title: "about | syui.ai"
 type: syui-1
 ---

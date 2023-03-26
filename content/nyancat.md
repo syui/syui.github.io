@@ -1,5 +1,5 @@
 ---
-title: "nyancat | syui.cf"
+title: "nyancat | syui.ai"
 type: nyancat
 ---
 
