@@ -3,7 +3,7 @@ title: "help"
 date: "2021-09-19"
 ---
 
-[syui.cf](/)は、このサイト(ブログ)のタイトルです。
+[syui.ai](/)は、このサイト(ブログ)のタイトルです。
 
 このサイトには、いくつかの隠し機能があります。
 
@@ -69,7 +69,7 @@ password : test
 
 ![](https://raw.githubusercontent.com/syui/img/master/other/hugo_20210918_141510.png)
 
-### api コマンドで api.syui.cf の api を使う
+### api コマンドで api.syui.ai の api を使う
 
 ```sh
 $ api 1
