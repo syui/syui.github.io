@@ -1,5 +1,5 @@
 $(function() {
-	var prompt = "[[b;#D33682;]user]@[[b;#6c71c4;]syui.cf] ~$ ";
+	var prompt = "[[b;#D33682;]user]@[[b;#6c71c4;]syui.ai] ~$ ";
 	var test_help = "Press [[b;#d33682;]<Tab>]";
 	var greetings = "";
 	var origin_songs = [];
@@ -54,12 +54,12 @@ var ascii_archjp = "\n\n\
 \n                   ::\n\n\
 ";
 
-	axios.get('https://syui.cf/json/keybase.json')
+	axios.get('https://syui.ai/json/keybase.json')
 		.then(function (response) {
 			gpg_link = JSON.stringify(response.data,null,"\t");
 		})
 
-	//axios.get('https://api.syui.cf/users')
+	//axios.get('https://api.syui.ai/users')
 	//	.then(function (response) {
 	//		gpg_link = JSON.stringify(response.data,null,"\t");
 	//	})
@@ -67,11 +67,11 @@ var ascii_archjp = "\n\n\
 	//.catch(function (error) {
 	//    //console.log(error);
 	//});
-	axios.get('https://syui.cf/json/link.json', { 'Content-Type': 'application/json' })
+	axios.get('https://syui.ai/json/link.json', { 'Content-Type': 'application/json' })
 		.then(function (response) {
 			syui_link = JSON.stringify(response.data,null,"\t");
 		})
-	axios.get('https://syui.cf/index.json', { 'Content-Type': 'application/json' })
+	axios.get('https://syui.ai/index.json', { 'Content-Type': 'application/json' })
 		.then(function (response) {
 			index_json = JSON.stringify(response.data,null,"\t");
 			origin_index_json = JSON.parse(index_json);
@@ -85,7 +85,7 @@ var ascii_archjp = "\n\n\
 			});
 		})
 
-	axios.get('https://syui.cf/json/file.json', { 'Content-Type': 'application/json' })
+	axios.get('https://syui.ai/json/file.json', { 'Content-Type': 'application/json' })
 		.then(function (response) {
 			file_list = JSON.stringify(response.data,null,"\t");
 			music_all = response.data[0].music;
@@ -154,11 +154,11 @@ var ascii_archjp = "\n\n\
 		} else if (inputs[0] === 'cat' && inputs[1] === '/json/file.json') {
 			term.echo(file_list);
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
-			term.echo("slow okay?\n[Y]run next command.\nex: $ curl https://syui.cf/index.json");
-			term.insert("curl https://syui.cf/index.json");
+			term.echo("slow okay?\n[Y]run next command.\nex: $ curl https://syui.ai/index.json");
+			term.insert("curl https://syui.ai/index.json");
 		} else if (inputs[0] === 'exit') {
-			this.set_prompt("[[b;#D33682;]" + "user" + "]@[[b;#6c71c4;]syui.cf] ~# ");
-		}	else if (inputs[0] === 'curl' && inputs[1] === 'syui.cf/index.json'||inputs[0] === 'curl' && inputs[1] === 'https://syui.cf/index.json'){
+			this.set_prompt("[[b;#D33682;]" + "user" + "]@[[b;#6c71c4;]syui.ai] ~# ");
+		}	else if (inputs[0] === 'curl' && inputs[1] === 'syui.ai/index.json'||inputs[0] === 'curl' && inputs[1] === 'https://syui.ai/index.json'){
 			term.echo(index_json);
 		}	else if (inputs[0] === 'curl' && inputs[1] === 'ipapi.co'){
 			$.ajaxSetup({async: false});
@@ -166,22 +166,22 @@ var ascii_archjp = "\n\n\
 				term.echo(JSON.stringify(data,null,"\t"));
 				user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
 			});$.ajaxSetup({async: true});
-				this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.cf] ~$ ");
+				this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.ai] ~$ ");
 			}	else if (inputs[0] === 'curl'){
-				term.echo("$ curl syui.cf/index.json\n$ curl ipapi.co");
+				term.echo("$ curl syui.ai/index.json\n$ curl ipapi.co");
 			} else if (inputs[0] === 'cat') {
 				term.echo("ex : cat /json/link.json");
 			} else if (inputs[0] === 'help') {
 				term.echo(command_all);
 		}	else if (inputs[0] === 'api'){
 			term.echo("$ api {id}");
-			term.echo("curl api.syui.cf/users/{id}/d");
+			term.echo("curl api.syui.ai/users/{id}/d");
 			$.ajaxSetup({async: false,type: 'PUT'});
-			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.cf/users/' + inputs[1] + "/d", function(data) {
+			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1] + "/d", function(data) {
 				term.echo(JSON.stringify(data,null,"\t"));
 			});$.ajaxSetup({async: true});
 			$.ajaxSetup({async: false,type: 'GET'});
-			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.cf/users/' + inputs[1], function(data) {
+			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1], function(data) {
 				term.echo(JSON.stringify(data,null,"\t"));
 			});$.ajaxSetup({async: true});
 			} else if (inputs[0] === '/') {
@@ -204,7 +204,7 @@ var ascii_archjp = "\n\n\
 				};
 			} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
 				if (tags.indexOf(inputs[2]) != -1) {
-					s = 'tag : https://syui.cf/tags/' + inputs[2];
+					s = 'tag : https://syui.ai/tags/' + inputs[2];
 					term.echo(s);
 				} else {
 					term.echo("none tag!");
@@ -216,7 +216,7 @@ var ascii_archjp = "\n\n\
 				});
 			} else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] === undefined) {
 				term.echo(tags);
-				term.echo('>> https://syui.cf/tags/');
+				term.echo('>> https://syui.ai/tags/');
 				term.echo('ex: $ search -t hugo');
 			} else if (inputs[0] === 'search' && inputs[1] === '-a') {
 				origin_index_json.forEach(function(v,index) {
@@ -279,11 +279,11 @@ var ascii_archjp = "\n\n\
 				term.login(function(user, password, callback) {
 					if (user == 'syui' && password == 'syui') {
 						callback('SECRET TOKEN');
-						this.set_prompt("[[b;#EF454A;]" + "syui" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+						this.set_prompt("[[b;#EF454A;]" + "syui" + "]@[[b;#6c71c4;]syui.ai] ~# ");
 					} else if (user == 'root' && password == 'ai') {
 						callback('SECRET TOKEN');
 						term.echo("\ncongratulations!\n" + "you are hacker level.\n");
-						this.set_prompt("[[b;#008000;]" + "root" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+						this.set_prompt("[[b;#008000;]" + "root" + "]@[[b;#6c71c4;]syui.ai] ~# ");
 					} else if (user == 'root') {
 						callback(null);
 					} else {
@@ -292,7 +292,7 @@ var ascii_archjp = "\n\n\
 						$.getJSON('https://ipapi.co/json/', function(data) {
 							user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
 						});$.ajaxSetup({async: true});
-							this.set_prompt("[[b;#008080;]" + user + "(" + user_ip + ")" + "]@[[b;#6c71c4;]syui.cf] ~$ ");
+							this.set_prompt("[[b;#008080;]" + user + "(" + user_ip + ")" + "]@[[b;#6c71c4;]syui.ai] ~$ ");
 							//callback(null);
 						}
 				});
