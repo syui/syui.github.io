@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/tags/api/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ent/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/northflank/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/03/29/api/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/domain/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/post/2023/03/26/domain/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/23/domain/</loc>
@@ -169,9 +181,6 @@
   </url><url>
     <loc>https://syui.ai/tags/vim/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/api/</loc>
-    <lastmod>2023-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/go/</loc>
     <lastmod>2023-01-14T00:00:00+00:00</lastmod>
@@ -429,9 +438,6 @@
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/heroku/</loc>
-    <lastmod>2022-08-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/northflank/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/08/27/fly-heroku/</loc>

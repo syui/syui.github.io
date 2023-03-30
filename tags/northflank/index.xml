@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/northflank/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/northflank/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>northflankでentのapiを触ってみた</title>
+      <link>https://syui.ai/blog/post/2023/03/29/api/</link>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/03/29/api/</guid>
+      <description>最近、fly.ioを使ってることもあって、db:postgresよりもsqliteのほうがありがたい感じになってる。
+northflankで動かしてたapiのdbがpostgresだったので、docker-volumeに変更して、sqliteに変更にしてみました。
+ハマったところ ハマったのは前回と同じで、service/CMD overrideでcustom commandを選択して、goの場合はbin/binaryとかやります。
+表示 : /cnb/process/web bin/binary
+volumeも少しハマりました。
+container上のvolumeなので、/はcontainerのrootを指します。
+例えば、volumeを/dataにmountするとして、sqliteはこんな感じになります。
+$ go generate ./... $ go build func main() { client, err := ent.Open(dialect.SQLite, &amp;#34;file:/data/ent.sqlite?_fk=1&amp;#34;) //client, err := ent.Open(dialect.SQLite, &amp;#34;file:ent?mode=memory&amp;amp;cache=shared&amp;amp;_fk=1&amp;#34;) } 今現在、ちょっとした遊びを考えてるんだけど、遊びを考えるのって難しい。
+例えば、botでカード占いをできるようにしたんだけど、これをapiと連携した場合、どんな感じにすれば面白いんだろうとか、長く楽しめそうかなとか、その辺。</description>
+    </item>
+    
     <item>
       <title>fly.ioとnorthflankの感想</title>
       <link>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</link>
