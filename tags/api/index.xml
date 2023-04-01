@@ -7,7 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyでカードゲームを作ってみた</title>
+      <link>https://syui.ai/blog/post/2023/04/01/api/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/04/01/api/</guid>
+      <description>カードゲームと言ってもルールはないし、最初は占い的なものとして作ってみました。
+技術的なことについて、少しだけ書きます。
+entのschemaにDefaultFuncがあるのを見つけて、この機能に助けられました。
+本来はent/entc.goで新しいリクエスト先を作成して、main.goで処理しなければならないかもしれないかもしれないと思っていました。前回触ったときはそうやってランダム値をdefaultにするため回避していた記憶。
+func (Card) Fields() []ent.Field { return []ent.Field{ field.Int(&amp;#34;card&amp;#34;). Immutable(). //Default(card). 	DefaultFunc(func() int { rand.Seed(time.Now().UnixNano()) var a = rand.Intn(10) if a == 1 { card = rand.Intn(12) } else { card = 0 } return card }). Optional(), field.Time(&amp;#34;created_at&amp;#34;). Immutable(). Optional(). Default(func() time.Time { return time.Now().In(jst) }), } } 長続きする遊びってなんだろう 次は、普段からちょっとだけ考えてることについて。
+運要素が介在しないゲームと言うのは、あまり長続きしないのです。
+もちろん、ハマる人はハマるんだけど、運要素が大きければ大きいほど長続きしやすいと思っています。
+ですから、長く遊ばれ続けるには、どこかに運要素を入れたほうがいいと言うのが私の考えです。
+もちろん、バランスが重要だと思います。
+全部運というのも遊びとしては難しいと思います。
+どうせ全部運で決まるんでしょ、頑張っても意味ないでしょ、となってしまうからです。
+今回作ったのは、普通にカードを集めて、運が良ければ当たるってだけのシンプルなものです。
+よければblueskyのほうでbotに/cardしてみてください。
+集めたカードはこちらに表示されます。
+https://card.syui.ai</description>
+    </item>
+    
     <item>
       <title>northflankでentのapiを触ってみた</title>
       <link>https://syui.ai/blog/post/2023/03/29/api/</link>
