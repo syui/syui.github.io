@@ -9,10 +9,10 @@ dd=${0:a:h:h}
 echo " $ convert.zsh -a 13 : tarot 13 gold"
 
 cache=$dd/static/img/cache
-dir=$dd/content/ai/tarot
+dir=$dd/content/ai/card
 static=$dd/static/img
-json=$dd/static/json/tarot.json
-jsons=$d/static/json/tarot.json
+json=$dd/static/json/card.json
+jsons=$d/static/json/card.json
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -23,7 +23,7 @@ unset goodh
 if [ "$1" = "-a" ];then
 	good="true"
 fi
-n=`cat $d/static/json/tarot.json|jq "length"`
+n=`cat $d/static/json/card.json|jq "length"`
 n=`expr $n - 1`
 bg=$static/tarot_bg.png
 br=$static/tarot_br.png
@@ -41,41 +41,26 @@ fi
 
 echo kira $random
 
-if [ 1 -eq $(($RANDOM % 3)) ];then
-	if [ 1 -eq $(($RANDOM % 7)) ];then
-		echo "gold !"
-		good="true"
-		kr=$static/tarot_kr.png
-	else
-		echo "silver !"
-		kr=$static/tarot_bgs.png
-	fi
-else
-	kr=$static/tarot_bgr.png
-fi
 
-if [ "$1" = "-n" ];then
-	kr=$static/tarot_br.png
-fi
-
+kr=$static/tarot_br.png
 echo $kr
 
-if [ -f $cache/tarot_00.webp ];then
+if [ -f $cache/card_0.webp ];then
 	echo 'cp -rf $cache/*.webp $dir/'
 	rsync -av $cache/*.webp $dir/
 fi
 
 for ((i=0;i<=$n;i++))
 do
-	p=`cat $d/static/json/tarot.json|jq -r ".[$i].p"`
-	h=`cat $d/static/json/tarot.json|jq -r ".[$i].h"`
-	s=`cat $d/static/json/tarot.json|jq -r ".[$i].src"`
-	sss=`cat $d/static/json/tarot.json|jq -r ".[$i].file"`
+	p=`cat $d/static/json/card.json|jq -r ".[$i].p"`
+	h=`cat $d/static/json/card.json|jq -r ".[$i].h"`
+	s=`cat $d/static/json/card.json|jq -r ".[$i].src"`
+	sss=`cat $d/static/json/card.json|jq -r ".[$i].file"`
 	file_s=${sss##*/}
 	file_c=${cache}/${file_s}.png
 	file_g=$dir/${file_s}.gif
 	s=$dd/static/img/yui_$s.png
-	o=$dd/content`cat $d/static/json/tarot.json|jq -r ".[$i].file"`.png
+	o=$dd/content`cat $d/static/json/card.json|jq -r ".[$i].file"`.png
 	if [ $i -eq $random ];then
 		jq_s=$i
 		jq_i=$file_s
@@ -93,13 +78,14 @@ do
 	fi
 	if [ "$1" != "-a" ] && [ "$1" != "-d" ] || [ $i -eq $random ];then
 		echo $o
-		composite -gravity north  -geometry +0+160 -compose over $s $bg $o.back
-		composite -gravity north  -geometry +0+0 -compose over $br $o.back $o
+		composite -gravity center  -compose over $s $bg $o.back
+		composite -gravity center  -compose over $br $o.back $o
+
 		rm $o.back
 		if [ `echo $h|wc -m` -eq 2 ];then
-			mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
+			#mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
 		else
-			mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
+			#mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
 		fi
 		squoosh-cli --webp '{"quality":100}' -d $dir/ --resize '{width:400,height:550}' $o
 	fi
@@ -118,20 +104,20 @@ if [ "$good" = "true" ];then
 	if [ -f $good_cache_gif ];then
 		cp -rf $good_cache_gif $good_webp
 	else
-		for ((ii=0;ii<=9;ii++))
+		for ((ii=0;ii<=7;ii++))
 		do
 			title=$dir/null
 			o=${title}_${ii}.png
 			br=$static/tarot_bgg_${ii}.png
-			composite -gravity north  -geometry +0+160 -compose over $s $bg $o.back
-			composite -gravity north  -geometry +0+0 -compose over $br $o.back $o
+			composite -gravity center -compose over $s $bg $o.back
+			composite -gravity center -compose over $br $o.back $o
 			rm $o.back
 			if [ `echo $h|wc -m` -eq 2 ];then
-				mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
+				#mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
 			else
-				mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
+				#mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
 			fi
-			squoosh-cli --webp '{"quality":90}' -d $dir --resize '{width:400,height:550}' $o
+			squoosh-cli --webp '{"quality":100}' -d $dir --resize '{width:400,height:550}' $o
 		done
 		convert -layers optimize -loop 0 -delay 40 $dir/null_*.webp $good_cache_gif
 		#mogrify -resize 400x550 $good_cache_gif
@@ -144,26 +130,27 @@ if [ "$good" = "true" ];then
 	fi
 fi
 
-if [ ! -f $dir/tarot_00.webp ] || [ ! -f $dir/tarot_00.gif ];then
-	s=$static/tarot.png
-	o=$dir/tarot_00.webp
-	h=`cat $d/static/json/tarot.json|jq -r ".[0].h"`
-	good_cache_gif=$dir/tarot_00.gif
-	composite -gravity north  -geometry +0+160 -compose over $s $bg $o
-	for ((ii=0;ii<=9;ii++))
+if [ ! -f $dir/card_0.webp ] || [ ! -f $dir/card_0.gif ];then
+	s=$static/card_0.png
+	o=$dir/card_0.webp
+	h=`cat $d/static/json/card.json|jq -r ".[0].h"`
+	good_cache_gif=$dir/card_0.gif
+		composite -gravity center -compose over $s $bg $o.back
+	composite -gravity center   -compose over $s $bg $o
+	for ((ii=0;ii<=7;ii++))
 	do
 		title=$dir/null
 		o=${title}_${ii}.png
 		br=$static/tarot_bgg_${ii}.png
-		composite -gravity north  -geometry +0+160 -compose over $s $bg $o.back
-		composite -gravity north  -geometry +0+0 -compose over $br $o.back $o
+		composite -gravity center  -compose over $s $bg $o.back
+		composite -gravity center  -compose over $br $o.back $o
 		rm $o.back
 		if [ `echo $h|wc -m` -eq 2 ];then
-			mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
+			#mogrify -font "$font" -fill white -pointsize 200 -annotate +930+2570 "$h" $o
 		else
-			mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
+			#mogrify -font "$font" -fill white -pointsize 200 -annotate +830+2570 "$h" $o
 		fi
-		squoosh-cli --webp '{"quality":90}' -d $dir --resize '{width:400,height:550}' $o
+		squoosh-cli --webp '{"quality":100}' -d $dir --resize '{width:400,height:550}' $o
 	done
 	convert -layers optimize -loop 0 -delay 40 $dir/null_*.webp $good_cache_gif
 		rm -f $dir/null_*
