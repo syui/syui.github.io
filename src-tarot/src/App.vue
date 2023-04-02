@@ -7,10 +7,10 @@
 			<button @click="picker" ><i class="far fa-play-circle"></i> START</button>
 				<h3 v-if="cName.h">{{ cName.h }}</h3>
 			<p v-if="random === 1 && cName.gif === 'true'">
-				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.gif'" /> 
+				<img v-show="!loading" :src="'https://card.syui.ai/card/card_' + cName.id + '.gif'" /> 
 			</p>
 			<p v-else-if="cName.id">
-				<img v-show="!loading" :src="'/ai/card/card_' + cName.id + '.webp'" />
+				<img v-show="!loading" :src="'https://card.syui.ai/card/card_' + cName.id + '.webp'" />
 			</p>
 			<p v-else><img :src="tarotz" /></p>
 
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-//import items from '/static/json/card.json';
 import axios from 'axios'
 import { VueLoading } from 'vue-loading-template';
 export default {
@@ -34,13 +33,13 @@ export default {
 			cName: "",
 			cnt: "",
 			loading: false,
-			tarotz:"/ai/card/card_0.png",
+			tarotz:"https://card.syui.ai/card/card_0.png",
 			random:null
 		}
 	},
 	mounted() {
 		axios
-			.get('/json/card.json')
+			.get('https://card.syui.ai/json/card.json')
 			.then(response => (this.items = response.data))
 	},
 	components: {
