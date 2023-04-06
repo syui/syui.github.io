@@ -120,8 +120,9 @@ matrix : @ai:syui.ai
       
       <guid>https://syui.ai/blog/post/2023/03/21/bluesky/</guid>
       <description>awsやらfly.ioやらで少しずつ負荷を確認してたのですが、今回は本番環境にdeployしてみた話です。
-https://syui.ai
- 基本的にはこれまでのdeploy方法と変わりません。ポイントも同じです。
+https://bsky.syui.ai
+
+基本的にはこれまでのdeploy方法と変わりません。ポイントも同じです。
 fly.ioの場合は、port:80,443を2583に投げてやればOKです。
 aws-s3, cloudfrontを使わないためcfg.publicUrlが機能しなかったので、imgUriEndpointを変更しました。今回もgithub-pagesを使います。
 imgUriEndpoint = `https://img.syui.ai/image` dist, public, staticなどにjpgを置いてbuildすることでアクセスできるかもですが、やってみた限りでは無理でした。この辺はまだあまり見れていません。
