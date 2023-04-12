@@ -7,7 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 09 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、ナヒーダ完凸</title>
+      <link>https://syui.ai/blog/post/2023/04/12/genshin/</link>
+      <pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/04/12/genshin/</guid>
+      <description>全くすり抜け無かったので、ギリギリ行けた感じ。
+今後使ってみて使用感を確かめていきたいけど、めちゃくちゃ強くなってるのを既に感じてる。</description>
+    </item>
+    
+    <item>
+      <title>blueskyの記事をgihyo.jpで書いた</title>
+      <link>https://syui.ai/blog/post/2023/04/11/bluesky/</link>
+      <pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/04/11/bluesky/</guid>
+      <description>今回、blueskyの記事をgihyo.jpで書かせていただきました。
+https://gihyo.jp/article/2023/04/what_is_bluesky
+そういえばこの記事、blueskyであなたが書いたやつ、注目トップに入ってると教えてもらい、私はそれを全く知らなかったので、嬉しい知らせだったりした。
+とはいえ、今回の記事について、私が書いたかどうかはかなり怪しい。
+というのも、ほとんど技術評論社の方が色々と編集や修正、調べ物をしてくれたので、文章の殆どの部分を助けてもらったと言っても過言ではありません。タイトルや表題を含めてそうですね。
+#gihyojp にて、今注目の分散型SNS、Blueskyの記事を2本公開しましたー こちらはユーザ寄りの視点から、誕生の背景や現在の盛り上がり、そして、基本機能や特徴について解説していただいております #SNS #Bluesky #blueskysocial https://t.co/7YamjJWlp2
+&amp;mdash; 馮　富久/FUON Tomihisa (@tomihisa) April 11, 2023  もしよかったら読んでみてください。
+今回、私がやりたかったのは、(1)様々なコミュニティの良さを伝えること、(2)今後の未来について、プロトコルと分散を用いてサービスの垣根は取り外される方向になる気がするみたいなことを伝えること。
+主にこの2つかな。
+それができてるなら、やってよかったと思います。
+技術評論社の方々に感謝。
+そういえば、技術評論社のサイト、前々からすごく見やすいし、いいなって思ってたんだよね。
+これarchjpでも言ってた気がするけど。</description>
+    </item>
+    
     <item>
       <title>blueskyの初meetupがあった</title>
       <link>https://syui.ai/blog/post/2023/04/09/bluesky/</link>
