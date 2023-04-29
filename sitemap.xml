@@ -3,18 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-04-17T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/github/</loc>
+    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/04/29/github/</loc>
+    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/book/</loc>
     <lastmod>2023-04-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/make/</loc>
-    <lastmod>2023-04-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-04-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2023-04-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/04/17/book/</loc>
@@ -730,9 +736,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2022/02/11/sixel/</loc>
     <lastmod>2022-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/github/</loc>
-    <lastmod>2022-02-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/02/10/github/</loc>
     <lastmod>2022-02-10T00:00:00+00:00</lastmod>

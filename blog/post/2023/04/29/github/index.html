@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>絵本を作ってみた | syui.ai</title>
+		<title>github appsで任意のアイコンを設定する | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -105,21 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-04-17 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-04-29 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/make/">make</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.ai/tags/book/">book</a>
+		<a href="https://syui.ai/tags/github/">github</a>
 		
 		
 		
@@ -132,33 +123,23 @@
 		
 		</div>
 
-		<h2>絵本を作ってみた</h2>
+		<h2>github appsで任意のアイコンを設定する</h2>
 
-		<p>アイが一冊だけ持ってる絵本。たまに作中に出てくるやつを作ってみました。</p>
-<p>たまたまお店でいいものが売ってて「あなただけの絵本を作りましょう」という真っ白な絵本なんだけど、それを買って作ってみた。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/make_book_20230417_0001.jpg" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/make_book_20230417_0002.jpg" alt=""></p>
-<h3 id="デザイン">デザイン</h3>
-<p><img src="/icon/book.png" alt=""></p>
-<h3 id="カードを作ってみた">カードを作ってみた</h3>
-<p>そろそろカード作り始めないと、やばいかもしれないと思ったので、カード作ってたんだけど、素材が切れた話。</p>
-<p>その前に、少しだけカードのルールというか設定の一部を紹介します。</p>
-<p>リアルカードの設定は以下のようになっています。重要な点は主に2つ。</p>
-<ul>
-<li>
-<p>一つの絵柄につき一枚しか発行できない</p>
-</li>
-<li>
-<p>一人一枚しか持てない</p>
-</li>
-</ul>
-<p>このようなルールが存在していて、それは私も例外ではないので、例えば、私は同じ絵柄のものを2枚は作らないし、また、1枚以上のカードを作った場合、誰かにあげるか、破棄するか、どちらかになります。</p>
-<p>まあ、期間を制限していないので、抜け道はあるんだけど、このカード、世界で一つだけのカードという設定ではあります。今のところは。</p>
-<p>で、そのために<a href="https://card.syui.ai/docs">docs</a>に設置したのがowner(所有者)のページです。</p>
-<h3 id="素材が切れた">素材が切れた</h3>
-<p>以前はオーロラシールを素材に使ってたんだけど、それが無くなってしまい、買いに出かけたら生産中止になったらしいので、途中から製法を変えて作りました。もしかしたら、こっちのほうがいいかも。</p>
-<p>これは絵本を作ってるときに気づいたもので、やたら質感がいいシールだなと思い、それを使うことにしたのがきっかけでした。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/make_book_20230417_0004.jpg" alt=""></p>
+		<p><img src="https://raw.githubusercontent.com/syui/img/master/other/github_apps_icon_20230429_0001.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat .git/config
+<span style="color:#f92672">[</span>remote <span style="color:#e6db74">&#34;origin&#34;</span><span style="color:#f92672">]</span>
+url <span style="color:#f92672">=</span> https://<span style="color:#e6db74">${</span>token<span style="color:#e6db74">}</span>@github.com/user/repo
+</code></pre></div><p>この前、botからtokenでgit pushしてたんだけど、不意にiconを設定してみたくなったので、appsを作って設定してみた。</p>
+<p>ちなみに、.git以下には、様々な情報があって、その中でも重要なのが個人を識別するemailなんだけど、githubも他のgit-serverもそうだけど、emailからiconを設定します。</p>
+<p>github appsを作って、iconを設定し、apiにアクセスして、それをemailに設定するとokです。</p>
+<p>github appsは<code>id+name[bot]@users.noreply.github.com</code>が機能します。これは通常のuser(id)でも同じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://api.github.com/users/yui-bsky-social[bot]</span>
+$ cat ~/.gitconfig
+
+<span style="color:#f92672">[</span>user<span style="color:#f92672">]</span>
+email <span style="color:#f92672">=</span> 132127762+yui-bsky-social<span style="color:#f92672">[</span>bot<span style="color:#f92672">]</span>@users.noreply.github.com
+</code></pre></div><p>これでpushすれば、commitにgithub appsで作ったbotのiconが表示されるはず。</p>
+<p>githubもそうだけど、基本的に名前が取られててつらい。名前をどうしようかが一番悩みました。</p>
 
 		
 
@@ -166,14 +147,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/04/12/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、ナヒーダ完凸
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/04/17/book/" id="article-nav-older" class="article-nav-link-wrap">
+絵本を作ってみた
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/04/29/github/" id="article-nav-newer" class="article-nav-link-wrap">
-     github appsで任意のアイコンを設定する
-				</a></p>
     
 	</div>
 </nav>

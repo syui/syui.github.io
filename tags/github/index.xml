@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>github appsで任意のアイコンを設定する</title>
+      <link>https://syui.ai/blog/post/2023/04/29/github/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/04/29/github/</guid>
+      <description>$ cat .git/config [remote &amp;#34;origin&amp;#34;] url = https://${token}@github.com/user/repo この前、botからtokenでgit pushしてたんだけど、不意にiconを設定してみたくなったので、appsを作って設定してみた。
+ちなみに、.git以下には、様々な情報があって、その中でも重要なのが個人を識別するemailなんだけど、githubも他のgit-serverもそうだけど、emailからiconを設定します。
+github appsを作って、iconを設定し、apiにアクセスして、それをemailに設定するとokです。
+github appsはid+name[bot]@users.noreply.github.comが機能します。これは通常のuser(id)でも同じ。
+# https://api.github.com/users/yui-bsky-social[bot] $ cat ~/.gitconfig [user] email = 132127762+yui-bsky-social[bot]@users.noreply.github.com これでpushすれば、commitにgithub appsで作ったbotのiconが表示されるはず。
+githubもそうだけど、基本的に名前が取られててつらい。名前をどうしようかが一番悩みました。</description>
+    </item>
+    
     <item>
       <title>github actionsでrustのcross compile</title>
       <link>https://syui.ai/blog/post/2022/02/10/github/</link>
