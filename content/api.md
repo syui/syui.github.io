@@ -1,90 +1,88 @@
 +++
 title = "api"
 date = "2022-02-27"
+lastmod = "2023-05-14"
 +++
 
+[api.syui.ai](https://api.syui.ai)の解説です。
+
+blueskyで`ai`からカードをもらうことができます。
+
+- [@yui.bsky.social](https://staging.bsky.app/profile/yui.bsky.social) `/card`
+
+
 ```sh
-$ curl api.syui.ai/users/1
+$ curl -sL api.syui.ai/users/1 | jq .
 {
   "id": 1,
-  "user": "syui",
-  "chara": "ai",
-  "skill": 9,
-  "hp": 19,
-  "attack": 27,
-  "defense": 15,
-  "critical": 50,
-  "day": 14,
-  "limit": false,
-  "status": "admin",
-  "comment": "attack+6",
-  "created_at": "2022-06-11T10:22:11Z",
-  "next": "20220612",
-  "updated_at": "2022-06-11T11:17:31Z"
+  "username": "syui",
+  "did": "did:plc:uqzpqmrjnptsxezjx4xuh2mn",
+  "delete": false,
+  "created_at": "2023-04-13T16:32:14+09:00",
+  "updated_at": "2023-05-12T19:45:00+09:00",
+  "next": "20230512"
 }
 ```
 
 ```sh
-# play(draw)
-$ curl -X PUT api.syui.ai/users/1/d
-```
+# user search
+$ curl -sL "api.syui.ai/users?itemsPerPage=2000" | jq ".[]|select(.username == \"syui\")"
 
-```sh
-# create
-# 現在、新規登録を停止しています
-$ curl -X POST -H "Content-Type: application/json" -d '{"user":"syui"}' api.syui.ai/users
-
-# delete
-# 現在、ユーザーの削除を停止しています
-$ curl -X DELETE api.syui.ai/users/1
-
-# update
-# 現在、要素の書き換えを停止しています
-$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.ai/users/1 
-```
-
-### hint
-
-> 最初に引いたキャラを対戦で強くしていくapi
-
-```sh
-// 対戦の開始
-$ curl -X PUT api.syui.ai/users/1/d
-
-// 結果の確認
-$ curl api.syui.ai/users/1
-{
-	"win": 0,
-	"comment": "loss"
-}
-```
-
-このapiには遊びの要素があります。登録したユーザーに1人のキャラがランダムで割り当てられます。初期のステータスはランダムで決まり、1日に数回(上限2)、対戦することができます。対戦相手は`battle`で指定できます。
-
-```sh
-// 対戦相手の指定
-$ curl -X PATCH -H "Content-Type: application/json" -d '{"battle":2}' api.syui.ai/users/1 
-```
-
-自身のステータスと対戦相手のステータス、運によって勝敗が決まります。
-
-対戦に勝つとステータスが0-20の間でランダムに上昇します。より強い相手に勝つとより大きく上昇する可能性があります。しかし、負ける確率も高くなります。
-
-```sh
-// commentに直前の内容が表示されたりする
-$ curl api.syui.ai/users/1
-{
-	"win": 1,
-	"comment": "attach+12"
-}
+# user card
+$ curl -sL "api.syui.ai/users/1/card?itemsPerPage=2000" |jq ".[].card"
 ```
 
 `status`には引いた同キャラのレア度を表示します。低い確率でレアカード`super`を排出します。対戦を重ねると`normal`がまれに変化することがあるかもしれません。
 
-自分の手持ちを確認するためには、以下のフォームに入力してください。
+自分の手持ちを確認するためには、[こちら](https://card.syui.ai)からフォームに入力してください。
 
-<link href="/tarot-api/chunk-vendors.js" rel="preload" as="script">
-<div id="app"></div>
-<script src="/tarot-api/chunk-vendors.js"></script>
-<script src="/tarot-api/app.js"></script>
-<link href="/tarot-api/app.css" rel="stylesheet">
+## pass, token
+
+ここからはpass, tokenが必要です。passとtokenは`ai`しか持ちません。
+
+```sh
+$ url=https://api.syui.ai
+
+# create user
+$ curl -X POST -H "Content-Type: application/json" -d "{\"username\":\"$username\",\"password\":\"$pass\",\"did\":\"$did\"}" -s "$url/users"
+```
+
+```sh
+# draw
+$ curl -X POST -H "Content-Type: application/json" -d "{\"owner\":0, \"password\":\"$pass\"}" -sL $url/cards
+
+# draw select 
+$ curl -X POST -H "Content-Type: application/json" -d "{\"owner\":0,\"card\":0,\"status\":\"normal\",\"cp\":0,\"password\":\"$pass\"}" -sL $url/cards
+
+```
+
+```sh
+$ updated_at_n=`date --iso-8601=seconds`
+
+# user patch
+$ curl -X PATCH -H "Content-Type: application/json" -d "{\"updated_at\":\"$updated_at_n\",\"token\":\"$token\"}" -sL $url/users/0
+```
+
+## command
+
+```sh
+/card -u : user dataを見る
+
+/card 1 : id:1のdataを見る
+
+/card -b : battle
+
+/card -r : battle raid
+
+/card aa : ascii art
+
+/card ai : 隠しコマンド, user:aiのカードを引く
+
+その他にも隠しコマンドあり
+```
+
+## link
+
+- https://api.syui.ai
+
+- https://card.syui.ai
