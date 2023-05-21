@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/ai/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/ai/novel/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/ai/novel/10/</loc>
+    <lastmod>2023-05-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/blog/</loc>
     <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,9 +21,6 @@
     <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/04/29/github/</loc>
-    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
     <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
@@ -535,12 +544,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2022/07/10/illust/</loc>
     <lastmod>2022-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/ai/</loc>
-    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/ai/novel/</loc>
-    <lastmod>2022-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/ai/novel/09/</loc>
     <lastmod>2022-07-09T00:00:00+00:00</lastmod>
