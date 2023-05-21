@@ -34,8 +34,9 @@ export default {
     return {
       products: [...Array(Number(process.env.VUE_APP_PAGE)).keys()],
       hooperSettings: {
-        itemsToShow: 1,
-        centerMode: true
+							itemsToShow: 1,
+							initialSlide: 60,
+							centerMode: true
       }
     };
   }
