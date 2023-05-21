@@ -7,7 +7,8 @@
     <hooper-navigation slot="hooper-addons"></hooper-navigation>
     <hooper-pagination slot="hooper-addons"></hooper-pagination>
     <hooper-progress slot="hooper-addons"></hooper-progress>
-  </hooper>
+			<button v-on:click="manga_new">最新話</button>
+			</hooper>
 </template>
 
 <script>
@@ -38,7 +39,17 @@ export default {
         centerMode: true
       }
     };
-  }
+		},
+		methods: {
+			manga_new() {
+    return {
+				hooperSettings: {
+					itemsToShow: 20,
+					centerMode: true
+				}
+				}
+			}
+		}
 };
 </script>
 
