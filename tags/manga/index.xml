@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/manga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/manga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>漫画描いた5</title>
+      <link>https://syui.ai/blog/post/2023/06/03/manga/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/06/03/manga/</guid>
+      <description>漫画を描いたのと、ページを参照できなくて不便だったので、参照できるようにしたのと、イラストを描いたのと、カードを作ったりしてました。
+また、bot(@yui.bsky.social)から限定カードを1,2日だけ排出するようにしてました。
+新しいページを作った yui | manga
+以前 : /ai/manga
+イラスト プロットやキャラ 今回も少しだけ普段から思ってることを書きます。
+私は頭の中にプロット?があり、割と勝手に生成されます。
+キャラも勝手に喋るので、特に考えたりはあまりないです。
+例えば、アイに関しては、私とは全く別人格なので、アイはアイで勝手にすればいいと思ってます。私は知りません。
+ただ、物語に関しては、できるだけ面白くなるよう調整したりします。今回も話が暗くなりすぎないように最後のほうはギャグ方向で調整しました。
+アイのモジ・モード 本来はアイの小説由来ですが、ai-mojiが関係しています。
+何かを書き換える能力を持つようです。
+機会があれば、ai-mojiはupdateしたいと思っています。いくつかの文字の変更と拡大画像の生成。
+blueskyが面白いので、最新情報のほとんどをblueskyに投稿するようになってしまいました。</description>
+    </item>
+    
     <item>
       <title>漫画描いた4</title>
       <link>https://syui.ai/blog/post/2023/05/24/manga/</link>
