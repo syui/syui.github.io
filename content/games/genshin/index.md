@@ -55,7 +55,8 @@ header_image = "/games/genshin.jpg"
 |2022|05|螺旋を星36でクリア|無課金+初見+新規の人は参考に|
 |2022|06|螺旋を通しでクリア|一度もリセットすることなく連続で攻略|
 |2022|07|`万葉`を引く|各元素につき2体の強キャラ育成を目指す|
-|2022|11|`ナヒーダ`を引く|ガチャを爆死したことでナヒーダの完凸を決意|
+|2022|11|`ナヒーダ`を引く|ナヒーダの完凸を決意|
+|2023|04|`ナヒーダ`を完凸|初めての完凸(完全無課金)|
 
 [![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)
 
@@ -93,6 +94,7 @@ header_image = "/games/genshin.jpg"
 |2022|04|20,000|-20,000|0|ウェンティ, 綾華|
 |2022|07|20,000|-1,000|21,000|万葉|
 |2022|11|48,000|-48,000|0|ナヒーダ(3凸)|
+|2023|04|40,000|-40,000|0|ナヒーダ(完凸)+武器(鍵)|
 
 - スターダスト変換した運命も合算しています
 
@@ -150,7 +152,7 @@ header_image = "/games/genshin.jpg"
 |---|---|---|---|
 |クレー|9|9|9|
 |雷電|9|10|10|
-|ナヒーダ|6|13|9|
+|ナヒーダ|10|13|13|
 |鍾離|1|10|10|
 |行秋|1|12|12|
 |香菱|1|5|12|
@@ -206,6 +208,8 @@ header_image = "/games/genshin.jpg"
 #### ナヒーダ
 
 <a href="/games/genshin/genshin_chara_nahida.png"><img src="/games/genshin/genshin_chara_nahida.png"></a>
+
+<a href="/games/genshin/genshin_chara_nahida_fix2.png"><img src="/games/genshin/genshin_chara_nahida_fix2.png"></a>
 
 https://shinshin.moe
 
