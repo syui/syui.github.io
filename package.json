@@ -1,6 +1,6 @@
 {
-  "name": "sample-vue-manga-project",
-  "version": "0.1.0",
+  "name": "card",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,39 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@squoosh/cli": "^0.7.2",
+    "axios": "^0.25.0",
     "core-js": "^3.6.4",
-    "hooper": "^0.3.4",
     "vue": "^2.6.11",
-    "xterm": "^4.16.0",
-    "xterm-addon-fit": "^0.5.0"
+    "vue-loading-template": "^1.3.2",
+    "vue-meta": "^2.4.0",
+    "vue-template-compiler": "^2.6.14"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@vue/cli-service": "~4.5.15"
+  }
 }
