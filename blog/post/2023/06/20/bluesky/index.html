@@ -164,6 +164,7 @@ https://at.syui.ai
   <span style="color:#f92672">pds</span>:
     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pds</span>
     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">syui/bluesky-social/pds:latest</span>
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">/pds/atproto</span>
     <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">host</span>
     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
     <span style="color:#f92672">volumes</span>:
@@ -228,6 +229,7 @@ BSKY_APP_VIEW_DID<span style="color:#f92672">=</span><span style="color:#e6db74"
 CRAWLERS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://bgs.bsky-sandbox.dev&#34;</span>
 <span style="color:#75715e">#DB_SQLITE_LOCATION=&#34;/pds/pds.sqlite&#34;</span>
 DB_POSTGRES_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;postgres://postgres:pass@postgres:5432/postgres&#34;</span>
+DB_POSTGRES_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;postgres://postgres:pass@0.0.0.0:5432/postgres&#34;</span>
 BLOBSTORE_DISK_LOCATION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/pds/blocks&#34;</span>	
 
 ADMIN_PASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
