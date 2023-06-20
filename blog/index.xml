@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 17 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyの連合を試してみた</title>
+      <link>https://syui.ai/blog/post/2023/06/20/bluesky/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/06/20/bluesky/</guid>
+      <description>今回の目標は、bluesky-social/pds, bluesky-social/atprotoの統合です。
+pdsは、連合のsandbox環境ですが、様々な設定ができません。個人的には、AVAILABLE_USER_DOMAINSをsandbox環境でも有効にしたいと考え、構築してみました。これを有効にすると、handleがその設定のものになります。例えば、.aiと設定すれば、登録されるユーザーのhandleはuser.aiとなります。
+これがsandboxの連合環境でも動作するのか確かめたかったという理由です。
+通常は不可能ですが、plc.bsky-sandbox.devに登録できたので、希望があると考えました。
+$ curl -sL plc.bsky-sandbox.dev/export|jq -r &amp;#34;.operation|.services.atproto_pds.endpoint,.alsoKnownAs&amp;#34; https://at.syui.ai [ &amp;#34;at://syui.ai&amp;#34; ] 結論から言うと、有効に動作させることに成功しましたが、現在のsandboxは定員がいっぱいなのか、plc, bgs側で何らかが制限されている気がします。
+pdsのdockerをそのまま構築しても、自身のプロフィールにはアクセスできず、投稿も見れません。フォローやリプライは送ることができますが、記録されていないように感じます。最初は普通にできました。ただ、その後できなくなりました。
+設定のExperiment: Use AppView Proxyから切り替えられます。プロフィールを編集したければoffにし、連合のfeedを見たければ、onにするという感じです。
+sandboxも初期の頃は連合が機能していたようですが、最新では参加できない感じになっているのかもしれません。
+pds 今回は、pds + atproto/pds + docker-compose + cloudflare(zero-trust)という構成です。archlinux上で構築します。
+ postgresのpasswordは変更しておいてください
+ dbにpostgresを使用します。pdsにあるcaddy, watchtowerを利用します。pds自体はatproto/pdsから再構築します。atproto/packages/pds/Dockerfileにあるものをatproto/Dockerfileにおいてdocker buildしても動きません。したがって、独自にbuildしたものを使います。
+version: &amp;#39;3.9&amp;#39; services: caddy: container_name: caddy image: caddy:2 network_mode: host depends_on: - pds restart: unless-stopped volumes: - type: bind source: /pds/caddy/data target: /data - type: bind source: /pds/caddy/etc/caddy target: /etc/caddy pds: container_name: pds image: syui/bluesky-social/pds:latest network_mode: host restart: unless-stopped volumes: - type: bind source: /pds target: /pds - type: bind source: /pds/image target: /image env_file: - /pds/pds.</description>
+    </item>
+    
     <item>
       <title>原神、螺旋のドレイク</title>
       <link>https://syui.ai/blog/post/2023/06/17/genshin/</link>
