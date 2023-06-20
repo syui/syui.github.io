@@ -144,9 +144,6 @@ https://at.syui.ai
 <p>sandboxも初期の頃は連合が機能していたようですが、最新では参加できない感じになっているのかもしれません。</p>
 <h3 id="pds">pds</h3>
 <p>今回は、pds + atproto/pds + docker-compose + cloudflare(zero-trust)という構成です。archlinux上で構築します。</p>
-<blockquote>
-<p>postgresのpasswordは変更しておいてください</p>
-</blockquote>
 <p>dbにpostgresを使用します。pdsにある<code>caddy, watchtower</code>を利用します。pds自体はatproto/pdsから再構築します。<code>atproto/packages/pds/Dockerfile</code>にあるものを<code>atproto/Dockerfile</code>においてdocker buildしても動きません。したがって、独自にbuildしたものを使います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.9&#39;</span>
 <span style="color:#f92672">services</span>:
@@ -206,7 +203,10 @@ https://at.syui.ai
 
 <span style="color:#f92672">volumes</span>:
   <span style="color:#f92672">db-store</span>:
-</code></pre></div><h4 id="atprotopds">atproto/pds</h4>
+</code></pre></div><blockquote>
+<p>postgresのpasswordは変更しておいてください</p>
+</blockquote>
+<h4 id="atprotopds">atproto/pds</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#.env</span>
 HOSTNAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
 PDS_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v1.3.3&#34;</span>
@@ -280,6 +280,29 @@ $ sudo systemctl start cloudflare
 $ sudo systemctl stop cloudflare
 </code></pre></div><h4 id="start-pds">start pds</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl start pds
+</code></pre></div><h4 id="flyio">fly.io</h4>
+<p>関係ないですが、fly.ioの設定の一部を載せておきます。smtpなどでportを開ける必要がでてくるかも。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml">[[<span style="color:#a6e22e">services</span>]]
+  <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+  <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">3000</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">3000</span>
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;http&#34;</span>]
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">443</span>
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">465</span>
+    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>]
+
+  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">587</span>
 </code></pre></div>
 		
 
