@@ -211,6 +211,8 @@ header_image = "/games/genshin.jpg"
 
 <a href="/games/genshin/genshin_chara_nahida_fix2.png"><img src="/games/genshin/genshin_chara_nahida_fix2.png"></a>
 
+<a href="/games/genshin/genshin_chara_nahida_fix3.png"><img src="/games/genshin/genshin_chara_nahida_fix3.png"></a>
+
 https://shinshin.moe
 
 ### おすすめキャラ
