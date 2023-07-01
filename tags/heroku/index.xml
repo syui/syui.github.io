@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>northflankでsqliteをbackupする方法</title>
+      <link>https://syui.ai/blog/post/2023/06/30/northflank/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/06/30/northflank/</guid>
+      <description>northflankが便利でapiはこちらで立てることが多いですが、northflank/cliが充実してきたので、やり方を紹介します。
+$ sudo npm i -g @northflank/cli $ northflank login $ northflank exec service --project $project --service $service --cmd &amp;#34;cp -rf /data/new.sqlite /data/`date &amp;#39;+%Y%m%d&amp;#39;`.sqlite&amp;#34; tokenの権限で詳細に設定できます。volumeをbackupすることもできますが、sqliteならnorthflank/cliでcmdをcronすればいいでしょう。
+https://northflank.com/docs/v1/api/execute-command</description>
+    </item>
+    
     <item>
       <title>fly.ioとnorthflankの感想</title>
       <link>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</link>

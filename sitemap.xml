@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/heroku/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/northflank/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/06/30/northflank/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2023-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/06/20/bluesky/</loc>
-    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2023-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/genshin/</loc>
@@ -84,9 +93,6 @@
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ent/</loc>
-    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/northflank/</loc>
     <lastmod>2023-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/29/api/</loc>
@@ -492,9 +498,6 @@
     <lastmod>2022-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</loc>
-    <lastmod>2022-08-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/heroku/</loc>
     <lastmod>2022-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/08/27/fly-heroku/</loc>
