@@ -7,7 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 20 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyとtwitter</title>
+      <link>https://syui.ai/blog/post/2023/07/05/bluesky/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/07/05/bluesky/</guid>
+      <description>今回は、blueskyの便利ツールをarchlinuxjpの方に投げた関係で、適当に思ってることや便利ツールを紹介します。
+blueskyの便利ツール https://firesky.tv : グローバルタイムラインのストリーム。色々と設定できたり、フィルタリングできたり
+https://bsky.jazco.dev : ユーザーの視覚化
+  https://bsky.jazco.dev/stats : ユーザーのポスト数
+  https://vqv.app/stats : ユーザーのプロフィール集計
+  https://atscan.net : pdsのスキャンやdid
+blueskyの公式ツール https://plc.directory : 公式のplc
+  https://plc.directory/export?after=2023-07-05 : json
+  https://plc.directory/did:plc:4hqjfn7m6n5hno3doamuhgef/log : didからlogを検索
+  https://bsky.social/xrpc/com.atproto.repo.listRecords : bsky.socialのfeed
+ https://bsky.social/xrpc/com.atproto.repo.listRecords?repo=yui.bsky.social&amp;amp;collection=app.bsky.feed.post&amp;amp;reverse=true : bsky.socialのfeedをユーザーでフィルタリング  blueskyとtwitter 私が予測していることを少し書きます。
+twitterが終了するまで、twitterの代わりは存在しない twitterが完全に終了するまで、そこから動く人は殆どいないでしょう。これは企業アカウントも同じです。
+大移動があるとしたらそれはよりよいtwitterの代わりが現れたときではなく、twitterが終了したときです。
+終了することが予めわかっているときでさえ、そこから動き出す人は大多数のうちの少数です。多くは、それが終わるとき、やむにやまれず移動を始めます。
+仮にtwitterの代わりが出てくるとしたら、その後ということになります。
+世の中は変わり続ける 世の中は変わり続けるし、便利になり続ける。変わらないものは、いずれ不便になって終わりを迎える。
+では、今後、snsの便利さというのはどういったものになるでしょう。
+私の予想では、今までの一つのサービス内でしか有効でなかったアカウントは、複数サービスでも使える形式に変化していくだろうと思います。使える形式というのは、やり取りできる、会話できると言った意味合いです。今のところは。
+なぜそのようになるのか。
+なぜなら、そっちのほうが便利だからです。
+この流れはやがてトレンドになり、いつしか常識となっているだろうと考えます。
+これを前提とすると、twitterの選択肢は2つあると思います。
+(1) 今まで通りtwitter内でしかやり取りできないまま縮小、あるいは終了する
+(2) twitterが他のサービスのアカウントともやり取りできるようなプロトコルを採用する
+atとactivitypub 現在、snsに実装されるプロトコル(protocol)として有望なものが2つあります。
+at(proto)とactivitypubです。
+この2つが大きくなると思います。</description>
+    </item>
+    
     <item>
       <title>blueskyの連合を試してみた</title>
       <link>https://syui.ai/blog/post/2023/06/20/bluesky/</link>
