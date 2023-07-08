@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 30 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cors-originのerrorを回避するためのproxyを変えた</title>
+      <link>https://syui.ai/blog/post/2023/07/08/cors/</link>
+      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/07/08/cors/</guid>
+      <description>今までherokuでcors-originのerrorを回避するためにproxy-serverを立ててたんだけど、やめた。これ一つのために$7かかってた。
+ Access to fetch at &amp;lsquo;http://localhost:3000/&amp;rsquo; from origin &amp;lsquo;http://127.0.0.1:8080&amp;rsquo; has been blocked by CORS policy: No &amp;lsquo;Access-Control-Allow-Origin&amp;rsquo; header is present on the requested resource. If an opaque response serves your needs, set the request&amp;rsquo;s mode to &amp;lsquo;no-cors&amp;rsquo; to fetch the resource with CORS disabled.
+ https://developer.mozilla.org/ja/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
+このerrorは、例えば、apiのgetが同一のurlで行われていないことが要因です。
+ですから、vueなら以下のようにproxyで同一url内であることを偽装すれば回避できます。
+module.exports = { devServer: { proxy: { &amp;#34;^/api*&amp;#34;: { target: &amp;#34;https://api.example.com&amp;#34;, pathRewrite: { &amp;#34;^/api&amp;#34;: &amp;#34;&amp;#34; }, } } } } axios .</description>
+    </item>
+    
     <item>
       <title>northflankでsqliteをbackupする方法</title>
       <link>https://syui.ai/blog/post/2023/06/30/northflank/</link>
