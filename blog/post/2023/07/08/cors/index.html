@@ -148,14 +148,50 @@ If an opaque response serves your needs, set the request&rsquo;s mode to &lsquo;
     .<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/api/test&#34;</span>)
     <span style="color:#75715e">//.get(&#34;https://api.example.com/test&#34;)
 </span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>));
-</code></pre></div><p>ただし、この回避方法はあくまでlocal,previewのみであり、<code>$ yarn build</code>などの<code>./dist</code>出力には適用されません。</p>
+</code></pre></div><p>ただし、この回避方法はあくまでlocal, previewのみであり、<code>$ yarn build</code>などの<code>./dist</code>出力には適用されません。</p>
 <p>これを解決する方法としては、apiに<code>Access-Control-Allow-Origin:&quot;*&quot;</code>を設定すること、あるいはproxy-serverを立てて経由することです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;https://proxy.heroku.com/https://api.example.com/test&#34;</span>)
-</code></pre></div><p>ent(ogent)でheaderを<code>Access-Control-Allow-Origin:&quot;*&quot;</code>にする方法がわかりません。まさか一つずつ設定していくのでしょうか。</p>
+</code></pre></div><p>ent(ogent)でheaderを<code>Access-Control-Allow-Origin:&quot;*&quot;</code>にする方法ですが、一つずつ設定していくらしい。基本的にはupdate, deleteとかは使わないのでそれ以外のところに書きます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/ogent/oas_response_encoders_gen.go" data-lang="go:ent/ogent/oas_response_encoders_gen.go"><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Header</span>().<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Access-Control-Allow-Origin&#34;</span>, <span style="color:#e6db74">&#34;*&#34;</span>)
 <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Header</span>().<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
-</code></pre></div><p>ということで後者のproxy-serverを立てて経由させていたのですが、herokuで立てるのをやめました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># これでAccess-Control-Allow-Originが設定されてたらok</span>
+</code></pre></div><p>securityを考慮して特定のサイトのみを許可したほうがいいので、その場合は、vue-devserver-proxyと合わせて、以下のようにします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go:ent/ogent/oas_response_encoders_gen.go" data-lang="go:ent/ogent/oas_response_encoders_gen.go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">encodeReadUserResponse</span>(<span style="color:#a6e22e">response</span> <span style="color:#a6e22e">ReadUserRes</span>, <span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">span</span> <span style="color:#a6e22e">trace</span>.<span style="color:#a6e22e">Span</span>) <span style="color:#66d9ef">error</span> {
+    <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Header</span>().<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Access-Control-Allow-Origin&#34;</span>, <span style="color:#e6db74">&#34;https://example.com&#34;</span>)
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/App.vue" data-lang="js:src/App.vue"><span style="color:#a6e22e">data</span> () {
+    <span style="color:#66d9ef">return</span> {
+          <span style="color:#a6e22e">api_url</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+    }
+},
+<span style="color:#a6e22e">mounted</span>() {
+    <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">host</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;localhost:8080&#34;</span>) {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">api_url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/api/&#34;</span>;
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">api_url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.example.com/&#34;</span>;
+    }
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">api_url</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;users&#34;</span>;
+    <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>,{ <span style="color:#a6e22e">crossdomain</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> })
+        .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>));
+}
+</code></pre></div><p>もし自前で運用するなら費用のかからないcloudflare zero-turst(tunnel)がいいと思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/ent/systemd/system/cors.service" data-lang="sh:/ent/systemd/system/cors.service"><span style="color:#66d9ef">[Unit]</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">cors service</span>
+<span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/Rob--W/cors-anywhere</span>
+
+<span style="color:#66d9ef">[Service]</span>
+<span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
+<span style="color:#a6e22e">RemainAfterExit</span><span style="color:#f92672">=</span><span style="color:#e6db74">yes</span>
+<span style="color:#a6e22e">WorkingDirectory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/home/syui/github/cors-anywhere</span>
+<span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/node server.js</span>
+<span style="color:#a6e22e">ExecStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/pkill node</span>
+<span style="color:#66d9ef">[Install]</span>
+<span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">default.target</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/Rob--W/cors-anywhere
+$ npm i
+$ node server
+
+$ sudo systemctl start cors
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># これでAccess-Control-Allow-Originが設定されてたらok</span>
 $ curl --dump-header - <span style="color:#e6db74">&#39;https://api.example.com&#39;</span> -H <span style="color:#e6db74">&#39;Origin: https://example.com&#39;</span>
 </code></pre></div>
 		
