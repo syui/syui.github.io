@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/genshin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/genshin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、最小限のベストプラクティス</title>
+      <link>https://syui.ai/blog/post/2023/07/13/genshin/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/07/13/genshin/</guid>
+      <description>もし原神を今から始める場合のベストプラクティスを考えてみます。
+星5で確保すべきキャラは以下の4人です。星4で育てるキャラも以下の4人です。
+ただし、注意点があります。それは以下のキャラごとに分けられます。
+クレー 好きなキャラを使いましょう。楽しむためのゲームです。
+例えば、課金の有無も自分が楽しめるほうを選択しましょう。
+いかに早く強くなるかと言うのは、楽しさに直結しません。直結する人はいるかもしれません。その場合は課金しましょう。
+私は無課金のほうが楽しめるので無課金でやってるだけです。クレーを使うのも同じ理由。
+好きにやりましょう。
+バーバラ 序盤のバーバラは育成すべき。
+私も最初はバーバラを使っていましたし、今も時々使います。
+ウェンティ 神です。確保しておいて損はありません。
+綾華 移動でよく使いますが、強いです。移動キャラは1人くらい確保したほうがいいかも。
+簡単に火力を出せる構成 草、水、雷です。これらの元素をPTに入れ、残りはシールドや回復を入れます。</description>
+    </item>
+    
     <item>
       <title>原神、キャラ確保より完凸を目指す方向へ</title>
       <link>https://syui.ai/blog/post/2023/07/12/genshin/</link>
