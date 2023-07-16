@@ -7,23 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 15 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ランニング、アプリの挙動がおかしかった</title>
+      <title>ランニング、3日目</title>
+      <link>https://syui.ai/blog/post/2023/07/16/running/</link>
+      <pubDate>Sun, 16 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/07/16/running/</guid>
+      <description>日課のランニングに久しぶりにスマホを持っていって3日目。
+明日も持っていくかはわからない。</description>
+    </item>
+    
+    <item>
+      <title>ランニング、2日目</title>
       <link>https://syui.ai/blog/post/2023/07/15/running/</link>
       <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/blog/post/2023/07/15/running/</guid>
-      <description>またアプリ使った時に忘れそうなので記録。
-結論から言うと、1日目の計測は当てにならないと思う。2日目からの計測が正解だと思う。
-理由はおそらく、2日目からはマップから距離を正確に計算するからだと思う。1日目はGPSだけを頼りに計測しているんじゃないかな、GPSの測定だとズレやすいのでは。
-この前、日課のランニングに久しぶりにアプリを持っていったら1日目はタイムがおかしかった。
-自分が遅くなったのかなあと思ったけど、それにしてもおかしかった。で、2日目の計測は、1,2年前と同じ感じだった。
-例えば、2年前に42kmを走ったときより遅くなってるというのは、どう考えてもおかしい。
-あのときは本当に遅かった実感があって、ペースも最初からゆっくり走ってたのに、後半は更に遅くなった。
-今回のランがあれよりも遅かったとは、ちょっと考えにくい。
-その他の直近を見ても、2日目のタイムと同じ感じなので、2日目の計測が正しいと思う。
-久しぶりにアプリを使う場合は、1日目だけでなく2日目も計測した方がいい感じ。</description>
+      <description>日課のランニングに久しぶりにアプリを持っていった。
+1日目はタイムがおかしかった。自分が遅くなったのかなあとちょっと思った。
+2日目はタイムが戻った。
+直近の記録を見ると、2日目の計測が正しいと思う。
+久しぶりにアプリを使う場合は、1日目だけでなく2日目も計測した方がいいかもしれない。</description>
     </item>
     
     <item>
