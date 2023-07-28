@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ランニング、3日目 | syui.ai</title>
+		<title>boothで初の技術書を出してみた | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-07-16 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-07-25 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/running/">running</a>
+		<a href="https://syui.ai/tags/bluesky/">bluesky</a>
 		
 		
 		
@@ -123,11 +123,126 @@
 		
 		</div>
 
-		<h2>ランニング、3日目</h2>
+		<h2>boothで初の技術書を出してみた</h2>
 
-		<p>日課のランニングに久しぶりにスマホを持っていって3日目。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/nike_running_20230716_0001.jpg" alt=""></p>
-<p>明日も持っていくかはわからない。</p>
+		<p>この前、booth経由で<a href="https://syui.fanbox.cc/shop">技術書</a>を出してみました。</p>
+<p>blueskyの人達が暖かく迎え入れてくれたので、嬉しかった。</p>
+<p>boothを使うのも本を出すのも何かを売るのも初めてだったので、まだまだわからないことだらけ。</p>
+<p>本は数時間で完売。とてもありがたかった。</p>
+<p>なお、在庫の補充は今後もないと思う。</p>
+<p>今回はその経緯をブログにしてみる。</p>
+<h3 id="色々な仕組み">色々な仕組み</h3>
+<p>本書は、自分が「これならお金を出してもいいかな」と思えるような本を目標に作りました。</p>
+<p>例えば、本を買った人にカードが付いてくるなら、少しは買いたくなりますよね。</p>
+<p>私もカードが付いてくる本は欲しくなったりします。</p>
+<p>ただ、本を買っても読まずカード目当て、というのも、ちょっと寂しいですよね。</p>
+<p>そこで、ここにも新しい仕掛けが必要だと考えました。</p>
+<p>本書を買ってくれる人は、現在、blueskyのカードゲームをやっている人が多いです。</p>
+<p>そして、その中にはプログラミングをやってみたいなと思ってる人が少なからずいました。</p>
+<p>私もそういう人達の力になりたかったし、なにかできないかなあと考えていました。</p>
+<p>そこで、手順通りに進めてプログラムを作ると、タマゴのカードを育成、孵化できるような仕組みを考えました。</p>
+<p>ただし、これらの仕組みは、本を買った人だけが楽しめるようなものであってはならない。</p>
+<p>本を買ってない人でも楽しめるような仕組みを目指して作りました。</p>
+<p>あくまでタマゴ育成は、おまけであり、新しく追加されたタマゴ育成の説明やヒントが書かれているだけのもの、という位置づけです。</p>
+<p>実は、これを本書の購入者に限定することは簡単にできます。</p>
+<p>例えば、下記のようにやればいい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$book_user<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> false <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+    echo no book user
+    exit
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><p>ですが、そのようなことはやっていませんし、やるつもりもない。</p>
+<p>本を買ってない人は楽しめない、そんな仕組みは作らない。</p>
+<p>なぜか。</p>
+<p>なぜなら、気分が乗らないから。</p>
+<p>私は自分がやりたくないことはやらない、そのようなものなのです。</p>
+<p>やりたいことをやる、ただそれだけ。</p>
+<p>しかし、投稿をコピーすることで簡単に実行できてしまうようなものでもあってはならないと考えていて、これだと面白さが半減してしまうからです。また、購入してくれた人も納得しづらい。</p>
+<p>したがって、投稿をコピーしても実行されないようなシンプルな仕組みを考えることにしました。</p>
+<p>本書はblueskyユーザーに向けたプログラミング入門であり、少しでもプログラミングを楽しく学んでもらえたらいいなと思い作ったものです。</p>
+<p>楽しく学ぶ仕掛けとして、カードを使っているに過ぎません。</p>
+<p>最も重要なのは、本書を購入してくれた人が満足してくれること、楽しんでくれることです。</p>
+<p>カードを付属したのも、タマゴ育成の仕組みも、そのために作りました。</p>
+<p>その結果、私自身が「これならお金を出してもいいかな」と思えるような本になった気がします。</p>
+<h3 id="具体的にやったこと">具体的にやったこと</h3>
+<p>制作過程というか、やったことを書いてみます。</p>
+<ul>
+<li>
+<p>表紙の絵を描いた</p>
+</li>
+<li>
+<p>新しいカードをいくつか作った</p>
+</li>
+<li>
+<p>カードの所有者一覧のレイアウトを作ったり、新しいバッジが追加されるようにした</p>
+</li>
+<li>
+<p>apiを作ってdeployした</p>
+</li>
+<li>
+<p>botに隠しコマンドを作ってタマゴのカードがドロップするようにした</p>
+</li>
+<li>
+<p>botに新しいコマンドを作ってタマゴを孵化する仕組みを考えて作った</p>
+</li>
+<li>
+<p>カードのページに本やリンクを追加するプログラムを作って、レイアウトを整えた</p>
+</li>
+<li>
+<p>rustで読者向けのプログラムを作ってテストした</p>
+</li>
+<li>
+<p>本をgitbookで構成して文章を書いた</p>
+</li>
+<li>
+<p>注文を受け付ける前に発送するカードをランダム、かつ検証できるようにした</p>
+</li>
+<li>
+<p>ランダムの結果を暗号化して公開鍵を公開し、完売した段階で秘密鍵を公開して、データを復号化できる仕組みを作った</p>
+</li>
+<li>
+<p>本をwebとpdfでbuild, deployした</p>
+</li>
+<li>
+<p>boothとfanboxを連携して本を出品した</p>
+</li>
+<li>
+<p>blueskyで告知した</p>
+</li>
+<li>
+<p>本が完売した</p>
+</li>
+<li>
+<p>申請があった人のカードのページに本カードとリンクを追加した</p>
+</li>
+<li>
+<p>リアルカードを作った</p>
+</li>
+<li>
+<p>リアルカードを発送した</p>
+</li>
+<li>
+<p>本の内容で指摘があったところを修正した</p>
+</li>
+<li>
+<p>リアルカードが届いたことを確認できた人をカードの所有者一覧に追加した</p>
+</li>
+<li>
+<p>写真一覧にも追加した</p>
+</li>
+</ul>
+<h3 id="twitterで告知したら本は売れたか">twitterで告知したら本は売れたか</h3>
+<p>twitterで同じことをしても、おそらく、一つも売れなかったと思う。</p>
+<p>この結果は、フォロワーがどれだけいても、例えば、1万人いても結果は変わらなかったと思う。</p>
+<p>これはtwitterにいる人達が問題ではなく、その場の雰囲気とかもあると思う。</p>
+<p>今のblueskyにはアクティブな人が潜在的に集まっていて、本を買ってくれて、最後までやってくれた人が多かった。</p>
+<p>たまたまそういう人が多かったので、その結果だと思ってる。</p>
+<p>私が出した本は、入門と言ってるけど、そこまで初心者向きでもなく、簡単に言うと<code>rust</code>で特殊なプログラムを作ることをやっていく感じのものになっている。</p>
+<p>rustは難しいと言われている言語。基本的には、そんな簡単じゃないし、プログラムやコードを初めて書くような人がいきなり触りだす言語でもなかったりする。</p>
+<p>今回、プログラムをやったことがないような人も本書を次々とクリアされ、コマンドからai-botに特殊な投稿を送信できていたので、正直、それが一番嬉しかった。</p>
+<p>また、応用的にプログラムを改造する人も見かけて、これも嬉しかった。</p>
+<p>技術書や専門書って、最後までやってくれる人はあまり多くないと思う。</p>
+<p>でも、投稿を見る限りでは、すごく多くの人が読んでくれて、試してくれて、そして、最後まで進めてくれた。</p>
+<p>blueskyの人たちに感謝。</p>
 
 		
 
@@ -135,14 +250,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/07/15/running/" id="article-nav-older" class="article-nav-link-wrap">
-ランニング、2日目
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/07/16/running/" id="article-nav-older" class="article-nav-link-wrap">
+ランニング、3日目
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/07/25/bluesky/" id="article-nav-newer" class="article-nav-link-wrap">
-     boothで初の技術書を出してみた
-				</a></p>
     
 	</div>
 </nav>
