@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 25 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>note</title>
+      <link>https://syui.ai/tags/note/</link>
+      <pubDate>Sun, 30 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/note/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>bluesky</title>
       <link>https://syui.ai/tags/bluesky/</link>
@@ -473,15 +482,6 @@
       <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>note</title>
-      <link>https://syui.ai/tags/note/</link>
-      <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/note/</guid>
       <description></description>
     </item>
     

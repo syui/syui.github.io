@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/tags/note/</loc>
+    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/post/</loc>
+    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/archive/note/18/</loc>
+    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/blog/</loc>
     <lastmod>2023-07-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,12 +24,6 @@
     <lastmod>2023-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/07/25/bluesky/</loc>
-    <lastmod>2023-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2023-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/running/</loc>
@@ -475,12 +484,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2022/09/13/windows-winget-pwsh-openssh/</loc>
     <lastmod>2022-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/note/</loc>
-    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/post/</loc>
-    <lastmod>2022-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/archive/note/17/</loc>
     <lastmod>2022-09-11T00:00:00+00:00</lastmod>
