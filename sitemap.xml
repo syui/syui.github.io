@@ -2,23 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2023-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/domain/</loc>
+    <lastmod>2023-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/08/05/domain/</loc>
+    <lastmod>2023-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-08-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/note/</loc>
     <lastmod>2023-07-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/post/</loc>
     <lastmod>2023-07-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
-    <lastmod>2023-07-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/archive/note/18/</loc>
     <lastmod>2023-07-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2023-07-25T00:00:00+00:00</lastmod>
@@ -130,9 +136,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/29/api/</loc>
     <lastmod>2023-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/domain/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/26/domain/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
