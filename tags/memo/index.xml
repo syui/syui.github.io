@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/memo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/memo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>memosが素晴らしかった</title>
+      <link>https://syui.ai/blog/post/2023/08/06/memo/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/08/06/memo/</guid>
+      <description>slack/archlinuxjpでGreenTeeさんがusermemos/memosがすごくいいと教えてくれて、それを使ってみたところかなり良かったので、活用法を考えてみた。
+活用例としては、tagでページを作ることを思いついた。
+$ host=https://demo.usememos.com $ curl -sL &amp;#34;$host/api/v1/memo?creatorId={1,2}&amp;amp;tag=todo&amp;#34; $ npm -i hrwg/vue-marked $ npm -i moment &amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;div v-for=&amp;#34;(i, index) in memos_a.data&amp;#34; class=&amp;#34;memo-body&amp;#34;&amp;gt; &amp;lt;vue-marked&amp;gt;{{ i.content.substring(0,100) }}&amp;lt;/vue-marked&amp;gt; &amp;lt;p v-if=&amp;#34;i.content.substring(100, 120) !== &amp;#39;&amp;#39;&amp;#34;&amp;gt;&amp;lt;a :href=&amp;#34;this.host + i.id&amp;#34; target=&amp;#34;_blank&amp;#34;&amp;gt;...&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p v-if=&amp;#34;i.updatedTs&amp;#34; class=&amp;#34;memo-time&amp;#34;&amp;gt; &amp;lt;a :href=&amp;#34;this.host + i.id&amp;#34; target=&amp;#34;_blank&amp;#34;&amp;gt;{{i.updatedTs | moment(format)}}&amp;lt;/a&amp;gt; / &amp;lt;a :href=&amp;#34;this.host + i.creatorUsername&amp;#34; target=&amp;#34;_blank&amp;#34;&amp;gt;@{{ i.creatorUsername }}&amp;lt;/a&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import VueMarked from &amp;#39;vue-marked&amp;#39;; import moment from &amp;#34;moment&amp;#34;; export default { data () { return { host: &amp;#34;https://demo.</description>
+    </item>
+    
     <item>
       <title>vita</title>
       <link>https://syui.ai/blog/post/2017/01/04/vita/</link>

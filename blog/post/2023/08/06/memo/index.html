@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>syui.cfをサスペンドした | syui.ai</title>
+		<title>memosが素晴らしかった | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-08-05 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-08-06 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/domain/">domain</a>
+		<a href="https://syui.ai/tags/memo/">memo</a>
 		
 		
 		
@@ -123,29 +123,53 @@
 		
 		</div>
 
-		<h2>syui.cfをサスペンドした</h2>
+		<h2>memosが素晴らしかった</h2>
 
-		<p>domainを2つも管理したくないという理由から、freenomで取得してた<code>syui.cf</code>をサスペンドするための<a href="https://syui.ai/blog/post/2023/03/23/domain/">処理</a>を少しずつ進めていて、ほぼ完了したのでお伝えします。</p>
-<p>ちなみに、<code>syui.cf</code>はgoogle.com等にindexされない。されても上位に表示される可能性はほぼゼロだった。逆に<code>syui.ai</code>は普通だった。</p>
-<p>私は、自分が持つdomainは一つでいいやと思っていて、サービスアカウントもできるだけ減らしていきたい人なので、今回は、ついでにアカウント整理をだいぶやった感じ。</p>
-<p>こういう機会でもないとやらないので、結果的によかった。</p>
-<p>でも面倒だったし、楽しい作業ではなかった。</p>
-<p>今回、複数持ってたgoogleアカウントを一つにまとめた。</p>
-<p>なぜ持っていたかと言うと、googleログイン(サードパーティ)認証に使ってた。</p>
-<p>google, apple, twitterなどの大手サービスではidが取れなかった。</p>
-<p>そのためにメインで使うアカウントを定められずにいた。</p>
-<p>idが取れてれば明らかにそれを使うんだけど、そうでないと使うアカウントがバラけてしまっていた。</p>
-<p>また、企業サービスに個人情報をなるべく取られたくないので、わざわざアカウントを使い分けたりすることもあった。</p>
-<p>例えば、ある新興サービスに登録する必要が出てきたとする。あなたはどのメールアドレスを使うだろう。</p>
-<p>メインを使うという人もいれば、捨てアドを使うという人もいると思う。</p>
-<p>私は、どちらかというと後者だった。ただ、捨てアドというよりサブアカウントを使う感じだった。</p>
-<p>しかし、それも面倒になってきた。</p>
-<p>今回、拠点やメインで使うアカウントが定まってきた段階でまとめることにした。</p>
-<h3 id="メールの変遷">メールの変遷</h3>
-<p>メールは今までfreenom+mailgun+gmailの組み合わせで無料のドメインメールのようなものを設定してた。これは裏技のようで面白かったし、ずっと無料で使えてたので良かったと思う。</p>
-<p>今はicloud+(m/130 JPY)に加入してそれを使ってるので、メールに関してはほぼapple経由になった。</p>
-<p>mail userを作るのはpcでもスマホでも一瞬で終わるし、iosのmessage(sms)やfacetime(phone)とメールアドレスを紐付けられる。つまり、アドレスをsmsの送受信に設定できるようになる。</p>
-<p>ただし、個人情報がより強固に紐付けられているので、例えば、message(sms)の送信元をメールアドレスに設定している場合は、一瞬で身バレすると思う。</p>
+		<p><a href="https://archlinuxjp.slack.com/">slack/archlinuxjp</a>で<code>GreenTee</code>さんが<a href="https://github.com/usememos/memos">usermemos/memos</a>がすごくいいと教えてくれて、それを使ってみたところかなり良かったので、活用法を考えてみた。</p>
+<p>活用例としては、tagでページを作ることを思いついた。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ host<span style="color:#f92672">=</span>https://demo.usememos.com
+$ curl -sL <span style="color:#e6db74">&#34;</span>$host<span style="color:#e6db74">/api/v1/memo?creatorId={1,2}&amp;tag=todo&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm -i hrwg/vue-marked 
+$ npm -i moment
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/App.vue" data-lang="html:src/App.vue">&lt;<span style="color:#f92672">template</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(i, index) in memos_a.data&#34;  class=&#34;memo-body&#34;&gt;
+</span><span style="color:#e6db74">        	&lt;vue-marked&gt;{{ i.content.substring(0,100) }}&lt;/vue-marked&gt;
+</span><span style="color:#e6db74">        	&lt;p v-if=&#34;i.content.substring(100, 120) !== &#39;&#39;&#34;&gt;&lt;a :href=&#34;this.host + i.id&#34; target=&#34;_blank&#34;&gt;...&lt;/a&gt;&lt;/p&gt;
+</span><span style="color:#e6db74">        	&lt;p v-if=&#34;i.updatedTs&#34; class=&#34;memo-time&#34;&gt;
+</span><span style="color:#e6db74">        		&lt;a :href=&#34;this.host + i.id&#34; target=&#34;_blank&#34;&gt;{{i.updatedTs | moment(format)}}&lt;/a&gt; / 
+</span><span style="color:#e6db74">        		&lt;a :href=&#34;this.host + i.creatorUsername&#34; target=&#34;_blank&#34;</span>&gt;<span style="color:#960050;background-color:#1e0010">@</span>{{ <span style="color:#a6e22e">i.creatorUsername</span> }}&lt;/<span style="color:#f92672">a</span>&gt;
+        	&lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">VueMarked</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-marked&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">moment</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;moment&#34;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+	<span style="color:#a6e22e">data</span> () {
+		<span style="color:#66d9ef">return</span> {
+			<span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://demo.usememos.com&#34;</span>,
+			<span style="color:#a6e22e">memos</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+		}
+	},
+	<span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">VueMarked</span>,
+	},
+	<span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">moment</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">date</span>) {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">moment</span>.<span style="color:#a6e22e">unix</span>(<span style="color:#a6e22e">date</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;YYYY.MM.DD&#34;</span>);
+		},
+	},
+	<span style="color:#a6e22e">mounted</span>() {
+			<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">host</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/api/v1/memo?creatorId=1&amp;tag=todo&#34;</span>;
+			<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>,{ <span style="color:#a6e22e">crossdomain</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> })
+				.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">memos</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>));
+    }
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>serverとして様々な建て方があり、dbも色々な形態があるんだけど、local-dbも使おうと思えば使えるので、まずは<a href="https://usememos.com/docs/install/cloud/flyio">fly.io</a>のvolumeと<a href="https://litestream.io/guides/backblaze/#create-a-bucket">backblaze</a>を採用してみて、お金がかかりそうならlocalに切り替えようと思ってる。</p>
 
 		
 
@@ -153,14 +177,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/07/25/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
-boothで初の技術書を出してみた
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/08/05/domain/" id="article-nav-older" class="article-nav-link-wrap">
+syui.cfをサスペンドした
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/08/06/memo/" id="article-nav-newer" class="article-nav-link-wrap">
-     memosが素晴らしかった
-				</a></p>
     
 	</div>
 </nav>
