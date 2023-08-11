@@ -380,7 +380,7 @@ docker run --rm --entrypoint<span style="color:#f92672">=</span><span style="col
 
 <span style="color:#f92672">volumes</span>:
   <span style="color:#f92672">dendrite_postgres_data</span>:
-</code></pre></div><p>matrixは厄介で<code>8448:8448</code>の<code>.well-know/matrix/server</code>への対応がわからなかった。これはcloudflareの設定になるんだけど、いけると思った設定ではmatrixが動かない感じだった。</p>
+</code></pre></div><p>matrixは厄介で<code>8448:8448</code>の<code>.well-know/matrix/server</code>への対応がわからなかった。これはcloudflareの設定になるんだけど、いけると思った設定ではmatrixが動かない感じだった。これはおそらく、tunnelで作られるdnsがproxy onになるためだと思う。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:fly.toml" data-lang="toml:fly.toml">[[<span style="color:#a6e22e">services</span>]]
   <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8008</span>
   <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
@@ -396,7 +396,8 @@ docker run --rm --entrypoint<span style="color:#f92672">=</span><span style="col
 <pre tabindex="0"><code class="language-json:.well-known/matrix/server" data-lang="json:.well-known/matrix/server">{
     &quot;m.server&quot;: &quot;synapse.example.com:443&quot;
 }
-</code></pre>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo docker exec -it dendrite-matrix-1 /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username $USER -password $password -admin
+</code></pre></div>
 		
 
 
