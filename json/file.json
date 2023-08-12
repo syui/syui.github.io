@@ -34,7 +34,6 @@
 	  "json":[
 		  {"1":"/json/file.json"},
 		  {"2":"/json/link.json"},
-		  {"3":"/json/keybase.json"},
 		  {"4":"/index.json"}
 	  ]
   }

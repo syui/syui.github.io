@@ -76,20 +76,7 @@ var ascii_archjp = "\n\n\
 \n               .-======-.\
 \n                   ::\n\n\
 ";
-
-	axios.get('https://syui.ai/json/keybase.json')
-		.then(function (response) {
-			gpg_link = JSON.stringify(response.data,null,"\t");
-		})
-
-	//axios.get('https://api.syui.ai/users')
-	//	.then(function (response) {
-	//		gpg_link = JSON.stringify(response.data,null,"\t");
-	//	})
-
-	//.catch(function (error) {
-	//    //console.log(error);
-	//});
+	
 	axios.get('https://syui.ai/json/link.json', { 'Content-Type': 'application/json' })
 		.then(function (response) {
 			syui_link = JSON.stringify(response.data,null,"\t");
@@ -172,8 +159,6 @@ var ascii_archjp = "\n\n\
 
 		if (inputs[0] === 'cat' && inputs[1] === '/json/link.json') {
 			term.echo(syui_link);
-		} else if (inputs[0] === 'cat' && inputs[1] === '/json/keybase.json') {
-			term.echo(gpg_link);
 		} else if (inputs[0] === 'cat' && inputs[1] === '/json/file.json') {
 			term.echo(file_list);
 		} else if (inputs[0] === 'cat' && inputs[1] === '/index.json') {
@@ -276,8 +261,7 @@ var ascii_archjp = "\n\n\
 			} else if (/pico/.test(input)) {
 				window.location.href = '/pico';
 			} else if (/ai/.test(input)) {
-				print_slowly(term, ascii_ai, function(){
-				});
+				print_slowly(term, ascii_ai);
 				term.read("jump page?[y] : ", function(s) {
 					if (s === "y") {
 						window.location.href = 'https://yui.syui.ai';
