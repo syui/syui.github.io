@@ -184,14 +184,14 @@ var ascii_archjp = "\n\n\
 		}	else if (inputs[0] === 'api'){
 			term.echo("$ api {id}");
 			term.echo("curl api.syui.ai/users/{id}/d");
-			$.ajaxSetup({async: false,type: 'PUT'});
-			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1] + "/d", function(data) {
-				term.echo(JSON.stringify(data,null,"\t"));
-			});$.ajaxSetup({async: true});
-			$.ajaxSetup({async: false,type: 'GET'});
-			$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1], function(data) {
-				term.echo(JSON.stringify(data,null,"\t"));
-			});$.ajaxSetup({async: true});
+			//$.ajaxSetup({async: false,type: 'PUT'});
+			//$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1] + "/d", function(data) {
+			//	term.echo(JSON.stringify(data,null,"\t"));
+			//});$.ajaxSetup({async: true});
+			//$.ajaxSetup({async: false,type: 'GET'});
+			//$.getJSON('https://cardai-cros.herokuapp.com/https://api.syui.ai/users/' + inputs[1], function(data) {
+			//	term.echo(JSON.stringify(data,null,"\t"));
+			//});$.ajaxSetup({async: true});
 			} else if (inputs[0] === '/') {
 				for (i = 0; i <= 5; i++) {
 					s = "[" + i + "]" + origin_index_json[i].utc_time + '\n' + origin_index_json[i].title + ' ' + origin_index_json[i].href + '\n';
