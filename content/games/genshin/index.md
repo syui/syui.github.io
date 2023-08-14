@@ -181,10 +181,6 @@ header_image = "/games/genshin.jpg"
 
 <a href="/games/genshin/genshin_chara_ayaka_fix2.png"><img src="/games/genshin/genshin_chara_ayaka_fix2.png"></a>
 
-#### 甘雨
-
-<a href="/games/genshin/genshin_chara_ganyu_fix2.png"><img src="/games/genshin/genshin_chara_ganyu_fix2.png"></a>
-
 #### 万葉
 
 <a href="/games/genshin/genshin_chara_kazuha_fix2.png"><img src="/games/genshin/genshin_chara_kazuha_fix2.png"></a>
@@ -206,10 +202,6 @@ header_image = "/games/genshin.jpg"
 <a href="/games/genshin/genshin_chara_hotaru.png"><img src="/games/genshin/genshin_chara_hotaru.png"></a>
 
 #### ナヒーダ
-
-<a href="/games/genshin/genshin_chara_nahida.png"><img src="/games/genshin/genshin_chara_nahida.png"></a>
-
-<a href="/games/genshin/genshin_chara_nahida_fix2.png"><img src="/games/genshin/genshin_chara_nahida_fix2.png"></a>
 
 <a href="/games/genshin/genshin_chara_nahida_fix3.png"><img src="/games/genshin/genshin_chara_nahida_fix3.png"></a>
 
