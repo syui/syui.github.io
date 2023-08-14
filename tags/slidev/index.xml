@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slidev on syui.ai</title>
+    <link>https://syui.ai/tags/slidev/</link>
+    <description>Recent content in slidev on syui.ai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/slidev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>スライドをreveal.jsからslidevに移行した</title>
+      <link>https://syui.ai/blog/post/2023/08/13/slidev/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/08/13/slidev/</guid>
+      <description>今までスライドの生成はreveal.jsでやっていたのですが、久しぶりに触ってみたら、markdownの処理が機能しなかったので、slidevに移行しました。
+--- theme: eloc class: text-center highlighter: shiki lineNumbers: false info: | ## Slidev Starter Template Presentation slides for developers. Learn more at [Sli.dev](https://sli.dev) drawings: persist: false transition: slide-left title: ai bot --- ## ai `bot`  --- ## [yui.syui.ai](https://yui.syui.ai)  --- [yui.syui.ai](https://yui.syui.ai) access &amp;lt;kbd&amp;gt;ctrl&amp;lt;/kbd&amp;gt; + &amp;lt;kbd&amp;gt;enter&amp;lt;/kbd&amp;gt; &amp;lt;style&amp;gt; .slidev-layout { @apply overflow-visible; filter: invert(); pre { font-size:70px; @apply opacity-95; } &amp;amp;::before { @apply absolute white -z-1 w-screen h-screen min-w-full min-h-full; content: &amp;#39;&amp;#39;; filter: invert(); background: center/cover url(); } } &amp;lt;/style&amp;gt; --- @syui.</description>
+    </item>
+    
+  </channel>
+</rss>
