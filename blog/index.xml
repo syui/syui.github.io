@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、レイラが強かった</title>
+      <link>https://syui.ai/blog/post/2023/08/22/genshin/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/08/22/genshin/</guid>
+      <description>今回は、星4のレイラが強いという話と、最近のプレイ状況の話をします。
+この前、クレーの夏イベントで星4のレイラが配布されました。
+それを見て、このキャラ強いかもと思ったので、育成してみたところ、めちゃくちゃ強かったので、螺旋のPTに入れました。育成推奨です。
+私が星4で育成を推奨しているキャラは各元素につき最大2名として考えます。
+   元素 キャラ 特徴     炎 ベネット 爆発で回復とバフ、短時間スキル   炎 香菱 強力な爆発   水 行秋 強力な爆発、スキルの攻撃力とエネルギー回復力   風 リネット 初登場   氷 レイラ スキルのループ可能なシールド、継続する爆発   雷 忍 スキルでの回復及び継続的な元素反応    ただし、風のリネットについては、ウェンティと万葉で足りているため、育成するかは不明。
+PT ナヒーダ、レイラ、忍、行秋です。
+
+久々の螺旋 強い敵 フォンテーヌで強い敵がいるというので、戦ってきた。初見では鍾離が即死して焦ったけど、爆発回避しまくってなんとか勝った。やっぱり初見で倒せるのは嬉しい。動画は2日目のやつ。</description>
+    </item>
+    
     <item>
       <title>virtualbox 7.xでブリッジアダプターが起動しない</title>
       <link>https://syui.ai/blog/post/2023/08/19/vbox/</link>
