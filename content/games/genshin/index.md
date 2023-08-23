@@ -19,8 +19,6 @@ header_image = "/games/genshin.jpg"
 
 美しい世界で旅ができますので、おすすめです。
 
-<a href="/games/genshin/genshin_top_00.jpg"><img src="/games/genshin/genshin_top_00.jpg"></a>
-
 ### プレイスタイル
 
 私のこれまでのプレイスタイルを少しだけ話します。
@@ -148,61 +146,41 @@ header_image = "/games/genshin.jpg"
 
 <a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
 
-|キャラ|通常|スキル|爆発|
-|---|---|---|---|
-|クレー|9|9|9|
-|雷電|9|10|10|
-|ナヒーダ|10|13|13|
-|鍾離|1|10|10|
-|行秋|1|12|12|
-|香菱|1|5|12|
-|綾華|9|9|9|
-|ウェンティ|1|9|10|
-|万葉|1|10|10|
-|ベネット|1|12|13|
+|元素|キャラ|特徴|
+|---|---|---|
+|炎|ベネット|爆発で回復とバフ、短時間スキル|
+|炎|香菱|強力な爆発|
+|水|行秋|強力な爆発、スキルの攻撃力とエネルギー回復力|
+|風|リネット|初登場|
+|氷|レイラ|スキルのループ可能なシールド、継続する爆発|
+|雷|忍|スキルでの回復及び継続的な元素反応|
 
-#### クレー
-
-<a href="/games/genshin/genshin_chara_klee_fix2.png"><img src="/games/genshin/genshin_chara_klee_fix2.png"></a>
+### 最新育成
 
 #### 雷電
 
-<a href="/games/genshin/genshin_chara_raiden_fix2.png"><img src="/games/genshin/genshin_chara_raiden_fix2.png"></a>
-
-#### 鍾離
-
-<a href="/games/genshin/genshin_chara_zhongli_fix2.png"><img src="/games/genshin/genshin_chara_zhongli_fix2.png"></a>
-
-#### ウェンティ
-
-<a href="/games/genshin/genshin_chara_venti_fix2.png"><img src="/games/genshin/genshin_chara_venti_fix2.png"></a>
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0006.jpg )
 
 #### 綾華
 
-<a href="/games/genshin/genshin_chara_ayaka_fix2.png"><img src="/games/genshin/genshin_chara_ayaka_fix2.png"></a>
-
-#### 万葉
-
-<a href="/games/genshin/genshin_chara_kazuha_fix2.png"><img src="/games/genshin/genshin_chara_kazuha_fix2.png"></a>
-
-#### 行秋
-
-<a href="/games/genshin/genshin_chara_xingqiu_fix2.png"><img src="/games/genshin/genshin_chara_xingqiu_fix2.png"></a>
-
-#### ベネット
-
-<a href="/games/genshin/genshin_chara_bennett_fix2.png"><img src="/games/genshin/genshin_chara_bennett_fix3.png"></a>
-
-#### 香菱
-
-<a href="/games/genshin/genshin_chara_xiangling_fix2.png"><img src="/games/genshin/genshin_chara_xiangling_fix2.png"></a>
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0004.jpg )
 
 #### 蛍
 
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0005.jpg )
+
+### 過去育成
+
+<a href="/games/genshin/genshin_chara_klee_fix2.png"><img src="/games/genshin/genshin_chara_klee_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_raiden_fix2.png"><img src="/games/genshin/genshin_chara_raiden_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_zhongli_fix2.png"><img src="/games/genshin/genshin_chara_zhongli_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_venti_fix2.png"><img src="/games/genshin/genshin_chara_venti_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_ayaka_fix2.png"><img src="/games/genshin/genshin_chara_ayaka_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_kazuha_fix2.png"><img src="/games/genshin/genshin_chara_kazuha_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_xingqiu_fix2.png"><img src="/games/genshin/genshin_chara_xingqiu_fix2.png"></a>
+<a href="/games/genshin/genshin_chara_bennett_fix2.png"><img src="/games/genshin/genshin_chara_bennett_fix3.png"></a>
+<a href="/games/genshin/genshin_chara_xiangling_fix2.png"><img src="/games/genshin/genshin_chara_xiangling_fix2.png"></a>
 <a href="/games/genshin/genshin_chara_hotaru.png"><img src="/games/genshin/genshin_chara_hotaru.png"></a>
-
-#### ナヒーダ
-
 <a href="/games/genshin/genshin_chara_nahida_fix3.png"><img src="/games/genshin/genshin_chara_nahida_fix3.png"></a>
 
 https://shinshin.moe
@@ -702,6 +680,12 @@ LVに関しても同じことが言えます。もちろん、経験値が無駄
 ![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0002.png)
 
 ### パイモンの考察
+
+パイモンは最初に出てきてアイコンにもなっているキャラです。ということは、最初にヒントがあるはずであり、それが全てです。パイモンの出身はおそらくここ。
+
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0002.jpg )
+
+![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0003.jpg )
 
 原神のちょっとした考察をまとめます。
 
