@@ -77,6 +77,16 @@ header_image = "/games/genshin.jpg"
 
 - 雷電、香菱、行秋、ベネット
 
+|元素|キャラ|特徴|
+|---|---|---|
+|炎|ベネット|爆発で回復とバフ、短時間スキル|
+|炎|香菱|強力な爆発|
+|水|行秋|強力な爆発、スキルの攻撃力とエネルギー回復力|
+|氷|レイラ|スキルのループ可能なシールド、継続する爆発|
+|雷|忍|スキルでの回復及び継続的な元素反応|
+
+万葉とウェンティは確保済みなので、風の`リネット`を育成するかは不明。おそらく育成しないと思われます。
+
 #### 武器
 
 |順位|名前|
@@ -140,49 +150,24 @@ header_image = "/games/genshin.jpg"
 
 原神が落ちるようになった場合、ipadを再起動すると直ることがあります。
 
-### 育成中のキャラ
-
-<a href="/games/genshin/genshin_chara.png"><img src="/games/genshin/genshin_chara.png"></a>
-
-|元素|キャラ|特徴|
-|---|---|---|
-|炎|ベネット|爆発で回復とバフ、短時間スキル|
-|炎|香菱|強力な爆発|
-|水|行秋|強力な爆発、スキルの攻撃力とエネルギー回復力|
-|氷|レイラ|スキルのループ可能なシールド、継続する爆発|
-|雷|忍|スキルでの回復及び継続的な元素反応|
-
-万葉とウェンティは確保済みなので、風の`リネット`を育成するかは不明。おそらく育成しないと思われます。
-
-### 最新育成
-
-#### 雷電
-
-![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0006.jpg )
-
-#### 綾華
-
-![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0004.jpg )
-
-#### 蛍
-
-![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0005.jpg )
-
 ### 過去育成
 
-<a href="/games/genshin/genshin_chara_klee_fix2.png"><img src="/games/genshin/genshin_chara_klee_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_raiden_fix2.png"><img src="/games/genshin/genshin_chara_raiden_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_zhongli_fix2.png"><img src="/games/genshin/genshin_chara_zhongli_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_venti_fix2.png"><img src="/games/genshin/genshin_chara_venti_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_ayaka_fix2.png"><img src="/games/genshin/genshin_chara_ayaka_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_kazuha_fix2.png"><img src="/games/genshin/genshin_chara_kazuha_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_xingqiu_fix2.png"><img src="/games/genshin/genshin_chara_xingqiu_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_bennett_fix2.png"><img src="/games/genshin/genshin_chara_bennett_fix3.png"></a>
-<a href="/games/genshin/genshin_chara_xiangling_fix2.png"><img src="/games/genshin/genshin_chara_xiangling_fix2.png"></a>
-<a href="/games/genshin/genshin_chara_hotaru.png"><img src="/games/genshin/genshin_chara_hotaru.png"></a>
-<a href="/games/genshin/genshin_chara_nahida_fix3.png"><img src="/games/genshin/genshin_chara_nahida_fix3.png"></a>
+![](/games/genshin/genshin_chara_klee_fix3.png)
+![](/games/genshin/genshin_chara_raiden_fix3.png)
+![](/games/genshin/genshin_chara_zhongli_fix3.png)
+![](/games/genshin/genshin_chara_ayaka_fix3.png)
+![](/games/genshin/genshin_chara_kazuha_fix3.png)
+![](/games/genshin/genshin_chara_xingqiu_fix3.png)
+![](/games/genshin/genshin_chara_bennett_fix3.png)
+![](/games/genshin/genshin_chara_xiangling_fix3.png)
+![](/games/genshin/genshin_chara_nahida_fix3.png)
 
-https://shinshin.moe
+<!--
+![](/games/genshin/genshin_chara_venti_fix3.png)
+![](/games/genshin/genshin_chara_hotaru_fix3.png)
+-->
+
+https://tools.jabrek.net/Genshin_score/
 
 ### おすすめキャラ
 
@@ -218,7 +203,7 @@ v0.1の目標達成できたので、計画を変更しました。
 |岩|鍾離|**???**|無凸/--|
 |雷|雷電|**???**|無凸/--|
 |草|ナヒーダ|**???**|無凸/--|
-|水|**???**|行秋|--/完凸|
+|水|フリーナ|行秋|--/完凸|
 |炎|**???**|ベネット/香菱|--/無凸|
 |氷|**???**|綾華|--/無凸|
 
