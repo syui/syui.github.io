@@ -162,8 +162,10 @@ header_image = "/games/genshin.jpg"
 ![](/games/genshin/genshin_chara_xiangling_fix3.png)
 ![](/games/genshin/genshin_chara_nahida_fix3.png)
 
-<!--
 ![](/games/genshin/genshin_chara_venti_fix3.png)
+![](/games/genshin/genshin_chara_shinobu_fix3.png)
+![](/games/genshin/genshin_chara_lera_fix3.png)
+<!--
 ![](/games/genshin/genshin_chara_hotaru_fix3.png)
 -->
 
