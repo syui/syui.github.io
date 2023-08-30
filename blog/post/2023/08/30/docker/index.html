@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>原神、レイラが強かった | syui.ai</title>
+		<title>dockerの/var/lib/dockerを外付けhddに移動する | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -105,12 +105,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-08-22 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-08-30 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/genshin/">genshin</a>
+		<a href="https://syui.ai/tags/docker/">docker</a>
 		
 		
 		
@@ -120,71 +120,51 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/games/genshin">genshin</a></p>
 		
 		</div>
 
-		<h2>原神、レイラが強かった</h2>
+		<h2>dockerの/var/lib/dockerを外付けhddに移動する</h2>
 
-		<p>今回は、星4のレイラが強いという話と、最近のプレイ状況の話をします。</p>
-<p>この前、クレーの夏イベントで星4のレイラが配布されました。</p>
-<p>それを見て、このキャラ強いかもと思ったので、育成してみたところ、めちゃくちゃ強かったので、螺旋のPTに入れました。育成推奨です。</p>
-<p>私が星4で育成を推奨しているキャラは各元素につき最大2名として考えます。</p>
-<table>
-<thead>
-<tr>
-<th>元素</th>
-<th>キャラ</th>
-<th>特徴</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>炎</td>
-<td>ベネット</td>
-<td>爆発で回復とバフ、短時間スキル</td>
-</tr>
-<tr>
-<td>炎</td>
-<td>香菱</td>
-<td>強力な爆発</td>
-</tr>
-<tr>
-<td>水</td>
-<td>行秋</td>
-<td>強力な爆発、スキルの攻撃力とエネルギー回復力</td>
-</tr>
-<tr>
-<td>風</td>
-<td>リネット</td>
-<td>初登場</td>
-</tr>
-<tr>
-<td>氷</td>
-<td>レイラ</td>
-<td>スキルのループ可能なシールド、継続する爆発</td>
-</tr>
-<tr>
-<td>雷</td>
-<td>忍</td>
-<td>スキルでの回復及び継続的な元素反応</td>
-</tr>
-</tbody>
-</table>
-<p>ただし、風のリネットについては、ウェンティと万葉で足りているため、育成するかは不明。</p>
-<h3 id="pt">PT</h3>
-<p>ナヒーダ、レイラ、忍、行秋です。</p>
-<p><video controls style="width:100%;"><source src="https://raw.githubusercontent.com/syui/img/master/movie/genshin_nahida_battle_07.mp4"></video></p>
-<h3 id="久々の螺旋">久々の螺旋</h3>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/genshin_20230812_0001.jpg" alt=""></p>
-<h3 id="強い敵">強い敵</h3>
-<p>フォンテーヌで強い敵がいるというので、戦ってきた。初見では鍾離が即死して焦ったけど、爆発回避しまくってなんとか勝った。やっぱり初見で倒せるのは嬉しい。動画は2日目のやつ。</p>
-<p><video controls style="width:100%;"><source src="https://raw.githubusercontent.com/syui/img/master/movie/genshin_nahida_battle_08.mp4"></video></p>
+		<p>検索しても適切な方法が見つからなかったので手順を記録します。</p>
+<p>これをそのままcp, rsync, mvしても、そのファイルは使えません。</p>
+<blockquote>
+<p>failed: Operation not permitted</p>
+</blockquote>
+<p>これは<code>format:ext4</code>が関係しているかもしれません。</p>
+<p>しかし、基本的には、論理ボリュームを作成、mountした上でrsyncします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl stop docker.service
+
+<span style="color:#75715e"># 論理ボリュームの作成</span>
+$ sudo vgcreate docker /dev/sdb1
+$ sudo vgs
+$ sudo lvcreate -L 600G -n docker docker
+$ sudo vgs -o +lv_size,lv_name
+$ sudo mkfs.ext4 /dev/docker/docker
+
+<span style="color:#75715e"># 論理ボリュームのmount</span>
+$ mkdir -p ~/mnt/tmp
+$ sudo mount /dev/docker/docker ~/mnt/tmp/
+
+<span style="color:#75715e"># ファイルの移行</span>
+$ sudo rsync -avx /var/lib/docker/ ~/mnt/tmp
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># backup</span>
+$ sudo mv /var/lib/docker /var/lib/docker.back
+
+<span style="color:#75715e"># /var/lib/docker</span>
+$ sudo mkdir /var/lib/docker
+$ sudo chmod <span style="color:#ae81ff">710</span> /var/lib/docker
+$ sudo mount /dev/docker/docker /var/lib/docker
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># umount</span>
+$ sudo umount ~/mnt/tmp
+$ sudo rm -rf ~/mnt/tmp
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># auto-mount</span>
+$ sudo fdisk -l
+$ sudo blkid | grep sdb1
+UUID<span style="color:#f92672">=</span>$uuid
+
+$ sudo vim /etc/fstab
+/dev/docker/docker /var/lib/docker ext4 defaults <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><p>dockerは肥大化しやすいのに罠すぎる。</p>
 
 		
 
@@ -192,14 +172,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/08/19/vbox/" id="article-nav-older" class="article-nav-link-wrap">
-virtualbox 7.xでブリッジアダプターが起動しない
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/08/22/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、レイラが強かった
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/08/30/docker/" id="article-nav-newer" class="article-nav-link-wrap">
-     dockerの/var/lib/dockerを外付けhddに移動する
-				</a></p>
     
 	</div>
 </nav>
