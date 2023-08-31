@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>dockerの/var/lib/dockerを外付けhddに移動する | syui.ai</title>
+		<title>dockerでstable diffusionを構築してみた | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -105,7 +105,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-08-30 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-08-31 / <a href="/syui">@syui</a>
 
 		
 		
@@ -123,48 +123,78 @@
 		
 		</div>
 
-		<h2>dockerの/var/lib/dockerを外付けhddに移動する</h2>
+		<h2>dockerでstable diffusionを構築してみた</h2>
 
-		<p>検索しても適切な方法が見つからなかったので手順を記録します。</p>
-<p>これをそのままcp, rsync, mvしても、そのファイルは使えません。</p>
-<blockquote>
-<p>failed: Operation not permitted</p>
-</blockquote>
-<p>これは<code>format:ext4</code>が関係しているかもしれません。</p>
-<p>しかし、基本的には、論理ボリュームを作成、mountした上でrsyncします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo systemctl stop docker.service
+		<h3 id="stable-diffusion-v14">stable diffusion v1.4</h3>
+<p>src :  <a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original</a></p>
+<p>sd-v1-4.ckpt : <a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt</a></p>
+<p><code>.ckpt</code>はファイルが大きいのでgit cloneでdownloadされません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir -p <span style="color:#f92672">{</span>model,outputs<span style="color:#f92672">}</span>
+$ mv sd-v1-4.ckpt ./model/model.ckpt
+$ vim Dockerfile
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">FROM nvcr.io/nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04
 
-<span style="color:#75715e"># 論理ボリュームの作成</span>
-$ sudo vgcreate docker /dev/sdb1
-$ sudo vgs
-$ sudo lvcreate -L 600G -n docker docker
-$ sudo vgs -o +lv_size,lv_name
-$ sudo mkfs.ext4 /dev/docker/docker
+ARG DEBIAN_FRONTEND<span style="color:#f92672">=</span>noninteractive
+ENV TZ<span style="color:#f92672">=</span>Asia/Tokyo
 
-<span style="color:#75715e"># 論理ボリュームのmount</span>
-$ mkdir -p ~/mnt/tmp
-$ sudo mount /dev/docker/docker ~/mnt/tmp/
+RUN apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y wget git git-lfs libglib2.0-0 libsm6 libxrender1 libxext-dev
 
-<span style="color:#75715e"># ファイルの移行</span>
-$ sudo rsync -avx /var/lib/docker/ ~/mnt/tmp
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># backup</span>
-$ sudo mv /var/lib/docker /var/lib/docker.back
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    sh Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    rm -r Miniconda3-latest-Linux-x86_64.sh
 
-<span style="color:#75715e"># /var/lib/docker</span>
-$ sudo mkdir /var/lib/docker
-$ sudo chmod <span style="color:#ae81ff">710</span> /var/lib/docker
-$ sudo mount /dev/docker/docker /var/lib/docker
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># umount</span>
-$ sudo umount ~/mnt/tmp
-$ sudo rm -rf ~/mnt/tmp
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># auto-mount</span>
-$ sudo fdisk -l
-$ sudo blkid | grep sdb1
-UUID<span style="color:#f92672">=</span>$uuid
+ENV PATH /opt/miniconda3/bin:$PATH
 
-$ sudo vim /etc/fstab
-/dev/docker/docker /var/lib/docker ext4 defaults <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
-</code></pre></div><p>dockerは肥大化しやすいのに罠すぎる。</p>
+<span style="color:#75715e"># RUN git clone https://github.com/CompVis/stable-diffusion &amp;&amp; \</span>
+<span style="color:#75715e">#     cd stable-diffusion &amp;&amp; \</span>
+<span style="color:#75715e">#     conda init bash &amp;&amp; \</span>
+<span style="color:#75715e">#     conda env create -f environment.yaml &amp;&amp; \</span>
+<span style="color:#75715e">#     echo &#34;conda activate ldm&#34; &gt;&gt; ~/.bashrc</span>
+
+RUN git clone https://github.com/basujindal/stable-diffusion.git <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    cd stable-diffusion <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    conda init bash <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    conda env create -f environment.yaml <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    echo <span style="color:#e6db74">&#34;conda activate ldm&#34;</span> &gt;&gt; ~/.bashrc
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:compose.yml" data-lang="yml:compose.yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">stable_diffusion</span>:
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+    <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/stable-diffusion</span>
+    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./model/:/stable-diffusion/models/ldm/stable-diffusion-v1/</span>
+      - <span style="color:#ae81ff">./outputs:/stable-diffusion/outputs</span>
+    <span style="color:#f92672">deploy</span>:
+      <span style="color:#f92672">resources</span>:
+        <span style="color:#f92672">reservations</span>:
+          <span style="color:#f92672">devices</span>:
+            - <span style="color:#f92672">capabilities</span>: [<span style="color:#ae81ff">gpu]</span>
+    <span style="color:#f92672">environment</span>: 
+      - <span style="color:#ae81ff">NVIDIA_VISIBLE_DEVICES=all</span>
+      - <span style="color:#ae81ff">NVIDIA_DRIVER_CAPABILITIES=all</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker compose up
+---
+$ docker compose exec stable_diffusion bash
+$ prompt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;masterpiece, high quality, very_high_resolution, large_filesize, full color, little girl, simple white onepice&#34;</span>
+$ python optimizedSD/optimized_txt2img.py --H <span style="color:#ae81ff">512</span> --W <span style="color:#ae81ff">512</span> --seed <span style="color:#ae81ff">27</span> --n_iter <span style="color:#ae81ff">2</span> --n_samples <span style="color:#ae81ff">1</span> --ddim_steps <span style="color:#ae81ff">5</span> --prompt $prompt
+</code></pre></div><p>スペックがあまり良くないubuntu-serverで構築しているので、実行すると他のサーバーが止まる。</p>
+<p>ref : <a href="https://zenn.dev/choshicure/scraps/14bca2492bf49f">https://zenn.dev/choshicure/scraps/14bca2492bf49f</a></p>
+<h2 id="stable-diffusion-v15-webui">stable diffusion v1.5, webui</h2>
+<p><a href="https://github.com/AbdBarho/stable-diffusion-webui-docker">https://github.com/AbdBarho/stable-diffusion-webui-docker</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/AbdBarho/stable-diffusion-webui-docker
+$ cd stable-diffusion-webui-docker
+$ docker compose --profile download up --build
+
+$ ls ./data/models
+
+<span style="color:#75715e"># 様々なui</span>
+<span style="color:#75715e"># https://github.com/AbdBarho/stable-diffusion-webui-docker/wiki/Usage</span>
+$ docker compose --profile auto up --build
+$ docker compose --profile invoke up --build
+</code></pre></div><h2 id="mac-ipad">mac, ipad</h2>
+<p><a href="https://apps.apple.com/jp/app/draw-things-ai-generation/id6444050820">https://apps.apple.com/jp/app/draw-things-ai-generation/id6444050820</a></p>
+<p><a href="https://github.com/godly-devotion/MochiDiffusion">https://github.com/godly-devotion/MochiDiffusion</a></p>
 
 		
 
@@ -172,14 +202,10 @@ $ sudo vim /etc/fstab
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/08/22/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、レイラが強かった
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/08/30/docker/" id="article-nav-older" class="article-nav-link-wrap">
+dockerの/var/lib/dockerを外付けhddに移動する
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/08/31/docker/" id="article-nav-newer" class="article-nav-link-wrap">
-     dockerでstable diffusionを構築してみた
-				</a></p>
     
 	</div>
 </nav>

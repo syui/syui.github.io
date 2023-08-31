@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dockerでstable diffusionを構築してみた</title>
+      <link>https://syui.ai/blog/post/2023/08/31/docker/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/08/31/docker/</guid>
+      <description>stable diffusion v1.4 src : https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
+sd-v1-4.ckpt : https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
+.ckptはファイルが大きいのでgit cloneでdownloadされません。
+$ mkdir -p {model,outputs} $ mv sd-v1-4.ckpt ./model/model.ckpt $ vim Dockerfile FROM nvcr.io/nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04 ARG DEBIAN_FRONTEND=noninteractive ENV TZ=Asia/Tokyo RUN apt-get update &amp;amp;&amp;amp; apt-get install -y wget git git-lfs libglib2.0-0 libsm6 libxrender1 libxext-dev RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &amp;amp;&amp;amp; \  sh Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3 &amp;amp;&amp;amp; \  rm -r Miniconda3-latest-Linux-x86_64.sh ENV PATH /opt/miniconda3/bin:$PATH # RUN git clone https://github.com/CompVis/stable-diffusion &amp;amp;&amp;amp; \ # cd stable-diffusion &amp;amp;&amp;amp; \ # conda init bash &amp;amp;&amp;amp; \ # conda env create -f environment.</description>
+    </item>
+    
     <item>
       <title>dockerの/var/lib/dockerを外付けhddに移動する</title>
       <link>https://syui.ai/blog/post/2023/08/30/docker/</link>
