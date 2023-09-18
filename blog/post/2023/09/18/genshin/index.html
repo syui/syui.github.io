@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.89.4" />
-		<title>syui.ai</title>
+		<title>原神、螺旋2分攻略 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content="blog" />
 		<meta property="og:title" content="syui.ai" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.ai/icon/syui.jpg" />
 		<meta property="og:url" content="https://syui.ai" />
 		<meta property="og:site_name" content="syui.ai" />
@@ -24,34 +23,29 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.ai/bower_components/jquery.ajax/jquery.min.js"></script>
-		<script src="https://syui.ai/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.ai/js/terminal.quick.js"></script>
-		<script src="https://syui.ai/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.ai/build/bundle.js"></script>
-		<script src="https://syui.ai/js/analytics.js"></script>
+		<script src="/js/analytics.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
 			  "@type": "WebSite",
-					"name": "syui.ai",
-					"url": "https:\/\/syui.ai"
+			  "name": "syui.ai",
+			  "url": "https:\/\/syui.ai"
 			}
 		</script>
-<link rel="alternate" type="application/json" href="https://syui.ai/index.json" title="syui.ai" />
-</head>
+		<script src="https://syui.ai/bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="https://syui.ai/bower_components/axios/dist/axios.min.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="https://syui.ai/bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai/bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -75,12 +69,12 @@
 
 
 
-	<body>
-		
+<body onload="highlight_prompt()">
+	
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -104,119 +98,103 @@
 </g>
 </svg>
  </a> </div>
+
 				
 			</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://github.com/syui/" target="_blank"><i class="fab fa-github"></i></a>
-		<a href="https://twitter.com/syui__" target="_blank"><i class="fab fa-twitter"></i></a>
-		<a rel="me" href="https://mstdn.syui.ai/@syui" target="_blank"><i class="fab fa-mastodon"></i></a>
-		<a href="https://matrix.to/#/@syui:syui.ai" target="_blank" class="matrix-icon">[m]</a>
-		<a href="https://git.syui.ai/syui" target="_blank"><i class="fab fa-git-alt"></i></a>
-		<a href="https://yui.syui.ai"><span class="icon-ai"></span></a>
-		<a href="https://api.syui.ai/users/1"><span class="icon-api"></span></a>
-		<a href="https://bsky.app/profile/syui.ai" target="_blank" class="bluesky-icon"><i class="fa-solid fa-at"></i></a>
-		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
-	</div>
-	</p>
-</blockquote>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2023-09-18 / <a href="/syui">@syui</a>
 
-
-<div class="content-top">
-
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2023-09-18<p><a id="fmove" href="https://syui.ai/blog/post/2023/09/18/genshin/" class="lmove">原神、螺旋2分攻略</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-09-09<p><a href="https://syui.ai/blog/post/2023/09/09/genshin/" class="lmove">原神、ナヒーダ育成</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-09-08<p><a href="https://syui.ai/blog/post/2023/09/08/3d/" class="lmove">blenderで3d modelを作った</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-09-03<p><a href="https://syui.ai/blog/post/2023/09/03/discrod/" class="lmove">bluesky勉強会#2</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-09-02<p><a href="https://syui.ai/blog/post/2023/09/02/macbook/" class="lmove">macbook air mid2013が壊れたので直した</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-09-01<p><a href="https://syui.ai/blog/post/2023/09/01/genshin/" class="lmove">原神、螺旋攻略の近道</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-08-31<p><a href="https://syui.ai/blog/post/2023/08/31/docker/" class="lmove">dockerでstable diffusionを構築してみた</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-		</ul>
-	</div>
-</div>
-
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
-
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/genshin/">genshin</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/games/genshin">genshin</a></p>
+		
 		</div>
 
+		<h2>原神、螺旋2分攻略</h2>
+
+		<p>螺旋12層は<code>7:00</code>以内に攻略すると星3になります。</p>
+<p>今回は<code>8:00</code>以内という目標を立ててやってみることにしました。それぞれを2分以内に攻略している動画になります。</p>
+<p><video controls style="width:100%;"><source src="https://raw.githubusercontent.com/syui/img/master/movie/genshin_rasen_20230901_0001.mp4"></video></p>
+<p><video controls style="width:100%;"><source src="https://raw.githubusercontent.com/syui/img/master/movie/genshin_rasen_20230901_0002.mp4"></video></p>
+<p><video controls style="width:100%;"><source src="https://raw.githubusercontent.com/syui/img/master/movie/genshin_rasen_20230901_0003.mp4"></video></p>
+<h3 id="個人的な所感">個人的な所感</h3>
+<p>鍾離を入れると、タイムを<code>8:00</code>以内にするのが難しかった。こうやればできるというのはわかるけど、私の手持ちキャラ、育成キャラでは厳しい感じだった。</p>
+<p>私の手持ちで育成している水元素が今のところ<code>行秋</code>しかいない。</p>
+<p>したがって、この枠を拡張するため水神<code>フリーナ</code>を待っているところです。</p>
+<p>そのため、フリーナはすごく楽しみにしてると同時に、すごく期待してる。</p>
+<p>夜蘭を引かなかった理由もほぼこの一点に集約されます。</p>
+<p>私が当初、水元素の確保枠として設定していたのは2枠で、夜蘭を引くと、水神後は誰かが余ってしまう可能性が高い。</p>
+<p>ただ、最強キャラを引かないというのもリスキーだったなあと思います。</p>
+<p>全員育てればいいというのは、個人的な方針ではないため、他元素で足りていないところを補完する事を考えるようにしています。</p>
+<h3 id="フリーナの性能予想">フリーナの性能予想</h3>
+<p>以下は全て個人的な予想です。</p>
+<p>HPを削り、HPを回復する。最終的に、それらは裁判のように公平な値になるだろうと予想しています。つまり、HPが削られる分量と回復する分量は同じになる。</p>
+<p>HPを削った時、何らかのバフ効果を得る。</p>
+<p>広範囲の水元素付与能力を持つ。これは回復と連動するかも。</p>
+<h3 id="フリーナの凸効果">フリーナの凸効果</h3>
+<p>私は、雷電の完凸は最強レベルだと思っています。</p>
+<blockquote>
+<p>奥義・夢想真説による夢想の一心状態の時、雷電将軍の通常攻撃、重撃、落下攻撃が敵に命中すると、周囲チーム全員(雷電将軍自身を除く)の元素爆発のクールタイム-1秒。この効果は1秒毎に1回のみ可能で、継続時間内の最大5回まで発動可能。</p>
+</blockquote>
+<p>これは昔から思っていて、ゲームバランスを破壊する可能性があるからです。</p>
+<p>例えば、ナヒーダは完凸で爆発ダメージと範囲がぶっ壊れています。しかも必要なエネルギーは少なく、クールタイムも短い。</p>
+<p>ただ、唯一ネックなのが攻撃速度とクールタイムです。</p>
+<p>雷電の完凸はこのクールタイムの問題を解消してくれます。</p>
+<p>ナヒーダ爆発で通常攻撃、雷電爆発で5回攻撃、ナヒーダ爆発というループを回せるのではないでしょうか。この場合のDPSとお手軽さは最高レベルのものなのでは。</p>
+<p>仮にフリーナが凸効果でこれらを解消してくれるなら、水元素と合わせ、ナヒーダを更に強く使うことができるようになります。</p>
+<p>そして、私は、フリーナの凸効果はナヒーダ完凸と何らかのシナジーがあるものになるだろうと予想しています。</p>
+<p>なぜなら、草元素は雷元素以上に水元素とシナジーがあるからです。</p>
+<p>ですから、雷電の完凸の効果と同じような連携可能なデザインにしてくるだろうと予想しています。</p>
+<p>どういったものになるのかわかりませんが、攻撃速度か、あるいは元素反応に寄与するものではないかと予想します。</p>
+<p>こうなってくると、フリーナの完凸を目指すべきかもしれません。雷電でもいいかもしれない。</p>
+
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/09/09/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、ナヒーダ育成
+					</a></p>
+    
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
 
-
+		<script src="/js/highlight-prompt.js"></script>
 	</body>
 </html>
