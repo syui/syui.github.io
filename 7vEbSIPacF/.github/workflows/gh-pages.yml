@@ -1,0 +1,42 @@
+name: gitbook build and deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install ubuntu package
+        sudo apt-get update && sudo apt-get install calibre
+        #install japanese font if your document is JP
+        sudo apt-get install fonts-takao-mincho fonts-takao
+
+      - name: Run PDF export
+        run: |
+          # install n to downgrade npm version
+          sudo npm install -g n
+          fixed_npm=`n ls-remote --all 10  | head -n 1`
+          # downgrade to 10.x
+          sudo n ${fixed_npm}
+          # install gitbok-cli and call
+          npm install gitbook-cli
+          ./node_modules/.bin/gitbook pdf
+          ./node_modules/.bin/gitbook build
+
+      - name: Archive pdf artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: output.pdf
+          path: book.pdf
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_book
+        user_name: 'ai[bot]'
+        user_email: '138105980+yui-syui-ai[bot]@users.noreply.github.com'

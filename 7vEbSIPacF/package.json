@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@gitbook-ng/gitbook": "^3.3.6",
+    "gitbook-plugin-codeblock-filename": "0.0.9",
+    "gitbook-plugin-diff": "^0.1.0",
+    "gitbook-plugin-mermaid-gb3": "^2.1.0"
+  }
+}
