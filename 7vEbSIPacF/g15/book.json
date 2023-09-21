@@ -1,0 +1,7 @@
+{
+	"author": "syui",
+	"root": "./",
+	"plugins": ["-sharing", "codeblock-filename","mermaid-gb3","diff"],
+	"title": "g15 ai-bot",
+	"description": "This is a bluesky ai-card example, and first rust"
+}
