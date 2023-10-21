@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bluesky(pds)をupdateした</title>
+      <link>https://syui.ai/blog/post/2023/10/12/pds/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/12/pds/</guid>
+      <description>$ git clone https://github.com/bluesky-social/atproto $ git reset --hard 3b65224c8003f68892bc8434b0d47c7173554a53 $ vim Dockerfile FROM node:18.17.1-buster RUN mkdir -p /app RUN mkdir -p /app/packages/pds/dist/images WORKDIR /app ADD ./ ./ RUN npm install -g pnpm RUN make deps RUN make build RUN echo DB_POSTGRES_URL=postgres://${user}:${password}@0.0.0.0:5432/${db} &amp;gt;&amp;gt; .env RUN cp -rf .env /app/packages/pds/.env WORKDIR /app/packages/pds # https://github.com/bluesky-social/atproto/pull/1198/files#diff-ea571f7816400e5a8a1f03b40b3a63316e0a1fc3abf4f1c937e7ee7a9682fca5L27 CMD [&amp;#34;node&amp;#34;, &amp;#34;dist/bin.js&amp;#34;] $ docker compose up </description>
+    </item>
+    
     <item>
       <title>原神、フリーナの凸について</title>
       <link>https://syui.ai/blog/post/2023/10/06/genshin/</link>
