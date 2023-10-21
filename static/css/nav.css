@@ -504,12 +504,11 @@ a:hover > .navbar-light .navbar-brand {
 	color:#008CCF;
 }
 
-.navbar-nav-right a span.icon-syui {
-    font-size: 33px;
+.navbar-nav > span.navbar-title-text > a > span.icon-syui {
+    font-size: 22px;
 }
-
-.navbar-nav-right a span.icon-ai {
-    font-size: 33px;
+.navbar-nav > span.navbar-title-text > a.nav {
+	padding:0px 20px;
 }
 
 .navbar-nav-right > a > i {
@@ -551,8 +550,6 @@ a.navbar-brand {
 	font-size: 26px;
 	padding: 0 5px 0 40px;
 }
-
-
 
 @media (max-width: 1099px) {
 	.navbar-nav-right{
