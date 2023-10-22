@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vroidで3d modelを作ってみた</title>
+      <link>https://syui.ai/blog/post/2023/10/22/vrm/</link>
+      <pubDate>Sun, 22 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/22/vrm/</guid>
+      <description>アイの3d-modelをvroidで作ってみました。
+
+経緯 まずはblenderで作ろうと思い、原神のnahidaを公式からdownloadして、動かせるところまでやりました。
+とはいえ、これはアイの3d-modelを作成する上で参考になりました。特に等身ですが。
+次に、vroidで3d-model(.vrm)を作成するわけですが、輪っかは髪の毛から作りました。
+vroid-hubというものがあり、覗いてみると、あまりに自然にwebで動いているのでびっくりしました。
+これはlibがあると踏んで探してみると@pixiv/three-vrmがありました。
+ただ、モーション(.vmd)はpixivから公開されていないようでした。最初に選択できるモーションは公開されてるとうれしかった。
+web viewer $ git clone https://github.com/JLChnToZ/vrm-dance-viewer $ yarn install $ yarn dev 最初からモデルを読み込むにはこんな感じを末尾に追記。
+// https://github.com/JLChnToZ/vrm-dance-viewer import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { scene } from &amp;#39;./worker/scene/scene&amp;#39;; let url = &amp;#34;./ai.vrm&amp;#34;; let loader = new GLTFLoader(); window.onload = function(){ loader.load( url, (gltf) =&amp;gt; { const vrm = gltf.userData.vrm; scene.add(gltf.scene) console.log(vrm); }, (xhr) =&amp;gt; { console.log( `${( xhr.loaded / xhr.total * 100 )}% loaded` ); }, (error) =&amp;gt; { console.</description>
+    </item>
+    
     <item>
       <title>bluesky(pds)をupdateした</title>
       <link>https://syui.ai/blog/post/2023/10/12/pds/</link>
