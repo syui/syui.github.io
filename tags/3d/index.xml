@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 08 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vrm viewerを調整してみた</title>
+      <link>https://syui.ai/blog/post/2023/10/23/vrm/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/23/vrm/</guid>
+      <description>https://syui.ai/vrm-dance-viewer/
+基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。
+// https://github.com/JLChnToZ/vrm-dance-viewer let model_url = &amp;#34;&amp;#34;; import axios, {isCancel, AxiosError} from &amp;#39;axios&amp;#39;; function model_load(){ axios.get(model_url, { responseType: &amp;#34;blob&amp;#34; }) .then(response =&amp;gt; { loadingPromises.push(loadModel(response.data)); hasLoadModel = true; triggerLoading(); const blob = new Blob([response.data], { type: response.data.type }); }) } if (model_url !== null) { model_load(); } if (loadingPromises.length) triggerLoading(); 例えば、updateHeadで頭の動きが調整されています。ここで読み込まれているのは、頭とポーズと目の動きです。
+export function updateModel(model: VRM, deltaTime: number) { if (!lookAts.has(model)) return; updateHead(model, deltaTime); updateEyeBlink(model, deltaTime); updateIdlePose(model, deltaTime); } function updateHead(model: VRM, deltaTime: number) { // .</description>
+    </item>
+    
+    <item>
+      <title>vroidで3d modelを作ってみた</title>
+      <link>https://syui.ai/blog/post/2023/10/22/vrm/</link>
+      <pubDate>Sun, 22 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/22/vrm/</guid>
+      <description>アイの3d-modelをvroidで作ってみました。
+
+経緯 まずはblenderで作ろうと思い、原神のnahidaを公式からdownloadして、動かせるところまでやりました。
+とはいえ、これはアイの3d-modelを作成する上で参考になりました。特に等身ですが。
+次に、vroidで3d-model(.vrm)を作成するわけですが、輪っかは髪の毛から作りました。
+vroid-hubというものがあり、覗いてみると、あまりに自然にwebで動いているのでびっくりしました。
+これはlibがあると踏んで探してみると@pixiv/three-vrmがありました。
+ただ、モーション(.vmd)はpixivから公開されていないようでした。最初に選択できるモーションは公開されてるとうれしかった。
+web viewer $ git clone https://github.com/JLChnToZ/vrm-dance-viewer $ yarn install $ yarn dev 最初からモデルを読み込むにはこんな感じを末尾に追記。
+// https://github.com/JLChnToZ/vrm-dance-viewer import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { scene } from &amp;#39;./worker/scene/scene&amp;#39;; let url = &amp;#34;./ai.vrm&amp;#34;; let loader = new GLTFLoader(); window.onload = function(){ loader.load( url, (gltf) =&amp;gt; { const vrm = gltf.userData.vrm; scene.add(gltf.scene) console.log(vrm); }, (xhr) =&amp;gt; { console.log( `${( xhr.loaded / xhr.total * 100 )}% loaded` ); }, (error) =&amp;gt; { console.</description>
+    </item>
+    
     <item>
       <title>blenderで3d modelを作った</title>
       <link>https://syui.ai/blog/post/2023/09/08/3d/</link>

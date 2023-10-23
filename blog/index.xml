@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 22 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vrm viewerを調整してみた</title>
+      <link>https://syui.ai/blog/post/2023/10/23/vrm/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/23/vrm/</guid>
+      <description>https://syui.ai/vrm-dance-viewer/
+基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。
+// https://github.com/JLChnToZ/vrm-dance-viewer let model_url = &amp;#34;&amp;#34;; import axios, {isCancel, AxiosError} from &amp;#39;axios&amp;#39;; function model_load(){ axios.get(model_url, { responseType: &amp;#34;blob&amp;#34; }) .then(response =&amp;gt; { loadingPromises.push(loadModel(response.data)); hasLoadModel = true; triggerLoading(); const blob = new Blob([response.data], { type: response.data.type }); }) } if (model_url !== null) { model_load(); } if (loadingPromises.length) triggerLoading(); 例えば、updateHeadで頭の動きが調整されています。ここで読み込まれているのは、頭とポーズと目の動きです。
+export function updateModel(model: VRM, deltaTime: number) { if (!lookAts.has(model)) return; updateHead(model, deltaTime); updateEyeBlink(model, deltaTime); updateIdlePose(model, deltaTime); } function updateHead(model: VRM, deltaTime: number) { // .</description>
+    </item>
+    
     <item>
       <title>vroidで3d modelを作ってみた</title>
       <link>https://syui.ai/blog/post/2023/10/22/vrm/</link>

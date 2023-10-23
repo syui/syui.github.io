@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>vroidで3d modelを作ってみた | syui.ai</title>
+		<title>vrm viewerを調整してみた | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-10-22 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-10-23 / <a href="/syui">@syui</a>
 
 		
 		
@@ -129,64 +129,59 @@
 		
 		</div>
 
-		<h2>vroidで3d modelを作ってみた</h2>
+		<h2>vrm viewerを調整してみた</h2>
 
-		<p>アイの3d-modelを<a href="https://vroid.com/">vroid</a>で作ってみました。</p>
-<p><video controls style="width:100%;"><source src="/music/ai_vrm_0001.mp4"></video></p>
-<h2 id="経緯">経緯</h2>
-<p>まずは<code>blender</code>で作ろうと思い、原神のnahidaを公式から<a href="https://www.bilibili.com/blackboard/activity-TVh3Jjh9W1.html">download</a>して、動かせるところまでやりました。</p>
-<p>とはいえ、これはアイの3d-modelを作成する上で参考になりました。特に等身ですが。</p>
-<p>次に、vroidで3d-model(.vrm)を作成するわけですが、輪っかは髪の毛から作りました。</p>
-<p>vroid-hubというものがあり、覗いてみると、あまりに自然にwebで動いているのでびっくりしました。</p>
-<p>これはlibがあると踏んで探してみると<a href="https://github.com/pixiv/three-vrm">@pixiv/three-vrm</a>がありました。</p>
-<p>ただ、モーション(.vmd)はpixivから公開されていないようでした。最初に選択できるモーションは公開されてるとうれしかった。</p>
-<h3 id="web-viewer">web viewer</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/JLChnToZ/vrm-dance-viewer
-$ yarn install
-$ yarn dev
-</code></pre></div><p>最初からモデルを読み込むにはこんな感じを末尾に追記。</p>
+		<p><a href="https://syui.ai/vrm-dance-viewer/">https://syui.ai/vrm-dance-viewer/</a></p>
+<p>基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/main.ts" data-lang="ts:src/main.ts"><span style="color:#75715e">// https://github.com/JLChnToZ/vrm-dance-viewer
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GLTFLoader</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three/examples/jsm/loaders/GLTFLoader&#39;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">scene</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./worker/scene/scene&#39;</span>;
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./ai.vrm&#34;</span>;
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">loader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GLTFLoader</span>();
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">model_url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
 
-window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
-			<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">load</span>(
-				<span style="color:#a6e22e">url</span>,
-				(<span style="color:#a6e22e">gltf</span>) <span style="color:#f92672">=&gt;</span> {
-					<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">userData</span>.<span style="color:#a6e22e">vrm</span>;
-					<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">scene</span>)
-					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">vrm</span>);
-				},
-				(<span style="color:#a6e22e">xhr</span>) <span style="color:#f92672">=&gt;</span> {
-					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span>( <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">loaded</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span> )<span style="color:#e6db74">}</span><span style="color:#e6db74">% loaded`</span> );
-				},
-				(<span style="color:#a6e22e">error</span>) <span style="color:#f92672">=&gt;</span> {
-					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
-				}
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span>, {<span style="color:#a6e22e">isCancel</span>, <span style="color:#a6e22e">AxiosError</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">model_load</span>(){
+	<span style="color:#a6e22e">axios</span>.<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">model_url</span>, {
+		<span style="color:#a6e22e">responseType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;blob&#34;</span>
+	})
+	.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> <span style="color:#f92672">=&gt;</span> {
+		<span style="color:#a6e22e">loadingPromises</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">loadModel</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>));
+		<span style="color:#a6e22e">hasLoadModel</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+  <span style="color:#a6e22e">triggerLoading</span>();
+		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">blob</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Blob</span>([<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>], {
+			<span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#66d9ef">type</span>
+		});
+	})
+}
 
-			)
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">model_url</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+	<span style="color:#a6e22e">model_load</span>();
 }
 
 <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">loadingPromises</span>.<span style="color:#a6e22e">length</span>) <span style="color:#a6e22e">triggerLoading</span>();
-</code></pre></div><p>ただ、アニメである<code>./worker/anime-manager.ts</code>が複雑でよくわからないのと、色がおかしい問題があります。</p>
-<p>ボーン非表示は以下のように変更します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/worker/model-manager.ts" data-lang="ts:src/worker/model-manager.ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gltfLoader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GLTFLoader</span>().<span style="color:#a6e22e">register</span>(
-  <span style="color:#a6e22e">parser</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMCoreLoaderPlugin</span>(<span style="color:#a6e22e">parser</span>, { <span style="color:#a6e22e">autoUpdateHumanBones</span>: <span style="color:#66d9ef">true</span> }),
-);
-</code></pre></div><h2 id="ref">ref</h2>
-<ul>
-<li>
-<p><a href="https://github.com/JLChnToZ/vrm-dance-viewer">https://github.com/JLChnToZ/vrm-dance-viewer</a></p>
-</li>
-<li>
-<p><a href="https://moka-rin.moe/">https://moka-rin.moe/</a></p>
-</li>
-<li>
-<p><a href="https://hackmd.io/@miruo/rkBmlrfDo">https://hackmd.io/@miruo/rkBmlrfDo</a></p>
-</li>
-</ul>
+</code></pre></div><p>例えば、<code>updateHead</code>で頭の動きが調整されています。ここで読み込まれているのは、頭とポーズと目の動きです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/worker/vrm-idle-helper.ts" data-lang="ts:src/worker/vrm-idle-helper.ts"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateModel</span>(<span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">VRM</span>, <span style="color:#a6e22e">deltaTime</span>: <span style="color:#66d9ef">number</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">lookAts</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">model</span>)) <span style="color:#66d9ef">return</span>;
+  <span style="color:#a6e22e">updateHead</span>(<span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">deltaTime</span>);
+  <span style="color:#a6e22e">updateEyeBlink</span>(<span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">deltaTime</span>);
+  <span style="color:#a6e22e">updateIdlePose</span>(<span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">deltaTime</span>);
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateHead</span>(<span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">VRM</span>, <span style="color:#a6e22e">deltaTime</span>: <span style="color:#66d9ef">number</span>) {
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>色はこれです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/worker/scene/renderer.ts" data-lang="ts:src/worker/scene/renderer.ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WebGLRenderer</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">THREE</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three&#39;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">renderer</span>: <span style="color:#66d9ef">WebGLRenderer</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">init</span>(<span style="color:#a6e22e">canvas</span>: <span style="color:#66d9ef">HTMLCanvasElement</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">OffscreenCanvas</span>) {
+	<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">renderer</span>) <span style="color:#a6e22e">renderer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">WebGLRenderer</span>({
+		<span style="color:#a6e22e">antialias</span>: <span style="color:#66d9ef">true</span>,
+		<span style="color:#a6e22e">canvas</span>,
+	});
+	<span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">outputEncoding</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">sRGBEncoding</span>;
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">renderer</span>;
+}
+</code></pre></div><p><a href="https://github.com/pixiv/three-vrm/blob/dev/docs/migration-guide-1.0.md">https://github.com/pixiv/three-vrm/blob/dev/docs/migration-guide-1.0.md</a></p>
 
 		
 
@@ -194,14 +189,10 @@ window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/10/12/pds/" id="article-nav-older" class="article-nav-link-wrap">
-bluesky(pds)をupdateした
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/10/22/vrm/" id="article-nav-older" class="article-nav-link-wrap">
+vroidで3d modelを作ってみた
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/10/23/vrm/" id="article-nav-newer" class="article-nav-link-wrap">
-     vrm viewerを調整してみた
-				</a></p>
     
 	</div>
 </nav>
