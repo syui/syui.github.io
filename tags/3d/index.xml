@@ -7,15 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>three-vrm v2.0 update</title>
+      <link>https://syui.ai/blog/post/2023/10/24/vrm/</link>
+      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/24/vrm/</guid>
+      <description>three-vrm関連のブログを調べていると、ほとんどのコードが動かないのでthree-vrm v2.0の対応をまとめます。
+唯一、動くコードを発行していたのがpixivのexampleでした。参考にしてみてください。
+$ git clone https://github.com/pixiv/three-vrm/ $ cd three-vrm $ git checkout gh-pages $ cd ./packages/three-vrm/examples/ $ vim lookat-advanced.html example 以下は私が作ったexampleです。基本的には.jsなので好きなframeworkで動かしてみてください。
+&amp;#34;dependencies&amp;#34;: {&amp;#34;@pixiv/three-vrm&amp;#34;: &amp;#34;^2.0.6&amp;#34;, &amp;#34;three&amp;#34;: &amp;#34;^0.157.0&amp;#34;} import * as THREE from &amp;#39;three&amp;#39;; import { GridHelper, Mesh, MeshLambertMaterial, PlaneGeometry, Vector3, Color, DirectionalLight, Fog, HemisphereLight, AnimationAction, AnimationClip, AnimationMixer, MathUtils, Matrix4, Quaternion } from &amp;#39;three&amp;#39;; import { VRMLoaderPlugin, VRMUtils, VRMLookAt, VRMSchema } from &amp;#39;@pixiv/three-vrm&amp;#39;; import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { OrbitControls } from &amp;#39;three/examples/jsm/controls/OrbitControls&amp;#39;; // model const defaultModelUrl = &amp;#39;https://pixiv.</description>
+    </item>
+    
     <item>
       <title>vrm viewerを調整してみた</title>
       <link>https://syui.ai/blog/post/2023/10/23/vrm/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/blog/post/2023/10/23/vrm/</guid>
-      <description>https://syui.ai/vrm-dance-viewer/
-基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。
+      <description>https://vrm.syui.ai  基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。
 // https://github.com/JLChnToZ/vrm-dance-viewer let model_url = &amp;#34;&amp;#34;; import axios, {isCancel, AxiosError} from &amp;#39;axios&amp;#39;; function model_load(){ axios.get(model_url, { responseType: &amp;#34;blob&amp;#34; }) .then(response =&amp;gt; { loadingPromises.push(loadModel(response.data)); hasLoadModel = true; triggerLoading(); const blob = new Blob([response.data], { type: response.data.type }); }) } if (model_url !== null) { model_load(); } if (loadingPromises.length) triggerLoading(); 例えば、updateHeadで頭の動きが調整されています。ここで読み込まれているのは、頭とポーズと目の動きです。
 export function updateModel(model: VRM, deltaTime: number) { if (!lookAts.has(model)) return; updateHead(model, deltaTime); updateEyeBlink(model, deltaTime); updateIdlePose(model, deltaTime); } function updateHead(model: VRM, deltaTime: number) { // .</description>
     </item>
