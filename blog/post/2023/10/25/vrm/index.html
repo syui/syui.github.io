@@ -170,6 +170,23 @@
 <p><a href="https://www.youtube.com/watch?v=XsX0X8odGsY">https://www.youtube.com/watch?v=XsX0X8odGsY</a></p>
 </li>
 </ul>
+<h3 id="google-model-viewer">google-model-viewer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Import the component --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+<span style="color:#75715e">&lt;!-- Use it like any other HTML element --&gt;</span>
+&lt;<span style="color:#f92672">model-viewer</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Neil Armstrong&#39;s Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shared-assets/models/NeilArmstrong.glb&#34;</span> <span style="color:#a6e22e">ar</span> <span style="color:#a6e22e">environment-image</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shared-assets/environments/moon_1k.hdr&#34;</span> <span style="color:#a6e22e">poster</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shared-assets/models/NeilArmstrong.webp&#34;</span> <span style="color:#a6e22e">shadow-intensity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">camera-controls</span> <span style="color:#a6e22e">touch-action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pan-y&#34;</span>&gt;&lt;/<span style="color:#f92672">model-viewer</span>&gt;
+</code></pre></div><p><a href="https://modelviewer.dev/">https://modelviewer.dev/</a></p>
+<p><code>google-model-viewer</code>というものがあります。これを使うことで<code>.glb</code>を表示できるのですが、<code>.vrm</code>のポーズがデフォルトでは見栄えがよくありません。したがって、ポーズを付けるには、<code>.bvh</code>などを<code>.vrma</code>に変換してblenderで合成させる必要があります。</p>
+<p>bvh -&gt; vrma</p>
+<ul>
+<li><a href="https://vrm-c.github.io/bvh2vrma">https://vrm-c.github.io/bvh2vrma</a></li>
+</ul>
+<p>ここで<code>.vrma</code>は<code>vrm1.0</code>以上でないと読み込めません。したがって、まずはmodelを<code>vrm1.0</code>でexportしてから<code>.vrma</code>を当てましょう。</p>
+<p>そして、<code>.vrm</code>にexportして<code>.glb</code>にrenameします。</p>
+<p>しかし、現状で<code>.vrm</code>から<code>.glb</code>への変換は色がおかしくなってしまうようです。</p>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+<p><model-viewer alt="ai" src="https://yui.syui.ai/obj/first.glb" ar shadow-intensity="1" camera-controls auto-rotate></model-viewer></p>
 
 		
 

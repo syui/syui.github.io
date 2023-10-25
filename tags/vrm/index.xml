@@ -35,7 +35,7 @@ macで読み込む場合、.vroidが必要になるので、icloudなどにmodel
   https://deepmotion.com
   https://gamefromscratch.com/creating-animated-anime-characters-with-vroid-studio-and-deepmotion/
   https://www.youtube.com/watch?v=XsX0X8odGsY
-  </description>
+  google-model-viewer &amp;lt;!-- Import the component --&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- Use it like any other HTML element --&amp;gt; &amp;lt;model-viewer alt=&amp;#34;Neil Armstrong&amp;#39;s Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum&amp;#34; src=&amp;#34;shared-assets/models/NeilArmstrong.</description>
     </item>
     
     <item>
