@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vrmのキャラクター編集</title>
+      <link>https://syui.ai/blog/post/2023/10/25/vrm/</link>
+      <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/10/25/vrm/</guid>
+      <description>3d-modelである.vrmのキャラクター編集でやったことなどをまとめます。
+ 輪っかを作る 輪っかを作るには、髪の毛から適当な付け髪を選択肢、テクスチャを編集します。
+部位を光らせる 部位を光らせるには、blenderで当該テクスチャ(マテリアル)を選択し、Emissionの項目で画像を削除、カラーを設定します。
+アイの場合は、Face, Hairにあるマテリアルの2つを#fff700にしました。
+なお、事前にblenderで.vrmをインポートするアドオンを入れておいてください。あと、blenderは一度modelを保存しないとエクスポートの反映されなかったので注意。
+iframe 今までの3d-modelは、skechfabなどからiframeしていましたが、自分でホストすることにしました。
+これが単なるmodelの鑑賞ならthree.jsを使えばいいです。iframeは必要ありません。
+例えば、cardのmodelはそれ自体が動かないものなのでthree.jsで表示したほうが簡単です。
+しかし、人のmodelとなれば話は変わってきます。つまり、棒立ちのmodelを表示するだけではダメなのです。
+したがって、motion(animation)を当てる必要がありますが、それもランダム、かつ違和感のないものでなければいけません。例えば、定型的な動き、腕を上げて下ろすとか、それを繰り返すだけではダメということになります。
+この処理を作成するには、three.jsだけでは不十分で、three-vrmが必要になり、かつthree-vrmを使うにもかなりの記述が必要になります。
+つまり、web-appを作る必要があって、作ったweb-appをiframeで表示することになります。
+&amp;lt;iframe src=&amp;#34;https://syui.ai&amp;#34; allowfullscreen frameborder=&amp;#34;0&amp;#34; style=&amp;#34;border: none&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;400px&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; animation ここでいうanimationとはmotionと同じ意味です。
+手順としては、.fvpにexportする際に様々なモーションがありますので、その動きを.mp4に保存したあとdeepmotionで合成します。
+現在使っているipad 9thが落ちるのでmacで作業します。
+ipadで保存したmodelは.vroidになります。これをexportすると.vrmになります。
+macで読み込む場合、.vroidが必要になるので、icloudなどにmodelを保存して共有します。
+これを動画で保存します。そして、deepmotion.comで.bvhを作成します。.bvhは.vmdに相当します。
+  https://deepmotion.com
+  https://www.youtube.com/watch?v=XsX0X8odGsY
+  </description>
+    </item>
+    
     <item>
       <title>three-vrm v2.0 update</title>
       <link>https://syui.ai/blog/post/2023/10/24/vrm/</link>
