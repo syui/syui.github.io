@@ -147,6 +147,20 @@
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">// コメント化すると元通り。ただvrmを自然なポーズに固定する必要がでてくる
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">//.slerp(finalRotation, Math.min(deltaTime * LERP_SCALE, 1)),
 </span><span style="color:#75715e"></span>);
+</code></pre></div><p>また、blinkを設定すると、顔を標準位置から移動するとおかしくなります。これは<code>three-vrm</code>の古いバージョンのバグです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/worker/vrm-idle-helper.ts" data-lang="ts:src/worker/vrm-idle-helper.ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateEyeBlink</span>(<span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">VRM</span>, <span style="color:#a6e22e">deltaTime</span>: <span style="color:#66d9ef">number</span>) {
+	<span style="color:#75715e">//if (!model.blendShapeProxy) return;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//let v = blinkDelays.get(model);
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//if (v == null || v &lt; -BLINK_DURATION)
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//  v = MathUtils.randFloat(MIN_BLINK_DELAY, MAX_BLINK_DEALY);
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//else
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//  v -= deltaTime;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//blinkDelays.set(model, v);
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//model.blendShapeProxy.setValue(
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//  VRMSchema.BlendShapePresetName.Blink,
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//  v &gt; LOOK_CAMERA_THRESHOLD ? 0 : MathUtils.pingpong(-v, BLINK_DURATION / 2) * 2 / BLINK_DURATION,
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//);
+</span><span style="color:#75715e"></span>}
 </code></pre></div><p>これをどう自然に動かしていけばいいのか悩み中。全部のvrmをデフォルトのTポーズから変更するのもあんまり良くない。</p>
 <p><code>three.js</code>の他に<code>babylon.js</code>というものもあるらしい。こちらの<a href="https://github.com/virtual-cast/babylon-vrm-loader">virtual-cast/babylon-vrm-loader</a>でvrmを読み込めます。</p>
 <h3 id="link">link</h3>
