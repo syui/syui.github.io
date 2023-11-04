@@ -221,7 +221,7 @@ function tick_remove(){
 	}, 2000);
 }
 
-// これで床のキラキラが更新を続ける
+// これで床のキラキラが更新し続ける
 export function toggleTick() {
     const s = tick();
     tick_remove();
@@ -232,6 +232,8 @@ export function toggleTick() {
     }
 }
 ```
+
+
 
 ### link
 
