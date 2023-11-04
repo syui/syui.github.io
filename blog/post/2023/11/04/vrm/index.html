@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>freenomの現状と考察 | syui.ai</title>
+		<title>3d-modelとcardを連携してみた | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,12 +102,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-10-29 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-11-04 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/freenom/">freenom</a>
+		<a href="https://syui.ai/tags/vrm/">vrm</a>
 		
 		
 		
@@ -116,7 +116,7 @@
 		
 		
 		
-		, <a href="https://syui.ai/tags/domain/">domain</a>
+		, <a href="https://syui.ai/tags/3d/">3d</a>
 		
 		
 		
@@ -129,44 +129,35 @@
 		
 		</div>
 
-		<h2>freenomの現状と考察</h2>
+		<h2>3d-modelとcardを連携してみた</h2>
 
-		<p>前回の続きです。</p>
-<ul>
-<li><a href="https://syui.ai/blog/post/2023/03/23/domain/">https://syui.ai/blog/post/2023/03/23/domain/</a></li>
-</ul>
-<p>freenomのdomain更新がうまくいったので、そのとき感じたことを書きます。</p>
-<p>感じたことは以下の2点です。</p>
+		<p><a href="https://card.syui.ai/ai">https://card.syui.ai/ai</a></p>
+<h3 id="motionの作成">motionの作成</h3>
+<p>例えば、以下はblenderでポーズを編集している様子なんだけど、プレビューと出力結果が異なります。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/blender_20230908_0005.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/blender_20230908_0006.png" alt=""></p>
+<p>これは、アニメーションが自動で動作するように設定されているためです。そのままvrmを読み込むとTポーズになりますが、<a href="https://github.com/JLChnToZ/vrm-dance-viewer">JLChnToZ/vrm-dance-viewer</a>は設定で手を下げて固定します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:src/worker/vrm-idle-helper.ts" data-lang="ts:src/worker/vrm-idle-helper.ts"><span style="color:#75715e">// https://github.com/JLChnToZ/vrm-dance-viewer
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">LERP_SCALE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>) <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">setRotationFromQuaternion</span>(
+        <span style="color:#a6e22e">rotation3</span>
+        .<span style="color:#a6e22e">setFromRotationMatrix</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">matrix</span>)
+        <span style="color:#75715e">// ここがポーズをおかしくする要因
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// コメント化すると元通り。ただvrmを自然なポーズに固定する必要がでてくる
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//.slerp(finalRotation, Math.min(deltaTime * LERP_SCALE, 1)),
+</span><span style="color:#75715e"></span>);
+</code></pre></div><p>これをどう自然に動かしていけばいいのか悩み中。全部のvrmをデフォルトのTポーズから変更するのもあんまり良くない。</p>
+<p><code>three.js</code>の他に<code>babylon.js</code>というものもあるらしい。こちらの<a href="https://github.com/virtual-cast/babylon-vrm-loader">virtual-cast/babylon-vrm-loader</a>でvrmを読み込めます。</p>
+<h3 id="link">link</h3>
 <ul>
 <li>
-<p>スパム排除が活発になる</p>
+<p><a href="https://zenn.dev/ikkou/articles/fdb344a713cdf0/">https://zenn.dev/ikkou/articles/fdb344a713cdf0/</a></p>
 </li>
 <li>
-<p>新規登録が厳格化される</p>
+<p><a href="https://blog.virtualcast.jp/blog/2019/05/oss-browser-vrm-vci-viewer/">https://blog.virtualcast.jp/blog/2019/05/oss-browser-vrm-vci-viewer/</a></p>
 </li>
 </ul>
-<p>これらは認証手続きがめんどくさい感じになっていたので、そのように感じました。</p>
-<p>今回も以前と変わらない使用感で<code>.cf</code>を1年更新できました。費用は<code>$0</code>でした。</p>
-<p>基本的にグリーン判定のアカウントは継続して使えているみたいです。</p>
-<p>ただし、アカウントによっては対応が異なるという情報があります。</p>
-<p>これはスパム排除の一貫だと考えられます。停止、あるいは更新料が必要になったケースがあるようです。</p>
-<p>ですから、freenomを使い続けるのはリスキーと言えるでしょう。</p>
-<p>例えば、pixiv(pawoo), misskey系などは海外から相当警戒されているようで、特に児童ポルノ関連と予想されますが、domainが停止されたことがありました。これはfreenomだけでなく、別のregisterからも確認されています。</p>
-<p>また、連合(fediverse)を見てみると、やはりこれらのサーバーは相当に警戒されているように感じます。</p>
-<p>したがって、仮にfreenomで停止されたとしても、それがfreenomだけの問題でない可能性があります。</p>
-<p>しかし、registerの中でfreenomは今後さらにスパムや要注意サーバーを排除する動きが活発化することが予想されます。よって、個人的にはおすすめできないと考えます。</p>
-<p>とはいえ、あくまで個人利用、かつ海外から警戒されない範囲での一般利用の場合、問題が生じる危険性は少ないと判断しています。</p>
-<p>これは私のアカウントが普通に使えて更新もできているからです。やはり、伝聞だけではわからないことが多々あります。ここでは、その伝聞を考慮した上で個人の所感を述べていると思ってください。</p>
-<p>海外から警戒される利用というのは、児童ポルノに見られるイラスト等のことを指します。これは日本基準ではなく海外基準での判断になります。</p>
-<p>分散snsのprotocolが広まって以来、日本では問題にならないけど海外では問題視されるケースが確認されています。</p>
-<h3 id="freenomと私">freenomと私</h3>
-<p>私は弱々のdomainを$0で取れるfreenomのようなサービスは、開発者にとって非常に喜ばしいものだったと思います。</p>
-<p>それはdomainの価値を理解するのに役立ちましたし、また、テスト環境も構築しやすかった。</p>
-<p>そのようなサービスが失われてしまうのは寂しい。</p>
-<p>私自身が$0のdomainを使ってきましたし、また、人にもおすすめしてきました。</p>
-<p>なぜかというと、誰でも気軽に始めやすいし、そういうサービスだったからです。</p>
-<p>検索エンジンからはスパム扱いされ、検索しても出てこないような弱々のdomainでしたが、私は満足していて楽しかったです。</p>
-<p>freenomというサービスからはそういった経験や機会を得られました。感謝。</p>
 
 		
 
@@ -174,14 +165,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/10/25/vrm/" id="article-nav-older" class="article-nav-link-wrap">
-vrmのキャラクター編集
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/10/29/freenom/" id="article-nav-older" class="article-nav-link-wrap">
+freenomの現状と考察
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/11/04/vrm/" id="article-nav-newer" class="article-nav-link-wrap">
-     3d-modelとcardを連携してみた
-				</a></p>
     
 	</div>
 </nav>
