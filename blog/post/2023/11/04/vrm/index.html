@@ -147,7 +147,7 @@
 <li>OffscreenCanvas in Workers</li>
 <li>OffscreenCanvas</li>
 </ul>
-<h3 id="motionの作成">motionの作成</h3>
+<h3 id="fix-motion">fix motion</h3>
 <p>例えば、以下はblenderでポーズを編集している様子なんだけど、プレビューと出力結果が異なります。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/blender_20230908_0005.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/blender_20230908_0006.png" alt=""></p>
@@ -178,7 +178,93 @@
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>これをどう自然に動かしていけばいいのか悩み中。全部のvrmをデフォルトのTポーズから変更するのもあんまり良くない。</p>
 <p><code>three.js</code>の他に<code>babylon.js</code>というものもあるらしい。こちらの<a href="https://github.com/virtual-cast/babylon-vrm-loader">virtual-cast/babylon-vrm-loader</a>でvrmを読み込めます。</p>
-<h3 id="link">link</h3>
+<h3 id="add-effect">add effect</h3>
+<p>例えば、model/motionを読み込んだ瞬間に紙吹雪が舞う演出を追加してみます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/worker/scene/lights.ts" data-lang="js:src/worker/scene/lights.ts"><span style="color:#75715e">// 空中に紙吹雪
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick_sky() {</span>
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s_rot</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s_xp</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s_yp</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s_zp</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">s_length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5000</span>;
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">s_plane_scale</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>;
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">s_plane</span> <span style="color:#f92672">=</span> [];
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt;<span style="color:#f92672">s_length</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span>{
+		<span style="color:#a6e22e">var</span> <span style="color:#a6e22e">color </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0x&#34;</span> <span style="color:#960050;background-color:#1e0010">+</span> <span style="color:#a6e22e">Math.floor</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">Math.random</span><span style="color:#960050;background-color:#1e0010">()</span> <span style="color:#960050;background-color:#1e0010">*</span> <span style="color:#a6e22e">16777215</span><span style="color:#960050;background-color:#1e0010">)</span><span style="color:#a6e22e">.toString</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">16</span><span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">let</span> <span style="color:#a6e22e">geometry </span><span style="color:#f92672">=</span> <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">THREE.PlaneGeometry</span><span style="color:#960050;background-color:#1e0010">(</span> <span style="color:#a6e22e">s_plane_scale</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">s_plane_scale</span> <span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">var</span> <span style="color:#a6e22e">material </span><span style="color:#f92672">=</span> <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">THREE.MeshBasicMaterial</span><span style="color:#960050;background-color:#1e0010">(</span>{
+			<span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">Number</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">),</span>
+			<span style="color:#a6e22e">opacity</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">0.8</span><span style="color:#960050;background-color:#1e0010">,</span>
+			<span style="color:#a6e22e">transparent</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">true</span><span style="color:#960050;background-color:#1e0010">,</span>
+			<span style="color:#a6e22e">side</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">THREE.DoubleSide</span>
+		}<span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">THREE.Mesh</span><span style="color:#960050;background-color:#1e0010">(</span> <span style="color:#a6e22e">geometry</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">material</span> <span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]</span><span style="color:#a6e22e">.position.x</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">s_xp</span> <span style="color:#960050;background-color:#1e0010">*</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">Math.random</span><span style="color:#960050;background-color:#1e0010">()</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">0.5</span><span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]</span><span style="color:#a6e22e">.position.y</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">s_yp</span> <span style="color:#960050;background-color:#1e0010">*</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">Math.random</span><span style="color:#960050;background-color:#1e0010">()</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">0.5</span><span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]</span><span style="color:#a6e22e">.position.z</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">s_zp</span> <span style="color:#960050;background-color:#1e0010">*</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">Math.random</span><span style="color:#960050;background-color:#1e0010">()</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">0.5</span><span style="color:#960050;background-color:#1e0010">);</span>
+		<span style="color:#a6e22e">scene.add</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]);</span>
+	}
+	<span style="color:#a6e22e">return</span> <span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">;</span>
+}
+
+<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">紙吹雪を時間経過で消す処理</span>
+<span style="color:#a6e22e">function</span> <span style="color:#a6e22e">tick_sky_remove</span><span style="color:#960050;background-color:#1e0010">()</span>{
+	<span style="color:#a6e22e">const</span> <span style="color:#a6e22e">s_length </span><span style="color:#f92672">=</span> <span style="color:#a6e22e">5000</span><span style="color:#960050;background-color:#1e0010">;</span>
+	<span style="color:#a6e22e">var</span> <span style="color:#a6e22e">s_plane </span><span style="color:#f92672">=</span> <span style="color:#a6e22e">tick_sky</span><span style="color:#960050;background-color:#1e0010">();</span>
+	<span style="color:#a6e22e">setTimeout</span><span style="color:#960050;background-color:#1e0010">(()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; {
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt;<span style="color:#f92672">s_length</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span>{
+			<span style="color:#a6e22e">scene.remove</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">s_plane</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">]);</span>
+		}
+	}<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">7000</span><span style="color:#960050;background-color:#1e0010">);</span>
+}
+
+<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">サービス名を追加</span>
+<span style="color:#a6e22e">export</span> <span style="color:#a6e22e">function</span> <span style="color:#a6e22e">toggleTickSky</span><span style="color:#960050;background-color:#1e0010">()</span> {
+	<span style="color:#a6e22e">if</span> <span style="color:#960050;background-color:#1e0010">(!</span><span style="color:#a6e22e">navigator.userAgent.match</span><span style="color:#960050;background-color:#1e0010">(/</span><span style="color:#a6e22e">iPhone</span><span style="color:#960050;background-color:#1e0010">|</span><span style="color:#a6e22e">iPod</span><span style="color:#960050;background-color:#1e0010">|</span><span style="color:#a6e22e">iPad</span><span style="color:#960050;background-color:#1e0010">|</span><span style="color:#a6e22e">Android.</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#a6e22e">Mobile</span><span style="color:#960050;background-color:#1e0010">/))</span> {
+		<span style="color:#a6e22e">tick_sky_remove</span><span style="color:#960050;background-color:#1e0010">();</span>
+	}
+}
+
+<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">ホストへ追加</span>
+<span style="color:#a6e22e">WorkerMessageService.host.on</span><span style="color:#960050;background-color:#1e0010">(</span>{ <span style="color:#a6e22e">setLights</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">toggleLights</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">toggleTickSky</span> }<span style="color:#960050;background-color:#1e0010">);</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/host/index.ts" data-lang="js:src/host/index.ts"><span style="color:#75715e">// サービス登録
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toggleTickSky() {</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">workerService</span>.<span style="color:#a6e22e">trigger</span>(<span style="color:#e6db74">&#39;toggleTickSky&#39;</span>);
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.ts" data-lang="js:src/main.ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">toggleTickSky</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./host&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn-models&#39;</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">HTMLInputElement</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span>;
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">el</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+    <span style="color:#75715e">// ボタンを押したときの動作
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span>(){
+        <span style="color:#75715e">// サービス:紙吹雪の演出
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">toggleTickSky</span>();
+        <span style="color:#75715e">// サービス:ライトのon/off
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">toggleLights</span>();
+	});
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:src/index.html" data-lang="html:src/index.html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;btn-models&#39;</span>&gt;test&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><p>このようにするとmodel/motionにeffectを追加できます。色々な<code>scene</code>を作っていく予定。</p>
+<p><video controls style="width:100%;"><source src="/music/ai_vrm_0002.mp4"></video></p>
+<h3 id="add-audio">add audio</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.ts" data-lang="js:src/main.ts"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">THREE</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">camera</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">PerspectiveCamera</span>(<span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1000</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">listener</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">AudioListener</span>();
+<span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">add</span>( <span style="color:#a6e22e">listener</span> );
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sound</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Audio</span>( <span style="color:#a6e22e">listener</span> );
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">audioLoader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">AudioLoader</span>();
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">audio_sword() {</span>
+	<span style="color:#a6e22e">audioLoader</span>.<span style="color:#a6e22e">load</span>( <span style="color:#e6db74">&#39;./audio/sword.mp3&#39;</span>, <span style="color:#66d9ef">function</span>( <span style="color:#a6e22e">buffer</span> ) {
+		<span style="color:#a6e22e">sound</span>.<span style="color:#a6e22e">setBuffer</span>( <span style="color:#a6e22e">buffer</span> );
+		<span style="color:#a6e22e">sound</span>.<span style="color:#a6e22e">setLoop</span>( <span style="color:#66d9ef">false</span> );
+		<span style="color:#a6e22e">sound</span>.<span style="color:#a6e22e">setVolume</span>( <span style="color:#ae81ff">0.2</span> );
+		<span style="color:#a6e22e">sound</span>.<span style="color:#a6e22e">play</span>();
+	});
+}
+
+<span style="color:#a6e22e">audio_sword</span>();
+</code></pre></div><h3 id="link">link</h3>
 <ul>
 <li>
 <p><a href="https://zenn.dev/ikkou/articles/fdb344a713cdf0/">https://zenn.dev/ikkou/articles/fdb344a713cdf0/</a></p>
