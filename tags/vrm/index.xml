@@ -15,10 +15,13 @@
       
       <guid>https://syui.ai/blog/post/2023/11/04/vrm/</guid>
       <description>https://card.syui.ai/ai
-motionの作成 例えば、以下はblenderでポーズを編集している様子なんだけど、プレビューと出力結果が異なります。
+動作環境 ios17で動作します。ios16では動作しません。
+ [ok] &amp;hellip; ios17.x [no] &amp;hellip; ios16.x  safariの以下の機能が必要です。
+ios17のデフォルトでは有効になっています。
+ Allow WebGL in Web Workers GPU Process: Canvas Rendering GPU Process: DOM Rendering OffscreenCanvas in Workers OffscreenCanvas  motionの作成 例えば、以下はblenderでポーズを編集している様子なんだけど、プレビューと出力結果が異なります。
 これは、アニメーションが自動で動作するように設定されているためです。そのままvrmを読み込むとTポーズになりますが、JLChnToZ/vrm-dance-viewerは設定で手を下げて固定します。
 // https://github.com/JLChnToZ/vrm-dance-viewer const LERP_SCALE = 6; if (node) node.setRotationFromQuaternion( rotation3 .setFromRotationMatrix(node.matrix) // ここがポーズをおかしくする要因  // コメント化すると元通り。ただvrmを自然なポーズに固定する必要がでてくる  //.slerp(finalRotation, Math.min(deltaTime * LERP_SCALE, 1)), ); また、blinkを設定すると、顔を標準位置から移動するとおかしくなります。これはthree-vrmの古いバージョンのバグです。
-function updateEyeBlink(model: VRM, deltaTime: number) { //if (!model.blendShapeProxy) return; 	//let v = blinkDelays.get(model); 	//if (v == null || v &amp;lt; -BLINK_DURATION) 	// v = MathUtils.randFloat(MIN_BLINK_DELAY, MAX_BLINK_DEALY); 	//else 	// v -= deltaTime; 	//blinkDelays.set(model, v); 	//model.blendShapeProxy.setValue( 	// VRMSchema.</description>
+function updateEyeBlink(model: VRM, deltaTime: number) { //if (!model.blendShapeProxy) return; 	//let v = blinkDelays.</description>
     </item>
     
     <item>
