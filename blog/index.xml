@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>stable-diffusionのanimatediff-cliを試してみた</title>
+      <link>https://syui.ai/blog/post/2023/11/08/stable-diffusion/</link>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/11/08/stable-diffusion/</guid>
+      <description>https://github.com/neggles/animatediff-cli
+$ git clone https://github.com/neggles/animatediff-cli $ cd animatediff-cli $ python3.10 -m venv .venv $ source .venv/bin/activate # install Torch. Use whatever your favourite torch version &amp;gt;= 2.0.0 is, but, good luck on non-nVidia... $ pip3 install torch torchvision torchaudio $ python &amp;gt;&amp;gt;&amp;gt; import torch &amp;gt;&amp;gt;&amp;gt; torch.backends.mps.is_available() True # install the rest of all the things (probably! I may have missed some deps.) $ python -m pip install -e &amp;#39;.[dev]&amp;#39; modelのloraは、基本的にアニメ絵がうまいやつで、このツールはloraのmotion-moduleを使います。</description>
+    </item>
+    
     <item>
       <title>原神、スカーク</title>
       <link>https://syui.ai/blog/post/2023/11/07/genshin/</link>

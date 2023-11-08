@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>原神、スカーク | syui.ai</title>
+		<title>stable-diffusionのanimatediff-cliを試してみた | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,12 +102,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-11-07 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-11-08 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/genshin/">genshin</a>
+		<a href="https://syui.ai/tags/diffusion/">diffusion</a>
 		
 		
 		
@@ -117,50 +117,45 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/games/genshin">genshin</a></p>
 		
 		</div>
 
-		<h2>原神、スカーク</h2>
+		<h2>stable-diffusionのanimatediff-cliを試してみた</h2>
 
-		<p>公式のpvにて、スカーク、つまり、タルタリアの師匠が映っていました。</p>
-<p>あくまで直感ですが、実装されるなら最強キャラになると思う。</p>
-<p>ということで、フリーナは無凸か2凸を目指すことにし、夜蘭は確保しない方向です。</p>
-<p>代わりにスカークが実装されたとき完凸したいと考えています。</p>
-<p>次に話したいのは、ヌヴィレットのことです。ヌヴィレットは現時点で夜蘭超えの最強キャラです。</p>
-<p>インフレが激しすぎて、あのビーム、ほんとにいいのだろうか&hellip;。</p>
-<p>まずゲーム性の面で見て、ぐるぐる回してるだけの絵面は、美しくない。画面もよく見られないし酔うし、私はあのビームあんまり良くないなと思っています。</p>
-<p>ただ、現時点ではそれが最強の戦法だし、最強のキャラだと思う。</p>
-<p>夜蘭でもあれは超えられないよ。</p>
-<p>話を戻すと、もし完凸するのであれば、現時点では、夜蘭よりヌヴィレットのほうがおすすめと言えるでしょう。</p>
-<p>なにが強いかって言うと、全部です。特に、中断耐性と回復、攻撃力、攻撃範囲ですね。爆発依存でない点もいい。敵によっては爆発を溜められないこともあります。</p>
-<p>では、ヌヴィレットを確保するかと言われると、私はしないでしょうね。</p>
-<p>ただ、スカークはパッと見て完凸したいなと思ったので、実装されたら完凸を目指すかも。</p>
-<p>フリーナはあんまり思わないので完凸はしない。</p>
-<p>スカークの実装時期を予測すると、全く読めないけど、ストーリーに絡んで来たとき即座に実装されるか、あるいは、めちゃくちゃ遅くなるか、どちらかだと思います。</p>
-<p>めちゃくちゃ遅くなる場合は、もはや考慮すべきではないかもしれません。というのも、その頃には環境は変わっているだろうし、熱は冷めていて、他のキャラのほうが魅力的かもしれません。例えばですが、炎神、氷神とスカークのどちらを選ぶかみたいな話になっている可能性もある。</p>
-<p>したがって、早くに実装される場合は、完凸を目指したいキャラ。</p>
-<p>元素はなんだろう。見た目からは氷、雷っぽいかな。</p>
+		<p><a href="https://github.com/neggles/animatediff-cli">https://github.com/neggles/animatediff-cli</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/neggles/animatediff-cli
+$ cd animatediff-cli
+$ python3.10 -m venv .venv
+$ source .venv/bin/activate
+<span style="color:#75715e"># install Torch. Use whatever your favourite torch version &gt;= 2.0.0 is, but, good luck on non-nVidia...</span>
+$ pip3 install torch torchvision torchaudio
 
+$ python
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; torch.backends.mps.is_available<span style="color:#f92672">()</span>
+True
+
+<span style="color:#75715e"># install the rest of all the things (probably! I may have missed some deps.)</span>
+$ python -m pip install -e <span style="color:#e6db74">&#39;.[dev]&#39;</span>
+</code></pre></div><p>modelのloraは、基本的にアニメ絵がうまいやつで、このツールはloraの<code>motion-module</code>を使います。</p>
+<p>motion-lora : <a href="https://drive.google.com/drive/folders/1EqLC65eR1-W-sGD0Im7fkED6c8GkiNFI">https://drive.google.com/drive/folders/1EqLC65eR1-W-sGD0Im7fkED6c8GkiNFI</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mv *.ckpt ./data/models/motion-module/
+
+$ vim config/prompts/01-ToonYou.json
+<span style="color:#e6db74">&#34;motion_module&#34;</span>: <span style="color:#e6db74">&#34;models/motion-module/mm_sd_v15_v2.ckpt&#34;</span>
+
+$ animatediff --help
+</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/04/vrm/" id="article-nav-older" class="article-nav-link-wrap">
-3d-modelとcardを連携してみた
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/07/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、スカーク
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/11/08/stable-diffusion/" id="article-nav-newer" class="article-nav-link-wrap">
-     stable-diffusionのanimatediff-cliを試してみた
-				</a></p>
     
 	</div>
 </nav>

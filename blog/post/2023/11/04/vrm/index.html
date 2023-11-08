@@ -332,7 +332,80 @@
 
 <span style="color:#75715e">// scene.background.set(bgColor);
 </span></code></pre></div><p>hdr : <a href="https://polyhaven.com/hdris">https://polyhaven.com/hdris</a></p>
-<h3 id="link">link</h3>
+<p>ボタンを押すと場所を移動するように設定するにはこんな感じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/worker/scene/lights.ts" data-lang="js:src/worker/scene/lights.ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bgColor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Color</span>(<span style="color:#ae81ff">0x000000</span>);
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getTels</span>(){
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">hdr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/img/syferfontein_0d_clear_puresky_4k.hdr&#34;</span>;
+	<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RGBELoader</span>().<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">hdr</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">texture</span>) {
+		<span style="color:#a6e22e">texture</span>.<span style="color:#a6e22e">mapping</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">EquirectangularReflectionMapping</span>;
+		<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">texture</span>;
+		<span style="color:#75715e">//scene.environment = texture;
+</span><span style="color:#75715e"></span>	});
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">floor_default</span>(){
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">floor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Mesh</span>(
+		<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PlaneBufferGeometry</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>),
+		<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MeshLambertMaterial</span>({
+			<span style="color:#a6e22e">color</span>: <span style="color:#66d9ef">0x999999</span>,
+			<span style="color:#a6e22e">depthWrite</span>: <span style="color:#66d9ef">true</span>,
+		})
+	);
+	<span style="color:#a6e22e">floor</span>.<span style="color:#a6e22e">position</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>;
+	<span style="color:#a6e22e">floor</span>.<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+	<span style="color:#75715e">//const { y } = floor.position;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//floor.position.set(0, 0, 0);
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">floor</span>);
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">floor</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">floor_grid</span>(){
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">grid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GridHelper</span>(<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">0xAAAAAA</span>, <span style="color:#ae81ff">0xAAAAAA</span>);
+	<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">grid</span>);
+	<span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">position</span>.<span style="color:#66d9ef">set</span>(Math.<span style="color:#a6e22e">round</span>(<span style="color:#ae81ff">0</span>), <span style="color:#ae81ff">0</span>, Math.<span style="color:#a6e22e">round</span>(<span style="color:#ae81ff">0</span>));
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">grid</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">floor_bg</span>(){
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bgColor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Color</span>(<span style="color:#ae81ff">0xffffff</span>);
+	<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Color</span>(<span style="color:#a6e22e">bgColor</span>);
+	<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">fog</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Fog</span>(<span style="color:#a6e22e">bgColor</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>);
+	<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">fog</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">color</span>.<span style="color:#66d9ef">set</span>(<span style="color:#a6e22e">bgColor</span>);
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">Color</span>)
+		<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span>.<span style="color:#66d9ef">set</span>(<span style="color:#a6e22e">bgColor</span>);
+	<span style="color:#66d9ef">else</span>
+		<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bgColor</span>.<span style="color:#a6e22e">clone</span>();
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fl_de</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor_default</span>();
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fl_gr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor_grid</span>();
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fl_bg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor_bg</span>();
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">floor_default_remove</span>(<span style="color:#a6e22e">int</span>: <span style="color:#66d9ef">number</span>){
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">int</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+		<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">fl_de</span>);
+		<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">fl_gr</span>);
+		<span style="color:#a6e22e">getTels</span>();
+	}
+}
+
+<span style="color:#a6e22e">floor_default_remove</span>(<span style="color:#ae81ff">0</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toggleTel</span>(<span style="color:#a6e22e">int</span>: <span style="color:#66d9ef">number</span>) {
+	<span style="color:#a6e22e">floor_default_remove</span>(<span style="color:#a6e22e">int</span>)
+}
+
+<span style="color:#a6e22e">WorkerMessageService</span>.<span style="color:#a6e22e">host</span>.<span style="color:#a6e22e">on</span>({ <span style="color:#a6e22e">toggleTel</span> });
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/host/index.ts" data-lang="js:src/host/index.ts"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toggleTel</span>(<span style="color:#a6e22e">int</span>: <span style="color:#66d9ef">number</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">workerService</span>.<span style="color:#a6e22e">trigger</span>(<span style="color:#e6db74">&#39;toggleTel&#39;</span>, [<span style="color:#a6e22e">int</span>]);
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/main.ts" data-lang="js:src/main.ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">toggleTel</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./host&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el_tel</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn-models_tel&#39;</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">HTMLInputElement</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span>;
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">el_tel</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+	<span style="color:#a6e22e">el_tel</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, (<span style="color:#a6e22e">e</span>:<span style="color:#66d9ef">Event</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">toggleTel</span>(<span style="color:#ae81ff">1</span>));
+}
+</code></pre></div><h3 id="link">link</h3>
 <ul>
 <li>
 <p><a href="https://zenn.dev/ikkou/articles/fdb344a713cdf0/">https://zenn.dev/ikkou/articles/fdb344a713cdf0/</a></p>
