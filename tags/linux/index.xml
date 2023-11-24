@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker volumesの移行</title>
+      <link>https://syui.ai/blog/post/2023/11/24/docker-mac/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/11/24/docker-mac/</guid>
+      <description>macbook air(intel)を使っていなかったのでserverにしました。stable diffusionを動かしているgpu付きのserverがあるんだけど、stable diffusionを稼働すると、他のものが止まってしまったり、動きが鈍くなってしまったりで不都合だったので、全体的にdockerをmacに移行しました。
+docker volumesは権限の関係でtarにしてからrsyncで移行先に送ります。そうしないとdata(postgresなど)が移行先で扱えません。個別に永続化しているvolumesも同様とします。
+$ brew install --cask docker $ ssh server $ su $ tar cvzf volumes.tgz /var/lib/docker/volumes # 移行先へのssh接続を確立しておく必要があります $ rsync -av volumes.tgz mac:~ $ exit $ aunpack volumes.tgz $ sudo mkdir -p /var/lib/docker $ sudo mv ./var/lib/docker/volumes /var/lib/docker/ </description>
+    </item>
+    
     <item>
       <title>i3でおすすめのvnc clientであるremmina</title>
       <link>https://syui.ai/blog/post/2021/05/13/vnc/</link>

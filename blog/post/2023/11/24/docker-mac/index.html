@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.89.4" />
-		<title>syui.ai</title>
+		<title>docker volumesの移行 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content="blog" />
 		<meta property="og:title" content="syui.ai" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.ai/icon/syui.jpg" />
 		<meta property="og:url" content="https://syui.ai" />
 		<meta property="og:site_name" content="syui.ai" />
@@ -24,34 +23,29 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
-		<link rel="stylesheet" href="/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="/css/terminal.css" />
-		<link rel="stylesheet" href="/css/terminal.mobile.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
 		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
-		<script src="https://syui.ai/bower_components/jquery.ajax/jquery.min.js"></script>
-		<script src="https://syui.ai/bower_components/axios/dist/axios.min.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="https://syui.ai/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="https://syui.ai/js/terminal.quick.js"></script>
-		<script src="https://syui.ai/js/terminal.js"></script>
-		<app></app>
-		<script src="https://syui.ai/build/bundle.js"></script>
-		<script src="https://syui.ai/js/analytics.js"></script>
+		<script src="/js/analytics.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
 			  "@type": "WebSite",
-					"name": "syui.ai",
-					"url": "https:\/\/syui.ai"
+			  "name": "syui.ai",
+			  "url": "https:\/\/syui.ai"
 			}
 		</script>
-<link rel="alternate" type="application/json" href="https://syui.ai/index.json" title="syui.ai" />
-</head>
+		<script src="https://syui.ai/bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="https://syui.ai/bower_components/axios/dist/axios.min.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="https://syui.ai/bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai/bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -72,12 +66,12 @@
 
 
 
-	<body>
-		
+<body onload="highlight_prompt()">
+	
 		<div class="containerx">
 			<header id="header">
 				
-				<div class="logo"> <a href="/" > <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -101,128 +95,100 @@
 </g>
 </svg>
  </a> </div>
+
 				
 			</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote>
-	<p>
-	<div class="footer-link">
-		<a href="https://yui.syui.ai"><span class="icon-ai"></span></a>
+<article>
+	<div class="content">
 		
-	</div>
-	</p>
-</blockquote>
+		<div class="post-time-date">2023-11-24 / <a href="/syui">@syui</a>
 
-
-<div class="content-top">
-
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2023-11-24<p><a id="fmove" href="https://syui.ai/blog/post/2023/11/24/docker-mac/" class="lmove">docker volumesの移行</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-11-09<p><a href="https://syui.ai/blog/post/2023/11/09/genshin/" class="lmove">原神、フリーナ2凸</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-11-08<p><a href="https://syui.ai/blog/post/2023/11/08/stable-diffusion/" class="lmove">stable-diffusionのanimatediff-cliを試してみた</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-11-07<p><a href="https://syui.ai/blog/post/2023/11/07/genshin/" class="lmove">原神、スカーク</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-11-04<p><a href="https://syui.ai/blog/post/2023/11/04/vrm/" class="lmove">3d-modelとcardを連携してみた</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-10-29<p><a href="https://syui.ai/blog/post/2023/10/29/freenom/" class="lmove">freenomの現状と考察</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2023-10-25<p><a href="https://syui.ai/blog/post/2023/10/25/vrm/" class="lmove">vrmのキャラクター編集</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-
-		</ul>
-	</div>
-</div>
-
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
-
-<div class="sns-link">
-
-
-	<p><i class="fab fa-github"></i> <a href="https://github.com/syui/" target="_blank">syui</a></p>
-	<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/syui__" target="_blank">syui__</a></p>
-
-	<p>
-	@ <a href="https://bsky.app/profile/syui.ai" target="_blank" class="bluesky-icon">syui.ai</a>
-	</p>
-	<p>m <a href="https://matrix.to/#/@syui:syui.ai" target="_blank">@syui:syui.ai</a></p>
-	<p><i class="fab fa-mastodon"></i> <a rel="me" href="https://mstdn.syui.ai/@syui" target="_blank">@syui@syui.ai</a>
-	<p><i class="fab fa-git-alt"></i> <a href="https://git.syui.ai/syui" target="_blank">@git.syui.ai:syui</a></p>
-	
-</div>
-
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/docker/">docker</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/linux/">linux</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/mac/">mac</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/mac">mac</a></p>
+		
 		</div>
 
+		<h2>docker volumesの移行</h2>
+
+		<p>macbook air(intel)を使っていなかったのでserverにしました。stable diffusionを動かしているgpu付きのserverがあるんだけど、stable diffusionを稼働すると、他のものが止まってしまったり、動きが鈍くなってしまったりで不都合だったので、全体的にdockerをmacに移行しました。</p>
+<p>docker volumesは権限の関係で<code>tar</code>にしてから<code>rsync</code>で移行先に送ります。そうしないとdata(postgresなど)が移行先で扱えません。個別に永続化しているvolumesも同様とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install --cask docker
+
+$ ssh server
+$ su
+$ tar cvzf  volumes.tgz /var/lib/docker/volumes 
+<span style="color:#75715e"># 移行先へのssh接続を確立しておく必要があります</span>
+$ rsync -av volumes.tgz  mac:~
+
+$ exit
+$ aunpack volumes.tgz
+$ sudo mkdir -p /var/lib/docker
+$ sudo mv ./var/lib/docker/volumes /var/lib/docker/
+</code></pre></div>
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/09/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、フリーナ2凸
+					</a></p>
+    
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
 		
 <script type="text/javascript" src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
 
-
+		<script src="/js/highlight-prompt.js"></script>
 	</body>
 </html>
