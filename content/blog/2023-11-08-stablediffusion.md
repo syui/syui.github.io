@@ -37,3 +37,4 @@ $ vim config/prompts/01-ToonYou.json
 $ animatediff --help
 ```
 
+model : [sd v1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
