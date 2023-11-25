@@ -154,7 +154,7 @@ $ ssh server
 $ su
 $ tar cvzf  volumes.tgz /var/lib/docker/volumes 
 <span style="color:#75715e"># 移行先へのssh接続を確立しておく必要があります</span>
-$ rsync -av volumes.tgz  mac:~
+$ rsync -av volumes.tgz  mac:
 
 $ exit
 $ aunpack volumes.tgz
