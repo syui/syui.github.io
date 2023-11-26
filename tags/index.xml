@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>genshin</title>
+      <link>https://syui.ai/tags/genshin/</link>
+      <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/genshin/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>docker</title>
       <link>https://syui.ai/tags/docker/</link>
@@ -32,15 +41,6 @@
       <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>genshin</title>
-      <link>https://syui.ai/tags/genshin/</link>
-      <pubDate>Thu, 09 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/genshin/</guid>
       <description></description>
     </item>
     

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>docker volumesの移行 | syui.ai</title>
+		<title>原神、ヌヴィレットを引くかも | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,30 +102,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-11-24 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-11-26 / <a href="/syui">@syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/docker/">docker</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.ai/tags/linux/">linux</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.ai/tags/mac/">mac</a>
+		<a href="https://syui.ai/tags/genshin/">genshin</a>
 		
 		
 		
@@ -140,41 +122,36 @@
 		
 		
 		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/mac">mac</a></p>
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/games/genshin">genshin</a></p>
 		
 		</div>
 
-		<h2>docker volumesの移行</h2>
+		<h2>原神、ヌヴィレットを引くかも</h2>
 
-		<p>macbook air(intel)を使っていなかったのでserverにしました。stable diffusionを動かしているgpu付きのserverがあるんだけど、stable diffusionを稼働すると、他のものが止まってしまったり、動きが鈍くなってしまったりで不都合だったので、全体的にdockerをmacに移行しました。</p>
-<p>docker volumesは権限の関係で<code>tar</code>にしてから<code>rsync</code>で移行先に送ります。そうしないとdata(postgresなど)が移行先で扱えません。個別に永続化しているvolumesも同様とします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install --cask docker
+		<h3 id="スカークは実装される気配がない">スカークは実装される気配がない</h3>
+<p>前回、スカークの話をしましたが、ストーリーを見たところ、このキャラはしばらく実装される気配はないなと思いました。</p>
+<p>原神ってベータテスターでキャラをテストするんですけど、スカークはそのテストに入っていない模様。</p>
+<p>関係ありませんが、個人的にテスターを介さないシークレットプロジェクトを作ると面白そうだと思いました。そこでキャラを開発し、本編と切り離して直前に実装という組織を作るとサプライズが可能になり、プレイヤーを驚かせることができるんじゃないかなと。もし私がゲーム開発することがあるなら、この仕組みを取り入れようと思います。</p>
+<p>さて、現在のストーリー上でスカークが実装される気配はないようだという話でしたね。</p>
+<p>私は、スカークが近く実装されるかもしれないので原石を貯めておく予定でしたが、しばらく実装されないなら、キャラを引いた方がいいですね。</p>
+<p>というのも、原石を貯め続ける期間は、当然ながらキャラを使えないわけです。キャラを引くなら早い方がいい。実装されるかわからないキャラの原石をずっと貯めているという状態は最も損をする可能性が高い。</p>
+<p>では、どのキャラを引こうかな。候補としてはヌヴィレットか夜蘭です。そして、ヌヴィレットはストーリーで気に入ったので、ヌヴィレットかな。</p>
+<p>ヌヴィレットの1凸を目指すことにしましょう。</p>
+<h3 id="ついでに">ついでに</h3>
+<p>今期の螺旋で安定したPTです。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/genshin_20231101_0001.jpg" alt=""></p>
+<p>ちなみに、ヌヴィレットがいると、ナヒーダを後半に回せますね。ナヒーダがいるPTは敵がどうであれ大体は45秒くらいで倒せるのですが、いないと1分30秒を超えてしまう。この状況を打破したい。</p>
 
-$ ssh server
-$ su
-$ tar cvzf  volumes.tgz /var/lib/docker/volumes 
-<span style="color:#75715e"># 移行先へのssh接続を確立しておく必要があります</span>
-$ rsync -av volumes.tgz  mac:
-
-$ exit
-$ aunpack volumes.tgz
-$ sudo mkdir -p /var/lib/docker
-$ sudo mv ./var/lib/docker/volumes /var/lib/docker/
-</code></pre></div>
 		
 
 
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/09/genshin/" id="article-nav-older" class="article-nav-link-wrap">
-原神、フリーナ2凸
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/24/docker-mac/" id="article-nav-older" class="article-nav-link-wrap">
+docker volumesの移行
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/11/26/genshin/" id="article-nav-newer" class="article-nav-link-wrap">
-     原神、ヌヴィレットを引くかも
-				</a></p>
     
 	</div>
 </nav>
