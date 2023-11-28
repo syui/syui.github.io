@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ue5 on syui.ai</title>
+    <link>https://syui.ai/tags/ue5/</link>
+    <description>Recent content in ue5 on syui.ai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5を触ってみた1</title>
+      <link>https://syui.ai/blog/post/2023/11/28/ue5/</link>
+      <pubDate>Tue, 28 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/11/28/ue5/</guid>
+      <description>随分前にunityで3d-modelを動かしてみた時の動画。
+
+unityはあまりきれいじゃないので、今回はue5で試してみることにしました。これは、ue5をはじめて1日目の記録です。
+結論から言うと、これが地獄の始まりでした。
+まず、ue5をインストールします。容量が大きいというので普段繋いでいたhdd(6t)にインストールすることにしました。
+これが数時間かかりました。しかも、インストールが終了したにも関わらずlaucherで「起動」ボタンが表示されず、「インストール」が表示されていました。
+意味がわからないなあと思い、再起動とか色々やっていると、しばらくしてなぜか「起動」が表示されます。
+で、起動を押して、プロジェクトを作成し、エディタと画面が表示されました。そこで、スターターキットのモデルをキーボードで動かしました。どうやらしっかりと動くようです。
+ここで、一旦、ue5を終了します。
+終了したにもかかわらず、何故か「editor」みたいなものがバックグラウンドにありました。ue5のやつです。
+しばらくして、macを終了しようとすると、「editor」が起動しているのでmacを終了できないと出てきます。
+ここで、そのアプリを強制終了して、macを落とします。
+さて、次にmacを立ち上げたとき、hddが破壊されていたのでした&amp;hellip;。
+これはちょっとやばいなと思い、なんとかhddにアクセスできるようにしました。hddのフォーマットがexfatだったので、復旧はwindowsでやりました。ここからはファイルを救出する作業になります。具体的にはrsyncでwindowsからファイルを引っ張ってくることにしました。rsyncが使えるなら大丈夫なんじゃないかと思われるかもしれませんが、ディスクは完全におかしくなっていて、この状態にするまでに相当の時間がかかりました。おそらく、次はないでしょう。ここで終了したりumountしてしまうと、二度とアクセスできなくなる可能性があります。
+$ scoop install cwrsync --- $ rsync -avP windows:/cygdrive/e/test . このhddは最近買ったばかりのやつなので寿命ということはないと思う。おそらく、ue5が原因だろうと思われます。直接的ではないにしてもue5の何らかの書き込みが上手く行かずhddを破壊してしまったのでしょう。
+しかしまあ、長時間インストールの末にhddが破壊されるだけとは&amp;hellip;壮大な時間の無駄。しかもhddにあったファイルは個人的に重要なものだったので復旧できてよかった。
+ディスク復旧の作業をしながら、ue5に取り掛かりました。再びue5のインストールに長時間使ったあとvrmを読み込むpluginを導入しました。
+assimp vrmをue5でimportするplugiのvrm4uに必要らしい。
+git clone https://github.com/Microsoft/vcpkg.git cd vcpkg ./bootstrap-vcpkg.sh ./vcpkg integrate install ./vcpkg install assimp # これは必要ない、後述のruyo/assimpをmakeします git clone https://github.com/assimp/assimp.git cd assimp cmake CMakeLists.txt cmake --build . vrm4u   https://github.com/ruyo/VRM4U
+  https://github.com/ruyo/assimp
+  こちらを読んで、cmakeのguiからsrcを作ってmakeするらしい。
+assimpをbuildしてできたlibassimp.aをMyProject/Plugins/VRM4U/ThirdParty/assimp/lib/Mac/libassimp.aに置いて、ue5でbuild(project)するらしい。
+ https://github.com/ruyo/VRM4U/issues/317#issuecomment-1733430315  </description>
+    </item>
+    
+  </channel>
+</rss>
