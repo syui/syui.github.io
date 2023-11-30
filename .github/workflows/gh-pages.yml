@@ -17,7 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
-    - name: Get current date and time
       env: 
         TZ: "Asia/Tokyo"
       with:
