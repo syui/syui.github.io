@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2023-12-01T07:44:54+09:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/bluesky/</loc>
+    <lastmod>2023-12-01T07:44:54+09:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/12/01/bluesky/</loc>
+    <lastmod>2023-12-01T07:44:54+09:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2023-12-01T07:44:54+09:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-12-01T07:44:54+09:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/3d/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/game/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue5/</loc>
@@ -178,9 +184,6 @@
   </url><url>
     <loc>https://syui.ai/archive/note/18/</loc>
     <lastmod>2023-07-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/bluesky/</loc>
-    <lastmod>2023-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/07/25/bluesky/</loc>
     <lastmod>2023-07-25T00:00:00+00:00</lastmod>

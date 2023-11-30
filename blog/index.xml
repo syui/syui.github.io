@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyの日常</title>
+      <link>https://syui.ai/blog/post/2023/12/01/bluesky/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/01/bluesky/</guid>
+      <description>Bluesky Advent Calendar 2023
+blueskyのアドベントカレンダー、1日目の記事です。
+blueskyの日常はどのようなものでしょう。この記事では個人体験に基づきblueskyの感想を書いていけたらと思います。
+私が感じているのは以下の3つです。
+   個人の日常を投稿する人が多い    アクティブな人が多い&amp;hellip;例えば、likeする人が多い    新しいものにポジティブな人が多い    現在のblueskyは大体このような特徴があると思います。
+アクティブな人が多い まずは私がイラストを投稿した時のlikeを最新の投稿に基づき調べてみました。イラストに限らずlikeしてくれる人は、blueskyが圧倒的に多いという結果になりました。みなさん、ありがとうございます。
+   sns like     mastodon 0   twitter 3   bluesky 73    ちなみに、twitterの3のうち2つはblueskyにいる人がlikeしてくれたものでした。
+これは、たまたまでしょうか。もし私がtwitterの有名人だったら結果は違っていたかもしれません。
+したがって、この点についてblueskyで印象に残っている話をしていきたいと思います。
+blueskyで昔こんなことがありました。
+ある界隈で有名な人がblueskyにやってきました。
+その人が誰かをフォローすることはなく、他の人の投稿をlikeすることも、reply(リプライ)、repost(リポスト)することもありませんでした。その人は結局、誰とも交流することなく、数日間投稿を続け「blueskyは人がいないし反応がないからダメだ」と言い去っていきました。
+この話を聞いて、どう思いましたか。
+私はこう思いました。
+今、blueskyにいる人たちは、相手がインフルエンサーか否かではなく、対等な立場で話ができる相手かどうか、人を見て判断できる人たちだ、と。
+ネットは素晴らしい場所です。年齢も性別も人種も社会的地位も関係なく平等で、あらゆる要素を取っ払って話ができる。
+「いや、そんなことはないぞ」と思われる人がいるかもしれません。インフルエンサーと一般人が平等なわけがないだろ、お前は何を言っているんだ、と。
+しかし、私の前でそれらは意味をなさない。相手がインフルエンサーか否かではなく、その人がどのような人なのか、それだけが重要だと思います。そして、おそらく、blueskyには私と同じような考えを持つ人が多かった。
+ですから、件の人はあまり相手にされることなく「なんで自分が一般人と同じ扱いなのだ」と怒り去ってしまったのでしょう。投稿の反応に関して、その人は他の人と違いがありませんでした。
+blueskyでは、likeしてくれる人が多い。しかし、相手が有名人か否かはほとんど関係がありません。
+もしかしたら、このような特徴がblueskyの平和につながっているのかもしれませんね。
+私は、色々なsnsをやってきましたが、blueskyにいる人たちが最も好意的かつアクティブだったと感じています。次点でnostrも非常に良いコミュニティが形成されており、snsとして非常にお勧めできると思います。
+つまり、今、snsをやるならblueskyかnostrが最も良い選択だと個人的に思っています。
+blueskyは今までのsnsで一番楽しい。
+では、それ以外のsnsとの違いはどういったところになるのでしょうか。
+そして、その差はどのように形成されたのか。
+snsでできることは同じなのに、コミュニティの空気が全然違うように感じています。
+mastodon、当時の盛り上がり 私はmastodonの個人インスタンスを2017から立ち上げて運用を続けてきました。</description>
+    </item>
+    
     <item>
       <title>ue5を触ってみた2</title>
       <link>https://syui.ai/blog/post/2023/11/29/ue5/</link>
