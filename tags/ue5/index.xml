@@ -27,7 +27,8 @@
   コンテンツドロワーからスターターキットのキャラクターを編集する。ThirdPerson/Blueprints/BP_ThirdPersonCharacter
   先程、複製して作ったものをAnimationのAnime Classに当てる。私の場合はABP_Quinn_C
   
-あと、m1でue5を動かしていると、やはりバグってると思う。挙動がおかしい。</description>
+あと、m1でue5を動かしていると、やはりバグってると思う。挙動がおかしい。
+mapを追加してみました。アセットを追加して、mapを開いて、キャラクターを置くと適用されます。</description>
     </item>
     
     <item>
