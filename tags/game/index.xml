@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5を触ってみた3</title>
+      <link>https://syui.ai/blog/post/2023/11/30/ue5/</link>
+      <pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/11/30/ue5/</guid>
+      <description>今回は、asset(アセット)を使って空を飛んでみました。
+  Superhero Flight Animationsを導入します。これは日本のIndie-us Gamesという会社が提供しているようで、UNDEFEATEDというゲームにも使われています。このゲーム参考になりそう。
+  Space Frontier Stations &amp;amp; Shipsというマップを使います。そして、Game Modeに上のGM_${motion_asset}を適用します。
+  プロジェクトの基本、Player Startを選択して、ゲーム開始時のキャラクターの位置を設定します。
+  
+追記、パソコンが破壊?された話 ue5を作っている会社が提供してくれているcity sampleというassetがあります。
+こちらをインストールして、使ってみようと思いやってみました。
+このassetはwindows10を要件としているため、少し古いGPU付きのパソコンに再びue5をインストール(5時間)し、assetのインストール(10時間)、そして、読み込み(2時間)を行いました。
+1回目は一応読み込んでくれたのですが、ウィンドウが固まってしまったため、2回目の読み込みを行いました。
+ずーっと待ってて、寝る時間だから放置しました。翌朝見てみるかと思ったのです。
+翌朝、パソコンを見てみると電源が入らなくなっていました。
+おそらく、電源かマザーボードの故障だろうと思いました。
+もちろん、これが必ずしもue5のせいだとは思いません。そもそもこのパソコンはいつ壊れてもおかしくなかったので寿命かもしれない。ですが、私はue5が故障の一端だったのではないかと思っています。</description>
+    </item>
+    
     <item>
       <title>ue5を触ってみた2</title>
       <link>https://syui.ai/blog/post/2023/11/29/ue5/</link>
