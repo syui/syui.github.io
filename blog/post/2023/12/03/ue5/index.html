@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5を触ってみた2 | syui.ai</title>
+		<title>ue5を触ってみた4 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-11-29 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-12-03 / <a href="/syui">@syui</a>
 
 		
 		
@@ -129,46 +129,61 @@
 		
 		</div>
 
-		<h2>ue5を触ってみた2</h2>
+		<h2>ue5を触ってみた4</h2>
 
-		<p>今回は、キーボードで操作できるようにするまでをやってみました。</p>
-<p>具体的にはスターターキットのアニメーションにリターゲットする感じで作成したやつをキャラクターに割り当てる感じだと思う。スターターキットはモデルが動かせるようになってるのでそれを入れ替える感じだと思う。</p>
-<p>具体的な手順はこちらのブログにある通りです。</p>
-<ul>
-<li><a href="https://www.mayonakanouta.com/blog/unreal-engine-import-vroid-studio">https://www.mayonakanouta.com/blog/unreal-engine-import-vroid-studio</a></li>
-</ul>
-<p>ここまで正確に書かれているブログはこれくらいだと思います。</p>
-<p>他のブログ記事を幾つか試してみましたが、他のやり方だと多分動きません。実際に動かしてみると大体の要領を把握できましたが、他のブログで書かれているやり方だとやっぱり大抵は動かない気がします。</p>
+		<p>今日は</p>
+<h3 id="system">system</h3>
+<p>画面にメニューが出てるので非表示</p>
 <ol>
+<li>まずはHDUを非表示にするため<code>WBP_MainHUD.uasset</code>から<code>is Visibility</code>のチェックを外す</li>
+</ol>
+<h3 id="animation">animation</h3>
+<p>いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。</p>
+<ol start="2">
 <li>
-<p>コンテンツドロワーからvrm pluginが用意してくれているIKリターゲッタをダブルクリックで編集する</p>
+<p>落下モーションが動かないので、見てみると、リターゲットで作成されていなかったので、再び<code>ABP_Player_UE5</code>からリターゲティングを作成して<code>AM_Superhero...</code>を作成する</p>
 </li>
 <li>
-<p>[IKリターゲッタ] ターゲットのAssetをIK_${model_name}_Mannequinにする, Meshも同じく変更する</p>
-</li>
-<li>
-<p>ここでAポーズにしてサイズ調整を行う。適当なアニメーションを再生して確認する</p>
+<p>まだ動かないので、<code>BP_SuperheroFlightComponent.uasset</code>を編集する。&ldquo;Play anim montage event.&ldquo;を以下のようにしました。</p>
 </li>
 </ol>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_0003.png" alt=""></p>
-<ol start="4">
-<li>
-<p>コンテンツドロワーからスターターキットのMannequins/Animations/ABP_QuinnというアニメーションBPを右クリックし<code>アニメーションアセットのリターゲティング</code>で複製する</p>
-</li>
-<li>
-<p>先程、編集したIKリターゲッタを選択する</p>
-</li>
-<li>
-<p>コンテンツドロワーからスターターキットのキャラクターを編集する。ThirdPerson/Blueprints/BP_ThirdPersonCharacter</p>
-</li>
-<li>
-<p>先程、複製して作ったものをAnimationのAnime Classに当てる。私の場合はABP_Quinn_C</p>
-</li>
+<pre tabindex="0"><code>PlayAnimMontage --&gt; Play Anim Montage (Anim Montage) --&gt; (asset) AM_Superhero...
+</code></pre><ol start="4">
+<li>hoverのモーションも動かないので、<code>ABP_Player_UE5_xxx</code>を編集します。&ldquo;Play hover flight start montage notify event.&ldquo;を以下のようにしました。</li>
 </ol>
-<p><video controls style="width:100%;"><source src="/music/ue5_ai_0001.mp4"></video></p>
-<p>あと、m1でue5を動かしていると、やはりバグってると思う。挙動がおかしい。</p>
-<p>mapを追加してみました。アセットを追加して、mapを開いて、キャラクターを置くと適用されます。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_0004.png" alt=""></p>
+<pre tabindex="0"><code>AnimNotifyHoverStart --&gt; ... --&gt; Play Slot Animation as Dynamic Montage --&gt; (asset) A_Fight_Hover...
+</code></pre><h3 id="shader">shader</h3>
+<p>cel shaderでモデルをアニメ風にしたい。</p>
+<ol start="5">
+<li><code>BP_Player_UE5_xxx</code>の編集に入り、コンポーネントの<code>Camera</code>から詳細を確認。そこに<code>Rendering Features</code>があるので、Post Prosess Material(ポストプロセスマテリアル)に<code>Cel_Shader(マルっこいやつ)</code>を選択します。</li>
+</ol>
+<p>例えば、以下はue4の対応です。ue5で使えるかはわかりません。</p>
+<ul>
+<li>
+<p><a href="https://github.com/alwei/PPCelShader">https://github.com/alwei/PPCelShader</a></p>
+</li>
+<li>
+<p><a href="https://github.com/alwei/PPLineDrawing">https://github.com/alwei/PPLineDrawing</a></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_203956.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_221341.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_175538.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_200607.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203249.png" alt="">
+<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203304.png" alt=""></p>
+<h3 id="link">link</h3>
+<p>気になった記事を幾つかまとめます。</p>
+<ul>
+<li>
+<p><a href="https://ug0001.wixsite.com/unrealcafe/%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88">assetまとめ</a></p>
+</li>
+<li>
+<p><a href="https://cgworld.jp/regular/202311-ue5toon-04.html">UE5でつくるセルシェーディング</a></p>
+</li>
+</ul>
+<h3 id="動画ページ作りました">動画ページ作りました</h3>
+<p><video controls style="width:100%;"><source src="/ai/video/ue5_ai_0003.mp4"></video></p>
 
 		
 
@@ -176,14 +191,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/11/28/ue5/" id="article-nav-older" class="article-nav-link-wrap">
-ue5を触ってみた1
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/01/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
+blueskyの日常
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/11/30/ue5/" id="article-nav-newer" class="article-nav-link-wrap">
-     ue5を触ってみた3
-				</a></p>
     
 	</div>
 </nav>

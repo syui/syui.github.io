@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 30 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5を触ってみた4</title>
+      <link>https://syui.ai/blog/post/2023/12/03/ue5/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/03/ue5/</guid>
+      <description>今日は
+system 画面にメニューが出てるので非表示
+ まずはHDUを非表示にするためWBP_MainHUD.uassetからis Visibilityのチェックを外す  animation いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。
+ 落下モーションが動かないので、見てみると、リターゲットで作成されていなかったので、再びABP_Player_UE5からリターゲティングを作成してAM_Superhero...を作成する
+  まだ動かないので、BP_SuperheroFlightComponent.uassetを編集する。&amp;ldquo;Play anim montage event.&amp;ldquo;を以下のようにしました。
+  PlayAnimMontage --&amp;gt; Play Anim Montage (Anim Montage) --&amp;gt; (asset) AM_Superhero... hoverのモーションも動かないので、ABP_Player_UE5_xxxを編集します。&amp;ldquo;Play hover flight start montage notify event.&amp;ldquo;を以下のようにしました。  AnimNotifyHoverStart --&amp;gt; ... --&amp;gt; Play Slot Animation as Dynamic Montage --&amp;gt; (asset) A_Fight_Hover... shader cel shaderでモデルをアニメ風にしたい。
+BP_Player_UE5_xxxの編集に入り、コンポーネントのCameraから詳細を確認。そこにRendering Featuresがあるので、Post Prosess Material(ポストプロセスマテリアル)にCel_Shader(マルっこいやつ)を選択します。  例えば、以下はue4の対応です。ue5で使えるかはわかりません。
+  https://github.com/alwei/PPCelShader
+  https://github.com/alwei/PPLineDrawing
+  link 気になった記事を幾つかまとめます。
+  assetまとめ</description>
+    </item>
+    
     <item>
       <title>ue5を触ってみた3</title>
       <link>https://syui.ai/blog/post/2023/11/30/ue5/</link>
