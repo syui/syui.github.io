@@ -17,7 +17,40 @@ slug = "ue-vs-unity"
 
 しかも、色々やりすぎてpackage buildが通らない。これはvroidの問題だと思う。ファイルが多すぎて整理できていないので、もう一度イチから作り直すことにしよう。
 
-> この問題は未解決で、
+> 追記 : この問題はxcodeを最新版にしてassimpをrebuildすると解消しました。ただそれだけではmacの`._*`ファイルが原因でbuildが通らないのでfindで削除します。
+
+```sh
+pkg=yui
+pdr=/Volumes/ssd/project
+pkg=$pdr/$pkg
+rm -rf $pkg/Plugins
+
+open $pdr/VRM4U_5_3_20231126.zip;sleep 15;
+mv $pdr/Plugins $pkg/
+cp -rf /Volumes/ssd/git/assimp/build1/lib/libassimp.a $pkg/Plugins/VRM4U/ThirdParty/assimp/lib/Mac/
+
+rm -rf $pkg/Binaries
+rm -rf $pkg/Intermediate
+rm -rf $pkg/Plugins/VRM4U/Binaries
+rm -rf $pkg/Plugins/VRM4U/Intermediate
+
+find $pkg/ \( -name '.DS_Store' -or -name '._*' \) -delete -print;
+```
+
+まだエラーが出ます。`x86_64`がないとか言われますが、使用しているのは`arm64`です。
+
+```sh
+# https://forums.unrealengine.com/t/linker-error-undefined-symbols-for-architecture-x86_64-while-packaging/103451
+UATHelper: パッケージ化 (Mac): ld: symbol(s) not found for architecture x86_64
+```
+
+```sh
+$ gcc -v
+Apple clang version 15.0.0 (clang-1500.1.0.2.5)
+Target: arm64-apple-darwin23.1.0
+```
+
+ここで`make -j4`でmakeして再びvrmを読み込んだら通った。
 
 3. オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通に`IK_xxx`の詳細にオーバーレイマテリアルみたいな項目があるのでそこに追加。
 
