@@ -16,7 +16,7 @@
       <guid>https://syui.ai/blog/post/2023/12/03/ue5/</guid>
       <description>今日は
 system 画面にメニューが出てるので非表示
- まずはHDUを非表示にするためWBP_MainHUD.uassetからis Visibilityのチェックを外す  animation いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。
+ まずはHUDを非表示にするためWBP_MainHUD.uassetからis Visibilityのチェックを外す  animation いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。
  落下モーションが動かないので、見てみると、リターゲットで作成されていなかったので、再びABP_Player_UE5からリターゲティングを作成してAM_Superhero...を作成する
   まだ動かないので、BP_SuperheroFlightComponent.uassetを編集する。&amp;ldquo;Play anim montage event.&amp;ldquo;を以下のようにしました。
   PlayAnimMontage --&amp;gt; Play Anim Montage (Anim Montage) --&amp;gt; (asset) AM_Superhero... hoverのモーションも動かないので、ABP_Player_UE5_xxxを編集します。&amp;ldquo;Play hover flight start montage notify event.&amp;ldquo;を以下のようにしました。  AnimNotifyHoverStart --&amp;gt; ... --&amp;gt; Play Slot Animation as Dynamic Montage --&amp;gt; (asset) A_Fight_Hover... shader cel shaderでモデルをアニメ風にしたい。
