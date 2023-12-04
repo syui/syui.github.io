@@ -20,23 +20,9 @@
   はずなんだけど、なんかおかしい。post process volumeの詳細がでてこないことに気づいた。ただ、PB_Playerのcameraからpost processの項目にアクセスできるんだけど、mac-m1限定の問題かもしれない。
  追記 : イチから作り直したら詳細が出てきた。わけがわからない。そもそも詳細が出てこない状況が普通は考えられないので、おそらくバグだったんだと思う。結局プロジェクトを作り直さないとダメだったのか。
  しかも、色々やりすぎてpackage buildが通らない。これはvroidの問題だと思う。ファイルが多すぎて整理できていないので、もう一度イチから作り直すことにしよう。
- この問題は未解決で、
- オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通にIK_xxxの詳細にオーバーレイマテリアルみたいな項目があるのでそこに追加。  vs unity ue5とunityのどちらがいいか。
-ue5というかunrial engineなんですが、ここではue5とします。
-で、最近ue5とunityを触ってみて、どちらがいいのかを書いていきたいと思います。
-結論から言うと、ue5です。圧倒的にue5がオススメです。
-なぜかというと、見た目ですね。モデルを表示したときの見た目がぱっと見でunityは厳しいなと思ったので、ue5を試したのですが色々な意味ですごいです。
-ただ、ue5は記事が全く見当たらず、動画もあまりないようで、使ってる人がそこまで多くない印象があります。これは大きなマイナス要素になり得ます。初心者はわけがわからない。そういう環境だと、正直、通常だとおすすめはしづらい。しかし、そのデメリットを上回るくらいue5のほうがおすすめです。
-では、blenderとunityだとどうでしょう。私は、unityよりblenderを触っていたときのほうが気持ちが良かったので、blenderをおすすめします。
-  ue5
-  blender
-  unity
-  ただ、ロゴがかっこいいのはunityです。今も3dはunity-iconを使用していて、この辺は難しいのですが、私はfont-awesomeを使ってるのでfreeで使える3dを示すicon-fontはこれくらいしかいいのがなかったのです。まあ、いつまでもunityと関係ないのにunityのicon-fontを使うのもあれなので、そのうちcubeに変更しようかなと思います。
-   unity
-   cube
-  今後やりたいこと ゲームのコンセプトは割と頭の中で決まってて、面白いと思ったことをやる感じ。
- アイが宇宙空間で艦隊と戦っている。ここではゲームでできるアイの最大火力を発揮できる。ユーザーは最初からキャラを操作できる。操作説明などはあえてなし。艦隊を攻撃するか、自由に動き回るのか、なにをするのかもすべてユーザーに任せられる。この状況は最初の5分間続く。    (1) 敵船からの攻撃、巨大なレーザー砲。ダメージなし。爆発あり。
-  (2) こちらの攻撃、当たると敵船が間をおいて大爆発。当たった直後は衝撃派や画面を一瞬明るくする。ゆっくりと落ちて消えていく演出あり。</description>
+ 追記 : この問題はxcodeを最新版にしてassimpをrebuildすると解消しました。ただそれだけではmacの._*ファイルが原因でbuildが通らないのでfindで削除します。
+ pkg=yui pdr=/Volumes/ssd/project pkg=$pdr/$pkg rm -rf $pkg/Plugins open $pdr/VRM4U_5_3_20231126.zip;sleep 15; mv $pdr/Plugins $pkg/ cp -rf /Volumes/ssd/git/assimp/build1/lib/libassimp.a $pkg/Plugins/VRM4U/ThirdParty/assimp/lib/Mac/ rm -rf $pkg/Binaries rm -rf $pkg/Intermediate rm -rf $pkg/Plugins/VRM4U/Binaries rm -rf $pkg/Plugins/VRM4U/Intermediate find $pkg/ \( -name &amp;#39;.DS_Store&amp;#39; -or -name &amp;#39;._*&amp;#39; \) -delete -print; まだエラーが出ます。x86_64がないとか言われますが、使用しているのはarm64です。
+# https://forums.unrealengine.com/t/linker-error-undefined-symbols-for-architecture-x86_64-while-packaging/103451 UATHelper: パッケージ化 (Mac): ld: symbol(s) not found for architecture x86_64 $ gcc -v Apple clang version 15.</description>
     </item>
     
     <item>
