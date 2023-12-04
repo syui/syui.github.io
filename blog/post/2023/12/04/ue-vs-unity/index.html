@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5を触ってみた4 | syui.ai</title>
+		<title>ue5を触ってみた5 (vs unity) | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-12-03 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-12-04 / <a href="/syui">@syui</a>
 
 		
 		
@@ -129,66 +129,87 @@
 		
 		</div>
 
-		<h2>ue5を触ってみた4</h2>
+		<h2>ue5を触ってみた5 (vs unity)</h2>
 
-		<p>今日は</p>
-<h3 id="system">system</h3>
-<p>画面にメニューが出てるので非表示</p>
+		<p>今日もue5を触ってやったことや今後やりたいこと、unityとどちらがいいのかなどを書いていきたいと思います。</p>
 <ol>
-<li>まずはHUDを非表示にするため<code>WBP_MainHUD.uasset</code>から<code>is Visibility</code>のチェックを外す</li>
+<li>
+<p>post precess volumeを作成</p>
+</li>
+<li>
+<p>その領域に入るとshaderが適用されるようにできる</p>
+</li>
 </ol>
-<h3 id="animation">animation</h3>
-<p>いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。</p>
+<p>はずなんだけど、なんかおかしい。<code>post process volume</code>の詳細がでてこないことに気づいた。ただ、<code>PB_Player</code>のcameraからpost processの項目にアクセスできるんだけど、mac-m1限定の問題かもしれない。</p>
+<p>しかも、色々やりすぎてpackage buildが通らない。これはvroidの問題だと思う。ファイルが多すぎて整理できていないので、もう一度イチから作り直すことにしよう。</p>
+<h3 id="今後やりたいこと">今後やりたいこと</h3>
+<p>ゲームのコンセプトは割と頭の中で決まってて、面白いと思ったことをやる感じ。</p>
+<ol>
+<li>アイが宇宙空間で艦隊と戦っている。ここではゲームでできるアイの最大火力を発揮できる。ユーザーは最初からキャラを操作できる。操作説明などはあえてなし。艦隊を攻撃するか、自由に動き回るのか、なにをするのかもすべてユーザーに任せられる。この状況は最初の5分間続く。</li>
+</ol>
+<ul>
+<li>
+<p>(1) 敵船からの攻撃、巨大なレーザー砲。ダメージなし。爆発あり。</p>
+</li>
+<li>
+<p>(2) こちらの攻撃、当たると敵船が間をおいて大爆発。当たった直後は衝撃派や画面を一瞬明るくする。ゆっくりと落ちて消えていく演出あり。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231204_0001.jpg" alt=""></p>
 <ol start="2">
 <li>
-<p>落下モーションが動かないので、見てみると、リターゲットで作成されていなかったので、再び<code>ABP_Player_UE5</code>からリターゲティングを作成して<code>AM_Superhero...</code>を作成する</p>
+<p>最初の5分が終わると、ムービーに突入する。なにかがおかしくなり、力が弱まるのを感じる。突然、空を飛べなくなる。近くの星に落ちていくアイ。目が覚めると、海辺と山々が見える。手を広げるが力が使えなくなったようだ。アイは歩き始める。</p>
 </li>
 <li>
-<p>まだ動かないので、<code>BP_SuperheroFlightComponent.uasset</code>を編集する。&ldquo;Play anim montage event.&ldquo;を以下のようにしました。</p>
+<p>ここからユーザーは操作可能。近くのマシロタウンにつくと人に話しかけられる。その格好はなにかあったのと女の子に言われゲーム中に使用される新衣装に変更。靴を履いてるムービー、操作可能。</p>
+</li>
+<li>
+<p>ゲームは非常に広大なフィールドに毎日ドロップする3つの宝箱とモンスターがいる。難易度は非常に高く設定する。死んだら終わりその日は終了する。この辺はゲームコンセプトになるんだけど、何もないところをずーっと走ってる感じで、短縮も面白いことも用意しない。なにも考えずプレイしてほしい。</p>
 </li>
 </ol>
-<pre tabindex="0"><code>PlayAnimMontage --&gt; Play Anim Montage (Anim Montage) --&gt; (asset) AM_Superhero...
-</code></pre><ol start="4">
-<li>hoverのモーションも動かないので、<code>ABP_Player_UE5_xxx</code>を編集します。&ldquo;Play hover flight start montage notify event.&ldquo;を以下のようにしました。</li>
-</ol>
-<pre tabindex="0"><code>AnimNotifyHoverStart --&gt; ... --&gt; Play Slot Animation as Dynamic Montage --&gt; (asset) A_Fight_Hover...
-</code></pre><h3 id="shader">shader</h3>
-<p>cel shaderでモデルをアニメ風にしたい。</p>
+<blockquote>
+<p>このゲームのコンセプトは、なにもしない、なにも考えないである。そういった時間が人には必要で、このゲームはそのためのきっかけを作りたいと思っている。例えば、ユダヤの教えに安息日(シャバット)というものがあり、なにもしない日のこと。時間を定期的に作るものである。</p>
+</blockquote>
 <ol start="5">
-<li><code>BP_Player_UE5_xxx</code>の編集に入り、コンポーネントの<code>Camera</code>から詳細を確認。そこに<code>Rendering Features</code>があるので、Post Prosess Material(ポストプロセスマテリアル)に<code>Cel_Shader(マルっこいやつ)</code>を選択します。</li>
+<li>
+<p>課金ではカード(能力)と武器が追加。3回まで復活できるようにする。</p>
+</li>
+<li>
+<p>物語を作る。この星は中世の地球をモデルに各地域を作成。地動説を信じている世界で不思議な旅ができるというもの。旅の最終地点にいるボスを倒すと、アイは力を取り戻して、宇宙に帰ることができる。すべてユーザーの自由意志と自由操作による。</p>
+</li>
+<li>
+<p>物語の続き。星を平和にしたアイは、また戻ることができる。戻る度に発展していく様子を見ることができる。これがアップデートになる。</p>
+</li>
 </ol>
-<p>例えば、以下はue4の対応です。ue5で使えるかはわかりません。</p>
+<h3 id="vs-unity">vs unity</h3>
+<p>ue5とunityのどちらがいいか。</p>
+<p>ue5というかunrial engineなんですが、ここではue5とします。</p>
+<p>で、最近ue5とunityを触ってみて、どちらがいいのかを書いていきたいと思います。</p>
+<p>結論から言うと、ue5です。圧倒的にue5がオススメです。</p>
+<p>なぜかというと、見た目ですね。モデルを表示したときの見た目がぱっと見でunityは厳しいなと思ったので、ue5を試したのですが、ue5は色々な意味ですごいです。</p>
+<p>ただ、ue5は記事が全く見当たらず、動画もあまりないようで、使ってる人がそこまで多くない印象があります。これは大きなマイナス要素になり得ます。初心者はわけがわからない。そういう環境だと、正直、通常だとおすすめはしづらい。しかし、そのデメリットを上回るくらいue5のほうがおすすめです。</p>
+<p>これが最近、unityとue5を触ってみた上での実感です。</p>
+<p>では、blenderとunityだとどうでしょう。私は、unityよりblenderを触っていたときのほうが気持ちが良かったので、blenderをおすすめします。</p>
+<ol>
+<li>
+<p>ue5</p>
+</li>
+<li>
+<p>blender</p>
+</li>
+<li>
+<p>unity</p>
+</li>
+</ol>
+<p>ただ、ロゴがかっこいいのは、unityです。今も3dはunity-iconを使用していて、この辺は難しいのですが、私はfont-awesomeを使ってるのでfreeで使える3dを示すicon-fontはこれくらいしかいいのがなかったのです。まあ、いつまでもunityと関係ないのにunityのicon-fontを使うのもあれなので、そのうちcubeに変更しようかなと思います。</p>
 <ul>
 <li>
-<p><a href="https://github.com/alwei/PPCelShader">https://github.com/alwei/PPCelShader</a></p>
+<p><i class="fa-brands fa-unity"></i> unity</p>
 </li>
 <li>
-<p><a href="https://github.com/alwei/PPLineDrawing">https://github.com/alwei/PPLineDrawing</a></p>
+<p><i class="fa-solid fa-cube"></i> cube</p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_203956.png" alt="">
-<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_221341.png" alt="">
-<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_175538.png" alt="">
-<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_200607.png" alt="">
-<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203249.png" alt="">
-<img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203304.png" alt=""></p>
-<h3 id="link">link</h3>
-<p>気になった記事を幾つかまとめます。</p>
-<ul>
-<li>
-<p><a href="https://ug0001.wixsite.com/unrealcafe/%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88">assetまとめ</a></p>
-</li>
-<li>
-<p><a href="https://cgworld.jp/regular/202311-ue5toon-04.html">UE5でつくるセルシェーディング</a></p>
-</li>
-</ul>
-<h3 id="動画ページ作りました">動画ページ作りました</h3>
-<p><video controls style="width:100%;"><source src="/ai/video/ue5_ai_0003.mp4"></video></p>
-<h3 id="追記パソコンが治った">追記、パソコンが治った</h3>
-<p>思うところがあって壊れてたパソコンを直しました。</p>
-<p>電源つかないなあと思って色々やってると電源がついた。起動してみるとbiosが起動しない。やっぱり無理かと思って放置。なにかを思いついて試す。やっぱり無理。また試すというのを3回くらい繰り返すと復活しました。</p>
-<p>ただ、gpuのファンが回らなくなってた。これは分解時に破損したものか、昔から破損してたのか、あるいは今回動かなくなったのかわからない。でもgpuの動作には問題ないですね。ファンも他から持ってくればいいだけだし。</p>
-<p>再びosが起動したときは嬉しかった。</p>
 
 		
 
@@ -196,14 +217,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/01/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
-blueskyの日常
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/03/ue5/" id="article-nav-older" class="article-nav-link-wrap">
+ue5を触ってみた4
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/12/04/ue-vs-unity/" id="article-nav-newer" class="article-nav-link-wrap">
-     ue5を触ってみた5 (vs unity)
-				</a></p>
     
 	</div>
 </nav>
