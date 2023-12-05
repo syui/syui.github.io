@@ -52,9 +52,30 @@ Target: arm64-apple-darwin23.1.0
 
 ここで`make -j4`でmakeして再びvrmを読み込んだら通った。
 
-3. オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通に`IK_xxx`の詳細にオーバーレイマテリアルみたいな項目があるのでそこに追加。
+3. オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通に`SK_xxx`の詳細に`レンダリング -> オーバーレイマテリアル(Overlay Material)`みたいな項目があるのでそこに追加。
 
 ![](https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203305.png)
+
+### vrm4u err for mac
+
+package buildのerrをまとめます。全てがvrm4uによるものだったので回避した方法をまとめます。
+
+これはmacで作成される`._xx`ファイルが関係しています。削除すると通ります。
+
+> Plugins/VRM4U/._VRM4U.uplugin: '0x00' is an invalid start of a value.
+
+
+`ABP_VRoidPostProcess...`などからerrが出ます。したがって、これらのファイルの削除を行います。同様のerrが次回ビルド時にも出てくるので他のファイルも削除する必要があります。例えば、`VRM4U/Content/Maps`, `VRM4U/Content/Util/Actor/latest`などです。
+
+> Plugins/VRM4U/Content/Util/Actor/latest/ABP_VRoidPostProcess...
+
+`x86_64`関連のerrが出ます。`arm64`なのでこの処理自体がおかしいため、これをやめさせないといけません。`assimp`を`make -j4`でmakeして再びvrmを読み込んだら通ります。正直よくわからない。
+
+> UATHelper: パッケージ化 (Mac): ld: symbol(s) not found for architecture x86_64
+
+vrmをue5で使うこと自体が荒業で、それをmac-m1で使うとなると相当に大変です。
+
+- https://github.com/ruyo/VRM4U/issues
 
 ### vs unity
 
