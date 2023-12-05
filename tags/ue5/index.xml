@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 04 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5を触ってみた6</title>
+      <link>https://syui.ai/blog/post/2023/12/05/ue5/</link>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/05/ue5/</guid>
+      <description>今日は
+ モデルが飛んでいるときにoverlay materialを適用  これはSK_xxxを複製して、そこにoverlay materialを当て、それをevent時に呼び出すことで実現しています。
+具体的には、BP_Player_UE5のInput Event GraphでSet Skeletal Mesh Assetを呼び出したい場面で使います。
+変身前、変身後があったとして、event後にずっと変身してしまわないよう両方使うのがいいでしょう。
+ブリッジモード -&amp;gt; フォリッジで草原を作る  しかし、前はあんなにヌルヌル動いてたのに草を生やすと、本当に遅くなってしまった。あまり多くしない方がいいか、あるいはちゃんと使用する草をシンプルなものにしないといけないと思う。
+動画</description>
+    </item>
+    
     <item>
       <title>ue5を触ってみた5 (vs unity)</title>
       <link>https://syui.ai/blog/post/2023/12/04/ue-vs-unity/</link>

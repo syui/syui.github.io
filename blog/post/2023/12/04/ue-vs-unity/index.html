@@ -171,9 +171,27 @@ Apple clang version 15.0.0 <span style="color:#f92672">(</span>clang-1500.1.0.2.
 Target: arm64-apple-darwin23.1.0
 </code></pre></div><p>ここで<code>make -j4</code>でmakeして再びvrmを読み込んだら通った。</p>
 <ol start="3">
-<li>オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通に<code>IK_xxx</code>の詳細にオーバーレイマテリアルみたいな項目があるのでそこに追加。</li>
+<li>オーバーレイマテリアルというものがue5.1から導入されようで、それを使ってキャラにエフェクトを追加してみた。普通に<code>SK_xxx</code>の詳細に<code>レンダリング -&gt; オーバーレイマテリアル(Overlay Material)</code>みたいな項目があるのでそこに追加。</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203305.png" alt=""></p>
+<h3 id="vrm4u-err-for-mac">vrm4u err for mac</h3>
+<p>package buildのerrをまとめます。全てがvrm4uによるものだったので回避した方法をまとめます。</p>
+<p>これはmacで作成される<code>._xx</code>ファイルが関係しています。削除すると通ります。</p>
+<blockquote>
+<p>Plugins/VRM4U/._VRM4U.uplugin: &lsquo;0x00&rsquo; is an invalid start of a value.</p>
+</blockquote>
+<p><code>ABP_VRoidPostProcess...</code>などからerrが出ます。したがって、これらのファイルの削除を行います。同様のerrが次回ビルド時にも出てくるので他のファイルも削除する必要があります。例えば、<code>VRM4U/Content/Maps</code>, <code>VRM4U/Content/Util/Actor/latest</code>などです。</p>
+<blockquote>
+<p>Plugins/VRM4U/Content/Util/Actor/latest/ABP_VRoidPostProcess&hellip;</p>
+</blockquote>
+<p><code>x86_64</code>関連のerrが出ます。<code>arm64</code>なのでこの処理自体がおかしいため、これをやめさせないといけません。<code>assimp</code>を<code>make -j4</code>でmakeして再びvrmを読み込んだら通ります。正直よくわからない。</p>
+<blockquote>
+<p>UATHelper: パッケージ化 (Mac): ld: symbol(s) not found for architecture x86_64</p>
+</blockquote>
+<p>vrmをue5で使うこと自体が荒業で、それをmac-m1で使うとなると相当に大変です。</p>
+<ul>
+<li><a href="https://github.com/ruyo/VRM4U/issues">https://github.com/ruyo/VRM4U/issues</a></li>
+</ul>
 <h3 id="vs-unity">vs unity</h3>
 <p>ue5とunityのどちらがいいか。</p>
 <p>ue5というかunrial engineなんですが、ここではue5とします。</p>
@@ -252,6 +270,10 @@ Target: arm64-apple-darwin23.1.0
 ue5を触ってみた4
 					</a></p>
     
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/12/05/ue5/" id="article-nav-newer" class="article-nav-link-wrap">
+     ue5を触ってみた6
+				</a></p>
     
 	</div>
 </nav>
