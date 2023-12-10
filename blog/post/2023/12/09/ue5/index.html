@@ -156,8 +156,11 @@
 <h3 id="瞬間移動の実装">瞬間移動の実装</h3>
 <p>montageからmotion warpingを使って瞬間移動をやってみましたが、障害物があると移動できないし、瞬間移動というか高速移動なだけなので、actor locationで実現しました。</p>
 <p><code>set actor location</code>で設定してください。</p>
-<p>ここでは、なお、motion warpingで設定したように通知ステートでは他に様々なもの、例えば、motion中に地面を破壊するようなものを追加することもできます。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.39.56.png" alt=""></p>
+<p>ここでは、なお、motion warpingで設定したように通知ステートでは他に様々なもの、例えば、motion中に地面を破壊するようなものを追加することもできます。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LCfPAmmMRNY">Game Effect Portfolio 2023</a></li>
+</ul>
 <h3 id="montageを再生したあと元の位置に戻ってしまう">montageを再生したあと元の位置に戻ってしまう</h3>
 <p>sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。</p>
 <p>これは<code>root motion</code>をenableにしたり、他の設定をやっても戻ってしまうのです。</p>
