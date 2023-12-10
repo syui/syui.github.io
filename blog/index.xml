@@ -24,7 +24,7 @@ outline、normalによる見た目の変更 今までのモデルと見比べて
  表情を変更する 表情のdefault(デフォルト)が口が半開きになっている気がするので、それを変更します。
   新機能の「透過オーバーレイマテリアル」でアウトラインを簡単に実装してみよう  瞬間移動の実装 montageからmotion warpingを使って瞬間移動をやってみましたが、障害物があると移動できないし、瞬間移動というか高速移動なだけなので、actor locationで実現しました。
 set actor locationで設定してください。
-ここでは、なお、motion warpingで設定したように通知ステートでは他に様々なもの、例えば、motion中に地面を破壊するようなものを追加することもできます。
+motion warpingで設定したように通知ステートでは他に様々なものを追加することができます。
  Game Effect Portfolio 2023  montageを再生したあと元の位置に戻ってしまう sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。
 これはroot motionをenableにしたり、他の設定をやっても戻ってしまうのです。
 原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。
