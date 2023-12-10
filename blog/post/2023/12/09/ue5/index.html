@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5を触ってみた6 | syui.ai</title>
+		<title>ue5を触ってみた7 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-12-05 / <a href="/syui">@syui</a>
+		<div class="post-time-date">2023-12-09 / <a href="/syui">@syui</a>
 
 		
 		
@@ -129,22 +129,70 @@
 		
 		</div>
 
-		<h2>ue5を触ってみた6</h2>
+		<h2>ue5を触ってみた7</h2>
 
-		<p>今日は</p>
-<ol>
-<li>モデルが飛んでいるときに<code>overlay material</code>を適用</li>
-</ol>
-<p>これは<code>SK_xxx</code>を複製して、そこにoverlay materialを当て、それをevent時に呼び出すことで実現しています。</p>
-<p>具体的には、<code>BP_Player_UE5</code>のInput Event Graphで<code>Set Skeletal Mesh Asset</code>を呼び出したい場面で使います。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231205_0001.png" alt=""></p>
-<p>変身前、変身後があったとして、event後にずっと変身してしまわないよう両方使うのがいいでしょう。</p>
-<ol start="2">
-<li>ブリッジモード -&gt; フォリッジで草原を作る</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231205_0002.png" alt=""></p>
-<p>しかし、前はあんなにヌルヌル動いてたのに草を生やすと、本当に遅くなってしまった。あまり多くしない方がいいか、あるいはちゃんと使用する草をシンプルなものにしないといけないと思う。</p>
-<p><a href="/ai/video/#ue5_ai_0004.mp4">動画</a></p>
+		<p>ue5を触って1週間が経ちました。触れない日もありましたが、今回はsword(剣)のmotion(モーション)などを作りました。</p>
+<ul>
+<li>video : <a href="/ai/video/#ue5_ai_0005.mp4">/ai/video/#ue5_ai_0005.mp4</a></li>
+</ul>
+<p>やったこととしては、変身、瞬間移動、剣、そして、見た目の変更です。それぞれにテクニックがあるので順に紹介します。</p>
+<p>この記事では、参考になるリンクを載せています。外部リンクは参考になる投稿者に限定しているので是非読んでみてください。例えば、<a href="https://www.youtube.com/watch?v=0vYPkxEZEtQ">UE備忘録本舗</a>さんはとてもわかりやすく参考になる動画を投稿されている方です。</p>
+<h3 id="outlinenormalによる見た目の変更">outline、normalによる見た目の変更</h3>
+<p>今までのモデルと見比べてみるとよくわかります。左がold、右がnewです。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_203956.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.34.39.png" alt=""></p>
+<p>これはoutline(アウトライン)やnormal line(法線)と一般に言われているものです。</p>
+<p>それを<code>overlay material</code>で実現しています。<a href="https://blueprintue.com/">blueprint</a>を貼っておきます。</p>
+<iframe src="https://blueprintue.com/render/t1xc2azx/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<blockquote>
+<p>syuiでアカウント作ろうとしてmail間違えて認証できなくなり、再度syuiでアカウント作ろうとしたら空いてなかったので<a href="https://blueprintue.com/profile/ai/">ai</a>にした&hellip;まあいいか</p>
+</blockquote>
+<h3 id="表情を変更する">表情を変更する</h3>
+<p>表情のdefault(デフォルト)が口が半開きになっている気がするので、それを変更します。</p>
+<iframe src="https://blueprintue.com/render/38p8o_4y/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=M0jKBvwmWlU">新機能の「透過オーバーレイマテリアル」でアウトラインを簡単に実装してみよう</a></li>
+</ul>
+<h3 id="瞬間移動の実装">瞬間移動の実装</h3>
+<p>montageからmotion warpingを使って瞬間移動をやってみましたが、障害物があると移動できないし、瞬間移動というか高速移動なだけなので、actor locationで実現しました。</p>
+<p><code>set actor location</code>で設定してください。</p>
+<p>ここでは、なお、motion warpingで設定したように通知ステートでは他に様々なもの、例えば、motion中に地面を破壊するようなものを追加することもできます。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.39.56.png" alt=""></p>
+<h3 id="montageを再生したあと元の位置に戻ってしまう">montageを再生したあと元の位置に戻ってしまう</h3>
+<p>sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。</p>
+<p>これは<code>root motion</code>をenableにしたり、他の設定をやっても戻ってしまうのです。</p>
+<p>原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</p>
+<p>これを変動するようにしないといけないのですが、bone(ボーン)の<code>root</code>を選択してFKの平行移動モードを<code>Globally Scaled</code>に設定します。</p>
+<p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.37.18.png" alt=""></p>
+<ul>
+<li><a href="https://happynetwork2019.hatenablog.com/entry/2023/10/02/191340#:~:text=%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%83%96%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88,%E3%81%95%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B%E3%80%82">UE5でルートモーションを有効にしたままリターゲットをする方法</a></li>
+</ul>
+<h3 id="swordをしまう時のparticle">swordをしまう時のparticle</h3>
+<p>これは<code>sword_open</code>, <code>sword_close</code>というactor, blueprintを作成して、それを<code>BP_Player</code>のmeshに当てます。そして、<code>set visible</code>で切り替えています。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.01.png" alt=""></p>
+<p>ではparticle(粒子)はどうやって実現しているのかというと<code>niagara</code>です。</p>
+<ul>
+<li><a href="https://dipross.co.jp/eng/2023/06/ue5-niagara%E3%81%AE%E5%9F%BA%E7%A4%8E.html">UE5 Niagaraの基礎</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.02.png" alt=""></p>
+<h3 id="swordを振ったときのeffect">swordを振ったときのeffect</h3>
+<p>まずはboneを追加します。このboneを元にtrailというeffectをつけていくわけです。<code>sword-trail</code>は検索タグとしても有効です。effectはanim sequence(アニメ・シーケンス)で設定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.35.44.png" alt=""></p>
+<p><code>PSTemplate</code>, <code>Socket Name</code>を指定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203306.png" alt=""></p>
+<p>また、niagaraで作成してもいいですね。<code>sword-trail-naigara</code>とでも検索してみてください。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0vYPkxEZEtQ">ソードトレイル</a></li>
+</ul>
+<h3 id="swordのcharge-motion">swordのcharge motion</h3>
+<p>こちらはmontageを分割して、それを再生します。</p>
+<iframe src="https://blueprintue.com/render/_yz6dfib/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=N0qLD918oy8">溜め攻撃（チャージ攻撃）の実装方法</a></li>
+</ul>
+<h3 id="変身など">変身など</h3>
+<p>これは<code>Set Skeletal Mesh Asset</code>で切り替えですね。</p>
 
 		
 
@@ -152,14 +200,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/04/ue-vs-unity/" id="article-nav-older" class="article-nav-link-wrap">
-ue5を触ってみた5 (vs unity)
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/05/ue5/" id="article-nav-older" class="article-nav-link-wrap">
+ue5を触ってみた6
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/12/09/ue5/" id="article-nav-newer" class="article-nav-link-wrap">
-     ue5を触ってみた7
-				</a></p>
     
 	</div>
 </nav>
