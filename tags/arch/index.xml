@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxでwifiがfreezeする</title>
+      <link>https://syui.ai/blog/post/2023/12/15/arch/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/15/arch/</guid>
+      <description>久しぶりにwifiを使おうと思ってnetworkmanagerをインストールして使ってると何故かfreezeするようになってしまったので解決する方法。
+これはnetworkmanagerが悪いわけではなくkernelレベルの問題でrtw88_8821ceというmoduleが原因らしい。
+$ sudo pacman -S broadcom-wl networkmanager $ sudo systemctl start NetworkManager $ vim /etc/modprobe.d/blacklist.conf blacklist rtw88_8821ce $ vim /etc/default/grub GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;xxx xxx pci=noaer&amp;#34; $ grub-mkconfig -o /boot/grub/grub.cfg $ reboot  WiFi frequently and randomly disconnects, rtw_8821ce driver  </description>
+    </item>
+    
     <item>
       <title>archlinuxでsystemd-nspawnを使いcontinerを立ててみた</title>
       <link>https://syui.ai/blog/post/2022/12/05/archlinux-systemd-nspaw-continer/</link>

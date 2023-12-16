@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 09 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>arch</title>
+      <link>https://syui.ai/tags/arch/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/arch/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>3d</title>
       <link>https://syui.ai/tags/3d/</link>
@@ -527,15 +536,6 @@
       <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/card/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arch</title>
-      <link>https://syui.ai/tags/arch/</link>
-      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/arch/</guid>
       <description></description>
     </item>
     
