@@ -135,7 +135,11 @@
 <p>今回は、ue5 package build for macを解説します。</p>
 <p>vrm4uを使ってる人でmacでpackage buildしている人は世界中でただ1人かもしれません。全く情報がなく、arm64でbuildされているvroidゲームも見かけない。</p>
 <p>vrm4uをmacで導入すること自体も多少ハマるかもしれません。しかし、package buildほどではないです。それくらい意味がわかりませんでした。</p>
-<p>様々なerrorを回避してたどり着いたのは<code>「Macのプロジェクトをパッケージ化しています...」</code>という表示から先に進まないという現象です。なぜなのかずっと謎でした。logを確認してもerrorが出ていないし、さっぱりわからない。でもなぜか進まない。</p>
+<h3 id="ddc-directory">ddc directory</h3>
+<blockquote>
+<p>LogDerivedDataCache: Warning: Shared: Process has an existing cache store at path /path/to/ddc, and the duplicate is being ignored.</p>
+</blockquote>
+<p>様々なerrを回避してたどり着いたのは<code>「Macのプロジェクトをパッケージ化しています...」</code>という表示から先に進まないという現象です。なぜなのかずっと謎でした。logを確認してもerrが出ていないし、さっぱりわからない。でもなぜか進まない。</p>
 <p>そこで、初回スターターキットのprojectを作ってpacakge buildしてみることにしました。しかし、ここでも同じように先に進まない。フリーズはしていませんが動いていないのです。</p>
 <p>この原因はおそらく<code>ddc directory</code>を設定していないことによるものです。</p>
 <blockquote>
@@ -158,8 +162,33 @@
 <p>ですが、全部正確に設定されており、全くの的外れでした。</p>
 <p>ue5の開発は初回からpackage buildで通ることを確認してから開発を進めるのがおすすめです。assetを入れると通らなくなります。pluginも同様です。</p>
 <p>もしそのassetやpluginを使って開発を進め、後々になってbuildが通らないということになると大変です。</p>
-<p>私も最初の方でpackage buildを試してみた事があったのですが最後まで確認せず、errorがでてないから大丈夫とそこで終わりにしていました。ですが、全く先に進まないという問題がありました。</p>
+<p>私も最初の方でpackage buildを試してみた事があったのですが最後まで確認せず、errがでてないから大丈夫とそこで終わりにしていました。ですが、全く先に進まないという問題がありました。</p>
 <p>色々と試した結果、macだけでなくwindowsでのpackage build環境も整えられたのでよかったですが、ue5のpackage build環境の検証と構築は相当大変でした。</p>
+<p>また、project settings &gt; platform &gt; macではpackage化の項目があり、通常は<code>intel &amp; apple silicon</code>になっています。これをapple siliconに変更するとpackage buildは安定するかもしれません。</p>
+<h3 id="shadercompileworker">ShaderCompileWorker</h3>
+<blockquote>
+<p>ShaderCompileWorker Failed to find game directory</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UEInstallDir<span style="color:#f92672">=</span>/Volumes/ssd/app/UE_5.3
+<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll ShaderCompileWorker Mac Development -architecture<span style="color:#f92672">=</span>arm64
+<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll ShaderCompileWorker Mac Development -architecture<span style="color:#f92672">=</span>arm64
+<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Build/BatchFiles/Mac/Build.sh UnrealEditor Mac Development -buildscw -architecture<span style="color:#f92672">=</span>arm64 -verbose
+</code></pre></div><ul>
+<li><a href="https://forums.unrealengine.com/t/ue5-for-m1-apple-silicon/259580/159?page=6">forums.unrealengine.com/t/ue5-for-m1-apple-silicon</a></li>
+</ul>
+<h3 id="llvm-error">LLVM ERROR</h3>
+<blockquote>
+<p>LogShaders: Error: Archiving failed: metallib failed with code 1:  LLVM ERROR: Could not parse module bitcode: file too small to contain bitcode header!</p>
+<p>LogCook: Error: Saving shared material shader code library failed for Mac.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UEInstallDir<span style="color:#f92672">=</span>/Volumes/ssd/app/UE_5.3
+<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh -project<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$project_file<span style="color:#e6db74">&#34;</span> -game -XCodeProjectFiles
+</code></pre></div><ul>
+<li><a href="https://forums.unrealengine.com/t/cooking-failed-logshaders-metallib-failed-with-code-1-llvm-error-sf-metal-sm5">forums.unrealengine.com/t/cooking-failed-logshaders-metallib-failed-with-code-1-llvm-error-sf-metal-sm5</a></li>
+</ul>
+<h3 id="ue5-package-build-for-windows">ue5 package build for windows</h3>
+<p>project settings &gt; platform &gt; windowsで<code>{D3D12, D3D11} Targeted Shader Formats</code>を<code>true</code>にしました。</p>
+<p>逆にwindowsの設定ファイルをmacに持ってくるとShaderがうまく表示されませんので、変更する必要があります。</p>
 
 		
 
