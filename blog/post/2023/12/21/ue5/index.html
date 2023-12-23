@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5を触ってみた8 | syui.ai</title>
+		<title>ue5を触ってみた9 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2023-12-16 / <a href="/syui">syui</a>
+		<div class="post-time-date">2023-12-21 / <a href="/syui">syui</a>
 
 		
 		
@@ -129,66 +129,54 @@
 		
 		</div>
 
-		<h2>ue5を触ってみた8</h2>
+		<h2>ue5を触ってみた9</h2>
 
-		<p>ue5でmac(arm64)のpackage buildは鬼門です。</p>
-<p>今回は、ue5 package build for macを解説します。</p>
-<p>vrm4uを使ってる人でmacでpackage buildしている人は世界中でただ1人かもしれません。全く情報がなく、arm64でbuildされているvroidゲームも見かけない。</p>
-<p>vrm4uをmacで導入すること自体も多少ハマるかもしれません。しかし、package buildほどではないです。それくらい意味がわかりませんでした。</p>
-<h3 id="ddc-directory">ddc directory</h3>
-<blockquote>
-<p>LogDerivedDataCache: Warning: Shared: Process has an existing cache store at path /path/to/ddc, and the duplicate is being ignored.</p>
-</blockquote>
-<p>様々なerrを回避してたどり着いたのは<code>「Macのプロジェクトをパッケージ化しています...」</code>という表示から先に進まないという現象です。なぜなのかずっと謎でした。logを確認してもerrが出ていないし、さっぱりわからない。でもなぜか進まない。</p>
-<p>そこで、初回スターターキットのprojectを作ってpacakge buildしてみることにしました。しかし、ここでも同じように先に進まない。フリーズはしていませんが動いていないのです。</p>
-<p>この原因はおそらく<code>ddc directory</code>を設定していないことによるものです。</p>
-<blockquote>
-<p>DDC の保存場所</p>
-<p>プロジェクトとシステムの構成方法によって、高速から低速にわたる階層の中に複数のDDC キャッシュが存在する可能性があります。派生データを評価するとき、システムは次のことを実行して、データにアクセスできる速さを決定します。</p>
-<p>派生データが必要な場合、データが見つかるまで、まず最速のキャッシュがチェックされ、次に速いキャッシュがチェックされます。</p>
-<p>データが見つかると、最速のローカルキャッシュにコピーされるため、次回のアクセスが高速になります。</p>
-<p>データが見つからない場合に初めて生成されて非同期でキャッシュにコピーされるため、その後は (場合によってはチームも) データを利用できるようになります。</p>
-<p>DDC に保存されているコンテンツは使い捨てですが、.uasset ファイルに保存されているデータを使用していつでも再生成できます。これらの派生フォーマットを外部に保存すると、ソース アセット ファイルを変更しなくても、エンジンで使用されるフォーマットを簡単に追加または変更できます。</p>
-</blockquote>
-<ul>
-<li><a href="https://docs.unrealengine.com/5.0/ja/derived-data-cache/">https://docs.unrealengine.com/5.0/ja/derived-data-cache/</a></li>
-</ul>
-<p>通常は<code>~/Library/Application\ Support/Epic/UnrealEngine/</code>にあるらしい。ですが、私はue5のengineもprojectもsharedも外部ディスクに保存しているのでそれが原因かはわかりませんが、ddc directoryの設定がnullでshaderなどの生成のところから先に進まなかったようです。</p>
-<p>それまでに様々なところをチェックしました。</p>
-<p><code>Engine/Build/BatchFiles/RunUAT.command</code>, <code>BuildConfiguration.xml</code>, <code>Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool</code>, <code>VSCode</code>など。</p>
-<ul>
-<li><a href="https://docs.unrealengine.com/5.2/en-US/supporting-universal-binaries-for-macos-in-unreal-engine/">https://docs.unrealengine.com/5.2/en-US/supporting-universal-binaries-for-macos-in-unreal-engine/</a></li>
-</ul>
-<p>ですが、全部正確に設定されており、全くの的外れでした。</p>
-<p>ue5の開発は初回からpackage buildで通ることを確認してから開発を進めるのがおすすめです。assetを入れると通らなくなります。pluginも同様です。</p>
-<p>もしそのassetやpluginを使って開発を進め、後々になってbuildが通らないということになると大変です。</p>
-<p>私も最初の方でpackage buildを試してみた事があったのですが最後まで確認せず、errがでてないから大丈夫とそこで終わりにしていました。ですが、全く先に進まないという問題がありました。</p>
-<p>色々と試した結果、macだけでなくwindowsでのpackage build環境も整えられたのでよかったですが、ue5のpackage build環境の検証と構築は相当大変でした。</p>
-<p>また、project settings &gt; platform &gt; macではpackage化の項目があり、通常は<code>intel &amp; apple silicon</code>になっています。これをapple siliconに変更するとpackage buildは安定するかもしれません。</p>
-<h3 id="shadercompileworker">ShaderCompileWorker</h3>
-<blockquote>
-<p>ShaderCompileWorker Failed to find game directory</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UEInstallDir<span style="color:#f92672">=</span>/Volumes/ssd/app/UE_5.3
-<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll ShaderCompileWorker Mac Development -architecture<span style="color:#f92672">=</span>arm64
-<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll ShaderCompileWorker Mac Development -architecture<span style="color:#f92672">=</span>arm64
-<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Build/BatchFiles/Mac/Build.sh UnrealEditor Mac Development -buildscw -architecture<span style="color:#f92672">=</span>arm64 -verbose
-</code></pre></div><ul>
-<li><a href="https://forums.unrealengine.com/t/ue5-for-m1-apple-silicon/259580/159?page=6">forums.unrealengine.com/t/ue5-for-m1-apple-silicon</a></li>
-</ul>
-<h3 id="llvm-error">LLVM ERROR</h3>
-<blockquote>
-<p>LogShaders: Error: Archiving failed: metallib failed with code 1:  LLVM ERROR: Could not parse module bitcode: file too small to contain bitcode header!</p>
-<p>LogCook: Error: Saving shared material shader code library failed for Mac.</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">UEInstallDir<span style="color:#f92672">=</span>/Volumes/ssd/app/UE_5.3
-<span style="color:#e6db74">${</span>UEInstallDir<span style="color:#e6db74">}</span>/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh -project<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$project_file<span style="color:#e6db74">&#34;</span> -game -XCodeProjectFiles
-</code></pre></div><ul>
-<li><a href="https://forums.unrealengine.com/t/cooking-failed-logshaders-metallib-failed-with-code-1-llvm-error-sf-metal-sm5">forums.unrealengine.com/t/cooking-failed-logshaders-metallib-failed-with-code-1-llvm-error-sf-metal-sm5</a></li>
-</ul>
-<h3 id="ue5-package-build-for-windows">ue5 package build for windows</h3>
-<p>project settings &gt; platform &gt; windowsで<code>{D3D12, D3D11} Targeted Shader Formats</code>を<code>true</code>にしました。</p>
-<p>逆にwindowsの設定ファイルをmacに持ってくるとShaderがうまく表示されませんので、変更する必要があります。</p>
+		<p>今回は、髪の毛が体を貫通する問題の修正と歩くモーションを変更する方法です。</p>
+<h3 id="kawaiiphysics">KawaiiPhysics</h3>
+<p><a href="https://github.com/pafuhana1213/KawaiiPhysics">https://github.com/pafuhana1213/KawaiiPhysics</a></p>
+<p>このpluginは素晴らしい働きをし、完璧に動作します。</p>
+<p>ただし、このpluginはc++クラスを追加する必要があります。</p>
+<p>c++クラスを追加するとwindows側でprojectを起動できなくなります。私はmacからwindowsに送ってbuildしています。</p>
+<p>したがって、<a href="https://forums.unrealengine.com/t/4-14-cannot-open-project-anymore/379795/6">こちら</a>にあるように.uprojectを修正して起動し、c++クラスを追加後に右クリック、<code>generate visual studio project files</code>から<code>.sln</code>を作成してrebuildします。rebuildする際もあらゆる依存関係でerrorが出るかもしれません。ue5は基本的に壊れているので、あらゆる問題が発生する可能性があります。</p>
+<p>このpluginの使い方は、vroid studioで後ろ髪のboneを確認したあと、そのboneをrootに設定し、各種<a href="https://qiita.com/YuukiOgino/items/7f3198a90dab43019f26">limit</a>を設定し、指定のboneを貫通しないようにします。<code>Sphere Limit</code>,<code>Capsule Limit</code>, <code>Plane Limit</code>があります。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231224_0001.png" alt=""></p>
+<p>ちなみに、今回は<code>UE_5.3/Engine/Build/BatchFiles/Build.bat</code>を動かすのに相当手間取りました。</p>
+<ol>
+<li>
+<p>pluginを使うにはc++クラスを追加する必要があるらしい</p>
+</li>
+<li>
+<p>追加するとwindowsでuprojectが開かなくなる</p>
+</li>
+<li>
+<p>とりあえずc++なしでuprojectを開いてc++クラスを追加</p>
+</li>
+<li>
+<p>slnでrebuildが通らない。visual studioが警告ありとか出てる</p>
+</li>
+<li>
+<p>visual studioで.net framework sdk 4.8.0をインストールしろと言われる</p>
+</li>
+<li>
+<p>.net framework 4.8のインストーラーがblockされる</p>
+</li>
+<li>
+<p>.net framework 4.8.1とその他の.net関連をを手動でインストールする</p>
+</li>
+<li>
+<p>1回目のrebuildが何故か失敗する</p>
+</li>
+<li>
+<p>2回目でやっと<code>UE_5.3/Engine/Build/BatchFiles/Build.bat</code>が動作する</p>
+</li>
+<li>
+<p>uprojectが正常に開くようになる</p>
+</li>
+</ol>
+<p>こんな感じでue5が動作する環境を構築してる時間のほうがゲーム開発してる時間より長い。ゲーム開発をしている場合ではない。</p>
+<h3 id="walkrun-land-state">walk/run, land state</h3>
+<p><code>ABP_Player</code>でwalk/runのstateを編集したり、スタート時のダッシュをアニメモンタージュで調整したりしました。</p>
+<p><a href="/ai/video/#ue5_ai_0006.mp4">/ai/video/#ue5_ai_0006.mp4</a></p>
 
 		
 
@@ -196,14 +184,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/15/arch/" id="article-nav-older" class="article-nav-link-wrap">
-archlinuxでwifiがfreezeする
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/16/ue5/" id="article-nav-older" class="article-nav-link-wrap">
+ue5を触ってみた8
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/12/21/ue5/" id="article-nav-newer" class="article-nav-link-wrap">
-     ue5を触ってみた9
-				</a></p>
     
 	</div>
 </nav>
