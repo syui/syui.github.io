@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 21 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ゲームを作ってる話</title>
+      <link>https://syui.ai/blog/post/2023/12/24/ac/</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/24/ac/</guid>
+      <description>この記事はBluesky Advent Calendar 2023の24日目の記事です。
+今回は、blueskyがきっかけでゲームを作り始めた話をします。
+私はyuiという作品に登場するアイというキャラクターを多くの人に知ってもらいたいなと思って、物語を作ったりお絵描きをしてきました。
+2023年にblueskyでbotにしてカードゲームとして登場させたところ、blueskyの人たちに見つけてもらったことで開発が進みました。
+それまで創作活動や開発は単に好きでやってるだけですが、多くの人に遊んでもらうということで色々と進めることができました。この前は衣装を作ったのですが、実は、昔から衣装は作りたいなと思っていて、でも大変そうなので、ずっと放置していました。
+これまでblueskyで作ったものはweb-clientやcli-client、bot、atprotoのserverやapiをはじめ、cardやaiten(麻雀をモデルにしたゲーム)、アイの3Dモデル、本や漫画などです。最近ではオープンワールドのゲームを作りはじめました。
+多分、blueskyをやってなかったらこんなに色々なことはやってなかったと思う。
+作ろうと思えば作れたかもしれないけど、でも違う。
+やるかやらないか、それがいちばん大切なこと。
+そんなきっかけをくれたblueskyに感謝。</description>
+    </item>
+    
     <item>
       <title>ue5を触ってみた9</title>
       <link>https://syui.ai/blog/post/2023/12/21/ue5/</link>
