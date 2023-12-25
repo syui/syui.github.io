@@ -62,3 +62,13 @@ span.prompt {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+h2 {
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+h3 {
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
