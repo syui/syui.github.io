@@ -37,30 +37,32 @@ pre {
 }
 
 table {
-    width:100%;
+	width:100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 table, th, td {
-  border-collapse: collapse;
-  border: 1px solid #ccc;
-  line-height: 1.5;
-  padding:6px;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	line-height: 1.5;
+	padding:6px;
 }
 
 .code-name {
-  position: relative;
-  padding: 4px 8px;
-  background-color: #444;
-  color: #ccc;
-  font-weight: 400;
+	position: relative;
+	padding: 4px 8px;
+	background-color: #444;
+	color: #ccc;
+	font-weight: 400;
 }
 
 span.prompt {
-    color: #008CCF;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+	color: #008CCF;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 h2 {
