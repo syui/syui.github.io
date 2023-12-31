@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 13 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsの初期設定と所感</title>
+      <link>https://syui.ai/blog/post/2023/12/30/windows/</link>
+      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2023/12/30/windows/</guid>
+      <description>local userにする 最初に設定していくと、microsoftのアカウントで勝手にuserを作成されていて、なんなんだこれと思ったけど、しばらく放置して初期設定してました。
+でも気になったので、適当に設定していくとlocal userを作成できた。ついでに前の勝手に作られたaccountは削除した。これ15分くらいかかりました。
+あと驚いたのは一生懸命にguiで削除したアプリが復活してたこと。どうやらここでのアンインストールは共通じゃないらしい。winget等で徹底的に削除するしかなかったっぽい。
+最初に回線引っこ抜くとlocal userを作成できるって自分のブログに書いてあることに後で気づいた。いまも有効かはわからないけど。
+ueのbuild    gpu build 1 build 2     GeForce GTX 1050Ti h5 h1   GoForce GTX 4060Ti h1 m20    初回は時間がかかるんだけど随分と短縮されている。あと、city sampleがサクサク動くしbuildが早すぎたのに感動しました。
+/ai/video/#ue5_ai_0007.mp4
+
+cudaは12.3を入れています。動いているのかどうかはわからんけど、erroを出しまくったあと正常なインストールに成功。ちなみに、なんで最初はerrを出してたのかは不明。ただ、pytorchのcudaが12.1なので、下げるかも。
+$ nvidia-smi Sun Dec 31 08:34:29 2023 +---------------------------------------------------------------------------------------+ | NVIDIA-SMI 546.33 Driver Version: 546.33 CUDA Version: 12.3 | |-----------------------------------------+----------------------+----------------------+ | GPU Name TCC/WDDM | Bus-Id Disp.A | Volatile Uncorr. ECC | | Fan Temp Perf Pwr:Usage/Cap | Memory-Usage | GPU-Util Compute M.</description>
+    </item>
+    
     <item>
       <title>wingetでpwshをupgradeしてopensshで使う</title>
       <link>https://syui.ai/blog/post/2022/09/13/windows-winget-pwsh-openssh/</link>
@@ -24,20 +41,13 @@ $ ssh windows $ winget -v # 7.2.6 $ winget upgrade microsoft.powershell # 7.3.0 
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/m/post/windows/</guid>
-      <description>windowsの使い方をまとめます。windows11を使用しています。ryzen+geforceです。
-local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
+      <description>windowsの使い方をまとめます。windows11を使用しています。
+   title body     cpu AMD Ryzen 7 5700X   memory 32GB / DDR4-3200 DIMM (PC4-25600)   gpu GeForce RTX 4060Ti 8GB   storage 1TB M.2 NVMe SSD   inc © INVERSENET    local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
 openssh https://github.com/PowerShell/Win32-OpenSSH
 $ winget install microsoft.openssh.beta sshd_configはc:programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublickeyを記述します。ここでは、c:programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。
 Match Group administrators AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys ADD userの場合、publickey認証が通らないことがあるようです。このようにしてc:/users/$user/.ssh/authorized_keysに置いてみましょう。pathにauthorizedKeyPath:c:/users/$user/.ssh/authorized_keysを追加します。
  c:/programdata/ssh/sshd_config
- PasswordAuthentication no PermitEmptyPasswords yes AuthorizedKeysFile .ssh/authorized_keys #Match Group administrators # AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys shellをpwshに変更するには、以下のコマンドを実行します。
-https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration
-$ New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;C:\Program Files\PowerShell\7\pwsh.exe&amp;#34; -PropertyType String -Force default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。
- Permission denied (publickey,keyboard-interactive).
- scpでConnection closedが出る場合、pathが通っていない可能性があります。
-sshd_configでfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。
-$ get-command fstp $ Set-Item Env:Path &amp;#34;c:C:\Program Files\OpenSSH;$ENV:Path&amp;#34; ultravnc https://www.uvnc.com/downloads/ultravnc.html
-$ winget install uvncbvba.</description>
+ PasswordAuthentication no PermitEmptyPasswords yes AuthorizedKeysFile .</description>
     </item>
     
     <item>

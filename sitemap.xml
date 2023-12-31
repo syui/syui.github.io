@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2023-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/private/</loc>
-    <lastmod>2023-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2023-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/windows/</loc>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2023/12/30/windows/</loc>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/private/</loc>
     <lastmod>2023-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/12/26/game-pc/</loc>
@@ -652,9 +658,6 @@
   </url><url>
     <loc>https://syui.ai/tags/pwsh/</loc>
     <lastmod>2022-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/windows/</loc>
-    <lastmod>2022-10-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/09/13/windows-winget-pwsh-openssh/</loc>
     <lastmod>2022-09-13T00:00:00+00:00</lastmod>
