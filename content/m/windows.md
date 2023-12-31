@@ -6,9 +6,15 @@ title = "windows"
 slug = "windows"
 +++
 
-windowsの使い方をまとめます。windows11を使用しています。ryzen+geforceです。
+windowsの使い方をまとめます。windows11を使用しています。
 
-
+|title|body|
+|---|---|
+|cpu|AMD Ryzen 7 5700X|
+|memory|32GB / DDR4-3200 DIMM (PC4-25600)|
+|gpu|GeForce RTX 4060Ti 8GB|
+|storage|1TB M.2 NVMe SSD|
+|inc|© INVERSENET|
 
 ### local account
 
@@ -75,7 +81,8 @@ $ winget install uvncbvba.UltraVnc
 
 したがって、exeやstartup(shell:startup)は、`プロパティ > 管理者としてこのプログラムを実行する`にチェックを入れます。
 
-また、場合によっては`nusrmgr.cpl`から`制御設定の変更`が必要になるかもしれません。
+その後、タスクスケジューラで設定しなければ自動起動しないようになりました。最上位の権限にチェックを入れます。
+
 
 ### virtualbox
 
@@ -90,6 +97,8 @@ virtualboxのimgを起動時にbackgraundで実行するには、以下のよう
 ### auto-login
 
 起動時のパスワードを省略する設定です。
+
+通常は`netplwiz`を起動して、パスワード入力が必要のチェックを外します。
 
 仮に`ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要`のチェックボックスが表示されない場合、レジストリの値が`2`になっているので変更する必要があります。
 
