@@ -1,7 +1,7 @@
 +++
 date = "2024-01-09"
 tags = ["windows", "stable diffusion", "diffusers", "python"]
-title = "[stable diffusion] diffusersのscriptを作ってsafe"
+title = "[stable diffusion] diffusersのscriptを作る"
 slug = "stable-diffusion"
 +++
 
