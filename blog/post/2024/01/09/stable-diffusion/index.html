@@ -148,23 +148,15 @@
 
 		<p>現在はstable diffusionはv2.1が最新らしい。</p>
 <ul>
-<li>
-<p><a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">https://huggingface.co/stabilityai/stable-diffusion-2-1</a></p>
-</li>
-<li>
-<p><a href="https://github.com/Stability-AI/stablediffusion">https://github.com/Stability-AI/stablediffusion</a></p>
-</li>
+<li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">https://huggingface.co/stabilityai/stable-diffusion-2-1</a></li>
+<li><a href="https://github.com/Stability-AI/stablediffusion">https://github.com/Stability-AI/stablediffusion</a></li>
 </ul>
 <p>今回は、前回同様に<code>txt2img.py</code>を動かせる環境を構築した上で、<code>.safetensors</code>を使用し画像生成してみました。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/stable_diffusion_model_anythingv5_20240109_0001.png" alt=""></p>
 <p>txt2imgはcliから使うstable-diffusionのようなものです。</p>
 <ul>
-<li>
-<p><a href="https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py">txt2img.py</a></p>
-</li>
-<li>
-<p><a href="https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py">txt2img.py</a></p>
-</li>
+<li><a href="https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py">txt2img.py</a></li>
+<li><a href="https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py">txt2img.py</a></li>
 </ul>
 <ol>
 <li>
@@ -187,7 +179,7 @@ $ python ./optimizedSD/optimized_txt2img.py --prompt <span style="color:#e6db74"
 <h3 id="diffusers">diffusers</h3>
 <p>今回はdiffusersを使って<code>.ckpt</code>ではなく<code>.safetensors</code>を使用します。</p>
 <ul>
-<li>models : <a href="https://civitai.com/">civitai</a></li>
+<li>model : <a href="https://civitai.com/">civitai</a></li>
 <li>prompt : <a href="https://majinai.art/">majinai</a></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda diactive
