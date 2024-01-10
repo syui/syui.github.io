@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>stable diffusion on syui.ai</title>
+    <title>stable-diffusion on syui.ai</title>
     <link>https://syui.ai/tags/stable-diffusion/</link>
-    <description>Recent content in stable diffusion on syui.ai</description>
+    <description>Recent content in stable-diffusion on syui.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
@@ -17,7 +17,7 @@
       <description>現在はstable diffusionはv2.1が最新らしい。
  https://huggingface.co/stabilityai/stable-diffusion-2-1 https://github.com/Stability-AI/stablediffusion  今回は、前回同様にtxt2img.pyを動かせる環境を構築した上で、.safetensorsを使用し画像生成してみました。
 txt2imgはcliから使うstable-diffusionのようなものです。
- txt2img.py txt2img.py    cudaを12.3から12.1にdowngradeします。
+ origin : txt2img.py fork : txt2img.py    cudaを12.3から12.1にdowngradeします。
   pytorchはstableではなくnightlyであるpre-versionを使わないとインストールできません。
   # pytorch:nightly, cuda:12.1 $ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121 $ conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=12.1 -c pytorch -c nvidia scoopのanaconda3がなくなっていたので手動でインストールしました。具体的にはminicondaを適当にインストールして~/miniconda3/condabinにpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないとactivateを使えません。
 $ conda init powershell 新しいgpuでは5-10分の生成が1-2分以内に変わっていました。

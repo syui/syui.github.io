@@ -232,7 +232,7 @@
       <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/did-method-plc/</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">packages/server/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.plc.env</span>
+      - <span style="color:#ae81ff">./.plc.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
 
@@ -243,7 +243,7 @@
       <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/indigo/</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">cmd/bigsky/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.bgs.env</span>
+      - <span style="color:#ae81ff">./.bgs.env</span>
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./data/bgs/:/data/</span>
     <span style="color:#f92672">depends_on</span>:
@@ -257,7 +257,7 @@
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.bsky.env</span>
+      - <span style="color:#ae81ff">./.bsky.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
       - <span style="color:#ae81ff">redis</span>
@@ -268,7 +268,7 @@
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
     <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.bsky.env</span>
+      - <span style="color:#ae81ff">./.bsky.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">bsky</span>
       - <span style="color:#ae81ff">db</span>
@@ -284,7 +284,7 @@
       <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.mod.env</span>
+      - <span style="color:#ae81ff">./.mod.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
 
@@ -294,7 +294,7 @@
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
     <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.mod.env</span>
+      - <span style="color:#ae81ff">./.mod.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">mod</span>
       - <span style="color:#ae81ff">db</span>
@@ -306,7 +306,7 @@
       <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/pds/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.pds.env</span>
+      - <span style="color:#ae81ff">./.pds.env</span>
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./data/pds/:/data/</span>
     <span style="color:#f92672">depends_on</span>:
@@ -315,7 +315,7 @@
   <span style="color:#f92672">db</span>:
     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:latest</span>
     <span style="color:#f92672">env_file</span>:
-      - <span style="color:#ae81ff">.db.env</span>
+      - <span style="color:#ae81ff">./.db.env</span>
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./postgres/init/:/docker-entrypoint-initdb.d/</span>
       - <span style="color:#ae81ff">./data/db/:/var/lib/postgresql/data/</span>
@@ -455,7 +455,7 @@ PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$passwor
 <tr>
 <td>bsky</td>
 <td>MODERATION_PUSH_URL</td>
-<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.at.${host}</code></td>
+<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
 </tr>
 <tr>
 <td>bsky</td>
@@ -577,7 +577,7 @@ PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$passwor
 <tr>
 <td>mod</td>
 <td>MODERATION_PUSH_URL</td>
-<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.at.${host}</code></td>
+<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
 </tr>
 <tr>
 <td>mod</td>
