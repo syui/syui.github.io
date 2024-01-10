@@ -1,6 +1,6 @@
 +++
 date = "2024-01-09"
-tags = ["windows", "stable diffusion", "diffusers", "python"]
+tags = ["windows", "stable-diffusion", "diffusers", "python"]
 title = "[stable diffusion] diffusersのscriptを作る"
 slug = "stable-diffusion"
 +++
@@ -16,8 +16,8 @@ slug = "stable-diffusion"
 
 txt2imgはcliから使うstable-diffusionのようなものです。
 
-- [txt2img.py](https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py)
-- [txt2img.py](https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py)
+- origin : [txt2img.py](https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py)
+- fork : [txt2img.py](https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py)
 
 1. [cuda](https://developer.nvidia.com/cuda-toolkit-archive)を12.3から12.1にdowngradeします。
 
