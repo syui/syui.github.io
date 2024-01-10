@@ -168,9 +168,16 @@ $ mv sd-v1-4.ckpt model.ckpt
 次に`anaconda`でstable-diffusionのpython環境を構築します。[cuda 11.6](https://developer.nvidia.com/cuda-toolkit-archive)をinstallしておいてください。
 
 ```sh
-# cuda 11.6
-$ scoop bucket add extras
-$ scoop install anaconda3 python
+# 現在、scoop:extrasからanaconda3がなくなっています
+# scoop bucket add extras
+# scoop install anaconda3 
+
+$ scoop install python rust
+$ python -V
+$ pip -V
+
+$ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
+
 $ conda init powershell
 $ git clone https://github.com/basujindal/stable-diffusion
 $ mkdir -p ~/stable-diffusion/models/ldm/stable-diffusion-v1
@@ -178,10 +185,14 @@ $ mv sd-v1-4.ckpt ~/stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
 $ cd stable-diffusion
 $ conda env create -f environment.yaml
 $ conda activate ldm
-# pytorchはcuda 11.6に対応しています
-$ conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
+# pytorchはcuda:12.1に対応しています
+$ conda install pytorch torchvision torchaudio -c pytorch -c conda-forge
 $ conda install jupyter pandas matplotlib -c conda-forge
 $ pip install diffusers transformers scipy ftfy
+$ pip install 
+
+$ python -m pip install pytorch-lightning
+$ pip install einops
 ```
 
 次回からは`$ conda activate ldm`で使います。
@@ -203,3 +214,23 @@ $ python optimizedSD/inpaint_gradio.py --init-img C:\Users\syui\input.png
 
 $ ls outputs/*
 ```
+
+追記 : update
+
+[txt2img.py](https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py)
+
+1. [cuda](https://developer.nvidia.com/cuda-toolkit-archive)を12.3から12.1にdowngradeします。
+
+2. [pytorch](https://pytorch.org/get-started/locally/)は`stable`ではなく`nightly`であるpre-versionを使わないとインストールできません。
+
+```sh
+# pytorch:nightly, cuda:12.1
+$ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
+```
+
+scoopの`anaconda3`がなくなっていたので手動でインストールしました。具体的には`miniconda`を適当にインストールして`~/miniconda3/condabin`にpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないと`activate`を使えません。
+
+```sh
+$ conda init powershell
+```
+
