@@ -910,7 +910,11 @@ $ curl -X POST -u admin:<span style="color:#e6db74">${</span>admin_password<span
   )
 }
 </code></pre></div><p>その他、書き換えを行うscriptです。頻繁にupdateすると思うので、mergeはきつい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd $d/repos/social-app/src
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">host<span style="color:#f92672">=</span>syu.is
+name<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>host%%.*<span style="color:#e6db74">}</span>
+domain<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>host##*.<span style="color:#e6db74">}</span>
+
+cd $d/repos/social-app/src
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;`grep -R bsky.social .`&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
 	<span style="color:#66d9ef">for</span> f <span style="color:#f92672">(</span><span style="color:#e6db74">`</span>grep -R bsky.social . |cut -d : -f 1<span style="color:#e6db74">`</span><span style="color:#f92672">)</span> sed -i -e <span style="color:#e6db74">&#34;s/bsky\.social/</span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">\.</span><span style="color:#e6db74">${</span>domain<span style="color:#e6db74">}</span><span style="color:#e6db74">/g&#34;</span> $f
 <span style="color:#66d9ef">fi</span>
