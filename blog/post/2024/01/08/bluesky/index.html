@@ -223,7 +223,36 @@
 <p>nostrで活動されているikuradonさんが全部のserverをセルフホストしているのを見て、どうやら他のserverも動作できる環境にあるようだと思ったので立ててみました。なお、ikuradonさんに結構助けてもらった。</p>
 <p>今回、<code>syu.is</code>というdomainを取りました。なお、<code>.is</code>はあまりおすすめしません。これはアイスランドが独自方針で管理している感じで、メール認証などが必要です。その他、様々な制限があります。</p>
 <p>docker composeで構築しました。大体は以下のような感じの構成です。自分なりに読み替えてください。</p>
-<h3 id="composeyaml">compose.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/bluesky-social/atproto
+cd atproto
+git clone https://github.com/did-method-plc/did-method-plc ./repos/did-method-plc
+git clone https://github.com/bluesky-social/indigo ./repos/indigo
+git clone https://github.com/bluesky-social/social-app ./repos/social-app
+touch .plc.env .bsky.env .bgs.env .pds.env .db.env .mod.env .web.env
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ./postgres/init
+echo <span style="color:#e6db74">&#39;-- plc
+</span><span style="color:#e6db74">CREATE DATABASE plc;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE plc TO postgres;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">-- bgs
+</span><span style="color:#e6db74">CREATE DATABASE bgs;
+</span><span style="color:#e6db74">CREATE DATABASE carstore;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE bgs TO postgres;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE carstore TO postgres;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">-- bsky(appview)
+</span><span style="color:#e6db74">CREATE DATABASE bsky;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE bsky TO postgres;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">-- ozone(moderation)
+</span><span style="color:#e6db74">CREATE DATABASE mod;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE mod TO postgres;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">-- pds
+</span><span style="color:#e6db74">CREATE DATABASE pds;
+</span><span style="color:#e6db74">GRANT ALL PRIVILEGES ON DATABASE pds TO postgres;
+</span><span style="color:#e6db74">&#39;</span> &gt;&gt; ./postgres/init/init.sql
+</code></pre></div><h3 id="composeyaml">compose.yaml</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:compose.yaml" data-lang="yml:compose.yaml"><span style="color:#f92672">services</span>:
   <span style="color:#f92672">plc</span>:
     <span style="color:#f92672">ports</span>:
@@ -235,6 +264,7 @@
       - <span style="color:#ae81ff">./.plc.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">bgs</span>:
     <span style="color:#f92672">ports</span>:
@@ -248,23 +278,24 @@
       - <span style="color:#ae81ff">./data/bgs/:/data/</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">bsky</span>:
     <span style="color:#f92672">ports</span>:
       - <span style="color:#ae81ff">2584</span>:<span style="color:#ae81ff">3000</span>
     <span style="color:#f92672">build</span>:
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
     <span style="color:#f92672">env_file</span>:
       - <span style="color:#ae81ff">./.bsky.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
       - <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">bsky-daemon</span>:
     <span style="color:#f92672">build</span>:
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
     <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
     <span style="color:#f92672">env_file</span>:
@@ -273,24 +304,53 @@
       - <span style="color:#ae81ff">bsky</span>
       - <span style="color:#ae81ff">db</span>
       - <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
-    <span style="color:#75715e"># command: node --enable-source-maps indexer.js</span>
-    <span style="color:#75715e"># command: node --enable-source-maps ingester.js</span>
+  <span style="color:#f92672">bsky-indexer</span>:
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps indexer.js</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">./.bsky.env</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/bsky/cache/:/cache/</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">bsky</span>
+      - <span style="color:#ae81ff">db</span>
+      - <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+
+  <span style="color:#f92672">bsky-ingester</span>:
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps ingester.js</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">./.bsky.env</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/bsky/cache/:/cache/</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">bsky</span>
+      - <span style="color:#ae81ff">db</span>
+      - <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">mod</span>:
     <span style="color:#f92672">ports</span>:
       - <span style="color:#ae81ff">2585</span>:<span style="color:#ae81ff">3000</span>
     <span style="color:#f92672">build</span>:
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
       - <span style="color:#ae81ff">./.mod.env</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">mod-daemon</span>:
     <span style="color:#f92672">build</span>:
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
     <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
     <span style="color:#f92672">env_file</span>:
@@ -298,12 +358,13 @@
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">mod</span>
       - <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">pds</span>:
     <span style="color:#f92672">ports</span>:
       - <span style="color:#ae81ff">2583</span>:<span style="color:#ae81ff">3000</span>
     <span style="color:#f92672">build</span>:
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
       <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/pds/Dockerfile</span>
     <span style="color:#f92672">env_file</span>:
       - <span style="color:#ae81ff">./.pds.env</span>
@@ -311,6 +372,18 @@
       - <span style="color:#ae81ff">./data/pds/:/data/</span>
     <span style="color:#f92672">depends_on</span>:
       - <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+
+  <span style="color:#f92672">social-app</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">8100</span>:<span style="color:#ae81ff">8100</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/social-app/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">Dockerfile</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">./.web.env</span>
+    <span style="color:#f92672">command</span>: <span style="color:#e6db74">&#34;/usr/bin/bskyweb serve&#34;</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">db</span>:
     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:latest</span>
@@ -319,33 +392,13 @@
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./postgres/init/:/docker-entrypoint-initdb.d/</span>
       - <span style="color:#ae81ff">./data/db/:/var/lib/postgresql/data/</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
   <span style="color:#f92672">redis</span>:
     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis</span>
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./data/redis/:/data/</span>
-</code></pre></div><h3 id="dbpostgres">db:postgres</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-postgres/init/init.sql" data-lang="postgres/init/init.sql"><span style="color:#75715e">-- plc
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> plc;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> plc <span style="color:#66d9ef">TO</span> postgres;
-
-<span style="color:#75715e">-- bgs
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> bgs;
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> carstore;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> bgs <span style="color:#66d9ef">TO</span> postgres;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> carstore <span style="color:#66d9ef">TO</span> postgres;
-
-<span style="color:#75715e">-- bsky(appview)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> bsky;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> bsky <span style="color:#66d9ef">TO</span> postgres;
-
-<span style="color:#75715e">-- ozone(moderation)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> <span style="color:#66d9ef">mod</span>;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> <span style="color:#66d9ef">mod</span> <span style="color:#66d9ef">TO</span> postgres;
-
-<span style="color:#75715e">-- pds
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> pds;
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> pds <span style="color:#66d9ef">TO</span> postgres;
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>まとめて紹介しますが、全部別々の<code>.env</code>に書いてください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.*.env" data-lang="sh:.*.env"><span style="color:#75715e"># pds</span>
 PDS_DB_POSTGRES_URL<span style="color:#f92672">=</span>postgresql://postgres:postgres@db/pds
@@ -567,7 +620,7 @@ PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$passwor
 <tr>
 <td>mod</td>
 <td>OZONE_DB_POSTGRES_URL</td>
-<td>postgres://postgres:postgres@db/moderation</td>
+<td>postgres://postgres:postgres@db/mod</td>
 </tr>
 <tr>
 <td>mod</td>
