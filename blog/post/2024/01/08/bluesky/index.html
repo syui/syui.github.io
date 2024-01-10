@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>blueskyをself-hostする | syui.ai</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="syui.ai" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.ai/icon/syui.jpg" />
+		<meta property="og:url" content="https://syui.ai" />
+		<meta property="og:site_name" content="syui.ai" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script src="/js/analytics.js"></script>
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "name": "syui.ai",
+			  "url": "https:\/\/syui.ai"
+			}
+		</script>
+		<script src="https://syui.ai/bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="https://syui.ai/bower_components/axios/dist/axios.min.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="https://syui.ai/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="https://syui.ai/bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai/bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+
+<body onload="highlight_prompt()">
+	
+		<div class="containerx">
+			<header id="header">
+				
+				<div class="logo"> <a href="/blog"> <svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+</svg>
+ </a> </div>
+
+				
+			</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-01-08 / <a href="/syui">syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/bluesky/">bluesky</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/pds/">pds</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<h2>blueskyをself-hostする</h2>
+
+		<p>少し前にblueskyをself-host(セルフホスト)しました。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/bluesky_atproto_self_hosting_20240108_0001.png" alt=""></p>
+<ul>
+<li><a href="https://web.syu.is">https://web.syu.is</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>url</th>
+<th>src</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pds</td>
+<td><a href="https://syu.is">https://syu.is</a></td>
+<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/pds">src</a></td>
+</tr>
+<tr>
+<td>plc</td>
+<td><a href="https://plc.syu.is">https://plc.syu.is</a></td>
+<td><a href="https://github.com/did-method-plc/did-method-plc/tree/main/packages/server">src</a></td>
+</tr>
+<tr>
+<td>mod</td>
+<td><a href="https://mod.syu.is">https://mod.syu.is</a></td>
+<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/ozone">src</a></td>
+</tr>
+<tr>
+<td>bgs</td>
+<td><a href="https://bgs.syu.is">https://bgs.syu.is</a></td>
+<td><a href="https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky">src</a></td>
+</tr>
+<tr>
+<td>appview</td>
+<td><a href="https://api.syu.is">https://api.syu.is</a></td>
+<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/bsky">src</a></td>
+</tr>
+<tr>
+<td>web</td>
+<td><a href="https://web.syu.is">https://web.syu.is</a></td>
+<td><a href="https://github.com/bluesky-social/social-app">src</a></td>
+</tr>
+</tbody>
+</table>
+<p>以前はbluesky(pds+appview)を動かしていたのですが、一般的にblueskyと呼ばれるものは複数のserverに依存しています。例えば、plc, bgsです。今ではpdsにあったappviewも分離しています。</p>
+<p>bsky.teamがそれぞれのsandboxを用意してくれていますが、全部をself-hostしないといつか動かなくなります。</p>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pds</td>
+<td>PDS_DID_PLC_URL</td>
+<td><code>https://plc.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BSKY_APP_VIEW_URL</td>
+<td><code>https://api.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BSKY_APP_VIEW_DID</td>
+<td>did:web:api.${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_MOD_SERVICE_URL</td>
+<td><code>https://mod.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_MOD_SERVICE_DID</td>
+<td>did:web:mod.${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_CRAWLERS</td>
+<td><code>https://bgs.${host}</code></td>
+</tr>
+</tbody>
+</table>
+<p>nostrで活動されているikuradonさんが全部のserverをセルフホストしているのを見て、どうやら他のserverも動作できる環境にあるようだと思ったので立ててみました。なお、ikuradonさんに結構助けてもらった。</p>
+<p>今回、<code>syu.is</code>というdomainを取りました。なお、<code>.is</code>はあまりおすすめしません。これはアイスランドが独自方針で管理している感じで、メール認証などが必要です。その他、様々な制限があります。</p>
+<p>docker composeで構築しました。大体は以下のような感じの構成です。自分なりに読み替えてください。</p>
+<h3 id="composeyaml">compose.yaml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:compose.yaml" data-lang="yml:compose.yaml"><span style="color:#f92672">services</span>:
+  <span style="color:#f92672">plc</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">2582</span>:<span style="color:#ae81ff">3000</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/did-method-plc/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">packages/server/Dockerfile</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.plc.env</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">bgs</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">2470</span>:<span style="color:#ae81ff">2470</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/indigo/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">cmd/bigsky/Dockerfile</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.bgs.env</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/bgs/:/data/</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">bsky</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">2584</span>:<span style="color:#ae81ff">3000</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.bsky.env</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+      - <span style="color:#ae81ff">redis</span>
+
+  <span style="color:#f92672">bsky-daemon</span>:
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/bsky/Dockerfile</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.bsky.env</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">bsky</span>
+      - <span style="color:#ae81ff">db</span>
+      - <span style="color:#ae81ff">redis</span>
+
+    <span style="color:#75715e"># command: node --enable-source-maps indexer.js</span>
+    <span style="color:#75715e"># command: node --enable-source-maps ingester.js</span>
+
+  <span style="color:#f92672">mod</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">2585</span>:<span style="color:#ae81ff">3000</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.mod.env</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">mod-daemon</span>:
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/ozone/Dockerfile</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">node --enable-source-maps daemon.js</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.mod.env</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">mod</span>
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">pds</span>:
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">2583</span>:<span style="color:#ae81ff">3000</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./repos/atproto/</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">services/pds/Dockerfile</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.pds.env</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/pds/:/data/</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+
+  <span style="color:#f92672">db</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:latest</span>
+    <span style="color:#f92672">env_file</span>:
+      - <span style="color:#ae81ff">.db.env</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./postgres/init/:/docker-entrypoint-initdb.d/</span>
+      - <span style="color:#ae81ff">./data/db/:/var/lib/postgresql/data/</span>
+
+  <span style="color:#f92672">redis</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/redis/:/data/</span>
+</code></pre></div><h3 id="dbpostgres">db:postgres</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-postgres/init/init.sql" data-lang="postgres/init/init.sql"><span style="color:#75715e">-- plc
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> plc;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> plc <span style="color:#66d9ef">TO</span> postgres;
+
+<span style="color:#75715e">-- bgs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> bgs;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> carstore;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> bgs <span style="color:#66d9ef">TO</span> postgres;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> carstore <span style="color:#66d9ef">TO</span> postgres;
+
+<span style="color:#75715e">-- bsky(appview)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> bsky;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> bsky <span style="color:#66d9ef">TO</span> postgres;
+
+<span style="color:#75715e">-- ozone(moderation)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> <span style="color:#66d9ef">mod</span>;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> <span style="color:#66d9ef">mod</span> <span style="color:#66d9ef">TO</span> postgres;
+
+<span style="color:#75715e">-- pds
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> pds;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> pds <span style="color:#66d9ef">TO</span> postgres;
+</code></pre></div><p>まとめて紹介しますが、全部別々の<code>.env</code>に書いてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.*.env" data-lang="sh:.*.env"><span style="color:#75715e"># pds</span>
+PDS_DB_POSTGRES_URL<span style="color:#f92672">=</span>postgresql://postgres:postgres@db/pds
+
+<span style="color:#75715e"># bsky(appview)</span>
+DB_PRIMARY_POSTGRES_URL<span style="color:#f92672">=</span>postgres://postgres:postgres@db/bsky
+DB_REPLICA_POSTGRES_URLS<span style="color:#f92672">=</span>postgres://postgres:postgres@db/bsky
+
+<span style="color:#75715e"># bgs</span>
+DATABASE_URL<span style="color:#f92672">=</span>postgres://postgres:postgres@db/bgs
+CARSTORE_DATABASE_URL<span style="color:#f92672">=</span>postgres://postgres:postgres@db/carstore
+
+<span style="color:#75715e"># mod</span>
+OZONE_DB_POSTGRES_URL<span style="color:#f92672">=</span>postgres://postgres:postgres@db/mod
+
+<span style="color:#75715e"># plc</span>
+DATABASE_URL<span style="color:#f92672">=</span>postgres://postgres:postgres@db/plc
+
+<span style="color:#75715e"># email</span>
+PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$password@smtp.gmail.com
+</code></pre></div><h3 id="env">env</h3>
+<p>環境変数をまとめます。</p>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bsky</td>
+<td>DB_PRIMARY_POSTGRES_URL</td>
+<td>postgres://postgres:postgres@db/bsky</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>DB_REPLICA_POSTGRES_URLS</td>
+<td>postgres://postgres:postgres@db/bsky</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>DB_REPLICA_TAGS_ANY</td>
+<td>0</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>PUBLIC_URL</td>
+<td><code>https://api.${host}</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>SERVER_DID</td>
+<td>did:web:api.${host}</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>DID_PLC_URL</td>
+<td><code>https://plc.${host}</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>BLOB_CACHE_LOC</td>
+<td>/cache/</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>SEARCH_ENDPOINT</td>
+<td><code>https://search.${host}</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>REDIS_HOST</td>
+<td>redis</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>INDEXER_PARTITION_IDS</td>
+<td>0</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>INGESTER_PARTITION_COUNT</td>
+<td>1</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>PUSH_NOTIFICATION_ENDPOINT</td>
+<td><code>https://push.bsky.${host}/api/push</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>REPO_PROVIDER</td>
+<td>wss://${host}</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>IMG_URI_ENDPOINT</td>
+<td><code>https://cdn.${host}/img</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>ODERATION_SERVICE_DID</td>
+<td>did:web:mod.${host}</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>MODERATION_PUSH_URL</td>
+<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.at.${host}</code></td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>ADMIN_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>MODERATOR_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>TRIAGE_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>SERVICE_SIGNING_KEY</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>IMG_URI_SALT</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>bsky</td>
+<td>IMG_URI_KEY</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bgs</td>
+<td>DATABASE_URL</td>
+<td>postgres://postgres:postgres@db/bgs</td>
+</tr>
+<tr>
+<td>bgs</td>
+<td>CARSTORE_DATABASE_URL</td>
+<td>postgres://postgres:postgres@db/carstore</td>
+</tr>
+<tr>
+<td>bgs</td>
+<td>DATA_DIR</td>
+<td>/data</td>
+</tr>
+<tr>
+<td>bgs</td>
+<td>ATP_PLC_HOST</td>
+<td><code>https://plc.${host}</code></td>
+</tr>
+<tr>
+<td>bgs</td>
+<td>BGS_ADMIN_KEY</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mod</td>
+<td>OZONE_PUBLIC_URL</td>
+<td><code>https://mod.${host}</code></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_SERVER_DID</td>
+<td>did:web:mod.${host}</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_APPVIEW_URL</td>
+<td><code>https://api.${host}</code></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_APPVIEW_DID</td>
+<td>did:web:api.${host}</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_PDS_URL</td>
+<td><code>https://${host}</code></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_PDS_DID</td>
+<td>did:web:${host}</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_DB_POSTGRES_URL</td>
+<td>postgres://postgres:postgres@db/moderation</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_DID_PLC_URL</td>
+<td><code>https://plc.${host}</code></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>MODERATION_PUSH_URL</td>
+<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.at.${host}</code></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_ADMIN_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_MODERATOR_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_TRIAGE_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>OZONE_SIGNING_KEY_HEX</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pds</td>
+<td>PDS_HOSTNAME</td>
+<td>${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_DATA_DIRECTORY</td>
+<td>/data</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_DB_POSTGRES_URL</td>
+<td>postgresql://postgres:postgres@db/pds</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_DID_PLC_URL</td>
+<td><code>https://plc.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BSKY_APP_VIEW_URL</td>
+<td><code>https://api.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BSKY_APP_VIEW_DID</td>
+<td>did:web:api.${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_MOD_SERVICE_URL</td>
+<td><code>https://mod.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_MOD_SERVICE_DID</td>
+<td>did:web:mod.${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_CRAWLERS</td>
+<td><code>https://bgs.${host}</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_EMAIL_SMTP_URL</td>
+<td>smtps://$username:$password@smtp.gmail.com</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_EMAIL_FROM_ADDRESS</td>
+<td>no-reply@${host}</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_INVITE_REQUIRED (招待コード)</td>
+<td>false</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_INVITE_INTERVAL</td>
+<td>604800000</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BLOBSTORE_DISK_LOCATION</td>
+<td>/data/img/static</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_BLOBSTORE_DISK_TMP_LOCATION</td>
+<td>/data/img/tmp</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_JWT_SECRET</td>
+<td><code>$ openssl rand --hex 16</code></td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_ADMIN_PASSWORD</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_REPO_SIGNING_KEY_K256_PRIVATE_KEY_HEX</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>pds</td>
+<td>PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>server</th>
+<th>env</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plc</td>
+<td>DATABASE_URL</td>
+<td>postgres://postgres:postgres@db/plc</td>
+</tr>
+<tr>
+<td>plc</td>
+<td>DB_CREDS_JSON</td>
+<td>&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
+</tr>
+<tr>
+<td>plc</td>
+<td>ENABLE_MIGRATIONS</td>
+<td>true</td>
+</tr>
+<tr>
+<td>plc</td>
+<td>DB_MIGRATE_CREDS_JSON</td>
+<td>&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
+</tr>
+</tbody>
+</table>
+<p><code>xxx</code>は以下のコマンドなどで作成してもいいと思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl ecparam --name secp256k1 --genkey --noout --outform DER | tail --bytes<span style="color:#f92672">=</span>+8 | head --bytes<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span> | xxd --plain --cols <span style="color:#ae81ff">32</span>
+</code></pre></div><h3 id="server_did--service_signing_key">SERVER_DID / SERVICE_SIGNING_KEY</h3>
+<p>以下は現時点では必要ありません。</p>
+<p>bsky(appview)の<code>SERVER_DID</code>は<code>did:web:xxx</code>という形式と<code>did:plc:xxx</code>という形式を使えます。後者はplcに登録して使うものと思われ、連合が開始する際に重要になるかもしれません。</p>
+<p><code>SERVICE_SIGNING_KEY</code>は<code>SERVER_DID</code>を取得したときのsign-keyだと思われます。</p>
+<p>これはatprotoの<code>dev-env</code>でexampleが書かれています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:atproto/packages/dev-env/src/bsky.ts" data-lang="ts:atproto/packages/dev-env/src/bsky.ts">  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">cfg</span>: <span style="color:#66d9ef">BskyConfig</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">TestBsky</span>&gt; {
+    <span style="color:#75715e">// packages/crypto/tests/keypairs.test.ts
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serviceKeypair</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Secp256k1Keypair</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">exportable</span>: <span style="color:#66d9ef">true</span> })
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`ROTATION_KEY=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">serviceKeypair</span>.<span style="color:#a6e22e">did</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">exported</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">serviceKeypair</span>.<span style="color:#66d9ef">export</span>()
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">plcClient</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PlcClient</span>(<span style="color:#a6e22e">cfg</span>.<span style="color:#a6e22e">plcUrl</span>)
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cfg</span>.<span style="color:#a6e22e">port</span> <span style="color:#f92672">||</span> (<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getPort</span>())
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`http://localhost:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">port</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serverDid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">plcClient</span>.<span style="color:#a6e22e">createDid</span>({
+      <span style="color:#a6e22e">signingKey</span>: <span style="color:#66d9ef">serviceKeypair.did</span>(),
+      <span style="color:#a6e22e">rotationKeys</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">serviceKeypair</span>.<span style="color:#a6e22e">did</span>()],
+      <span style="color:#a6e22e">handle</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;bsky.test&#39;</span>,
+      <span style="color:#a6e22e">pds</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`http://localhost:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">port</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+      <span style="color:#a6e22e">signer</span>: <span style="color:#66d9ef">serviceKeypair</span>,
+    })
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`SERVER_DID=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">serverDid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bsky</span>.<span style="color:#a6e22e">BskyAppView</span>.<span style="color:#a6e22e">create</span>({
+      <span style="color:#a6e22e">db</span>,
+      <span style="color:#a6e22e">redis</span>: <span style="color:#66d9ef">redisCache</span>,
+      <span style="color:#a6e22e">config</span>,
+      <span style="color:#a6e22e">algos</span>: <span style="color:#66d9ef">cfg.algos</span>,
+      <span style="color:#a6e22e">imgInvalidator</span>: <span style="color:#66d9ef">cfg.imgInvalidator</span>,
+      <span style="color:#a6e22e">signingKey</span>: <span style="color:#66d9ef">serviceKeypair</span>,
+    })
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ make deps
+$ make build
+$ make test
+
+$ make run-dev-env
+</code></pre></div><p>appviewをcreateする際の<code>signingKey: serviceKeypair</code>の部分を見てください。objを使用しています。</p>
+<p>つまり、signingKeyに<code>obj</code>を入れると動きますが、<code>services/bsky/api.ts</code>では以下のような処理がなされます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:atproto/services/bsky/api.js" data-lang="ts:atproto/services/bsky/api.js"> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">signingKey</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Secp256k1Keypair</span>.<span style="color:#66d9ef">import</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">serviceSigningKey</span>)
+</code></pre></div><p>didを作成したときに<code>Secp256k1Keypair</code>でimportできる値を<code>SERVICE_SIGNING_KEY</code>に入れてください。</p>
+<p>あるいはコードを書き換えてobjをいれるのでもいけますが、現実的ではありません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:atproto/services/bsky/api.js" data-lang="ts:atproto/services/bsky/api.js"><span style="color:#75715e">// const signingKey = await Secp256k1Keypair.import(env.serviceSigningKey)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">signingKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">SERVICE_SIGNING_OBJ</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts:atproto/packages/crypto/tests/keypairs.test.ts" data-lang="ts:atproto/packages/crypto/tests/keypairs.test.ts">      <span style="color:#a6e22e">keypair</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Secp256k1Keypair</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">exportable</span>: <span style="color:#66d9ef">true</span> })
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">exported</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">keypair</span>.<span style="color:#66d9ef">export</span>()
+      <span style="color:#a6e22e">imported</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Secp256k1Keypair</span>.<span style="color:#66d9ef">import</span>(<span style="color:#a6e22e">exported</span>, { <span style="color:#a6e22e">exportable</span>: <span style="color:#66d9ef">true</span> })
+
+      <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">keypair</span>.<span style="color:#a6e22e">did</span>()).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">imported</span>.<span style="color:#a6e22e">did</span>())
+</code></pre></div><p>plcへの登録は以下のコマンドだと思われます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://web.plc.directory/api/redoc#operation/ResolveDid</span>
+$ url<span style="color:#f92672">=</span>https://plc.$host/did:plc:pyc2ihzpelxtg4cdkfzbhcv4
+$ json<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{ &#34;type&#34;: &#34;create&#34;, &#34;signingKey&#34;: &#34;did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ&#34;, &#34;recoveryKey&#34;: &#34;did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg&#34;, &#34;handle&#34;: &#34;first-post.bsky.social&#34;, &#34;service&#34;: &#34;https://bsky.social&#34;, &#34;prev&#34;: null, &#34;sig&#34;: &#34;yvN4nQYWTZTDl9nKSSyC5EC3nsF5g4S56OmRg9G6_-pM6FCItV2U2u14riiMGyHiCD86l6O-1xC5MPwf8vVsRw&#34; }&#39;</span>
+
+$ curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;</span>$json<span style="color:#e6db74">&#34;</span> $url | jq .
+</code></pre></div><h3 id="invite-code">invite-code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ host<span style="color:#f92672">=</span>example.com
+$ admin_password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin-pass&#34;</span>
+$ url<span style="color:#f92672">=</span>https://$host/xrpc/com.atproto.server.createInviteCode
+$ json<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;useCount\&#34;:1}&#34;</span>
+
+$ curl -X POST -u admin:<span style="color:#e6db74">${</span>admin_password<span style="color:#e6db74">}</span> -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;</span>$json<span style="color:#e6db74">&#34;</span> -sL $url | jq .
+</code></pre></div>
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/12/30/windows/" id="article-nav-older" class="article-nav-link-wrap">
+windowsの初期設定と所感
+					</a></p>
+    
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/01/09/stable-diffusion/" id="article-nav-newer" class="article-nav-link-wrap">
+     [stable diffusion] diffusersのscriptを作る
+				</a></p>
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
+		
+<script type="text/javascript" src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+		<script src="/js/highlight-prompt.js"></script>
+	</body>
+</html>

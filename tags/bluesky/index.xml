@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyをself-hostする</title>
+      <link>https://syui.ai/blog/post/2024/01/08/bluesky/</link>
+      <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2024/01/08/bluesky/</guid>
+      <description>少し前にblueskyをself-host(セルフホスト)しました。
+ https://web.syu.is     server url src     pds https://syu.is src   plc https://plc.syu.is src   mod https://mod.syu.is src   bgs https://bgs.syu.is src   appview https://api.syu.is src   web https://web.syu.is src    以前はbluesky(pds+appview)を動かしていたのですが、一般的にblueskyと呼ばれるものは複数のserverに依存しています。例えば、plc, bgsです。今ではpdsにあったappviewも分離しています。
+bsky.teamがそれぞれのsandboxを用意してくれていますが、全部をself-hostしないといつか動かなくなります。
+   server env body     pds PDS_DID_PLC_URL https://plc.${host}   pds PDS_BSKY_APP_VIEW_URL https://api.${host}   pds PDS_BSKY_APP_VIEW_DID did:web:api.</description>
+    </item>
+    
     <item>
       <title>ゲームを作ってる話</title>
       <link>https://syui.ai/blog/post/2023/12/24/ac/</link>
