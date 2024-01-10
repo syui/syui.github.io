@@ -8,7 +8,6 @@ slug = "stable-diffusion"
 現在はstable diffusionはv2.1が最新らしい。
 
 - https://huggingface.co/stabilityai/stable-diffusion-2-1
-
 - https://github.com/Stability-AI/stablediffusion
 
 今回は、前回同様に`txt2img.py`を動かせる環境を構築した上で、`.safetensors`を使用し画像生成してみました。
@@ -18,7 +17,6 @@ slug = "stable-diffusion"
 txt2imgはcliから使うstable-diffusionのようなものです。
 
 - [txt2img.py](https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py)
-
 - [txt2img.py](https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py)
 
 1. [cuda](https://developer.nvidia.com/cuda-toolkit-archive)を12.3から12.1にdowngradeします。
@@ -51,7 +49,7 @@ $ python ./optimizedSD/optimized_txt2img.py --prompt "masterpiece, high quality,
 
 今回はdiffusersを使って`.ckpt`ではなく`.safetensors`を使用します。
 
-- models : [civitai](https://civitai.com/)
+- model : [civitai](https://civitai.com/)
 - prompt : [majinai](https://majinai.art/)
 
 ```sh
