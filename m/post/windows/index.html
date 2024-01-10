@@ -256,9 +256,16 @@ $ git clone https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
 $ mv stable-diffusion-v-1-4-original stable-diffusion/models/ldm/stable-diffusion-v1
 $ mv sd-v1-4.ckpt model.ckpt 
 </code></pre></div><p>次に<code>anaconda</code>でstable-diffusionのpython環境を構築します。<a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda 11.6</a>をinstallしておいてください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># cuda 11.6</span>
-$ scoop bucket add extras
-$ scoop install anaconda3 python
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 現在、scoop:extrasからanaconda3がなくなっています</span>
+<span style="color:#75715e"># scoop bucket add extras</span>
+<span style="color:#75715e"># scoop install anaconda3 </span>
+
+$ scoop install python rust
+$ python -V
+$ pip -V
+
+$ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
+
 $ conda init powershell
 $ git clone https://github.com/basujindal/stable-diffusion
 $ mkdir -p ~/stable-diffusion/models/ldm/stable-diffusion-v1
@@ -266,10 +273,14 @@ $ mv sd-v1-4.ckpt ~/stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
 $ cd stable-diffusion
 $ conda env create -f environment.yaml
 $ conda activate ldm
-<span style="color:#75715e"># pytorchはcuda 11.6に対応しています</span>
-$ conda install pytorch torchvision torchaudio cudatoolkit<span style="color:#f92672">=</span>11.6 -c pytorch -c conda-forge
+<span style="color:#75715e"># pytorchはcuda:12.1に対応しています</span>
+$ conda install pytorch torchvision torchaudio -c pytorch -c conda-forge
 $ conda install jupyter pandas matplotlib -c conda-forge
 $ pip install diffusers transformers scipy ftfy
+$ pip install 
+
+$ python -m pip install pytorch-lightning
+$ pip install einops
 </code></pre></div><p>次回からは<code>$ conda activate ldm</code>で使います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda activate ldm
 $ cd ~/stable-diffusion
@@ -286,6 +297,20 @@ $ python optimizedSD/inpaint_gradio.py --init-img C:<span style="color:#ae81ff">
 <span style="color:#75715e"># open localhost:7860</span>
 
 $ ls outputs/*
+</code></pre></div><p>追記 : update</p>
+<p><a href="https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py">txt2img.py</a></p>
+<ol>
+<li>
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda</a>を12.3から12.1にdowngradeします。</p>
+</li>
+<li>
+<p><a href="https://pytorch.org/get-started/locally/">pytorch</a>は<code>stable</code>ではなく<code>nightly</code>であるpre-versionを使わないとインストールできません。</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># pytorch:nightly, cuda:12.1</span>
+$ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
+</code></pre></div><p>scoopの<code>anaconda3</code>がなくなっていたので手動でインストールしました。具体的には<code>miniconda</code>を適当にインストールして<code>~/miniconda3/condabin</code>にpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないと<code>activate</code>を使えません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda init powershell
 </code></pre></div>
 		
 

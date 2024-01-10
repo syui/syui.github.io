@@ -7,11 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>diffusers</title>
+      <link>https://syui.ai/tags/diffusers/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/diffusers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://syui.ai/tags/python/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stable diffusion</title>
+      <link>https://syui.ai/tags/stable-diffusion/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/stable-diffusion/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>windows</title>
       <link>https://syui.ai/tags/windows/</link>
-      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/windows/</guid>
       <description></description>
@@ -644,15 +671,6 @@
       <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/ai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://syui.ai/tags/python/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/python/</guid>
       <description></description>
     </item>
     
