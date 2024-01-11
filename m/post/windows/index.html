@@ -168,13 +168,19 @@
 </tr>
 </tbody>
 </table>
+<h3 id="gpu">gpu</h3>
+<p>基本的にgpuのhdmi端子からdispalyに接続します。</p>
+<p>nvidiaの<a href="https://www.nvidia.com/download">driver</a>は常にupdateしてください。</p>
+<p>download : <a href="https://www.nvidia.com/download/driverResults.aspx/216928/">driver</a>, <a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda v12.1</a>, <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a></p>
+<p>現在、<a href="https://pytorch.org/get-started/previous-versions/">pytorch</a>は<code>cuda v12.1</code>に対応しています。</p>
 <h3 id="local-account">local account</h3>
 <p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
 <h3 id="openssh">openssh</h3>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ winget install microsoft.openssh.beta
-</code></pre></div><p><code>sshd_config</code>は<code>c:programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
+</code></pre></div><p><code>sshd_config</code>は<code>c:/programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:/programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ls c:/programdata/ssh/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Match Group administrators
        AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
 </code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。pathに<code>authorizedKeyPath</code>:<code>c:/users/$user/.ssh/authorized_keys</code>を追加します。</p>
 <blockquote>
@@ -251,11 +257,10 @@ $ winget upgrade --all
 <p>AIによるイラスト生成です。</p>
 <p>model-fileをdownloadします。今回は<code>stable-diffusion-v1-4</code>を使用します。novelaiのmodelがすごいらしい。他のmodelも<code>model.ckpt</code>に置き換えると動きます。</p>
 <p><a href="https://huggingface.co/">huggingface.co</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># huggingface.coで同意すればcloneできるようになる </span>
-$ git clone https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
 $ mv stable-diffusion-v-1-4-original stable-diffusion/models/ldm/stable-diffusion-v1
 $ mv sd-v1-4.ckpt model.ckpt 
-</code></pre></div><p>次に<code>anaconda</code>でstable-diffusionのpython環境を構築します。<a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda 11.6</a>をinstallしておいてください。</p>
+</code></pre></div><p>次に<code>anaconda</code>でstable-diffusionのpython環境を構築します。<a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda</a>をinstallしておいてください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 現在、scoop:extrasからanaconda3がなくなっています</span>
 <span style="color:#75715e"># scoop bucket add extras</span>
 <span style="color:#75715e"># scoop install anaconda3 </span>
@@ -311,6 +316,45 @@ $ ls outputs/*
 $ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
 </code></pre></div><p>scoopの<code>anaconda3</code>がなくなっていたので手動でインストールしました。具体的には<code>miniconda</code>を適当にインストールして<code>~/miniconda3/condabin</code>にpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないと<code>activate</code>を使えません。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda init powershell
+</code></pre></div><h3 id="diffusers">diffusers</h3>
+<p><code>.ckpt</code>ではなく<code>.safetensors</code>を使用します。</p>
+<ul>
+<li>v2.1 : <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">https://huggingface.co/stabilityai/stable-diffusion-2-1</a></li>
+<li>github : <a href="https://github.com/Stability-AI/stablediffusion">https://github.com/Stability-AI/stablediffusion</a></li>
+<li>model : <a href="https://civitai.com/">civitai</a></li>
+<li>prompt : <a href="https://majinai.art/">majinai</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda diactive
+---
+$ conda activate ldm
+$ pip install diffusers
+$ pip install git+https://github.com/huggingface/transformers$ 
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py:safe.py" data-lang="py:safe.py"><span style="color:#75715e"># https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/text2img</span>
+<span style="color:#f92672">from</span> diffusers <span style="color:#f92672">import</span> StableDiffusionPipeline
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> sys
+
+pipe <span style="color:#f92672">=</span> StableDiffusionPipeline<span style="color:#f92672">.</span>from_single_file(<span style="color:#e6db74">&#34;model.safetensors&#34;</span>, torch_dtype<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>float16)<span style="color:#f92672">.</span>to(<span style="color:#e6db74">&#34;cuda&#34;</span>)
+
+<span style="color:#75715e"># Potential NSFW content was detected in one or more images. A black image will be returned instead. Try again with a different prompt and/or seed.</span>
+<span style="color:#75715e">#pipe.safety_checker = None</span>
+<span style="color:#75715e">#pipe.requires_safety_checker = False</span>
+<span style="color:#75715e"># nsfw_content_detected</span>
+
+n <span style="color:#f92672">=</span> len(sys<span style="color:#f92672">.</span>argv)
+<span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+    prompt <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
+<span style="color:#66d9ef">else</span>:
+    prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;masterpiece, best quality, 1girl, solo, flower, long hair, outdoors, letterboxed, school uniform, day, sky, looking up, short sleeves, parted lips, shirt, cloud, black hair, sunlight, white shirt, serafuku, upper body, from side, pink flower, blurry, brown hair, blue sky, depth of field&#34;</span>
+
+print(prompt)
+image <span style="color:#f92672">=</span> pipe(prompt<span style="color:#f92672">=</span>prompt, height<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">768</span>)<span style="color:#f92672">.</span>images[<span style="color:#ae81ff">0</span>]
+image<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#34;test.png&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python safe.py
+$ ls test.png
+
+$ python safe.py <span style="color:#e6db74">&#34;masterpiece, best quality, very_high_resolution, large_filesize, full color, beautiful kawaii, gold hair, little girl&#34;</span>
+$ ls test.png
 </code></pre></div>
 		
 
