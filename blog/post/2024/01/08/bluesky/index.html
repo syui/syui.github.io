@@ -795,9 +795,11 @@ PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$passwor
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl ecparam --name secp256k1 --genkey --noout --outform DER | tail --bytes<span style="color:#f92672">=</span>+8 | head --bytes<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span> | xxd --plain --cols <span style="color:#ae81ff">32</span>
 </code></pre></div><h3 id="server_did--service_signing_key">SERVER_DID / SERVICE_SIGNING_KEY</h3>
 <blockquote>
-<p><code>SERVER_DID=did:web:xxx</code>の場合はローカル環境で生成したもので構いません。しかし、<code>SERVER_DID=did:plc:xxx</code>を使用する場合はplcからkeyを登録します。</p>
+<p><code>SERVICE_SIGNING_KEY</code>に入れる値は<code>SERVER_DID=did:web:xxx</code>の場合、ローカル環境で生成したもので構いません。しかし、<code>SERVER_DID=did:plc:xxx</code>を使用する場合はplcからkeyを登録します。</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl ecparam --name secp256k1 --genkey --noout --outform DER | tail --bytes<span style="color:#f92672">=</span>+8 | head --bytes<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span> | xxd --plain --cols <span style="color:#ae81ff">32</span>
+
+SERVICE_SIGNING_KEY<span style="color:#f92672">=</span>xxx
 </code></pre></div><p>以下は現時点では必要ありません。</p>
 <p>bsky(appview)の<code>SERVER_DID</code>は<code>did:web:xxx</code>という形式と<code>did:plc:xxx</code>という形式を使えます。後者はplcに登録して使うものと思われ、連合が開始する際に重要になるかもしれません。</p>
 <p><code>SERVICE_SIGNING_KEY</code>は<code>SERVER_DID</code>を取得したときのsign-keyだと思われます。</p>
