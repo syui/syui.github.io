@@ -389,20 +389,19 @@ echo <span style="color:#e6db74">&#39;-- plc
     <span style="color:#f92672">volumes</span>:
       - <span style="color:#ae81ff">./data/redis/:/data/</span>
 </code></pre></div><h3 id="hint">hint</h3>
+<p>必要に応じて、以下の設定などを使用するとよいでしょう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
     <span style="color:#f92672">plc</span>:
         <span style="color:#f92672">depends_on</span>:
             <span style="color:#f92672">db</span>:
-            <span style="color:#75715e"># 依存先のサービスが起動したら起動する</span>
-            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
-
-
+                <span style="color:#75715e"># 依存先のサービスが起動したら起動する</span>
+                <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
     <span style="color:#f92672">plc</span>:
         <span style="color:#f92672">depends_on</span>:
             <span style="color:#f92672">db</span>:
-            <span style="color:#75715e"># 依存先のサービスが起動して、なおかつ、 healthcheck が通ったら起動する</span>
-            <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+                <span style="color:#75715e"># 依存先のサービスが起動して、なおかつ、 healthcheck が通ったら起動する</span>
+                <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
 
     <span style="color:#f92672">db</span>:
         <span style="color:#f92672">healthcheck</span>:
@@ -419,6 +418,7 @@ echo <span style="color:#e6db74">&#39;-- plc
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
     <span style="color:#f92672">db</span>:
         <span style="color:#75715e"># https://hub.docker.com/_/postgres</span>
+        <span style="color:#75715e"># postgresのversionを固定</span>
         <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:16</span>
 </code></pre></div><h3 id="env">env</h3>
 <p>dbのurlになります。全部別々の<code>.env</code>に書いてください。</p>
