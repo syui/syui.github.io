@@ -420,6 +420,19 @@ echo <span style="color:#e6db74">&#39;-- plc
         <span style="color:#75715e"># https://hub.docker.com/_/postgres</span>
         <span style="color:#75715e"># postgresのversionを固定</span>
         <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:16</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
+    <span style="color:#f92672">db</span>:
+        <span style="color:#75715e"># localhostからのアクセスを可能にする</span>
+        <span style="color:#75715e"># postgresql://postgres:postgres@127.0.0.1</span>
+        <span style="color:#f92672">ports</span>:
+          - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
+    <span style="color:#f92672">db</span>:
+        <span style="color:#75715e"># postgresql://user:password@127.0.0.1/test</span>
+        <span style="color:#f92672">environment</span>:
+          <span style="color:#f92672">POSTGRES_USER</span>: <span style="color:#ae81ff">user</span>
+          <span style="color:#f92672">POSTGRES_DB</span>: <span style="color:#ae81ff">test</span>
+          <span style="color:#f92672">POSTGRES_PASSWORD</span>: <span style="color:#ae81ff">password </span>
 </code></pre></div><h3 id="env">env</h3>
 <p>dbのurlになります。全部別々の<code>.env</code>に書いてください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:.*.env" data-lang="sh:.*.env"><span style="color:#75715e"># pds</span>
