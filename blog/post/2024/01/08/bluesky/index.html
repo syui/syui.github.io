@@ -395,7 +395,7 @@ echo <span style="color:#e6db74">&#39;-- plc
         <span style="color:#f92672">depends_on</span>:
             <span style="color:#f92672">db</span>:
                 <span style="color:#75715e"># 依存先のサービスが起動したら起動する</span>
-                <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+                <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_started</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:compose.yaml" data-lang="yaml:compose.yaml"><span style="color:#f92672">services</span>:
     <span style="color:#f92672">plc</span>:
         <span style="color:#f92672">depends_on</span>:
