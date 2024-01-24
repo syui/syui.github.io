@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>[stable diffusion] diffusersのscriptを作る | syui.ai</title>
+		<title>ue5のBPでapiを呼び出す方法 | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,12 +102,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2024-01-09 / <a href="/syui">syui</a>
+		<div class="post-time-date">2024-01-23 / <a href="/syui">syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/windows/">windows</a>
+		<a href="https://syui.ai/tags/ue5/">ue5</a>
 		
 		
 		
@@ -117,112 +117,77 @@
 		
 		
 		
-		
-		
-		
-		, <a href="https://syui.ai/tags/stable-diffusion/">stable-diffusion</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.ai/tags/diffusers/">diffusers</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		, <a href="https://syui.ai/tags/python/">python</a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/windows">windows</a></p>
 		
 		</div>
 
-		<h2>[stable diffusion] diffusersのscriptを作る</h2>
+		<h2>ue5のBPでapiを呼び出す方法</h2>
 
-		<p>現在はstable diffusionはv2.1が最新らしい。</p>
+		<p>今回は、ue5のBP(ブループリント)でapiを呼び出す方法やue5で最近やったことをまとめます。</p>
+<p>最近はゲーム開発を全くやっていませんでしたが2日くらい前から再開しました。</p>
+<p>再開した理由としては、誕生祭でしょうか。そこに間に合わせるため実装を進めました。</p>
+<p>とりあえずデバッグモードみたいなものを公開し、少しずつ改良していくのが自分には合ってるのかもしれません。</p>
+<p>既存の完璧なゲームを目指してると、なんかやらなくなっちゃう気がする。</p>
+<p>あと、windowsで開発してるとブログを書きづらい。とりあえず<a href="https://blueprintue.com/">blueprintue.com</a>をwindowsから貼って、それをブログで引用する。</p>
+<h3 id="va-rest">va rest</h3>
+<p>va restのpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
+<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
+<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
+<h3 id="login">login</h3>
+<p>login処理です。atprotoと連携できればいいなと考えています。</p>
+<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
+<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<h3 id="global-var">global var</h3>
+<p>instansで作成したものをpulbicにして、castで呼び出します。</p>
+<h3 id="mouse-cursor">mouse cursor</h3>
+<p>マウスカーソルが表示されないのに対応。</p>
+<h3 id="day-if">day if</h3>
+<p>日付でifして処理する。</p>
+<h3 id="destroy-actor">destroy actor</h3>
+<p>アイテムを取得後は呼び出さないようにします。例えば、lvを移行すると再び出現してしまうのを回避できます。</p>
+<p>どのように処理するのかというと、いろんな方法があるものの、私の場合はapiを叩いてカードの手持ちから判断します。既に持っていれば<code>event begin play</code>でdestroyします。</p>
+<p>これらの値はlogin時にすべてglobal変数に入れておきます。アイテムのBPでdestroyする処理を書きます。</p>
+<h3 id="ゲームの方向性と今後">ゲームの方向性と今後</h3>
+<p>今回公開しているのは、デバッグモードと私が勝手にそう呼んでいるものになります。つまり、世界を作っている最中の様子を少し垣間見えるようにした、みたいな感じです。ですから、本来作ろうとしているゲームとは少し違った形での提供になっています。</p>
+<h4 id="常に動かせる">常に動かせる</h4>
+<p>とにかく、アイをかわいくしたい。</p>
+<p>モーションとかを自然に、かつ常に動くようにしたほうがいい。あと、これは世界そのものを常に動くもので満たされるようにしないといけないと思っていて、時間や季節、風や動物など。</p>
+<h4 id="コマンドで操作">コマンドで操作</h4>
+<p>最終的にはatprotoのアカウントを採用した上で、blueskyと連携できるようにしようと考えています。</p>
+<p>新しくatproto serverを建てたのもそのためです。いきなりbsky.socialのアカウントを使ってもらうのはよろしくないので、最初は全部をself-hostしているsnsでログインできるようにした上でコマンド操作を可能にしていきたい。</p>
+<p>例えば、コマンドで敵のリポップなどを操作して、戦闘のデバッグを行いたい。</p>
+<h4 id="あらゆるものをランダムに">あらゆるものをランダムに</h4>
+<p>色々なものにランダム要素を入れていく。</p>
+<p>例えば、ジャンプ一つとっても、2つのパターンを用意して8:2の割合で異なる動きをするみたいな感じ。</p>
+<h4 id="戦闘システム">戦闘システム</h4>
 <ul>
-<li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">https://huggingface.co/stabilityai/stable-diffusion-2-1</a></li>
-<li><a href="https://github.com/Stability-AI/stablediffusion">https://github.com/Stability-AI/stablediffusion</a></li>
+<li>
+<p>アイは一度死んでも数秒間パワーアップして蘇る。つまり、それを前提にした戦闘システム</p>
+</li>
+<li>
+<p>基本的に日をまたいで攻略する。HPを記録する。それほどまでに強敵でHPが高い</p>
+</li>
+<li>
+<p>ボスの攻撃は即死か2,3発食らうと死ぬレベルがいいと思う</p>
+</li>
+<li>
+<p>成功報酬はランダムで、かつ厳選難易度が高い</p>
+</li>
 </ul>
-<p>今回は、前回同様に<code>txt2img.py</code>を動かせる環境を構築した上で、<code>.safetensors</code>を使用し画像生成してみました。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/stable_diffusion_model_anythingv5_20240109_0001.png" alt=""></p>
-<p>txt2imgはcliから使うstable-diffusionのようなものです。</p>
-<ul>
-<li>origin : <a href="https://github.com/CompVis/stable-diffusion/blob/main/scripts/txt2img.py">txt2img.py</a></li>
-<li>fork : <a href="https://github.com/basujindal/stable-diffusion/blob/main/optimizedSD/optimized_txt2img.py">txt2img.py</a></li>
-</ul>
+<h4 id="ガチャ">ガチャ</h4>
+<p>ガチャはpaypal決済で以下の要素で構成したい。</p>
 <ol>
 <li>
-<p><a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda</a>を12.3から12.1にdowngradeします。</p>
+<p>衣装</p>
 </li>
 <li>
-<p><a href="https://pytorch.org/get-started/locally/">pytorch</a>は<code>stable</code>ではなく<code>nightly</code>であるpre-versionを使わないとインストールできません。</p>
+<p>武器</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># pytorch:nightly, cuda:12.1</span>
-$ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121
-$ conda install pytorch<span style="color:#f92672">==</span>2.1.1 torchvision<span style="color:#f92672">==</span>0.16.1 torchaudio<span style="color:#f92672">==</span>2.1.1 pytorch-cuda<span style="color:#f92672">=</span>12.1 -c pytorch -c nvidia
-</code></pre></div><p>scoopの<code>anaconda3</code>がなくなっていたので手動でインストールしました。具体的には<code>miniconda</code>を適当にインストールして<code>~/miniconda3/condabin</code>にpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないと<code>activate</code>を使えません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda init powershell
-</code></pre></div><p>新しいgpuでは5-10分の生成が1-2分以内に変わっていました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda activate ldm
-$ cd ./stable-diffusion
-$ python ./optimizedSD/optimized_txt2img.py --prompt <span style="color:#e6db74">&#34;masterpiece, high quality, very_high_resolution, large_filesize, full color, beautiful kawaii, gold hair, little girl&#34;</span> --H <span style="color:#ae81ff">512</span> --W <span style="color:#ae81ff">512</span> --seed $seed --n_iter <span style="color:#ae81ff">1</span> --n_samples <span style="color:#ae81ff">1</span> --ddim_steps <span style="color:#ae81ff">50</span>
-</code></pre></div><p>上記のscriptが動くなら<code>.safetensors</code>を読み込む環境は整っていると思われます。</p>
-<h3 id="diffusers">diffusers</h3>
-<p>今回はdiffusersを使って<code>.ckpt</code>ではなく<code>.safetensors</code>を使用します。</p>
-<ul>
-<li>model : <a href="https://civitai.com/">civitai</a></li>
-<li>prompt : <a href="https://majinai.art/">majinai</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ conda diactive
----
-$ conda activate ldm
-$ pip install diffusers
-$ pip install git+https://github.com/huggingface/transformers$ 
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py:safe.py" data-lang="py:safe.py"><span style="color:#75715e"># https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/text2img</span>
-<span style="color:#f92672">from</span> diffusers <span style="color:#f92672">import</span> StableDiffusionPipeline
-<span style="color:#f92672">import</span> torch
-<span style="color:#f92672">import</span> sys
-
-pipe <span style="color:#f92672">=</span> StableDiffusionPipeline<span style="color:#f92672">.</span>from_single_file(<span style="color:#e6db74">&#34;model.safetensors&#34;</span>, torch_dtype<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>float16)<span style="color:#f92672">.</span>to(<span style="color:#e6db74">&#34;cuda&#34;</span>)
-
-<span style="color:#75715e"># Potential NSFW content was detected in one or more images. A black image will be returned instead. Try again with a different prompt and/or seed.</span>
-<span style="color:#75715e">#pipe.safety_checker = None</span>
-<span style="color:#75715e">#pipe.requires_safety_checker = False</span>
-<span style="color:#75715e"># nsfw_content_detected</span>
-
-n <span style="color:#f92672">=</span> len(sys<span style="color:#f92672">.</span>argv)
-<span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
-    prompt <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
-<span style="color:#66d9ef">else</span>:
-    prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;masterpiece, best quality, 1girl, solo, flower, long hair, outdoors, letterboxed, school uniform, day, sky, looking up, short sleeves, parted lips, shirt, cloud, black hair, sunlight, white shirt, serafuku, upper body, from side, pink flower, blurry, brown hair, blue sky, depth of field&#34;</span>
-
-print(prompt)
-image <span style="color:#f92672">=</span> pipe(prompt<span style="color:#f92672">=</span>prompt, height<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">768</span>)<span style="color:#f92672">.</span>images[<span style="color:#ae81ff">0</span>]
-image<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#34;test.png&#34;</span>)
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ python safe.py
-$ ls test.png
-
-$ python safe.py <span style="color:#e6db74">&#34;masterpiece, best quality, very_high_resolution, large_filesize, full color, beautiful kawaii, gold hair, little girl&#34;</span>
-$ ls test.png
-</code></pre></div><p><img src="https://raw.githubusercontent.com/syui/img/master/other/stable_diffusion_model_anythingv5_20240109_0002.png" alt=""></p>
+<p>衣装のガチャは、ピックアップされた衣装が当たる。</p>
+<p>衣装を変えるとスキルやバースト(必殺技)が変わる。普通のゲームで言うキャラガチャ。</p>
+<h4 id="システムは使い回せる">システムは使い回せる</h4>
+<p>あらゆるシステムは一度構築すると使い回せるので、とりあえずゲームとして秘境、ガチャ、強化周りのシステムを構築したい。</p>
+<p>シンプルに小さくするのが作り方としては良さそうなので、小さなことからコツコツと。</p>
 
 		
 
@@ -230,14 +195,10 @@ $ ls test.png
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/01/08/bluesky/" id="article-nav-older" class="article-nav-link-wrap">
-blueskyをself-hostする
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/01/09/stable-diffusion/" id="article-nav-older" class="article-nav-link-wrap">
+[stable diffusion] diffusersのscriptを作る
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/01/23/game/" id="article-nav-newer" class="article-nav-link-wrap">
-     ue5のBPでapiを呼び出す方法
-				</a></p>
     
 	</div>
 </nav>

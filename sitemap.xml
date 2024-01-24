@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.ai/blog/post/2024/01/09/stable-diffusion/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue5/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/01/23/game/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/01/09/stable-diffusion/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/diffusers/</loc>
@@ -15,12 +27,6 @@
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/stable-diffusion/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/windows/</loc>
@@ -43,9 +49,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/12/26/game-pc/</loc>
     <lastmod>2023-12-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/ue5/</loc>
-    <lastmod>2023-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/12/25/game/</loc>
     <lastmod>2023-12-25T00:00:00+00:00</lastmod>
