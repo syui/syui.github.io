@@ -7,7 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/m/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/m/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue</title>
+      <link>https://syui.ai/m/post/ue/</link>
+      <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/m/post/ue/</guid>
+      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。
+ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。
+ src : https://git.syui.ai/ai/ue  for mac mac(apple silicon)でも動作しますが、package buildは鬼門です。絶対にやめましょう。時間がもったいない。
+ue5は、基本的にwindowsのpakcage buildはすぐに通りますが、それ以外では難しいでしょう。
+たとえ1度だけbuildが通ったとしても、もし開発を続ける場合、windowsとmacの両方で動作を安定させることはできません。
+windowsで開発するのがおすすめです。macでの開発はやめておきましょう。
+vrm https://github.com/ruyo/VRM4U/releases
+vroidを読み込むpluginであるvrm4uを使用します。現在、vroid sdkというものも登場しています。
+macで使用するには大変ですが./Plugins/VRM4U/ThirdParty/assimp/lib/Mac/libassimp.aを用意してください。独自buildが必要です。
+https://ruyo.github.io/VRM4U/03_mac
+調整 基本的にはSuperhero Flight Animationsを使用してmodelの調整を行います。
+いくつかのanimationは自分で用意したものに切り替えます。
+ABP_Player_ai, BP_Player_UE5を新たに用意し、それを読み込むようにします。
+既存のanimationを切り替えたものは以下になります。基本的にはリターゲットしてanimationを作成、それをanim montageにします。
+idle/walk かっこいいものに切り替えます。おかしな移動になっていました。
+ ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; idle ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; walk  使用しているanimationにroot motionを設定します。
+jump かっこいいものに切り替えます。root-motionが動きませんでした。
+ ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; jump ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; idle RTG_ai : target, チェーンマッピング &amp;gt; rootをFK &amp;gt; 平行移動モード &amp;gt; Globally Scaledに設定  root motionをenableにしても動きません。原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</description>
+    </item>
+    
     <item>
       <title>fly</title>
       <link>https://syui.ai/m/post/fly/</link>
