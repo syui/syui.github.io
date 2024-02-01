@@ -163,9 +163,13 @@
 <p><a href="https://ruyo.github.io/VRM4U/03_mac">https://ruyo.github.io/VRM4U/03_mac</a></p>
 <h3 id="調整">調整</h3>
 <p>基本的には<a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">Superhero Flight Animations</a>を使用してmodelの調整を行います。</p>
+<p><code>Superhero Flight Animations</code>は<code>./Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5</code>で<code>./Content/SuperheroFlight/Blueprints/Components/BP_SuperheroFight</code>を読み込んでいます。</p>
+<p><code>BP_Player_UE5</code>を開いて<code>SuperheroFlightComponent</code>のところが設定ファイルになっていて、例えば、<code>flying speed</code>、つまり、飛行速度などを変更できます。</p>
+<p>基本的には、ここのassetsにanimationを入れることで機能します。もし機能しない場合の変更箇所を書きます。</p>
+<p><img src="/img/ue-2024-02-01-7.36.38.png" alt=""></p>
 <p>いくつかのanimationは自分で用意したものに切り替えます。</p>
 <p><code>ABP_Player_ai</code>, <code>BP_Player_UE5</code>を新たに用意し、それを読み込むようにします。</p>
-<p>既存のanimationを切り替えたものは以下になります。基本的にはリターゲットしてanimationを作成、それをanim montageにします。</p>
+<p><code>./Content/SuperheroFlight/Characters/Mannequins/Animations</code>をリターゲットしてanimationを作成、それをanim montageにします。</p>
 <h4 id="idlewalk">idle/walk</h4>
 <p>かっこいいものに切り替えます。おかしな移動になっていました。</p>
 <ul>
@@ -187,13 +191,13 @@
 <p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
 <p><img src="/img/ue-2024-02-01-6.59.18.png" alt=""></p>
 <h4 id="hover">hover</h4>
-<p>ものに当たった時のanimationです。動きませんでした。</p>
+<p>ものに当たった時のanimationです。</p>
 <ul>
 <li>ABP_Player_ai :  <code>EventGraph &gt; Play hover fligh start montage notify event</code></li>
 </ul>
 <p><img src="/img/ue-2024-02-01-7.31.12.png" alt=""></p>
 <h4 id="land">land</h4>
-<p>着地するときのanimationです。動きませんでした。</p>
+<p>着地するときのanimationです。</p>
 <ul>
 <li>BP_SuperheroFlighComponent : <code>EventGraph &gt; Hit Event Collapse Graph</code></li>
 </ul>
