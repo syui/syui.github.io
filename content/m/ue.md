@@ -36,11 +36,19 @@ https://ruyo.github.io/VRM4U/03_mac
 
 基本的には[Superhero Flight Animations](https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations)を使用してmodelの調整を行います。
 
+`Superhero Flight Animations`は`./Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5`で`./Content/SuperheroFlight/Blueprints/Components/BP_SuperheroFight`を読み込んでいます。
+
+`BP_Player_UE5`を開いて`SuperheroFlightComponent`のところが設定ファイルになっていて、例えば、`flying speed`、つまり、飛行速度などを変更できます。
+
+基本的には、ここのassetsにanimationを入れることで機能します。もし機能しない場合の変更箇所を書きます。
+
+![](/img/ue-2024-02-01-7.36.38.png)
+
 いくつかのanimationは自分で用意したものに切り替えます。
 
 `ABP_Player_ai`, `BP_Player_UE5`を新たに用意し、それを読み込むようにします。
 
-既存のanimationを切り替えたものは以下になります。基本的にはリターゲットしてanimationを作成、それをanim montageにします。
+`./Content/SuperheroFlight/Characters/Mannequins/Animations`をリターゲットしてanimationを作成、それをanim montageにします。
 
 #### idle/walk
 
@@ -73,7 +81,7 @@ bone(ボーン)のrootを選択してFKの平行移動モードをGlobally Scale
 
 #### hover
 
-ものに当たった時のanimationです。動きませんでした。
+ものに当たった時のanimationです。
 
 - ABP_Player_ai :  `EventGraph > Play hover fligh start montage notify event`
 
@@ -81,7 +89,7 @@ bone(ボーン)のrootを選択してFKの平行移動モードをGlobally Scale
 
 #### land
 
-着地するときのanimationです。動きませんでした。
+着地するときのanimationです。
 
 - BP_SuperheroFlighComponent : `EventGraph > Hit Event Collapse Graph`
 
