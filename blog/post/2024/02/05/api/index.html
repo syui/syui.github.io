@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5のBPでapiを呼び出す方法 | syui.ai</title>
+		<title>northflankのvolumeをbackupする | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -102,12 +102,12 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2024-01-23 / <a href="/syui">syui</a>
+		<div class="post-time-date">2024-02-05 / <a href="/syui">syui</a>
 
 		
 		
 		<p><i class="fa-regular fa-folder"></i> 
-		<a href="https://syui.ai/tags/ue5/">ue5</a>
+		<a href="https://syui.ai/tags/api/">api</a>
 		
 		
 		
@@ -116,9 +116,7 @@
 		
 		
 		
-		, <a href="https://syui.ai/tags/ue/">ue</a>
-		
-		
+		, <a href="https://syui.ai/tags/northflank/">northflank</a>
 		
 		
 		
@@ -128,115 +126,32 @@
 		
 		
 		
-		
-		
-		
-		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/ue">ue</a></p>
 		
 		</div>
 
-		<h2>ue5のBPでapiを呼び出す方法</h2>
+		<h2>northflankのvolumeをbackupする</h2>
 
-		<p>今回は、ue5のBP(ブループリント)でapiを呼び出す方法やue5で最近やったことをまとめます。</p>
-<p>最近はゲーム開発を全くやっていませんでしたが2日くらい前から再開しました。</p>
-<p>再開した理由としては、誕生祭でしょうか。そこに間に合わせるため実装を進めました。</p>
-<p>とりあえずデバッグモードみたいなものを公開し、少しずつ改良していくのが自分には合ってるのかもしれません。</p>
-<p>既存の完璧なゲームを目指してると、なんかやらなくなっちゃう気がする。</p>
-<p>あと、windowsで開発してるとブログを書きづらい。とりあえず<a href="https://blueprintue.com/">blueprintue.com</a>をwindowsから貼って、それをブログで引用する。</p>
-<h3 id="va-rest">va rest</h3>
-<p>va restのpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
-<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
-<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
-<h3 id="login">login</h3>
-<p>login処理です。atprotoと連携できればいいなと考えています。</p>
-<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
-<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<h3 id="global-var">global var</h3>
-<p>instansで作成したものをpulbicにして、castで呼び出します。</p>
-<h3 id="mouse-cursor">mouse cursor</h3>
-<p>マウスカーソルが表示されないのに対応。</p>
-<h3 id="day-if">day if</h3>
-<p>日付でifして処理する。</p>
-<h3 id="destroy-actor">destroy actor</h3>
-<p>アイテムを取得後は呼び出さないようにします。例えば、lvを移行すると再び出現してしまうのを回避できます。</p>
-<p>どのように処理するのかというと、いろんな方法があるものの、私の場合はapiを叩いてカードの手持ちから判断します。既に持っていれば<code>event begin play</code>でdestroyします。</p>
-<p>これらの値はlogin時にすべてglobal変数に入れておきます。アイテムのBPでdestroyする処理を書きます。</p>
-<h3 id="ゲームの方向性と今後">ゲームの方向性と今後</h3>
-<p>今回公開しているのは、デバッグモードと私が勝手にそう呼んでいるものになります。つまり、世界を作っている最中の様子を少し垣間見えるようにした、みたいな感じです。ですから、本来作ろうとしているゲームとは少し違った形での提供になっています。</p>
-<h4 id="常に動かせる">常に動かせる</h4>
-<p>とにかく、アイをかわいくしたい。</p>
-<p>モーションとかを自然に、かつ常に動くようにしたほうがいい。あと、これは世界そのものを常に動くもので満たされるようにしないといけないと思っていて、時間や季節、風や動物など。</p>
-<ul>
-<li>あらゆるものが常に動くようにする</li>
-</ul>
-<h4 id="コマンドで操作">コマンドで操作</h4>
-<p>最終的にはatprotoのアカウントを採用した上で、blueskyと連携できるようにしようと考えています。</p>
-<p>新しくatproto serverを建てたのもそのためです。いきなりbsky.socialのアカウントを使ってもらうのはよろしくないので、最初は全部をself-hostしているsnsでログインできるようにした上でコマンド操作を可能にしていきたい。</p>
-<p>例えば、コマンドで敵のリポップなどを操作して、戦闘のデバッグを行いたい。</p>
-<ul>
-<li>現実とゲームをリンクさせる</li>
-</ul>
-<h4 id="あらゆるものをランダムに">あらゆるものをランダムに</h4>
-<p>色々なものにランダム要素を入れていく。</p>
-<p>例えば、ジャンプ一つとっても、2つのパターンを用意して8:2の割合で異なる動きをするみたいな感じ。</p>
-<ul>
-<li>バランスとランダム要素</li>
-</ul>
-<h4 id="戦闘システム">戦闘システム</h4>
-<ul>
-<li>
-<p>アイは一度死んでも数秒間パワーアップして蘇る。つまり、それを前提にした戦闘システム</p>
-</li>
-<li>
-<p>基本的に日をまたいで攻略する。HPを記録する。それほどまでに強敵でHPが高い</p>
-</li>
-<li>
-<p>ボスの攻撃は即死か2,3発食らうと死ぬレベルがいいと思う</p>
-</li>
-<li>
-<p>成功報酬はランダムで、かつ厳選難易度が高い</p>
-</li>
-</ul>
-<h4 id="ガチャ">ガチャ</h4>
-<p>ガチャはpaypal決済で以下の要素で構成したい。</p>
-<ol>
-<li>
-<p>衣装</p>
-</li>
-<li>
-<p>武器</p>
-</li>
-</ol>
-<p>衣装のガチャは、ピックアップされた衣装が当たる。</p>
-<p>衣装を変えるとスキルやバースト(必殺技)が変わる。普通のゲームで言うキャラガチャ。</p>
-<p>衣装は最大4つまでセット、切り替えられるようにするとかなら戦闘をデザインしやすい。</p>
-<h4 id="システムは使い回せる">システムは使い回せる</h4>
-<p>あらゆるシステムは一度構築すると使い回せるので、とりあえずゲームとして秘境、ガチャ、強化周りのシステムを構築したい。</p>
-<p>シンプルに小さくするのが作り方としては良さそうなので、小さなことからコツコツと。</p>
-<ul>
-<li>一つ一つ丁寧に作って、それを使い回す</li>
-</ul>
-<h4 id="スタミナと経験値ステータス">スタミナと経験値、ステータス</h4>
-<p>lvは移動速度やスタミナを増加させるだけのものにしようと考えています。そのための経験値はキャラが動いた時のみから得られる。例えば、1歩動いたら1ポイント。lv10に上げるには<code>10,000,000</code>ポイント必要みたいな感じ。大体1年やって7レベルくらいを考えてる。</p>
-<p>最初は飛べないし、移動速度もかなり遅くする。</p>
-<p>攻撃力や会心率は武器や秘境ボスがドロップするアイテムの厳選で上げられる。</p>
-<ul>
-<li>歩くと経験値</li>
-</ul>
-<h4 id="物語">物語</h4>
-<p>物語はいくらでも作れるけど、どんな風にしようかは迷ってる。</p>
-<p>物語は殆どなくてもいいかもしれない。作るとしたらアイのパワーアップのきっかけにする。つまり、物語とパワーアップはセットにしたい。</p>
-<p>物語のコアは「世界の秘密と旅」にしようかな。</p>
-<p>あと、物語には常に一つの「プレイヤーの選択」を入れること。選択は取り返しがつかないものにすること。</p>
-<ul>
-<li>プレイヤーの選択と取り返しがつかない要素</li>
-</ul>
-<h4 id="最初の選択">最初の選択</h4>
-<p>アイは髪の毛が長い(女の子)と髪の毛が短い(男の子)を選択できるようにする。</p>
-<p>これは色々なゲームに採用されているし、重要なことだと思う。</p>
-<ul>
-<li>性別の選択</li>
-</ul>
+		<p><code>northflank</code>のapiではvolumeをexportする方法が用意されてないみたいなので、これを自動化する必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># https://northflank.com/docs/v1/api/volumes/get-volume</span>
+$ northflank get volume
+
+<span style="color:#75715e"># https://northflank.com/docs/v1/api/volumes/update-volume</span>
+$ northflank update volume
+</code></pre></div><p>具体的には<code>git</code>のprivate-repoを使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ northflank exec service --project $PROJECT --service $SERVICE --cmd <span style="color:#e6db74">&#34;/data/backup.sh </span>$TOKEN<span style="color:#e6db74">&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/data/backup.sh" data-lang="sh:/data/backup.sh"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+TOKEN<span style="color:#f92672">=</span>$1
+git config --global user.email $MAIL
+git config --global user.name $USER
+cd /data/$REPO
+git remote add origin https://$TOKEN@github.com/$USER/$REPO
+git add .
+git commit -m backup
+git push origin main
+git remote rm origin
+</code></pre></div><p>この場合、volumeにdeploy-keyを置いて<code>git@github.com</code>でアクセスするよりtokenでアクセスしたほうが良いでしょう。</p>
+<p>ただし、tokenの場合は<code>$REPO/.git/config</code>に残っていないかチェックしておきましょう。</p>
 
 		
 
@@ -244,14 +159,10 @@
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/01/09/stable-diffusion/" id="article-nav-older" class="article-nav-link-wrap">
-[stable diffusion] diffusersのscriptを作る
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/01/23/game/" id="article-nav-older" class="article-nav-link-wrap">
+ue5のBPでapiを呼び出す方法
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/02/05/api/" id="article-nav-newer" class="article-nav-link-wrap">
-     northflankのvolumeをbackupする
-				</a></p>
     
 	</div>
 </nav>

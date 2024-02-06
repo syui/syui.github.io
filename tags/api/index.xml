@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>northflankのvolumeをbackupする</title>
+      <link>https://syui.ai/blog/post/2024/02/05/api/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2024/02/05/api/</guid>
+      <description>northflankのapiではvolumeをexportする方法が用意されてないみたいなので、これを自動化する必要があります。
+# https://northflank.com/docs/v1/api/volumes/get-volume $ northflank get volume # https://northflank.com/docs/v1/api/volumes/update-volume $ northflank update volume 具体的にはgitのprivate-repoを使用します。
+$ northflank exec service --project $PROJECT --service $SERVICE --cmd &amp;#34;/data/backup.sh $TOKEN&amp;#34; #!/bin/bash  TOKEN=$1 git config --global user.email $MAIL git config --global user.name $USER cd /data/$REPO git remote add origin https://$TOKEN@github.com/$USER/$REPO git add . git commit -m backup git push origin main git remote rm origin この場合、volumeにdeploy-keyを置いてgit@github.comでアクセスするよりtokenでアクセスしたほうが良いでしょう。
+ただし、tokenの場合は$REPO/.git/configに残っていないかチェックしておきましょう。</description>
+    </item>
+    
     <item>
       <title>blueskyでカードゲームを作ってみた</title>
       <link>https://syui.ai/blog/post/2023/04/01/api/</link>

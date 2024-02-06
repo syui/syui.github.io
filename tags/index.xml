@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>api</title>
+      <link>https://syui.ai/tags/api/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>northflank</title>
+      <link>https://syui.ai/tags/northflank/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/tags/northflank/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>m</title>
       <link>https://syui.ai/tags/m/</link>
@@ -297,15 +315,6 @@
     </item>
     
     <item>
-      <title>northflank</title>
-      <link>https://syui.ai/tags/northflank/</link>
-      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/northflank/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>manga</title>
       <link>https://syui.ai/tags/manga/</link>
       <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
@@ -338,15 +347,6 @@
       <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>https://syui.ai/tags/make/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>api</title>
-      <link>https://syui.ai/tags/api/</link>
-      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://syui.ai/tags/api/</guid>
       <description></description>
     </item>
     

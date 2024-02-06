@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/tags/api/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/northflank/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/02/05/api/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/m/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/m/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
@@ -22,9 +34,6 @@
   </url><url>
     <loc>https://syui.ai/tags/ue5/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/01/23/game/</loc>
     <lastmod>2024-01-23T00:00:00+00:00</lastmod>
@@ -284,9 +293,6 @@
     <loc>https://syui.ai/blog/post/2023/07/05/bluesky/</loc>
     <lastmod>2023-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/tags/northflank/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/post/2023/06/30/northflank/</loc>
     <lastmod>2023-06-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -349,9 +355,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/04/09/bluesky/</loc>
     <lastmod>2023-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/api/</loc>
-    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/04/01/api/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
