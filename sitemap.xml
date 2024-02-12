@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.ai/tags/api/</loc>
-    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
+    <loc>https://syui.ai/tags/aios/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/arch/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/02/11/aios/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/github/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/api/</loc>
     <lastmod>2024-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/northflank/</loc>
     <lastmod>2024-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/02/05/api/</loc>
-    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-02-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/m/</loc>
@@ -85,9 +97,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/12/16/ue5/</loc>
     <lastmod>2023-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/arch/</loc>
-    <lastmod>2023-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/12/15/arch/</loc>
     <lastmod>2023-12-15T00:00:00+00:00</lastmod>
@@ -331,9 +340,6 @@
   </url><url>
     <loc>https://syui.ai/ai/novel/10/</loc>
     <lastmod>2023-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/github/</loc>
-    <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/04/29/github/</loc>
     <lastmod>2023-04-29T00:00:00+00:00</lastmod>
