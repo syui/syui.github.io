@@ -21,7 +21,7 @@ Arch Linuxがarchlinuxやarchと呼ばれるようにaiosやaiと呼ぶことが
    var      ai os Name   aios Code   ai ID    archiso archは非常に使いやすいosです。あらゆる用途に使えますが、自作osにも使えます。その使い勝手の良さから、archベースのosはたくさんあります。例えば、manjaro linux, steam os, asahi linux, alter linuxなど。ai osもその中の一つになります。
 特徴としては、rustを入れてosの拡張を目指します。最初は、systemとlogoを表示する機能を実装しました。
 # pacman -S archiso $ git clone https://gitlab.archlinux.org/archlinux/archiso # buildmodes=(&amp;#39;bootstrap&amp;#39;) $ vim ./archiso/configs/releng/profiledef.sh $ mkarchiso -v -o ./ ./archiso/configs/releng /etc/os-releaseを書き換える処理です。
-if [[ &amp;quot;${_os_release}&amp;quot; != &amp;quot;${pacstrap_dir}&amp;quot;* ]]; then _msg_warning &amp;quot;os-release file &#39;${_os_release}&#39; is outside of valid path.</description>
+# archiso/archiso/mkarchiso if [[ &amp;quot;${_os_release}&amp;quot; !</description>
     </item>
     
   </channel>

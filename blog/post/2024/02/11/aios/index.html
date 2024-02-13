@@ -184,7 +184,8 @@ $ vim ./archiso/configs/releng/profiledef.sh
 
 $ mkarchiso -v -o ./ ./archiso/configs/releng
 </code></pre></div><p><code>/etc/os-release</code>を書き換える処理です。</p>
-<pre tabindex="0"><code class="language-sh:archiso/archiso/mkarchiso" data-lang="sh:archiso/archiso/mkarchiso">if [[ &quot;${_os_release}&quot; != &quot;${pacstrap_dir}&quot;* ]]; then
+<pre tabindex="0"><code class="language-sh:archiso/archiso/mkarchiso" data-lang="sh:archiso/archiso/mkarchiso"># archiso/archiso/mkarchiso
+if [[ &quot;${_os_release}&quot; != &quot;${pacstrap_dir}&quot;* ]]; then
     _msg_warning &quot;os-release file '${_os_release}' is outside of valid path.&quot;
 else
 [[ ! -e &quot;${_os_release}&quot; ]] || sed -i '/^IMAGE_ID=/d;/^IMAGE_VERSION=/d' &quot;${_os_release}&quot;
