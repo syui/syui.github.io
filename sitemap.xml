@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/gitea/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/03/04/gitea/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/aios/</loc>
     <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,16 +26,7 @@
     <loc>https://syui.ai/blog/post/2024/02/11/aios/</loc>
     <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/github/</loc>
-    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/api/</loc>
@@ -852,9 +858,6 @@
     <lastmod>2022-06-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/git/</loc>
-    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/gitea/</loc>
     <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/06/08/gitea/</loc>

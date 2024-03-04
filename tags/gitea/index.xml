@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/gitea/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/gitea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gitea actionsに移行するかも</title>
+      <link>https://syui.ai/blog/post/2024/03/04/gitea/</link>
+      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2024/03/04/gitea/</guid>
+      <description>gitea actionsというのは、github actionsとかgitlab-ciと呼ばれるものに相当するものなんだけど、有効にするかどうか迷っていました。
+というのもserverの負担が増大するし、いくつものserviceを動作させている環境だと、それぞれの反応がどうしても遅くなってしまうからです。
+したがって、こういうのは全部無料で使えるgithubを利用するのが一番でした。
+しかし、最近になってusername(id)の関係でgiteaを使う頻度が増えてきたので、gitea actionsを有効にすることにしました。
+githubでは使いたいusername(id)がすでに取られていることが多く、時代はself-hostやdomainになっていくのだろうなあと、そんなふうに思います。
+私の場合、最近になってreposを整理したこともあり、ネームスペースは結構気になります。
+例えば、最近作った自作osはai osという名前ですが、username/aiosではなく、ai/osというネームスペースを使用したかった。
+ o git@git.syui.ai:ai/os.git x git@github.com:username/aios.git  とはいえ、これもちょっと分かりづらいですよね。本来はai/aiosとかのほうがわかりやすいかな。まあ、好みの問題ということにしておきましょう。
+gitea actionsの構築 gitea ciとも呼ばれます。
+https://blog.gitea.com/hacking-on-gitea-actions/
+[actions] ENABLED=true web-uiでsettingからactionsのtokenを取得しておいてください。
+$ git clone https://gitea.com/gitea/act_runner $ cd act_runner $ make build $ ./act_runner register $ ./act_runner daemon # nohup ./act_runner daemon &amp;amp; これで使えるはず。statusがアイドルになります。
+あとはgh-actionsと同じようにrepoに設定ファイルを置いてpushします。
+name: Gitea Actions Demo run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀 on: [push] jobs: Explore-Gitea-Actions: runs-on: ubuntu-latest steps: - run: echo &amp;#34;🎉 The job was automatically triggered by a ${{ gitea.</description>
+    </item>
+    
     <item>
       <title>giteaのcleanとupdate</title>
       <link>https://syui.ai/blog/post/2022/06/08/gitea/</link>
