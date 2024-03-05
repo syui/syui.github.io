@@ -180,7 +180,37 @@ $ docker push git.syui.ai/ai/os
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker run -it git.syui.ai/ai/os ai
 </code></pre></div><p>ただ、docker imagesは本当に容量を食うので、あまりおすすめできない。dockerhubに置くのが一番でしょう。</p>
 <p>私の場合、repoをgiteaに移行したのに、dockerだけgithub, dockerhubなのはあまり良くない。ネームスペースが異なるのが良くない。dockerもgiteaに移行するかも。</p>
-
+<p>なんか2GBを超えたあたりでpushできなくなります。</p>
+<blockquote>
+<p>received unexpected HTTP status: 500 Internal Server Error</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">The push refers to repository <span style="color:#f92672">[</span>***/divya.jain/homer<span style="color:#f92672">]</span>
+994393dc58e7: Pushed 
+received unexpected HTTP status: <span style="color:#ae81ff">500</span> Internal Server Error
+</code></pre></div><ul>
+<li><a href="https://github.com/go-gitea/gitea/issues/21320">https://github.com/go-gitea/gitea/issues/21320</a></li>
+</ul>
+<p>したがって、localhostからpushします。</p>
+<h2 id="actions-runner">actions runner</h2>
+<ul>
+<li>
+<p><a href="https://docs.gitea.com/usage/actions/act-runner#labels">https://docs.gitea.com/usage/actions/act-runner#labels</a></p>
+</li>
+<li>
+<p><a href="https://forum.gitea.com/t/gitea-actions-cannot-find-node-in-path/7544/6">https://forum.gitea.com/t/gitea-actions-cannot-find-node-in-path/7544/6</a></p>
+</li>
+</ul>
+<blockquote>
+<p>OCI runtime exec failed: exec failed: unable to start container process: exec: &ldquo;node&rdquo;: executable file not found in $PATH: unknown</p>
+</blockquote>
+<p>nodeをdocker(gitea-runner)にinstallしてもcheckoutのときにerrが出ます。</p>
+<p>ただ、<code>runs-on: ubuntu-latest</code>のみならerrがでません。したがって、これは<code>container: archlinux</code>が問題なのかもしれません。</p>
+<p>どちらにせよarchisoはarchlinuxで実行しますので、nodeをinstallした<code>container: syui/aios</code>を使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">container</span>: 
+      <span style="color:#75715e">#image: archlinux</span>
+      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">syui/aios </span>
+</code></pre></div>
 		
 
 
@@ -191,6 +221,10 @@ $ docker push git.syui.ai/ai/os
 archベースのaiosを作った
 					</a></p>
     
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/03/05/name/" id="article-nav-newer" class="article-nav-link-wrap">
+     naming rules
+				</a></p>
     
 	</div>
 </nav>
