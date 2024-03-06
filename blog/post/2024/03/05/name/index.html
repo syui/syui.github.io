@@ -186,21 +186,21 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>
 </code></pre></div><h2 id="alias">alias</h2>
 <p>これらはuserconfigで省略できたり色々です。ソフトウェアを配布する人ならある程度は操作できます。例えば、<code>podman</code>は<code>/etc/containers/registries.conf.d/</code>に設定を置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ podman run aios ai
+<ul>
+<li><a href="https://github.com/containers/shortnames">https://github.com/containers/shortnames</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:/etc/containers/registries.conf.d/" data-lang="sh:/etc/containers/registries.conf.d/">unqualified<span style="color:#f92672">-</span>search<span style="color:#f92672">-</span>registries <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>docker<span style="color:#f92672">.</span><span style="color:#a6e22e">io</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>git<span style="color:#f92672">.</span><span style="color:#a6e22e">syui</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ai</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>ghcr<span style="color:#f92672">.</span><span style="color:#a6e22e">io</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]</span>
+
+<span style="color:#f92672">[</span>aliases<span style="color:#f92672">]</span>
+<span style="color:#e6db74">&#34;aios&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.syui.ai/ai/os&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ podman run aios ai
 Resolved <span style="color:#e6db74">&#34;aios&#34;</span> as an alias <span style="color:#f92672">(</span>/etc/containers/registries.conf.d/ai.conf<span style="color:#f92672">)</span>
 Trying to pull git.syui.ai/ai/os:latest...
 Getting image source signatures
 Copying blob c7e55fecf0be <span style="color:#f92672">[====================</span>&gt;-----------------<span style="color:#f92672">]</span> 917.4MiB / 1.7GiB
-</code></pre></div><pre tabindex="0"><code class="language-sh:/etc/containers/registries.conf.d/ai.conf" data-lang="sh:/etc/containers/registries.conf.d/ai.conf">unqualified-search-registries = ['docker.io', 'git.syui.ai', 'ghcr.io']
-
-[aliases]
-&quot;aios&quot; = &quot;git.syui.ai/ai/os&quot;
-</code></pre><ul>
-<li><a href="https://github.com/containers/shortnames">https://github.com/containers/shortnames</a></li>
-</ul>
-<p>ちなみに、ghcr.ioの名前は、おそらくgh-crに分解できます。つまり、github-container-registryだと思われます。<code>io</code>はgithubが好んで使うdomainです。web-serverのgithub.ioにも使われています。</p>
+</code></pre></div><p>ちなみに、ghcr.ioの名前は、おそらくgh-crに分解できます。つまり、<code>[g]it[h]ub-[c]ontainer-[r]egistry</code>だと思われます。<code>io</code>はgithubが好んで使うdomainです。web-serverのgithub.ioにも使われています。</p>
 <h2 id="aios">aios</h2>
-<p><code>aios</code>は<code>archlinux</code>をbaseにしているので、名前規則も同じです。</p>
+<p><code>aios</code>は<code>archlinux</code>をベースにしているので、名前規則も同じです。</p>
 <table>
 <thead>
 <tr>

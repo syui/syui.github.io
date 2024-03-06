@@ -65,7 +65,7 @@ git@git.syui.ai:ai/os.git ↓ ${protocol}@${hostname}:${username}/${repository}.
 ${protocol}://${hostname}/${username}/${repository} 認証を入れる場合はこんな感じ。
 ${protocol}://${username}:${password}@${hostname}:${port} mailやsns(atproto)の場合はhostnameよりusernameが先に来ます。
 ${username}@${hostname} alias これらはuserconfigで省略できたり色々です。ソフトウェアを配布する人ならある程度は操作できます。例えば、podmanは/etc/containers/registries.conf.d/に設定を置きます。
-$ podman run aios ai Resolved &amp;#34;aios&amp;#34; as an alias (/etc/containers/registries.</description>
+ https://github.com/containers/shortnames  unqualified-search-registries = [&amp;#39;docker.</description>
     </item>
     
     <item>
