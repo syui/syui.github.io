@@ -355,7 +355,8 @@ https://git.syui.ai/ai/bot/wiki/help
 <p>3d-cardや3d-modelを作成し、windowsでgameをプレイできるようにしたりと、色々作れて楽しかったです。</p>
 <div class="sketchfab-embed-wrapper"> <iframe title="super" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="480" src="https://sketchfab.com/models/9a80a6d6cf6f4b08906505c7f945d3ce/embed?autospin=1&autostart=1"> </iframe> </div>
 <p><code>aibot</code>は、rustで書かれており、<code>aios</code>という自作osの上で動いています。</p>
-<h2 id="aios">aios</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker run -it git.syui.ai/ai/os ai
+</code></pre></div><h2 id="aios">aios</h2>
 <p><code>aios</code>は<code>archlinux</code>をベースにしているので、名前規則も同じです。</p>
 <table>
 <thead>
@@ -378,6 +379,7 @@ https://git.syui.ai/ai/bot/wiki/help
 </tr>
 </tbody>
 </table>
+<p>ここからは少し名前の話に戻ります。</p>
 <p>ただし、大文字を入れるとややこしいので全部小文字に統一しています。また、archはtypeをあらわすlinuxを後半に持ってきていますが、私はosにしています。</p>
 <p>repositoryは<code>ai/os</code>みたいな形式にすることでusernameから<code>ai</code>を補完しています。repositoryが増えるたび<code>aixxx</code>になり検索性、可読性に欠けるためです。</p>
 <p><code>podman</code>は<code>/etc/containers/registries.conf.d/</code>に設定を置くことでaliasを作れます。</p>
@@ -424,7 +426,7 @@ Copying blob c7e55fecf0be <span style="color:#f92672">[====================</spa
 <p>実は、aiosも、<code>aiOS</code>にしようか迷ったことがあって、スペースや大文字、osなどを入れるのって、結構迷います。ただ、aiは最も小さいものと親和性のあるキャラクターなので、小文字にしました。</p>
 <p>本来は、全部取っ払うのが一番いいのですが、osっていうことが分かりづらいので、名前としては付けといたほうがいいんです。macもmacosもどっちも使えるので文章によって使い分けできる。</p>
 <h2 id="alphabet">alphabet</h2>
-<p>alphabet(アルファベット)についても少し話します。</p>
+<p>alphabet(アルファベット)についても少し話をします。</p>
 <p>googleの親会社として名前になっている<code>alphabet</code>ですが、今回はmoji(文字)のほう<code>[a-Z]</code>です。</p>
 <p>私が好きなアルファベットは、<code>a</code>, <code>i</code>, <code>s</code>です。あとは<code>o</code>なんかも好きですね。円とか0とかも表しますので。</p>
 <p>これらが何を意味するのかというと、色々です。私の場合は、o=0, i=1というように数字に置き換えて考えたりもします。</p>
@@ -435,7 +437,7 @@ Copying blob c7e55fecf0be <span style="color:#f92672">[====================</spa
 <p>おそらく、<code>a</code>は<code>0</code>にも<code>1</code>にもなりますね。</p>
 <p>意味がわかりませんか。基本よくわからない話なので、忘れてください。</p>
 <p>ですが、コンピュータは0か1を読み、量子はどちらも読むのです。</p>
-<p>例えば、<a href="https://git.syui.ai/ai/os">ai/os</a>も名前だけはちょっとだけ面白いんだよ。</p>
+<p>その意味で<a href="https://git.syui.ai/ai/os">ai/os</a>も名前だけはちょっとだけ面白いんだよ。</p>
 <p>皆さんは、この1年、どうでしたか。</p>
 <p>私は、とても楽しかったです。</p>
 
