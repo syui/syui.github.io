@@ -287,7 +287,9 @@ $ ./first.zsh yui.syui.ai
 https://syui.ai:2583
 2023-03-21T05:46:36.129Z
 </code></pre></div><p>今はこのpdsは閉じています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ plc<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sL <span style="color:#e6db74">&#34;https://plc.directory/export?after=2023-03-19&#34;</span>|jq <span style="color:#e6db74">&#34;select(.operation.services.atproto_pds.endpoint == \&#34;https://syui.ai:2583\&#34;)&#34;</span>|jq -s <span style="color:#e6db74">&#34;.[0]&#34;</span><span style="color:#e6db74">`</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pds<span style="color:#f92672">=</span>https://syui.ai:2583
+$ date<span style="color:#f92672">=</span>2023-03-21T05:46:36.129Z
+$ plc<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sL <span style="color:#e6db74">&#34;plc.directory/export?after=</span>$date<span style="color:#e6db74">&#34;</span>|jq <span style="color:#e6db74">&#34;select(.operation.services.atproto_pds.endpoint == \&#34;</span>$pds<span style="color:#e6db74">\&#34;)&#34;</span>|jq -s <span style="color:#e6db74">&#34;.[0]&#34;</span><span style="color:#e6db74">`</span>
 
 $ echo $plc|jq .
 <span style="color:#f92672">{</span>
@@ -317,7 +319,8 @@ $ echo $plc|jq .
   <span style="color:#e6db74">&#34;nullified&#34;</span>: false,
   <span style="color:#e6db74">&#34;createdAt&#34;</span>: <span style="color:#e6db74">&#34;2023-03-21T05:46:36.129Z&#34;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>例えば、以下のようなscriptでpdsを検索できます。</p>
+</code></pre></div><h2 id="plc">plc</h2>
+<p>例えば、以下のようなscriptでpdsを検索できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:pds-search.zsh" data-lang="sh:pds-search.zsh"><span style="color:#75715e">#!/bin/zsh
 </span><span style="color:#75715e"></span>
 y<span style="color:#f92672">=</span><span style="color:#ae81ff">2023</span>
@@ -336,13 +339,45 @@ e<span style="color:#f92672">=</span><span style="color:#ae81ff">31</span>
 	<span style="color:#66d9ef">done</span>
 <span style="color:#66d9ef">done</span>
 </code></pre></div><blockquote>
-<p>ただし、plcの負担になるのでexportの結果をlocalに保存し使い回すようにしてください。ある程度のcool-timeを置くようにしてください。</p>
+<p>ただし、plcの負担になるのでexportの結果をlocalに保存し使い回すようにしてください。ある程度のcool-timeを置くようにしてください。このscriptは大まかな日付日時を使用しているので確実ではありません。</p>
 </blockquote>
 <p>現在は<a href="https://plc.syu.is">plc</a>やらbgs, appviewをself-hostしています。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ curl -sL plc.syu.is/export|jq -s -r <span style="color:#e6db74">&#34;.[0]|.operation.services.atproto_pds.endpoint,.operation.alsoKnownAs.[],.createdAt&#34;</span>
 https://syu.is
 at://ai.syu.is
 2024-01-09T04:05:11.967Z
+</code></pre></div><p>plcは基本的にblueskyの歴史を記録しています。最初の方にpdsを建ててたときの無茶振りなども記録されています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pds<span style="color:#f92672">=</span>https://bsky.syui.ai
+$ date<span style="color:#f92672">=</span>2023-04-21T13:07:52.503Z
+$ curl -sL <span style="color:#e6db74">&#34;plc.directory/export?after=</span>$date<span style="color:#e6db74">&#34;</span>|jq <span style="color:#e6db74">&#34;select(.operation.services.atproto_pds.endpoint == \&#34;</span>$pds<span style="color:#e6db74">\&#34;).operation.alsoKnownAs.[]&#34;</span>
+<span style="color:#e6db74">&#34;at://ai.ai&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;did&#34;</span>: <span style="color:#e6db74">&#34;did:plc:ytvoptig4ddshmwdsjmhtcym&#34;</span>,
+  <span style="color:#f92672">&#34;operation&#34;</span>: {
+    <span style="color:#f92672">&#34;sig&#34;</span>: <span style="color:#e6db74">&#34;LVC5HRKZS7OshiukWl6WKruYFZsiu9zcek0VzL5L47sHHH6LoJXiTQTrxSfOKfRCUHOdLjA5sP_nzGGeaKVKUg&#34;</span>,
+    <span style="color:#f92672">&#34;prev&#34;</span>: <span style="color:#66d9ef">null</span>,
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;plc_operation&#34;</span>,
+    <span style="color:#f92672">&#34;services&#34;</span>: {
+      <span style="color:#f92672">&#34;atproto_pds&#34;</span>: {
+        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;AtprotoPersonalDataServer&#34;</span>,
+        <span style="color:#f92672">&#34;endpoint&#34;</span>: <span style="color:#e6db74">&#34;https://bsky.syui.ai&#34;</span>
+      }
+    },
+    <span style="color:#f92672">&#34;alsoKnownAs&#34;</span>: [
+      <span style="color:#e6db74">&#34;at://ai.ai&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;rotationKeys&#34;</span>: [
+      <span style="color:#e6db74">&#34;did:key:zDnaeoTyG6BWkxZ447eHQEasizV3aTjHVA5e4HKVaYRUmYP4J&#34;</span>,
+      <span style="color:#e6db74">&#34;did:key:zDnaeoTyG6BWkxZ447eHQEasizV3aTjHVA5e4HKVaYRUmYP4J&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;verificationMethods&#34;</span>: {
+      <span style="color:#f92672">&#34;atproto&#34;</span>: <span style="color:#e6db74">&#34;did:key:zDnaeoTyG6BWkxZ447eHQEasizV3aTjHVA5e4HKVaYRUmYP4J&#34;</span>
+    }
+  },
+  <span style="color:#f92672">&#34;cid&#34;</span>: <span style="color:#e6db74">&#34;bafyreige5lt42bxay4r3fq4slb4ywdc3vxy45gyo3vdw3ph6cxa4vlbzny&#34;</span>,
+  <span style="color:#f92672">&#34;nullified&#34;</span>: <span style="color:#66d9ef">false</span>,
+  <span style="color:#f92672">&#34;createdAt&#34;</span>: <span style="color:#e6db74">&#34;2023-04-21T13:07:52.503Z&#34;</span>
+}
 </code></pre></div><h2 id="aibot">aibot</h2>
 <p>また、blueskyでは<code>ai/bot</code>を動かしていました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./first.zsh yui.syui.ai|jq .createdAt
