@@ -10,18 +10,20 @@
 			{"activitypub":"@syui@syui.ai"},
 			{"matrix":"@syui:syui.ai"}
 		],
-		"icon": "https://syui.cf/icon/syui.png"
+		"icon": "https://syui.ai/icon/syui.png"
 	},
 	{
 		"bluesky": [ 
-			"https://bsky.syui.ai/profile/syui",
+			"https://web.syu.is/profile/syui.syu.is",
 			"https://bsky.app/profile/syui"
 		]
 	},
 	{
 		"mastodon": [ 
 			"https://mstdn.syui.ai/@syui",
-			"https://mastodon.social/@syui"
+			"https://m.syu.is/@syui",
+			"https://mozilla.social/@ai"
+
 		]
 	},
 	{
