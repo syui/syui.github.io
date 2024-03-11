@@ -384,7 +384,7 @@ $ curl -sL <span style="color:#e6db74">&#34;plc.directory/export?after=</span>$d
   <span style="color:#f92672">&#34;createdAt&#34;</span>: <span style="color:#e6db74">&#34;2023-04-21T13:07:52.503Z&#34;</span>
 }
 </code></pre></div><h2 id="aibot">aibot</h2>
-<p>また、blueskyでは<code>ai/bot</code>を動かしていました。</p>
+<p>また、blueskyでは<a href="https://git.syui.ai/ai/bot">ai/bot</a>を動かしていました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ./first.zsh yui.syui.ai|jq .createdAt
 <span style="color:#e6db74">&#34;2023-02-24T23:54:57.259Z&#34;</span>
 </code></pre></div><p>実は、<code>aibot</code>の歴史は古く、mastodon, twitter, matrixのbotとして動かしていたことがあります。</p>
@@ -423,7 +423,7 @@ https://git.syui.ai/ai/bot/wiki/help
 </table>
 <p>ここからは少し名前の話に戻ります。</p>
 <p>archとの違いは大文字を入れるとややこしいので全部小文字に統一しています。また、archはtypeをあらわすlinuxを後半に持ってきていますが、私はosにしています。</p>
-<p>repositoryは<code>ai/os</code>みたいな形式にすることでusernameから<code>ai</code>を補完しています。repositoryが増えるたび<code>aixxx</code>になると検索性、可読性に欠けるためです。</p>
+<p>repositoryは<a href="https://git.syui.ai/ai/os">ai/os</a>みたいな形式にすることでusernameから<code>ai</code>を補完しています。repositoryが増えるたび<code>aixxx</code>になると検索性、可読性に欠けるためです。</p>
 <p><code>podman</code>は<code>/etc/containers/registries.conf.d/</code>に設定を置くことでaliasを作れます。</p>
 <ul>
 <li><a href="https://github.com/containers/shortnames">https://github.com/containers/shortnames</a></li>
