@@ -409,7 +409,7 @@ $ curl -sL "plc.directory/export?after=$date"|jq "select(.operation.services.atp
 
 ## aibot
 
-また、blueskyでは`ai/bot`を動かしていました。
+また、blueskyでは[ai/bot](https://git.syui.ai/ai/bot)を動かしていました。
 
 ```sh
 $ ./first.zsh yui.syui.ai|jq .createdAt
@@ -454,7 +454,7 @@ $ docker run -it git.syui.ai/ai/os ai
 
 archとの違いは大文字を入れるとややこしいので全部小文字に統一しています。また、archはtypeをあらわすlinuxを後半に持ってきていますが、私はosにしています。
 
-repositoryは`ai/os`みたいな形式にすることでusernameから`ai`を補完しています。repositoryが増えるたび`aixxx`になると検索性、可読性に欠けるためです。
+repositoryは[ai/os](https://git.syui.ai/ai/os)みたいな形式にすることでusernameから`ai`を補完しています。repositoryが増えるたび`aixxx`になると検索性、可読性に欠けるためです。
 
 `podman`は`/etc/containers/registries.conf.d/`に設定を置くことでaliasを作れます。
 
