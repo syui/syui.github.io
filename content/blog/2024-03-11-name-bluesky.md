@@ -439,7 +439,7 @@ $ docker run -it git.syui.ai/ai/os ai
 
 3d-cardや3d-modelを作成し、windowsでgameをプレイできるようにしたりと、色々作れて楽しかったです。
 
-<model-viewer class="ar" src="/obj/super.glb" exposure="50" environment-image="/obj/env.jpg" auto-rotate autoplay ar camera-controls></model-viewer>
+<model-viewer class="ar" src="/obj/super.glb" ar-modes="scene-viewer webxr quick-look" ios-src="/obj/super.usdz" exposure="50" environment-image="/obj/env.jpg" auto-rotate autoplay ar camera-controls></model-viewer>
 
 ## aios
 
