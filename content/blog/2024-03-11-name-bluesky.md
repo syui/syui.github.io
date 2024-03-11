@@ -3,6 +3,7 @@ date = "2024-03-11"
 tags = ["private","bluesky"]
 title = "naming rulesとbluesky"
 slug = "name-bluesky"
+aliases = "/blog/post/2024/03/05/name/"
 +++
 
 最近、名前について考えることがあったので、適当に自分のこととか、blueskyのこととか、これからのこととかを書いていきたいと思います。
