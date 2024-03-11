@@ -102,7 +102,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2024-03-05 / <a href="/syui">syui</a>
+		<div class="post-time-date">2024-03-11 / <a href="/syui">syui</a>
 
 		
 		
@@ -141,8 +141,6 @@
 <p>ではなぜ、名前から始まるのかというと、これもアルファベット、つまり、英語のルールに則っています。</p>
 <p>主に英語圏の文化では名前+名字の順番が通常です。これはアジア圏の文化と異なります。アジア圏は名字+名前が多く、日本もそうです。</p>
 <p>例えば、サービスに登録する際に名前と名字を聞かれることがあります。私は大抵、名前に<code>syu</code>, 名字に<code>i</code>と入れています。英語圏のサービスなので名前+名字の順になり表記も<code>syu i</code>になります。</p>
-<p><img src="https://syui.ai/img/signal_0001.jpg" alt="">
-<img src="https://syui.ai/img/signal_0002.jpg" alt=""></p>
 <p>なぜ英語圏とアジア圏でこのような違いがあるのでしょう。それはわかっていません。ですが、色々な説があると思います。</p>
 <p>個人的には、英語圏は個人を尊重し、アジア圏は家族を尊重する文化が強いため、そのようになっているのかもしれないと思います。</p>
 <p>私の場合は、アルファベットで記述する以上、アルファベットを使用する英語圏の文化に沿って、名前が決められています。</p>
@@ -211,10 +209,10 @@ at://syui.ai
 </code></pre></div><p>こういうことは、あまり気づかれるようなことではありませんけど、おそらく、時間経過とともに誰かが気づき、そういった人達が徐々に増えていくと見ています。</p>
 <h2 id="bluesky">bluesky</h2>
 <blockquote>
-<p>この記事はblueskyで1年を過ごして思ったことなどを加筆することにしました。</p>
+<p>この記事はblueskyの1周年ということで、これまでblueskyでやったことを加筆します。</p>
 </blockquote>
 <p>私がblueskyを始めて1年が過ぎました。アカウントは<a href="https://bsky.syui.ai/">@syui.ai</a>です。</p>
-<p>blueskyを始めた日付はplcに記録されています。初投稿はpdsにあります。</p>
+<p>blueskyを始めた日付、つまり、アカウント作成日はplcに記録されています。初投稿はpdsにあります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:account.t" data-lang="sh:account.t">$ echo $plc <span style="color:#f92672">|</span> jq <span style="color:#f92672">.</span>createdAt
 <span style="color:#e6db74">&#34;2023-02-23T01:09:21.591Z&#34;</span>
 
@@ -222,7 +220,13 @@ $ curl <span style="color:#f92672">-</span>sL https:<span style="color:#e6db74">
 <span style="color:#ae81ff">386</span>  did:plc:uqzpqmrjnptsxezjx4xuh2mn
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:post.t" data-lang="sh:post.t">$ curl <span style="color:#f92672">-</span>sL <span style="color:#e6db74">&#34;https://bsky.social/xrpc/com.atproto.repo.listRecords?repo=$handle&amp;collection=app.bsky.feed.post&amp;reverse=true&#34;</span><span style="color:#f92672">|</span>jq <span style="color:#e6db74">&#34;.[]|.[0]?|.value.createdAt&#34;</span>
 <span style="color:#e6db74">&#34;2023-02-23T01:20:33.487Z&#34;</span>
-</code></pre></div><h3 id="plc--createdat">plc : createdAt</h3>
+</code></pre></div><p>まず、blueskyという名前について見ていくと、その青空は鳥(twitter)の背景を意味します。</p>
+<p>protocolは本来、ユーザーに意識されない領域の技術です。それ故、ユーザーに意識されることなく自然に動作することが美学とされます。これが技術背景と呼ばれる理由です。</p>
+<p>protocolの名前は<code>[at]poroto</code>で、このatは<code>@</code>を意味します。</p>
+<p>twitterは、ユーザー名のみの<code>@</code>でやり取りするため、例えば、mailに比べ非常にシンプルですが、あくまでサービス内に閉じています。</p>
+<p>これをサービス外にも有効にするため開発されているのがatprotoで、そのモデルケースがblueskyです。</p>
+<p>基本的には、blueskyのユーザーが増え、atprotoを採用する企業(または個人)が増えていくと成功です。</p>
+<h3 id="plc--createdat">plc : createdAt</h3>
 <p>私がアカウントを作った日付とアカウント番号を取得する具体的な方法です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh:did.t" data-lang="sh:did.t">$ handle<span style="color:#f92672">=</span>syui<span style="color:#f92672">.</span>ai
 $ did<span style="color:#f92672">=</span><span style="color:#e6db74">`curl -sL &#34;https://bsky.social/xrpc/com.atproto.repo.describeRepo?repo=$handle&#34; |jq -r .did`</span>
@@ -392,10 +396,7 @@ https://git.syui.ai/ai/bot/wiki/help
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker run -it git.syui.ai/ai/os ai
 </code></pre></div><p>アイコンになっているキャラクターのaiには一応、原作があります。</p>
 <p>3d-cardや3d-modelを作成し、windowsでgameをプレイできるようにしたりと、色々作れて楽しかったです。</p>
-<div class="card-model">
-<model-viewer class="ar" src="/obj/super.glb" exposure="50" environment-image="/obj/env.jpg" auto-rotate autoplay ar camera-controls></model-viewer>
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-</div>
+<p><model-viewer class="ar" src="/obj/super.glb" exposure="50" environment-image="/obj/env.jpg" auto-rotate autoplay ar camera-controls></model-viewer></p>
 <h2 id="aios">aios</h2>
 <p><code>aios</code>は<code>archlinux</code>をベースにしているので、名前規則も同じです。</p>
 <table>
@@ -515,15 +516,17 @@ Copying blob c7e55fecf0be <span style="color:#f92672">[====================</spa
 <p>上はアイがカードを落っことす話を少しだけ描きました。</p>
 <h2 id="game">game</h2>
 <p>それと関連する話ですが、atprotoのアカウントでログインするゲームを作りました。ゲームは簡単で落ちているカードを探すだけです。</p>
+<p><video controls style="width:100%;"><source src="/ai/video/ue5_ai_0007.mp4"></video></p>
 <p>一応は、動作するところまでやりましたが、それ以降はあまりやる気が出ず放置しています。</p>
 <p>色々と書いてきましたが、私はかなり気分屋なところがあって、blueskyをやっていなかったら、こういうことをやっていたかは怪しいです。</p>
-<p>こういうことというのは、例えば、pdsをself-hostしたり、ゲームを作ったり。</p>
-<p>今後もaiをよろしく。</p>
+<p>例えば、pdsをself-hostしたり、ゲームを作ったり。</p>
+<p>これもmatrixで招待コードをくれた<code>why</code>さんや、遊んでくれた皆さんのおかげです。ありがとうございました。</p>
+<p>これからもaiをよろしく。</p>
 <div class="vrm-model">
 <iframe src="https://vrm.syui.ai" allowfullscreen frameborder="0" width="100%" height="450px" scrolling="no"></iframe>
 </div>
 <blockquote>
-<p>chrome/edgeとsafari(ios)で動作します</p>
+<p>動作環境 : chrome/edge, safari(ios)</p>
 </blockquote>
 
 		
@@ -532,14 +535,10 @@ Copying blob c7e55fecf0be <span style="color:#f92672">[====================</spa
 <nav id="article-nav">
 	<div class="previnsection">
     
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/03/04/gitea/" id="article-nav-older" class="article-nav-link-wrap">
-gitea actionsに移行するかも
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/03/06/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、引くべきキャラ1位はナヒーダ
 					</a></p>
     
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/03/06/genshin/" id="article-nav-newer" class="article-nav-link-wrap">
-     原神、引くべきキャラ1位はナヒーダ
-				</a></p>
     
 	</div>
 </nav>
