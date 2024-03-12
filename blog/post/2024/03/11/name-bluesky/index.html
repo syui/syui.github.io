@@ -189,12 +189,10 @@
 <p>誰だって、自分で決めた名前でネットをはじめたいし、はじめられるべきです。そのような環境になっていくでしょう。</p>
 <h2 id="protocol">protocol</h2>
 <p>さて、次はprotocolの話をします。世の中にはいろんなprotocolがありますが、そこでも名前は重要です。</p>
-<p>gitの場合は以下のような感じになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git@git.syui.ai:ai/os.git
+<p><code>git</code>, <code>ssh</code>や<code>http</code>の場合は以下のような感じになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git://git.syui.ai/ai/os
 ↓
-<span style="color:#e6db74">${</span>protocol<span style="color:#e6db74">}</span>@<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>repository<span style="color:#e6db74">}</span>.<span style="color:#e6db74">${</span>extension<span style="color:#e6db74">}</span>
-</code></pre></div><p>httpの場合は以下です。このパターンが最も多く使われています。dbやcontainerもこれですね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>protocol<span style="color:#e6db74">}</span>://<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>repository<span style="color:#e6db74">}</span>
+<span style="color:#e6db74">${</span>protocol<span style="color:#e6db74">}</span>://<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>repository<span style="color:#e6db74">}</span>
 </code></pre></div><p>認証を入れる場合はこんな感じ。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>protocol<span style="color:#e6db74">}</span>://<span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>password<span style="color:#e6db74">}</span>@<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>:<span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>
 </code></pre></div><p>mailやsns(atproto)の場合はhostnameよりusernameが先に来ます。</p>
@@ -202,7 +200,7 @@
 
 <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>.<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>
 </code></pre></div><p>そして、atprotoの場合は、すごくて自分が所有あるいは占有するdomainをそのまま使えるようにもできる。この場合は、<code>username = hostname</code>になります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>
 </code></pre></div><p>私は特にこのことが気に入っており、<code>atproto</code>が一番いいと思う。一番シンプルで、一番短く、一番わかりやすい。そして、protocolもいい。名前がいいんです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">${</span>protocol<span style="color:#e6db74">}</span>://<span style="color:#e6db74">${</span>hostname<span style="color:#e6db74">}</span>
 ↓
