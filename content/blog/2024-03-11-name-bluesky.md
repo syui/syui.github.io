@@ -124,17 +124,11 @@ s[yui].ai
 
 さて、次はprotocolの話をします。世の中にはいろんなprotocolがありますが、そこでも名前は重要です。
 
-gitの場合は以下のような感じになります。
+`git`, `ssh`や`http`の場合は以下のような感じになります。
 
 ```sh
-git@git.syui.ai:ai/os.git
+git://git.syui.ai/ai/os
 ↓
-${protocol}@${hostname}:${username}/${repository}.${extension}
-```
-
-httpの場合は以下です。このパターンが最も多く使われています。dbやcontainerもこれですね。
-
-```sh
 ${protocol}://${hostname}/${username}/${repository}
 ```
 
@@ -155,7 +149,7 @@ ${username}.${hostname}
 そして、atprotoの場合は、すごくて自分が所有あるいは占有するdomainをそのまま使えるようにもできる。この場合は、`username = hostname`になります。
 
 ```sh
-${hostname}
+${hostname} = ${username}
 ```
 
 私は特にこのことが気に入っており、`atproto`が一番いいと思う。一番シンプルで、一番短く、一番わかりやすい。そして、protocolもいい。名前がいいんです。
