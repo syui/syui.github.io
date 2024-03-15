@@ -27,17 +27,7 @@ $ brew install --cask docker $ ssh server $ su $ tar cvzf volumes.tgz /var/lib/d
       <guid>https://syui.ai/m/post/mac/</guid>
       <description>macの使い方をまとめます。macbook air(m1, intel)を使っています。
 最初にインストールしたソフトウェアとサービスの一覧です。
-使ってるソフトウェア   xcode, commandline tools, etc&amp;hellip; : https://developer.apple.com/
-  chrome : https://www.google.com/chrome/
-  google日本語入力 : https://www.google.co.jp/ime/
-  iterm2 : https://iterm2.com/
-  homebrew : https://github.com/Homebrew/brew
-  karabiner : https://github.com/pqrs-org/Karabiner-Elements
-  shiftit : https://github.com/fikovnik/ShiftIt
-  keepassxc : https://github.com/keepassxreboot/keepassxc
-  virtualbox : https://download.virtualbox.org/virtualbox/
-  clipy : https://clipy-app.com/
-  Studio One 2 Artist OEM + Piapro Studio VSTi(Hatsune Miku V3) : https://piaprostudio.</description>
+使ってるソフトウェア  xcode, commandline tools, etc&amp;hellip; : https://developer.apple.com/ chrome : https://www.google.com/chrome/ iterm2 : https://iterm2.com/ homebrew : https://github.com/Homebrew/brew karabiner : https://github.com/pqrs-org/Karabiner-Elements shiftit : https://github.com/fikovnik/ShiftIt keepassxc : https://github.com/keepassxreboot/keepassxc virtualbox : https://download.virtualbox.org/virtualbox/ clipy : https://clipy-app.com/  使ってるサービス  github : https://github.com/ bluesky : https://bsky.app/ google : https://www.google.com/ youtube : https://www.youtube.com/ northflank : https://northflank.com/ sketchfab : https://sketchfab.com/ amazon : https://www.amazon.co.jp/ cloudflare : https://www.cloudflare.com/ wiki : https://wiki.archlinux.jp/ slack : https://archlinuxjp.slack.com/  other  studioone2 : https://piaprostudio.</description>
     </item>
     
     <item>
