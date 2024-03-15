@@ -142,57 +142,29 @@
 		<p>iosで使用しているアプリを紹介します。iphone se3とipad9を使っています。</p>
 <h3 id="アプリ">アプリ</h3>
 <ul>
-<li>
-<p>termius</p>
-</li>
-<li>
-<p>openvpn</p>
-</li>
-<li>
-<p>goodreader</p>
-</li>
-<li>
-<p>authenticator(google)</p>
-</li>
-<li>
-<p>bitwarden(使っていない)</p>
-</li>
-<li>
-<p>firefox focus</p>
-</li>
-<li>
-<p>reddit</p>
-</li>
-<li>
-<p>medly</p>
-</li>
-<li>
-<p>scaniverse</p>
-</li>
-<li>
-<p>metatrader 5</p>
-</li>
-<li>
-<p>slack</p>
-</li>
-<li>
-<p>twitter</p>
-</li>
-<li>
-<p>mastodon</p>
-</li>
-<li>
-<p>ibispaint x</p>
-</li>
+<li>termius</li>
+<li>openvpn</li>
+<li>goodreader</li>
+<li>authenticator(google)</li>
+<li>bitwarden</li>
+<li>firefox focus</li>
+<li>metatrader 5</li>
+<li>scaniverse</li>
+<li>bluesky</li>
 </ul>
+<h3 id="sub">sub</h3>
+<ul>
+<li>mastodon, damus(nostr)</li>
+<li>slack, discord, matrix(element)</li>
+</ul>
+<h3 id="default">default</h3>
+<p>基本的にはiosの標準アプリを使用します。通話はfacetime, チャットはmessageです。これらはmail-addressと紐づけられます。</p>
+<p>lineやその他のアプリは必要ではないため使用していません。</p>
 <h3 id="termius">termius</h3>
 <p>iosでは主に<code>termius</code>を使用しています。これがないと、私のスマホは恐ろしいほど不便になります。</p>
-<p>私のようなhackerは、主にlocal-network環境を構築し、様々なデータにアクセスできるようにしています。</p>
-<p>つまり、local-networkに入れないと何もできません。</p>
-<p>ios端末、つまり、iphoneやipadはsimを入れてキャリア回線を使用するためglobal-ipになります。wifiのlocal-ipはここでは考慮しません。</p>
-<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能と<a href="https://syui.cf/m/post/arch/">vpn server</a>を使用します。詳しくは、<a href="https://syui.cf/m/post/arch/">archlinux</a>の記事に書いています。</p>
-<p><code>termius</code>はsftpを使えるので特に便利です。</p>
-<p><code>goodreader</code>は最新のopensshのprivate-keyに対応していません。</p>
+<p>iphoneは通常、simを入れてキャリア回線を使用するためglobal-ipになります。</p>
+<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能と<code>vpn server</code>を建てて接続します。詳しくは、<a href="https://syui.cf/m/post/arch/">archlinux</a>の記事に書いています。また、<code>tailscale</code>も便利です。vpn-serverのようにself-hostして使うわけではなく外部サービスとして利用料を払い使用する形式です(無料枠あり)。</p>
+<p><code>termius</code>はsftpを使えるので特に便利です。<code>goodreader</code>は最新のopensshのprivate-keyに対応していません。</p>
 <h3 id="checkm8">checkm8</h3>
 <p><code>checkm8</code>の登場により、iosのroot権限を得るのは、さほど難しくなくなりました。私もいくつかの古い端末でrootを取っているios端末はありますが、特に利便性を感じていないので、使っていません。sshは可能です。しかし、そこまで早くはないし、むしろ遅いので、ios端末をサードパーティでカスタマイズする必要性を私はあまり感じませんでした。</p>
 <p><a href="https://checkra.in">https://checkra.in</a></p>
