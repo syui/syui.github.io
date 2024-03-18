@@ -365,7 +365,7 @@ $ npm run dev
 </ul>
 <p>例えば、最新版の<code>UniVRM</code>をinstallして、<code>AnimationClipToVrmaSample/Assets</code>をunity(project)にコピーすれば<code>SampleMotion/Wave.anim</code>を<code>.vrma</code>でexportできます。</p>
 <p>基本的な手順としては、まず<code>ue5</code>や<code>.bvh</code>から<code>.fbx</code>を用意し、それをunityで読み込みます。</p>
-<p>読み込むと<code>Animation Clip</code>ができます。これはunity独自のmodel motionのようなものです。まずはfbxの<code>Animation Type</code>を<code>Humanoid</code>にします。そして、<code>Amimation Clip</code>を右クリックして、<code>create -&gt; Animator Controlle</code>を作成し、<code>Entry -&gt; State</code>を作成したうえで、<code>motion</code>にfbxのmotionを当てます。ここではue5から持ってきたmotionなので、<code>Unreal Take</code>になります。</p>
+<p>読み込むと<code>Animation Clip</code>ができます。これはunity独自のmodel motionのようなものです。まずはfbxの<code>Animation Type</code>を<code>Humanoid</code>にします。</p>
 <blockquote>
 <p>ue5からfbxをexportする際は、animationですべてのチェックを付けましょう。精度が高まります。あと、コリジョンは外しました。</p>
 </blockquote>
@@ -377,16 +377,6 @@ $ npm run dev
 </li>
 <li>
 <ol start="2">
-<li>Create : Animator Controlle</li>
-</ol>
-</li>
-<li>
-<ol start="3">
-<li>Entry : New State</li>
-</ol>
-</li>
-<li>
-<ol start="4">
 <li>Animation Clip -&gt; .vrma</li>
 </ol>
 </li>
@@ -394,10 +384,11 @@ $ npm run dev
 <p>ref : <a href="https://note.com/hibit_at/n/nf05ac76ecc3c">https://note.com/hibit_at/n/nf05ac76ecc3c</a></p>
 <h2 id="srgbencoding">sRGBEncoding</h2>
 <p>見た目を変えます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/index.ts" data-lang="js:src/index.ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">renderer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">WebGLRenderer</span>({<span style="color:#a6e22e">antialias</span>: <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">alpha</span>: <span style="color:#66d9ef">true</span>});
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/index.ts" data-lang="js:src/index.ts"><span style="color:#75715e">// https://threejs.org/docs/#api/en/constants/Renderer
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">renderer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">WebGLRenderer</span>({<span style="color:#a6e22e">antialias</span>: <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">alpha</span>: <span style="color:#66d9ef">true</span>});
 <span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">shadowMap</span>.<span style="color:#a6e22e">enabled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
 <span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">toneMapping</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">ACESFilmicToneMapping</span>;
-<span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">toneMappingExposure</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">toneMappingExposure</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span>;
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:src/index.ts" data-lang="js:src/index.ts"><span style="color:#75715e">//renderer.outputEncoding = THREE.sRGBEncoding;
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">outputColorSpace</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">SRGBColorSpace</span>;
 </code></pre></div><p>ref : <a href="https://koro-koro.com/threejs-no4/">https://koro-koro.com/threejs-no4/</a></p>
