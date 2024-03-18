@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>three-vrmでvrmaを読み込む</title>
+      <link>https://syui.ai/blog/post/2024/03/17/vrm/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2024/03/17/vrm/</guid>
+      <description>three-vrmでvrmaを読み込むことができるようになりました。そこで今回は色々なtipsを紹介します。
+three-vrmは、私がよく3d-modelの読み込みに使っているthree.jsを.vrmに対応させたものです。three.jsは.gltf(v2.0)を読み込めますので、その拡張である.vrmを.gltfや.glbに変換して読み込めばいいのですが、色々と問題があります。そのためthree-vrmを使ったほうが見栄えが良くなります。
+three-vrm -&amp;gt; vrma 使用するのは、npm, webpack, tsあたりです。
+nodeはv18.14.1です。場合によってはnvmを使用してください。
+. ├── dist │ ├── index.html │ ├── vrm/ai.vrm │ └── vrma/VRMA_01.vrma ├── package.json ├── src │ └── index.ts ├── tsconfig.json └── webpack.config.js ./dist/vrm/, ./dist/vrma/にファイルを置いてください。
+ vrm : download vrma : download  後述しますが、src/index.tsの以下の部分で読み込みます。
+load(&amp;#34;/vrm/ai.vrm&amp;#34;); load(&amp;#34;/vrma/VRMA_01.vrma&amp;#34;); { &amp;#34;name&amp;#34;: &amp;#34;model&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;scripts&amp;#34;: { &amp;#34;build&amp;#34;: &amp;#34;webpack&amp;#34;, &amp;#34;dev&amp;#34;: &amp;#34;webpack-dev-server --open&amp;#34; }, &amp;#34;devDependencies&amp;#34;: { &amp;#34;ts-loader&amp;#34;: &amp;#34;^9.5.1&amp;#34;, &amp;#34;typescript&amp;#34;: &amp;#34;^5.4.2&amp;#34;, &amp;#34;webpack&amp;#34;: &amp;#34;^5.90.3&amp;#34;, &amp;#34;webpack-cli&amp;#34;: &amp;#34;^5.1.4&amp;#34;, &amp;#34;webpack-dev-server&amp;#34;: &amp;#34;^5.</description>
+    </item>
+    
     <item>
       <title>3d-modelとcardを連携してみた</title>
       <link>https://syui.ai/blog/post/2023/11/04/vrm/</link>
