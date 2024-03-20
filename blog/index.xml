@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>three.jsでbloomを有効にする</title>
+      <link>https://syui.ai/blog/post/2024/03/19/vrm/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://syui.ai/blog/post/2024/03/19/vrm/</guid>
+      <description>リファクタリングの一環としてweb周りで作ったものを整理しています。
+ https://git.syui.ai/ai/vrm  ただ、整理といいつつ、ほとんど新しい実装を試していて、コード自体はきれいになっていません。
+以前は、three-vrm:v0.6で作成されたプロジェクトのforkを使用していましたが、なかなかに複雑で古いpackageを使用していたので、イチから作り直しました。
+three-vrm:v2.1にして、node:v21, yarn:v1.22を使っています。
+bloom ぼんやりと発光させるには、bloomを有効にしなければなりません。
+ただし、threeに入っているexampleはメンテナンスされていません。別のものを使ったほうが良いでしょう。
+$ yarn add postprocessing //import { EffectComposer } from &amp;#39;three/examples/jsm/postprocessing/EffectComposer&amp;#39;; //import { UnrealBloomPass } from &amp;#39;three/examples/jsm/postprocessing/UnrealBloomPass&amp;#39;; //import { RenderPass } from &amp;#34;three/examples/jsm/postprocessing/RenderPass&amp;#34;; // https://github.com/pmndrs/postprocessing import { BloomEffect, EffectComposer, EffectPass, RenderPass } from &amp;#34;postprocessing&amp;#34;; const composer = new EffectComposer(renderer); composer.addPass(new RenderPass(scene, camera)); composer.addPass(new EffectPass(camera, new BloomEffect())); requestAnimationFrame(function render() { requestAnimationFrame(render); composer.render(); }); 注意としては、WebGLRendererのoptionによっては動かないことがあるらしいので、そのときは以下を設定してください。
+import { WebGLRenderer } from &amp;#34;three&amp;#34;; const renderer = new WebGLRenderer({ powerPreference: &amp;#34;high-performance&amp;#34;, antialias: false, stencil: false, depth: false }); progress progress-barを出します。既に用意されているらしいので、それを使います。</description>
+    </item>
+    
     <item>
       <title>three-vrmでvrmaを読み込む</title>
       <link>https://syui.ai/blog/post/2024/03/17/vrm/</link>
