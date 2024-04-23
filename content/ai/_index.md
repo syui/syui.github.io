@@ -1,5 +1,0 @@
----
-title: "ai"
-type: "ai"
----
-

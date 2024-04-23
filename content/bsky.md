@@ -1,5 +1,0 @@
----
-title: "bsky"
-type: bsky
----
-
