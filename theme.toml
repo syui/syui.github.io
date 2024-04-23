@@ -1,11 +1,10 @@
-name = "Wave"
+name = "ai/web"
 license = "MIT"
-licenselink = "https://github.com/syui/hugo-theme-wave/tree/master/LICENSE"
-description = "Hugo Themes Wave"
-homepage = "https://syui.ai"
+licenselink = "https://git.syui.ai/ai/web"
+description = "ai/web hugo theme"
+homepage = "https://yui.syui.ai"
 tags = ["blog"]
-features = ["wave", "bootstrap", "talaria", "font-awesome", "lunr.js", "bower", "particles.js", "createjs"]
-min_version=0.15
+features = ["font-awesome","icomoon"]
 
 [author]
   name = "syui"
@@ -14,4 +13,4 @@ min_version=0.15
 [original]
     author = "syui"
     homepage = "https://syui.github.io"
-    repo = "https://github.com/syui/hugo-theme-arch"
+    repo = "https://github.com/syui/syui.github.io"
