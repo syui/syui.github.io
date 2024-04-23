@@ -1,0 +1,34 @@
+baseurl = "https://syui.ai"
+languageCode = "ja-jp"
+title = "syui.ai"
+copyright = "&copy; 2019. All rights reserved."
+#canonifyurls = true
+paginate = 10000
+
+[permalinks]
+    post = "/archive/note/:slug"
+				m = "/m/post/:slug"
+    blog = "/blog/post/:year/:month/:day/:slug"
+    novel = "/ai/novel/:slug"
+    app = "/app/dev/:filename"
+
+[author]
+	name = "syui"
+[params]
+    date_format = "2006-01-02"
+    mainSections = ["post"]
+				img_yui = 87
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[frontmatter]
+	date  = [":filename", ":default"]
+
+[taxonomies]
+	tag = "tags"
+
+[outputs]
+  home = ["JSON", "HTML"]
+
+#pygmentsCodeFences = false

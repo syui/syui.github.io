@@ -1,0 +1,41 @@
+[
+	{
+		"author": "syui",
+		"url": "https://syui.ai",
+		"lang": "ja",
+		"mail": "syui@syui.ai",
+		"message": 
+		[
+			{"at":"@syui.ai"},
+			{"activitypub":"@syui@syui.ai"},
+			{"matrix":"@syui:syui.ai"}
+		],
+		"icon": "https://syui.ai/icon/syui.png"
+	},
+	{
+		"bluesky": [ 
+			"https://web.syu.is/profile/syui.syu.is",
+			"https://bsky.app/profile/syui"
+		]
+	},
+	{
+		"mastodon": [ 
+			"https://mstdn.syui.ai/@syui",
+			"https://m.syu.is/@syui",
+			"https://mozilla.social/@ai"
+
+		]
+	},
+	{
+		"matrix": [ 
+			"https://matrix.to/#/@syui:syui.ai",
+			"https://matrix.to/#/@syui:matrix.org"
+		]
+	},
+	{
+		"git": [
+			"https://git.syui.ai/syui",
+			"https://github.com/syui"
+		]
+	}
+]

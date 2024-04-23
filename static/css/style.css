@@ -1,0 +1,302 @@
+body {
+	display:block;
+	background-color: #f1f1f1;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width:100%;
+	margin:0;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+	letter-spacing:.3px;
+}
+
+a {
+	color:  #EF454A;
+	text-decoration: none;
+}
+a:hover {
+	color: #008CCF;
+}
+p {
+	color: rgba(0, 0, 0, 0.8);
+	margin: 0;
+	line-height: 1.6;
+	padding: 4px 0px;
+	word-break: break-word;
+}
+
+.logo span.icon-phoenix-world{
+	font-size: 50px;
+	font-size: 5rem;
+}
+.logo {
+	margin: 35px 0;
+	text-align:center;
+}
+.containerx {
+	width:40%;
+	margin: 0 auto;
+	font-size:18px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+footer#footer {
+	color:#999;
+	text-align: center;
+	margin: 40px 0;
+	font-size: 18px;
+}
+
+@media screen and (max-width:1000px) { 
+	html {
+		font-size: 100%; 
+	}
+	.logo span.icon-phoenix-world{
+		font-size: 60px;
+		font-size: 6rem;
+	}
+	.containerx { 
+		width: auto;
+		margin: 0 15px;
+		font-size:18px;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+}
+
+.containerx p img {
+	width: 100%;
+}
+
+.highlight {
+	color: #f1f1f1e3;
+}
+
+span.blue {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #61bdcc;
+	margin: 0px 5px;
+	box-shadow: 0px 0px 7px #61bdcc;
+}
+
+span.red {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #f41b16b0;
+	margin: 0px 5px;
+	box-shadow: 0px 0px 7px #f41b16;
+}
+
+span.green {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #69cc4df7;
+	margin: 0px 5px;
+	box-shadow: 0px 0px 7px #66f416;
+}
+
+h3 {
+	margin-bottom: 4px;
+}
+
+
+blockquote {
+	background: #fff;
+	margin: 20px 0 20px 0;
+	padding: 20px;
+}
+
+p code {
+	font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+	background: #cccccc7a;
+	margin: 3px;
+	padding: 1px 4px;
+}
+
+nav#article-nav {
+	margin: 123px 0px 30px 0px;
+}
+
+ul {
+  list-style-type: none;
+  display: list-item;
+}
+
+ul.cp_list {
+	padding: 0;
+}
+
+ul.cp_list li {
+	padding: 0.5em 0.5em 0.6em 0.5em;
+	margin-bottom: 5px;
+	line-height: 1.5;
+	vertical-align: middle;
+	background: #fff;
+	border-radius: 0px 0px 0px 0px;
+	color: #444;
+}
+
+ul.cp_list li > p > a {
+	font-size:20px;	
+}
+
+ul.cp_list li > span.icon-moon {
+	color: #0e0e0e;		
+}
+.footer-link > a > i.fab.fa-twitter {
+	color: rgba(52	135	236);		
+}
+.footer-link > a > i.fab.fa-github {
+	color: rgba(1	1	1);		
+}
+
+.footer-link > a > i.fas.fa-rss {
+	color: #f4a316;		
+	font-size: 23px;
+}
+i.fa-brands.fa-slack {
+	color: #b8cfe0;
+}
+
+a.matrix-icon {
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 24px;
+	color: rgb(64 64 64);
+	position: relative;
+	bottom: 4px;
+}
+
+.footer-link > a > span.icon-ai {
+	font-size:25px;
+	color: #fff700;
+	margin:10px;
+}
+.footer-link > a > span.icon-api {
+	font-size:25px;
+	margin:10px;
+}
+
+ul.cp_list li::before {
+	vertical-align: middle;
+	content:'';
+	margin-right: 8px;
+	width:1em;
+	height: 1em;
+	background: #EF454A;
+	border-radius: 50%;
+}
+
+h3 span.icon-phoenix-world {
+	font-size: 0.8em;
+}
+h3 span.icon-phoenix-power {
+	font-size: 0.8em;
+}
+h3 span.icon-syui {
+	font-size: 0.8em;
+}
+h3 span.icon-power {
+	font-size: 0.8em;
+}
+h3 span.icon-archlinuxjp {
+	font-size: 0.8em;
+}
+
+.code-name {
+	font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+	letter-spacing: 0;
+}
+pre > code {
+	font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+	letter-spacing: 0;
+}
+
+.footer-link {
+	font-size:30px;
+	text-align: center;
+}
+.footer-link > a > i {
+	padding:9px;
+}
+
+h2 {
+	line-height: 2rem;
+}
+
+span.tag {
+	background-color: #fff;
+	padding: 2px 6px;
+	word-break: break-word;
+}
+
+ins.adsbygoogle {
+	margin: 55px 0px;
+}
+
+.top-sns-header {
+	text-align:right;
+	font-size:20px;
+}
+
+.top-sns-header span.icon-moon {
+	font-size:20px;
+}
+
+.post-time-date {
+	text-align:right;
+	padding:15px 0 15px 0;
+}
+
+.post-time-date-update {
+	text-align:right;
+	padding:15px 0 15px 0;
+}
+
+ul.cp_list li i.fas.fa-bars {
+    margin-bottom: 30px;
+}
+
+.footer-link > a > i.fab.fa-mastodon {
+	color:#945ecd;
+}
+
+.footer-link > a > i.fab.fa-git-alt {
+	color:#4cae2e;
+}
+
+.footer-link > a > span.icon-home {
+	font-size: 27px;
+	padding: 7px;
+}
+
+ul.cp_list li img {
+    float: left;
+				padding:7px;
+}
+
+.moji p img {
+    width: 128px;
+}
+
+.sns-link {
+    padding: 30px 10px;
+    background-color: #fff;
+				margin:20px 0;
+}
+
+.vrm-model iframe {
+	margin:30px 0 30px 0;
+	width: 100%;
+	height: 640px;
+}
+
+blockquote.ai {
+    background: #313131;
+}

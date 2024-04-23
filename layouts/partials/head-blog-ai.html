@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ .Title }} | {{ .Site.Title }}</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="{{ .Site.Author.name }}" />
+		<meta name="copyright" content="© {{ .Site.Author.name }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="{{ .Title }}" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="{{if .Description}}{{ .Description }}{{ else }}syui blog{{ end }}" />
+		<meta property="og:image" content="{{ .Site.BaseURL }}/icon/ai.jpg" />
+		<meta property="og:url" content="{{ .Site.BaseURL }}" />
+		<meta property="og:site_name" content="{{ .Title }}" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/css/ai.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="/bower_components/highlightjs/styles/monokai.css" />
+		<script src=/bower_components/highlightjs/highlight.pack.min.js></script><link rel=stylesheet href=/bower_components/highlightjs/styles/monokai.css><script>hljs.initHighlightingOnLoad();</script>
+		<script src="/js/analytics.js"></script>
+
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+					"name": "{{ .Title }}",
+					"url": "{{ .Site.BaseURL }}"
+			}
+		</script>
+		<script src="{{ .Site.BaseURL }}/bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="{{ .Site.BaseURL }}/js/highlight-prompt.js"></script>
+		<script src="{{ .Site.BaseURL }}/bower_components/axios/dist/axios.min.js"></script>
+		<script src="{{ .Site.BaseURL }}/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="{{ .Site.BaseURL }}/bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+	</head>
