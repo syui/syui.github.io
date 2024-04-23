@@ -90,4 +90,4 @@ $ git checkout nightly
 $ heroku stack:set heroku-20
 ```
 
-ref : https://syui.cf/blog/post/2019/03/25/gnu-social
+ref : https://syui.ai/blog/post/2019/03/25/gnu-social

@@ -1,5 +1,5 @@
 +++
-date = "2020-01-26JST"
+date = "2020-01-26"
 tags = ["ios"]
 title = "iosのgoodreaderでsftpのprivate-keyが読み込めない問題"
 slug = "goodreader"

@@ -2,8 +2,8 @@
 	<head>
 		<title>{{ .Title }}</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="author" content="{{ .Site.Author.name }}" />
-		<meta name="copyright" content="© {{ .Site.Author.name }}" />
+		<meta name="author" content="{{ .Site.Params.Author.name }}" />
+		<meta name="copyright" content="© {{ .Site.Params.Author.name }}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="syui nyancat" />
 		<meta name="keywords" content="syui" />
@@ -16,16 +16,14 @@
 		<meta property="og:title" content="{{ .Site.Title }}" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui nyancat" />
-		<meta property="og:image" content="{{ .Site.BaseURL }}/favicon.png" />
-		<meta property="og:url" content="{{ .Site.BaseURL }}" />
+		<meta property="og:image" content="{{ .Site.BaseURL }}/og.png" />
+		<meta property="og:url" content="{{ .Permalink }}" />
 		<meta property="og:site_name" content="{{ .Site.Title }}" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
-		<script src="/js/analytics.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
@@ -34,17 +32,6 @@
 					"url": "{{ .Site.BaseURL }}"
 			}
 		</script>
-		<link rel="stylesheet" href="{{ .Site.BaseURL }}/bower_components/jquery.terminal/css/jquery.terminal.css" />
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/terminal-nyan.css" />
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/nyan.css"/>
-		<script src="{{ .Site.BaseURL }}/bower_components/jquery.ajax/jquery.min.js"></script>
-		<script src="{{ .Site.BaseURL }}/bower_components/axios/dist/axios.min.js"></script>
-		<script src="{{ .Site.BaseURL }}/bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
-		<script src="{{ .Site.BaseURL }}/bower_components/jquery.hotkeys/hotkeys.js"></script>
-		<script src="{{ .Site.BaseURL }}/bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="{{ .Site.BaseURL }}/bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-		<script src="{{ .Site.BaseURL }}/js/terminal.quick.js"></script>
-		<script src="{{ .Site.BaseURL }}/js/terminal.js"></script>
-		<app></app>
-		<script src="/build/bundle.js"></script>
 	</head>

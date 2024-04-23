@@ -25,7 +25,7 @@ $ curl ipapi.co
 
 
 ```js:term.js
-axios.get('https://syui.cf/index.json', { 'Content-Type': 'application/json' })
+axios.get('https://syui.ai/index.json', { 'Content-Type': 'application/json' })
 .then(function (response) {
 	index_json = JSON.stringify(response.data,null,"\t");
 	origin_index_json = JSON.parse(index_json);
@@ -46,7 +46,7 @@ $.getJSON('https://ipapi.co/json/', function(data) {
 		term.echo(JSON.stringify(data,null,"\t"));
 		user_ip = JSON.stringify(data.ip,null,"\t").replace(/\"/g, '');
 		});$.ajaxSetup({async: true});
-this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.cf] ~$ ");
+this.set_prompt("[[b;#d33682;]" + user_ip + "]@[[b;#6c71c4;]syui.ai] ~$ ");
 }
 
 if (inputs[0] === 'search' && inputs[1] === '-l') {
@@ -56,7 +56,7 @@ if (inputs[0] === 'search' && inputs[1] === '-l') {
 	};
 } else if (inputs[0] === 'search' && inputs[1] === '-t' && inputs[2] != undefined) {
 	if (tags.indexOf(inputs[2]) != -1) {
-		s = 'tag : https://syui.cf/tags/' + inputs[2];
+		s = 'tag : https://syui.ai/tags/' + inputs[2];
 		term.echo(s);
 	} else {
 		term.echo("none tag!");
@@ -73,7 +73,7 @@ if (command == 'login'){
 	term.login(function(user, password, callback) {
 			if (user == 'root' && password == 'root') {
 			callback('SECRET TOKEN');
-			this.set_prompt("[[b;#d33682;]" + "root" + "]@[[b;#6c71c4;]syui.cf] ~# ");
+			this.set_prompt("[[b;#d33682;]" + "root" + "]@[[b;#6c71c4;]syui.ai] ~# ");
 			} else {
 			callback(null);
 			}

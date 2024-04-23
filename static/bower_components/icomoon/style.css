@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?mxezzh');
+  src:  url('fonts/icomoon.eot?mxezzh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?mxezzh') format('truetype'),
+    url('fonts/icomoon.woff?mxezzh') format('woff'),
+    url('fonts/icomoon.svg?mxezzh#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-git:before {
+  content: "\e901";
+}
+.icon-cube:before {
+  content: "\e900";
+}
+.icon-game:before {
+  content: "\e9d5";
+}
+.icon-card:before {
+  content: "\e9d6";
+}
+.icon-book:before {
+  content: "\e9d7";
+}
+.icon-git1:before {
+  content: "\e9d3";
+}
+.icon-moji_a:before {
+  content: "\e9c3";
+}
+.icon-archlinux:before {
+  content: "\e9c4";
+}
+.icon-archlinuxjp:before {
+  content: "\e9c5";
+}
+.icon-syui:before {
+  content: "\e9c6";
+}
+.icon-phoenix-power:before {
+  content: "\e9c7";
+}
+.icon-phoenix-world:before {
+  content: "\e9c8";
+}
+.icon-power:before {
+  content: "\e9c9";
+}
+.icon-phoenix:before {
+  content: "\e9ca";
+}
+.icon-honeycomb:before {
+  content: "\e9cb";
+}
+.icon-ai:before {
+  content: "\e9cc";
+}
+.icon-robot:before {
+  content: "\e9cd";
+}
+.icon-sandar:before {
+  content: "\e9ce";
+}
+.icon-moon:before {
+  content: "\e9cf";
+}
+.icon-home:before {
+  content: "\e9d0";
+}
+.icon-cloud:before {
+  content: "\e9d1";
+}
+.icon-api:before {
+  content: "\e9d2";
+}
+.icon-aibadge:before {
+  content: "\ebf8";
+}
+.icon-aiterm:before {
+  content: "\ebf7";
+}

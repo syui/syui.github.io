@@ -3,8 +3,8 @@
 	<head>
 		<title>{{ .Title }}</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="author" content="{{ .Site.Author.name }}" />
-		<meta name="copyright" content="© {{ .Site.Author.name }}" />
+		<meta name="author" content="{{ .Site.Params.Author.name }}" />
+		<meta name="copyright" content="© {{ .Site.Params.Author.name }}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="syui" />
 		<meta name="keywords" content="syui" />
@@ -22,22 +22,24 @@
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
-		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
 
-		<script src="{{ .Site.BaseURL }}/js/analytics.js"></script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
 		<script type="application/ld+json">
 			{
 			  "@context": "http://schema.org",
 			  "@type": "WebSite",
 					"name": "{{ .Title }}",
-					"url": "{{ .Site.BaseURL }}"
+					"url": "https://syui.ai"
 			}
 		</script>
-{{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
+
+		{{ range .AlternativeOutputFormats -}}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+		{{ end -}}
+
 	</head>
