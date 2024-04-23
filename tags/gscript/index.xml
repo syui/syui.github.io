@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gscript on syui.ai</title>
+    <link>https://syui.ai/tags/gscript/</link>
+    <description>Recent content in Gscript on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/gscript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Apps Scriptで翻訳してみた</title>
+      <link>https://syui.ai/blog/post/2019/12/15/gscript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/12/15/gscript/</guid>
+      <description>今回使用するのは、Google Apps Scriptというものです。Google Translate APIが有料しか無かったのでこちらを使うことにしました。&#xA;ハマりどころが多かったので、ポイントだけ。&#xA;まず、公開時(リリース時)は、必ずNewでバージョンをつけないと、更新されないみたいです。空にした場合、2,3,4と自動で番号が付きます。同じバージョンを選ぶと、内容は保存されているみたいですが、デプロイされていない状態だと思われます。&#xA;次に、curlで、-X POSTが機能しないので、書き方が悪いのかなあと思っていたら、本当に機能しないみたいです。機能するポストは以下。&#xA;$ curl -L -d &amp;#34;&amp;#34; function doPost(e) { var contents = e.postData.contents; var d = JSON.parse(contents); var spanish = LanguageApp.translate(d.txt, &amp;#39;en&amp;#39;, &amp;#39;ja&amp;#39;, {contentType: &amp;#39;html&amp;#39;}); Logger.log(spanish); return ContentService.createTextOutput(spanish); } //function doGet(e) { // return ContentService.createTextOutput(&amp;#34;doGet!!&amp;#34;); //} これで、以下のようなコマンドを実行すると、englishがjapaneseに翻訳されます。&#xA;# post req $ curl -L -d &amp;#34;{\&amp;#34;txt\&amp;#34;:\&amp;#34;hello\&amp;#34;}&amp;#34; https://script.google.com/macros/s/${APP_ID}/exec こんにちは # get req $ curl -L https://script.google.com/macros/s/${APP_ID}/exec doGet!! LanguageApp.translateのパラメーターは、text, sourceLanguage, targetLanguageとなっています。言語を変えたい場合は変えられるようにしておくほうがいいかもしれません。&#xA;LanguageApp.translate(d.txt, d.src, d.targ); curl -L &amp;#34;{\&amp;#34;txt\&amp;#34;:\&amp;#34;こんにちは\&amp;#34;,\&amp;#34;src\&amp;#34;:\&amp;#34;ja\&amp;#34;,\&amp;#34;targ\&amp;#34;:\&amp;#34;en\&amp;#34;}&amp;#34; ということで、実際に、archlinux.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curl on syui.ai</title>
+    <link>https://syui.ai/tags/curl/</link>
+    <description>Recent content in Curl on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 17 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>コマンドラインからjavascriptでレンダリングされたHTMLソースを取得する方法</title>
+      <link>https://syui.ai/blog/post/2020/07/04/curl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/07/04/curl/</guid>
+      <description>phantomjs curlではjavascriptを有効にしたブラウザと同じHTMLソースの取得が難しいことがあります。このような場合、phantomjsを使用すると便利です。&#xA;$ npm i -g phantomjs phantom 公式サイトにてバイナリも配布されてるので、nodeでのインストールが依存関係などで失敗する場合、こちらをダウンロード、解凍して実行権限を与えると良いでしょう。&#xA;https://phantomjs.org/download.html&#xA;$ curl -sLO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 $ aunpack phantomjs-2.1.1-linux-x86_64.tar.bz2 $ cd phantomjs-2.1.1-linux-x86_64/bin/ $ chmod +x phantomjs $ ./phantomjs --version var system = require(&amp;#39;system&amp;#39;); var page = require(&amp;#39;webpage&amp;#39;).create();argument var url = system.args[1]; page.open(url, function () { console.log(page.content); phantom.exit(); }); $ phantomjs set.js https://google.com domcurl domcurlというツールがあり、webscrapingに非常に便利です。phantomjsなどで要件を満たせない場合におすすめです。&#xA;domcurlはPuppeteerを使う小さなNodeJSアプリケーションで、 npm i domcurlコマンドを発行することでインストールできます。 curlコマンドのように、簡単なdomcurl [url]を発行してリソースを取得し、JSをページ上で実行することができます。&#xA;https://paul.kinlan.me/domcurl/&#xA;$ npm i domcurl $ ./node_modules/domcurl/index.js --url https://example.com </description>
+    </item>
+    <item>
+      <title>画像URLから画像をダウンロードできない場合の対処法</title>
+      <link>https://syui.ai/blog/post/2018/11/17/curl/</link>
+      <pubDate>Sat, 17 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/11/17/curl/</guid>
+      <description>自分の場合、画像を自動ダウンロードして、暇がある時に、定期的にチェックしたりしてるんだけど(みんなやってるよね)、この前、スクリプトが動いてなかったので、見てみた。&#xA;具体的には、nginxにある条件が追加されてて、意図としては、ブラウザでしか開けないようにしているんだろうというか、正確には、ダウンローダーのような直接、画像URLを取得して画像をダウンロードする的な行為を無効化したいんだろうなとか思った。そういうときは、こんな感じで。&#xA;$ curl -sLO https://db.example.com/file/01.jpg -H &amp;#34;Referer: https://example.com&amp;#34; </description>
+    </item>
+  </channel>
+</rss>

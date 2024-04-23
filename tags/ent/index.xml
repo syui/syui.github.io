@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ent on syui.ai</title>
+    <link>https://syui.ai/tags/ent/</link>
+    <description>Recent content in Ent on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/ent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>northflankでentのapiを触ってみた</title>
+      <link>https://syui.ai/blog/post/2023/03/29/api/</link>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/03/29/api/</guid>
+      <description>最近、fly.ioを使ってることもあって、db:postgresよりもsqliteのほうがありがたい感じになってる。&#xA;northflankで動かしてたapiのdbがpostgresだったので、docker-volumeに変更して、sqliteに変更にしてみました。&#xA;ハマったところ ハマったのは前回と同じで、service/CMD overrideでcustom commandを選択して、goの場合はbin/binaryとかやります。&#xA;表示 : /cnb/process/web bin/binary&#xA;volumeも少しハマりました。&#xA;container上のvolumeなので、/はcontainerのrootを指します。&#xA;例えば、volumeを/dataにmountするとして、sqliteはこんな感じになります。&#xA;$ go generate ./... $ go build func main() { client, err := ent.Open(dialect.SQLite, &amp;#34;file:/data/ent.sqlite?_fk=1&amp;#34;) //client, err := ent.Open(dialect.SQLite, &amp;#34;file:ent?mode=memory&amp;amp;cache=shared&amp;amp;_fk=1&amp;#34;) } 今現在、ちょっとした遊びを考えてるんだけど、遊びを考えるのって難しい。&#xA;例えば、botでカード占いをできるようにしたんだけど、これをapiと連携した場合、どんな感じにすれば面白いんだろうとか、長く楽しめそうかなとか、その辺。</description>
+    </item>
+  </channel>
+</rss>

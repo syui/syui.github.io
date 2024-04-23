@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skechfab on syui.ai</title>
+    <link>https://syui.ai/tags/skechfab/</link>
+    <description>Recent content in Skechfab on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 10 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/skechfab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3Dモデルを作ってみる2</title>
+      <link>https://syui.ai/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。&#xA;trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。&#xA;前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+  </channel>
+</rss>

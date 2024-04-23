@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nostr on syui.ai</title>
+    <link>https://syui.ai/tags/nostr/</link>
+    <description>Recent content in Nostr on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/nostr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>damusをはじめてみた</title>
+      <link>https://syui.ai/blog/post/2023/02/05/damus/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/02/05/damus/</guid>
+      <description>damusはnostr protocolに対応したiosのclientです。&#xA;https://github.com/nostr-protocol/nostr&#xA;https://github.com/damus-io/damus&#xA;https://www.reddit.com/r/nostr/comments/10qmsos/damus_for_ios_is_live/&#xA;verify https://gist.github.com/metasikander/609a538e6a03b2f67e5c8de625baed3e&#xA;public-keyはhexに変換します。&#xA;https://damus.io/key/&#xA;# domain root $ cd public $ vim ./.well-known/nostr.json { &amp;#34;names&amp;#34;: { &amp;#34;&amp;lt;name&amp;gt;&amp;#34;: &amp;#34;&amp;lt;pubkey&amp;gt;&amp;#34; } } web client https://snort.social&#xA;cli client とりあえずcli client作ってpostしてみた。&#xA;exampleとしてはこんな感じになるんじゃないかというのを色々なパターンで書いてみた。&#xA;pub mod data; use std::env; use url::Url; use data::Data as Datas; use seahorse::{App, Command, Context}; use nostr::{Event, EventBuilder, Metadata}; use nostr::key::{FromBech32, Keys}; use nostr::message::ClientMessage; use tungstenite::{connect, Message as WsMessage}; const WS_ENDPOINT: &amp;amp;str = &amp;#34;wss://relay.damus.io&amp;#34;; use nostr_sdk::{Client}; use nostr::SubscriptionFilter; use nostr::util::time::timestamp; fn main() { let args: Vec&amp;lt;String&amp;gt; = env::args().</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aios on syui.ai</title>
+    <link>https://syui.ai/tags/aios/</link>
+    <description>Recent content in Aios on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/aios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archベースのaiosを作った</title>
+      <link>https://syui.ai/blog/post/2024/02/11/aios/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/02/11/aios/</guid>
+      <description>少し前からai/botをリファクタリングしています。&#xA;せっかくなのでarchベースのai/osを作り、そこに乗せることにしました。&#xA;$ docker run -it syui/aios ai archlinuxベースの自作osで名前はai osです。&#xA;Arch Linuxがarchlinuxやarchと呼ばれるようにaiosやaiと呼ぶことがあります。使い分けは以下の通りです。&#xA;var ai os Name aios Code ai ID archiso archは非常に使いやすいosです。あらゆる用途に使えますが、自作osにも使えます。その使い勝手の良さから、archベースのosはたくさんあります。例えば、manjaro linux, steam os, asahi linux, alter linuxなど。ai osもその中の一つになります。&#xA;特徴としては、rustを入れてosの拡張を目指します。最初は、systemとlogoを表示する機能を実装しました。&#xA;# pacman -S archiso $ git clone https://gitlab.archlinux.org/archlinux/archiso # buildmodes=(&amp;#39;bootstrap&amp;#39;) $ vim ./archiso/configs/releng/profiledef.sh $ mkarchiso -v -o ./ ./archiso/configs/releng /etc/os-releaseを書き換える処理です。&#xA;# archiso/archiso/mkarchiso if [[ &amp;#34;${_os_release}&amp;#34; != &amp;#34;${pacstrap_dir}&amp;#34;* ]]; then _msg_warning &amp;#34;os-release file &amp;#39;${_os_release}&amp;#39; is outside of valid path.&amp;#34; else [[ !</description>
+    </item>
+  </channel>
+</rss>

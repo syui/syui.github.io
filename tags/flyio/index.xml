@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flyio on syui.ai</title>
+    <link>https://syui.ai/tags/flyio/</link>
+    <description>Recent content in Flyio on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/flyio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fly.ioから自鯖に移行した</title>
+      <link>https://syui.ai/blog/post/2023/08/11/flyio/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/08/11/flyio/</guid>
+      <description>去年の8月までは$0で運用できてたんだけど、そこから約1年、月に$30~40くらいでした。$30は確実に超えてる感じなので、$40のほうが実態に近いかな。&#xA;つまり、この1年で$360~480くらいかかってる。&#xA;移行も面倒なのでしばらく放置してたんだけど、fly.ioでhostingしているmastodonが思うように動かなくなってきており、具体的には、激重になってた。&#xA;これはmastodonを動かすのに使っていたredisの裏技が封印された事によるものだと思う。&#xA;年に$360~480かけて激重のmastodonを運用するのは割に合わないと思ったので、移行を決意。fly.ioにhostしてたほぼすべてのサーバーを自前運用に切り替えました。&#xA;目標としては、また$0を目指す感じになりそう。&#xA;postgres backup &amp;amp; restore fly.ioのpostgresのbackupとdockerへのrestoreの手順です。&#xA;$ brew install libpq $ echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/libpq/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc $ source ~/.zshrc $ flyctl proxy 5432 -a $pg_app_name # postgres://${username}:${password}@${host}:5432/${db_name} $ pg_dump -h localhost -p 5432 -U $username $db_name &amp;gt;! pg.dump $ sudo docker compose up db $ su $ cat pg.dump | docker compose exec -T db psql -U $username -p 5432 これは、docker-composeの構成によります。例えば、下記の場合は、こうなります。&#xA;$ sudo docker compose up mitra_postgres $ su $ cat pg.</description>
+    </item>
+  </channel>
+</rss>

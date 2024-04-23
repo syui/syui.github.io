@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on syui.ai</title>
+    <link>https://syui.ai/tags/docker/</link>
+    <description>Recent content in Docker on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker volumesの移行</title>
+      <link>https://syui.ai/blog/post/2023/11/24/docker-mac/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/11/24/docker-mac/</guid>
+      <description>macbook air(intel)を使っていなかったのでserverにしました。stable diffusionを動かしているgpu付きのserverがあるんだけど、stable diffusionを稼働すると、他のものが止まってしまったり、動きが鈍くなってしまったりで不都合だったので、全体的にdockerをmacに移行しました。&#xA;docker volumesは権限の関係でtarにしてからrsyncで移行先に送ります。そうしないとdata(postgresなど)が移行先で扱えません。個別に永続化しているvolumesも同様とします。&#xA;$ brew install --cask docker $ ssh server $ su $ tar cvzf volumes.tgz /var/lib/docker/volumes # 移行先へのssh接続を確立しておく必要があります $ rsync -av volumes.tgz mac: $ exit $ aunpack volumes.tgz $ sudo mkdir -p /var/lib/docker $ sudo mv ./var/lib/docker/volumes /var/lib/docker/ </description>
+    </item>
+    <item>
+      <title>dockerでstable diffusionを構築してみた</title>
+      <link>https://syui.ai/blog/post/2023/08/31/docker/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/08/31/docker/</guid>
+      <description>stable diffusion v1.4 src : https://huggingface.co/CompVis/stable-diffusion-v-1-4-original&#xA;sd-v1-4.ckpt : https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt&#xA;.ckptはファイルが大きいのでgit cloneでdownloadされません。&#xA;$ mkdir -p {model,outputs} $ mv sd-v1-4.ckpt ./model/model.ckpt $ vim Dockerfile FROM nvcr.io/nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04 ARG DEBIAN_FRONTEND=noninteractive ENV TZ=Asia/Tokyo RUN apt-get update &amp;amp;&amp;amp; apt-get install -y wget git git-lfs libglib2.0-0 libsm6 libxrender1 libxext-dev RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &amp;amp;&amp;amp; \ sh Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3 &amp;amp;&amp;amp; \ rm -r Miniconda3-latest-Linux-x86_64.sh ENV PATH /opt/miniconda3/bin:$PATH # RUN git clone https://github.com/CompVis/stable-diffusion &amp;amp;&amp;amp; \ # cd stable-diffusion &amp;amp;&amp;amp; \ # conda init bash &amp;amp;&amp;amp; \ # conda env create -f environment.</description>
+    </item>
+    <item>
+      <title>dockerの/var/lib/dockerを外付けhddに移動する</title>
+      <link>https://syui.ai/blog/post/2023/08/30/docker/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/08/30/docker/</guid>
+      <description>検索しても適切な方法が見つからなかったので手順を記録します。&#xA;これをそのままcp, rsync, mvしても、そのファイルは使えません。&#xA;failed: Operation not permitted&#xA;これはformat:ext4が関係しているかもしれません。&#xA;しかし、基本的には、論理ボリュームを作成、mountした上でrsyncします。&#xA;$ sudo systemctl stop docker.service # 論理ボリュームの作成 $ sudo vgcreate docker /dev/sdb1 $ sudo vgs $ sudo lvcreate -L 600G -n docker docker $ sudo vgs -o +lv_size,lv_name $ sudo mkfs.ext4 /dev/docker/docker # 論理ボリュームのmount $ mkdir -p ~/mnt/tmp $ sudo mount /dev/docker/docker ~/mnt/tmp/ # ファイルの移行 $ sudo rsync -avx /var/lib/docker/ ~/mnt/tmp # backup $ sudo mv /var/lib/docker /var/lib/docker.back # /var/lib/docker $ sudo mkdir /var/lib/docker $ sudo chmod 710 /var/lib/docker $ sudo mount /dev/docker/docker /var/lib/docker # umount $ sudo umount ~/mnt/tmp $ sudo rm -rf ~/mnt/tmp # auto-mount $ sudo fdisk -l $ sudo blkid | grep sdb1 UUID=$uuid $ sudo vim /etc/fstab /dev/docker/docker /var/lib/docker ext4 defaults 0 0 dockerは肥大化しやすいのに罠すぎる。</description>
+    </item>
+    <item>
+      <title>archlinuxでsystemd-nspawnを使いcontinerを立ててみた</title>
+      <link>https://syui.ai/blog/post/2022/12/05/archlinux-systemd-nspaw-continer/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/12/05/archlinux-systemd-nspaw-continer/</guid>
+      <description>botに複数の仮想環境を構築する必要があったので、今回はsystemd-nspawnを採用してみることにしました。&#xA;結論から言うと、systemd-nspawnはとっつきにくいですが、一度使えるようになっておくと、本格的に便利だと感じました。&#xA;ただ、とっつきにくさがすごい。コマンドも複数あって混乱を招くと思われます。&#xA;archwikiの最初の説明が以下です。&#xA;$ mkdir -p ~/arch $ sudo pacstrap -c ~/arch base # -D : chroot $ sudo systemd-nspawn -D ~/arch $ passwd $ logout # -b : コンテナ起動 $ sudo systemd-nspawn -b -D ~/arch # -n : ネットワーク $ sudo systemd-nspawn -b -D ~/arch -n これは色んな意味で正しいのですが、私の環境では動作しません。&#xA;設定したpasswordでloginできない。なお、設定していないと空なのでenterでloginできるはず(たぶん)。ttyのsecurityが働いているからです。&#xA;Arch Linux 6.0.11-arch1-1 (pts/1) arch login: arch-nspawn login: root Login incorrect ここでホストから~/arch/etc/securettyを編集し、ここではpts/1でloginしようとしているため、これを追記します。pts/0ならpts/0ですし、その他ならそのttyを記述してください。&#xA;$ sudo vim ~/arch/etc/securetty さて、loginできたとしましょう。&#xA;一旦、poweroffして仮想環境(continer)を落とします。&#xA;$ poweroff $ machinectl list 次に、本来のsystemd-nspawnの一般的な使い方を説明します。</description>
+    </item>
+    <item>
+      <title>pleromaをherokuで立てる[2022年度版]</title>
+      <link>https://syui.ai/blog/post/2022/07/07/pleroma/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/07/pleroma/</guid>
+      <description>この前、#stackoverflowでelixirのphoenixが好きなフレームワーク1位に選ばれていました。&#xA;ref : https://www.publickey1.jp/blog/22/7itrustdbpostgresqlvscodeneovimstack_overflow_2022_developer_survey.html&#xA;正直、驚きました。しかも、好きな言語ランキングでも1位のrustに続いてelixirが2位でした。elixir、そんな人気だったん&amp;hellip;?&#xA;そんなelixirのphoenixですが、mastodonに似たblog(sns)サービスであるpleromaがphoenixで書かれています。pleromaを触ってると、phoenixのことも自然にわかってくると思います。&#xA;ということで、今回は、herokuでpleromaを立ててみます。herokuのelixir, phoenix対応はstackやbuildpackの関係上、かなりつらい状況です。buildpackを自身で動くよう調整し公開する必要があるかもしれません。&#xA;したがって、dockerで立てたほうがいいでしょう。もしcontainerを利用しない場合、現在のelixir対応では運用が行き詰まる可能性があります。&#xA;https://github.com/angristan/docker-pleroma&#xA;基本的には、DockerfileのENTRYPOINTを削除して、heroku.ymlを書きます。&#xA;#ENTRYPOINT [&amp;#34;/pleroma/docker-entrypoint.sh&amp;#34;] build: docker: web: Dockerfile config: MIX_ENV: prod SECRET_KEY_BASE: $SECRET_KEY_BASE DATABASE_URL: $DATABASE_URL DB_NAME: $DB_NAME DB_HOST: $DB_HOST DB_USER: $DB_USER DB_PASS: $DB_PASS DOMAIN: $DOMAIN ADMIN_EMAIL: $ADMIN_EMAIL NOTIFY_EMAIL: $NOTIFY_EMAIL run: web: $HOME/bin/pleroma_ctl migrate &amp;amp;&amp;amp; exec $HOME/bin/pleroma start それぞれの環境変数は、以下のコマンドで入れていけばいいでしょう。&#xA;$ heroku addons:create heroku-postgresql:hobby-dev $ heroku pg:credentials:url $ heroku config:set DB_USER=xxx . . . 次に、config.exsを書きますが、herokuに対応した書き方が必要です。&#xA;config :pleroma, Pleroma.Web.Endpoint, url: [scheme: &amp;#34;https&amp;#34;, host: &amp;#34;xxx.herokuapp.com&amp;#34;, port: {:system, &amp;#34;PORT&amp;#34;}], http: [ip: {0, 0, 0, 0}, port: {:system, &amp;#34;PORT&amp;#34;}] config :pleroma, :instance, name: System.</description>
+    </item>
+    <item>
+      <title>DockerのPrivate ImageをCloud上にUploadするにはGitLabが便利</title>
+      <link>https://syui.ai/blog/post/2018/12/05/gitlab-docker/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/12/05/gitlab-docker/</guid>
+      <description>Docker Hubには、1つのPrivate Imageしか置けません(Free)。したがって、GitLab.comを使うのが最も良い選択肢です。&#xA;必要なのは、GitLab.comのGit RepositoryとAccess Tokenのみです。&#xA;https://gitlab.com/profile/personal_access_tokens&#xA;# まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。 $ sudo docker login registry.gitlab.com or $ sudo vim ~/.docker/config.json $ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。 $ sudo docker build -t registry.gitlab.com/$USER/repo . $ sudo docker push registry.gitlab.com/$USER/repo https://gitlab.com/help/user/project/container_registry&#xA;DockerのPrivate Imageは沢山の使い道があります。&#xA;一つは、Git ServerにPushするImageを作れるという点です。これによって、CIを可動させ、それを回す仕組みを作ることができます。&#xA;ただし、セキュリティ上の危険は増大します。なぜなら、Docker Image内にGit Serverへのアクセスに必要なものを置く必要があるからです。&#xA;何度かこのテーマで記事を書いたことがあった気がしますが、GitLab.comのDocker Repositoryは使えたり、使えなかったりで不安定でした。今は使えるようになっているみたいなので、再度書きました。&#xA;今の時代、GitLab.comを使わない手はありませんね。</description>
+    </item>
+    <item>
+      <title>dockerでpleromaを起動してみる</title>
+      <link>https://syui.ai/blog/post/2018/07/29/docker-pleroma/</link>
+      <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/07/29/docker-pleroma/</guid>
+      <description>導入 分散型SNSの一つにpleromaというものがあります。分散型SNSというのは、GNU Social(PHP), Mastodon(Ruby)のようなものです。&#xA;pleromaは、ElixirのPhoenixというフレームワークで書かれたWebアプリ&amp;hellip;と言っていいか分かりませんが、そんな感じのものです。&#xA;ご存知の通り、ElixirのPhoneixは非常にレスポンスと言うか、自動更新周りの処理がエコでして、pleromaも非常に軽い感じで動作します。&#xA;メモリとかGNU SosicalやMastodonと比べて段違いに少なくて済むのでは。&#xA;ことPaaSとかSaaSとか、他のものにpleromaを置くにしても、最近は、dockerやk8sなどのコンテナを利用する可能性が高く、メモリは以前に増して少量であることが重要な要素の一つだと思います。&#xA;GCPとかBluemixとかHerokuとかOpenShiftとか、無料もしくは格安プランで動かす場合、1GB制限とかそういうの多いんですよ。&#xA;ということで、今回はとりあえずpleromaをdockerで動かしてみたいなーと思いたって、適当にやってみました。&#xA;docker:pleroma github.com/ht164/pleroma-docker-compose&#xA;検索したらこういうものがアップされていました。docker-composeで上げられてるの、非常にありがたい!&#xA;$ git clone https://github.com/ht164/pleroma-docker-compose $ mkdir -p web/pleroma &amp;amp;&amp;amp; cd web/pleroma $ git clone https://git.pleroma.social/pleroma/pleroma.git . 大抵、仕組みは公式wikiを見れば分かると思いますが、まずはdockerで触っていきましょう。&#xA;https://git.pleroma.social/pleroma/pleroma/wikis/home&#xA;./pleroma-docker-compose/web/pleroma&#xA;$ vim config/dev.secret.exs # Pleroma.Repoを書き換えます config :pleroma, Pleroma.Repo, adapter: Ecto.Adapters.Postgres, username: &amp;#34;pleroma&amp;#34;, password: &amp;#34;pleroma&amp;#34;, database: &amp;#34;pleroma_dev&amp;#34;, hostname: &amp;#34;db&amp;#34;, pool_size: 10 $ mkdir -p web/uploads &amp;amp;&amp;amp; mkdir -p db/postgres $ cd ../.. # ./pleroma-docker-compose $ docker-compose build $ docker-compose up -d $ docker ps 12345678 pleroma/pleroma pleroma-docker-compose_web_1 $ docker exec -it 12345678 /bin/sh &amp;gt; $ mix ecto.</description>
+    </item>
+    <item>
+      <title>windows-virtualbox-docker</title>
+      <link>https://syui.ai/blog/post/2017/06/13/docker/</link>
+      <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/06/13/docker/</guid>
+      <description>現在、Windows上でshell:startupしてバックグラウンドで起動したVirtualBoxのイメージをSSHしているんだけど、そこでDockerを動かそうとしてエラーが出る。&#xA;standard_init_linux.go:178: exec user process caused &amp;#34;exec format error&amp;#34; Dockerは32bitに対応していないという記述を見つけた。&#xA;https://github.com/moby/moby/issues/7924</description>
+    </item>
+    <item>
+      <title>Dockerイメージの最適化</title>
+      <link>https://syui.ai/blog/post/2017/02/13/docker/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/02/13/docker/</guid>
+      <description>通常、dockerfileからbuildしたイメージが最も最適化されている状態なのだけど、commitなどしていくと、差分関係などいろいろあって肥大化するらしい。&#xA;$ docker-squash -from $id -i input -o output $ docker export &amp;lt;container id&amp;gt; | docker import - &amp;lt;new image name&amp;gt; </description>
+    </item>
+    <item>
+      <title>DockerでTagを付けてイメージをPushする</title>
+      <link>https://syui.ai/blog/post/2017/02/12/docker/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/02/12/docker/</guid>
+      <description>$ sudo docker images $ sudo docker tag docker.io/arch local/arch $ sudo docker push local/arch </description>
+    </item>
+  </channel>
+</rss>

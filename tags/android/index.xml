@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on syui.ai</title>
+    <link>https://syui.ai/tags/android/</link>
+    <description>Recent content in Android on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 30 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android</title>
+      <link>https://syui.ai/m/post/android/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/android/</guid>
+      <description>nexus7(2013)はroot権限を取って使っています。&#xA;公式imgは以下にあります。&#xA;flo : https://developers.google.com/android/images&#xA;$ adb reboot-bootloader $ fastboot flash boot boot.img $ fastboot erase system $ fastboot flash system system.img $ fastboot reboot $ adb reboot bootloader $ fastboot oem unlock # https://developers.google.com/android/images # ./flash-all.sh $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip /sdcard/ $ adb reboot system $ adb install xxx.apk # http://www.apkmirror.com/ lineage osを使うことで、nexus7にandroid12をインストールできます。&#xA;twrp : https://twrp.me/asus/asusnexus72013wifi.html&#xA;lineage os 19.1 : https://forum.</description>
+    </item>
+    <item>
+      <title>nexus7にandroid12を入れる</title>
+      <link>https://syui.ai/blog/post/2022/03/24/nexus7/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/03/24/nexus7/</guid>
+      <description>nexus7にlineage-19.1(android12)を入れてみました。&#xA;https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-19-1-2022-03-18.3569067/&#xA;ほとんどが前回と変わらずです。&#xA;gapps : https://drive.google.com/drive/folders/1O-I01LDvno57ztnxIW_bSnVWEk8-6Ics&#xA;bitgapps : https://github.com/BiTGApps&#xA;magisk : https://github.com/topjohnwu/Magisk&#xA;sysrepart_1380_20.zipのパーティションの処理が失敗する場合は、公式factory-imgで初期化するといいかもしれません。&#xA;flo : https://developers.google.com/android/images&#xA;nexus7が文鎮化した 今回、nexus7が文鎮化しました。&#xA;lineage 19.1を入れて、うまく動作していたのですが、gappsが入らなくて、gappsが入らないと、gmsが使えません。gmsが使えないと、google-storeなどが使えませんので不便です。&#xA;gappsが入らないのは、sysrepartのscriptが失敗しているからなんですが、それを修正しようと、公式のfactory-imgで初期化したのが失敗でした。&#xA;私のnexus7は以前からfastboot(bootloader)に入る際、電源ボタン+volume下ボタンでは入れなくなっていたため、usb接続からのadb reboot bootloaderで入っていました。&#xA;で、初期化後に起動しなくなったのですが、当然ながら、fastbootに入れない。&#xA;&amp;hellip;まあ、いわゆる文鎮化です。&#xA;googleロゴが繰り返し出てきてandroidが起動せず、fastbootにも入れない。&#xA;この場合、ボタンを押して入るしかないからです。これが文鎮化につながりました。&#xA;ちなみに、起動後はちゃんとボタン、つまり、ボリュームダウン等は機能してたんですよ。ただ起動時のみ、なぜかボタンを押してもfastbootに入れない。以前はボタンで入れたのですけど、いつの間にかボタンで入れなくなっていました。&#xA;nexus7の文鎮化を修理した 分解してボタン周りをいじったら、なんとかfastbootに入ってくれました。&#xA;このチャンスを逃す手はありません。&#xA;ここで様々な処理を施し、最低限、androidが正常に起動するようにしました。&#xA;android12 app list 使ってるアプリのリストです。&#xA;Terminal Emulator for Android&#xA;BusyBox&#xA;Hacker&amp;rsquo;s Keyboard&#xA;AFWall+&#xA;Clipper - Clipboard Manager&#xA;AdAway&#xA;Perfect Viewer&#xA;chrootしたarch.imgにもsshできたのでよかった。この辺もちょっとしたhackは必要だった。</description>
+    </item>
+    <item>
+      <title>androidでlocal terminalを使ってみる</title>
+      <link>https://syui.ai/blog/post/2021/07/08/android/</link>
+      <pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/07/08/android/</guid>
+      <description>aospではdev modeでterminalが含まれるようになっており、local terminalという名前でterm appが使えるっぽいので試してみました。&#xA;アイコンは公式なのでかっこいいんですけど、設定できないので使いづらかった。&#xA;私はrootで使うことが多く、androidはrootの$HOMEを/に設定されており、これだとrootfsでinitramfsを採用することから、例えば、/.bashrcというファイルをtwrpとかremountとかして置いたとしても、再起動後に消えてしまうので、事実上、root shellの設定ファイルが使えないようになってます。&#xA;したがって、仮にroot shellをcustomするとなると、imgをbuildして、fastboot flash systemするしかありません。&#xA;今まではandroid terminal emulatorの設定で色々と工夫して、aliasみたいなものを設定して使ってました。&#xA;archlinuxのbootは、magiskでbusyboxのmoduleをinstallしたあと、/data/adb/magisk/busyboxから起動することにしました。busyboxを/system/binに入れても、そのうち消えるので。&#xA;このへん、もう忘れてしまってるんですが、supersuでは/system/bin/がrwでmountされてた気がする。magiskは一時的にpath解決するだけなのではないかと。&#xA;この回避策として思い浮かぶのは、chainfire氏のcf-auto-rootでexploitする際、imgにbusyboxを含めることで/system/binに書き込めそうだと思いましたが、magiskで管理したほうがbusyboxのupdateに対応しやすいので、こちらを採用しました。</description>
+    </item>
+    <item>
+      <title>nexus7をandroid 11にupgradeしてみた</title>
+      <link>https://syui.ai/blog/post/2021/07/07/android/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/07/07/android/</guid>
+      <description>nexus7はかなり長く使っていて、はじめて体験するandroidとしては、とてもよい体験だったと思います。公式romはandroid 6.xがlatestで、私もそれを使用していました。&#xA;しかし、nexus7は、custom romがandroid 10までありますし、lineage(android 11)もインストールが可能なので、最新のandroidを試してみることにします。&#xA;lineage(android 11 base) 今回は、android 11ベースのlineageをインストールします。&#xA;twrp : https://twrp.me/asus/asusnexus72013wifi.html&#xA;lineage os 18.1 : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/&#xA;sysrepart_1280_120.zip : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/&#xA;opengapps(android 11) : https://forum.xda-developers.com/t/rom-flo-deb-unofficial-lineageos-18-1-2021-06-10.3569067/&#xA;$ adb reboot-bootloader $ fastboot flash recovery twrp.img $ fastboot boot twrp.img $ adb push sysrepart.zip /sdcard/ # twrp -&amp;gt; install -&amp;gt; sysrepart $ adb push lineageos.zip /sdcard/ $ adb push opengaaps.zip /sdcard/ # twrp -&amp;gt; install -&amp;gt; lineage, opengaaps magisk root root化は現在、magiskが一般的らしい。&#xA;$ adb install magisk.</description>
+    </item>
+    <item>
+      <title>androidで動いてたarch-armが壊れた</title>
+      <link>https://syui.ai/blog/post/2021/06/28/android-armv7-arch/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/06/28/android-armv7-arch/</guid>
+      <description>android上で動かしてるarch-armのupdateを怠っていたのでpacmanがupdateできない状態、もしくは無理にupdateすると壊れる状態になってしまってたので、ほぼ詰みかけてた話です。&#xA;通常、archlinuxはpacmanが壊れてもpacman-staticのbinaryをdlしてくればいいんですけど、armにはそういうのがなかったので、pacmanが壊れると、ほぼどうしようもない感じだった。&#xA;ただ、armv7hのpackage-binaryを公開してくれてる人がいたので、とても助かりました。&#xA;https://mirror.yandex.ru/archlinux-arm/armv7h/core/&#xA;http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/&#xA;基本的に更新を怠ってたarch-armは、最初にpacman -Sy base-develします。これで一応、必要なpackageをupdateできるはずなんですが、今回はそれでもpacmanが壊れてる状態だったので、必要なものをftpから持ってきてbinaryを置き換えます。ちなみに、解凍とか面倒ならzarchiverってアプリを使いますが、便利です。&#xA;$ pacman -Sy base-devel $ pacman --version error : archive_entry_digest # libarchive $ curl -sLO http://ftp.tku.edu.tw/Linux/ArchLinux-arm/armv7h/core/libarchive-3.5.1-1-armv7h.pkg.tar.xz $ aunpack libarchive-3.5.1-1-armv7h.pkg.tar.xz $ cp -rf ./libarchive-3.5.1-1-armv7h.pkg.tar/* / $ pacman --version error libraries : libarchive.so.13 file too short $ ls /etc/lib/libarch* $ ln -s /usr/lib/libarchive.so.13.15.1 /usr/lib/libarchive.so.13 $ pacman --version pacman v6.0.0, libalpm v13.0.0 $ pacman -Syu とりあえず直ったのでよかった。&#xA;とはいえ、backup(2019)のarch-imgがあったので、次にやるなら、おそらく、それをadb pushすると思います。&#xA;$ adb push arch-arm-back-2019.img /sdcard/ # 以下はあくまでイメージです、実際に実行できるコマンドではありません $ chroot /sdcard/arch-arm-back-2019.</description>
+    </item>
+    <item>
+      <title>ノベルゲームを実機でテストしてみた</title>
+      <link>https://syui.ai/blog/post/2020/05/25/app/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/05/25/app/</guid>
+      <description>nexus7, iphoneseでテストしてみました。調整も一通り終了したので、releasesにて配布します。&#xA;https://github.com/syui/game/releases/tag/v3.0&#xA;いまのところ、対応はmac, win, ios, androidとなっています。&#xA;やったこと アイコン調整 アイコンがぼやけてたので、シャープ強にしてから変換しました。&#xA;また、xcodeでのアイコンの設定が分かりづらかったのですが、サイズのあった.pngをprojectのImages.xcassets/AppIcon.appiconset/に置きます。そして、Contents.jsonを書きます。&#xA;#!/bin/zsh # Images.xcassets/AppIcon.appiconset/ # use : icon_1024x1024.png mogrify -resize 20x20! icon_1024x1024.png icon-20.png mogrify -resize 40x40! icon_1024x1024.png icon-20@2x.png mogrify -resize 60x60! icon_1024x1024.png icon-20@3x.png mogrify -resize 80x80! icon_1024x1024.png icon-40@2x.png mogrify -resize 120x120! icon_1024x1024.png icon-40@3x.png mogrify -resize 180x180! icon_1024x1024.png icon-60@3x.png cp -rf icon-20@2x.png icon-40.png cp -rf icon-20@3x.png icon-60.png cp -rf icon-40@3x.png icon-60@2x.png mogrify -resize 29x29! icon_1024x1024.png icon-29.png mogrify -resize 58x58! icon_1024x1024.png icon-29@2x.png mogrify -resize 87x87!</description>
+    </item>
+    <item>
+      <title>ノベルゲームをiosとandroid用に調整してみた</title>
+      <link>https://syui.ai/blog/post/2020/05/24/app/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/05/24/app/</guid>
+      <description>前回は、画面の調整などをしていなかったので、今回は、調整してみました。&#xA;まずtyranoscriptは、画面サイズを調整するのがそこそこに面倒でした。具体的には、背景画像などのサイズをimagemagickなどで変換し、ボタンの配置を調整しました。androidは、data/system/Config.jsの以下を調整すればいけました。&#xA;ml = 0; mt = 0; mw = 400-0; mh = 700-0; 次に、アイコンですが、こちらも面倒です。基本的には、cordovaのフォルダ構成で以下の場所に配置します。&#xA;$ ls ./platforms/ios/yui/Images.xcassets/AppIcon.appiconset/*.png $ ls ./res/{Android,ios} 変換スクリプトは以下を使います。&#xA;https://github.com/hibara/create-ios-all-icons-shellscript&#xA;ios iosはxcodeでbuildします。実機でdebugしました。&#xA;$ npm i -g cordova $ cordova platform add ios $ cordova compile ios # 更新 $ vim www/ $ cordova prepare ios $ ls ./platforms/ios $ open -a Xcode ./platforms/ios/yui.xcodeproj ただ、apple storeで配布するには、年間1万円以上の費用がかかるみたいです。これでは、配布しても回収できませんね。それに、審査も厳しそうです。&#xA;android androidはandroid sdkでcli toolやemulateをdownloadし、sdkmanでgradleをinstallします。cordovaがpathからこれらを実行し、buildします。&#xA;$ cordova platform add android $ cordova compile android # android sdk install # curl -s get.</description>
+    </item>
+    <item>
+      <title>android-google&#43;</title>
+      <link>https://syui.ai/blog/post/2017/09/29/android/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/09/29/android/</guid>
+      <description>そういえばandroidも一時期、ユーザーのところにGoogle+のアイコンを表示するようになってた時期があった気がする。&#xA;現在はどうなんだろう。Google+は全く使わなくなってしまってるので分からない。</description>
+    </item>
+    <item>
+      <title>android-system/app</title>
+      <link>https://syui.ai/blog/post/2017/09/27/android/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/09/27/android/</guid>
+      <description>iosの初期設定の話をしたついでに、andoridの初期設定方法。&#xA;androidはiosとは違ってプリインストールアプリを消去していけますので、楽です。&#xA;基本的には以下のような感じでroot権限で要らないものを削除。&#xA;$ su $ pm list packages -f $ rm -rf /system/app/com.foo... $ rm -rf /system/priv-app/com.foo... /system/appがプリインストールアプリで、/system/priv-appがシステムアプリです。/system/priv-appにあるものを間違って削除すると動かなくなる可能性があるのである程度詳しい人向け。&#xA;とはいっても、壊れたら壊れたでfastboot flash system system.imgとかすればいいわけですが、自分にとって不要なアプリを特定していきます。大体は名前とかでわかりますが、私の場合は結構消しています。&#xA;あとは権限ですね。必要なアプリでも不要な権限を持っているアプリも多いですし、特に開発者システムとかですね。これoffにするとgmailの同期とか支障が出た気もしますけど、私の環境では特に不便なく使えてます。&#xA;また、Googleアカウントの設定とかはoffにしていかないといけないのですね。&#xA;この辺はiosでもandroidでも面倒ですね。自分がカスタマイズしたimgでも用意しとけばいいんですけど、その場合、security patchをmergeするのがめんどいことになりそう。</description>
+    </item>
+    <item>
+      <title>二重投稿ミス</title>
+      <link>https://syui.ai/blog/post/2017/08/29/blog/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/08/29/blog/</guid>
+      <description>たまにtravisのほうでトラブルがあるのか、ポストが上手くいかないことがあります。&#xA;今回は二重投稿になってしまってるな。cron-jobを実行するサーバーでdateコマンド辺りがバグったからなのか、若しくはdockerのバグなのか。よく分かりませんが、多分、travisだと思ってます。&#xA;こちらもあまり見に来ないので、気付くのが遅れてしまうことがあります。すいません。</description>
+    </item>
+    <item>
+      <title>Essential Phone</title>
+      <link>https://syui.ai/blog/post/2017/08/28/android/</link>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/08/28/android/</guid>
+      <description>Essential Phoneというやつちょっと気になってる。かなり良さそうな感じ。&#xA;https://www.essential.com/&#xA;まずロゴがスマホに存在しないか若しくは目立ってないのがいいと思う。&#xA;ただ、裏のあれこれが気になる。シンプルじゃない。少なくともiPhoneSEよりはシンプルではない。&#xA;アンディ・ルービンの「Essential Phone」は質感も意識も高いが、まだ「未完成」かもしれない https://wired.jp/2017/08/19/review-essential-phone/&#xA;ロゴも細かな印字もなく、カメラの出っ張りもない。そして十分にパワフルなのだから。&#xA;やっぱりロゴ無かったんだ。これは良い兆候。個人的にはカメラ出っ張りがないのは必須。印字がないのは嬉しい。&#xA;カメラのアプリ以外に搭載されているソフトウェアは、Androidだけである。つまり、ピュアでクリーンで、プリインストールされたアプリのないAndroidなのだ。&#xA;この辺も良さ。というか必須。&#xA;駄目なのは裏のあれこれ(ネジ穴?)とかは駄目だと思った。個人的にスマホの裏側はiPhoneSEと同等か若しくはそれよりもシンプルにしてほしい。&#xA;次に思ったのは、カメラなんだけど、360度はいらないので、アプリも要らないし、ネジ穴とかも要らないし、機器自体もいらない。欲しい人はオプションでつければいいので、普通の人は凝ったものはいらなくて、シンプルなやつがほしいのです。</description>
+    </item>
+    <item>
+      <title>android-tune2fs</title>
+      <link>https://syui.ai/blog/post/2017/06/15/android/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/06/15/android/</guid>
+      <description>Nexus7(2012)が遅い。&#xA;ext4 のジャーナルは HDD アクセス速度を大幅に低下させるらしい。&#xA;$ ls -l /dev/block/platform/sdhci-tegra.3/by-name/ $ mount -o remount,rw / $ vi /fstab # noatime or # TWRP $ tune2fs -O ^has_journal /dev/block/mmcblk0p11 $ tune2fs -O ^has_journal /dev/block/mmcblk0p12 $ tune2fs -O ^has_journal /dev/block/mmcblk0p13 ref :&#xA;https://qtotter.wordpress.com/2016/11/21/amazon-fire-5th-gen%E3%81%8C%E7%88%86%E9%80%9F%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F/&#xA;http://redtiger.tank.jp/wiki/doku.php?id=linux-handling-note:disable-ext4-journal&#xA;https://forum.xda-developers.com/showthread.php?t=1739119&#xA;APP -&amp;gt; system CAC -&amp;gt; cache LNX -&amp;gt; boot.img MDA -&amp;gt; Unknown MSC -&amp;gt; Misc (bootloader commands and other misc stuff ) PER -&amp;gt; usually a fat partition containing sensor calibration etc.</description>
+    </item>
+    <item>
+      <title>supersu-v2.81</title>
+      <link>https://syui.ai/blog/post/2017/05/29/android/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/29/android/</guid>
+      <description>supersuですが、なにやら配布元が変更されている気がします。&#xA;chainfire -&amp;gt; Codingcode&#xA;chainfireさんのブログ : https://chainfire.eu/&#xA;色々と変更があったみたいで、詳しくは以下のURLを参照。&#xA;https://forum.xda-developers.com/apps/supersu/stable-2016-09-01supersu-v2-78-release-t3452703&#xA;正直、外部からはいまいちよく分かりませんね。supersuほどの有名アプリはいつ買収されてもおかしくないし、それによってどういった変更が加えられるのか難しいところがありそうです。</description>
+    </item>
+    <item>
+      <title>Google Appを削除したらAndroidが起しなくなった</title>
+      <link>https://syui.ai/blog/post/2017/05/22/android/</link>
+      <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/22/android/</guid>
+      <description>Google App権限を変更しようとして「オーバーレイ表示（他のアプリに重ねて描画）」をOFFにしろといわれたけど面倒なのでアプリごと削除したらAndroid6.0が起動しない。&#xA;よって、gapps(arm-6.0-nano)を入れて起動した。&#xA;http://opengapps.org/&#xA;オーバーレイに関しては下記が参考になります。&#xA;https://blog.cles.jp/item/8297&#xA;なるほど&amp;hellip;。ていうかGoogle App消したら起動しなくなるというのは、どう考えてもおかしいです。&#xA;なお、Androidで再起動や起動しない問題が起こった時はaosp, open_gappsをやると大抵なんとかなります。それでもどうしようもない時はflash-all。</description>
+    </item>
+    <item>
+      <title>android-app</title>
+      <link>https://syui.ai/blog/post/2017/05/21/android/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/21/android/</guid>
+      <description>入れたアプリ一覧&#xA;$ adb shell pm list packages -f package:android package:com.Slack package:com.android.apps.tag package:com.android.backupconfirm package:com.android.bluetooth package:com.android.bluetoothmidiservice package:com.android.browser package:com.android.calculator2 package:com.android.calendar package:com.android.camera2 package:com.android.captiveportallogin package:com.android.certinstaller package:com.android.chrome package:com.android.contacts package:com.android.defcontainer package:com.android.deskclock package:com.android.documentsui package:com.android.dreams.basic package:com.android.dreams.phototable package:com.android.email package:com.android.externalstorage package:com.android.facelock package:com.android.galaxy4 package:com.android.gallery3d package:com.android.hotwordenrollment package:com.android.htmlviewer package:com.android.inputdevices package:com.android.inputmethod.latin package:com.android.keychain package:com.android.launcher package:com.android.location.fused package:com.android.managedprovisioning package:com.android.mms.service package:com.android.musicfx package:com.android.nfc package:com.android.noisefield package:com.android.packageinstaller package:com.android.pacprocessor package:com.android.phasebeam package:com.android.phone package:com.android.printspooler package:com.android.providers.calendar package:com.android.providers.contacts package:com.android.providers.downloads package:com.android.providers.downloads.ui package:com.android.providers.media package:com.android.providers.settings package:com.android.providers.telephony package:com.android.providers.userdictionary package:com.android.proxyhandler package:com.android.server.telecom package:com.android.settings package:com.android.sharedstoragebackup package:com.android.shell package:com.android.smspush package:com.android.soundrecorder package:com.android.statementservice package:com.android.systemui package:com.android.vending package:com.android.vpndialogs package:com.android.wallpaper package:com.android.wallpaper.holospiral package:com.</description>
+    </item>
+    <item>
+      <title>nexus7-2012-android6.0</title>
+      <link>https://syui.ai/blog/post/2017/05/20/android/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/20/android/</guid>
+      <description>その後、Pure Nexusはちょっと遅いとおもったのでAOSPを入れることにしました。思ってた以上に動作が速いです。セキュリティパッチ、最新が当てられてるのもいいです。&#xA;https://builds.unlegacy-android.org&#xA;$ adb reboot bootloader $ fastboot oem unlock # https://developers.google.com/android/images # ./flash-all.sh $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip /sdcard/ # install rom : https://builds.unlegacy-android.org/aosp-6.0/grouper/ # install app : http://opengapps.org/ $ adb reboot system $ adb install xxx.apk # http://www.apkmirror.com/ </description>
+    </item>
+    <item>
+      <title>nexus7-2012-android-6.0</title>
+      <link>https://syui.ai/blog/post/2017/05/19/android/</link>
+      <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/19/android/</guid>
+      <description>Nexus7-2012にAndroid7.1を入れてみたけどバグが多かったためデフォルトイメージAndroid 5.Xでリセットflash-all.shして、Android6.0を入れた。&#xA;いれたのはPure Nexus ProjectというカスタムROMで、今の所問題はない。(+Xposed-GravityBox, +Settings-SuperSU)&#xA;https://github.com/PureNexusProject&#xA;DL：https://www.androidfilehost.com/?w=files&amp;amp;flid=37911&#xA;ROMはこちらもある、AOSP。&#xA;https://builds.unlegacy-android.org/aosp-6.0/grouper/&#xA;$ adb reboot bootloader $ fastboot oem unlock # まずrecoveryをtwrpにする $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip # install rom : https://www.androidfilehost.com/?w=files&amp;amp;flid=37911 # install app : http://opengapps.org/ 無事起動できることを確認した後、Google App(Google Playなど)を入れたほうがいいかも。私はnanoを選択。&#xA;その後、ROOT化など。&#xA;https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip&#xA;起動しない時は、xposed, suhideを削除すればいけます。uninstall.zipを使います。&#xA;suhideはインストール前に/su/suhide,su.dにfile(aunpack suhide-v0.55.zip)を置いとけばいけました。xposed+suhideの組み合わせが駄目みたいです。しかし、pure nexusにはxposed(no systemless)が内蔵されているためsafety-netは回避できません。&#xA;$ adb reboot recovery # https://download.chainfire.eu/1021/SuperSU/SR3-SuperSU-v2.79-SR3-20170114223742.zip # https://forum.xda-developers.com/apps/supersu/suhide-t3450396 # https://forum.xda-developers.com/showthread.php?t=3034811 $ ls xposed-v86.2-sdk23-topjohnwu.zip suhide-v0.55.zip SR3-SuperSU-v2.79-SR3-20170114223742.zip $ adb push .</description>
+    </item>
+    <item>
+      <title>AndroidでSSHを使う方法</title>
+      <link>https://syui.ai/blog/post/2017/04/28/android/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/28/android/</guid>
+      <description>基本的に、/system/binなどにはいってれば使えますが、通常ははいってません。いろいろな方法があります。例えば、&#xA;ビルドする&#xA;kboxを使って入れる http://kevinboone.net/kbox3.html&#xA;chrootしたlinuxから使う&#xA;などなど。&#xA;オススメの構成は最後のchrootですが、理由としてはパッケージマネージャーを使えることによる環境構築が楽だからなのと、linux imgを差し替えることで変化自在でAndroidのシステムにしばられないことなど。&#xA;あと、Androidの専用アプリもあるみたいですが、私はそういったものは使いませんね。</description>
+    </item>
+    <item>
+      <title>android-termux</title>
+      <link>https://syui.ai/blog/post/2017/04/27/android/</link>
+      <pubDate>Thu, 27 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/27/android/</guid>
+      <description>AndroidでTermuxがパッケージマネージャーを備えているというのでインストールしてみた。前にも紹介したことあった気もする。&#xA;https://github.com/termux&#xA;Termux、どういう仕組で動いているのかというと、多分だけど、仮想環境を構築してそこにアクセスする感じで動いてるのだと思われます。</description>
+    </item>
+    <item>
+      <title>Nexus7でカメラの画面が真っ暗な時の対処法</title>
+      <link>https://syui.ai/blog/post/2017/03/22/android/</link>
+      <pubDate>Wed, 22 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/03/22/android/</guid>
+      <description>認証システムのQRコードを読み取る際、カメラを起動する必要があって、私はいつもカメラを無効にしているのだけど、それを有効にして必要な権限(なんでこんなものまで必要なんだと思うものもある)を与え、Google Play開発者サービスのいくつかの権限もついでに与えて、カメラを起動するも画面が真っ暗になっているので、10分ほどハマった話。&#xA;結果としては、Nexus7の内部に挟んでいる紙が原因だった。(オバケタッチなどを回避するため)&#xA;カメラってなんであんなたくさんの権限を要求してるのか分からないし、イン、アウトあるけど、インは要らないのではと考えてる。私は使ったことないし、オプションでもいい気がする。</description>
+    </item>
+    <item>
+      <title>Androidで複数のファイルをpushする方法</title>
+      <link>https://syui.ai/blog/post/2017/02/10/android/</link>
+      <pubDate>Fri, 10 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/02/10/android/</guid>
+      <description>$ adb push /path/to/. /sdcard/ </description>
+    </item>
+  </channel>
+</rss>

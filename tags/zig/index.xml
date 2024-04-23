@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zig on syui.ai</title>
+    <link>https://syui.ai/tags/zig/</link>
+    <description>Recent content in Zig on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/zig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zigでcliを作る</title>
+      <link>https://syui.ai/blog/post/2022/08/03/zig-cli/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/03/zig-cli/</guid>
+      <description>zigは、現時点で外部パッケージを読み込む機能がありません。rustならCargo.toml、rubyならGemfile、goならgo.modがあります。&#xA;zigには、いくつか有志が仕組みを作っていますが、決定的なものは存在しません。&#xA;https://github.com/mattnite/gyro&#xA;https://github.com/marler8997/zig-build-repos&#xA;したがって、build.zigにpathを書いていく必要があります。今回は、cli-toolを作ってみます。&#xA;const std = @import(&amp;#34;std&amp;#34;); pub fn build(b: *std.build.Builder) void { const mode = b.standardReleaseOptions(); const lib = b.addStaticLibrary(&amp;#34;zig-cli&amp;#34;, &amp;#34;zig-cli/src/main.zig&amp;#34;); lib.setBuildMode(mode); lib.install(); const main_tests = b.addTest(&amp;#34;zig-cli/src/tests.zig&amp;#34;); main_tests.setBuildMode(mode); const test_step = b.step(&amp;#34;test&amp;#34;, &amp;#34;Run library tests&amp;#34;); test_step.dependOn(&amp;amp;main_tests.step); const origin = b.addExecutable(&amp;#34;random&amp;#34;, &amp;#34;example/random.zig&amp;#34;); origin.addPackagePath(&amp;#34;zig-cli&amp;#34;, &amp;#34;zig-cli/src/main.zig&amp;#34;); origin.setBuildMode(mode); origin.install(); b.default_step.dependOn(&amp;amp;origin.step); } https://github.com/sam701/zig-cli&#xA;$ git clone https://github.com/sam701/zig-cli $ mkdir -p example $ vim example/random.zig const std = @import(&amp;#34;std&amp;#34;); const cli = @import(&amp;#34;zig-cli&amp;#34;); const RndGen = std.</description>
+    </item>
+    <item>
+      <title>zigをwasmにしてcloudflareにdeployする</title>
+      <link>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</link>
+      <pubDate>Tue, 02 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</guid>
+      <description>zigはprogramming-langの一つです。rustに似ていますが、c++寄りだと思います。&#xA;zigの利点はなんといってもwasmへのbuildの手軽さだと思います。&#xA;wasmはwebから実行できるbinaryです。&#xA;今後、webなどでもzigが採用されるケースが増えてくるかもしれません。&#xA;$ brew install zig $ mkdir zig-first-project $ cd zig-first-project $ zig init-exe $ cat src/main.zig $ cat build.zig $ zig build $ ./zig-out/bin/zig-first-project hello-worldしてみます。&#xA;const std = @import(&amp;#34;std&amp;#34;); pub fn main() anyerror!void { const stdout = std.io.getStdOut().writer(); try stdout.print(&amp;#34;hello, world!\n&amp;#34;, .{}); } ここまででziglang/zig.vimを入れておいたほうがいいでしょう。zigはコード内にある\tの扱いが特殊です。&#xA;Plug &amp;#39;ziglang/zig.vim&amp;#39; 以下はcloudflare blogにあるexampleです。&#xA;const std = @import(&amp;#34;std&amp;#34;); pub fn main() anyerror!void { // setup allocator var gpa = std.heap.GeneralPurposeAllocator(.{}){}; defer std.debug.assert(!gpa.deinit()); const allocator = gpa.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on syui.ai</title>
+    <link>https://syui.ai/tags/shell/</link>
+    <description>Recent content in Shell on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macでtimeコマンドを使ってみる</title>
+      <link>https://syui.ai/blog/post/2021/01/19/shell/</link>
+      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/01/19/shell/</guid>
+      <description>coreutilsになかったのですが、gnu-timeでインストールできます。&#xA;mac標準は、/usr/bin/timeにありますが、ほとんどのオプションが機能せず、あまり使えません。&#xA;$ brew install gnu-time $ gtime -f &amp;#34;%e&amp;#34; read これによって、ストップウォッチとして使えますし、任意のタイミングで実行時間を計測して記録できるので、色々と便利です。&#xA;例えば、任意のコマンドを指定した間隔で実行してみます。&#xA;#/bin/zsh time=time.txt json=command.json echo &amp;#34;[s]ave, [l]oad&amp;#34; case $1 in s) if [ -f $json ];then rm $json fi echo &amp;#34;[&amp;#34; &amp;gt;&amp;gt; $json while : do echo &amp;#34;command?, [s]top&amp;#34; read key case $key in s) echo &amp;#34;{\&amp;#34;command\&amp;#34;:\&amp;#34;\&amp;#34;,\&amp;#34;time\&amp;#34;:\&amp;#34;\&amp;#34;}]&amp;#34; &amp;gt;&amp;gt; $json exit ;; *) echo &amp;#34;time enter&amp;#34; gtime -f &amp;#34;%e&amp;#34; -o $time read cti=`cat $time` echo &amp;#34;{\&amp;#34;command\&amp;#34;:\&amp;#34;$key\&amp;#34;,\&amp;#34;time\&amp;#34;:\&amp;#34;$cti\&amp;#34;},&amp;#34; &amp;gt;&amp;gt; $json ;; esac done ;; l) if !</description>
+    </item>
+    <item>
+      <title>fish&#43;shell</title>
+      <link>https://syui.ai/blog/post/2017/05/03/shell/</link>
+      <pubDate>Wed, 03 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/03/shell/</guid>
+      <description>fishを使う機会が増えていて、なんかfishに関する記事でも書こうかなと思いつつ書けていないので、ここらへんで思いつく限り適当なことを書いてく。&#xA;まず、fishは他のshellとの互換性を完全に捨ててる。考慮もあんまりしてない感じだけど、それ故に可読性は良いと思う。が、shellの強みって一貫した書き方だったりするわけで、その点では触っていてめんどくささはかなりある。まあ、これをshellと見ること無く、アプリとか言語の一つとかとして見る場合は普通なんだけど、そんな感じです。これは何が問題なのかというと、例えば、他のアプリがshell変数なんかをあてにしてたりする場合、fishを使うことによって思わぬ動作不良を招くことも多いため、あくまで嗜好品とか、楽しんで使うアプリとしてみるほうが良いのかもしれません。&#xA;fishはあまり設定書かなくても使える。補完とかプロンプトだったり。あと、プラグインが読みやすいし、オリジナルの設定を書きやすい、改変しやすい感じ。但し、補完も書かないと不便なところは多くて、それは例えば特殊文字の扱いとか色々なんだけど、zshのほうが便利な部分もある。&#xA;最初に嵌りそうな点は以下。&#xA;# export a=&amp;#34;word&amp;#34; set a &amp;#34;word&amp;#34; # a=`echo word` set a (echo word) # if which ls;then echo ok ls;fi if which ls end # case $1 in switch (echo arvg[1]) case test echo ok end end # function a (){echo a} # functionは付けなくてもいいが、内容によってはバッティングするため動作不良を引き起こす可能性あり function a echo a end # alias v=&amp;#34;vim&amp;#34; alias v=&amp;#34;vim&amp;#34; # aliasで書いた文はfunctionで再定義されるのでそのまま書いてもいい $ type v function v vim end # case $OSTYPE in # fishではいくつかの環境変数が設定されていない switch (uname) case Darwin echo mac case Linux echo linux case &amp;#39;*&amp;#39; echo other end end # .</description>
+    </item>
+  </channel>
+</rss>

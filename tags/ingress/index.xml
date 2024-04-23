@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ingress on syui.ai</title>
+    <link>https://syui.ai/tags/ingress/</link>
+    <description>Recent content in Ingress on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/ingress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ingress周年メダルまとめ</title>
+      <link>https://syui.ai/blog/post/2019/11/13/ingress/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/11/13/ingress/</guid>
+      <description>個人的には5周年のセージ、6周年のウロボロス、7周年のフェニックスのデザインが気に入ってます。&#xA;自分は2019年からはじめたので、周年メダルは一つも持ってませんけど、7周年のフェニックスは取れるかも。配布は11/23以降になるみたいです。&#xA;https://fevgames.net/ingress/ingress-guide/concepts/medal/</description>
+    </item>
+  </channel>
+</rss>

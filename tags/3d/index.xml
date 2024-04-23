@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3d on syui.ai</title>
+    <link>https://syui.ai/tags/3d/</link>
+    <description>Recent content in 3d on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 21 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5を触ってみた9</title>
+      <link>https://syui.ai/blog/post/2023/12/21/ue5/</link>
+      <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/21/ue5/</guid>
+      <description>今回は、髪の毛が体を貫通する問題の修正と歩くモーションを変更する方法です。&#xA;KawaiiPhysics https://github.com/pafuhana1213/KawaiiPhysics&#xA;このpluginは素晴らしい働きをし、完璧に動作します。&#xA;ただし、このpluginはc++クラスを追加する必要があります。&#xA;c++クラスを追加するとwindows側でprojectを起動できなくなります。私はmacからwindowsに送ってbuildしています。&#xA;したがって、こちらにあるように.uprojectを修正して起動し、c++クラスを追加後に右クリック、generate visual studio project filesから.slnを作成してrebuildします。rebuildする際もあらゆる依存関係でerrorが出るかもしれません。ue5は基本的に壊れているので、あらゆる問題が発生する可能性があります。&#xA;このpluginの使い方は、vroid studioで後ろ髪のboneを確認したあと、そのboneをrootに設定し、各種limitを設定し、指定のboneを貫通しないようにします。Sphere Limit,Capsule Limit, Plane Limitがあります。&#xA;ちなみに、今回はUE_5.3/Engine/Build/BatchFiles/Build.batを動かすのに相当手間取りました。&#xA;pluginを使うにはc++クラスを追加する必要があるらしい&#xA;追加するとwindowsでuprojectが開かなくなる&#xA;とりあえずc++なしでuprojectを開いてc++クラスを追加&#xA;slnでrebuildが通らない。visual studioが警告ありとか出てる&#xA;visual studioで.net framework sdk 4.8.0をインストールしろと言われる&#xA;.net framework 4.8のインストーラーがblockされる&#xA;.net framework 4.8.1とその他の.net関連をを手動でインストールする&#xA;1回目のrebuildが何故か失敗する&#xA;2回目でやっとUE_5.3/Engine/Build/BatchFiles/Build.batが動作する&#xA;uprojectが正常に開くようになる&#xA;こんな感じでue5が動作する環境を構築してる時間のほうがゲーム開発してる時間より長い。ゲーム開発をしている場合ではない。&#xA;walk/run, land state ABP_Playerでwalk/runのstateを編集したり、スタート時のダッシュをアニメモンタージュで調整したりしました。&#xA;/ai/video/#ue5_ai_0006.mp4</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた8</title>
+      <link>https://syui.ai/blog/post/2023/12/16/ue5/</link>
+      <pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/16/ue5/</guid>
+      <description>ue5でmac(arm64)のpackage buildは鬼門です。&#xA;今回は、ue5 package build for macを解説します。&#xA;vrm4uを使ってる人でmacでpackage buildしている人は世界中でただ1人かもしれません。全く情報がなく、arm64でbuildされているvroidゲームも見かけない。&#xA;vrm4uをmacで導入すること自体も多少ハマるかもしれません。しかし、package buildほどではないです。それくらい意味がわかりませんでした。&#xA;ddc directory LogDerivedDataCache: Warning: Shared: Process has an existing cache store at path /path/to/ddc, and the duplicate is being ignored.&#xA;様々なerrを回避してたどり着いたのは「Macのプロジェクトをパッケージ化しています...」という表示から先に進まないという現象です。なぜなのかずっと謎でした。logを確認してもerrが出ていないし、さっぱりわからない。でもなぜか進まない。&#xA;そこで、初回スターターキットのprojectを作ってpacakge buildしてみることにしました。しかし、ここでも同じように先に進まない。フリーズはしていませんが動いていないのです。&#xA;この原因はおそらくddc directoryを設定していないことによるものです。&#xA;DDC の保存場所&#xA;プロジェクトとシステムの構成方法によって、高速から低速にわたる階層の中に複数のDDC キャッシュが存在する可能性があります。派生データを評価するとき、システムは次のことを実行して、データにアクセスできる速さを決定します。&#xA;派生データが必要な場合、データが見つかるまで、まず最速のキャッシュがチェックされ、次に速いキャッシュがチェックされます。&#xA;データが見つかると、最速のローカルキャッシュにコピーされるため、次回のアクセスが高速になります。&#xA;データが見つからない場合に初めて生成されて非同期でキャッシュにコピーされるため、その後は (場合によってはチームも) データを利用できるようになります。&#xA;DDC に保存されているコンテンツは使い捨てですが、.uasset ファイルに保存されているデータを使用していつでも再生成できます。これらの派生フォーマットを外部に保存すると、ソース アセット ファイルを変更しなくても、エンジンで使用されるフォーマットを簡単に追加または変更できます。&#xA;https://docs.unrealengine.com/5.0/ja/derived-data-cache/ 通常は~/Library/Application\ Support/Epic/UnrealEngine/にあるらしい。ですが、私はue5のengineもprojectもsharedも外部ディスクに保存しているのでそれが原因かはわかりませんが、ddc directoryの設定がnullでshaderなどの生成のところから先に進まなかったようです。&#xA;それまでに様々なところをチェックしました。&#xA;Engine/Build/BatchFiles/RunUAT.command, BuildConfiguration.xml, Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool, VSCodeなど。&#xA;https://docs.unrealengine.com/5.2/en-US/supporting-universal-binaries-for-macos-in-unreal-engine/ ですが、全部正確に設定されており、全くの的外れでした。&#xA;ue5の開発は初回からpackage buildで通ることを確認してから開発を進めるのがおすすめです。assetを入れると通らなくなります。pluginも同様です。&#xA;もしそのassetやpluginを使って開発を進め、後々になってbuildが通らないということになると大変です。&#xA;私も最初の方でpackage buildを試してみた事があったのですが最後まで確認せず、errがでてないから大丈夫とそこで終わりにしていました。ですが、全く先に進まないという問題がありました。&#xA;色々と試した結果、macだけでなくwindowsでのpackage build環境も整えられたのでよかったですが、ue5のpackage build環境の検証と構築は相当大変でした。&#xA;また、project settings &amp;gt; platform &amp;gt; macではpackage化の項目があり、通常はintel &amp;amp; apple siliconになっています。これをapple siliconに変更するとpackage buildは安定するかもしれません。</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた7</title>
+      <link>https://syui.ai/blog/post/2023/12/09/ue5/</link>
+      <pubDate>Sat, 09 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/09/ue5/</guid>
+      <description>ue5を触って1週間が経ちました。触れない日もありましたが、今回はsword(剣)のmotion(モーション)などを作りました。&#xA;video : /ai/video/#ue5_ai_0005.mp4 やったこととしては、変身、瞬間移動、剣、そして、見た目の変更です。それぞれにテクニックがあるので順に紹介します。&#xA;この記事では、参考になるリンクを載せています。外部リンクは参考になる投稿者に限定しているので是非読んでみてください。例えば、UE備忘録本舗さんはとてもわかりやすく参考になる動画を投稿されている方です。&#xA;outline、normalによる見た目の変更 今までのモデルと見比べてみるとよくわかります。左がold、右がnewです。&#xA;これはoutline(アウトライン)やnormal line(法線)と一般に言われているものです。&#xA;それをoverlay materialで実現しています。blueprintを貼っておきます。&#xA;syuiでアカウント作ろうとしてmail間違えて認証できなくなり、再度syuiでアカウント作ろうとしたら空いてなかったのでaiにした&amp;hellip;まあいいか&#xA;表情を変更する 表情のdefault(デフォルト)が口が半開きになっている気がするので、それを変更します。&#xA;新機能の「透過オーバーレイマテリアル」でアウトラインを簡単に実装してみよう 瞬間移動の実装 montageからmotion warpingを使って瞬間移動をやってみましたが、障害物があると移動できないし、瞬間移動というか高速移動なだけなので、actor locationで実現しました。&#xA;set actor locationで設定してください。&#xA;motion warpingで設定したように通知ステートでは他に様々なものを追加することができます。&#xA;Game Effect Portfolio 2023 montageを再生したあと元の位置に戻ってしまう sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。&#xA;これはroot motionをenableにしたり、他の設定をやっても戻ってしまうのです。&#xA;原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。&#xA;これを変動するようにしないといけないのですが、bone(ボーン)のrootを選択してFKの平行移動モードをGlobally Scaledに設定します。&#xA;これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。&#xA;UE5でルートモーションを有効にしたままリターゲットをする方法 swordをしまう時のparticle これはsword_open, sword_closeというactor, blueprintを作成して、それをBP_Playerのmeshに当てます。そして、set visibleで切り替えています。&#xA;ではparticle(粒子)はどうやって実現しているのかというとniagaraです。&#xA;UE5 Niagaraの基礎 swordを振ったときのeffect まずはboneを追加します。このboneを元にtrailというeffectをつけていくわけです。sword-trailは検索タグとしても有効です。effectはanim sequence(アニメ・シーケンス)で設定します。&#xA;PSTemplate, Socket Nameを指定します。&#xA;また、niagaraで作成してもいいですね。sword-trail-naigaraとでも検索してみてください。&#xA;ソードトレイル swordのcharge motion こちらはmontageを分割して、それを再生します。&#xA;溜め攻撃（チャージ攻撃）の実装方法 変身など これはSet Skeletal Mesh Assetで切り替えですね。</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた6</title>
+      <link>https://syui.ai/blog/post/2023/12/05/ue5/</link>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/05/ue5/</guid>
+      <description>今日は&#xA;モデルが飛んでいるときにoverlay materialを適用 これはSK_xxxを複製して、そこにoverlay materialを当て、それをevent時に呼び出すことで実現しています。&#xA;具体的には、BP_Player_UE5のInput Event GraphでSet Skeletal Mesh Assetを呼び出したい場面で使います。&#xA;変身前、変身後があったとして、event後にずっと変身してしまわないよう両方使うのがいいでしょう。&#xA;ブリッジモード -&amp;gt; フォリッジで草原を作る しかし、前はあんなにヌルヌル動いてたのに草を生やすと、本当に遅くなってしまった。あまり多くしない方がいいか、あるいはちゃんと使用する草をシンプルなものにしないといけないと思う。&#xA;動画</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた5 (vs unity)</title>
+      <link>https://syui.ai/blog/post/2023/12/04/ue-vs-unity/</link>
+      <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/04/ue-vs-unity/</guid>
+      <description>今日もue5を触ってやったことや今後やりたいこと、unityとどちらがいいのかなどを書いていきたいと思います。&#xA;post precess volumeを作成&#xA;その領域に入るとshaderが適用されるようにできる&#xA;はずなんだけど、なんかおかしい。post process volumeの詳細がでてこないことに気づいた。ただ、PB_Playerのcameraからpost processの項目にアクセスできるんだけど、mac-m1限定の問題かもしれない。&#xA;追記 : イチから作り直したら詳細が出てきた。わけがわからない。そもそも詳細が出てこない状況が普通は考えられないので、おそらくバグだったんだと思う。結局プロジェクトを作り直さないとダメだったのか。&#xA;しかも、色々やりすぎてpackage buildが通らない。これはvroidの問題だと思う。ファイルが多すぎて整理できていないので、もう一度イチから作り直すことにしよう。&#xA;追記 : この問題はxcodeを最新版にしてassimpをrebuildすると解消しました。ただそれだけではmacの._*ファイルが原因でbuildが通らないのでfindで削除します。&#xA;pkg=yui pdr=/Volumes/ssd/project pkg=$pdr/$pkg rm -rf $pkg/Plugins open $pdr/VRM4U_5_3_20231126.zip;sleep 15; mv $pdr/Plugins $pkg/ cp -rf /Volumes/ssd/git/assimp/build1/lib/libassimp.a $pkg/Plugins/VRM4U/ThirdParty/assimp/lib/Mac/ rm -rf $pkg/Binaries rm -rf $pkg/Intermediate rm -rf $pkg/Plugins/VRM4U/Binaries rm -rf $pkg/Plugins/VRM4U/Intermediate find $pkg/ \( -name &amp;#39;.DS_Store&amp;#39; -or -name &amp;#39;._*&amp;#39; \) -delete -print; まだエラーが出ます。x86_64がないとか言われますが、使用しているのはarm64です。&#xA;# https://forums.unrealengine.com/t/linker-error-undefined-symbols-for-architecture-x86_64-while-packaging/103451 UATHelper: パッケージ化 (Mac): ld: symbol(s) not found for architecture x86_64 $ gcc -v Apple clang version 15.</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた4</title>
+      <link>https://syui.ai/blog/post/2023/12/03/ue5/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/03/ue5/</guid>
+      <description>今日は&#xA;system 画面にメニューが出てるので非表示&#xA;まずはHUDを非表示にするためWBP_MainHUD.uassetからis Visibilityのチェックを外す animation いくつか動かないモーションがあります。ue5のモデルを使用すると動くのですが、vroidからリターゲットで作成したものは動かないので、個別調整しました。&#xA;落下モーションが動かないので、見てみると、リターゲットで作成されていなかったので、再びABP_Player_UE5からリターゲティングを作成してAM_Superhero...を作成する&#xA;まだ動かないので、BP_SuperheroFlightComponent.uassetを編集する。&amp;ldquo;Play anim montage event.&amp;ldquo;を以下のようにしました。&#xA;PlayAnimMontage --&amp;gt; Play Anim Montage (Anim Montage) --&amp;gt; (asset) AM_Superhero... hoverのモーションも動かないので、ABP_Player_UE5_xxxを編集します。&amp;ldquo;Play hover flight start montage notify event.&amp;ldquo;を以下のようにしました。 AnimNotifyHoverStart --&amp;gt; ... --&amp;gt; Play Slot Animation as Dynamic Montage --&amp;gt; (asset) A_Fight_Hover... shader cel shaderでモデルをアニメ風にしたい。&#xA;BP_Player_UE5_xxxの編集に入り、コンポーネントのCameraから詳細を確認。そこにRendering Featuresがあるので、Post Prosess Material(ポストプロセスマテリアル)にCel_Shader(マルっこいやつ)を選択します。 例えば、以下はue4の対応です。ue5で使えるかはわかりません。&#xA;https://github.com/alwei/PPCelShader&#xA;https://github.com/alwei/PPLineDrawing&#xA;link 気になった記事を幾つかまとめます。&#xA;assetまとめ&#xA;UE5でつくるセルシェーディング&#xA;動画ページ作りました 追記、パソコンが治った 思うところがあって壊れてたパソコンを直しました。&#xA;電源つかないなあと思って色々やってると電源がついた。起動してみるとbiosが起動しない。やっぱり無理かと思って放置。なにかを思いついて試す。やっぱり無理。また試すというのを3回くらい繰り返すと復活しました。&#xA;ただ、gpuのファンが回らなくなってた。これは分解時に破損したものか、昔から破損してたのか、あるいは今回動かなくなったのかわからない。でもgpuの動作には問題ないですね。ファンも他から持ってくればいいだけだし。&#xA;再びosが起動したときは嬉しかった。</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた3</title>
+      <link>https://syui.ai/blog/post/2023/11/30/ue5/</link>
+      <pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/11/30/ue5/</guid>
+      <description>今回は、asset(アセット)を使って空を飛んでみました。&#xA;Superhero Flight Animationsを導入します。これは日本のIndie-us Gamesという会社が提供しているようで、UNDEFEATEDというゲームにも使われています。このゲーム参考になりそう。&#xA;Space Frontier Stations &amp;amp; Shipsというマップを使います。そして、Game Modeに上のGM_${motion_asset}を適用します。&#xA;プロジェクトの基本、Player Startを選択して、ゲーム開始時のキャラクターの位置を設定します。&#xA;また、ここで初めてパッケージ化もやってみました。&#xA;追記、パソコンが破壊?された話 ue5を作っている会社が提供してくれているcity sampleというassetがあります。&#xA;こちらをインストールして、使ってみようと思いやってみました。&#xA;このassetはwindows10を要件としているため、少し古いGPU付きのパソコンに再びue5をインストール(5時間)し、assetのインストール(10時間)、そして、読み込み(2時間)を行いました。&#xA;1回目は一応読み込んでくれたのですが、ウィンドウが固まってしまったため、2回目の読み込みを行いました。&#xA;ずーっと待ってて、寝る時間だから放置しました。翌朝、パソコンを見てみると電源が入らなくなっていました。&#xA;おそらく、電源かマザーボードの故障だろうと思いました。&#xA;もちろん、これが必ずしもue5のせいだとは思いません。そもそもこのパソコンはいつ壊れてもおかしくなかったので寿命かもしれない。ですが、私はue5が故障の一端だったのではないかと思っています。</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた2</title>
+      <link>https://syui.ai/blog/post/2023/11/29/ue5/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/11/29/ue5/</guid>
+      <description>今回は、キーボードで操作できるようにするまでをやってみました。&#xA;具体的にはスターターキットのアニメーションにリターゲットする感じで作成したやつをキャラクターに割り当てる感じだと思う。スターターキットはモデルが動かせるようになってるのでそれを入れ替える感じだと思う。&#xA;具体的な手順はこちらのブログにある通りです。&#xA;https://www.mayonakanouta.com/blog/unreal-engine-import-vroid-studio ここまで正確に書かれているブログはこれくらいだと思います。&#xA;他のブログ記事を幾つか試してみましたが、他のやり方だと多分動きません。実際に動かしてみると大体の要領を把握できましたが、他のブログで書かれているやり方だとやっぱり大抵は動かない気がします。&#xA;コンテンツドロワーからvrm pluginが用意してくれているIKリターゲッタをダブルクリックで編集する&#xA;[IKリターゲッタ] ターゲットのAssetをIK_${model_name}_Mannequinにする, Meshも同じく変更する&#xA;ここでAポーズにしてサイズ調整を行う。適当なアニメーションを再生して確認する&#xA;コンテンツドロワーからスターターキットのMannequins/Animations/ABP_QuinnというアニメーションBPを右クリックしアニメーションアセットのリターゲティングで複製する&#xA;先程、編集したIKリターゲッタを選択する&#xA;コンテンツドロワーからスターターキットのキャラクターを編集する。ThirdPerson/Blueprints/BP_ThirdPersonCharacter&#xA;先程、複製して作ったものをAnimationのAnime Classに当てる。私の場合はABP_Quinn_C&#xA;mapを追加してみました。アセットを追加して、mapを開いて、キャラクターを置くと適用されます。</description>
+    </item>
+    <item>
+      <title>ue5を触ってみた1</title>
+      <link>https://syui.ai/blog/post/2023/11/28/ue5/</link>
+      <pubDate>Tue, 28 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/11/28/ue5/</guid>
+      <description>随分前にunityで3d-modelを動かしてみたことがありました。&#xA;unityはあまりきれいじゃないので、今回はue5で試してみることにします。ue5をはじめて1日目の記録です。&#xA;結論から言うと、これが地獄の始まりでした。&#xA;まず、ue5をインストールします。容量が大きいというので普段繋いでいたhdd(6t)にインストールすることにしました。&#xA;これが数時間かかりました。しかも、インストールが終了したにも関わらずlaucherで「起動」ボタンが表示されず、「インストール」が表示されていました。&#xA;意味がわからないなあと思い、再起動とか色々やっていると、しばらくしてなぜか「起動」が表示されます。&#xA;で、起動を押して、プロジェクトを作成し、エディタと画面が表示されました。そこで、スターターキットのモデルをキーボードで動かしました。どうやらしっかりと動くようです。&#xA;ここで、一旦、ue5を終了します。&#xA;終了したにもかかわらず、何故か「editor」みたいなものがバックグラウンドにありました。ue5のやつです。&#xA;しばらくして、macを終了しようとすると、「editor」が起動しているのでmacを終了できないと出てきます。&#xA;ここで、そのアプリを強制終了して、macを落とします。&#xA;さて、次にmacを立ち上げたとき、hddが破壊されていたのでした&amp;hellip;。&#xA;これはちょっとやばいなと思い、なんとかhddにアクセスできるようにしました。hddのフォーマットがexfatだったので、復旧はwindowsでやりました。ここからはファイルを救出する作業になります。具体的にはrsyncでwindowsからファイルを引っ張ってくることにしました。rsyncが使えるなら大丈夫なんじゃないかと思われるかもしれませんが、ディスクは完全におかしくなっていて、この状態にするまでに相当の時間がかかりました。おそらく、次はないでしょう。ここで終了したりumountしてしまうと、二度とアクセスできなくなる可能性があります。&#xA;$ scoop install cwrsync --- $ rsync -avP windows:/cygdrive/e/test . このhddは最近買ったばかりのやつなので寿命ということはないと思う。おそらく、ue5が原因だろうと思われます。直接的ではないにしてもue5の何らかの書き込みが上手く行かずhddを破壊してしまったのでしょう。&#xA;しかしまあ、長時間インストールの末にhddが破壊されるだけとは&amp;hellip;壮大な時間の無駄。しかもhddにあったファイルは個人的に重要なものだったので復旧できてよかった。&#xA;ディスク復旧の作業をしながら、ue5に取り掛かりました。再びue5のインストールに長時間使ったあとvrmを読み込むpluginを導入しました。&#xA;assimp vrmをue5でimportするpluginのvrm4uに必要らしい。&#xA;git clone https://github.com/Microsoft/vcpkg.git cd vcpkg ./bootstrap-vcpkg.sh ./vcpkg integrate install ./vcpkg install assimp # これは必要ない、後述のruyo/assimpをmakeします git clone https://github.com/assimp/assimp.git cd assimp cmake CMakeLists.txt cmake --build . vrm4u https://github.com/ruyo/VRM4U&#xA;https://github.com/ruyo/assimp&#xA;こちらを読んで、cmakeのguiからsrcを作ってmakeするらしい。&#xA;assimpをbuildしてできたlibassimp.aをMyProject/Plugins/VRM4U/ThirdParty/assimp/lib/Mac/libassimp.aに置いて、ue5でbuild(project)するらしい。&#xA;https://github.com/ruyo/VRM4U/issues/317#issuecomment-1733430315 </description>
+    </item>
+    <item>
+      <title>3d-modelとcardを連携してみた</title>
+      <link>https://syui.ai/blog/post/2023/11/04/vrm/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/11/04/vrm/</guid>
+      <description>https://card.syui.ai/ai&#xA;動作環境 ios17で動作します。ios16では動作しません。&#xA;[ok] &amp;hellip; ios17.x [no] &amp;hellip; ios16.x safariの以下の機能が必要です。&#xA;ios17のデフォルトでは有効になっています。&#xA;Allow WebGL in Web Workers GPU Process: Canvas Rendering GPU Process: DOM Rendering OffscreenCanvas in Workers OffscreenCanvas fix motion 例えば、以下はblenderでポーズを編集している様子なんだけど、プレビューと出力結果が異なります。&#xA;これは、アニメーションが自動で動作するように設定されているためです。そのままvrmを読み込むとTポーズになりますが、JLChnToZ/vrm-dance-viewerは設定で手を下げて固定します。&#xA;// https://github.com/JLChnToZ/vrm-dance-viewer const LERP_SCALE = 6; if (node) node.setRotationFromQuaternion( rotation3 .setFromRotationMatrix(node.matrix) // ここがポーズをおかしくする要因 // コメント化すると元通り。ただvrmを自然なポーズに固定する必要がでてくる //.slerp(finalRotation, Math.min(deltaTime * LERP_SCALE, 1)), ); また、blinkを設定すると、顔を標準位置から移動するとおかしくなります。これはthree-vrmの古いバージョンのバグです。&#xA;function updateEyeBlink(model: VRM, deltaTime: number) { //if (!model.blendShapeProxy) return; //let v = blinkDelays.get(model); //if (v == null || v &amp;lt; -BLINK_DURATION) // v = MathUtils.</description>
+    </item>
+    <item>
+      <title>vrmのキャラクター編集</title>
+      <link>https://syui.ai/blog/post/2023/10/25/vrm/</link>
+      <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/25/vrm/</guid>
+      <description>3d-modelである.vrmのキャラクター編集でやったことなどをまとめます。&#xA;輪っかを作る 輪っかを作るには、髪の毛から適当な付け髪を選択肢、テクスチャを編集します。&#xA;部位を光らせる 部位を光らせるには、blenderで当該テクスチャ(マテリアル)を選択し、Emissionの項目で画像を削除、カラーを設定します。&#xA;アイの場合は、Face, Hairにあるマテリアルの2つを#fff700にしました。&#xA;なお、事前にblenderで.vrmをインポートするアドオンを入れておいてください。あと、blenderは一度modelを保存しないとエクスポートの反映されなかったので注意。&#xA;iframe 今までの3d-modelは、skechfabなどからiframeしていましたが、自分でホストすることにしました。&#xA;これが単なるmodelの鑑賞ならthree.jsを使えばいいです。iframeは必要ありません。&#xA;例えば、cardのmodelはそれ自体が動かないものなのでthree.jsで表示したほうが簡単です。&#xA;しかし、人のmodelとなれば話は変わってきます。つまり、棒立ちのmodelを表示するだけではダメなのです。&#xA;したがって、motion(animation)を当てる必要がありますが、それもランダム、かつ違和感のないものでなければいけません。例えば、定型的な動き、腕を上げて下ろすとか、それを繰り返すだけではダメということになります。&#xA;この処理を作成するには、three.jsだけでは不十分で、three-vrmが必要になり、かつthree-vrmを使うにもかなりの記述が必要になります。&#xA;つまり、web-appを作る必要があって、作ったweb-appをiframeで表示することになります。&#xA;&amp;lt;iframe src=&amp;#34;https://syui.ai&amp;#34; allowfullscreen frameborder=&amp;#34;0&amp;#34; style=&amp;#34;border: none&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;400px&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; animation ここでいうanimationとはmotionと同じ意味です。&#xA;手順としては、.fvpにexportする際に様々なモーションがありますので、その動きを.mp4に保存したあとdeepmotionで合成します。&#xA;現在使っているipad 9thが落ちるのでmacで作業します。&#xA;ipadで保存したmodelは.vroidになります。これをexportすると.vrmになります。&#xA;macで読み込む場合、.vroidが必要になるので、icloudなどにmodelを保存して共有します。&#xA;これを動画で保存します。そして、deepmotion.comで.bvhを作成します。.bvhは.vmdに相当します。&#xA;https://deepmotion.com&#xA;https://gamefromscratch.com/creating-animated-anime-characters-with-vroid-studio-and-deepmotion/&#xA;https://www.youtube.com/watch?v=XsX0X8odGsY&#xA;google-model-viewer &amp;lt;!-- Import the component --&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- Use it like any other HTML element --&amp;gt; &amp;lt;model-viewer alt=&amp;#34;Neil Armstrong&amp;#39;s Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum&amp;#34; src=&amp;#34;shared-assets/models/NeilArmstrong.glb&amp;#34; ar environment-image=&amp;#34;shared-assets/environments/moon_1k.</description>
+    </item>
+    <item>
+      <title>three-vrm v2.0 update</title>
+      <link>https://syui.ai/blog/post/2023/10/24/vrm/</link>
+      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/24/vrm/</guid>
+      <description>three-vrm関連のブログを調べていると、ほとんどのコードが動かないのでthree-vrm v2.0の対応をまとめます。&#xA;唯一、動くコードを発行していたのがpixivのexampleでした。参考にしてみてください。&#xA;$ git clone https://github.com/pixiv/three-vrm/ $ cd three-vrm $ git checkout gh-pages $ cd ./packages/three-vrm/examples/ $ vim lookat-advanced.html example 以下は私が作ったexampleです。基本的には.jsなので好きなframeworkで動かしてみてください。&#xA;&amp;#34;dependencies&amp;#34;: {&amp;#34;@pixiv/three-vrm&amp;#34;: &amp;#34;^2.0.6&amp;#34;, &amp;#34;three&amp;#34;: &amp;#34;^0.157.0&amp;#34;} import * as THREE from &amp;#39;three&amp;#39;; import { GridHelper, Mesh, MeshLambertMaterial, PlaneGeometry, Vector3, Color, DirectionalLight, Fog, HemisphereLight, AnimationAction, AnimationClip, AnimationMixer, MathUtils, Matrix4, Quaternion } from &amp;#39;three&amp;#39;; import { VRMLoaderPlugin, VRMUtils, VRMLookAt, VRMSchema } from &amp;#39;@pixiv/three-vrm&amp;#39;; import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { OrbitControls } from &amp;#39;three/examples/jsm/controls/OrbitControls&amp;#39;; // model const defaultModelUrl = &amp;#39;https://pixiv.</description>
+    </item>
+    <item>
+      <title>vrm viewerを調整してみた</title>
+      <link>https://syui.ai/blog/post/2023/10/23/vrm/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/23/vrm/</guid>
+      <description>https://vrm.syui.ai 基本的には、default-modelを読み込む設定とか、アニメーションの動きとかを調整してみました。&#xA;// https://github.com/JLChnToZ/vrm-dance-viewer let model_url = &amp;#34;&amp;#34;; import axios, {isCancel, AxiosError} from &amp;#39;axios&amp;#39;; function model_load(){ axios.get(model_url, { responseType: &amp;#34;blob&amp;#34; }) .then(response =&amp;gt; { loadingPromises.push(loadModel(response.data)); hasLoadModel = true; triggerLoading(); const blob = new Blob([response.data], { type: response.data.type }); }) } if (model_url !== null) { model_load(); } if (loadingPromises.length) triggerLoading(); 例えば、updateHeadで頭の動きが調整されています。ここで読み込まれているのは、頭とポーズと目の動きです。&#xA;export function updateModel(model: VRM, deltaTime: number) { if (!lookAts.has(model)) return; updateHead(model, deltaTime); updateEyeBlink(model, deltaTime); updateIdlePose(model, deltaTime); } function updateHead(model: VRM, deltaTime: number) { // .</description>
+    </item>
+    <item>
+      <title>vroidで3d modelを作ってみた</title>
+      <link>https://syui.ai/blog/post/2023/10/22/vrm/</link>
+      <pubDate>Sun, 22 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/22/vrm/</guid>
+      <description>アイの3d-modelをvroidで作ってみました。&#xA;経緯 まずはblenderで作ろうと思い、原神のnahidaを公式からdownloadして、動かせるところまでやりました。&#xA;とはいえ、これはアイの3d-modelを作成する上で参考になりました。特に等身ですが。&#xA;次に、vroidで3d-model(.vrm)を作成するわけですが、輪っかは髪の毛から作りました。&#xA;vroid-hubというものがあり、覗いてみると、あまりに自然にwebで動いているのでびっくりしました。&#xA;これはlibがあると踏んで探してみると@pixiv/three-vrmがありました。&#xA;ただ、モーション(.vmd)はpixivから公開されていないようでした。最初に選択できるモーションは公開されてるとうれしかった。&#xA;web viewer $ git clone https://github.com/JLChnToZ/vrm-dance-viewer $ yarn install $ yarn dev 最初からモデルを読み込むにはこんな感じを末尾に追記。&#xA;// https://github.com/JLChnToZ/vrm-dance-viewer import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { scene } from &amp;#39;./worker/scene/scene&amp;#39;; let url = &amp;#34;./ai.vrm&amp;#34;; let loader = new GLTFLoader(); window.onload = function(){ loader.load( url, (gltf) =&amp;gt; { const vrm = gltf.userData.vrm; scene.add(gltf.scene) console.log(vrm); }, (xhr) =&amp;gt; { console.log( `${( xhr.loaded / xhr.total * 100 )}% loaded` ); }, (error) =&amp;gt; { console.</description>
+    </item>
+    <item>
+      <title>blenderで3d modelを作った</title>
+      <link>https://syui.ai/blog/post/2023/09/08/3d/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/09/08/3d/</guid>
+      <description>blenderで3d modelを作ってみました。&#xA;しかし、裏面に新しいマテリアルからテクスチャイメージを追加しても裏面がレンダリング(uvmap)でガビガビになる問題があって、それを回避する方法を見つけたのでメモします。&#xA;基本的にはskechfabのeditorで編集したものを使ったため3d modelの面(face)が悪さをしていた模様。&#xA;やったこととして以下の通り。&#xA;delete face setting -&amp;gt; 3d viewport -&amp;gt; face -&amp;gt; alha 0 viewport shading -&amp;gt; backface culling, image texter -&amp;gt; backface culling 手順としては、まずedit modeに移行しfaceを選択します。&#xA;これを2回ほど削除すると、表面が表示されます。&#xA;最後に残った面にimage texterを追加して終わりです。backface cullingのチェックを忘れずに。</description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる3</title>
+      <link>https://syui.ai/blog/post/2022/09/18/3dscan/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/18/3dscan/</guid>
+      <description>scaniverseがLiDARなしでも使えるようになりました。これはnianticが買収してから無料になった3Dモデルが作成できるアプリです。&#xA;trinoは以前からLiDARなしでも使えて便利だったようですが、ここに来てscaniverseが有力になりました。&#xA;したがって、この2つのアプリを簡単に比較してみたいと思います。&#xA;以下は同じものをスキャンした例です。&#xA;scaniverse 公平に見て、scaniverseのほうが使い勝手が良かったのと、trinoではモデル生成できなかった写真立て(カード立て)がscaniverseではできました。&#xA;したがって、現時点でscaniverseのほうがおすすめです。&#xA;しかし、しっかりとした3Dモデルはtrinoのほうが作れていると感じます。&#xA;scaniverseは一見してきれいに見えますが、表面的な部分のみで、内側を読み取るのは苦手なようです。&#xA;scaniverseは、内部を作り込むのではなく、無理やり表面に結合するというような形になることが多かった。&#xA;これは、LiDARが使えるかどうかで変わってくるのかもしれません。</description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる2</title>
+      <link>https://syui.ai/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。&#xA;trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。&#xA;前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる1</title>
+      <link>https://syui.ai/blog/post/2020/01/24/3d/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/01/24/3d/</guid>
+      <description>この前、ふと3Dモデルでも作ってみたいなーと思い立ち、作ってみることに。&#xA;まずは簡単なものからと思ったので、アムのコインを3D化してみます。&#xA;3Dモデルを作るのはこれが初めてですが、&#xA;はっきりいいましょう、こんだけ作るのもすごい大変だったと！&#xA;まずは3Dモデルってどうやって作るのか調べてみると、いい感じに自分でもできそうなやり方があったので、それでやってみて、1, 2時間くらいかかったと思う。&#xA;作ったあとは、obj,mtl,jpgをzipに圧縮してsketchfabにアップロードしてみました。&#xA;しかし、1ヶ月に1回のアップロード制限はきついかも。ただ、uploadすると3D-editorが使えるので非常に有用だと思います。&#xA;3Dモデルの簡単な作り方 今回は、丸図形を用意して、テクスチャに当て、大きさの調整、x,y軸などを調整して完成という流れ。&#xA;最初はエディタの使い方とか全然わかりませんが、なんとなくガチャガチャやってたらわかってくるのではと思ったので、ガチャガチャやってました。&#xA;で、こんな感じのものを簡易に作成して、blenderとかsketchfabの3D-editorとかで修正していけばいいのかなあという感じで今のとこ思ってます。(違うかも&#xA;アムのコイン yuiの最後のほう(43話くらい)に登場するアイテム。宇宙で最も流行している特殊な通貨のこと。</description>
+    </item>
+  </channel>
+</rss>

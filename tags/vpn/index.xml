@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vpn on syui.ai</title>
+    <link>https://syui.ai/tags/vpn/</link>
+    <description>Recent content in Vpn on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 25 May 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vpn serverを一瞬で立ち上げ、外出先から接続する方法</title>
+      <link>https://syui.ai/blog/post/2019/05/25/vpn/</link>
+      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/05/25/vpn/</guid>
+      <description>Free Wi-Fiなどを利用する際は、VPNに接続すると安全です。仕組みは、通信が暗号化されるトンネルのようなものを作り、そこにトラフィックを通すことで通信内容の傍受などを阻害する効果があります。つまり、Free Wi-Fiを利用して何らかのサービスにログインする際にidやpassを読み取られる危険などがあるわけですが、それを回避できます。&#xA;また、VPNを使うとVPN Serverを経由するため、IP AddressがそのServerのものに変わります。(ただし、使用するツールや環境変数に依存する場合あり)。&#xA;しかし、VPNはなかなか面倒で一番良いのは、サービスにインストールして使えるようにすることですが、費用がかかります。&#xA;今回は、Web UIから設定が行えるpritunlを使ってLocal NetworkにVPN Serverを立ててみようと思います。&#xA;https://github.com/Fridus/docker-pritunl&#xA;$ mkdir mongo $ sudo docker-compose up -d docker-compose.yml&#xA;network: image: busybox ports: - &amp;#34;9700:443&amp;#34; - &amp;#34;1194:1194/udp&amp;#34; restart: always tty: true mongo: image: mongo volumes: - ./mongo:/data/db restart: always net: container:network pritunl: image: fridus/pritunl privileged: true environment: - MONGO_URI=mongodb://127.0.0.1:27017/pritunl restart: always net: container:network もしくはjippi/pritunlを使います。&#xA;#!/bin/bash datadir=&amp;#34;$(dirname $(readlink -f &amp;#34;$0&amp;#34;))/data&amp;#34; echo &amp;#34;datadir=$datadir&amp;#34; mkdir -p $datadir/{mongodb,pritunl} touch $datadir/pritunl.conf sudo docker run \ --name=pritunl \ --detach \ --cap-add NET_ADMIN \ --network=bridge \ --restart=always \ -v $datadir/mongodb:/var/lib/mongodb \ -v $datadir/pritunl:/var/lib/pritunl \ -v $datadir/pritunl.</description>
+    </item>
+    <item>
+      <title>archlinuxで手軽にvpn serverを立てる</title>
+      <link>https://syui.ai/blog/post/2018/08/08/softethervpn/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/08/08/softethervpn/</guid>
+      <description>導入 archlinuxには、いろいろな用途があります。&#xA;私がarchlinuxを使っている一番の理由は、広範囲に渡って利用できるからです。&#xA;archlinuxは、serverとしてもdesktopとしても優秀で、usbに入れて持ち運ぶにしても、containerとしても最適です。&#xA;例えば、gentooとかだとusbだとちょっときついんですよね。gentooは基本は自前buildなので、インストール時にすごい時間がかかってしまったりするんですよ。&#xA;反対に、ubuntuとかだとpackageが古い場合が多くて、また、ダイエットとかに逆に時間がかかってしまったりとかでなかなか面倒なんです。&#xA;よって、いろいろな用途に広範囲利用する場合は、archlinuxという選択は、非常にエコと言うか、時間がかからないです。archlinuxをとりあえずやっとけば、ほぼ応用できるのですから、複数のosを使い分ける必要がありません。serverならgentooで、desktopにはubuntuで、usbに入れるのはdebianでとか、そういった学習コストがないんです。&#xA;私は、linuxに関しては、arch以外、ほぼ全くやってないんですよ。他のディストリビューションを使ってたことって、ほとんどありませんし、触ってこなかった。&#xA;でもarchっていろいろな用途に使ってますし、使えるんですよ。&#xA;だからarchは、便利なんですが、linuxってvpnが面倒ですよね。特にarchは、最初にnetwork manager(nm)すら入ってませんからね。だからよけいにつらいってことはあると思うんです。&#xA;正直、linuxにして、これは訳がわからない感じなんですが、しかし、今回紹介するvpn gateに使われてるsoftethervpnを利用すると、serverをサクッと立てられたりします。&#xA;なので、今回は、archの弱点ぽく見えるvpn serverの構築、つまり、softethervpnの紹介ですかね。&#xA;ちなみに、vpnというのは、ドラマ風に言うと秘匿回線のことです(正確には全然違う)。通信って暗号化されてないとパケットが見えるんですよ。で、パケットが見えると、例えば、あるユーザーがパスワードでサイトにログインした時の通信なんかがそこから解読されてしまうってこともあり得るので危険なんです。まあ、パケットキャプチャされてる事自体が稀ではありますけど、外から接続する場合は特に気をつけなければなりません。そこで、vpn serverを通すことで、通信内容を外部から見られないようにするトンネル?のようなものかなって思います。外部からはvpn serverまでのアクセスは追えますけど、そこからは追跡できないよみたいな感じですね。また、vpnを通すと通常は、global ip addressも変わりますからね。追跡も通常の場合に比べて困難になります。これはアクセス先からと言う意味ですが。(ローカルネットワーク上に立てたvpn serverは、当然ながら同じglobal ipになります。なのでそこの効果は薄いと考えて良いでしょう。その意味で、本来的にはレンタルサーバー上とかで立てると良いですよね)&#xA;ちなみに、このブログで書いてることって、基本的には正確ではありません。単なる個人的なイメージを述べてるだけですからね。気になる方は調べてください。&#xA;さて、softethervpnの紹介でしたね。&#xA;softethervpn serverの設定 ここではIPsec / L2TPで接続できるようにします。&#xA;$ sudo pacman -S dhclient --noconfirm $ yay -S softethervpn $ sudo systemctl start softethervpn-server $ sudo systemctl status softethervpn-server $ vpncmd /server Hub DEFAULT GroupCreate default UserCreate syui UserPasswordSet xxx IPsecEnable yes yes yes SecureNatEnable yes NatEnable yes $ ip a 192.</description>
+    </item>
+  </channel>
+</rss>

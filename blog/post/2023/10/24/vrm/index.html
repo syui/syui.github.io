@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>three-vrm v2.0 update | syui.ai</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="three-vrm v2.0 update" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.ai//og.png" />
+		<meta property="og:url" content="https://syui.ai/blog/post/2023/10/24/vrm/" />
+		<meta property="og:site_name" content="syui.ai" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+		<script src="/js/analytics.js"></script>
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "name": "syui.ai",
+			  "url": "https:\/\/syui.ai\/"
+			}
+		</script>
+		<script src="https://syui.ai//bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="https://syui.ai//bower_components/axios/dist/axios.min.js"></script>
+		<script src="https://syui.ai//bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="https://syui.ai//bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="https://syui.ai//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+
+<body onload="highlight_prompt()">
+	
+		<div class="containerx">
+			<header id="header">
+				
+				<div class="logo"> <a href="/blog"> <a href="/">
+<svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+ </a> </div>
+
+				
+			</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2023-10-24 / <a href="/syui">syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/vrm/">vrm</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/3d/">3d</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<h2>three-vrm v2.0 update</h2>
+
+		<p><code>three-vrm</code>関連のブログを調べていると、ほとんどのコードが動かないので<code>three-vrm v2.0</code>の対応をまとめます。</p>
+<p>唯一、動くコードを発行していたのがpixivの<a href="https://pixiv.github.io/three-vrm/packages/three-vrm/examples/">example</a>でした。参考にしてみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/pixiv/three-vrm/
+</span></span><span style="display:flex;"><span>$ cd three-vrm
+</span></span><span style="display:flex;"><span>$ git checkout gh-pages
+</span></span><span style="display:flex;"><span>$ cd ./packages/three-vrm/examples/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim lookat-advanced.html 
+</span></span></code></pre></div><h3 id="example">example</h3>
+<p>以下は私が作った<code>example</code>です。基本的には<code>.js</code>なので好きなframeworkで動かしてみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:pacakge.json" data-lang="json:pacakge.json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;dependencies&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {<span style="color:#f92672">&#34;@pixiv/three-vrm&#34;</span>: <span style="color:#e6db74">&#34;^2.0.6&#34;</span>, <span style="color:#f92672">&#34;three&#34;</span>: <span style="color:#e6db74">&#34;^0.157.0&#34;</span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:main.js" data-lang="js:main.js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">THREE</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;three&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GridHelper</span>, <span style="color:#a6e22e">Mesh</span>, <span style="color:#a6e22e">MeshLambertMaterial</span>, <span style="color:#a6e22e">PlaneGeometry</span>, <span style="color:#a6e22e">Vector3</span>, <span style="color:#a6e22e">Color</span>, <span style="color:#a6e22e">DirectionalLight</span>, <span style="color:#a6e22e">Fog</span>, <span style="color:#a6e22e">HemisphereLight</span>, <span style="color:#a6e22e">AnimationAction</span>, <span style="color:#a6e22e">AnimationClip</span>, <span style="color:#a6e22e">AnimationMixer</span>, <span style="color:#a6e22e">MathUtils</span>, <span style="color:#a6e22e">Matrix4</span>, <span style="color:#a6e22e">Quaternion</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;three&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">VRMLoaderPlugin</span>, <span style="color:#a6e22e">VRMUtils</span>, <span style="color:#a6e22e">VRMLookAt</span>, <span style="color:#a6e22e">VRMSchema</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@pixiv/three-vrm&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GLTFLoader</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;three/examples/jsm/loaders/GLTFLoader&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">OrbitControls</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;three/examples/jsm/controls/OrbitControls&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// model
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">defaultModelUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://pixiv.github.io/three-vrm/packages/three-vrm/examples/models/VRM1_Constraint_Twist_Sample.vrm&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// lookat
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_v3A</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Vector3</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VRMSmoothLookAt</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">VRMLookAt</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">applier</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">applier</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">smoothFactor</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">yawLimit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">45.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pitchLimit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">45.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">target</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">autoUpdate</span> ) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lookAt</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">getWorldPosition</span>( <span style="color:#a6e22e">_v3A</span> ) );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> (
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">yawLimit</span> <span style="color:#f92672">&lt;</span> Math.<span style="color:#a6e22e">abs</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> ) <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pitchLimit</span> <span style="color:#f92672">&lt;</span> Math.<span style="color:#a6e22e">abs</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> )
+</span></span><span style="display:flex;"><span>			) {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> Math.<span style="color:#a6e22e">exp</span>( <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">smoothFactor</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">delta</span> );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> <span style="color:#f92672">+=</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> ) <span style="color:#f92672">*</span> <span style="color:#a6e22e">k</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> <span style="color:#f92672">+=</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> ) <span style="color:#f92672">*</span> <span style="color:#a6e22e">k</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">applier</span>.<span style="color:#a6e22e">applyYawPitch</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> ) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">applier</span>.<span style="color:#a6e22e">applyYawPitch</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> );
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// renderer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">renderer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">WebGLRenderer</span>({<span style="color:#a6e22e">alpha</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">antialias</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">outputEncoding</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">sRGBEncoding</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">shadowMap</span>.<span style="color:#a6e22e">enabled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">setSize</span>( window.<span style="color:#a6e22e">innerWidth</span>, window.<span style="color:#a6e22e">innerHeight</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">setPixelRatio</span>( window.<span style="color:#a6e22e">devicePixelRatio</span> );
+</span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>( <span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">domElement</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// camera
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">camera</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">PerspectiveCamera</span>( <span style="color:#ae81ff">30.0</span>, window.<span style="color:#a6e22e">innerWidth</span> <span style="color:#f92672">/</span> window.<span style="color:#a6e22e">innerHeight</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">20.0</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">position</span>.<span style="color:#a6e22e">set</span>( <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">5.0</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// camera controls
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">controls</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">OrbitControls</span>( <span style="color:#a6e22e">camera</span>, <span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">domElement</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">controls</span>.<span style="color:#a6e22e">screenSpacePanning</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">controls</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">set</span>( <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.0</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">controls</span>.<span style="color:#a6e22e">update</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// scene
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scene</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Scene</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// add color
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bgColor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Color</span>(<span style="color:#ae81ff">0xffffff</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">background</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Color</span>(<span style="color:#a6e22e">bgColor</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">fog</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Fog</span>(<span style="color:#a6e22e">bgColor</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ambiantLight</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HemisphereLight</span>(<span style="color:#ae81ff">0xffffff</span>, <span style="color:#ae81ff">0x444444</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ambiantLight</span>.<span style="color:#a6e22e">position</span>.<span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">ambiantLight</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// add mesh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">floor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Mesh</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PlaneGeometry</span>(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MeshLambertMaterial</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0xffffff</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">depthWrite</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">floor</span>.<span style="color:#a6e22e">position</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">floor</span>.<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">floor</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">grid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GridHelper</span>(<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">0xffffff</span>, <span style="color:#ae81ff">0xffffff</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">grid</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// light
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">light</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">DirectionalLight</span>(<span style="color:#ae81ff">0xffffff</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">light</span>.<span style="color:#a6e22e">position</span>.<span style="color:#a6e22e">set</span>( <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.0</span> ).<span style="color:#a6e22e">normalize</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>( <span style="color:#a6e22e">light</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// gltf and vrm
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentVrm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentAnimationUrl</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentMixer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">helperRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Group</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">helperRoot</span>.<span style="color:#a6e22e">renderOrder</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>( <span style="color:#a6e22e">helperRoot</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">loadVRM</span>( <span style="color:#a6e22e">modelUrl</span> ) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">loader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GLTFLoader</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">crossOrigin</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;anonymous&#39;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">helperRoot</span>.<span style="color:#a6e22e">clear</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">register</span>((<span style="color:#a6e22e">parser</span>) =&gt; {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMLoaderPlugin</span>(<span style="color:#a6e22e">parser</span>, { <span style="color:#a6e22e">autoUpdateHumanBones</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> } );
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">load</span>(
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">modelUrl</span>,
+</span></span><span style="display:flex;"><span>		(<span style="color:#a6e22e">gltf</span>) =&gt; {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">userData</span>.<span style="color:#a6e22e">vrm</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">VRMUtils</span>.<span style="color:#a6e22e">removeUnnecessaryVertices</span>(<span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">VRMUtils</span>.<span style="color:#a6e22e">removeUnnecessaryJoints</span>(<span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//VRMUtils.rotateVRM0(vrm);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">traverse</span>((<span style="color:#a6e22e">obj</span>) =&gt; {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">frustumCulled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>			});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// replace the lookAt to our extended one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">smoothLookAt</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMSmoothLookAt</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>.<span style="color:#a6e22e">applier</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">smoothLookAt</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">smoothLookAt</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">currentVrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vrm</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>.<span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camera</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;leftUpperArm&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.3</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;rightUpperArm&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>;
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">loadVRM</span>( <span style="color:#a6e22e">defaultModelUrl</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">blink</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">rand</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">random</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">rand</span> <span style="color:#f92672">&gt;</span> .<span style="color:#ae81ff">9</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">expressionManager</span>.<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;blink&#39;</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">expressionManager</span>.<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;blink&#39;</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// animate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clock</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Clock</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">animate</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">animate</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delta</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">getDelta</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">currentMixer</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">currentMixer</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">currentVrm</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sin</span>(Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">elapsedTime</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">blink</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;neck&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">s</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//currentVrm.humanoid.getNormalizedBoneNode(&#39;leftUpperArm&#39;).rotation.z = s;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">//currentVrm.humanoid.getNormalizedBoneNode(&#39;rightUpperArm&#39;).rotation.x = s;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">scene</span>, <span style="color:#a6e22e">camera</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">animate</span>();
+</span></span></code></pre></div><h3 id="scene-rotation">scene rotation</h3>
+<p>modelを回転させる</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">getElapsedTime</span>());
+</span></span></code></pre></div><h3 id="blink">blink</h3>
+<p>まばたきを制御します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">expressionManager</span>.<span style="color:#a6e22e">setValue</span>(<span style="color:#e6db74">&#39;blink&#39;</span>, <span style="color:#ae81ff">1</span>);
+</span></span></code></pre></div><h3 id="pose">pose</h3>
+<p>左手を動かします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;leftUpperArm&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><h3 id="lookat">lookat</h3>
+<p>視線をカメラに合わせます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// lookat
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_v3A</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Vector3</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VRMSmoothLookAt</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">VRMLookAt</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">applier</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">applier</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">smoothFactor</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">yawLimit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">45.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pitchLimit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">45.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">target</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">autoUpdate</span> ) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lookAt</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">getWorldPosition</span>( <span style="color:#a6e22e">_v3A</span> ) );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> (
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">yawLimit</span> <span style="color:#f92672">&lt;</span> Math.<span style="color:#a6e22e">abs</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> ) <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pitchLimit</span> <span style="color:#f92672">&lt;</span> Math.<span style="color:#a6e22e">abs</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> )
+</span></span><span style="display:flex;"><span>			) {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> Math.<span style="color:#a6e22e">exp</span>( <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">smoothFactor</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">delta</span> );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> <span style="color:#f92672">+=</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span> ) <span style="color:#f92672">*</span> <span style="color:#a6e22e">k</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> <span style="color:#f92672">+=</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> ) <span style="color:#f92672">*</span> <span style="color:#a6e22e">k</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">applier</span>.<span style="color:#a6e22e">applyYawPitch</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yawDamped</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitchDamped</span> );
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> ) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_needsUpdate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">applier</span>.<span style="color:#a6e22e">applyYawPitch</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_yaw</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_pitch</span> );
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">load</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">modelUrl</span>,
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">gltf</span>) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">userData</span>.<span style="color:#a6e22e">vrm</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// replace the lookAt to our extended one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">smoothLookAt</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMSmoothLookAt</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">humanoid</span>, <span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>.<span style="color:#a6e22e">applier</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">smoothLookAt</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">smoothLookAt</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">scene</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">currentVrm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vrm</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">lookAt</span>.<span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camera</span>;
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="animation">animation</h3>
+<p>アニメーションは基本的に以下の構文になります。</p>
+<p><code>vrm</code>ではなく<code>currentVrm</code>を使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// animate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clock</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Clock</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">animate</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">animate</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delta</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">getDelta</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">currentMixer</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">currentMixer</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">currentVrm</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ここに追加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;leftUpperArm&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">renderer</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">scene</span>, <span style="color:#a6e22e">camera</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">animate</span>();
+</span></span></code></pre></div><h3 id="bone-name">bone name</h3>
+<p>BoneNodeでしているするときは小文字から始めます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;head&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">currentVrm</span>.<span style="color:#a6e22e">humanoid</span>.<span style="color:#a6e22e">getNormalizedBoneNode</span>(<span style="color:#e6db74">&#39;leftHand&#39;</span>).<span style="color:#a6e22e">rotation</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">VMDBoneNames</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Root</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;全ての親&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Center</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;センター&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hips</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;下半身&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Spine</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;上半身&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Chest</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;上半身2&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Neck</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;首&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Head</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;頭&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftEye</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左目&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftShoulder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左肩&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftUpperArm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左腕&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftLowerArm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左ひじ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftHand</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左手首&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftThumbProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左親指０&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftThumbIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左親指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftThumbDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左親指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftIndexProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左人指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftIndexIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左人指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftIndexDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左人指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftMiddleProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左中指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftMiddleIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左中指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftMiddleDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左中指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftRingProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左薬指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftRingIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左薬指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftRingDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左薬指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftLittleProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左小指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftLittleIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左小指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftLittleDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左小指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftUpperLeg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左足&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftLowerLeg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左ひざ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftFoot</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左足首&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftFootIK</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左足ＩＫ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftToes</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左つま先&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LeftToeIK</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;左つま先ＩＫ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightEye</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右目&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightShoulder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右肩&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightUpperArm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右腕&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightLowerArm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右ひじ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightHand</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右手首&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightThumbProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右親指０&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightThumbIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右親指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightThumbDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右親指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightIndexProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右人指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightIndexIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右人指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightIndexDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右人指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightMiddleProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右中指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightMiddleIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右中指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightMiddleDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右中指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightRingProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右薬指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightRingIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右薬指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightRingDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右薬指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightLittleProximal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右小指１&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightLittleIntermediate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右小指２&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightLittleDistal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右小指３&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightUpperLeg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右足&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightLowerLeg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右ひざ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightFoot</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右足首&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightFootIK</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右足ＩＫ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightToes</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右つま先&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RightToeIK</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;右つま先ＩＫ&#39;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">VMDMorphNames</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Blink</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;まばたき&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">BlinkR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ウィンク&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">BlinkL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ウィンク右&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">A</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;あ&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">I</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;い&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">U</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;う&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">E</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;え&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">O</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;お&#39;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="カメラ移動">カメラ移動</h3>
+<p>animationで使うといいです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">translateZ</span>(<span style="color:#ae81ff">0.01</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">translateY</span>(<span style="color:#ae81ff">0.01</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">translateX</span>(<span style="color:#ae81ff">0.01</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// カメラ目線で移動
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">lookAt</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">Vector3</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>));
+</span></span></code></pre></div><h3 id="ref">ref</h3>
+<p><a href="https://pixiv.github.io/three-vrm/packages/three-vrm/examples/">https://pixiv.github.io/three-vrm/packages/three-vrm/examples/</a></p>
+<p><a href="https://pixiv.github.io/three-vrm/packages/three-vrm-materials-mtoon/examples/">https://pixiv.github.io/three-vrm/packages/three-vrm-materials-mtoon/examples/</a></p>
+<p><a href="https://gist.github.com/ahuglajbclajep/6ea07f6feb250aa776afa141a35e725b">https://gist.github.com/ahuglajbclajep/6ea07f6feb250aa776afa141a35e725b</a></p>
+
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2023/10/23/vrm/" id="article-nav-older" class="article-nav-link-wrap">
+vrm viewerを調整してみた
+					</a></p>
+    
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2023/10/25/vrm/" id="article-nav-newer" class="article-nav-link-wrap">
+     vrmのキャラクター編集
+				</a></p>
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
+		
+<script type="text/javascript" src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+		<script src="/js/highlight-prompt.js"></script>
+	</body>
+</html>

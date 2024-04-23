@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloudflare on syui.ai</title>
+    <link>https://syui.ai/tags/cloudflare/</link>
+    <description>Recent content in Cloudflare on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloudflare pagesでbasic認証</title>
+      <link>https://syui.ai/blog/post/2023/10/04/cloudflare/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/04/cloudflare/</guid>
+      <description>https://github.com/Charca/cloudflare-pages-auth&#xA;./functions&#xA;env:CFP_PASSWORD&#xA;cloudflareは、zero-trustで簡単に認証を追加することができます。&#xA;passwordのみの場合は、cloudflare pagesのfunctionsを追加することで実現できます。&#xA;./functionsというディレクトリを/に置いて、.tsを追加します。</description>
+    </item>
+    <item>
+      <title>zigをwasmにしてcloudflareにdeployする</title>
+      <link>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</link>
+      <pubDate>Tue, 02 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/02/zig-wasm-cloudflare/</guid>
+      <description>zigはprogramming-langの一つです。rustに似ていますが、c++寄りだと思います。&#xA;zigの利点はなんといってもwasmへのbuildの手軽さだと思います。&#xA;wasmはwebから実行できるbinaryです。&#xA;今後、webなどでもzigが採用されるケースが増えてくるかもしれません。&#xA;$ brew install zig $ mkdir zig-first-project $ cd zig-first-project $ zig init-exe $ cat src/main.zig $ cat build.zig $ zig build $ ./zig-out/bin/zig-first-project hello-worldしてみます。&#xA;const std = @import(&amp;#34;std&amp;#34;); pub fn main() anyerror!void { const stdout = std.io.getStdOut().writer(); try stdout.print(&amp;#34;hello, world!\n&amp;#34;, .{}); } ここまででziglang/zig.vimを入れておいたほうがいいでしょう。zigはコード内にある\tの扱いが特殊です。&#xA;Plug &amp;#39;ziglang/zig.vim&amp;#39; 以下はcloudflare blogにあるexampleです。&#xA;const std = @import(&amp;#34;std&amp;#34;); pub fn main() anyerror!void { // setup allocator var gpa = std.heap.GeneralPurposeAllocator(.{}){}; defer std.debug.assert(!gpa.deinit()); const allocator = gpa.</description>
+    </item>
+  </channel>
+</rss>

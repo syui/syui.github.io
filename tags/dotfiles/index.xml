@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dotfiles on syui.ai</title>
+    <link>https://syui.ai/tags/dotfiles/</link>
+    <description>Recent content in Dotfiles on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/dotfiles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>開発環境を作り直してみる3</title>
+      <link>https://syui.ai/blog/post/2020/01/25/dotfiles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/01/25/dotfiles/</guid>
+      <description>開発環境をイチから作りなおしてみる企画やってます。&#xA;https://git.syui.cf/syui/dotfiles&#xA;powerline.zsh https://github.com/syui/powerline.zsh&#xA;https://github.com/syui/ricomoon&#xA;zshのprompt(powerline.zsh)を調整しています。昔から不満のあったオリジナルアイコンの位置などを修正しました。昔からちょっと上にズレてたんですよね、気になってたんですが、放置してたのです。&#xA;icomoonで作ったやつは以下の調整でいけた。ただし、基本とするフォントにもよる。&#xA;#!/usr/bin/fontforge -script Open(&amp;#34;./font/icomoon.ttf&amp;#34;) SelectAll() foreach Scale(80, 80, 0, 0) endloop Generate(&amp;#34;./font/i.ttf&amp;#34;) Close() またgitlabやheroku(に似ている)アイコンをプラスしました。昔はfont-awesome(bland)に入ってなかった。ただ、省略したアイコンも多く、最初は必要なものにとどめました。&#xA;フォントに関しては、SF Monoがいいらしい。そのうち時間があれば見てみようかなと思っています。ただ、フォントやアイコン周りを久しぶりに触ることになりましたが、たいへん。fontforgeなんもわからん。&#xA;zstyle &#39;:vcs_info:git:*&#39; formatsとかで表示する情報にコミット数を追加してみたりした。&#xA;$ git --no-pager shortlog -sn |tr -d &amp;#39; &amp;#39;|cut -f 1 | head -n 1 zsh-notify zsh-notify入れたら端末がおかしくなったような気がしたので、アンインストールした。&#xA;#zsh-notify #commandを実行してもpromptが動かなくなることがある zinit light marzocchi/zsh-notify zstyle &amp;#39;:notify:*&amp;#39; error-title &amp;#34;Command failed&amp;#34; zstyle &amp;#39;:notify:*&amp;#39; success-title &amp;#34;Command finished&amp;#34; export SYS_NOTIFIER=`which terminal-notifier` zstyle &amp;#39;:notify:*&amp;#39; command-complete-timeout 15 一応、上記の構成で機能はする。&#xA;git add + git diff git addするときにdiffをfzf --previewで確認する^g</description>
+    </item>
+    <item>
+      <title>開発環境を作り直してみる2</title>
+      <link>https://syui.ai/blog/post/2020/01/22/dotfiles/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/01/22/dotfiles/</guid>
+      <description>https://git.syui.cf/syui/dotfiles&#xA;fzf fzfに関しては、vim **&amp;lt;tab&amp;gt;などが使えます。--previewで画面分割しながらtree,catしたものを表示できます。&#xA;grepの代わりになるrgとcatの代わりになるbatがおすすめで、コマンドオプションなどに追加。あと.git以下は拾わないようにしたりとか、ファイルのみとか。&#xA;$ brew install rg bat bindkey &amp;#39;^b&amp;#39; fzf-file-widget export FZF_DEFAULT_COMMAND=&amp;#39;fd --type f --hidden --follow --exclude .git&amp;#39; export FZF_COMPLETION_OPTS=&amp;#39;--preview &amp;#34;bat --color=always --style=header,grid --line-range :100 {}&amp;#34;&amp;#39; export FZF_CTRL_T_COMMAND=&amp;#39;rg --files --hidden --follow --glob &amp;#34;!.git/*&amp;#34;&amp;#39; export FZF_CTRL_T_OPTS=&amp;#39;--preview &amp;#34;bat --color=always --style=header,grid --line-range :100 {}&amp;#34;&amp;#39; #export FZF_COMPLETION_TRIGGER=&amp;#39;~~&amp;#39; fancy-ctrl-z () { if [[ $#BUFFER -eq 0 ]]; then BUFFER=&amp;#34;fg&amp;#34; zle accept-line else zle push-input zle clear-screen fi } zle -N fancy-ctrl-z bindkey &amp;#39;^z&amp;#39; fancy-ctrl-z fzf-file-widgetは^tですが、tmuxに使ってるので^bに変更。この辺はbindkeyコマンドで調べられます。</description>
+    </item>
+    <item>
+      <title>開発環境を作り直してみる1</title>
+      <link>https://syui.ai/blog/post/2020/01/20/dotfiles/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/01/20/dotfiles/</guid>
+      <description>ゲームのシナリオを書こうと思ったけど、やる気でないので、こういうときは他のことしたほうがいいと思って、カオスになってた開発環境の整理をはじめました。&#xA;以前から整理しようと思っていたgithubのdotfilesのbranchを切らず、自前のgit-serverで整理していこうかなと思っています。別に移行するわけではありませんが、今は整理されてないリポジトリ群を見たくない&amp;hellip;。&#xA;https://git.syui.cf/syui/dotfiles&#xA;$ git clone https://git.syui.cf/syui/dotfiles zpluginとvim-plug まずはplugin-managerを入れました。&#xA;https://github.com/zdharma/zinit&#xA;https://github.com/junegunn/vim-plug&#xA;ただ、本格的にやる気が出てきたのは、やはり自分のpowerline.zshを作り直しているときです。&#xA;自分で目に見える変化を付けていくほうがやる気が出るのでおすすめです。&#xA;powerline.zsh 今回はこんな感じで配色をシンプルにしました。昔は色とりどりでしたが、時間が経つにつれ、あまりかっこよくないなあと。でもカスタマイズするのも面倒なので放置していました。&#xA;https://github.com/syui/powerline.zsh&#xA;git-repoにcdするとき劇遅になるので、zle reset-promptして必要があればcd .で表示します。このあたり改善したいのですが、今のところ放置。&#xA;# z + peco # 入力があれば移動履歴から補完、なければ移動 function peco-z-search (){ zdirselect=`z | sort -g -r | peco | cut -d &amp;#39; &amp;#39; -f 2- | sed &amp;#39;s/ //g&amp;#39;` if [ `echo &amp;#34;$LBUFFER&amp;#34; | wc -w | tr -d &amp;#39; &amp;#39;` -eq 0 ];then cd $zdirselect ls -slhAF zle reset-prompt else LBUFFER+=&amp;#34;$zdirselect&amp;#34; fi } zle -N peco-z-search bindkey &amp;#39;^f&amp;#39; peco-z-search pmy 今回は、pmyというツールを使ってfzfと連携してみました。</description>
+    </item>
+    <item>
+      <title>Packer &#43; Vagrant &#43; Ansibleで構築するdotfiles</title>
+      <link>https://syui.ai/blog/post/2019/12/23/dotfiles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/12/23/dotfiles/</guid>
+      <description>アドベントカレンダーに参加しています。&#xA;dotfiles Advent Calendar 2019 今回は、dotfilesにAnsibleを導入してみると便利かもしれないという話をします。&#xA;自動化スクリプトが動かなくなってた話 私は、昔、ArchLinuxを自動でインストールし、dotfilesを適用し、その上でデスクトップを構築するまでを以下のコマンドでやっていた時期がありました。&#xA;$ curl -L git.io/air|zsh ですが、最近実行してみると、やっぱり動かなくなっていたのです！&#xA;dotfilesのメンテもいつの間にかやらなくなる話 dotfilesも同じく、最初はちゃんとpushするんですが、そのうち、commitがめんどくさくなってしまい、いつの間にかメンテナンスしなくなっていました。&#xA;そんな時、Ansibleで構築してみると便利かもしれないと思ったので、今回は、Ansible + dotfilesで環境一新してみることにしたのです。&#xA;(魔界化したdotfilesは何から手を付けていいのかわからない)&#xA;Ansibleとは環境構築を自動化するツールです。dotfilesは設定ファイル群で、今回はこれらを組み合わせます。&#xA;仮想環境は、Packer, Vagrant, ArchLinuxを使います。PackerでArchLinuxのVagrantイメージを作り、その上にdotfilesをおいてAnsible Playbookを実行しデスクトップ環境を構築するという流れでやってみたいと思います。&#xA;デスクトップのi3は、Mod4 + EnterでTerminalを起動。&#xA;https://github.com/elnappo/dotfiles&#xA;Packer + VagrantでArchLinuxの仮想環境を構築 ArchLinuxは、なかなか良さげのVagrantイメージがありませんでした。ということで、Packerで作ることにします。&#xA;まずは必要なものをインストール。&#xA;$ brew install packer $ brew cask install vagrant 続いて、Packerの設定ファイルを取ってきて、PackerでVagrantイメージを作ります(今回のために作った)。&#xA;https://github.com/syui/arch&#xA;$ git clone https://github.com/syui/arch $ cd arch/packer $ packer build arch.json 作ったVagrantイメージをクラウドに保存して、ダウンロード起動します。&#xA;$ vagrant login $ vagrant box add syui/arch arch.box --force $ vim vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.</description>
+    </item>
+  </channel>
+</rss>

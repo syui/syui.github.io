@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webpack on syui.ai</title>
+    <link>https://syui.ai/tags/webpack/</link>
+    <description>Recent content in Webpack on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/webpack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>exchatのfrontendをやってみる</title>
+      <link>https://syui.ai/blog/post/2018/08/25/webpack/</link>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/08/25/webpack/</guid>
+      <description>導入 昨日、tony612/exchatを扱いましたが、今回はexchatのfrontendの内容になります。&#xA;heorkuでは、通常、/app, /webにわけられdeployされます。&#xA;なので、phxのようなbackendの成否とreactのようなfrontendの成否は基本的に別々になっています。&#xA;つまり、phxのdeployは正常に成功したけど、webpackが失敗して、/webがうまく表示できないなんてこともありえます。&#xA;exchatは、backendをelixir(phoenix)で構成し、frontendは、react, reduxなどで構成しているようです。&#xA;ここで、frontend(js)のpreview, build, convertなどには、webpack, babelなどを使用しているようです。&#xA;今回は、exchatのfrontendの方を少しだけ見ていこうかなと思います。&#xA;webpack buildされたものは、./priv/static/app.jsに置かれるようですね。しかし、.gitignoreに書かれていますので、pushしません。&#xA;$ cat webpack.config.js $ mix deps.get $ npm i $ webpack $ cat ./priv/static/app.js $ mix phx.server layoutを変えるには、./web/templates/layoutからhtml:headより上をいじることもできますが、基本的には、./client/以下を触ります。&#xA;./config/dev.exsを見ることで、どのようにpreviewされるのかわかります。&#xA;riotを触ってた頃、たまたまwebpackも使ってた気がするんですけど、もう忘れてる。&#xA;なお、cloudflareとかを利用してる場合、cacheなどが効いてるので、今回生成されるようなapp.jsみたいな一箇所に詰め込まれたファイルというのは、特に、なかなか反映されないことがあります。これは、purgeをするとか、もしくはherokuapp.comで確認するとかしたほうがいいわけですが、それでも反映するまでにしばらく時間がかかることが多いです。browserのprivate windowを利用しても同じ。frontendはこのあたり、大変ですね。あくまで初見の印象ですが。&#xA;previewは、$ bash ./compileしたあとに、$ mix phx.serverします。localhost:4000&#xA;You are currently using minified code outside of NODE_ENV === &amp;lsquo;production&amp;rsquo;. This means that you are running a slower development build of Redux. You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify or DefinePlugin for webpack (http://stackoverflow.</description>
+    </item>
+  </channel>
+</rss>

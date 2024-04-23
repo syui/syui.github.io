@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Make on syui.ai</title>
+    <link>https://syui.ai/tags/make/</link>
+    <description>Recent content in Make on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 17 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>絵本を作ってみた</title>
+      <link>https://syui.ai/blog/post/2023/04/17/book/</link>
+      <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/04/17/book/</guid>
+      <description>アイが一冊だけ持ってる絵本。たまに作中に出てくるやつを作ってみました。&#xA;たまたまお店でいいものが売ってて「あなただけの絵本を作りましょう」という真っ白な絵本なんだけど、それを買って作ってみた。&#xA;デザイン カードを作ってみた そろそろカード作り始めないと、やばいかもしれないと思ったので、カード作ってたんだけど、素材が切れた話。&#xA;その前に、少しだけカードのルールというか設定の一部を紹介します。&#xA;リアルカードの設定は以下のようになっています。重要な点は主に2つ。&#xA;一つの絵柄につき一枚しか発行できない&#xA;一人一枚しか持てない&#xA;このようなルールが存在していて、それは私も例外ではないので、例えば、私は同じ絵柄のものを2枚は作らないし、また、1枚以上のカードを作った場合、誰かにあげるか、破棄するか、どちらかになります。&#xA;まあ、期間を制限していないので、抜け道はあるんだけど、このカード、世界で一つだけのカードという設定ではあります。今のところは。&#xA;で、そのためにdocsに設置したのがowner(所有者)のページです。&#xA;素材が切れた 以前はオーロラシールを素材に使ってたんだけど、それが無くなってしまい、買いに出かけたら生産中止になったらしいので、途中から製法を変えて作りました。もしかしたら、こっちのほうがいいかも。&#xA;これは絵本を作ってるときに気づいたもので、やたら質感がいいシールだなと思い、それを使うことにしたのがきっかけでした。</description>
+    </item>
+    <item>
+      <title>バッジ作ってみた2</title>
+      <link>https://syui.ai/blog/post/2023/02/03/badge/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/02/03/badge/</guid>
+      <description>自作品というのは、普通に作ると経年劣化が発生します。&#xA;これはカードを作った時に気づきました。&#xA;そして、カードは改良したけど、バッジにはそういった改良を施していませんでした。&#xA;したがって、今回はバッジにその改良を施し、古いバージョンを試作品のストレージに移しました。&#xA;いつもバッグには自分のアイコンだけ付けて、他のはそのへんに転がってます。</description>
+    </item>
+    <item>
+      <title>ステッカーを作ってみた2</title>
+      <link>https://syui.ai/blog/post/2023/02/02/macbook/</link>
+      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/02/02/macbook/</guid>
+      <description>初代macbook airはステッカーなしですが、macbook airが増えるにつれ見分けがつかないため、ステッカーを貼るようになりました。あとリンゴマーク部分のプロテクト。&#xA;macbook air 13-inch (m1) 今回はカード制作の知識を生かして、透明なオーロラシールを採用。&#xA;昔、サークル型のステッカーは切り取る作業に苦労した覚えがあるんですよ。&#xA;なので、今回はハニカム型にしてハサミを入れやすいようにしています。&#xA;ボックス型もいいのですが、ハニカムより調整が難しい気がしてる。&#xA;ハニカムだと多少ズレても違和感ないですし、おすすめかもしれません。&#xA;あと、壁紙と統一してみた。&#xA;皆様は、どのようにノートパソコンを愛用されていますか?</description>
+    </item>
+    <item>
+      <title>カードを作ってみた7</title>
+      <link>https://syui.ai/blog/post/2022/12/15/card/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/12/15/card/</guid>
+      <description>久しぶりに改めてカードを作ってみることにしました。&#xA;以前のカードはベースを紙にしていました。&#xA;しかし、紙ベースだと劣化が激しいような気がしたのです。&#xA;もちろん、たった数ヶ月でそこまでの変化はありませんでしたが、なんとなく数年後に色あせてくるのが見えるような気がしました。&#xA;個人的には納得できるものではありませんでした。&#xA;そこで、改めてカードを作り直してみることにしたのです。&#xA;これまで作ったカードはすべて「試作品箱」に移し、手持ちのカードはゼロ。&#xA;ゼロからのスタートです。&#xA;新しいカードは、ベースにプラスチック版を採用することにしました。&#xA;暑さはこんくらいです。3mmくらいかな。わかんないけど。&#xA;そして、プラスチック板をベースにした初めてのカードが出来上がりました。&#xA;シールはホログラムに印刷を行い、それを保護するガラスチップのシールを上に貼ります。&#xA;ホログラムだけだと色々問題が出てきてしまうのは以前作ったカードでわかっていました。&#xA;そして、最後に切り取りを行いますが、これをカッターやハサミでやってしまうと、微妙なところに歪みが発生してしまうことがあります。したがって、裁断機を使いました。&#xA;実はこのカードを作成したのは数ヶ月前です。ブログに書いていませんでした。&#xA;数ヶ月、カードの様子を見ていましたが、とても納得のできる仕上がりです。&#xA;劣化が感じられませんし、手に持った感覚もしっかりしています。&#xA;これからカードを作るときは、この方式を採用していきたい。</description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる3</title>
+      <link>https://syui.ai/blog/post/2022/09/18/3dscan/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/18/3dscan/</guid>
+      <description>scaniverseがLiDARなしでも使えるようになりました。これはnianticが買収してから無料になった3Dモデルが作成できるアプリです。&#xA;trinoは以前からLiDARなしでも使えて便利だったようですが、ここに来てscaniverseが有力になりました。&#xA;したがって、この2つのアプリを簡単に比較してみたいと思います。&#xA;以下は同じものをスキャンした例です。&#xA;scaniverse 公平に見て、scaniverseのほうが使い勝手が良かったのと、trinoではモデル生成できなかった写真立て(カード立て)がscaniverseではできました。&#xA;したがって、現時点でscaniverseのほうがおすすめです。&#xA;しかし、しっかりとした3Dモデルはtrinoのほうが作れていると感じます。&#xA;scaniverseは一見してきれいに見えますが、表面的な部分のみで、内側を読み取るのは苦手なようです。&#xA;scaniverseは、内部を作り込むのではなく、無理やり表面に結合するというような形になることが多かった。&#xA;これは、LiDARが使えるかどうかで変わってくるのかもしれません。</description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる2</title>
+      <link>https://syui.ai/blog/post/2022/09/10/skechfab/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/10/skechfab/</guid>
+      <description>この前、apple storeで新しいmacbook airとipadとiphoneを買ったんだけど、最新のipadを買ったらやってみたいことの一つに3Dモデルの生成があったので、やってみた。&#xA;trinoというアプリで生成しました。これ最新のipadじゃなくてもできるんだね。&#xA;前に調べたとき別アプリが最新のipadしか対応してない感じだったので、断念してた。</description>
+    </item>
+    <item>
+      <title>フィギュアを作った</title>
+      <link>https://syui.ai/blog/post/2022/08/20/figure/</link>
+      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/20/figure/</guid>
+      <description>フィギュア制作の情報をまとめます。&#xA;きっかけ オタクなのでフィギュアは一つくらいほしいなあと思っていました。&#xA;スマブラで使っているゼルダをamiiboで買おうか、原神の蛍を買おうか、迷いました。&#xA;最終的にビビッと来るものがなかったので、自分で作ることにしました。&#xA;制作過程 2021-07-17から2021-08-13の間に3つのフィギュアを作っては作り直していました。&#xA;しばらくそのフィギュアを机においていましたが、1年後の2022-08-15からまたフィギュアを作り直すことしました。そして、2022-08-19に完成しました。&#xA;これがトップにある画像になります。&#xA;必要なもの スカルピー&#xA;オーブン&#xA;針金&#xA;塗料&#xA;印刷シール&#xA;スパチュラはなくてもいいです。あまり使ってない。カッターとかハサミなど日常品は省略しています。オーブンはスカルピーが有毒なので別なものを買ったほうがいいです。塗装はアクリル絵の具で厚塗りを重ねることで完全に塗ることができ、仕上げスプレーを使うことでザラザラを消すことができます。ただし、塗装スプレーを使ったほうが手っ取り早いです。顔は印刷シール使うと簡単です。焼いたあとカットしてます。&#xA;具体的な手順 粘土をこねる&#xA;無水エタノールで表面処理&#xA;焼く&#xA;カットとやすりで修正と表面処理&#xA;スプレーで肌色、服全体を塗る&#xA;ラッカー系塗料で細部を塗る&#xA;光沢スプレーなどで仕上げ&#xA;ポイント 髪の毛は細くすると見栄えが良くなるけど、耐久性も下がる&#xA;それぞれの部位は思った以上に小さくする必要があります。大きくなりがちです。&#xA;固定できるポーズが重要。この辺はあとに響くので見栄えとのバランスが難しいです。&#xA;一気に焼いてはいけない。小さい部位ごとに完成させていくイメージ。&#xA;納得行くまで粘土をこねる。とりあえず完成イメージを作る。1日置いてみる。この繰り返しが一番の近道。すぐに焼いてはいけない。&#xA;ただし、焼く練習は必要。まずは小さいものや髪の毛を焼いてみよう。&#xA;表面処理とラッカー系塗料 最初はアクリル絵の具でそのまま塗っているだけでしたが、表面処理とラッカー系塗料を行うと、はじめて市販のフィギュアっぽくなりました。それまでは明らかに自作という感じでした。&#xA;左が市販、右が自作&#xA;では、表面処理とは何を指すのでしょう。&#xA;表面処理は主に固める前と後で分けられます。&#xA;固める前は無水エタノールなどでなめらかにすること。固めた後はやすりなどで削ることです。&#xA;ラッカー系塗料がおすすめです。ただし、換気が必要です。&#xA;磁石と輪っか 磁石を頭に入れる事で輪っかを設置しやすくなります。</description>
+    </item>
+    <item>
+      <title>カードを作ってみた6</title>
+      <link>https://syui.ai/blog/post/2022/07/16/card/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/16/card/</guid>
+      <description>上の方はザラザラした特別仕様、下はクリアカードの完成版です。</description>
+    </item>
+    <item>
+      <title>カードを作ってみた5</title>
+      <link>https://syui.ai/blog/post/2022/07/06/card/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/06/card/</guid>
+      <description>カードに秘密鍵を刻印して認証する仕組みを作ってみました。&#xA;$ openssl genrsa -out private.pem 31 $ openssl rsa -in private.pem -pubout -out public.pem $ openssl rsa -text -pubin &amp;lt; public.pem $ openssl rsa -text &amp;lt; private.pem modulus INTEGER, -- n = p*q publicExponent INTEGER, -- e = 65537 (=0x10001) privateExponent INTEGER, -- d == e^(-1) mod (p-1)*(q-1) prime1 INTEGER, -- p prime2 INTEGER, -- q exponent1 INTEGER, -- d mod (p-1) exponent2 INTEGER, -- d mod (q-1) coefficient INTEGER, -- q^(-1) mod p ### gh-actions $ openssl rsa -in pull-private.</description>
+    </item>
+    <item>
+      <title>カードを作ってみた4</title>
+      <link>https://syui.ai/blog/post/2022/07/03/card/</link>
+      <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/03/card/</guid>
+      <description>カードを作ってみて、めちゃくちゃ満足感あったし、楽しかった。&#xA;こっちのページでできる占いは実際にカードで持ってるやつだけにした。&#xA;/ai/card&#xA;関係ないけど、過去絵を整理してみた。&#xA;/ai/imgall</description>
+    </item>
+    <item>
+      <title>カードを作ってみた3</title>
+      <link>https://syui.ai/blog/post/2022/06/30/card/</link>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/06/30/card/</guid>
+      <description>今回作ってみたのはクリアカードです。&#xA;使ったもの きらきらホログラムラベルシール(ガラスチップ) / クリアシール用紙A4&#xA;セルフラメシート&#xA;基本的にはシールに印刷して、それをクリアシートに貼り付けます。背面を用意しなくていいので一番楽だった。&#xA;背面に枠だけ印刷してもいいかも。内側はカッターで切り取りとるとよさそう。</description>
+    </item>
+    <item>
+      <title>カードを作ってみた2</title>
+      <link>https://syui.ai/blog/post/2022/06/26/card/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/06/26/card/</guid>
+      <description>今回は前回からの失敗を踏まえ、本物のトレーディングカードっぽくなった気がする。&#xA;使ったもの きらきらホログラムラベルシール&#xA;クリアホログラムシート&#xA;きらきらホログラムラベルシール(オーロラ)がめちゃくちゃ良かった。&#xA;これにはガラスチップというタイプがあるんだけど、こっちは必要ありません。ただ、これを貼って剥がせばガラスチップのキラがついた。難しかったけど。&#xA;基本的に白トランプや既存カードに印刷したシールを貼り付けて、カッターで切るという手順です。気泡が入りやすいので注意。&#xA;形式も統一しました。サイズ調整が難しかったです。wordで68mmx92mmを指定して印刷しました。</description>
+    </item>
+    <item>
+      <title>カードを作ってみた1</title>
+      <link>https://syui.ai/blog/post/2022/06/23/card/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/06/23/card/</guid>
+      <description>動機 最初は、ほんの出来心でした。ポケカが増えてきたので、ポケモンのレアカードを額縁に入れて飾ろうとしたのです。&#xA;しかし、飾ってみると、どうもしっくり来ませんでした。&#xA;そこで、フォトシールというやつが余っていたので、それをポケカの上に貼り、オリジナルカードっぽいものを作ってみました。&#xA;ここから、色々と気になりだして、例えば、裏面(ポケカになってる)とかコピーライトとか、ホログラムとか。&#xA;最終的には、完全にイチからオリジナルカードを作ることになってしまいました。&#xA;必要なもの すべて100円ショップで揃いました。&#xA;フォトシールL判(印刷)&#xA;分厚い紙(ベース)&#xA;ジュエリーラメホログラム(キラ)&#xA;セルフラメシート(キラ固定)&#xA;まず、(1)画像をシールに印刷、(2)用紙を切り取り、(3)シールを貼ります。ここまででカードは完成しますが、キラカードを作るには、もうちょっと工夫が必要です。&#xA;今回は、(4)カードの上にラメを撒く、(5)カードシートに挟む、(6)シートを切り取る、という方法で作りました。&#xA;全部自分で考えただけなので、他にも色んな方法があると思います。&#xA;最後にショップで売っていた写真立てにカード袋を引っ付けてカード入れました。&#xA;ちなみに、ポケカは66パックでやっとアバター出ました。ミスったなという感想。ほぼコンプしたので、とっときます。</description>
+    </item>
+    <item>
+      <title>バッジ作ってみた1</title>
+      <link>https://syui.ai/blog/post/2022/01/21/badge/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/01/21/badge/</guid>
+      <description>このまえバッジを作ってみました。&#xA;全部で4つ作って、2つは人に送り、2つは自分の手元に残った感じ。&#xA;たまにデスクの写真載せるので、気になる人はどうぞ(自分も他人のデスク見るの好き&#xA;/photo</description>
+    </item>
+    <item>
+      <title>ステッカーを作ってみた1</title>
+      <link>https://syui.ai/blog/post/2021/01/21/badge/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/01/21/badge/</guid>
+      <description> macbook air 11-inch (intel) </description>
+    </item>
+    <item>
+      <title>3Dモデルを作ってみる1</title>
+      <link>https://syui.ai/blog/post/2020/01/24/3d/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/01/24/3d/</guid>
+      <description>この前、ふと3Dモデルでも作ってみたいなーと思い立ち、作ってみることに。&#xA;まずは簡単なものからと思ったので、アムのコインを3D化してみます。&#xA;3Dモデルを作るのはこれが初めてですが、&#xA;はっきりいいましょう、こんだけ作るのもすごい大変だったと！&#xA;まずは3Dモデルってどうやって作るのか調べてみると、いい感じに自分でもできそうなやり方があったので、それでやってみて、1, 2時間くらいかかったと思う。&#xA;作ったあとは、obj,mtl,jpgをzipに圧縮してsketchfabにアップロードしてみました。&#xA;しかし、1ヶ月に1回のアップロード制限はきついかも。ただ、uploadすると3D-editorが使えるので非常に有用だと思います。&#xA;3Dモデルの簡単な作り方 今回は、丸図形を用意して、テクスチャに当て、大きさの調整、x,y軸などを調整して完成という流れ。&#xA;最初はエディタの使い方とか全然わかりませんが、なんとなくガチャガチャやってたらわかってくるのではと思ったので、ガチャガチャやってました。&#xA;で、こんな感じのものを簡易に作成して、blenderとかsketchfabの3D-editorとかで修正していけばいいのかなあという感じで今のとこ思ってます。(違うかも&#xA;アムのコイン yuiの最後のほう(43話くらい)に登場するアイテム。宇宙で最も流行している特殊な通貨のこと。</description>
+    </item>
+  </channel>
+</rss>

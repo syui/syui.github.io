@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>M on syui.ai</title>
+    <link>https://syui.ai/tags/m/</link>
+    <description>Recent content in M on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/m/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue</title>
+      <link>https://syui.ai/m/post/ue/</link>
+      <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/ue/</guid>
+      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。&#xA;ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。&#xA;src : https://git.syui.ai/ai/ue for mac mac(apple silicon)でも動作しますが、package buildは鬼門です。絶対にやめましょう。時間がもったいない。&#xA;ue5は、基本的にwindowsのpakcage buildはすぐに通りますが、それ以外では難しいでしょう。&#xA;たとえ1度だけbuildが通ったとしても、もし開発を続ける場合、windowsとmacの両方で動作を安定させることはできません。&#xA;windowsで開発するのがおすすめです。macでの開発はやめておきましょう。&#xA;vrm https://github.com/ruyo/VRM4U/releases&#xA;vroidを読み込むpluginであるvrm4uを使用します。現在、vroid sdkというものも登場しています。&#xA;macで使用するには大変ですが./Plugins/VRM4U/ThirdParty/assimp/lib/Mac/libassimp.aを用意してください。独自buildが必要です。&#xA;https://ruyo.github.io/VRM4U/03_mac&#xA;調整 基本的にはSuperhero Flight Animationsを使用してmodelの調整を行います。&#xA;Superhero Flight Animationsは./Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5で./Content/SuperheroFlight/Blueprints/Components/BP_SuperheroFightを読み込んでいます。&#xA;BP_Player_UE5を開いてSuperheroFlightComponentのところが設定ファイルになっていて、例えば、flying speed、つまり、飛行速度などを変更できます。&#xA;基本的には、ここのassetsにanimationを入れることで機能します。もし機能しない場合の変更箇所を書きます。&#xA;いくつかのanimationは自分で用意したものに切り替えます。&#xA;ABP_Player_ai, BP_Player_UE5を新たに用意し、それを読み込むようにします。&#xA;./Content/SuperheroFlight/Characters/Mannequins/Animationsをリターゲットしてanimationを作成、それをanim montageにします。&#xA;idle/walk かっこいいものに切り替えます。おかしな移動になっていました。&#xA;ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; idle ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; walk 使用しているanimationにroot motionを設定します。&#xA;jump かっこいいものに切り替えます。root-motionが動きませんでした。&#xA;ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; jump ABP_Player_ai : AnimGraph &amp;gt; Locomotion &amp;gt; idle RTG_ai : target, チェーンマッピング &amp;gt; rootをFK &amp;gt; 平行移動モード &amp;gt; Globally Scaledに設定 root motionをenableにしても動きません。原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</description>
+    </item>
+    <item>
+      <title>fly</title>
+      <link>https://syui.ai/m/post/fly/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/fly/</guid>
+      <description>fly.ioではappもpgもすべてcontinerです。volume領域はcontiner内に作成します。fly.tomlにおいてmountできるvolumeは1つです。&#xA;# アプリの作成 $ fly apps create $app # アプリの削除 $ fly apps destroy $app # メモリを512Mに設定する $ fly scale memory 512 # volume(hdd)領域を1Gで作成する $ fly vol create --region nrt --size 1 $app_db # pg(postgres)を作る $ fly pg create -n $app-db $ fly pg attach -a $app $app-db # pgのupdate等 $ fly image update $app-db $ fly pg restart -a $app-db pg attach fly.ioのpgは注意が必要です。attachした際のurlは一度しか表示されません。detach, attachするとurlが変わります。同じ名前のappを作り直すとattach, detachできなくなります。&#xA;# pgを接続する $ fly pg attach -a $app $app-db pg backup, restore pgは1日おきにsnapshotを作成します。</description>
+    </item>
+    <item>
+      <title>android</title>
+      <link>https://syui.ai/m/post/android/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/android/</guid>
+      <description>nexus7(2013)はroot権限を取って使っています。&#xA;公式imgは以下にあります。&#xA;flo : https://developers.google.com/android/images&#xA;$ adb reboot-bootloader $ fastboot flash boot boot.img $ fastboot erase system $ fastboot flash system system.img $ fastboot reboot $ adb reboot bootloader $ fastboot oem unlock # https://developers.google.com/android/images # ./flash-all.sh $ fastboot flash recovery twrp-xxx.img $ adb reboot recovery $ adb push xxx.zip /sdcard/ $ adb reboot system $ adb install xxx.apk # http://www.apkmirror.com/ lineage osを使うことで、nexus7にandroid12をインストールできます。&#xA;twrp : https://twrp.me/asus/asusnexus72013wifi.html&#xA;lineage os 19.1 : https://forum.</description>
+    </item>
+    <item>
+      <title>archlinux</title>
+      <link>https://syui.ai/m/post/arch/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/arch/</guid>
+      <description>archlinuxのinstaller(script)です。&#xA;https://github.com/syui/arch&#xA;$ fdisk -l sda $ export x=a $ curl -sL git.io/air | zsh archlinuxの一般的なinstall手順です。&#xA;$ cfdisk /dev/sda sda1 200M linux-system sda2 8GB linux-system write(yes), quit $ mkfs.vfat /sda1 $ mkfs.ext4 /sda2 $ mount /dev/sda2 /mnt $ pacstrap -K /mnt base linux base-devel $ genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab $ arch-chroot /mnt $ user=syui $ echo xxx &amp;gt;&amp;gt; /etc/hostname $ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils jq $ grub-install --force --recheck /dev/sda $ grub-mkconfig -o /boot/grub/grub.</description>
+    </item>
+    <item>
+      <title>ios</title>
+      <link>https://syui.ai/m/post/ios/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/ios/</guid>
+      <description>iosで使用しているアプリを紹介します。iphone se3とipad9を使っています。&#xA;アプリ termius openvpn goodreader authenticator(google) bitwarden firefox focus metatrader 5 scaniverse bluesky sub mastodon, damus(nostr) slack, discord, matrix(element) default 基本的にはiosの標準アプリを使用します。通話はfacetime, チャットはmessageです。これらはmail-addressと紐づけられます。&#xA;lineやその他のアプリは必要ではないため使用していません。&#xA;termius iosでは主にtermiusを使用しています。これがないと、私のスマホは恐ろしいほど不便になります。&#xA;iphoneは通常、simを入れてキャリア回線を使用するためglobal-ipになります。&#xA;wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを建てて接続します。詳しくは、archlinuxの記事に書いています。また、tailscaleも便利です。vpn-serverのようにself-hostして使うわけではなく外部サービスとして利用料を払い使用する形式です(無料枠あり)。&#xA;termiusはsftpを使えるので特に便利です。goodreaderは最新のopensshのprivate-keyに対応していません。&#xA;checkm8 checkm8の登場により、iosのroot権限を得るのは、さほど難しくなくなりました。私もいくつかの古い端末でrootを取っているios端末はありますが、特に利便性を感じていないので、使っていません。sshは可能です。しかし、そこまで早くはないし、むしろ遅いので、ios端末をサードパーティでカスタマイズする必要性を私はあまり感じませんでした。&#xA;https://checkra.in&#xA;https://github.com/axi0mX/ipwndfu&#xA;とりあえずやることとしては、ipwndfuを使います。dfu modeに入って、usb接続した上で、ipwndfuの診断及びexploitを実行をします。&#xA;$ ./ipwndfu -p rootを取ったあとは、サードパーティのアプリを入れられるようになるので、cydia, altstore, reprovision, unc0verあたりが便利です。&#xA;cydiaは自動で入る事が多いですが、ここでopensshもinstallできます。&#xA;iosのrootを取るときに気をつけなければならないのは、shsh(署名)です。upgradeやdowngradeに関わってきます。shshは保存しておくのがいいでしょう。&#xA;最初に述べましたが、iosのroot化は、そこまでできることは多くないと思います。androidとの比較になりますが、android(root)のほうが圧倒的に便利と言えるでしょう。</description>
+    </item>
+    <item>
+      <title>mac</title>
+      <link>https://syui.ai/m/post/mac/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/mac/</guid>
+      <description>macの使い方をまとめます。macbook air(m1, intel)を使っています。&#xA;最初にインストールしたソフトウェアとサービスの一覧です。&#xA;使ってるソフトウェア xcode, commandline tools, etc&amp;hellip; : https://developer.apple.com/ chrome : https://www.google.com/chrome/ iterm2 : https://iterm2.com/ homebrew : https://github.com/Homebrew/brew karabiner : https://github.com/pqrs-org/Karabiner-Elements shiftit : https://github.com/fikovnik/ShiftIt keepassxc : https://github.com/keepassxreboot/keepassxc virtualbox : https://download.virtualbox.org/virtualbox/ clipy : https://clipy-app.com/ 使ってるサービス github : https://github.com/ bluesky : https://bsky.app/ google : https://www.google.com/ youtube : https://www.youtube.com/ northflank : https://northflank.com/ sketchfab : https://sketchfab.com/ amazon : https://www.amazon.co.jp/ cloudflare : https://www.cloudflare.com/ wiki : https://wiki.archlinux.jp/ slack : https://archlinuxjp.slack.com/ other studioone2 : https://piaprostudio.com/ synthesizerv : https://synthesizerv.</description>
+    </item>
+    <item>
+      <title>windows</title>
+      <link>https://syui.ai/m/post/windows/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/windows/</guid>
+      <description>windowsの使い方をまとめます。windows11を使用しています。&#xA;title body cpu AMD Ryzen 7 5700X memory 32GB / DDR4-3200 DIMM (PC4-25600) gpu GeForce RTX 4060Ti 8GB storage 1TB M.2 NVMe SSD inc © INVERSENET gpu 基本的にgpuのhdmi端子からdispalyに接続します。&#xA;nvidiaのdriverは常にupdateしてください。&#xA;download : driver, cuda v12.1, cudnn&#xA;現在、pytorchはcuda v12.1に対応しています。&#xA;local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。&#xA;openssh https://github.com/PowerShell/Win32-OpenSSH&#xA;$ winget install microsoft.openssh.beta sshd_configはc:/programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublickeyを記述します。ここでは、c:/programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。&#xA;$ ls c:/programdata/ssh/ Match Group administrators AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys ADD userの場合、publickey認証が通らないことがあるようです。このようにしてc:/users/$user/.ssh/authorized_keysに置いてみましょう。pathにauthorizedKeyPath:c:/users/$user/.ssh/authorized_keysを追加します。&#xA;c:/programdata/ssh/sshd_config&#xA;PasswordAuthentication no PermitEmptyPasswords yes AuthorizedKeysFile .ssh/authorized_keys #Match Group administrators # AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys shellをpwshに変更するには、以下のコマンドを実行します。</description>
+    </item>
+  </channel>
+</rss>

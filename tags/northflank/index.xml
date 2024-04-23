@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Northflank on syui.ai</title>
+    <link>https://syui.ai/tags/northflank/</link>
+    <description>Recent content in Northflank on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 05 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/northflank/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>northflankのvolumeをbackupする</title>
+      <link>https://syui.ai/blog/post/2024/02/05/api/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/02/05/api/</guid>
+      <description>northflankのapiではvolumeをexportする方法が用意されてないみたいなので、これを自動化する必要があります。&#xA;# https://northflank.com/docs/v1/api/volumes/get-volume $ northflank get volume # https://northflank.com/docs/v1/api/volumes/update-volume $ northflank update volume 具体的にはgitのprivate-repoを使用します。&#xA;$ northflank exec service --project $PROJECT --service $SERVICE --cmd &amp;#34;/data/backup.sh $TOKEN&amp;#34; #!/bin/bash TOKEN=$1 git config --global user.email $MAIL git config --global user.name $USER cd /data/$REPO git remote add origin https://$TOKEN@github.com/$USER/$REPO git add . git commit -m backup git push origin main git remote rm origin この場合、volumeにdeploy-keyを置いてgit@github.comでアクセスするよりtokenでアクセスしたほうが良いでしょう。&#xA;ただし、tokenの場合は$REPO/.git/configに残っていないかチェックしておきましょう。</description>
+    </item>
+    <item>
+      <title>northflankでsqliteをbackupする方法</title>
+      <link>https://syui.ai/blog/post/2023/06/30/northflank/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/06/30/northflank/</guid>
+      <description>northflankが便利でapiはこちらで立てることが多いですが、northflank/cliが充実してきたので、やり方を紹介します。&#xA;$ sudo npm i -g @northflank/cli $ northflank login $ northflank exec service --project $project --service $service --cmd &amp;#34;cp -rf /data/new.sqlite /data/`date &amp;#39;+%Y%m%d&amp;#39;`.sqlite&amp;#34; tokenの権限で詳細に設定できます。volumeをbackupすることもできますが、sqliteならnorthflank/cliでcmdをcronすればいいでしょう。&#xA;https://northflank.com/docs/v1/api/execute-command</description>
+    </item>
+    <item>
+      <title>northflankでentのapiを触ってみた</title>
+      <link>https://syui.ai/blog/post/2023/03/29/api/</link>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/03/29/api/</guid>
+      <description>最近、fly.ioを使ってることもあって、db:postgresよりもsqliteのほうがありがたい感じになってる。&#xA;northflankで動かしてたapiのdbがpostgresだったので、docker-volumeに変更して、sqliteに変更にしてみました。&#xA;ハマったところ ハマったのは前回と同じで、service/CMD overrideでcustom commandを選択して、goの場合はbin/binaryとかやります。&#xA;表示 : /cnb/process/web bin/binary&#xA;volumeも少しハマりました。&#xA;container上のvolumeなので、/はcontainerのrootを指します。&#xA;例えば、volumeを/dataにmountするとして、sqliteはこんな感じになります。&#xA;$ go generate ./... $ go build func main() { client, err := ent.Open(dialect.SQLite, &amp;#34;file:/data/ent.sqlite?_fk=1&amp;#34;) //client, err := ent.Open(dialect.SQLite, &amp;#34;file:ent?mode=memory&amp;amp;cache=shared&amp;amp;_fk=1&amp;#34;) } 今現在、ちょっとした遊びを考えてるんだけど、遊びを考えるのって難しい。&#xA;例えば、botでカード占いをできるようにしたんだけど、これをapiと連携した場合、どんな感じにすれば面白いんだろうとか、長く楽しめそうかなとか、その辺。</description>
+    </item>
+    <item>
+      <title>fly.ioとnorthflankの感想</title>
+      <link>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/31/heroku-fly-northflank/</guid>
+      <description>herokuの移行先として挙げられるfly.io, northflankの感想になります。&#xA;https://news.ycombinator.com/item?id=32599398&#xA;fly.ioが個人的には合っていると思いました。&#xA;fly.ioはdockerで動かしますが、goなどのbuild, deployが非常に快適でわかりやすかったです。mastodonはredisが入っているため動かすには工夫が必要ですが、go, rust, phoenixなどはそれらが必要ない場合が多く、go, rustはsingle-binaryなので、fly.tomlも書きやすい。&#xA;gitea 例えば、giteaはfly.ioで簡単に動きました。dockerを利用するので当たり前かもしれませんが、herokuでは相当の工夫が必要でした。&#xA;# create a directory to store fly.io application config mkdir gitea-on-fly # enter into the newly created directory cd gitea-on-fly # tell fly.io you wish to create a new application in the amsterdam region (there are many other regions you could pick too) # pick any name for the app that you&amp;#39;d like, in the example we are using `gitea-on-fly` flyctl launch --name gitea-on-fly --no-deploy --region ams # give the newely create application persistant storage, so your data persists between app updates flyctl volumes create gitea_data --size 1 --region ams --app gitea-on-fly app = &amp;#34;gitea-on-fly&amp;#34; kill_timeout = 5 [build] image = &amp;#34;gitea/gitea:latest&amp;#34; # latest is the most recent stable release [env] GITEA__database__DB_TYPE=&amp;#34;sqlite3&amp;#34; GITEA__database__PATH=&amp;#34;/data/gitea/gitea.</description>
+    </item>
+  </channel>
+</rss>

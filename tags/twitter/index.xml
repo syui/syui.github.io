@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Twitter on syui.ai</title>
+    <link>https://syui.ai/tags/twitter/</link>
+    <description>Recent content in Twitter on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>twitter devのban祭りに参加した</title>
+      <link>https://syui.ai/blog/post/2023/01/14/twitter/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/01/14/twitter/</guid>
+      <description>twitter devにて、app(client)がbanされはじめているらしいという情報があり、自分が作ったやつは大丈夫かなと思い確認してみると、大丈夫そうだったので、ついでにmastodonのbotと連携させて遊んでたら&amp;hellip;&#xA;/usr/bin/jq&#xA;&amp;quot;https://t.co/zZHO828PqJ&amp;quot;&#xA;&amp;quot;4.0.0 (compatible; Mitra 1.9.0)&amp;quot;&#xA;&amp;mdash; syui (@syui__) January 14, 2023 結果としてban祭りに参加。&#xA;現在、read権限はあるんだけど、write権限が突然消えました。&#xA;twitter devで確認してみると&#xA;This App has violated Twitter Rules and policies. As a result, certain functions will be limited&#xA;本アプリは、Twitterのルールやポリシーに違反しています。そのため、一部の機能が制限されます。&#xA;ということらしい。&#xA;#stablediffusion pic.twitter.com/LfESE70tv6&#xA;&amp;mdash; syui (@syui__) January 14, 2023 絵が駄目だったのか、mastodonのlinkがダメだったのか、あるいはそれ以外が原因か&amp;hellip;わかりませんが、楽しかったからいいか。&#xA;仕組みとしては、botにtwitter-modeを実装して、twitter-modeがenableのときに特定のコマンド出力をtwitterにも所定の形式で投稿するようにしました。&#xA;timerなども実装してたので、例えば、時間を指定すると毎日stable-diffusionで画像を生成して投稿してくれる機能にも対応しました。twitter-modeに含めただけだけど。&#xA;そういえば、goで書いているclientのgh-actions(releases)が以前から壊れてて、直さないとなあと思ってたので、ついでに直したのと、clientに今回の投稿に必要なオプションを追加したりしました。gh-actionsはgoxをやめてgoreleaserを使い始めた。&#xA;name: release on: pull_request: branches: - master types: - closed push: tags: - &amp;#34;v[0-9]+.[0-9]+.[0-9]+&amp;#34; jobs: goreleaser: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v1 with: fetch-depth: 1 - name: Setup Go uses: actions/setup-go@v3 with: go-version: 1.</description>
+    </item>
+    <item>
+      <title>twg v0.4.5 [twitter clinet on go]</title>
+      <link>https://syui.ai/blog/post/2021/08/09/twitter/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/08/09/twitter/</guid>
+      <description>twitter上でのやり取りが不便だったので、自分で使ってるtwgというclientをupdateしました。あと、imageをtweetする機能もつけました。&#xA;app keyが入れてあるので、releaseからdlしてください。twitter apiのconsumer_key, consumer_secret_keyを持っている人は、srcをbuildして使えます。&#xA;https://github.com/syui/twg/releases&#xA;ciはtravisからgh-actionsに移行しましたが、またハマりました。&#xA;goxでbuildする際に、darwin/386はunsuportのerrが出るので、optionで出力を指定してやらなければなりません。goは1.14からdarwin/386がunsuportされ、1.16では戻ったみたいですけど、errが出ます。&#xA;--&amp;gt; darwin/386 error: exit status 2 Stderr: cmd/go: unsupported GOOS/GOARCH pair darwin/386 make: *** [build] Error 1 その他、tagからverを抜き出すのは、env: REF=${{ github.ref }}, ${REF##*/}がいいです。&#xA;on: push: branches: - master create: tags: - v*.*.* jobs: release: # job_id name: Build runs-on: ubuntu-latest steps: - name: Set up Go 1.16 uses: actions/setup-go@v1 with: version: 1.16 id: go - name: Check out code into the Go module directory uses: actions/checkout@master - name: Build env: GO111MODULE: on GOPATH: /home/runner/work/ GITHUB_TOKEN: ${{ secrets.</description>
+    </item>
+    <item>
+      <title>twgというtwitter clientを作った</title>
+      <link>https://syui.ai/blog/post/2018/07/25/twitter/</link>
+      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/07/25/twitter/</guid>
+      <description>導入 突然ですが、バックエンドやサーバーサイドでよく使う技術ってありますか。ちなみに、ここで言うバックエンドは主にWebアプリの裏側の意味で、サーバーサイドは、サーバーの保守とか管理の意味ですかね。曖昧ですが。&#xA;私は、これらの領域では、主にShell ScriptとGo(Go lang)を使うことが多いかなって思います。&#xA;Shell Scriptは、これは非常に優れた言語、とは言えないかもしれませんが、非常に優れたプログラミング技術であることは間違いありません。その理由の一つとして挙げられるのが、実現可能性ではないでしょうか。実現したいことが素早く簡単に実現できてしまう、Shell Scriptには、そういった力があると個人的には思っています。&#xA;ですが、Shell Scriptは書いて動かしたら、それでおしまいみたいな感じになってしまうことが多いんですよね。なので、これで書いたものは、継続的に開発するとかは基本ないです。それに、やる気でないですよ。&#xA;そのため、最近はもっぱらバックエンドやサーバーサイドで細々と使うCLIツール群はGoで書くようにしています。&#xA;これがすごくいいんですよね。Goという言語はすごくいい。&#xA;ということで、今回は、Goの魅力と、自分がどんな感じでGoで書いたプログラムを使っているのかを書いていきたいなーと思います。&#xA;TwitterクライアントをGoで作ってみた時の話 この間、twgというtwitter clientを作りました。&#xA;twgというのは、twitter goの略でつけた名前です。&#xA;first commit gitに残ってる最初のコミットは、酷いですねー。正直、最小構成をcommitしとけばよかったなと思います。今後はそんな感じでやっていきたい&amp;hellip;。&#xA;話を戻しますが、まずは作り始めた時の最小構成を改めて再現してみたいと思います。&#xA;main.go&#xA;package main import ( &amp;#34;flag&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;encoding/json&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;github.com/urfave/cli&amp;#34; &amp;#34;github.com/ChimeraCoder/anaconda&amp;#34; &amp;#34;github.com/skratchdot/open-golang/open&amp;#34; &amp;#34;github.com/mrjones/oauth&amp;#34; ) func Action(c *cli.Context) { if c.Args().Get(0) == &amp;#34;&amp;#34; { RunOAuth() return } return } func App() *cli.App { app := cli.NewApp() app.Name = &amp;#34;twg&amp;#34; app.Usage = &amp;#34;$ twg&amp;#34; app.Version = &amp;#34;0.0.0&amp;#34; app.</description>
+    </item>
+  </channel>
+</rss>

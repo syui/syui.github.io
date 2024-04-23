@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node on syui.ai</title>
+    <link>https://syui.ai/tags/node/</link>
+    <description>Recent content in Node on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>squooshが壊れてた件</title>
+      <link>https://syui.ai/blog/post/2022/07/02/squoosh/</link>
+      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/02/squoosh/</guid>
+      <description>node v17で使います。&#xA;$ brew install nvm $ nvm install 17 $ nvm use 17 $ npm i -g @squoosh/cli </description>
+    </item>
+  </channel>
+</rss>

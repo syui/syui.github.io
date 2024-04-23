@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>blueskyのコメントシステムを作ってみた | syui.ai</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="blueskyのコメントシステムを作ってみた" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.ai//og.png" />
+		<meta property="og:url" content="https://syui.ai/blog/post/2024/04/02/bluesky/" />
+		<meta property="og:site_name" content="syui.ai" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/bower_components/icomoon/css/icomoon.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+		<script src="/js/analytics.js"></script>
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "name": "syui.ai",
+			  "url": "https:\/\/syui.ai\/"
+			}
+		</script>
+		<script src="https://syui.ai//bower_components/jquery.ajax/jquery.min.js"></script>
+		<script src="https://syui.ai//bower_components/axios/dist/axios.min.js"></script>
+		<script src="https://syui.ai//bower_components/jquery.hotkeys/jquery.hotkeys.js"></script>
+		<script src="https://syui.ai//bower_components/jquery.hotkeys/hotkeys-blog.js"></script>
+		<link rel="stylesheet" href="https://syui.ai//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+
+<body onload="highlight_prompt()">
+	
+		<div class="containerx">
+			<header id="header">
+				
+				<div class="logo"> <a href="/blog"> <a href="/">
+<svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+ </a> </div>
+
+				
+			</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-04-02 / <a href="/syui">syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/bluesky/">bluesky</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/atproto/">atproto</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<h2>blueskyのコメントシステムを作ってみた</h2>
+
+		<p>この前、blueskyで特定の投稿に返信することで反映されるコメントシステムを作ってみました。</p>
+<p>どういうふうに実現しているのかというと、結構複雑ですが、簡単に説明すると、私は以前からbotを動かしていて、そのついでに返信くらいは取得することができるので、新しく<code>openapi</code>を追加してそこにコメント情報を登録し、このapiから取得する情報でwebページを生成します。</p>
+<p><img src="/img/bluesky_comment_system_0001.png" alt=""></p>
+<ul>
+<li><a href="https://manga.syui.ai">https://manga.syui.ai</a></li>
+</ul>
+<p>簡単に概要を見ていくとこんな感じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> uri_root <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span>manga_uri {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;manga_uri:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, manga_uri);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> output <span style="color:#f92672">=</span> Command::new(data_scpt(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">&#34;ai&#34;</span>))
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">&#34;atproto&#34;</span>).arg(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">&#34;manga&#34;</span>)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>handle)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>did)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>cid)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>uri)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>cid_root)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>uri_root)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>host)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>avatar)
+</span></span><span style="display:flex;"><span>        .arg(<span style="color:#f92672">&amp;</span>prompt_chat)
+</span></span><span style="display:flex;"><span>        .output()
+</span></span><span style="display:flex;"><span>        .expect(<span style="color:#e6db74">&#34;zsh&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> d <span style="color:#f92672">=</span> String::from_utf8_lossy(<span style="color:#f92672">&amp;</span>output.stdout);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> d <span style="color:#f92672">=</span> d.to_string();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> text_limit <span style="color:#f92672">=</span> c_char(d);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> str_rep <span style="color:#f92672">=</span> reply::post_request(
+</span></span><span style="display:flex;"><span>            text_limit.to_string(),
+</span></span><span style="display:flex;"><span>            cid.to_string(),
+</span></span><span style="display:flex;"><span>            uri.to_string(),
+</span></span><span style="display:flex;"><span>            cid_root.to_string(),
+</span></span><span style="display:flex;"><span>            uri_root.to_string(),
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        .<span style="color:#66d9ef">await</span>;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, str_rep);
+</span></span><span style="display:flex;"><span>    w_cid(cid.to_string(), log_file(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">&#34;n1&#34;</span>), <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:src/manga.zsh" data-lang="sh:src/manga.zsh"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> manga_text<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	repo<span style="color:#f92672">=</span>$did
+</span></span><span style="display:flex;"><span>	collection<span style="color:#f92672">=</span>app.bsky.feed.post
+</span></span><span style="display:flex;"><span>	url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://</span>$host<span style="color:#e6db74">/xrpc/com.atproto.repo.getRecord?repo=</span>$repo<span style="color:#e6db74">&amp;collection=</span>$collection<span style="color:#e6db74">&amp;rkey=</span>$rkey<span style="color:#e6db74">&amp;cid=</span>$cid<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	export text<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -sL $url|jq -r .value.text<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> manga_add<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	aid<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	api<span style="color:#f92672">=</span>https://api.syui.ai
+</span></span><span style="display:flex;"><span>	avatar<span style="color:#f92672">=</span>$com_option
+</span></span><span style="display:flex;"><span>	text<span style="color:#f92672">=</span>$com_option_sub_all
+</span></span><span style="display:flex;"><span>	export rkey<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $uri|cut -d / -f 5<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	bsky_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://bsky.app/profile/</span>$did<span style="color:#e6db74">/post/</span>$rkey<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$host<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;syu.is&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>		bsky_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://web.syu.is/profile/</span>$did<span style="color:#e6db74">/post/</span>$rkey<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	manga_text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	j<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;owner\&#34;:</span>$aid<span style="color:#e6db74">, \&#34;password\&#34;:\&#34;</span>$pass<span style="color:#e6db74">\&#34;}&#34;</span>
+</span></span><span style="display:flex;"><span>	export mid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d $j -sL $api/mas|jq -r .id<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	j<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;updated_at\&#34;:\&#34;</span>$date_iso<span style="color:#e6db74">\&#34;, \&#34;token\&#34;:\&#34;</span>$token<span style="color:#e6db74">\&#34;, \&#34;did\&#34;:\&#34;</span>$did<span style="color:#e6db74">\&#34;, \&#34;cid\&#34;:\&#34;</span>$cid<span style="color:#e6db74">\&#34;, \&#34;uri\&#34;:\&#34;</span>$uri<span style="color:#e6db74">\&#34;, \&#34;rkey\&#34;:\&#34;</span>$rkey<span style="color:#e6db74">\&#34;, \&#34;bsky_url\&#34;:\&#34;</span>$bsky_url<span style="color:#e6db74">\&#34;, \&#34;avatar\&#34;:\&#34;</span>$avatar<span style="color:#e6db74">\&#34;, \&#34;handle\&#34;:\&#34;</span>$handle<span style="color:#e6db74">\&#34;, \&#34;text\&#34;: \&#34;</span>$text<span style="color:#e6db74">\&#34;}&#34;</span>
+</span></span><span style="display:flex;"><span>	tmp<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -X PATCH -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d $j -sL $api/mas/$mid<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    echo thx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:openapi.json" data-lang="json:openapi.json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;/mas&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;get&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;tags&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Ma&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;List Mas&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;List Mas.&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;operationId&#34;</span>: <span style="color:#e6db74">&#34;listMa&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;parameters&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;page&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;in&#34;</span>: <span style="color:#e6db74">&#34;query&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;what page to render&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;integer&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;minimum&#34;</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;itemsPerPage&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;in&#34;</span>: <span style="color:#e6db74">&#34;query&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;item count to render per page&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;integer&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;maximum&#34;</span>: <span style="color:#ae81ff">5000</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;minimum&#34;</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;responses&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;200&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;result Ma list&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;application/json&#34;</span>: {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;items&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/schemas/MaList&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;400&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/400&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;404&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/404&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;409&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/409&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;500&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/500&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;post&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;tags&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Ma&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;Create a new Ma&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Creates a new Ma and persists it to storage.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;operationId&#34;</span>: <span style="color:#e6db74">&#34;createMa&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;requestBody&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Ma to create&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;application/json&#34;</span>: {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;password&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;token&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;limit&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;boolean&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;count&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;handle&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;text&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;did&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;avatar&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;cid&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;uri&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;rkey&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;bsky_url&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;updated_at&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;format&#34;</span>: <span style="color:#e6db74">&#34;date-time&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;created_at&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;format&#34;</span>: <span style="color:#e6db74">&#34;date-time&#34;</span>
+</span></span><span style="display:flex;"><span>                                },
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;owner&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;integer&#34;</span>
+</span></span><span style="display:flex;"><span>                                }
+</span></span><span style="display:flex;"><span>                            },
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;required&#34;</span>: [
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;password&#34;</span>,
+</span></span><span style="display:flex;"><span>                            <span style="color:#e6db74">&#34;owner&#34;</span>
+</span></span><span style="display:flex;"><span>                            ]
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;required&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;responses&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;200&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Ma created&#34;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&#34;application/json&#34;</span>: {
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&#34;schema&#34;</span>: {
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/schemas/MaCreate&#34;</span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;400&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/400&#34;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;409&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/409&#34;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;500&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;$ref&#34;</span>: <span style="color:#e6db74">&#34;#/components/responses/500&#34;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bsky_comment&#34;</span> <span style="color:#f92672">v-if</span><span style="color:#e6db74">=&#34;comment_open == false&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;span class=&#34;comment&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				&lt;p class=&#34;comment-body&#34; v-if=&#34;comment_first&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">					&lt;img :src=&#34;&#39;/icon/&#39; + comment_first.did.replace(&#39;did:plc:&#39;, &#39;&#39;) + &#39;.jpg&#39;&#34; v-if=&#34;comment_first.avatar&#34; class=&#34;comment&#34;/&gt;  &lt;span class=&#34;comment-time&#34; v-if=&#34;comment_first.updated_at&#34;&gt;&lt;a :href=&#34;comment_first.bsky_url&#34;&gt;{{ moment(comment_first.updated_at) }}&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;comment-handle&#34; v-if=&#34;comment_first.handle&#34;&gt;&lt;a :href=&#34;&#39;https://&#39; + comment_first.bsky_url.split(&#39;/&#39;).slice(2,5).join(&#39;/&#39;)&#34;&gt;@{{ comment_first.handle }}&lt;/a&gt;&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				&lt;span class=&#34;comment-text&#34; v-if=&#34;comment_first.text&#34;&gt;{{ comment_first.text }}&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&lt;div class=&#34;comment_open&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				&lt;a :href=&#34;comment_first.bsky_url&#34; target=&#34;_blank&#34;&gt;post&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				&lt;button class=&#34;comment_open&#34; v-on:click=&#34;comment_open = !comment_open&#34;&gt;&lt;i class=&#34;fa-solid fa-chevron-down&#34;&gt;&lt;/i&gt;&lt;/button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;div class=&#34;bsky_comment&#34; v-else&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&lt;span v-for=&#34;i in api_json.data&#34; class=&#34;comment&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;p class=&#34;comment-body&#34; v-if=&#34;i&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				{{ axios_check(&#39;/icon/&#39; + i.did.replace(&#39;did:plc:&#39;, &#39;&#39;) + &#39;.jpg&#39;) }}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">				&lt;img :src=&#34;&#39;/icon/&#39; + i.did.replace(&#39;did:plc:&#39;, &#39;&#39;) + &#39;.jpg&#39;&#34; v-if=&#34;url_check&#34; class=&#34;comment&#34;/&gt;&lt;img :src=&#34;i.avatar&#34; v-else-if=&#34;i.avatar&#34; class=&#34;comment&#34;/&gt;  &lt;span class=&#34;comment-time&#34; v-if=&#34;i.updated_at&#34;&gt;&lt;a :href=&#34;i.bsky_url&#34;&gt;{{ moment(i.updated_at) }}&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;comment-handle&#34; v-if=&#34;i.handle&#34;&gt;&lt;a :href=&#34;&#39;https://&#39; + i.bsky_url.split(&#39;/&#39;).slice(2,5).join(&#39;/&#39;)&#34;&gt;@{{ i.handle }}&lt;/a&gt;&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&lt;span class=&#34;comment-text&#34; v-if=&#34;i.text&#34;&gt;{{ i.text }}&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	&lt;div class=&#34;comment_open&#34;&gt;&lt;button class=&#34;comment_open&#34; v-on:click=&#34;comment_open = !comment_open&#34;&gt;&lt;i class=&#34;fa-solid fa-chevron-up&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>blueskyのapiは、いくつか認証不要のものがありますが、それではavatarとかreplyとかthreadとかを取れません。したがって、loginする必要があります。</p>
+<p>また、avatarはリンク切れを起こす可能性が非常に高いので、downloadしたものを参照する必要があります。これはactivitypubとかと同じですね。</p>
+<p>axiosでlocal-fileを確認して、それがない場合のみapi-linkを使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:src/App.vue" data-lang="js:src/App.vue"><span style="display:flex;"><span><span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">axios_check</span>(<span style="color:#a6e22e">url</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>)
+</span></span><span style="display:flex;"><span>		.<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url_check</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>		});
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>次に削除に対応する方法ですが、これにはいくつか手段があります。ただし、どちらも非常に負荷が高いものになります。前者は都度確認する方法、後者は定期的に確認する方法です。前者のほうが遅延、負荷が高く、後者は緩やかです。ですが、その処理は後者のほうが面倒になります。</p>
+<p>前者は<code>com.atproto.repo.getRecord</code>を叩いて投稿が存在すれば表示します。</p>
+<p>後者は定期的に<code>com.atproto.repo.getRecord</code>を叩いて削除されているものをコメントから一括削除します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:src/manga.zsh" data-lang="js:src/manga.zsh"><span style="display:flex;"><span>host<span style="color:#f92672">=</span>bsky.social
+</span></span><span style="display:flex;"><span>handle<span style="color:#f92672">=</span>yui.syui.ai
+</span></span><span style="display:flex;"><span>collection<span style="color:#f92672">=</span>app.bsky.feed.post
+</span></span><span style="display:flex;"><span>rkey<span style="color:#f92672">=</span>3kp2uq5kgns2k
+</span></span><span style="display:flex;"><span>cid<span style="color:#f92672">=</span>bafyreibytb3lnpuyus24fpib6eb3nbmjlqb2hfrztlxuygsuznpngmty3u
+</span></span><span style="display:flex;"><span>curl -sL <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74">/xrpc/com.atproto.repo.getRecord?repo=</span>$handle<span style="color:#e6db74">&amp;collection=</span>$collection<span style="color:#e6db74">&amp;rkey=</span>$rkey<span style="color:#e6db74">&amp;cid=</span>$cid<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>したがって、基本的には一度投稿されたものは表示したままにしておくか、数ヶ月に一度、cleanupするのがいいでしょう。</p>
+
+		
+
+
+<nav id="article-nav">
+	<div class="previnsection">
+    
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2024/04/01/genshin/" id="article-nav-older" class="article-nav-link-wrap">
+原神、スターダスト交換が切れたのでヌヴィレット引くかも
+					</a></p>
+    
+    
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2024/04/03/private/" id="article-nav-newer" class="article-nav-link-wrap">
+     お店の味がするラーメンの作り方
+				</a></p>
+    
+	</div>
+</nav>
+
+
+
+
+		<div class="utterances">
+			<script src="https://utteranc.es/client.js" repo="syui/syui.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
+		</div>
+	</div>
+</article>
+</div>
+		
+<script type="text/javascript" src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+		<script src="/js/highlight-prompt.js"></script>
+	</body>
+</html>

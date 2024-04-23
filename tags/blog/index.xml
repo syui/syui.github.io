@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on syui.ai</title>
+    <link>https://syui.ai/tags/blog/</link>
+    <description>Recent content in Blog on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blogのlayoutを変更した</title>
+      <link>https://syui.ai/blog/post/2022/01/03/hugo/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/01/03/hugo/</guid>
+      <description>blogのlayoutをちょっとだけ変更しました。&#xA;変更点を簡単に説明します。&#xA;まず上のメニューですが、項目が多すぎたので減らしました。&#xA;全部を/aiに放り投げました。&#xA;できる限りシンプルな見た目にしようと思っていたため、かつてこのサイトはテーマカラーの朱色のみでした。&#xA;しかし、snsアイコンの追加により少しだけカラフルになりました。また、緑が足りないので、githubの芝を追加しました。&#xA;本当はmastodonのアイコンも追加したかったけど、twitterと青色がかぶるのでやめました。色もそうですが、アイコンも多すぎると分かりづらいと思ったので、数は限定していく方向で。&#xA;自己紹介やサイトマップ、ヒントの文字数も減らしました。&#xA;以上です。</description>
+    </item>
+    <item>
+      <title>syui.cfの歩き方</title>
+      <link>https://syui.ai/blog/post/2021/09/19/blog/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/09/19/blog/</guid>
+      <description>syui.cfは、このサイト(ブログ)のタイトルです。&#xA;このサイトには、いくつかの隠し機能があり、今回はそれらを使って、このサイトを便利に閲覧しちゃおうという内容です。&#xA;といっても、ほとんどが遊び機能。&#xA;環境 : safari, chrome&#xA;動作するには、browserのcookie, javascriptをenableに、adblockなどpluginをdisableにする必要があるかもしれません&#xA;j, kで移動 ブログ記事へのリンク間をshift + j, shift + kで移動できるようになっています。&#xA;shiftを選択している理由は、このような設定はkeybindを奪うことにもなり、不便が生じるかもしれないので、あまり使われなさそうなshiftにしています。&#xA;terminalの呼び出し ctrl + enterでterminalを呼び出すことができます。主に/と2階層目くらいまでは呼び出せるようなってることが多いかな。&#xA;このterminalにより、サイト上の色々な機能にアクセスしやすくなってます。&#xA;現在使える便利機能をいくつか紹介します。&#xA;ただし、個別記事である/blog/foo上ではterminalは呼び出せず、代わりに/blogに移動するようになっています。/blogからは従来通りterminalを呼び出すことができます。&#xA;/ コマンドで個別記事に飛ぶ $ / /コマンドを使うと最新記事の中から個別記事に飛ぶことができます。飛びたい番号を入力します。&#xA;search コマンドでタグを検索する $ search -t hugo search -t $tagでタグを検索することができます。オプションなしだと通常検索です。補完機能があるので&amp;lt;tab&amp;gt;でタグ補完できます。&#xA;login コマンドで自分の名前を表示する $ login login : test password : test 適当な遊びコマンドですが、自分のusernameとip addressをこのサイト上に表示することができます。ちなみに、個人情報がこのサイトの管理人に送信されることはありません。あと、passwordは何でもいいです。&#xA;また、遊びの一環としてroot loginに挑戦してみるのも面白いかもしれません。ちゃんとpasswordが設定されてますので、ぜひ、突破してみてください。&#xA;その他 その他にも面白おかしいコマンドがいくつかあります。是非、遊んでみてください。</description>
+    </item>
+    <item>
+      <title>ブログをはじめるならGitHub Pagesがおすすめ</title>
+      <link>https://syui.ai/blog/post/2020/03/28/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/03/28/blog/</guid>
+      <description>ブログをやるならGitHub PagesかGitLab Pagesがおすすめです。&#xA;私は、少し前にGitLabでブログをやっていましたが、その後、GitHubに移行したというか、戻りました。経緯としてはGitHub -&amp;gt; GitLab -&amp;gt; GitHubという流れです。&#xA;syui.github.io&#xA;割と長くGitHub PagesやGitLab Pagesでブログをやってきたので、今回は、両者の違いをまとめてみます。&#xA;GitLabはプライベートリポジトリが無制限で、HTMLソースを公開しなくていい&#xA;Web Serverは、GitHubのほうが安定していて速い&#xA;GitLabのほうがドキュメントが充実しており、公式テンプレートがわかりやすい&#xA;どちらもCIを回せるけど、GitLabはGitLab CIを回して、public/にビルドするという形態を採用するため、CIが成功しないとページが公開、更新されない。ユーザーが.gitlab-ci.ymlを書く必要がある&#xA;GitHub PagesはデフォルトでJekyll Buildを実行しページが公開される仕組み。ただし、リポジトリルートに.nojekyllを置くことでJekyll Buildを実行しないオプションも存在する。よって、HTMLを直に置いてページを作ることもできる。何らかの原因でJekyll Buildが失敗する場合、この手段を用いることができる&#xA;GitHubは、${USER}.github.ioというリポジトリ名を作成することで、当該ドメインが与えられる。branch:masterにHTMLをpushすると更新される。複数のページを用意したい場合は、リポジトリを作ったうえでbranch:gh-pagesにjekyll buildが通るソースコードを置くことでページを公開する&#xA;GitLabも同じく${USER}.gitlab.ioというリポジトリ名を作る。ただし、ブランチは基本的にはmasterを使用する。なお、.gitlab-ci.ymlでソースを置くブランチは制御、変更できる&#xA;現在、GitHub Pagesには、GitLab CIに相当するGitHub Actionsがあるのでページの自動ビルド、デプロイに関しての不便はない&#xA;GitLab Pagesは複数のドメインを登録できる。GitHubは無理。なので必要なときはGitLab Pagesのドメイン設定を使ってGitHub Pagesにリダイレクトさせるなどのハックに利用させてもらってる&#xA;まとめ 以下、サービス別に特徴をまとめます。一応、GitHub Pagesをおすすめしておきます。GitLab Pagesはweb serverが不安定なことが多かった記憶があります。とはいえ、好みの問題ですね。&#xA;GitHub Pages web serverが速くて安定している&#xA;デフォルトではjekyll buildが回る、オプションで切ることもできる&#xA;GitLab Pages ドキュメントや公式テンプレートがわかりやすい&#xA;必ずGitLab CIを通す必要がある&#xA;複数のドメインを指定できる&#xA;プライベートリポジトリが無制限に使えるため、HTMLソース(リポジトリ)を非公開にできる&#xA;GitLabからGitHubに移行した経緯 私は、GitLab Pagesを2年くらい使っていましたし、特に不満もなかったのですが(たまに不安定で遅かったというのはある)、あるとき突然にページが非公開になってしまうことがありました。&#xA;で、運営に連絡してみたのですが、返事がなかったので、GitHub Pagesに同じソースでデプロイしました。つまり、ここで移行という形になります。&#xA;その後、GitLabの方で非公開が解除されたのですが、なんだったのかよくわからなかったので、その後、GitLabに戻ることはありませんでした。そのような経緯で、それ以降は、GitHub Pagesを使っています。&#xA;ただ、GitHubはCI連携がデフォルトではなかったため、通常は、ビルドしたものをリポジトリにpushしなければ更新できません。したがって、Travis CIを回してページのビルド、デプロイを自動化してましたが、GitHub Actionsが登場したので、今はそちらに移行しています。&#xA;GitLab Pagesを使った複数ドメインを利用するハック 例えば、blog.syui.cfとlog.syui.cfというドメインをsyui.github.io/blogに飛ばしたいとしましょう。この場合、GitHub Pagesは一つのページに一つしかドメインを指定することができないので難しい。&#xA;そこで、GitLab Pagesで２つのドメインを登録した上で、CloudFlareなどのリダイレクトをGitHub Pagesへ走らせることで、blog.syui.cfとlog.syui.cfを目的の場所に飛ばすことができます。&#xA;CNAME : gitlab pages ↓ リダイレクト : github pages とはいえ、これはあくまでリダイレクトという形なので、アクセスは、トップドメインにとどまります。このような形を実現したい場合のみ利用できるハックです。</description>
+    </item>
+    <item>
+      <title>blogを統合してみた</title>
+      <link>https://syui.ai/blog/post/2019/10/22/blog/</link>
+      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/10/22/blog/</guid>
+      <description>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。&#xA;urlは、https://syui.cf/blogになります。hugoて、xmlをcontent/以下のディレクトリでも生成してくれるぽいので、ブログのrssとかは/blog/index.xmlから取ってもらえればと思います。&#xA;しばらくの間は、過去urlであるblog.syui.cfとかlog.syui.cfとかは、cloudflareでリダイレクトしてますが、それほど長い期間は対応しないと思います。対応した内容を書いておきます。&#xA;# cloudflare CNAME log syui.gitlab.io CNAME blog syui.gitlab.io Redirect *log.syui.cf/* 301 https://syui.cf/blog $ mkdir -p content/{blog,log}します。そして、githubではdomain設定は新しいリポジトリ作らなければならないので、gitlabのほうでリポジトリを作って、pages -&amp;gt; domainを設定します。gitlab-pagesの場合、複数のcnameが設定できるので便利。</description>
+    </item>
+    <item>
+      <title>ブログを少しだけいじった</title>
+      <link>https://syui.ai/blog/post/2019/08/10/blog/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/08/10/blog/</guid>
+      <description>まず、riotを引き剥がしてからトップ画面が何もなかったので、いつもどおりロゴっぽいものを載せた。あと、フッターも用意した。昔はriot.jsでbuildしてたけど、めんどくさいのでやめてた。&#xA;コピーライトの本来の書き方は年数を含めるのだけど、私は、シンプルな方がいいので、特にコピーライトとして役割を果たせているか疑問だけど、ハンドルネームだけ載せることにしてる。おそらく、誰もここの文章なんてパクらないだろうし、仮にパクられたとしてもあまり問題があるようにも思えない。よって、ここでは、コピーライトなんて単にそれっぽく見せるために用意してるだけなので、カッコが付けばそれでいいと思ってる。&#xA;githubのコメントシステムを使うm2w/talariaで色々やってみた関係上、記事urlを変更した。けど、過去のバージョンも何故か使えなくなってたので、おそらく、github側の変更が関係していると思うけど、諦めてutterance/utterancesを使うようにした。昔作ったリポジトリはなんとか動くけど、それ以外は新しく作ったものでは動かなくなってた。&#xA;utterancesは、基本的に、cloneして、utterances.confみたいなものを編集後にyarn install, buildして、dist/を読み込めばいけそうな気がしたんだけど、これはrootに置かないと行けない感じで、index.htmlにアクセスし、なおかつ、github oauthなどが必要で、github appも必要だったので、readme.mdなどから読み解いてもらえれば、自前で運用できそうだけど、今の所、utteranc.esにホストしてる。</description>
+    </item>
+    <item>
+      <title>thanks</title>
+      <link>https://syui.ai/blog/post/2017/10/01/z-blog-daily-end-point/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/10/01/z-blog-daily-end-point/</guid>
+      <description>thank you very much !</description>
+    </item>
+    <item>
+      <title>投稿ミス</title>
+      <link>https://syui.ai/blog/post/2017/08/31/blog/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/08/31/blog/</guid>
+      <description>直前の記事、投稿ミスしました。ここでの修正はしませんが、正しい内容は https://syui.github.io/middleman の方に投稿されると思います。</description>
+    </item>
+    <item>
+      <title>email protected</title>
+      <link>https://syui.ai/blog/post/2017/05/30/blog/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/30/blog/</guid>
+      <description>email protectedとなる場合、cloudflareのScrape Shield＞Email Address Obfuscation:offで回避できました。</description>
+    </item>
+    <item>
+      <title>middleman-auto-scroll</title>
+      <link>https://syui.ai/blog/post/2017/05/28/blog/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/28/blog/</guid>
+      <description>middlemanの場合、/page/3のところを../3とかなってハマる。&#xA;https://github.com/gilbitron/Infiniscroll&#xA;layout.slim&#xA;- paginate = current_page.metadata[:locals][&amp;#34;paginate&amp;#34;] - num_pages = current_page.metadata[:locals][&amp;#34;num_pages&amp;#34;] - page_number = current_page.metadata[:locals][&amp;#34;page_number&amp;#34;] - prev_page = current_page.metadata[:locals][&amp;#34;prev_page&amp;#34;] - next_page = current_page.metadata[:locals][&amp;#34;next_page&amp;#34;] .content - if paginate &amp;amp;&amp;amp; num_pages &amp;gt; 1 .pager - if prev_page = link_to &amp;#34;./page/#{page_number-1}&amp;#34;, class: &amp;#34;prev&amp;#34; |前のページ //= link_to prev_page, class: &amp;#34;prev&amp;#34; // |前のページ - else .pager__prev - if next_page = link_to &amp;#34;./page/#{page_number+1}&amp;#34;, class: &amp;#34;next&amp;#34; | 次のページ //= link_to next_page, class: &amp;#34;next&amp;#34; // | 次のページ - else .</description>
+    </item>
+    <item>
+      <title>Blogger.comのSSL</title>
+      <link>https://syui.ai/blog/post/2017/05/25/blog/</link>
+      <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/25/blog/</guid>
+      <description>CloudFlareではSSLにFull, Flexibleなどがあるのですが、Blogger.comはFlexible, Mastodon(Heroku)は Fullを選択しないと問題がおきてしまいます。&#xA;で問題は間違いなくBlogger.comの方で、Fullを使えたほうが良いですから。&#xA;Robots.txt&#xA;User-agent: Mediapartners-Google Disallow: User-agent: * Disallow: /search Allow: / Sitemap: https://mbahack.syui.cf/sitemap.xml 参考 :&#xA;http://www.howtoshout.com/enable-https-blogger-blog-custom-domain/</description>
+    </item>
+    <item>
+      <title>ペライチのページを作った</title>
+      <link>https://syui.ai/blog/post/2017/05/24/blog/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/24/blog/</guid>
+      <description>トップドメインに作りました。&#xA;https://syui.cf&#xA;なんというか、すごく今の自分ぽいページだなという感じかもしれないです。そういった意味では色んな人のページを見るのは面白いです。&#xA;手こずったところはiOS-Safariで文字が小さくなる点。&#xA;@media screen and (max-width:1000px) { body { -webkit-text-size-adjust: 100%; font-size:27px; font-size:2.7rem; } } </description>
+    </item>
+    <item>
+      <title>ペライチのページを作りたくなった話</title>
+      <link>https://syui.ai/blog/post/2017/05/12/blog/</link>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/12/blog/</guid>
+      <description>現在、以下のサイト運営してるんだけど、よくあるのがメインのページで自己紹介とリンクをたくさん貼ってあるページになっていて、そういうの良いなって思ったのでどうしようか考えてるけど、しかし、自己紹介文に書けることが一切ないので、難しいという話。&#xA;https://syui.cf #通常はこちらがペライチ、リンクや自己紹介など&#xA;https://blog.syui.cf #ブログ&#xA;こんな感じが多いんだけど、私の場合、メインがまとめ系記事、サブが雑記ブログみたいな形で運用してる。&#xA;雑記ブログはほとんど機能をつけずシンプルだけど、メインのサイトは色々と機能をつけたりして便利な、&amp;hellip;まあブログなんだけど、どっちもブログな形なんだけど、そんな感じになっていて、住み分けがあまりない感じになっている。&#xA;したがって、メインのサイトどうしようかなというのがずっとあって、ペライチのページもかっこいいなと思ったのでした。&#xA;おわり。</description>
+    </item>
+    <item>
+      <title>このブログにサブドメインを設定した</title>
+      <link>https://syui.ai/blog/post/2017/04/23/blog/</link>
+      <pubDate>Sun, 23 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/23/blog/</guid>
+      <description>https://blog.syui.cf/&#xA;GitLabのアドレスとどちらでもアクセスできます。やり方はDNSをblog A 52.167.214.135で設定(GitLabのSettingも同様のDomain設定が必要かも)。&#xA;あとは、Page RulesのURL/Descriptionとかで好みの設定をして、gitlab.ioへのアクセスをリダイレクトするには、Jekyllとかならconfigにredirect_from:とか書いたり、それ以外なら.htaccessとかやるのでしょうけど、後者はサーバー管理者でないと無理だし(サーバーはGitLabから提供されてるものを使ってるので無理)、前者は微妙なので、私は設定していません。&#xA;なので、独自ドメインでもアクセスできるようになったという感じです。gitlab.ioへのアクセスは独自ドメインには飛ばしません。本来的には飛ばしたほうが分かりやすいのでしょうけど。また、jsでも書けるんだけど、やりたくありません。&#xA;ということで&#xA;https://blog.syui.cf&#xA;https://syui.gitlab.io/blog&#xA;のどちらでもアクセス可能になりました。前々から設定しようかどうしようか迷ってたのですが(ずっとドメイン維持できるかわからないし、よく更新するブログの方は設定しないでおこうかなとも思ってたのですが)、とりあえず一つ片付いたのでよし。</description>
+    </item>
+    <item>
+      <title>ブログ関連の仕様をちょっとだけ変更した</title>
+      <link>https://syui.ai/blog/post/2017/04/22/blog/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/22/blog/</guid>
+      <description>前からやろうと思っていてできてなかったことなのですが、GitLab CIの謎の不調がきっかけとなり色々とブログ関連の仕様を変更した話です。&#xA;まず、このブログには将来投稿予定のものをJSONで公開してたのですが、それをMiddlemanのほうのブログに倣って1日のみに限定することにしました。ちなみに、全部自動処理なので自分が書いたアプリを変更しなければなりませんので色々と面倒ではありますが、しかし、難しいことは一切ないので単にやる気だけの問題でした。&#xA;次に、コミットログは不要(使わないという意味)かつ邪魔なので都度、rebaseすることにしました。これも前からやろうと思っていたことなのです。rebase後に1日先の記事をコミットするので、その辺、わかりやすくなりました。typoとかの修正も混じっててわかりづらさはあったと思う(あくまでこの裏機能を読んでいる人に限って言えばの話ですが)。&#xA;ただ、私自身がこのコミットログを見て修正とかを入れることがあるので、どちらかと言うとコミットログからではなく、ブログのほうで読んだほうが良いとは思います。実はこの裏機能、スマホとかから確認しやすいように付けた機能でもあって、その点では管理者向けというか、そんな感じなのです。&#xA;今回は前々からやろうと思っていてできてなかったことが一つ片付いたのでよし。</description>
+    </item>
+    <item>
+      <title>このブログの/static/json/blog.jsonが分かりにくい件</title>
+      <link>https://syui.ai/blog/post/2017/04/19/blog/</link>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/19/blog/</guid>
+      <description>commit logを見た時に1日先の記事が分かりにくいんだけど、これは、rebaseしなければ分かりにくいなーと思いつつ組み込めてない件。&#xA;公開リポジトリだけでも対応したい。</description>
+    </item>
+    <item>
+      <title>保護された通信</title>
+      <link>https://syui.ai/blog/post/2017/01/22/blog/</link>
+      <pubDate>Sun, 22 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/22/blog/</guid>
+      <description>Googleが言ってたとおり、Chromeではhttpsが使えるサイトは保護された通信という表示が出るようになってる。</description>
+    </item>
+    <item>
+      <title>なんか色々やった</title>
+      <link>https://syui.ai/blog/post/2017/01/21/blog/</link>
+      <pubDate>Sat, 21 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/21/blog/</guid>
+      <description>新たな機能を追加したりした。めんどくならないように。&#xA;プログラムからjsonを作るのではなく、jsonからプログラムを作ると言った感じのツールを作って最終的にはプログラムがプログラムを作る、jsonがコードを作り、jsonを生成するという感じのものを作った(意味不明だが、既にどこかにありそうな気がする わけがわからないかもしれないので、少し解説すると、通常はcode -&amp;gt; jsonとなるけれど、最初にcodeを作って、あとはほっとくだけでjson -&amp;gt; code -&amp;gt; jsonという流れによってアップデートし続ける仕組みみたいなもの。&#xA;これをどうやって実現しているのかというと、単純にコード書いている時のセーブ機能の組み合わせなんだけど、通常、コードを書いている時、最終保存以外の情報は捨てられるのだけど、それを拾ってくれるようにしてる。それらを適切な形で生成し保存されるようにして活用する。簡単に言うと補完機能に使われるようなcacheを使ったその拡張みたいなことをやる。わかりにくい。&#xA;補完機能を実現するには、初動及び動作中にcacheを作って、それを元に補完を生成するんだけど、それをより広い域で実行したり、活用したりするものというイメージが近いかもしれない。&#xA;最終的にはその機能やコード自体をアップデートし続ける仕組みを作ることを目標にした。&#xA;タグの自動生成 ブログでタグを書く必要がでてきて、それが面倒くさいなということで、適当なアルゴリズムを作って、勝手にタグを付けてくれる仕組みを作った。これによって、わざわざタグを書く必要がなくなった。もちろん、書けばそれが優先されるけど。タイトルも自動でつけてくれるシステムを作りたいけど、流石にそこまでやると駄目だろという気もする&amp;hellip;いや、作るか。&#xA;タイトルの自動生成 作った。仕組みとしては、記事画像を自動で持ってくる仕組みに似ている。Google検索APIで文章から予測が当てはまる単語を抽出、その単語から予測されるタイトルに設定してくれる。これで文章を書けばいいだけになったのでめんどくさくなくなった(前と比べるとの話だけど)。</description>
+    </item>
+    <item>
+      <title>午前12時くらいの更新に変えたい</title>
+      <link>https://syui.ai/blog/post/2017/01/16/blog/</link>
+      <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/16/blog/</guid>
+      <description>現在は午後12時くらいに自動更新されています。これは、Travisに最初に行った設定上そうなってしまったためです(変更できるが面倒くさい)。&#xA;ただ、これを午前12時くらい(日付が変わった直後)に変えたいと思っていて、その理由としては、何かトラブルがあってポストされなかった時に長いほうが対応の可能性が広がるからです。一言で言うとトラブル時に連続更新が途切れにくいという話。&#xA;今回もblogger.comのほうのブログにポストされていなくて、多分、gulpのビルドに失敗してたからか、もしくはblogger-apiでポストするにはjsonにしなければならず、json形式に不備があったのか、多分後者ですが、そんな感じでポストされていませんでした。これを1日が終わりかけている時点で発見し、割りとギリギリで手動ポストしました。&#xA;ということでTravisに設定で設定を変更したいのですが、割りと面倒。夜中の0時直後という時間を見計らってそれをしなければなりません。&#xA;そんな感じで、今後は0:00以降のちょっとした時点で更新されるようになるかもしれません。</description>
+    </item>
+    <item>
+      <title>またまたGitHubの芝の話</title>
+      <link>https://syui.ai/blog/post/2017/01/14/blog/</link>
+      <pubDate>Sat, 14 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/14/blog/</guid>
+      <description>syui/middlemanの芝が連続更新中に途中から生えるようになった現象の考察、続きです。&#xA;あと考えられるのは、pushする時の.git/configでのメールアドレスが関係していたのではないかという説です。&#xA;Gitホスティングサービスは、大抵の場合、メールアドレスでユーザーを判別し、アイコンなどを設定したりします(してました、今はどうなのか知らない)。&#xA;ここで、GitHubユーザー設定に登録していないメールアドレスで.git/configしてたので、芝に反映されなかったのかもしれないということです。&#xA;これについては、正直、いつどのように.git/configを変更してたか、GitHubのユーザー設定を変更してたかというのは詳細には覚えていません。&#xA;が、こういった設定変更などが相まって、いつの間にか芝に反映されるようになっていたという可能性が考えられます。&#xA;でも、そんなコロコロと変更するかなあという部分ではあるので、個人的にはどうなんだろうと思ってます。&#xA;以上、本当にどうでもいい話でした。要するによくわからないんですよね、なんであの時、芝に反映されてなかったんだろうというのは。</description>
+    </item>
+    <item>
+      <title>ここまで言い訳した以上、やりますけど</title>
+      <link>https://syui.ai/blog/post/2017/01/10/blog/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/10/blog/</guid>
+      <description>一見、意味不明なんですが、経緯としてみると、分かりやすいです。というか一応意味があります。&#xA;私は記事、というか空いた時間でメモを書いていました。&#xA;正月も近いし、なんか色々改善した方がいいのかもしれないなーとそんなことをぼんやり考えながら書いていました。&#xA;で、改善するとなると、やはりタイトルからでした。&#xA;当然ながら「適当すぎるだろ!」と思われるそのタイトルからでした。&#xA;私のブログのタイトルのそれは、もはやというより最初からタグでした。単なるタグ。&#xA;ここで、記事(メモ)の内容は、いつの間にか「タイトルを改善するにしても色々とめんどくさすぎるー」という言い訳に染まっていきました。&#xA;そんな折、自分からのツッコミが入ります。&#xA;ごちゃごちゃ言ってないで、それ書いてる時間でやれよ!&#xA;&amp;hellip;なるほど。&#xA;というわけで、言い訳を書きながらも、コードを編集し、機能追加してコミットしていたという経緯でした。&#xA;以上。</description>
+    </item>
+    <item>
+      <title>いい加減、記事タイトルを日本語にしたら?</title>
+      <link>https://syui.ai/blog/post/2017/01/09/blog/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/09/blog/</guid>
+      <description>ちなみに、このタイトルは自分で考えました。誰かに指摘されたわけではないのだけど、こう思ってる人多そうな気がする(当たり前か&#xA;そのうち対応したいと思っていますが、やっぱり面倒なのでやらない可能性もあります。&#xA;理由は色々ありますが、最も大きいのはタイトルが思い浮かばなさそうな時があるかもしれないという点です。ようは書く時に面倒くさいわけですね、タイトル考えるのは。&#xA;そして、次に技術的にめんどいという点です。日本語は色々と面倒くさいです。&#xA;middleman, hugoで簡単に設定すればいいのですが、その設定だけでは色々と対応できない可能性があって、一つは重複問題。設定で対応すれば、主に日付とタグでURLを指定することになりそうだけど(なぜなら普通に考えて日本語では指定できないと思うし、できたとしても日本語URLは使いたくない)、その場合、1日に2つの記事をポストすると重複してしまう可能性がでてきそうなどなど。&#xA;それを避ける方法として:slugで指定する方法があるのだけど、それで指定すると、自作のメモプラグインを修正しなくてはならなくて、それも面倒。そもそも、個別投稿に対して、slugを書くのもめんどいというようなこういう面倒くさい問題に対して、メリットあるのか微妙だと思ってるのです。&#xA;&amp;hellip;まあ、ここまで言い訳した以上、やりますけど。(意味不明</description>
+    </item>
+  </channel>
+</rss>

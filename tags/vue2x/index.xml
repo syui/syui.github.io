@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue2x on syui.ai</title>
+    <link>https://syui.ai/tags/vue2x/</link>
+    <description>Recent content in Vue2x on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/vue2x/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vue 2.x &#43; webpack 4.xでenvを使う</title>
+      <link>https://syui.ai/blog/post/2020/03/25/vue2x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/03/25/vue2x/</guid>
+      <description>vue 2.x + webpack 4.x 系でenvを使うのにハマったのでメモ。&#xA;結論としてdotenv-webpackを使えばいけました。&#xA;$ echo &amp;#34;page=4&amp;#34; &amp;gt;&amp;gt; .env $ yarn add dotenv-webpack const Dotenv = require(&amp;#39;dotenv-webpack&amp;#39;); module.exports = { plugins: [ new Dotenv(&amp;#39;./.env&amp;#39;) ] } var app = new Vue({ data: { products: [...Array(Number(process.env.page)).keys()] } }) &amp;#34;scripts&amp;#34;: { &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack --progress --hide-modules&amp;#34; } </description>
+    </item>
+  </channel>
+</rss>

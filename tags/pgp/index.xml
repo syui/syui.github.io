@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pgp on syui.ai</title>
+    <link>https://syui.ai/tags/pgp/</link>
+    <description>Recent content in Pgp on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 03 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/pgp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pgp-keybase.io</title>
+      <link>https://syui.ai/blog/post/2017/04/03/pgp/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/03/pgp/</guid>
+      <description>keybase.ioを使ってみた。&#xA;https://keybase.io&#xA;PGP fingerprint 1E8D B9FC 4B49 FA72 66A6 8426 8459 A733 DDFB 3B95&#xA;一応、SNS上のなりすましとかを判断する場合や、暗号化のやり取りとかに便利そう。</description>
+    </item>
+  </channel>
+</rss>

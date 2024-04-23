@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fm on syui.ai</title>
+    <link>https://syui.ai/tags/fm/</link>
+    <description>Recent content in Fm on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Tue, 07 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/fm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spacefmからpcmanfmに移行した</title>
+      <link>https://syui.ai/blog/post/2018/08/07/pcmanfm/</link>
+      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/08/07/pcmanfm/</guid>
+      <description>導入 今までarchlinuxでは、fmはspacefmを使ってきました。あ、fmというのはfile managerのことなんですけど、わかりにくかったら、すみません。&#xA;で、普通に快適だったんですけど、昔はpacmanに置かれてたspacefmのpackageが、いつの間にかaur行きになってしまい、いや、自分の記憶によれば昔は確かにdefault mirrorにあったはずだと思うんですよね、で、一旦、packageがaur行きになってしまわれると、pacmanのようにbinaryをdownloadするだけではダメですからね。updateの都度にsrc(source)からbuildする必要がでてくるわけなので、これは非常に面倒くさいわけです、時間もかかりますし。&#xA;そのため、さっさとpacmanにあるpcmanに移行しようと&amp;hellip;パックマンとパクマン(ピーシーマンかもしれんけど)、名前、間違いやすそうだな&amp;hellip;随分前からそう考えていたたわけなんですが、なかなか気分が乗らずにずっと来てしまいました。最近、OS環境構築するのがめんどくさすぎて、移行とかめんどくさすぎてやる気が出なくてですね、つまり、あれです、開発環境の構築とかめんどくさすぎる病を患ってしまっているわけですね。&#xA;この病にかかると、新しいものに触れる機会とか激減していきますので、すごく良くないと思うんですが、残念ながら、最近はそんな感じでした。&#xA;しかし、実際に手を動かしてみると、割とすんなり移行できたので、今回はその時の話になります。&#xA;pcmanfmの設定 auto mount $ pacman -Syu pcmanfm --noconfirm $ vim ~/.xinitrc pcmanfm -d &amp;amp; root umount /etc/polkit-1/rules.d/00-mount-internal.rules&#xA;polkit.addRule(function(action, subject) { if ((action.id == &amp;#34;org.freedesktop.udisks2.filesystem-mount-system&amp;#34; &amp;amp;&amp;amp; subject.local &amp;amp;&amp;amp; subject.active &amp;amp;&amp;amp; subject.isInGroup(&amp;#34;storage&amp;#34;))) { return polkit.Result.YES; } }); $ usermod -aG storage username https://wiki.archlinux.jp/index.php/PCManFM&#xA;快適です!!</description>
+    </item>
+  </channel>
+</rss>

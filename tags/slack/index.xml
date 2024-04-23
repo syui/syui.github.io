@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slack on syui.ai</title>
+    <link>https://syui.ai/tags/slack/</link>
+    <description>Recent content in Slack on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/slack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>slack-message-all-delete</title>
+      <link>https://syui.ai/blog/post/2017/06/01/slack/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/06/01/slack/</guid>
+      <description>昨日のやつ、何故かmessageを削除できなかったので自分で作った。&#xA;#generalのmessageを全削除(危険なので実行は個人部屋だけにしましょう)&#xA;$ sudo systemctl start docker $ sudo docker pull syui/slack-message-delete $ sudo docker run -it syui/slack-message-delete $ slack-message-delete $TOKEN Ref :&#xA;https://github.com/syui/slack-message-delete</description>
+    </item>
+    <item>
+      <title>slack-message-all-delete</title>
+      <link>https://syui.ai/blog/post/2017/05/31/slack/</link>
+      <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/05/31/slack/</guid>
+      <description>slackでmessageのdeleteは面倒なのでAPI Tokenを使って処理します。&#xA;例えば、botのmessageを一括削除する場合は以下。&#xA;$ sudo systemctl start docker $ sudo docker pull kfei/slack-cleaner $ sudo docker run -it kfei/slack-cleaner $ slack-cleaner --token &amp;lt;TOKEN&amp;gt; --message --channel general --bot $ slack-cleaner --token &amp;lt;TOKEN&amp;gt; --message --channel general --bot --perform Ref :&#xA;https://api.slack.com/custom-integrations/legacy-tokens&#xA;https://github.com/kfei/slack-cleaner&#xA;というか、何故か削除できないやつがかなりあるんですが。自分で作るしかないのか&amp;hellip;。</description>
+    </item>
+  </channel>
+</rss>

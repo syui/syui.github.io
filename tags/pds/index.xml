@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pds on syui.ai</title>
+    <link>https://syui.ai/tags/pds/</link>
+    <description>Recent content in Pds on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 08 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/pds/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyをself-hostする</title>
+      <link>https://syui.ai/blog/post/2024/01/08/bluesky/</link>
+      <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/01/08/bluesky/</guid>
+      <description>少し前にblueskyをself-host(セルフホスト)しました。&#xA;https://web.syu.is server url src pds https://syu.is src plc https://plc.syu.is src mod https://mod.syu.is src bgs https://bgs.syu.is src appview https://api.syu.is src web https://web.syu.is src 以前はbluesky(pds+appview)を動かしていたのですが、一般的にblueskyと呼ばれるものは複数のserverに依存しています。例えば、plc, bgsです。今ではpdsにあったappviewも分離しています。&#xA;bsky.teamがそれぞれのsandboxを用意してくれていますが、全部をself-hostしないといつか動かなくなります。&#xA;server env body pds PDS_DID_PLC_URL https://plc.${host} pds PDS_BSKY_APP_VIEW_URL https://api.${host} pds PDS_BSKY_APP_VIEW_DID did:web:api.${host} pds PDS_MOD_SERVICE_URL https://mod.${host} pds PDS_MOD_SERVICE_DID did:web:mod.${host} pds PDS_CRAWLERS https://bgs.${host} nostrで活動されているikuradonさんが全部のserverをセルフホストしているのを見て、どうやら他のserverも動作できる環境にあるようだと思ったので立ててみました。なお、ikuradonさんに結構助けてもらった。&#xA;今回、syu.isというdomainを取りました。なお、.isはあまりおすすめしません。これはアイスランドが独自方針で管理している感じで、メール認証などが必要です。その他、様々な制限があります。&#xA;git clone https://github.com/bluesky-social/atproto cd atproto git clone https://github.com/did-method-plc/did-method-plc ./repos/did-method-plc git clone https://github.com/bluesky-social/indigo ./repos/indigo git clone https://github.com/bluesky-social/social-app ./repos/social-app touch .plc.env .bsky.env .bgs.env .</description>
+    </item>
+    <item>
+      <title>bluesky(pds)をupdateした</title>
+      <link>https://syui.ai/blog/post/2023/10/12/pds/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/12/pds/</guid>
+      <description>$ git clone https://github.com/bluesky-social/atproto $ git reset --hard 3b65224c8003f68892bc8434b0d47c7173554a53 $ vim Dockerfile FROM node:18.17.1-buster RUN mkdir -p /app RUN mkdir -p /app/packages/pds/dist/images WORKDIR /app ADD ./ ./ RUN npm install -g pnpm RUN make deps RUN make build RUN echo DB_POSTGRES_URL=postgres://${user}:${password}@0.0.0.0:5432/${db} &amp;gt;&amp;gt; .env RUN cp -rf .env /app/packages/pds/.env WORKDIR /app/packages/pds # https://github.com/bluesky-social/atproto/pull/1198/files#diff-ea571f7816400e5a8a1f03b40b3a63316e0a1fc3abf4f1c937e7ee7a9682fca5L27 CMD [&amp;#34;node&amp;#34;, &amp;#34;dist/bin.js&amp;#34;] $ docker compose up </description>
+    </item>
+  </channel>
+</rss>

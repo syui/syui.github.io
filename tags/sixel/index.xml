@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sixel on syui.ai</title>
+    <link>https://syui.ai/tags/sixel/</link>
+    <description>Recent content in Sixel on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/sixel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsでのsixel</title>
+      <link>https://syui.ai/blog/post/2022/02/11/sixel/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/02/11/sixel/</guid>
+      <description>msrというmastodon clientでは、macはiterm2のimgcatを使い、linuxはmltermなどでimg2sixelを使って画像アイコンを表示します。&#xA;windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。&#xA;msys2をscoopでinstallする場合のpathは~/scoop/apps/msys2/currentになります。&#xA;$ scoop install msys2 $ msys2 $ git clone https://github.com/saitoha/libsixel $ cd libsixel $ pacman -S make gcc $ ./configure $ make $ make install $ mintty $ img2sixel test.png https://github.com/saitoha/libsixel&#xA;windows terminalもsixelに対応してくれるといいんですけどね。&#xA;https://github.com/microsoft/terminal&#xA;https://github.com/microsoft/terminal/issues/448</description>
+    </item>
+  </channel>
+</rss>

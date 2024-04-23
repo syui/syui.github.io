@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blender on syui.ai</title>
+    <link>https://syui.ai/tags/blender/</link>
+    <description>Recent content in Blender on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Fri, 08 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/blender/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blenderで3d modelを作った</title>
+      <link>https://syui.ai/blog/post/2023/09/08/3d/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/09/08/3d/</guid>
+      <description>blenderで3d modelを作ってみました。&#xA;しかし、裏面に新しいマテリアルからテクスチャイメージを追加しても裏面がレンダリング(uvmap)でガビガビになる問題があって、それを回避する方法を見つけたのでメモします。&#xA;基本的にはskechfabのeditorで編集したものを使ったため3d modelの面(face)が悪さをしていた模様。&#xA;やったこととして以下の通り。&#xA;delete face setting -&amp;gt; 3d viewport -&amp;gt; face -&amp;gt; alha 0 viewport shading -&amp;gt; backface culling, image texter -&amp;gt; backface culling 手順としては、まずedit modeに移行しfaceを選択します。&#xA;これを2回ほど削除すると、表面が表示されます。&#xA;最後に残った面にimage texterを追加して終わりです。backface cullingのチェックを忘れずに。</description>
+    </item>
+  </channel>
+</rss>

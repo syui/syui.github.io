@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitlab on syui.ai</title>
+    <link>https://syui.ai/tags/gitlab/</link>
+    <description>Recent content in Gitlab on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Wed, 05 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DockerのPrivate ImageをCloud上にUploadするにはGitLabが便利</title>
+      <link>https://syui.ai/blog/post/2018/12/05/gitlab-docker/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/12/05/gitlab-docker/</guid>
+      <description>Docker Hubには、1つのPrivate Imageしか置けません(Free)。したがって、GitLab.comを使うのが最も良い選択肢です。&#xA;必要なのは、GitLab.comのGit RepositoryとAccess Tokenのみです。&#xA;https://gitlab.com/profile/personal_access_tokens&#xA;# まず、gitlab.comのdocker registryにloginします。と言っても、login情報をconfigに書き込むだけですが。 $ sudo docker login registry.gitlab.com or $ sudo vim ~/.docker/config.json $ 次にdocker imageを作成して、pushすると、gitlab.comからprivate imageをpullできます。ただし、imgの公開/非公開は、git repositoryのpublic/private設定に左右されると思います。 $ sudo docker build -t registry.gitlab.com/$USER/repo . $ sudo docker push registry.gitlab.com/$USER/repo https://gitlab.com/help/user/project/container_registry&#xA;DockerのPrivate Imageは沢山の使い道があります。&#xA;一つは、Git ServerにPushするImageを作れるという点です。これによって、CIを可動させ、それを回す仕組みを作ることができます。&#xA;ただし、セキュリティ上の危険は増大します。なぜなら、Docker Image内にGit Serverへのアクセスに必要なものを置く必要があるからです。&#xA;何度かこのテーマで記事を書いたことがあった気がしますが、GitLab.comのDocker Repositoryは使えたり、使えなかったりで不安定でした。今は使えるようになっているみたいなので、再度書きました。&#xA;今の時代、GitLab.comを使わない手はありませんね。</description>
+    </item>
+    <item>
+      <title>gitlab pagesでtop domainをhostしている場合、A recordのip addressが変更になった</title>
+      <link>https://syui.ai/blog/post/2018/08/26/gitlab/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/08/26/gitlab/</guid>
+      <description>導入 この前、syui.cfに設定しているA recordに接続できていない感じだった。&#xA;これは、gitlabがazureからgcpに移行したことによって、A recordに指定するip addressも変わってくるので、当たり前のことだったし、調べておくべきだったけど、放置してたので、ここ1,2日接続できない状態だったかも。&#xA;$ whois 52.167.214.135 microsoft $ whois 35.185.44.232 google https://about.gitlab.com/2018/08/28/gitlab-pages-update/&#xA;まあ、問題に気付いたときに対処すればいいか(軽い&#xA;cloudflare ca ついでに、caも新しいものを発行しといた。意味があるのかはわからん。&#xA;gitlab-pagesの設定でちょっとハマった。cloudflareのroot caが一緒になって出力されないので、origin caの下に置かないと。&#xA;cloudflareのroot caは、こちら。&#xA;https://support.cloudflare.com/hc/en-us/articles/218689638&#xA;つまり、以下のような感じになる。あと、情報はOKで確定する前にprivate keyをcopyしておくこと。そして、copyした後は、OKで発行しておくこと。public keyは後から確認できるけど、private keyは無理。なので、gitlabの方には、privateから最初に入れる。&#xA;Certificate (PEM)&#xA;# 発行したca -----BEGIN CERTIFICATE----- MIID/DCCAuagAwIBAgIID+rOSdTGfGcwCwYJKoZIhvcNAQELMIGLMQswCQYDVQQG EwJVUzEZMBcGA1UEChMQQ2xvdWRGbGFyZSwgSW5jLjE0MDIGA1UECxMrQ2xvdWRG bGFyZSBPcmlnaW4gU1NMIENlcnRpZmljYXRlIEF1dGhvcml0eTEWMBQGA1UEBxMN U2FuIEZyYW5jaXNjbzETMBEGA1UECBMKQ2FsaWZvcm5pYTAeFw0xNDExMTMyMDM4 NTBaFw0xOTExMTQwMTQzNTBaMIGLMQswCQYDVQQGEwJVUzEZMBcGA1UEChMQQ2xv dWRGbGFyZSwgSW5jLjE0MDIGA1UECxMrQ2xvdWRGbGFyZSBPcmlnaW4gU1NMIENl cnRpZmljYXRlIEF1dGhvcml0eTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEG A1UECBMKQ2FsaWZvcm5pYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB AMBIlWf1KEKR5hbB75OYrAcUXobpD/AxvSYRXr91mbRu+lqE7YbyyRUShQh15lem ef+umeEtPZoLFLhcLyczJxOhI+siLGDQm/a/UDkWvAXYa5DZ+pHU5ct5nZ8pGzqJ p8G1Hy5RMVYDXZT9F6EaHjMG0OOffH6Ih25TtgfyyrjXycwDH0u6GXt+G/rywcqz /9W4Aki3XNQMUHNQAtBLEEIYHMkyTYJxuL2tXO6ID5cCsoWw8meHufTeZW2DyUpl yP3AHt4149RQSyWZMJ6AyntL9d8Xhfpxd9rJkh9Kge2iV9rQTFuE1rRT5s7OSJcK xUsklgHcGHYMcNfNMilNHb8CAwEAAaNmMGQwDgYDVR0PAQH/BAQDAgAGMBIGA1Ud EwEB/wQIMAYBAf8CAQIwHQYDVR0OBBYEFCToU1ddfDRAh6nrlNu64RZ4/CmkMB8G A1UdIwQYMBaAFCToU1ddfDRAh6nrlNu64RZ4/CmkMAsGCSqGSIb3DQEBCwOCAQEA cQDBVAoRrhhsGegsSFsv1w8v27zzHKaJNv6ffLGIRvXK8VKKK0gKXh2zQtN9SnaD gYNe7Pr4C3I8ooYKRJJWLsmEHdGdnYYmj0OJfGrfQf6MLIc/11bQhLepZTxdhFYh QGgDl6gRmb8aDwk7Q92BPvek5nMzaWlP82ixavvYI+okoSY8pwdcVKobx6rWzMWz ZEC9M6H3F0dDYE23XcCFIdgNSAmmGyXPBstOe0aAJXwJTxOEPn36VWr0PKIQJy5Y 4o1wpMpqCOIwWc8J9REV/REzN6Z1LXImdUgXIXOwrz56gKUJzPejtBQyIGj0mveX Fu6q54beR89jDc+oABmOgg== -----END CERTIFICATE----- # cloudflare # https://support.cloudflare.com/hc/en-us/articles/218689638 -----BEGIN CERTIFICATE----- MIID/DCCAuagAwIBAgIID+rOSdTGfGcwCwYJKoZIhvcNAQELMIGLMQswCQYDVQQG EwJVUzEZMBcGA1UEChMQQ2xvdWRGbGFyZSwgSW5jLjE0MDIGA1UECxMrQ2xvdWRG bGFyZSBPcmlnaW4gU1NMIENlcnRpZmljYXRlIEF1dGhvcml0eTEWMBQGA1UEBxMN U2FuIEZyYW5jaXNjbzETMBEGA1UECBMKQ2FsaWZvcm5pYTAeFw0xNDExMTMyMDM4 NTBaFw0xOTExMTQwMTQzNTBaMIGLMQswCQYDVQQGEwJVUzEZMBcGA1UEChMQQ2xv dWRGbGFyZSwgSW5jLjE0MDIGA1UECxMrQ2xvdWRGbGFyZSBPcmlnaW4gU1NMIENl cnRpZmljYXRlIEF1dGhvcml0eTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEG A1UECBMKQ2FsaWZvcm5pYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB AMBIlWf1KEKR5hbB75OYrAcUXobpD/AxvSYRXr91mbRu+lqE7YbyyRUShQh15lem ef+umeEtPZoLFLhcLyczJxOhI+siLGDQm/a/UDkWvAXYa5DZ+pHU5ct5nZ8pGzqJ p8G1Hy5RMVYDXZT9F6EaHjMG0OOffH6Ih25TtgfyyrjXycwDH0u6GXt+G/rywcqz /9W4Aki3XNQMUHNQAtBLEEIYHMkyTYJxuL2tXO6ID5cCsoWw8meHufTeZW2DyUpl yP3AHt4149RQSyWZMJ6AyntL9d8Xhfpxd9rJkh9Kge2iV9rQTFuE1rRT5s7OSJcK xUsklgHcGHYMcNfNMilNHb8CAwEAAaNmMGQwDgYDVR0PAQH/BAQDAgAGMBIGA1Ud EwEB/wQIMAYBAf8CAQIwHQYDVR0OBBYEFCToU1ddfDRAh6nrlNu64RZ4/CmkMB8G A1UdIwQYMBaAFCToU1ddfDRAh6nrlNu64RZ4/CmkMAsGCSqGSIb3DQEBCwOCAQEA cQDBVAoRrhhsGegsSFsv1w8v27zzHKaJNv6ffLGIRvXK8VKKK0gKXh2zQtN9SnaD gYNe7Pr4C3I8ooYKRJJWLsmEHdGdnYYmj0OJfGrfQf6MLIc/11bQhLepZTxdhFYh QGgDl6gRmb8aDwk7Q92BPvek5nMzaWlP82ixavvYI+okoSY8pwdcVKobx6rWzMWz ZEC9M6H3F0dDYE23XcCFIdgNSAmmGyXPBstOe0aAJXwJTxOEPn36VWr0PKIQJy5Y 4o1wpMpqCOIwWc8J9REV/REzN6Z1LXImdUgXIXOwrz56gKUJzPejtBQyIGj0mveX Fu6q54beR89jDc+oABmOgg== -----END CERTIFICATE----- 注意として、commentは書けない。もしくは、-だと思う。</description>
+    </item>
+    <item>
+      <title>hugoとgitlab ciのpipeline schedulesで自動更新する</title>
+      <link>https://syui.ai/blog/post/2018/08/23/hugo/</link>
+      <pubDate>Thu, 23 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2018/08/23/hugo/</guid>
+      <description>静的サイトジェネレーターは、それぞれに特徴的でした。昔、hugoは将来の日付で書かれた記事も素直にbuildしていた気がしますが、最近では、buildするコンピュータからtimeを取得して、将来の日付の記事をbuildしないようになった気がします。&#xA;ちなみに、middlemanでは、昔からこの挙動でした。つまり、将来の日付はbuildしないという挙動です。コードの書き方によって設定できるとかがあるかもしれませんが、自分が触っている限りでは、そんな感じでした。&#xA;で、結構昔からhugoを使っていて、そんなもんだったわけですから、自動更新の仕組みを作るにしても、相当にめんどくさかった。&#xA;具体的には、/content/postにmdを置くわけですが、それを置く時期をこちらで処理しなければならなかったのと、後は、定期にbuild, deployをciで実行することをやっていました。&#xA;ただ、こちらもできればserver lessにしたいわけなので、docker imageを作成して、それをdocker hub(private)に上げた後、travis-ciでcron jobsでそのdocker imageをpull, runし、pageのrepoにpushして、そこでgitlab-ciを発火するように設定していました。めんどくさすぎますが、仕組みとしては単純に役割が決まっています。&#xA;docker image : gitlab-push&#xA;travis-ci : cron, docker-run&#xA;gitlab-ci : page build, deploy&#xA;しかし、gitlab-ciもかなり便利になったもので、cronにあたるpipeline schedulesが実装されたこともあって、travis-ci(cron-jobs)が不要になりました。&#xA;また、hugoもsrcから将来の日付の記事をbuildしないようになったため?わざわざdocker-imageでその日のものをcontent/postに置く処理が不要になり、将来の日付の記事を含めたすべてを/content/postに置いていても問題なくなりました。&#xA;とは言え、srcを公開している場合、この手法は使えません。また、docker-imageで合わせて処理をしていたjsonを作成してpushする処理もgitlab-ciでやることになるか、もしくは面倒なので諦めるかということになりそうではありますが、とにかく便利になったなあと感じています。&#xA;今後は、hugo+gitlabでブログをやるとしても、自動更新の点では、他のサービスに比べて遥かに楽にできるようになるでしょうね。これまではいろいろと組み合わせてやっていましたが、gitlab-ciだけで事足りるようになってきた感じです。&#xA;ただ、まとめて書くにしても、何か書くことって、それ自体、結構つらかったりしますからね。書くこともそんなありませんし。その点では難しいかもしれませんね。&#xA;おわり。</description>
+    </item>
+    <item>
+      <title>hub-command-for-gitlab</title>
+      <link>https://syui.ai/blog/post/2017/09/17/gitlab/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/09/17/gitlab/</guid>
+      <description>現在、GitHub用にはhubがあるけれど、GitLabにはそういったものはないのかなと探したところ、幾つかあった。&#xA;https://github.com/narkoz/gitlab&#xA;$ gitlab ... https://github.com/numa08/git-gitlab&#xA;これは、git commandのオプションとして追加するgolangツール。&#xA;$ git lab clone numa08/dejiko &amp;gt; git clone git://{gitlab.url}/numa08/dejiko </description>
+    </item>
+    <item>
+      <title>gitlab-bug</title>
+      <link>https://syui.ai/blog/post/2017/09/14/gitlab/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/09/14/gitlab/</guid>
+      <description>GitLab.comで個人的に困ってたバグが幾つか修正された感じなので良かったという話。&#xA;他サービスからのサインインに関してパスワードが設定できなかった問題があった気がするけど、設定できるようになってた。 私は、GitHubから認証していたのだけど、パスワードが設定できないことによって色々と不便があった。例えば、docker loginする場合なども~/.docker/configに書かれるものが使用できなかったりとか色々。本来的にはアクセストークンを発行してやるんだけど、パスワードが発行できなかったためにそれも無理だった記憶がある。&#xA;パスワードログインした場合、前はブラウザを閉じると再度入力しなければならなかった気がするんだけど、オートログインされるようになってた。 これが修正されて良かった。ちなみに、サービス認証の場合は無理。&#xA;Dockerのプライベートイメージを手軽に使えるようになってた。 前は認証あたりの問題で何故かうまくできなかった気がする。現在はAccess Tokens &amp;gt; Scopes (api Access your API, read_user Read user information, read_registry Read Registry)で発行したものをdocker loginでpasswordとして使用するといける。url=registry.gitlab.com&#xA;gitlab.com/users/xxxx/calendarがjsonになってた 前は変なHTML内にjson記述で構築されてた上、隠れて表示されないようになっていた気がするんだけど、それが変更されてた。使いやすい。&#xA;その他、commitの際のGPG(Verified)などが可視化されるようになってたりと非常に良い。現時点では、GitLab.comまたはGitLab App(Origin Host)を使わない手はないので、おすすめです。Git Repo Host(private), CI(無制限), Docker image(private), Web Pages Serverなどが無料で使いたい放題(実際には制限やら落ちたり、遅かったりはするけど)。</description>
+    </item>
+    <item>
+      <title>gitlab-pages-deploy</title>
+      <link>https://syui.ai/blog/post/2017/04/14/gitlab/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/04/14/gitlab/</guid>
+      <description>1,2日前から自動デプロイが走らない気がするんだけど、またGitLab側で変更があったのかな。&#xA;https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html&#xA;https://gitlab.com/gitlab-com/support-forum/issues/1698&#xA;とりあえずテスト投稿ということで。&#xA;image: publysher/hugo test: stage: test script: - hugo artifacts: paths: - public except: - master pages: stage: deploy script: - hugo artifacts: paths: - public only: - master 追記 デプロイは走ったけど、ページにアップロードされていないというか、反映されていない感じがする。&#xA;他のリポジトリでは問題なくテスト、デプロイされてるはずなんだけど、何かがおかしい。問題点は複雑。&#xA;このリポジトリだけそのままではデプロイが実行されず、stage: deployを追加しないと2つのJobが走らない。通常は以下のymlで2つのjobが走っていた。 image: publysher/hugo pages: script: - hugo artifacts: paths: - public only: - master デプロイのJobsを走らせることに成功するものの、なぜかページが更新されない。 正直、この複雑な状況を英語でIssueで説明する自信がないので、簡単にではあるけどIssueを登録する。&#xA;一旦、プロジェクト(リポジトリ)を削除してみてもう一度作成してみることにする(治るかもしれないし)。ここでThe project is still being deleted. Please try again later.の表示が出る。&#xA;2017-04-14 : 一旦プロジェクトを削除した後、もう一度同じプロジェクトを作成し、CIを通したらページが更新された。謎のバグだった。&#xA;issue : https://gitlab.com/gitlab-com/support-forum/issues/1727&#xA;その他の変更 色々と弄ったついでに、このブログの一部機能について変更を加えました。</description>
+    </item>
+  </channel>
+</rss>

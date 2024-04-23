@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qiita on syui.ai</title>
+    <link>https://syui.ai/tags/qiita/</link>
+    <description>Recent content in Qiita on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/qiita/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>qiitaバッジもらった</title>
+      <link>https://syui.ai/blog/post/2021/11/22/qiita/</link>
+      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/11/22/qiita/</guid>
+      <description>qiita表彰プログラムなるものに載ってるよって公式から連絡が来て、qiitaバッジもらった。うれしい。&#xA;qiita、10thおめでとう！&#xA;qiitaとは エンジニアのコミュニティサイト。主に技術情報が共有されている。月間600万を超えるユーザーが訪問し、会員数は70万人以上。日本最大級のエンジニア・コミュニティ。&#xA;参照 : https://qiita.com/about , https://qiita.com/qiita10th</description>
+    </item>
+  </channel>
+</rss>

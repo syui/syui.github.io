@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keybase on syui.ai</title>
+    <link>https://syui.ai/tags/keybase/</link>
+    <description>Recent content in Keybase on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/keybase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>keybaseにmastodonがやって来ました</title>
+      <link>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/04/11/keybase-mastodon/</guid>
+      <description>mastodonにkeybaseが来たのか、keybaseにmastodonが来たのか、タイトルを少し迷いましたが、後者にしました。&#xA;まず、mastodonがkeybase proofに対応するjsonを出力する実装、その他を行い、keybaseが大手mastodonドメインを自サーバー内に登録することによって、連携が可能になりました。ここで、最も連携に重要だったポイントは、keybaseサーバーに特定のドメインが登録されるということでしたので、タイトルを後者にしました。&#xA;しかし、そんなことはどうでもいいです。ユーザーにとって重要なのは、keybaseが何であるのかや、プロフィールにチェックマーク(認証マーク)が付くことだけですから。&#xA;ここで、keybaseを、可能な限り個人証明に適したサイト、及びサービスのこととしておきましょう。&#xA;では、個人証明というのはなんなのかというと、これは、色々な外部サービスのアカウント(twitterやgithub)とkeybaseのアカウントを結びつけて、keybaseの&amp;quot;syui&amp;quot;は、twitterやgithubでは、このアカウントを所有していますよーという感じで行います。また、自分が管理するドメインも登録できたりします。&#xA;そうすることによって、なりすましの防止やネット上の同一性がわかりやすくなります。&#xA;ネット上でも、名前というのは意外に重要です。誰でもネット上で呼ばれる名前、呼ばれたい名前ってありますよね。私の場合は、&amp;ldquo;syui&amp;quot;です。由来は、本名からですが、それはどうでも良くて、重要なのは、おおよそ、ネット上での呼び名を個々人が持っているということですね。そして、それは他の人とよく重複(競合)します。本名でもそうですよね。たくさんの田中さんや太郎さんがいます。&#xA;そんな中、この太郎さんは、一体、どこの太郎さんなのかってのが、ネット上でも分かりづらいことがあります。keybaseは、それをわかりやすくしてくれるってことです。&#xA;今回は、それがmastodonでも可能になったという話ですが、mastodon上からもkeybaseのアカウント証明を示してくれるようになりました。で、連携させると、mastodonのプロフィールに書かれたkeybaseへのリンクに認証マークが付くんですよね、かっこいいですね。&#xA;どういうようにやるのかというと、keybaseのアプリを起動して、特定のコマンドを実行します。(あるいはWeb UIからも可能です、後々、どうなるかはわかりませんが&#xA;$ open -a keybase # keybase prove $DOMAIN $USER $ keybase prove mastodon.social syui # ここに表示されたURLをクリックして、承認すると連携が可能になる なお、keybaseには、個人証明だけでなく、他にも様々な機能があります。暗号化、非暗号化メッセージのやり取りや公開鍵、秘密鍵の管理など。&#xA;keybaseやmastodon、流行るといいですねー。(keybaseは&amp;quot;syui&amp;quot;というidをかろうじて取得できたため、id取りそこねたtwitterより流行って欲しさある。めちゃくちゃ個人的な理由&#xA;もっと詳しく</description>
+    </item>
+    <item>
+      <title>keybase.pubを使って、keybaseへのリンクにmastodon認証マークを付ける方法</title>
+      <link>https://syui.ai/blog/post/2019/02/27/keybase/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/02/27/keybase/</guid>
+      <description>keybase.pubというものがあります。これは、keybase.ioが提供するweb serverで、index.md,htmlを置くと、web pageを表示できます。&#xA;https://keybase.pub&#xA;使い方は簡単で、アプリをインストールして、/keybase/public/${USER}にhtml,mdファイルを置きます。ここがrootになります。そして、domainは、${USER}.keybase.pubになります。&#xA;ファイル一覧は、https://keybase.pub/${USER}になります。&#xA;ここで、mastodonは、profileのlink先にrel=&amp;ldquo;me&amp;quot;が付いている場合、verify(認証マークが付く)します。&#xA;よって、keybase.pubを使って、keybaseをmastodon認証してみました。ちょっと迂遠なやり方ですけどね。linkがkeybase.io/${USER}でないため。&#xA;もし、twitterのlinkをmastodon verifyする方法、知ってる人いたら教えてください。srcをイジらなくてもやる方法あるんでしょうか?&#xA;追記:&#xA;twitterのlinkって、短縮形なので、そのへんが難しいんじゃないかと思っていたら、できました。&#xA;やったことは、以下。&#xA;1. a rel=&amp;#34;me&amp;#34; href=&amp;#34;https://mstdn.syui.cf/@syui 2. をTwitterのProfile-Linkに載せようとする、が、ダメだと言われる。 3. 仕方なく、&amp;#34;https://mstdn.syui.cf/@syui&amp;#34;で載せようとする、保存 4. TwitterのProfileからMastodonへのLinkを踏む、当然、Linkはt.coのかたちになっている。 5. Mastodon User Pageに飛ばされる。そこでTwitterへのProfile-LinkがVerifiedする おそらく、MastodonへのLinkをTwitter Profile-Linkに登録後、t.coのLinkを踏む必要があったんじゃないかなって思います。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Domain on syui.ai</title>
+    <link>https://syui.ai/tags/domain/</link>
+    <description>Recent content in Domain on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/domain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>freenomの現状と考察</title>
+      <link>https://syui.ai/blog/post/2023/10/29/freenom/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/10/29/freenom/</guid>
+      <description>前回の続きです。&#xA;https://syui.ai/blog/post/2023/03/23/domain/ freenomのdomain更新がうまくいったので、そのとき感じたことを書きます。&#xA;感じたことは以下の2点です。&#xA;スパム排除が活発になる&#xA;新規登録が厳格化される&#xA;これらは認証手続きがめんどくさい感じになっていたので、そのように感じました。&#xA;今回も以前と変わらない使用感で.cfを1年更新できました。費用は$0でした。&#xA;基本的にグリーン判定のアカウントは継続して使えているみたいです。&#xA;ただし、アカウントによっては対応が異なるという情報があります。&#xA;これはスパム排除の一貫だと考えられます。停止、あるいは更新料が必要になったケースがあるようです。&#xA;ですから、freenomを使い続けるのはリスキーと言えるでしょう。&#xA;例えば、pixiv(pawoo), misskey系などは海外から相当警戒されているようで、特に児童ポルノ関連と予想されますが、domainが停止されたことがありました。これはfreenomだけでなく、別のregisterからも確認されています。&#xA;また、連合(fediverse)を見てみると、やはりこれらのサーバーは相当に警戒されているように感じます。&#xA;したがって、仮にfreenomで停止されたとしても、それがfreenomだけの問題でない可能性があります。&#xA;しかし、registerの中でfreenomは今後さらにスパムや要注意サーバーを排除する動きが活発化することが予想されます。よって、個人的にはおすすめできないと考えます。&#xA;とはいえ、あくまで個人利用、かつ海外から警戒されない範囲での一般利用の場合、問題が生じる危険性は少ないと判断しています。&#xA;これは私のアカウントが普通に使えて更新もできているからです。やはり、伝聞だけではわからないことが多々あります。ここでは、その伝聞を考慮した上で個人の所感を述べていると思ってください。&#xA;海外から警戒される利用というのは、児童ポルノに見られるイラスト等のことを指します。これは日本基準ではなく海外基準での判断になります。&#xA;分散snsのprotocolが広まって以来、日本では問題にならないけど海外では問題視されるケースが確認されています。&#xA;freenomと私 私は弱々のdomainを$0で取れるfreenomのようなサービスは、開発者にとって非常に喜ばしいものだったと思います。&#xA;それはdomainの価値を理解するのに役立ちましたし、また、テスト環境も構築しやすかった。&#xA;そのようなサービスが失われてしまうのは寂しい。&#xA;私自身が$0のdomainを使ってきましたし、また、人にもおすすめしてきました。&#xA;なぜかというと、誰でも気軽に始めやすいし、そういうサービスだったからです。&#xA;検索エンジンからはスパム扱いされ、検索しても出てこないような弱々のdomainでしたが、私は満足していて楽しかったです。&#xA;freenomというサービスからはそういった経験や機会を得られました。感謝。</description>
+    </item>
+    <item>
+      <title>syui.cfをサスペンドした</title>
+      <link>https://syui.ai/blog/post/2023/08/05/domain/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/08/05/domain/</guid>
+      <description>domainを2つも管理したくないという理由から、freenomで取得してたsyui.cfをサスペンドするための処理を少しずつ進めていて、ほぼ完了したのでお伝えします。&#xA;ちなみに、syui.cfはgoogle.com等にindexされない。されても上位に表示される可能性はほぼゼロだった。逆にsyui.aiは普通だった。&#xA;私は、自分が持つdomainは一つでいいやと思っていて、サービスアカウントもできるだけ減らしていきたい人なので、今回は、ついでにアカウント整理をだいぶやった感じ。&#xA;こういう機会でもないとやらないので、結果的によかった。&#xA;でも面倒だったし、楽しい作業ではなかった。&#xA;今回、複数持ってたgoogleアカウントを一つにまとめた。&#xA;なぜ持っていたかと言うと、googleログイン(サードパーティ)認証に使ってた。&#xA;google, apple, twitterなどの大手サービスではidが取れなかった。&#xA;そのためにメインで使うアカウントを定められずにいた。&#xA;idが取れてれば明らかにそれを使うんだけど、そうでないと使うアカウントがバラけてしまっていた。&#xA;また、企業サービスに個人情報をなるべく取られたくないので、わざわざアカウントを使い分けたりすることもあった。&#xA;例えば、ある新興サービスに登録する必要が出てきたとする。あなたはどのメールアドレスを使うだろう。&#xA;メインを使うという人もいれば、捨てアドを使うという人もいると思う。&#xA;私は、どちらかというと後者だった。ただ、捨てアドというよりサブアカウントを使う感じだった。&#xA;しかし、それも面倒になってきた。&#xA;今回、拠点やメインで使うアカウントが定まってきた段階でまとめることにした。&#xA;メールの変遷 メールは今までfreenom+mailgun+gmailの組み合わせで無料のドメインメールのようなものを設定してた。これは裏技のようで面白かったし、ずっと無料で使えてたので良かったと思う。&#xA;今はicloud+(m/130 JPY)に加入してそれを使ってるので、メールに関してはほぼapple経由になった。&#xA;mail userを作るのはpcでもスマホでも一瞬で終わるし、iosのmessage(sms)やfacetime(phone)とメールアドレスを紐付けられる。つまり、アドレスをsmsの送受信に設定できるようになる。&#xA;ただし、個人情報がより強固に紐付けられているので、例えば、message(sms)の送信元をメールアドレスに設定している場合は、一瞬で身バレすると思う。</description>
+    </item>
+    <item>
+      <title>syui.aiに完全に移行しました</title>
+      <link>https://syui.ai/blog/post/2023/03/26/domain/</link>
+      <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/03/26/domain/</guid>
+      <description>blogのタイトルとかもsyui.aiに変更しました。&#xA;実はsyui.cfというdomainやtitleは、キーボードの押しやすさ、ぱっと見た感じから個人的にかなり気に入ってたので、ちょっと寂しい。&#xA;新しくsyui.aiになるけど、こちらは個人的に一番好きなdomainです。&#xA;これからもよろしくお願いします。&#xA;最近はblueskyを触ってます。</description>
+    </item>
+    <item>
+      <title>syui.cfからdomainを移行してみた</title>
+      <link>https://syui.ai/blog/post/2023/03/23/domain/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/03/23/domain/</guid>
+      <description>syui.cf -&amp;gt; syui.ai へdomainを移行しました。&#xA;昨日は「徐々に移行する感じになると思う」みたいなこと言ってたけど、やりたかったのでやった。&#xA;こういうのは機会がある時にやらないと、私なんかはめんどくさがりなので基本動かないのでよかった。&#xA;やっぱり新しいdomainを使ってみたかったというのが一番の理由です。&#xA;そして、二番目が「domainを2個も管理したくない」という理由。もちろん、.cfも引き続き維持しますが、できれば内容を空にしておきたい。&#xA;freenomの今後 freenomが現在、新規登録を停止しています。理由はfacebookからの訴訟だと言われているようです。&#xA;今後、高い確率でfreenomに起こりそうなことを個人的に予想します。&#xA;現在、freenomは、登録を停止していて、これが裁判所からの命令によるものかはわかりませんが、スパムアカウントを排除しようとする流れになると思われます。&#xA;それが終わると新規登録が再開され、再開後は登録の手続きが厳格化すると考えられます。&#xA;ここで、すでに調査済みのグリーン判定をもらったアカウントは継続して使えると思います。&#xA;したがって、ほぼ確実にグリーン判定が得られるような人は、この件を心配する必要はないと思っています。&#xA;domainの性質上、検閲は容易ではありません。また、更新の阻害や取り上げも容易ではなく、普通に使用している場合は特にそうですね。&#xA;私の場合、freenomではsyui.cfの一つしか取得していません。&#xA;もちろん、こういった予想が外れることも想定しておかなければなりませんが、このまま.cfを使い続けて問題が発生する可能性は著しく低いと考えられます。&#xA;逆に、今後はdomainの価値が高くなる可能性すらあるかもしれません。そんな感じの個人予想をしています。&#xA;mastodon mastodonはアカウントの引っ越しができるっぽいので、新インスタンスを立てたあと、両アカウントで引っ越しの設定をしてから、旧インスタンスを削除すれば良さそう。&#xA;でもfly.ioのfree planでは2つもインスタンスを立てられないので(主にredis)、引き継ぎなしで移行する必要があって、今のところは引っ越さなくてもいいかという結論。&#xA;一応、現在のインスタンスのdomainを変えて運用することは可能。ただ、それだと連合に迷惑がかかる可能性があるので、できれば連携してるアカウントの引っ越しシグナルを相手側が受け取って、連携してるアカウントが無くなった時点で閉じたほうが良さそう。&#xA;この辺は色々と他の方法を探ってみるけど、無さそうならdomainを.aiに変えるだけかもしれないし、.cfのまま運用するかもしれない。</description>
+    </item>
+    <item>
+      <title>syui.aiというdomainを買ってみた</title>
+      <link>https://syui.ai/blog/post/2023/03/22/domain/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/03/22/domain/</guid>
+      <description>今回はdomainを何に使おうか迷ってる話です。&#xA;domainを買うと言っても、自分の中では.io, .aiの2つしか候補がありませんでした。&#xA;そして、.aiを選びました。&#xA;何に使うのかですが、理想としては.cfを.aiに置き換えることです。domainを2つも管理したくない気持ちがあります。&#xA;しかし、これは現実的ではないかもしれません。あまりに.cfに色んなものをhostしすぎた。&#xA;したがって、徐々に.aiをメインで使っていくようにするのが良さそう。&#xA;具体的には、mail, blog, socialとかに使っていきたい。今までと変わらない感じだけど。&#xA;現在、at.syui.aiにself-hostしたatへの投稿を表示しています。&#xA;ここをblogやweb-siteにしてsyui.aiからredirectするのもいいかもしれません。&#xA;今の所、過去に作ったものはそのまま残して、新しく作ったものをsyui.aiにhostしていく予定です。&#xA;しかし、結局は.cfを使い続けるかもしれませんね。この辺、どうなるか、私にもわかりません。&#xA;.cfはずっと気に入って使っていたdomainで、.aiは昔から欲しかったdomainです。&#xA;とりあえず、やりたかったこと第一弾として、本来ならatでは2文字のhandleは取れないんだけど(3文字から)、2文字のhandleでやってみた。&#xA;でもactivitypubやmatrixの形式のほうが、かっこいいかもしれませんね。&#xA;activity : @ai@syui.ai&#xA;matrix : @ai:syui.ai&#xA;いや、微妙かな&amp;hellip;。</description>
+    </item>
+  </channel>
+</rss>

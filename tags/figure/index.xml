@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Figure on syui.ai</title>
+    <link>https://syui.ai/tags/figure/</link>
+    <description>Recent content in Figure on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 18 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/figure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3Dモデルを作ってみる3</title>
+      <link>https://syui.ai/blog/post/2022/09/18/3dscan/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/18/3dscan/</guid>
+      <description>scaniverseがLiDARなしでも使えるようになりました。これはnianticが買収してから無料になった3Dモデルが作成できるアプリです。&#xA;trinoは以前からLiDARなしでも使えて便利だったようですが、ここに来てscaniverseが有力になりました。&#xA;したがって、この2つのアプリを簡単に比較してみたいと思います。&#xA;以下は同じものをスキャンした例です。&#xA;scaniverse 公平に見て、scaniverseのほうが使い勝手が良かったのと、trinoではモデル生成できなかった写真立て(カード立て)がscaniverseではできました。&#xA;したがって、現時点でscaniverseのほうがおすすめです。&#xA;しかし、しっかりとした3Dモデルはtrinoのほうが作れていると感じます。&#xA;scaniverseは一見してきれいに見えますが、表面的な部分のみで、内側を読み取るのは苦手なようです。&#xA;scaniverseは、内部を作り込むのではなく、無理やり表面に結合するというような形になることが多かった。&#xA;これは、LiDARが使えるかどうかで変わってくるのかもしれません。</description>
+    </item>
+    <item>
+      <title>フィギュアを作った</title>
+      <link>https://syui.ai/blog/post/2022/08/20/figure/</link>
+      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/08/20/figure/</guid>
+      <description>フィギュア制作の情報をまとめます。&#xA;きっかけ オタクなのでフィギュアは一つくらいほしいなあと思っていました。&#xA;スマブラで使っているゼルダをamiiboで買おうか、原神の蛍を買おうか、迷いました。&#xA;最終的にビビッと来るものがなかったので、自分で作ることにしました。&#xA;制作過程 2021-07-17から2021-08-13の間に3つのフィギュアを作っては作り直していました。&#xA;しばらくそのフィギュアを机においていましたが、1年後の2022-08-15からまたフィギュアを作り直すことしました。そして、2022-08-19に完成しました。&#xA;これがトップにある画像になります。&#xA;必要なもの スカルピー&#xA;オーブン&#xA;針金&#xA;塗料&#xA;印刷シール&#xA;スパチュラはなくてもいいです。あまり使ってない。カッターとかハサミなど日常品は省略しています。オーブンはスカルピーが有毒なので別なものを買ったほうがいいです。塗装はアクリル絵の具で厚塗りを重ねることで完全に塗ることができ、仕上げスプレーを使うことでザラザラを消すことができます。ただし、塗装スプレーを使ったほうが手っ取り早いです。顔は印刷シール使うと簡単です。焼いたあとカットしてます。&#xA;具体的な手順 粘土をこねる&#xA;無水エタノールで表面処理&#xA;焼く&#xA;カットとやすりで修正と表面処理&#xA;スプレーで肌色、服全体を塗る&#xA;ラッカー系塗料で細部を塗る&#xA;光沢スプレーなどで仕上げ&#xA;ポイント 髪の毛は細くすると見栄えが良くなるけど、耐久性も下がる&#xA;それぞれの部位は思った以上に小さくする必要があります。大きくなりがちです。&#xA;固定できるポーズが重要。この辺はあとに響くので見栄えとのバランスが難しいです。&#xA;一気に焼いてはいけない。小さい部位ごとに完成させていくイメージ。&#xA;納得行くまで粘土をこねる。とりあえず完成イメージを作る。1日置いてみる。この繰り返しが一番の近道。すぐに焼いてはいけない。&#xA;ただし、焼く練習は必要。まずは小さいものや髪の毛を焼いてみよう。&#xA;表面処理とラッカー系塗料 最初はアクリル絵の具でそのまま塗っているだけでしたが、表面処理とラッカー系塗料を行うと、はじめて市販のフィギュアっぽくなりました。それまでは明らかに自作という感じでした。&#xA;左が市販、右が自作&#xA;では、表面処理とは何を指すのでしょう。&#xA;表面処理は主に固める前と後で分けられます。&#xA;固める前は無水エタノールなどでなめらかにすること。固めた後はやすりなどで削ることです。&#xA;ラッカー系塗料がおすすめです。ただし、換気が必要です。&#xA;磁石と輪っか 磁石を頭に入れる事で輪っかを設置しやすくなります。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gnu-Social on syui.ai</title>
+    <link>https://syui.ai/tags/gnu-social/</link>
+    <description>Recent content in Gnu-Social on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 18 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/gnu-social/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gnu-socialをherokuで立てる[2022年度版]</title>
+      <link>https://syui.ai/blog/post/2022/07/18/gnusocial/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/07/18/gnusocial/</guid>
+      <description>gnu-socialも触ってみました。今回もherokuでdeployするヒントを書いていきたいと思います。&#xA;いろいろな変化があるものの、srcは相変わらず古い感じがします。&#xA;3.0 https://code.undefinedhackers.net/GNUsocial/gnu-social&#xA;postgres + nginx とりあえず、bin/configureにdockerfileを作成するscriptがありますので実行するようです。Makefileにいろんなコマンドが定義されているようですが、項目を読めばだいたい分かるでしょう。&#xA;$ git clone https://code.undefinedhackers.net/GNUsocial/gnu-social $ cd gnu-social $ ./bin/configure $ make $ sudo docker ps -a $ paru -S php-pear $ sudo pecl install vips $ sudo vim /etc/php/php.ini extension=iconv extension=vips 以下を追記、または編集します。&#xA;&amp;#34;require&amp;#34;: { &amp;#34;php&amp;#34;: &amp;#34;^8.1.0&amp;#34;, &amp;#34;ext-vips&amp;#34;:&amp;#34;*&amp;#34;, &amp;#34;jcupitt/vips&amp;#34;: &amp;#34;1.0.9&amp;#34; } $ composer update --ignore-platform-reqs $ git add composer.* $ heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt Aptfile&#xA;php-pear herokunの場合、残念ながらphp-vipsがsupportされていません。&#xA;したがって、buildpacksを自前で用意するしかないのですが、用意してやってみたところ、peclが動作しません。&#xA;いくつか調整してみたものの、これでは実現できたとしても完全にやるべきことではないと判断し、途中でやめることにしました。&#xA;sed -i -e &amp;#34;s#/usr/bin/php#/app/.</description>
+    </item>
+    <item>
+      <title>herokuでgnu-socialを立てるときにハマった話</title>
+      <link>https://syui.ai/blog/post/2019/03/25/gnu-social/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/03/25/gnu-social/</guid>
+      <description>$ git clone https://git.gnu.io/dansup/gnu-social $ cd !$:t $ git checkout composer-autoloading $ php -v 7.3 $ vim composer.json { &amp;#34;require&amp;#34;: { &amp;#34;ext-pgsql&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;ext-gd&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;ext-intl&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;php&amp;#34;: &amp;#34;^7.3.0&amp;#34;, &amp;#34;illuminate/contracts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;illuminate/support&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;ramsey/uuid&amp;#34;: &amp;#34;^3.0&amp;#34;, &amp;#34;ezyang/htmlpurifier&amp;#34;: &amp;#34;^4.10&amp;#34;, &amp;#34;psy/psysh&amp;#34;: &amp;#34;^0.8.17&amp;#34; } $ composer update $ heroku create $APP_NAME $ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-php -a $APP_NAME $ heroku addons:add cleardb:ignite -a $APP_NAME $ heroku config -a $APP_NAME $ vim Profile web: vendor/bin/heroku-php-apache2 $ heroku git:remote -a $APP_NAME $ git add .</description>
+    </item>
+  </channel>
+</rss>

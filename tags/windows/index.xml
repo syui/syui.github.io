@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on syui.ai</title>
+    <link>https://syui.ai/tags/windows/</link>
+    <description>Recent content in Windows on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[stable diffusion] diffusersのscriptを作る</title>
+      <link>https://syui.ai/blog/post/2024/01/09/stable-diffusion/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/01/09/stable-diffusion/</guid>
+      <description>現在はstable diffusionはv2.1が最新らしい。&#xA;https://huggingface.co/stabilityai/stable-diffusion-2-1 https://github.com/Stability-AI/stablediffusion 今回は、前回同様にtxt2img.pyを動かせる環境を構築した上で、.safetensorsを使用し画像生成してみました。&#xA;txt2imgはcliから使うstable-diffusionのようなものです。&#xA;origin : txt2img.py fork : txt2img.py cudaを12.3から12.1にdowngradeします。&#xA;pytorchはstableではなくnightlyであるpre-versionを使わないとインストールできません。&#xA;# pytorch:nightly, cuda:12.1 $ pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121 $ conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=12.1 -c pytorch -c nvidia scoopのanaconda3がなくなっていたので手動でインストールしました。具体的にはminicondaを適当にインストールして~/miniconda3/condabinにpathを通します。私はpwshを使うので、以下のコマンドで自動設定します。これをやらないとactivateを使えません。&#xA;$ conda init powershell 新しいgpuでは5-10分の生成が1-2分以内に変わっていました。&#xA;$ conda activate ldm $ cd ./stable-diffusion $ python ./optimizedSD/optimized_txt2img.py --prompt &amp;#34;masterpiece, high quality, very_high_resolution, large_filesize, full color, beautiful kawaii, gold hair, little girl&amp;#34; --H 512 --W 512 --seed $seed --n_iter 1 --n_samples 1 --ddim_steps 50 上記のscriptが動くなら.</description>
+    </item>
+    <item>
+      <title>windowsの初期設定と所感</title>
+      <link>https://syui.ai/blog/post/2023/12/30/windows/</link>
+      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2023/12/30/windows/</guid>
+      <description>local userにする 最初に設定していくと、microsoftのアカウントで勝手にuserを作成されていて、なんなんだこれと思ったけど、しばらく放置して初期設定してました。&#xA;でも気になったので、適当に設定していくとlocal userを作成できた。ついでに前の勝手に作られたaccountは削除した。これ15分くらいかかりました。&#xA;あと驚いたのは一生懸命にguiで削除したアプリが復活してたこと。どうやらここでのアンインストールは共通じゃないらしい。winget等で徹底的に削除するしかなかったっぽい。&#xA;最初に回線引っこ抜くとlocal userを作成できるって自分のブログに書いてあることに後で気づいた。いまも有効かはわからないけど。&#xA;ueのbuild gpu build 1 build 2 GeForce GTX 1050Ti h5 h1 GoForce GTX 4060Ti h1 m20 初回は時間がかかるんだけど随分と短縮されている。あと、city sampleがサクサク動くしbuildが早すぎたのに感動しました。&#xA;/ai/video/#ue5_ai_0007.mp4&#xA;cudaは12.3を入れています。動いているのかどうかはわからんけど、erroを出しまくったあと正常なインストールに成功。ちなみに、なんで最初はerrを出してたのかは不明。ただ、pytorchのcudaが12.1なので、下げるかも。&#xA;$ nvidia-smi Sun Dec 31 08:34:29 2023 +---------------------------------------------------------------------------------------+ | NVIDIA-SMI 546.33 Driver Version: 546.33 CUDA Version: 12.3 | |-----------------------------------------+----------------------+----------------------+ | GPU Name TCC/WDDM | Bus-Id Disp.A | Volatile Uncorr. ECC | | Fan Temp Perf Pwr:Usage/Cap | Memory-Usage | GPU-Util Compute M.</description>
+    </item>
+    <item>
+      <title>wingetでpwshをupgradeしてopensshで使う</title>
+      <link>https://syui.ai/blog/post/2022/09/13/windows-winget-pwsh-openssh/</link>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2022/09/13/windows-winget-pwsh-openssh/</guid>
+      <description>wingetが便利になってたので、wingetで最新のpwsh(powershell)をインストールして使ってみます。&#xA;$ ssh windows $ winget -v # 7.2.6 $ winget upgrade microsoft.powershell # 7.3.0 $ winget install microsoft.powershell.preview $ pwsh-preview # winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも $ vim c:/programdata/ssh/sshd_config PasswordAuthentication no ForceCommand pwsh-preview $ net stop sshd $ net start sshd $ exit $ ssh windows powershell 7.3.0-preview $ winget upgrade --all winget、便利。</description>
+    </item>
+    <item>
+      <title>windows</title>
+      <link>https://syui.ai/m/post/windows/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/windows/</guid>
+      <description>windowsの使い方をまとめます。windows11を使用しています。&#xA;title body cpu AMD Ryzen 7 5700X memory 32GB / DDR4-3200 DIMM (PC4-25600) gpu GeForce RTX 4060Ti 8GB storage 1TB M.2 NVMe SSD inc © INVERSENET gpu 基本的にgpuのhdmi端子からdispalyに接続します。&#xA;nvidiaのdriverは常にupdateしてください。&#xA;download : driver, cuda v12.1, cudnn&#xA;現在、pytorchはcuda v12.1に対応しています。&#xA;local account windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。&#xA;openssh https://github.com/PowerShell/Win32-OpenSSH&#xA;$ winget install microsoft.openssh.beta sshd_configはc:/programdata/ssh/sshd_configにあります。public-key方式でアクセスするには、最後の方の行にauthorized_keysのpathが記載されており、そこにpublickeyを記述します。ここでは、c:/programdata/ssh/administrators_authorized_keysになります。なお、ssh-copy-idコマンドは機能しません。&#xA;$ ls c:/programdata/ssh/ Match Group administrators AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys ADD userの場合、publickey認証が通らないことがあるようです。このようにしてc:/users/$user/.ssh/authorized_keysに置いてみましょう。pathにauthorizedKeyPath:c:/users/$user/.ssh/authorized_keysを追加します。&#xA;c:/programdata/ssh/sshd_config&#xA;PasswordAuthentication no PermitEmptyPasswords yes AuthorizedKeysFile .ssh/authorized_keys #Match Group administrators # AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys shellをpwshに変更するには、以下のコマンドを実行します。</description>
+    </item>
+    <item>
+      <title>windows 11にupgradeしてみた</title>
+      <link>https://syui.ai/blog/post/2021/07/16/windows/</link>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2021/07/16/windows/</guid>
+      <description>UIメニューはwindows 10よりカチッとしててよいと思いました。&#xA;おわり。&#xA;windowsはpowershellが来たvista以降、内部的にはあまり変わってないらしいです。&#xA;参照 : https://japanese.engadget.com/windows-103000902.html</description>
+    </item>
+    <item>
+      <title>windowsの必須ツールをupdateしてみる</title>
+      <link>https://syui.ai/blog/post/2020/06/01/win/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2020/06/01/win/</guid>
+      <description>windowsがWSL2, terminalなどリリースしてたりしたので、色々とupdateしてみました。&#xA;$ scoop install curl 7z # powershell 7.0.1 # https://github.com/PowerShell/PowerShell/releases $ curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.0.1/PowerShell-7.0.1-win-x64.msi $ msiexec.exe /package PowerShell-7.0.1-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1 # openssh v8.1.0 # https://github.com/PowerShell/Win32-OpenSSH/releases $ curl -LO https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip $ 7z x OpenSSH-Win64.zip $ cp OpenSSH-Win64/* &amp;#39;c:\programfiles\OpenSSH\&amp;#39; or $ robocopy .\OpenSSH-Win64\ &amp;#39;c:\Program Files\OpenSSH\&amp;#39; # terminal 1.0.1 # https://github.com/microsoft/terminal/releases $ curl -LO https://github.com/microsoft/terminal/releases/download/v1.0.1401.0/Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle $ Add-AppxPackage ./Microsoft.WindowsTerminal_1.0.1401.0_8wekyb3d8bbwe.msixbundle robocopyは例えば、sshdというprocessが起動していても上書きするので便利です。&#xA;winget 今までは、scoopを愛用してたけど、wingetが公式で提供され始めたので、よさそうだったら使っていきたい。&#xA;https://github.com/microsoft/winget-cli&#xA;$ curl -LO https://github.com/microsoft/winget-cli/releases/download/v0.1.4331-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle $ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle $ winget なお、ssh経由では、wingetは使用できない感じでした。アクセス権関連ぽい気がする。これは採用しづらい&amp;hellip;。</description>
+    </item>
+    <item>
+      <title>hddがmountできない場合の対処法</title>
+      <link>https://syui.ai/blog/post/2019/12/17/testdisk/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/12/17/testdisk/</guid>
+      <description>突然、hddが壊れてmountすらできなくなったので、やってみたことなど。&#xA;最終的には、ddすればいいのですが、disk sizeが大きいので、できればやりたくない。&#xA;$ sudo fdisk -l .../dev/sdbが表示されない $ sudo parted -l エラー: /dev/sdb: ディスクラベルが認識できません。 $ sudo pacman -S tesdisk $ sudo testdisk $ Intel &amp;gt; Analyse &amp;gt; Quick Search(Deeper Serch) https://z1000s.hatenablog.com/entry/2018/07/02/225327</description>
+    </item>
+    <item>
+      <title>windows terminal (preview)を試してみる</title>
+      <link>https://syui.ai/blog/post/2019/05/09/windows-terminal/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2019/05/09/windows-terminal/</guid>
+      <description>microsoftがwindows terminalを開発してるみたいで、今風のターミナルなので便利そうです。&#xA;https://github.com/Microsoft/Terminal&#xA;(というより、windowsは、これまでのターミナルがあまりにも酷すぎた気がする)&#xA;VS2019でもbuildが可能ですが、いくつかのエラーが修正できませんでしたので、正常に起動しなかった。よって、VS2017でやったほうがいいです。&#xA;$ git clone https://github.com/Microsoft/Terminal $ cd Terminal $ git submodule update --init --recursive $ scoop install nuget $ nuget restore OpenConsole.sln # VS2017でOpenConsole.slnを開いて、ソリューション全体をbuildします。 # ビルドが終わったら、当該ソリューションプロジェクト&amp;#34;OpenConsole46&amp;#34;を右クリックでデプロイ(ソリューションの配置)を実行します。 # すると、スタートメニューに&amp;#34;Windows Terminal Preview&amp;#34;が追加されます。 C+tでタブを開きます。pwshならC+lとか動きます(前のターミナルも動いてたっけ?)。&#xA;なお、ソリューションの配置については、Windowsの開発者モードを有効にした上で、Windows 1903 (build &amp;gt;= 10.0.18362.0)が必要なので、プレビュー版のWindowsにアップデートしてバージョン要求を満たす必要があります。(Windows Insider Programに登録して、プレビュー版のWindows Buildを試す必要があります)&#xA;guide : https://github.com/microsoft/Terminal/issues/489</description>
+    </item>
+    <item>
+      <title>windows-openssh-key</title>
+      <link>https://syui.ai/blog/post/2017/06/06/windows/</link>
+      <pubDate>Tue, 06 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/06/06/windows/</guid>
+      <description>Windowsのsshd(github.com/PowerShell/Win32-OpenSSH)によってsshサーバーを立て、ホストからキーを作成し、それをc:users/$user/.ssh/authorized_keysにscpなりすることで接続できるはずなんですが、できなかった話。&#xA;結論としてPATHが通ってないことが原因です。$authorizedKeyPath&#xA;# windowsのpathは適時置き換えてください。 $ scp ~/.ssh/test.pub windows:.ssh/authorized_keys $ ssh -i ~/.ssh/test.pub admin@192.168.11.XX Permission denied (publickey,gssapi-keyex,gssapi-with-mic). PowerShellで以下のコマンドを実行。&#xA;# pathは置き換えてください。 ## https://github.com/PowerShell/Win32-OpenSSH/wiki/ssh.exe-examples $authorizedKeyPath = ... ... Ref :&#xA;https://github.com/PowerShell/Win32-OpenSSH/wiki/ssh.exe-examples</description>
+    </item>
+    <item>
+      <title>conemu&#43;nyagos,ps</title>
+      <link>https://syui.ai/blog/post/2017/01/28/windows/</link>
+      <pubDate>Sat, 28 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2017/01/28/windows/</guid>
+      <description>WindowsのCLI環境をconemu+nyagos,psに移行した。&#xA;昔はconsole2+nyaos,msys2,ps(powershell)とかだったけど、それがconemu+nya[g]os,psみたいな感じになった。と言っても、Windows自体対して使ってなかったりもするのだけど、Windowsを触るならCLI環境の構築は必須だと思うので。&#xA;conemuはかなりいい感じで、まずpsの起動が速いし、UIも見劣りしない。&#xA;nyagosはちょっと触ってみた感じでは良かったと思う。旧nyaosとの違いは今のところあまり感じていないので良さがある(そのうち出てきそうではある)。&#xA;conemuはchocoにあるので、それでインストールすればいいが、nyagosはgithubのreleaseからインストールした。インストールと言うか実行ファイルにpsでPATHを通すんだけど、そんな感じで。&#xA;個人的にはwindowsはps(またはcmd)で触ったほうがよく、その理由の一つがシステムへの変更が容易である事が挙げられ(エイリアスや関数などが設定されているため)、補完程度に他のシェル(環境?)を使うという感じになると思われる。Windowsメインのユーザーはpsが最もおすすめだと個人的には思ってる。&#xA;ただ、Linux, Unixユーザーにとっては「そんなの覚えてられるか!」というものが多く、慣れ親しまないと有用性は低いと思われる(つまり、応用面でwindowsしか通用しない)。&#xA;psを使う場合は、こちらのリポジトリ等を参照しながら適当に使っていきます。&#xA;https://github.com/powershell&#xA;例えば、ssh, module, updateなど。&#xA;https://github.com/PowerShell/Win32-OpenSSH &amp;gt; ssh-keygen.exe -t rsa -f id_rsa &amp;gt; net start ssh-agent &amp;gt; ssh-add.exe id_rsa https://github.com/PowerShell/PowerShellGet &amp;gt; Install-PackageProvider Nuget -Force -Scope CurrentUser https://github.com/PowerShell/xWindowsUpdate # 管理者ユーザー &amp;gt; Start-Process powershell.exe -Verb runas # スクリプト実行ルールの変更 &amp;gt; Set-ExecutionPolicy RemoteSigned &amp;gt; $env:PSModulePath &amp;gt; Save-Module -Name PSWindowsUpdate -Path &amp;lt;path&amp;gt; &amp;gt; Save-Module -Name xWindowsUpdate -Path &amp;lt;path&amp;gt; &amp;gt; Install-Module -Name xWindowsUpdate -Scope CurrentUser &amp;gt; Install-Module -Name PSWindowsUpdate -Scope CurrentUser &amp;gt; Start-Process powershell -Verb runAs &amp;gt; Get-WUInstall -AcceptAll -AutoReboot 面倒ですね。</description>
+    </item>
+  </channel>
+</rss>

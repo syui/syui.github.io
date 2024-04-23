@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Threejs on syui.ai</title>
+    <link>https://syui.ai/tags/threejs/</link>
+    <description>Recent content in Threejs on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Tue, 19 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/threejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>three.jsでbloomを有効にする</title>
+      <link>https://syui.ai/blog/post/2024/03/19/vrm/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/03/19/vrm/</guid>
+      <description>リファクタリングの一環としてweb周りで作ったものを整理しています。&#xA;https://git.syui.ai/ai/vrm ただ、整理といいつつ、ほとんど新しい実装を試していて、コード自体はきれいになっていません。&#xA;以前は、three-vrm:v0.6で作成されたプロジェクトのforkを使用していましたが、なかなかに複雑で古いpackageを使用していたので、イチから作り直しました。&#xA;three-vrm:v2.1にして、node:v21, yarn:v1.22を使っています。&#xA;bloom ぼんやりと発光させるには、bloomを有効にしなければなりません。&#xA;ただし、threeに入っているexampleはメンテナンスされていません。別のものを使ったほうが良いでしょう。&#xA;$ yarn add postprocessing //import { EffectComposer } from &amp;#39;three/examples/jsm/postprocessing/EffectComposer&amp;#39;; //import { UnrealBloomPass } from &amp;#39;three/examples/jsm/postprocessing/UnrealBloomPass&amp;#39;; //import { RenderPass } from &amp;#34;three/examples/jsm/postprocessing/RenderPass&amp;#34;; // https://github.com/pmndrs/postprocessing import { BloomEffect, EffectComposer, EffectPass, RenderPass } from &amp;#34;postprocessing&amp;#34;; const composer = new EffectComposer(renderer); composer.addPass(new RenderPass(scene, camera)); composer.addPass(new EffectPass(camera, new BloomEffect())); requestAnimationFrame(function render() { requestAnimationFrame(render); composer.render(); }); 注意としては、WebGLRendererのoptionによっては動かないことがあるらしいので、そのときは以下を設定してください。&#xA;import { WebGLRenderer } from &amp;#34;three&amp;#34;; const renderer = new WebGLRenderer({ powerPreference: &amp;#34;high-performance&amp;#34;, antialias: false, stencil: false, depth: false }); progress progress-barを出します。既に用意されているらしいので、それを使います。</description>
+    </item>
+    <item>
+      <title>three-vrmでvrmaを読み込む</title>
+      <link>https://syui.ai/blog/post/2024/03/17/vrm/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/03/17/vrm/</guid>
+      <description>three-vrmでvrmaを読み込むことができるようになりました。そこで今回は色々なtipsを紹介します。&#xA;three-vrmは、私がよく3d-modelの読み込みに使っているthree.jsを.vrmに対応させたものです。three.jsは.gltf(v2.0)を読み込めますので、その拡張である.vrmを.gltfや.glbに変換して読み込めばいいのですが、色々と問題があります。そのためthree-vrmを使ったほうが見栄えが良くなります。&#xA;three-vrm -&amp;gt; vrma 使用するのは、npm, webpack, tsあたりです。&#xA;nodeはv18.14.1です。場合によってはnvmを使用してください。&#xA;. ├── dist │ ├── index.html │ ├── vrm/ai.vrm │ └── vrma/VRMA_01.vrma ├── package.json ├── src │ └── index.ts ├── tsconfig.json └── webpack.config.js ./dist/vrm/, ./dist/vrma/にファイルを置いてください。&#xA;vrm : download vrma : download 後述しますが、src/index.tsの以下の部分で読み込みます。&#xA;load(&amp;#34;/vrm/ai.vrm&amp;#34;); load(&amp;#34;/vrma/VRMA_01.vrma&amp;#34;); { &amp;#34;name&amp;#34;: &amp;#34;model&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;scripts&amp;#34;: { &amp;#34;build&amp;#34;: &amp;#34;webpack&amp;#34;, &amp;#34;dev&amp;#34;: &amp;#34;webpack-dev-server --open&amp;#34; }, &amp;#34;devDependencies&amp;#34;: { &amp;#34;ts-loader&amp;#34;: &amp;#34;^9.5.1&amp;#34;, &amp;#34;typescript&amp;#34;: &amp;#34;^5.4.2&amp;#34;, &amp;#34;webpack&amp;#34;: &amp;#34;^5.90.3&amp;#34;, &amp;#34;webpack-cli&amp;#34;: &amp;#34;^5.1.4&amp;#34;, &amp;#34;webpack-dev-server&amp;#34;: &amp;#34;^5.0.3&amp;#34; }, &amp;#34;dependencies&amp;#34;: { &amp;#34;@pixiv/three-vrm&amp;#34;: &amp;#34;^2.</description>
+    </item>
+  </channel>
+</rss>
