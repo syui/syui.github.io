@@ -1,8 +1,11 @@
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
-			<p>曲を作ります</p>
-			<ul class="cp_list">
+
+<article>
+	<div class="content">
+		<p>曲を作ります</p>
+		<ul class="cp_list">
 			<li> 
 				<a href="/music/tuki.mp3">tuki.mp3</a>
 				<p><audio controls> <source src="/music/tuki.mp3"> </audio></p>
@@ -37,7 +40,7 @@
 			</li>
 
 			<h3>ミュージックビデオ</h3>
-				<p><video controls style="width:100%;"> <source src="/music/tuki.mp4"> </video></p>
+			<p><video controls style="width:100%;"> <source src="/music/tuki.mp4"> </video></p>
 			<h3>アルバム</h3>
 			<li>
 				<a href="/music/origin_master.zip">origin/master</a>
@@ -53,10 +56,13 @@
 			</li>
 			<h3>外部リンク</h3>
 			<li>
-			    <a href="https://soundcloud.com/asyui">soundcloud</a>
-			</ul>
-			<p>docs : <a href="https://github.com/syui/vocaloid">syui/vocaloid</a></p>
-		</div>
+				<a href="https://soundcloud.com/asyui">soundcloud</a>
+		</ul>
+		<p>docs : <a href="https://github.com/syui/vocaloid">syui/vocaloid</a></p>
+	</div>
+</article>
+
+	</div>
 		{{ partial "footer.html" . }}
 	</body>
 </html>

@@ -296,3 +296,28 @@ $ python safe.py "masterpiece, best quality, very_high_resolution, large_filesiz
 $ ls test.png
 ```
 
+## mcafee remove
+
+`Win`+`R`を押して`msconfig`からboot(セーフモード)を起動しましょう。以下のようなフォルダを削除します。
+
+```sh
+C:\Program Files\Common Files\McAfee
+C:\Program Files\Common Files\AV
+C:\Program Files(x86_64)\Common Files\McAfee
+C:\Program Files(x86_64)\Common Files\AV
+C:\ProgramData\McAfee
+```
+
+なお、以下のコマンドは管理者実行でも効果なし。
+
+```sh
+taskkill /im /f mfemms.exe
+wmic process where "name='mfemms.exe'" delete
+理由: アクセスが拒否されました。
+
+sc stop "mfemms"
+sc config "mfemms" start= disabled
+sc delete "mfemms"
+```
+
+https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853

@@ -1,34 +1,36 @@
 baseurl = "https://syui.ai"
 languageCode = "ja-jp"
 title = "syui.ai"
-copyright = "&copy; 2019. All rights reserved."
+copyright = "&copy; syui"
 #canonifyurls = true
 paginate = 10000
 
 [permalinks]
-    post = "/archive/note/:slug"
-				m = "/m/post/:slug"
-    blog = "/blog/post/:year/:month/:day/:slug"
-    novel = "/ai/novel/:slug"
-    app = "/app/dev/:filename"
+post = "/archive/note/:slug"
+m = "/m/post/:slug"
+blog = "/blog/post/:year/:month/:day/:slug"
+novel = "/ai/novel/:slug"
+app = "/app/dev/:filename"
+en = "/en/post/:year/:month/:day/:slug"
 
 [author]
-	name = "syui"
+name = "syui"
+
 [params]
-    date_format = "2006-01-02"
-    mainSections = ["post"]
-				img_yui = 87
+date_format = "2006-01-02"
+mainSections = ["post"]
+author.name = "syui"
 
 [markup.goldmark.renderer]
-  unsafe = true
+unsafe = true
 
 [frontmatter]
-	date  = [":filename", ":default"]
+date  = [":filename", ":default"]
 
 [taxonomies]
-	tag = "tags"
+tag = "tags"
 
 [outputs]
-  home = ["JSON", "HTML"]
+home = ["JSON", "HTML"]
 
 #pygmentsCodeFences = false
