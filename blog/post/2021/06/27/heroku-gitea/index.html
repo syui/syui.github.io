@@ -100,7 +100,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2021-06-27 / <a href="/syui">syui</a>
+		<div class="post-time-date">2021-06-27 / <a href="https://bsky.syui.ai">@syui</a>
 
 		
 		
@@ -139,25 +139,6 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">echo RUN_USER=`whoami` &gt;&gt; /data/gitea/conf/app.ini;mkdir -p /home/`whoami`;HOME=/home/`whoami`; echo &#34;[server]\nPROTOCOL=http\nSSH_DOMAIN=git.syui.cf;DOMAIN=git.syui.cf\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
 </span></span></code></pre></div><p>ちなみに、herokuは、1日おきに生成されたファイルをリセットしますので、例えば、webにpushするにしても<code>gitea/git</code>に生成されたファイルは時間が経つと削除されてしまうので、localにpushする必要があり、生成された<code>gitea/git</code>をgit-heroku-repoに含めてheroku-dockerにcopyしなければならず、herokuでのgitea運用は実用的ではありません。</p>
 <p>参照 : <a href="https://syui.cf/blog/post/2019/12/06/gitea/">https://syui.cf/blog/post/2019/12/06/gitea/</a></p>
-
-		
-
-
-<nav id="article-nav">
-	<div class="previnsection">
-    
-				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="https://syui.ai/blog/post/2021/06/26/illust/" id="article-nav-older" class="article-nav-link-wrap">
-イラスト描いてみた87
-					</a></p>
-    
-    
-				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="https://syui.ai/blog/post/2021/06/28/android-armv7-arch/" id="article-nav-newer" class="article-nav-link-wrap">
-     androidで動いてたarch-armが壊れた
-				</a></p>
-    
-	</div>
-</nav>
-
 
 
 		
