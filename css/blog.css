@@ -24,7 +24,6 @@ pre {
 		font-size: 6rem;
 	}
 	.containerx { 
-		margin: 0 15px;
 		padding: 0 ;
 		font-size:18px;
 		word-wrap: break-word;
@@ -33,6 +32,9 @@ pre {
 	.containerx p img {
 		width: 100%;
 		padding:0;
+	}
+	article {
+		padding: 15px;
 	}
 }
 

@@ -9,6 +9,7 @@ body {
 	letter-spacing:.3px;
 }
 
+
 a {
 	color:  #EF454A;
 	text-decoration: none;
@@ -39,6 +40,11 @@ p {
 	word-wrap: break-word;
 	word-break: break-all;
 }
+article {
+	padding: 40px;
+	background: #fff;
+}
+
 footer#footer {
 	color:#999;
 	text-align: center;
@@ -56,13 +62,12 @@ footer#footer {
 	}
 	.containerx { 
 		width: auto;
-		margin: 0 15px;
 		font-size:18px;
 		word-wrap: break-word;
 		word-break: break-all;
 	}
 	article {
-		padding: 2px;
+		padding: 15px;
 	}
 }
 
@@ -304,7 +309,4 @@ blockquote.ai {
 	background: #313131;
 }
 
-article {
-	padding: 40px;
-	background: #fff;
-}
+
