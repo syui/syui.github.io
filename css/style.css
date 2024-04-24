@@ -61,6 +61,9 @@ footer#footer {
 		word-wrap: break-word;
 		word-break: break-all;
 	}
+	article {
+		padding: 2px;
+	}
 }
 
 .containerx p img {
@@ -107,7 +110,7 @@ h3 {
 
 
 blockquote {
-	background: #fff;
+	background: #f1f1f1;
 	margin: 20px 0 20px 0;
 	padding: 20px;
 }
@@ -124,8 +127,8 @@ nav#article-nav {
 }
 
 ul {
-  list-style-type: none;
-  display: list-item;
+	list-style-type: none;
+	display: list-item;
 }
 
 ul.cp_list {
@@ -260,7 +263,7 @@ ins.adsbygoogle {
 }
 
 ul.cp_list li i.fas.fa-bars {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .footer-link > a > i.fab.fa-mastodon {
@@ -277,18 +280,18 @@ ul.cp_list li i.fas.fa-bars {
 }
 
 ul.cp_list li img {
-    float: left;
-				padding:7px;
+	float: left;
+	padding:7px;
 }
 
 .moji p img {
-    width: 128px;
+	width: 128px;
 }
 
 .sns-link {
-    padding: 30px 10px;
-    background-color: #fff;
-				margin:20px 0;
+	padding: 30px 10px;
+	background-color: #fff;
+	margin:20px 0;
 }
 
 .vrm-model iframe {
@@ -298,5 +301,10 @@ ul.cp_list li img {
 }
 
 blockquote.ai {
-    background: #313131;
+	background: #313131;
+}
+
+article {
+	padding: 40px;
+	background: #fff;
 }
