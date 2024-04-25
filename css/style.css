@@ -51,27 +51,7 @@ footer#footer {
 	margin: 200px 0 40px 0;
 	font-size: 18px;
 }
-
-@media screen and (max-width:1000px) { 
-	html {
-		font-size: 100%; 
-	}
-	.logo span.icon-phoenix-world{
-		font-size: 60px;
-		font-size: 6rem;
-	}
-	.containerx { 
-		width: auto;
-		font-size:18px;
-		word-wrap: break-word;
-		word-break: break-all;
-	}
-	article {
-		padding: 15px;
-	}
-}
-
-.containerx p img {
+.article p img {
 	width: 100%;
 }
 
@@ -309,4 +289,7 @@ blockquote.ai {
 	background: #313131;
 }
 
-
+.content p img {
+	padding: 20px;
+	width: 100%;
+}
