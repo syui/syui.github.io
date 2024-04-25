@@ -289,7 +289,94 @@ blockquote.ai {
 	background: #313131;
 }
 
-.content p img {
-	padding: 20px;
+span.comment-time {
+	float: right;
+	padding: 0 5px 0 5px;
+	color: #999;
+}
+
+span.comment-time a {
+	color: #999;
+}
+
+span.comment-time a:hover {
+	color: rgb(16, 131, 254);
+}
+
+span.comment-handle {
+	padding: 0 5px 0 5px;
+	position: absolute;
+}
+
+span.comment-handle a {
+	color: #313131;
+}
+
+img.comment {
+	width:60px;
+}
+
+p.comment-body {
+	padding: 5px 40px 15px 40px;
+	border-bottom: solid 1px #eee;
+}
+
+span.comment-text {
+	padding:10px;
+}
+
+button.comment_open {
+	padding:20px 40px 20px 40px;
+	background-color: rgba(184,207,224,.24);
+	border: none;
+	margin:0;
+}
+button.comment_open:hover {
+	color: rgb(16, 131, 254);
+}
+
+.comment_open {
+	text-align: center;
 	width: 100%;
 }
+
+.comment_open p a {
+	color: rgb(16, 131, 254);
+}
+
+.bsky_comment {
+	background-color: #fff;
+	width: 100%;
+	margin: 0px auto;
+	border: solid 1px #eee;
+}
+
+.bsky_comment_embed {
+	background-color: #fff;
+	width: 600px;
+	margin: 0px auto;
+}
+
+.comment {
+	background-color: #fff;
+}
+
+@media screen and (max-width:1000px) { 
+	html {
+		font-size: 100%; 
+	}
+	.logo span.icon-phoenix-world{
+		font-size: 60px;
+		font-size: 6rem;
+	}
+	.containerx { 
+		width: auto;
+		font-size:18px;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+	article {
+		padding: 15px;
+	}
+}
+
