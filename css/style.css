@@ -51,7 +51,8 @@ footer#footer {
 	margin: 200px 0 40px 0;
 	font-size: 18px;
 }
-.article p img {
+
+article p img {
 	width: 100%;
 }
 
@@ -379,4 +380,5 @@ button.comment_open:hover {
 		padding: 15px;
 	}
 }
+
 

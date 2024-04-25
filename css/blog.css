@@ -3,7 +3,7 @@
 	width: auto;
 }
 
-.article p img {
+article p img {
 	width: 50%;
 	padding:0 25%;
 }
@@ -132,6 +132,11 @@ button.comment_open:hover {
 	background-color: #fff;
 }
 
+article p img {
+	width: 100%;
+	padding:0;
+}
+
 @media screen and (max-width:1000px) { 
 	html {
 		font-size: 100%; 
@@ -146,7 +151,7 @@ button.comment_open:hover {
 		word-wrap: break-word;
 		word-break: break-all;
 	}
-	.article p img {
+	article p img {
 		width: 100%;
 		padding:0;
 	}

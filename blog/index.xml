@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Fri, 12 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blueskyのコメントシステムをhugoに取り込んだ</title>
+      <link>https://syui.ai/blog/post/2024/04/25/bluesky/</link>
+      <pubDate>Thu, 25 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/04/25/bluesky/</guid>
+      <description>botに記事のpathを投げると、botがそのpathに有効なコメントシステムを開きます。botに返信していく形でコメントを投稿できます。&#xA;# このコマンドは管理者しか実行できません @yui.syui.ai /comment /blog/post/2024/04/25/bluesky/ これによりblueskyのアカウントを使ってblogのコメントに書き込むことができるようになりました。&#xA;feedやembedを利用できるかもしれないと思いましたが、今のところ利用に適さないと判断しました。そのため、使用していません。</description>
+    </item>
     <item>
       <title>blueskyのcustom feedでslash cmdを有効にした</title>
       <link>https://syui.ai/blog/post/2024/04/12/bluesky/</link>
