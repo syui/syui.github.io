@@ -50,6 +50,14 @@ footer#footer {
 	font-size: 18px;
 }
 
+img {
+	width: 100%;
+}
+
+.content p img {
+	width: 100%;
+}
+
 article p img {
 	width: 100%;
 }
@@ -386,6 +394,10 @@ button.comment_open:hover {
 	}
 	article {
 		padding: 15px;
+	}
+
+	.content p img {
+		width: 100%;
 	}
 }
 
