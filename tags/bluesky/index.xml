@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 25 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://syui.ai/blog/post/2024/04/26/bluesky/</link>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/04/26/bluesky/</guid>
+      <description></description>
+    </item>
     <item>
       <title>blueskyのコメントシステムをhugoに取り込んだ</title>
       <link>https://syui.ai/blog/post/2024/04/25/bluesky/</link>
