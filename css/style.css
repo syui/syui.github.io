@@ -8,8 +8,6 @@ body {
 	-webkit-text-size-adjust: 100%;
 	letter-spacing:.3px;
 }
-
-
 a {
 	color:  #EF454A;
 	text-decoration: none;
@@ -362,6 +360,15 @@ button.comment_open:hover {
 	background-color: #fff;
 }
 
+.loading {
+	background:#f1f1f1;
+	padding:25px;
+}
+.loading_none {
+	background:#f1f1f1;
+	padding:50px;
+}
+
 @media screen and (max-width:1000px) { 
 	html {
 		font-size: 100%; 
@@ -380,5 +387,4 @@ button.comment_open:hover {
 		padding: 15px;
 	}
 }
-
 
