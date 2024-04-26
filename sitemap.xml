@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.ai/blog/post/2024/04/26/bluesky/</loc>
-    <lastmod>2024-04-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/atproto/</loc>
     <lastmod>2024-04-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,10 +11,16 @@
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2024-04-26T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://syui.ai/tags/hugo/</loc>
+    <lastmod>2024-04-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/</loc>
     <lastmod>2024-04-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/04/26/bluesky/</loc>
     <lastmod>2024-04-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/04/25/bluesky/</loc>
@@ -424,9 +427,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/23/domain/</loc>
     <lastmod>2023-03-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/hugo/</loc>
-    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/03/22/domain/</loc>
     <lastmod>2023-03-22T00:00:00+00:00</lastmod>
