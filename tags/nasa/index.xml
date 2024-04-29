@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nasa on syui.ai</title>
+    <link>https://syui.ai/tags/nasa/</link>
+    <description>Recent content in Nasa on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/nasa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>solar-system</title>
+      <link>https://syui.ai/blog/post/2024/04/28/nasa/</link>
+      <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/04/28/nasa/</guid>
+      <description>この前、nasaのvoyager-1の不具合が修正された話がありました。&#xA;私もニュース媒体でそれを知り、最もわかりやすかったのはgigazine.netの記事だったと思います。&#xA;nasaにはsolar-systemがあって、そこではvoyagerのstoryも公開されています。&#xA;yui.syui.aiのレイアウトを考えてて、あれも宇宙に関係した話なのでsolar-systemを自前で作りたいなと思い作ってみました。&#xA;host : https://yui.syui.ai/pkg/solar 例えば、camera:earthにしてみてください。&#xA;参考にしたのはsolarcg/SolarSysです。</description>
+    </item>
+  </channel>
+</rss>
