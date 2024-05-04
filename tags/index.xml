@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Genshin</title>
+      <link>https://syui.ai/tags/genshin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/genshin/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Nasa</title>
       <link>https://syui.ai/tags/nasa/</link>
@@ -35,13 +42,6 @@
       <link>https://syui.ai/tags/hugo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/hugo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Genshin</title>
-      <link>https://syui.ai/tags/genshin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/genshin/</guid>
       <description></description>
     </item>
     <item>
