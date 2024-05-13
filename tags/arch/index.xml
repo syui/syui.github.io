@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxでwifiがfreezeする2</title>
+      <link>https://syui.ai/blog/post/2024/05/13/arch/</link>
+      <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/05/13/arch/</guid>
+      <description>archlinuxがfreeze(フリーズ)する現象は何度か確認されていて、macbook airにインストールしているものにのみ発生します。&#xA;以前、高頻度にfreezeを引き起こしていたのはkernel modulesのrtw88_8821ceです。blacklist rtw88_8821ceすることで回避できます。&#xA;しかし、これを回避してもたまにfreezeすることがあって、freezeするとethで接続しているネットワーク全体、つまり、ルーターの機能を停止させてしまうというよくわからない現象が発生していました。&#xA;この現象は不定期でかつ何らかのアクションがトリガーになっているわけではありません。放置しておくとたまに発生するみたいな感じです。&#xA;そして、wifi接続の場合はルーターに影響を及ぼすことはありませんが、eth接続の場合はネットワーク全体が止まりました。そのルーターに接続されている他のパソコンもネットワークが止まります。&#xA;これもwifiに関連するドライバが影響を及ぼしていました。そして、wifiデバイスを立ち上げていない場合でも発生します。&#xA;wifiを使わない場合は以下のようなbroadcom関連のpakcageを削除しましょう。&#xA;$ pacman -Rs broadcom-wl </description>
+    </item>
     <item>
       <title>archベースのaiosを作った</title>
       <link>https://syui.ai/blog/post/2024/02/11/aios/</link>

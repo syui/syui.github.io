@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 02 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch</title>
+      <link>https://syui.ai/tags/arch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/arch/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Genshin</title>
       <link>https://syui.ai/tags/genshin/</link>
@@ -91,13 +98,6 @@
       <link>https://syui.ai/tags/aios/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/aios/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Arch</title>
-      <link>https://syui.ai/tags/arch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/arch/</guid>
       <description></description>
     </item>
     <item>
