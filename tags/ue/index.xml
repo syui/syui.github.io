@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5のpixel streamingを試してみる</title>
+      <link>https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/</link>
+      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/</guid>
+      <description>pixel-streamingを使うとwebでゲームを配信できます。&#xA;まずpluginを導入して、previewしてみましょう。プラットフォームの横にpixel streamingの項目が追加されているので、シグナリングサーバーを起動とレベルエディタをストリーミングを選択して、レベルを再生します。localhost:80にアクセスするとゲームをプレイできます。&#xA;大体このよう流れですが、ゲームをbuildするとpixel-streaming用の.exeができるので、それをserverに置いて実行します。&#xA;そして、streaming(port:8888)とplayer(port:80)を起動します。&#xA;https://github.com/EpicGamesExt/PixelStreamingInfrastructure&#xA;$ git clone https://github.com/EpicGamesExt/PixelStreamingInfrastructure # https://github.com/EpicGamesExt/PixelStreamingInfrastructure/tree/master/SignallingWebServer/platform_scripts/cmd $ git checkout UE5.3 $ cd PixelStreamingInfrastructure/SignallingWebServer/platform_scripts/cmd $ ./setup.bat $ ./Start_SignallingServer.ps1 WebSocket listening to Streamer connections on :8888 WebSocket listening to Players connections on :80 Http listening on *: 80 serverのipが1.1.1.1だったとして、1.1.1.1:80にアクセスすればプレイできます。&#xA;linux用にbuildして、dockerを使うといいのですが、その場合はlinux serverにgpuを積んでおく必要があります。これにplayerもついているのかはわかりません。&#xA;$ docker pull pixelstreamingunofficial/pixel-streaming-signalling-server:5.3 docs : https://dev.epicgames.com/documentation/ja-jp/unreal-engine/getting-started-with-pixel-streaming-in-unreal-engine</description>
+    </item>
     <item>
       <title>ue</title>
       <link>https://syui.ai/m/post/ue/</link>
