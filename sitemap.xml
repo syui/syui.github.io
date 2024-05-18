@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue5/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/arch/</loc>
     <lastmod>2024-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/05/13/arch/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/genshin/</loc>
@@ -132,9 +138,6 @@
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/ue5/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/01/23/game/</loc>

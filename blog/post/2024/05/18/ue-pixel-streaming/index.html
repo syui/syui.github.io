@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.126.1">
-		<title>syui.ai</title>
+		<title>ue5のpixel streamingを試してみる | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.ai" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="ue5のpixel streamingを試してみる" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="© syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.ai//og.png" />
-		<meta property="og:url" content="https://syui.ai/" />
+		<meta property="og:url" content="https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/" />
 		<meta property="og:site_name" content="syui.ai" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
-		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
-
-		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
-
-
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
 		<script type="application/ld+json">
 			{
-			  "@context": "http://schema.org",
-			  "@type": "WebSite",
+				"@context": "http://schema.org",
+					"@type": "WebSite",
 					"name": "syui.ai",
 					"url": "https:\/\/syui.ai\/"
 			}
 		</script>
 
-		<link rel="alternate" type="application/json" href="https://syui.ai/index.json" title="syui.ai" />
-		</head>
+		<link rel="stylesheet" href="https://syui.ai//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -68,7 +68,7 @@
 		<header id="header">
 			
 			<div class="logo">
-				<a href="/"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -93,142 +93,73 @@
 
 </svg>
 </a>
-				<div id="aiterm" style="display:none;">
-	<link rel="stylesheet" href="https://term.syui.ai/term/pkg/jquery.terminal/css/jquery.terminal.css" />
-	<link rel="stylesheet" href="https://term.syui.ai/term/css/terminal.css" />
-	<script src="https://term.syui.ai/term/pkg/axios/dist/axios.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/jquery.terminal/js/jquery.terminal.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-	<script src="https://term.syui.ai/term/js/terminal.js"></script>
-	<app></app>
-	<script src="https://term.syui.ai/term/js/bundle.js"></script>
-	<script src="https://term.syui.ai/term/pkg/hotkeys-js/dist/hotkeys.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/hotkeys-js/dist/terminal.js"></script>
-	
-</div>
-
 			</div>
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote class="ai">
-	<p>
-	<div class="footer-link">
-		<a href="https://yui.syui.ai"><span class="icon-ai"></span></a>
-	</div>
-	</p>
-</blockquote>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-05-18 / <a href="https://bsky.syui.ai">@syui</a>
 
-
-<div class="content-top">
-
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2024-05-18<p><a id="fmove" href="https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/" class="lmove">ue5のpixel streamingを試してみる</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-05-13<p><a href="https://syui.ai/blog/post/2024/05/13/arch/" class="lmove">archlinuxでnetworkがfreezeする</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-05-02<p><a href="https://syui.ai/blog/post/2024/05/02/genshin/" class="lmove">原神、最新螺旋攻略ガイド</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-05-01<p><a href="https://syui.ai/blog/post/2024/05/01/genshin/" class="lmove">原神、ヌヴィレットの評価</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-04-28<p><a href="https://syui.ai/blog/post/2024/04/28/nasa/" class="lmove">solar-system</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-04-26<p><a href="https://syui.ai/blog/post/2024/04/26/bluesky/" class="lmove">このサイトをどうしようか考えている</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-04-25<p><a href="https://syui.ai/blog/post/2024/04/25/bluesky/" class="lmove">blueskyのコメントシステムをhugoに取り込んだ</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-
-		</ul>
-	</div>
-</div>
-
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
-
-<div class="sns-link">
-
-
-	<p><i class="fab fa-github"></i> <a href="https://github.com/syui/" target="_blank">syui</a></p>
-	<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/syui__" target="_blank">syui__</a></p>
-
-	<p>
-	 <i class="fa-brands fa-bluesky"></i> <a href="https://bsky.app/profile/syui.ai" target="_blank" class="bluesky-icon">syui.ai</a>
-	</p>
-	<p><i class="fab fa-mastodon"></i> <a rel="me" href="https://mstdn.syui.ai/@syui" target="_blank">@syui@syui.ai</a>
-	<p><i class="fa-solid fa-message"></i> <a href="https://matrix.to/#/@syui:syui.ai" target="_blank">@syui:syui.ai</a></p>
-	<p><i class="fab fa-git-alt"></i> <a href="https://git.syui.ai/syui" target="_blank">@git.syui.ai:syui</a></p>
-
-	
-</div>
-
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/ue5/">ue5</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		</div>
 
+		<h2>ue5のpixel streamingを試してみる</h2>
+
+		<p><code>pixel-streaming</code>を使うとwebでゲームを配信できます。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/ue5_pixel_streaming_2024-05-19-3.58.09.png" alt=""></p>
+<p>まずpluginを導入して、previewしてみましょう。プラットフォームの横に<code>pixel streaming</code>の項目が追加されているので、<code>シグナリングサーバーを起動</code>と<code>レベルエディタをストリーミング</code>を選択して、レベルを再生します。<code>localhost:80</code>にアクセスするとゲームをプレイできます。</p>
+<p>大体このよう流れですが、ゲームをbuildするとpixel-streaming用の<code>.exe</code>ができるので、それをserverに置いて実行します。</p>
+<p>そして、streaming(port:8888)とplayer(port:80)を起動します。</p>
+<p><a href="https://github.com/EpicGamesExt/PixelStreamingInfrastructure">https://github.com/EpicGamesExt/PixelStreamingInfrastructure</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:windows.ps1" data-lang="sh:windows.ps1"><span style="display:flex;"><span>$ git clone https<span style="color:#960050;background-color:#1e0010">:</span>//github.com/EpicGamesExt/PixelStreamingInfrastructure
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/EpicGamesExt/PixelStreamingInfrastructure/tree/master/SignallingWebServer/platform_scripts/cmd</span>
+</span></span><span style="display:flex;"><span>$ git checkout UE5.3
+</span></span><span style="display:flex;"><span>$ cd PixelStreamingInfrastructure/SignallingWebServer/platform_scripts/cmd
+</span></span><span style="display:flex;"><span>$ ./setup.bat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ./Start_SignallingServer.ps1
+</span></span><span style="display:flex;"><span>WebSocket listening to Streamer connections on <span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">8888</span>
+</span></span><span style="display:flex;"><span>WebSocket listening to Players connections on <span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>Http listening on *<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><p>serverのipが<code>1.1.1.1</code>だったとして、<code>1.1.1.1:80</code>にアクセスすればプレイできます。</p>
+<p>linux用にbuildして、dockerを使うといいのですが、その場合はlinux serverにgpuを積んでおく必要があります。これにplayerもついているのかはわかりません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker pull pixelstreamingunofficial/pixel-streaming-signalling-server:5.3
+</span></span></code></pre></div><p>docs : <a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/getting-started-with-pixel-streaming-in-unreal-engine">https://dev.epicgames.com/documentation/ja-jp/unreal-engine/getting-started-with-pixel-streaming-in-unreal-engine</a></p>
+
+
+		
+
+	</div>
+</article>
+
+<link href="/js/comment/app.js" rel="preload" as="script">
+<link href="/js/comment/chunk-vendors.js" rel="preload" as="script">
+<div id="comment"></div>
+<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+<script src="/js/comment/chunk-vendors.js"></script>
+<script src="/js/comment/app.js"></script>
+
+
+</div>
 		<script src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>
