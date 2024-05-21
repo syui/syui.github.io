@@ -41,14 +41,14 @@ p {
 
 article {
 	margin:100px 0px;
-	padding: 40px;
+	padding: 40px 40px 140px 40px;
 	background: #fff;
 }
 
 footer#footer {
 	color:#999;
 	text-align: center;
-	margin: 200px 0 40px 0;
+	margin: 40px 0;
 	font-size: 18px;
 }
 
@@ -146,17 +146,7 @@ ul.cp_list li > p > a {
 ul.cp_list li > span.icon-moon {
 	color: #0e0e0e;		
 }
-.footer-link > a > i.fab.fa-twitter {
-	color: rgba(52	135	236);		
-}
-.footer-link > a > i.fab.fa-github {
-	color: rgba(1	1	1);		
-}
 
-.footer-link > a > i.fas.fa-rss {
-	color: #f4a316;		
-	font-size: 23px;
-}
 i.fa-brands.fa-slack {
 	color: #b8cfe0;
 }
@@ -170,13 +160,27 @@ a.matrix-icon {
 	bottom: 4px;
 }
 
-.footer-link > a > span.icon-ai {
+.footer-link {
+	margin: 100px 0 0 0;
+	font-size:20px;
+	text-align: center;
+}
+
+span.footer-link a {
+	padding: 10px;
+	color: #ccc;
+}
+span.footer-link a:hover {
+	color: #EF454A;
+}
+
+.top-link {
+	text-align: center;
+}
+
+.top-link > a > span.icon-ai {
 	font-size:25px;
 	color: #fff700;
-	margin:10px;
-}
-.footer-link > a > span.icon-api {
-	font-size:25px;
 	margin:10px;
 }
 
@@ -215,14 +219,6 @@ pre > code {
 	letter-spacing: 0;
 }
 
-.footer-link {
-	font-size:30px;
-	text-align: center;
-}
-.footer-link > a > i {
-	padding:9px;
-}
-
 h2 {
 	line-height: 2rem;
 	padding: 30px 0;
@@ -259,19 +255,6 @@ ins.adsbygoogle {
 
 ul.cp_list li i.fas.fa-bars {
 	margin-bottom: 30px;
-}
-
-.footer-link > a > i.fab.fa-mastodon {
-	color:#945ecd;
-}
-
-.footer-link > a > i.fab.fa-git-alt {
-	color:#4cae2e;
-}
-
-.footer-link > a > span.icon-home {
-	font-size: 27px;
-	padding: 7px;
 }
 
 ul.cp_list li img {
@@ -399,7 +382,7 @@ span.icon-git {
 		word-break: break-all;
 	}
 	article {
-		padding: 15px;
+		padding: 15px 15px 100px 15px;
 	}
 
 	.content p img {
