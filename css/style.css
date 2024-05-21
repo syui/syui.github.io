@@ -166,6 +166,10 @@ a.matrix-icon {
 	text-align: center;
 }
 
+.footer-link a span.icon-ai{
+	font-size:20px;
+}
+
 span.footer-link a {
 	padding: 10px;
 	color: #ccc;
@@ -364,7 +368,11 @@ button.comment_open:hover {
 }
 
 span.icon-git {
-    font-size: 20px;
+	font-size: 20px;
+}
+
+span.icon-syui {
+	font-size: 20px;
 }
 
 @media screen and (max-width:1000px) { 
