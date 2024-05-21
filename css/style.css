@@ -38,7 +38,9 @@ p {
 	word-wrap: break-word;
 	word-break: break-all;
 }
+
 article {
+	margin:100px 0px;
 	padding: 40px;
 	background: #fff;
 }
@@ -376,6 +378,10 @@ button.comment_open:hover {
 .loading_none {
 	background:#f1f1f1;
 	padding:50px;
+}
+
+span.icon-git {
+    font-size: 20px;
 }
 
 @media screen and (max-width:1000px) { 
