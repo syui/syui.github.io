@@ -99,7 +99,7 @@
 
 <article>
 	<div class="content">
-		<div class="post-time-date">update : 2024-02-01</div>
+		<div class="post-time-date">update : 2024-05-27</div>
 		<div class="post-time-date">2024-01-29 / <a href="https://bsky.syui.ai">@syui</a>
 
 		
@@ -144,100 +144,83 @@
 
 		<h2>ue</h2>
 
-		<p>ここでは<a href="https://www.epicgames.com/">epic games</a>の<code>unreal engine 5</code>の使い方をまとめます。</p>
+		<p>ここでは<a href="https://www.epicgames.com/">epic games</a>の<a href="https://www.unrealengine.com/ja/unreal-engine-5">unreal engine 5</a>の使い方をまとめます。</p>
 <p>ブログで説明しづらい部分が多いので<a href="https://blueprintue.com/profile/ai/">blueprintue</a>を参考にしてください。</p>
 <ul>
-<li>src : <a href="https://git.syui.ai/ai/ue">https://git.syui.ai/ai/ue</a></li>
+<li>repo : <a href="https://git.syui.ai/ai/ue">https://git.syui.ai/ai/ue</a></li>
+<li>blueprint : <a href="https://blueprintue.com/profile/ai">https://blueprintue.com/profile/ai</a></li>
 </ul>
-<h2 id="for-mac">for mac</h2>
-<p>mac(apple silicon)でも動作しますが、<code>package build</code>は鬼門です。絶対にやめましょう。時間がもったいない。</p>
-<p>ue5は、基本的にwindowsのpakcage buildはすぐに通りますが、それ以外では難しいでしょう。</p>
-<p>たとえ1度だけbuildが通ったとしても、もし開発を続ける場合、windowsとmacの両方で動作を安定させることはできません。</p>
-<p>windowsで開発するのがおすすめです。macでの開発はやめておきましょう。</p>
-<h2 id="vrm">vrm</h2>
-<p><a href="https://github.com/ruyo/VRM4U/releases">https://github.com/ruyo/VRM4U/releases</a></p>
-<p><a href="https://vroid.com/">vroid</a>を読み込むpluginである<a href="https://ruyo.github.io/VRM4U/">vrm4u</a>を使用します。現在、<a href="https://github.com/pixiv/vroid-sdk-developers/discussions/118">vroid sdk</a>というものも登場しています。</p>
-<p>macで使用するには大変ですが<code>./Plugins/VRM4U/ThirdParty/assimp/lib/Mac/libassimp.a</code>を用意してください。独自buildが必要です。</p>
-<p><a href="https://ruyo.github.io/VRM4U/03_mac">https://ruyo.github.io/VRM4U/03_mac</a></p>
-<h2 id="outline">outline</h2>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231202_203956.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.34.39.png" alt=""></p>
-<p>これはoutline(アウトライン)やnormal line(法線)と一般に言われているものです。</p>
-<p>それをoverlay materialで実現しています。</p>
-<h2 id="調整">調整</h2>
-<p>基本的には<a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">Superhero Flight Animations</a>を使用してmodelの調整を行います。</p>
-<p><code>Superhero Flight Animations</code>は<code>./Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5</code>で<code>./Content/SuperheroFlight/Blueprints/Components/BP_SuperheroFight</code>を読み込んでいます。</p>
-<p><code>BP_Player_UE5</code>を開いて<code>SuperheroFlightComponent</code>のところが設定ファイルになっていて、例えば、<code>flying speed</code>、つまり、飛行速度などを変更できます。</p>
-<p>基本的には、ここのassetsにanimationを入れることで機能します。もし機能しない場合の変更箇所を書きます。</p>
-<p><img src="/img/ue-2024-02-01-7.36.38.png" alt=""></p>
-<p>いくつかのanimationは自分で用意したものに切り替えます。</p>
-<p><code>ABP_Player_ai</code>, <code>BP_Player_UE5</code>を新たに用意し、それを読み込むようにします。</p>
-<p><code>./Content/SuperheroFlight/Characters/Mannequins/Animations</code>をリターゲットしてanimationを作成、それをanim montageにします。</p>
-<h2 id="idlewalk">idle/walk</h2>
-<p>かっこいいものに切り替えます。おかしな移動になっていました。</p>
+<p><code>ue5.4</code>がリリースされました。updateしてみましたが、色々と動かなくなっています。そして、前よりも頻繁に落ちるようになりました。</p>
+<p>動かなくなった箇所は以下の通り。</p>
+<ol>
+<li>飛行するとカメラがモデル内部に入り込む / superhero fligth animations / ABP_flying, apply additive, scale</li>
+<li>飛行の上下左右の向きが反映されない / superhero fligth animations / ABP_flying, apply additive</li>
+</ol>
+<p>今回、pluginとengineをupdateしたところ、髪の毛がモデルの内部に入り込むことがなくなりました。これにより<a href="https://github.com/pafuhana1213/KawaiiPhysics">KawaiiPhysics</a>が不要になりました。なお、ue5.3でもこの現象がなくなっていることを確認しています。とはいえ、modelやplugin, engineなどあらゆる依存関係が考えられるので、あくまで個人的なケースです。</p>
+<p>ue5.4で最初から構築した手順を記録します。</p>
+<h2 id="vrm4u--superhero-fligth-animations">vrm4u + superhero fligth animations</h2>
+<p>まずは<a href="https://github.com/pixiv/vroid-sdk-developers">vrm</a>を動かせるようにします。基本的なコントローラーは<code>superhero flight animations</code>を使用します。</p>
 <ul>
-<li>ABP_Player_ai :  <code>AnimGraph &gt; Locomotion &gt; idle</code></li>
-<li>ABP_Player_ai :  <code>AnimGraph &gt; Locomotion &gt; walk</code></li>
+<li><a href="https://github.com/ruyo/VRM4U">vrm4u</a></li>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">superhero fligth animations</a></li>
 </ul>
-<p><img src="/img/ue-2024-02-01-7.36.36.png" alt=""></p>
-<p>使用しているanimationに<code>root motion</code>を設定します。</p>
-<p><img src="/img/ue-2024-02-01-7.36.37.png" alt=""></p>
-<h2 id="jump">jump</h2>
-<p>かっこいいものに切り替えます。<code>root-motion</code>が動きませんでした。</p>
+<p><code>ai.vrm</code>をimportするとして重要なファイルは以下の通り。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># c:/project/yui</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Content
+</span></span><span style="display:flex;"><span>├─SuperheroFlight
+</span></span><span style="display:flex;"><span>│    ├─Blueprints/Characters/BP_Player_UE5
+</span></span><span style="display:flex;"><span>│    └─Characters/Mannequins/Animations/ABP_Player_UE5
+</span></span><span style="display:flex;"><span>└─yui
+</span></span><span style="display:flex;"><span>    ├─BP_Player_ai
+</span></span><span style="display:flex;"><span>    ├─anim
+</span></span><span style="display:flex;"><span>    │   └─ABP_Player_ai
+</span></span><span style="display:flex;"><span>    └─model
+</span></span><span style="display:flex;"><span>        ├─SK_ai
+</span></span><span style="display:flex;"><span>        └─RTG_ai
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Pluings
+</span></span><span style="display:flex;"><span>    └─VRM4U
+</span></span></code></pre></div><p>まず<code>Content/yui/model</code>に<code>vrm</code>を入れます。インポートします。マテリアルタイプは<code>subsurface</code>を使用します。</p>
+<p><img src="/m/post/ue/ue5_2024-05-28_125510.png" alt=""></p>
+<p><code>Content/yui/model/RTG_xxx</code>を開きます。</p>
+<p><img src="/m/post/ue/ue5_2024-05-28_130045.png" alt=""></p>
+<p>ソースに<code>SuperheroFlight</code>のモデルを選択して、調整します。アニメが動くか確認してください。ポーズも重要です。</p>
+<p><code>ABP_Player_UE5</code>を右クリックしてリターゲティングします。先ほど設定した<code>RTG_xxx</code>を指定してください。すべてのアニメを選択してリターゲティングを実行。<code>Content/yui/anim</code>に保存します。そこに<code>ABP_Player_xxx</code>ができます。ファイルの名前と場所はできる限り変更しないでください。バグって動かなくなり、再度リターゲティングしても動かないanimが生成されます。こうなるとvrmをインポートしなおさなければなりません。</p>
 <ul>
-<li>ABP_Player_ai : <code>AnimGraph &gt; Locomotion &gt; jump</code></li>
-<li>ABP_Player_ai : <code>AnimGraph &gt; Locomotion &gt; idle</code></li>
-<li>RTG_ai : <code>target</code>, <code>チェーンマッピング &gt; root</code>を<code>FK &gt; 平行移動モード &gt; Globally Scaled</code>に設定</li>
+<li><code>Content/yui/anim/ABP_Player_xxx</code></li>
 </ul>
-<p>root motionをenableにしても動きません。原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</p>
-<p>bone(ボーン)のrootを選択してFKの平行移動モードをGlobally Scaledに設定します。</p>
-<p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
-<p><img src="/img/ue-2024-02-01-6.59.18.png" alt=""></p>
-<h2 id="hover">hover</h2>
-<p>ものに当たった時のanimationです。</p>
+<p>v5.3では一括で全てリターゲティングできなかったのでanimを探して一つずつやっていました。これがasset側の変更かengine側の変更かはわかりません。</p>
+<p>次に<code>Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5</code>を複製して、<code>Content/yui/BP_Player_xxx</code>を作ります。そこで<code>ABP_Player_xxx</code>を読み込むようにします。MapのGameModeで<code>Content/yui/BP_Player_xxx</code>を使うようにします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5 -&gt; Content/yui/BP_Player_xxx
+</span></span></code></pre></div><p><img src="/m/post/ue/ue5_2024-05-28_151451.png" alt="">
+<img src="/m/post/ue/ue5_2024-05-28_151511.png" alt=""></p>
+<p>ここでそれぞれのアニメーションを当てておきます。</p>
+<p><img src="/m/post/ue/ue5_2024-05-28_151839.png" alt=""></p>
+<h3 id="飛行するとカメラがモデル内部に入り込む">飛行するとカメラがモデル内部に入り込む</h3>
+<p>再生してみると飛行が正常に動きません。カメラがモデル内部に移動します。これは<code>scale</code>が間違っているためです。<code>apply additive</code>が原因でそこのscaleを変更すると回避できます。</p>
+<p>また代わりに<code>blend bone by channel</code>を使用することでも回避できます。</p>
+<p>これはv5.4で発生し、v5.3では発生しません。</p>
 <ul>
-<li>ABP_Player_ai :  <code>EventGraph &gt; Play hover fligh start montage notify event</code></li>
+<li><code>Content/yui/anim/ABP_Player_xxx</code></li>
 </ul>
-<p><img src="/img/ue-2024-02-01-7.31.12.png" alt=""></p>
-<h2 id="land">land</h2>
-<p>着地するときのanimationです。</p>
+<p><img src="/m/post/ue/ue5_2024-05-28_132554.png" alt="">
+<img src="/m/post/ue/ue5_2024-05-28_134214.png" alt="">
+<img src="/m/post/ue/ue5_2024-05-28_134235.png" alt=""></p>
+<p>また、<code>flying &gt; flying state machine -&gt; idle/hover</code>の<code>look_at</code>にエラーが出てるので<code>bone</code>の<code>j_bip_c_neck</code>を入れます。</p>
+<h3 id="飛行の上下左右の向きが反映されない">飛行の上下左右の向きが反映されない</h3>
+<p>飛行すると常に向きが一定になります。視点を動かしても変わりません。</p>
+<p>通常だと、視点を下に向けると、頭も下を向いて移動しますが、それがありません。下に移動してもずっと横飛行を行います。</p>
+<p>これは昔も見たことがある現象です。しかし、その時にどうやって修正したのか覚えていません。</p>
+<p>これもv5.4で発生し、v5.3では発生しません。</p>
+<h3 id="モデルを法線で強調する">モデルを法線で強調する</h3>
+<p>モデルのoutline(法線)を強調する設定を行います。<code>Content/yui/model/SK_xxx</code>を開いて<code>レンダリング &gt; overlay material</code>で以下のマテリアルを作成して適用します。</p>
 <ul>
-<li>BP_SuperheroFlighComponent : <code>EventGraph &gt; Hit Event Collapse Graph</code></li>
+<li><code>Content/yui/model/SK_xxx</code></li>
 </ul>
-<p><img src="/img/ue-2024-02-01-7.14.49.png" alt=""></p>
-<p><code>Play anim montage</code>に指定したものを使用するように変更します。</p>
-<p>指定したanim montageの通知に<code>BPANS_SetlsSuperheroloading</code>などを追加します。既存のanim montageである<code>./Content/SuperheroFlight/Characters/Mannequins/Animations/Flight/Land/</code>を参考にしてください。</p>
-<p><img src="/img/ue-2024-02-01-7.04.47.png" alt=""></p>
-<h2 id="sprint">sprint</h2>
-<p>ダッシュです。これは<code>BP_Player_UE5 &gt; Input Event Graph &gt; sprint</code>の最後に<code>Start Flight</code>を入れます。</p>
-<ul>
-<li>BP_Player_UE5 : <code>Input Event Graph &gt; sprint</code></li>
-</ul>
-<h2 id="kawaiiphysics">kawaiiphysics</h2>
-<p><a href="https://github.com/pafuhana1213/KawaiiPhysics/releases">https://github.com/pafuhana1213/KawaiiPhysics/releases</a></p>
-<p>vrmの髪の毛などを動かすために使います。</p>
-<ul>
-<li>ABP_Player_ai :  <code>AnimGraph</code></li>
-</ul>
-<p><img src="/img/ue-2024-02-01-7.24.20.png" alt=""></p>
-<p>主に<code>hair1_08</code>, <code>hair1_09</code>, <code>hair1_10</code>を指定して各種limitを入れ、調整していきます。</p>
-<p>limitは髪の毛が体を貫通しないようにするためのものです。主に<code>Spherical Limits</code>の丸形と<code>Capsule Limits</code>の筒型を使用します。大きさや傾きなどを調整してください。<code>head</code>や<code>hip</code>, <code>arm</code>を指定するといいでしょう。</p>
-<h2 id="sword">sword</h2>
-<p>新しくswordのactor(static mesh)を作成し、collisionを作ります。</p>
-<p><img src="/img/ue-2024-02-01-7.36.35.png" alt=""></p>
-<p>それを<code>BP_Player_UE5</code>に装備し、motionを作成し、キーに割り当てます。剣をしまうのはniagaraで作成しました。</p>
-<iframe src="https://blueprintue.com/render/cu104wg0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by <a href="https://blueprintue.com/blueprint/cu104wg0/">ai</a></p>
-<h2 id="varest">varest</h2>
-<p>pluginである<a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a>のpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
-<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
-<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/4qo0qydu/">ai</a></p>
-<h2 id="login">login</h2>
-<p>login処理です。atprotoと連携できればいいなと考えています。</p>
-<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
-<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/9v24l5h6/">ai</a></p>
+<p><img src="/m/post/ue/ue5_2024-05-28_135604.png" alt=""></p>
+<iframe src="https://blueprintue.com/render/t1xc2azx/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p><a href="https://blueprintue.com/blueprint/t1xc2azx/">blueprintue.com</a></p>
 
 
 		
