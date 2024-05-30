@@ -221,6 +221,47 @@
 <p><img src="/m/post/ue/ue5_2024-05-28_135604.png" alt=""></p>
 <iframe src="https://blueprintue.com/render/t1xc2azx/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
 <p><a href="https://blueprintue.com/blueprint/t1xc2azx/">blueprintue.com</a></p>
+<h3 id="待機モーションをランダムにする">待機モーションをランダムにする</h3>
+<p><code>ABP_xxx</code>の<code>locomotion &gt; idle</code>にて<code>random sequence player</code>を追加します。詳細からanimを追加してランダムで再生できます。</p>
+<p><img src="/m/post/ue/ue5_2024-05-30_132836.png" alt=""></p>
+<h3 id="アニメーションにエフェクトを付ける">アニメーションにエフェクトを付ける</h3>
+<p>animに時間制限のエフェクトを付けます。通知に<code>timed niagara effect</code>を追加して詳細からniagaraを追加します。</p>
+<p><img src="/m/post/ue/ue5_2024-05-30_132915.png" alt=""></p>
+<h3 id="剣のモーションを作る">剣のモーションを作る</h3>
+<p>新しくswordのactor(static mesh)を作成し、collisionを作ります。</p>
+<p>それを<code>BP_Player_UE5</code>に装備し、motionを作成し、キーに割り当てます。剣をしまうのはniagaraで作成しました。</p>
+<iframe src="https://blueprintue.com/render/cu104wg0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p>by <a href="https://blueprintue.com/blueprint/cu104wg0/">ai</a></p>
+<p>これは<code>sword_open</code>, <code>sword_close</code>というactor, blueprintを作成して、それを<code>BP_Player</code>のmeshに当てます。そして、<code>set visible</code>で切り替えています。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.01.png" alt=""></p>
+<p>ではparticle(粒子)はどうやって実現しているのかというと<code>niagara</code>です。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.02.png" alt=""></p>
+<p>まずはboneを追加します。このboneを元にtrailというeffectをつけていくわけです。<code>sword-trail</code>は検索タグとしても有効です。effectはanim sequence(アニメ・シーケンス)で設定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.35.44.png" alt=""></p>
+<p><code>PSTemplate</code>, <code>Socket Name</code>を指定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203306.png" alt=""></p>
+<p>また、niagaraで作成してもいいですね。<code>sword-trail-naigara</code>とでも検索してみてください。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0vYPkxEZEtQ">ソードトレイル</a></li>
+</ul>
+<p>sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。</p>
+<p>これは<code>root motion</code>をenableにしたり、他の設定をやっても戻ってしまうのです。</p>
+<p>原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</p>
+<p>これを変動するようにしないといけないのですが、bone(ボーン)の<code>root</code>を選択してFKの平行移動モードを<code>Globally Scaled</code>に設定します。</p>
+<p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.37.18.png" alt=""></p>
+<ul>
+<li><a href="https://happynetwork2019.hatenablog.com/entry/2023/10/02/191340#:~:text=%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%83%96%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88,%E3%81%95%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B%E3%80%82">UE5でルートモーションを有効にしたままリターゲットをする方法</a></li>
+</ul>
+<h3 id="apiを使って処理を行う">apiを使って処理を行う</h3>
+<p>pluginである<a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a>のpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
+<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
+<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
+<p>by : <a href="https://blueprintue.com/blueprint/4qo0qydu/">ai</a></p>
+<p>login処理です。atprotoと連携できればいいなと考えています。</p>
+<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
+<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p>by : <a href="https://blueprintue.com/blueprint/9v24l5h6/">ai</a></p>
 
 
 		

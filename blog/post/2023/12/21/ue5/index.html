@@ -249,22 +249,6 @@
 <p><img src="/img/ue-2024-02-01-7.24.20.png" alt=""></p>
 <p>主に<code>hair1_08</code>, <code>hair1_09</code>, <code>hair1_10</code>を指定して各種limitを入れ、調整していきます。</p>
 <p>limitは髪の毛が体を貫通しないようにするためのものです。主に<code>Spherical Limits</code>の丸形と<code>Capsule Limits</code>の筒型を使用します。大きさや傾きなどを調整してください。<code>head</code>や<code>hip</code>, <code>arm</code>を指定するといいでしょう。</p>
-<h2 id="sword">sword</h2>
-<p>新しくswordのactor(static mesh)を作成し、collisionを作ります。</p>
-<p><img src="/img/ue-2024-02-01-7.36.35.png" alt=""></p>
-<p>それを<code>BP_Player_UE5</code>に装備し、motionを作成し、キーに割り当てます。剣をしまうのはniagaraで作成しました。</p>
-<iframe src="https://blueprintue.com/render/cu104wg0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by <a href="https://blueprintue.com/blueprint/cu104wg0/">ai</a></p>
-<h2 id="varest">varest</h2>
-<p>pluginである<a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a>のpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
-<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
-<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/4qo0qydu/">ai</a></p>
-<h2 id="login">login</h2>
-<p>login処理です。atprotoと連携できればいいなと考えています。</p>
-<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
-<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/9v24l5h6/">ai</a></p>
 
 
 		
