@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-05-20T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/06/13/pc/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/pc/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue5/</loc>
+    <lastmod>2024-06-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/06/12/ue/</loc>
+    <lastmod>2024-06-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2024-05-20T00:00:00+00:00</lastmod>
@@ -14,16 +32,7 @@
     <loc>https://syui.ai/tags/mastodon/</loc>
     <lastmod>2024-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-05-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-05-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-05-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/ue5/</loc>
     <lastmod>2024-05-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/</loc>
@@ -3695,9 +3704,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2017/02/03/private/</loc>
     <lastmod>2017-02-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/pc/</loc>
-    <lastmod>2017-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2017/02/02/pc/</loc>
     <lastmod>2017-02-02T00:00:00+00:00</lastmod>

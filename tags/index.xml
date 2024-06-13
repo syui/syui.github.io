@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pc</title>
+      <link>https://syui.ai/tags/pc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/pc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ue5</title>
+      <link>https://syui.ai/tags/ue5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/ue5/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Bluesky</title>
       <link>https://syui.ai/tags/bluesky/</link>
@@ -28,13 +42,6 @@
       <link>https://syui.ai/tags/ue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ue/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ue5</title>
-      <link>https://syui.ai/tags/ue5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/ue5/</guid>
       <description></description>
     </item>
     <item>
@@ -1232,13 +1239,6 @@
       <link>https://syui.ai/tags/study/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/study/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pc</title>
-      <link>https://syui.ai/tags/pc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/pc/</guid>
       <description></description>
     </item>
     <item>

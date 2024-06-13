@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 20 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>displayのdell g2524hを買った</title>
+      <link>https://syui.ai/blog/post/2024/06/13/pc/</link>
+      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/13/pc/</guid>
+      <description>今までpcのスペックにあまり興味がありませんでした。&#xA;gpuを買ったときにもいいましたがdisplayも同じで、例えば、画質の良さとか個人的にはどうでもよかった。&#xA;もちろん、画質が良いに越したことはないのでしょうけど、そこまで気にしていないというか、そんな感じでした。&#xA;ですが、ゲーム開発していると気になってきたのでdell g2524hというdisplayを買ってみました。&#xA;名前 スペック 値段 dell g2524h FHD(1920x1080) / IPS / 240 Hz / 0.5 ms JPY 28,800 gpuもそうですけど、あんまり詳しくないんですよね。個人的に理解しているところはあるけど、それが合ってるのかわからない。&#xA;例えば、gpuは計算機。何を計算するのかというと主に描写のための計算です。ゲームは描写です。ですから主にゲームの描写に使われることが多いという理解。&#xA;displayはその描写の出力先です。フレッシュレートというものがあり、ある時間内にどれだけ出力できるか数値で表します。例えば、1秒間に1回と3回の性能の違いがあれば、後者のほうが滑らかに映ります。&#xA;いくらgpuが時間内に計算できても出力先にそれを表示できる性能がなければ表示することはできません。&#xA;ということで、ゲームを開発してて特に動きが残像のようになって良くないと思ったので買いました。使っているのは60 Hzです。&#xA;displayはbenqのやつしか買ってこなかったんですけど、今回は違うメーカーのやつを買いました。</description>
+    </item>
+    <item>
+      <title>ue5.4の感想とvrm4uで髪が動くようになっていた話</title>
+      <link>https://syui.ai/blog/post/2024/06/12/ue/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/12/ue/</guid>
+      <description>ue5.3からue5.4にupdateしてみました。結論からいうと5.3をおすすめします。&#xA;色々なバグがありました。具体的には以下のとおりです。&#xA;飛行するとカメラがモデル内部に入り込む / ABP_flying, apply additive, scale 飛行の上下左右の向きが反映されない / ABP_flying, rtg package buildすると髪の毛が動かなくなる / BP_Player こちらで解説しています。&#xA;この中でbuildすると髪の毛が動かなくなる現象について解説します。&#xA;今回の話はvrm4uをupdateすると髪の毛が動くようになっていたことから始まります。&#xA;昔は動かなかったのですが、いつの間にか動くようになっていました。リターゲットしたアニメーションを見てみると内部に髪が入りこまないようになっていたのです。&#xA;しかし、喜んだのもつかの間でpackage buildすると60秒後くらいから動かなくなります。これはstandaloneから確認してください。&#xA;色々な方法で回避することは可能です。例えば、mapにBP_Playerを設置してevent tickでadd child actorすることで持続的に動くようになります。ただこのような解決策は本筋ではありません。&#xA;現状ではKawaiiPhysicsを使って髪を動かしたほうがいいと思います。</description>
+    </item>
     <item>
       <title>linkの集約</title>
       <link>https://syui.ai/blog/post/2024/05/20/bluesky/</link>

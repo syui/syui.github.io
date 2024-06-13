@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5.4の感想とvrm4uで髪が動くようになっていた話</title>
+      <link>https://syui.ai/blog/post/2024/06/12/ue/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/12/ue/</guid>
+      <description>ue5.3からue5.4にupdateしてみました。結論からいうと5.3をおすすめします。&#xA;色々なバグがありました。具体的には以下のとおりです。&#xA;飛行するとカメラがモデル内部に入り込む / ABP_flying, apply additive, scale 飛行の上下左右の向きが反映されない / ABP_flying, rtg package buildすると髪の毛が動かなくなる / BP_Player こちらで解説しています。&#xA;この中でbuildすると髪の毛が動かなくなる現象について解説します。&#xA;今回の話はvrm4uをupdateすると髪の毛が動くようになっていたことから始まります。&#xA;昔は動かなかったのですが、いつの間にか動くようになっていました。リターゲットしたアニメーションを見てみると内部に髪が入りこまないようになっていたのです。&#xA;しかし、喜んだのもつかの間でpackage buildすると60秒後くらいから動かなくなります。これはstandaloneから確認してください。&#xA;色々な方法で回避することは可能です。例えば、mapにBP_Playerを設置してevent tickでadd child actorすることで持続的に動くようになります。ただこのような解決策は本筋ではありません。&#xA;現状ではKawaiiPhysicsを使って髪を動かしたほうがいいと思います。</description>
+    </item>
     <item>
       <title>ue5のpixel streamingを試してみる</title>
       <link>https://syui.ai/blog/post/2024/05/18/ue-pixel-streaming/</link>
@@ -21,7 +28,7 @@
       <link>https://syui.ai/m/post/ue/</link>
       <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/m/post/ue/</guid>
-      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。&#xA;ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。&#xA;repo : https://git.syui.ai/ai/ue blueprint : https://blueprintue.com/profile/ai ue5.4がリリースされました。updateしてみましたが、色々と動かなくなっています。そして、前よりも頻繁に落ちるようになりました。&#xA;動かなくなった箇所は以下の通り。&#xA;飛行するとカメラがモデル内部に入り込む / superhero fligth animations / ABP_flying, apply additive, scale 飛行の上下左右の向きが反映されない / superhero fligth animations / ABP_flying, apply additive 今回、pluginとengineをupdateしたところ、髪の毛がモデルの内部に入り込むことがなくなりました。これによりKawaiiPhysicsが不要になりました。なお、ue5.3でもこの現象がなくなっていることを確認しています。とはいえ、modelやplugin, engineなどあらゆる依存関係が考えられるので、あくまで個人的なケースです。&#xA;ue5.4で最初から構築した手順を記録します。&#xA;vrm4u + superhero fligth animations まずはvrmを動かせるようにします。基本的なコントローラーはsuperhero flight animationsを使用します。&#xA;vrm4u superhero fligth animations ai.vrmをimportするとして重要なファイルは以下の通り。&#xA;# c:/project/yui Content ├─SuperheroFlight │ ├─Blueprints/Characters/BP_Player_UE5 │ └─Characters/Mannequins/Animations/ABP_Player_UE5 └─yui ├─BP_Player_ai ├─anim │ └─ABP_Player_ai └─model ├─SK_ai └─RTG_ai Pluings └─VRM4U まずContent/yui/modelにvrmを入れます。インポートします。マテリアルタイプはsubsurfaceを使用します。&#xA;Content/yui/model/RTG_xxxを開きます。&#xA;ソースにSuperheroFlightのモデルを選択して、調整します。アニメが動くか確認してください。ポーズも重要です。&#xA;ABP_Player_UE5を右クリックしてリターゲティングします。先ほど設定したRTG_xxxを指定してください。すべてのアニメを選択してリターゲティングを実行。Content/yui/animに保存します。そこにABP_Player_xxxができます。ファイルの名前と場所はできる限り変更しないでください。バグって動かなくなり、再度リターゲティングしても動かないanimが生成されます。こうなるとvrmをインポートしなおさなければなりません。</description>
+      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。&#xA;ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。&#xA;repo : https://git.syui.ai/ai/ue blueprint : https://blueprintue.com/profile/ai [ue5.4] vrm4u + superhero fligth animations plugin : vrm4u asset : superhero fligth animations ue5.4がリリースされました。updateしてみましたが、色々と動かなくなっています。そして、前よりも頻繁に落ちるようになりました。結論として5.3を使いましょう。&#xA;動かなくなった箇所は以下の通り。&#xA;飛行するとカメラがモデル内部に入り込む / ABP_flying, apply additive, scale 飛行の上下左右の向きが反映されない / ABP_flying, rtg 今回、pluginとengineをupdateしたところ、髪の毛が動くようになりモデルの内部に入り込むことがなくなりました。以前はKawaiiPhysicsを使って実現していました。なお、ue5.3でもこの現象がなくなっていることを確認しています。とはいえ、modelやplugin, engineなどあらゆる依存関係が考えられるので、あくまで個人的なケースです。&#xA;ue5.4で最初から構築した手順を記録します。&#xA;まずはvrmを動かせるようにします。基本的なコントローラーはsuperhero flight animationsを使用します。&#xA;ai.vrmをimportするとして重要なファイルは以下の通り。&#xA;# c:/project/yui Content ├─SuperheroFlight │ ├─Blueprints/Characters/BP_Player_UE5 │ └─Characters/Mannequins/Animations/ABP_Player_UE5 └─yui ├─BP_Player_ai ├─anim │ └─ABP_Player_ai └─model ├─SK_ai └─RTG_ai Pluings └─VRM4U まずContent/yui/modelにvrmを入れます。インポートします。マテリアルタイプはsubsurfaceを使用します。&#xA;Content/yui/model/RTG_xxxを開きます。&#xA;ソースにSuperheroFlightのモデルを選択して、調整します。アニメが動くか確認してください。ポーズも重要です。&#xA;ABP_Player_UE5を右クリックしてリターゲティングします。先ほど設定したRTG_xxxを指定してください。すべてのアニメを選択してリターゲティングを実行。Content/yui/animに保存します。そこにABP_Player_xxxができます。ファイルの名前と場所はできる限り変更しないでください。バグって動かなくなり、再度リターゲティングしても動かないanimが生成されます。こうなるとvrmをインポートしなおさなければなりません。&#xA;Content/yui/anim/ABP_Player_xxx v5.3では一括で全てリターゲティングできなかったのでanimを探して一つずつやっていました。これがasset側の変更かengine側の変更かはわかりません。&#xA;次にContent/SuperheroFlight/Blueprints/Characters/BP_Player_UE5を複製して、Content/yui/BP_Player_xxxを作ります。そこでABP_Player_xxxを読み込むようにします。MapのGameModeでContent/yui/BP_Player_xxxを使うようにします。&#xA;Content/SuperheroFlight/Blueprints/Characters/BP_Player_UE5 -&amp;gt; Content/yui/BP_Player_xxx ここでそれぞれのアニメーションを当てておきます。</description>
     </item>
     <item>
       <title>ue5のBPでapiを呼び出す方法</title>
