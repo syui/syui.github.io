@@ -7,13 +7,13 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 13 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Pc</title>
-      <link>https://syui.ai/tags/pc/</link>
+      <title>Ue</title>
+      <link>https://syui.ai/tags/ue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/pc/</guid>
+      <guid>https://syui.ai/tags/ue/</guid>
       <description></description>
     </item>
     <item>
@@ -21,6 +21,13 @@
       <link>https://syui.ai/tags/ue5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ue5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pc</title>
+      <link>https://syui.ai/tags/pc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/pc/</guid>
       <description></description>
     </item>
     <item>
@@ -35,13 +42,6 @@
       <link>https://syui.ai/tags/mastodon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/mastodon/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ue</title>
-      <link>https://syui.ai/tags/ue/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/ue/</guid>
       <description></description>
     </item>
     <item>
