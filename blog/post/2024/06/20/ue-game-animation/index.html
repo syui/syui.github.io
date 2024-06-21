@@ -144,18 +144,6 @@
 <p>今回は<code>game animation sample</code>と<code>superhero flight animations</code>を統合してみました。今までのモーションに加えて空を飛べるようにしたのですが、違和感ない形で自動的にブレンドされます。これが想像以上に重要なので<code>5.4.2</code>に追従したほうが良さそうです。</p>
 <p>ただ、今まで開発実装してきたものがすべて作り直しになります。</p>
 <p>インポートできないのかと思われるかもしれませんが、ue5にそんなことできません。動かなくなります。仮に動かせたとしても、おそらく、作り直したほうが早いでしょう。</p>
-<h2 id="作り直すもの">作り直すもの</h2>
-<p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
-<p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
-<ul>
-<li>account login system</li>
-<li>account item system</li>
-<li>character lv system</li>
-<li>character skill</li>
-<li>character sword &amp; collision</li>
-</ul>
-<p>一気に解説します。移動すると経験値が入ります。Lv1になると変身できるようになります。変身すると飛行できるようになります。飛行できる時間はlvに応じて変化します。特殊なアイテムを取るとスキルを覚えます。スキルにはクールタイムやcollisionなどが設定されており、敵が吹っ飛びます。剣のモーションは原作を再現しています。原作では輪が剣になりますので、剣を登場させたときは輪を消さなければなりません。meshを入れ替える処理などを書いています。アイテム画面やストーリー進行などもapiと連携するシステムを作りました。</p>
-<p>これらを全部作り直すことになります。</p>
 <h2 id="game-animation-sampleで飛べるようにする">game animation sampleで飛べるようにする</h2>
 <p><code>game animation sample</code>と<code>superhero flight animations</code>の統合を解説します。</p>
 <p>基本的には<code>BP_SandboxCharacter</code>にeventの<code>IA_Sprit</code>で<code>anim instance class(ABP_Player)</code>を指定しますが<code>BP_Player_UE5</code>から様々な設定や変数を持ってきて動くように改変していきます。</p>
@@ -178,6 +166,18 @@
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_125510.mp4"></video></p>
 <p>しかし、注意点もあります。まずはstandaloneで動作するか確認して落ちるならbuildは通らないと思ったほうがいいでしょう。</p>
 <p>太陽と月を追加するとあまりに負荷が高くなったのか落ちるようになりました。いくつか改善すると治りましたが、この形を採用するとbuildが通らなくなることもあります。</p>
+<h2 id="作り直すもの">作り直すもの</h2>
+<p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
+<p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
+<ul>
+<li>account login system</li>
+<li>account item system</li>
+<li>character lv system</li>
+<li>character skill</li>
+<li>character sword &amp; collision</li>
+</ul>
+<p>一気に解説します。移動すると経験値が入ります。Lv1になると変身できるようになります。変身すると飛行できるようになります。飛行できる時間はlvに応じて変化します。特殊なアイテムを取るとスキルを覚えます。スキルにはクールタイムやcollisionなどが設定されており、敵が吹っ飛びます。剣のモーションは原作を再現しています。原作では輪が剣になりますので、剣を登場させたときは輪を消さなければなりません。meshを入れ替える処理などを書いています。アイテム画面やストーリー進行などもapiと連携するシステムを作りました。</p>
+<p>これらを全部作り直すことになります。</p>
 
 
 		
