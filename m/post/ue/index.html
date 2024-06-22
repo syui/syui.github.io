@@ -239,12 +239,19 @@
 <p>昼と夜がゲーム内で再現されていることがよくあります。これは単にライトと月の絵を背景で回しているだけなのです。しかし、私はゲーム内でもその場所に行くと本物そっくりの天体が動いている、そういうのがいいなと思っていました。</p>
 <p>今回は、それを実現するために<a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/sky-atmosphere-component-in-unreal-engine">sky atmosphere</a>を利用するようにしました。</p>
 <p>また、月などの天体には重力がありませんでした。そのまま丸い球体が浮いているという形だったのです。ですから、上から落下すると月に乗れますが、横からだと乗れません。ぶつかるだけです。これを改善したかった。</p>
-<p><a href="https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4">https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4</a></p>
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_125510.mp4"></video></p>
 <blockquote>
 <p><code>game animation sample</code>には飛び越せるブロックがあります。あれをフィールドに設置して岩にかぶせ見えないようにすることで動作します。見えないようにというのはブロックのmeshをvisibilityで制御します。</p>
 </blockquote>
 <p>しかし、注意点もあります。太陽と月を追加するとあまりに負荷が高くなったのか落ちるようになったことがありました。いくつか改善すると治りましたが、この形を採用するとbuildが通らなくなることもあります。</p>
+<h3 id="custom-gravitygravity-direction">custom gravity(gravity direction)</h3>
+<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_225510.mp4"></video></p>
+<p>youtube : <a href="https://www.youtube.com/watch?v=CZK7QplEbJs">Unreal Engine 5 Tutorial - Custom Gravity UE5.4 Preview</a></p>
+<p>基本的には<code>bp_actor</code>を作成し範囲を設定します。<code>bp_actor</code>を置いたとき惑星(bp_planet)に親子付けするといいですね。この場合はlocationは<code>0</code>, scaleは<code>1.1</code>を設定します。</p>
+<p>動作は<code>bp_player(bp_character)</code>のeventで設定します。具体的には<code>actor begin</code>から<code>gravity direction</code>します。</p>
+<p>gravity directionを無効にする方法が用意されていないようなので、<code>actor end</code>で<code>destory actor</code>して<code>restart player</code>しています。</p>
+<iframe src="https://blueprintue.com/render/tybb0lyd/" scrolling="no" width="100%" height="400px"></iframe>
+<p><a href="https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4">https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4</a></p>
 <h3 id="vrm4uのmaterialについて考える">vrm4uのmaterialについて考える</h3>
 <p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
 <p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>

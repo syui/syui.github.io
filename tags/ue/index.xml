@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5.4のcustom gravityを試す</title>
+      <link>https://syui.ai/blog/post/2024/06/21/ue-gravity/</link>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/21/ue-gravity/</guid>
+      <description>youtube : Unreal Engine 5 Tutorial - Custom Gravity UE5.4 Preview&#xA;基本的にはbp_actorを作成し範囲を設定します。bp_actorを置いたとき惑星(bp_planet)に親子付けするといいですね。この場合はlocationは0, scaleは1.1を設定します。&#xA;動作はbp_player(bp_character)のeventで設定します。具体的にはactor beginからgravity directionします。&#xA;gravity directionを無効にする方法が用意されていないようなので、actor endでdestory actorしてrestart playerしています。&#xA;https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4</description>
+    </item>
     <item>
       <title>ue5.4にupdateすることにした</title>
       <link>https://syui.ai/blog/post/2024/06/20/ue-game-animation/</link>
