@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Fri, 21 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5.4でcity sampleとgame animation sampleを統合する</title>
+      <link>https://syui.ai/blog/post/2024/06/22/ue-city-sample/</link>
+      <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/22/ue-city-sample/</guid>
+      <description>今回は、city sampleとgame animation sampleを統合する方法を紹介します。どちらもepic gamesが提供しているので無料で使えます。最初のスターターキットとして使用されることが多くなるはずです。&#xA;city sampleのほうが複雑なので、city sampleをベースにgame animation sampleをコピーする形で統合します。&#xA;まずコピーするファイルです。&#xA;# game-animation-sample Content Binaries └─Win64 └─GameAnimationSampleEditor.target 編集するファイルです。これはcity sampleの方を編集します。&#xA;# city-sample city-sample.uproject Binaries └─Win64 └─UnrealEditor.modules Config └─DefaultGameplayTags.ini まずrootにある${project_name}.uprojectにgame animation sampleのpluginを追加します。これはコピー側のuprojectを参照してください。長くなるのでここでは全て列挙していません。&#xA;&amp;#34;Plugins&amp;#34; : [ { &amp;#34;Name&amp;#34;:&amp;#34;ModelingToolsEditorMode&amp;#34;,&amp;#34;Enabled&amp;#34;:true,&amp;#34;TargetAllowList&amp;#34;:[&amp;#34;Editor&amp;#34;] }, . . . ] 次にBinaries/Win64/UnrealEditor.modulesもコピー側のものを見て追記します。&#xA;{ &amp;#34;BuildId&amp;#34;: &amp;#34;0000000&amp;#34;, &amp;#34;Modules&amp;#34;: { &amp;#34;CitySample&amp;#34;: &amp;#34;UnrealEditor-CitySample.dll&amp;#34;, &amp;#34;CitySampleAnimGraphRuntime&amp;#34;: &amp;#34;UnrealEditor-CitySampleAnimGraphRuntime.dll&amp;#34;, &amp;#34;CitySampleEditor&amp;#34;: &amp;#34;UnrealEditor-CitySampleEditor.dll&amp;#34;, &amp;#34;GameAnimationSample&amp;#34;: &amp;#34;UnrealEditor-GameAnimationSample.dll&amp;#34; } } 次にConfig/DefaultGameplayTags.iniもコピー側を見て追記します。&#xA;+GameplayTagList=(Tag=&amp;#34;GameplayCue.ContextualAnim&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Default&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Idle&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Loops&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Pivots&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Starts&amp;#34;,DevComment=&amp;#34;&amp;#34;) +GameplayTagList=(Tag=&amp;#34;MotionMatching.Stops&amp;#34;,DevComment=&amp;#34;&amp;#34;) 大体こんな感じでやればgame animation sample(ABP_SandboxCharacter)が動くでしょう。</description>
+    </item>
     <item>
       <title>ue5.4のcustom gravityを試す</title>
       <link>https://syui.ai/blog/post/2024/06/21/ue-gravity/</link>

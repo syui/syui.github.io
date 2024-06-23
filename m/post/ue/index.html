@@ -256,6 +256,52 @@
 <p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
 <p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>
 <iframe src="https://blueprintue.com/render/wi2aobel/" scrolling="no" width="100%" height="400px"></iframe>
+<h3 id="city-sample">city sample</h3>
+<p>今回は、<a href="https://www.unrealengine.com/marketplace/ja/product/city-sample">city sample</a>と<a href="https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample">game animation sample</a>を統合する方法を紹介します。どちらも<code>epic games</code>が提供しているため無料で使えます。最初のスターターキットとして使用されることが多くなるはずです。</p>
+<p>city sampleのほうが複雑なので、city sampleをベースにgame animation sampleをコピーする形で統合します。</p>
+<p>まずコピーするファイルです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># game-animation-sample</span>
+</span></span><span style="display:flex;"><span>Content
+</span></span><span style="display:flex;"><span>Binaries
+</span></span><span style="display:flex;"><span>└─Win64
+</span></span><span style="display:flex;"><span>    └─GameAnimationSampleEditor.target
+</span></span></code></pre></div><p>編集するファイルです。これはcity sampleの方を編集します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># city-sample</span>
+</span></span><span style="display:flex;"><span>city-sample.uproject
+</span></span><span style="display:flex;"><span>Binaries
+</span></span><span style="display:flex;"><span>└─Win64
+</span></span><span style="display:flex;"><span>    └─UnrealEditor.modules
+</span></span><span style="display:flex;"><span>Config
+</span></span><span style="display:flex;"><span>   └─DefaultGameplayTags.ini
+</span></span></code></pre></div><p>まずrootにある<code>${project_name}.uproject</code>にgame animation sampleのpluginを追加します。これはコピー側のuprojectを参照してください。長くなるのでここでは全て列挙していません。</p>
+<pre tabindex="0"><code class="language-json:city-sample.uproject" data-lang="json:city-sample.uproject">&#34;Plugins&#34; : [
+    { &#34;Name&#34;:&#34;ModelingToolsEditorMode&#34;,&#34;Enabled&#34;:true,&#34;TargetAllowList&#34;:[&#34;Editor&#34;] },
+    .
+    .
+    .
+]
+</code></pre><p>次に<code>Binaries/Win64/UnrealEditor.modules</code>もコピー側のものを見て追記します。</p>
+<pre tabindex="0"><code class="language-json:city-sample/Binaries/Win64/UnrealEditor.modules" data-lang="json:city-sample/Binaries/Win64/UnrealEditor.modules">{
+  &#34;BuildId&#34;: &#34;0000000&#34;,
+  &#34;Modules&#34;: {
+    &#34;CitySample&#34;: &#34;UnrealEditor-CitySample.dll&#34;,
+    &#34;CitySampleAnimGraphRuntime&#34;: &#34;UnrealEditor-CitySampleAnimGraphRuntime.dll&#34;,
+    &#34;CitySampleEditor&#34;: &#34;UnrealEditor-CitySampleEditor.dll&#34;,
+    &#34;GameAnimationSample&#34;: &#34;UnrealEditor-GameAnimationSample.dll&#34;
+  }
+}
+</code></pre><p>次に<code>Config/DefaultGameplayTags.ini</code>もコピー側を見て追記します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:city-sample/Config/DefaultGameplayTags.ini" data-lang="sh:city-sample/Config/DefaultGameplayTags.ini"><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;GameplayCue.ContextualAnim&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Default&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Idle&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Loops&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Pivots&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Starts&#34;,DevComment=&#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+GameplayTagList</span><span style="color:#f92672">=</span><span style="color:#e6db74">(Tag=&#34;MotionMatching.Stops&#34;,DevComment=&#34;&#34;)</span>
+</span></span></code></pre></div><p>大体こんな感じでやればgame animation sample(ABP_SandboxCharacter)が動くでしょう。</p>
+<p>city sampleはnightmodeのblueprintにerrが出ます。これは<code>set daytime</code>, <code>set nighttime</code>を飛ばしてやればでなくなります。昼夜の切り替えはこちらの記事が参考になります。</p>
+<p><a href="https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea">https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea</a></p>
 <h3 id="作り直すもの">作り直すもの</h3>
 <p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
 <p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
