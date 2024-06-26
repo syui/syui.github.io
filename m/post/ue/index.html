@@ -302,6 +302,46 @@
 </span></span></code></pre></div><p>大体こんな感じでやればgame animation sample(ABP_SandboxCharacter)が動くでしょう。</p>
 <p>city sampleはnightmodeのblueprintにerrが出ます。これは<code>set daytime</code>, <code>set nighttime</code>を飛ばしてやればでなくなります。昼夜の切り替えはこちらの記事が参考になります。</p>
 <p><a href="https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea">https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea</a></p>
+<h3 id="ocean-waves">ocean waves</h3>
+<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-22_025510.mp4"></video></p>
+<p>星と海と空をつなげるには<code>ocean waves</code>が参考になります。このassetは結構すごいことをやっています。</p>
+<ul>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/ocean-waves">ocean waves</a></li>
+</ul>
+<p>まずは<code>ocean waves</code>でplayerを動かし不要なものを削除します。</p>
+<p><code>OceanWaves/Levels/EarthSizedOceanPlanet</code>を開いて必要なものを列挙します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Lighting
+</span></span><span style="display:flex;"><span>    DirectionLight
+</span></span><span style="display:flex;"><span>    SkyAtmosher
+</span></span><span style="display:flex;"><span>    SkyLight
+</span></span><span style="display:flex;"><span>    VolumetricCloud
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OceanMaterialPresets
+</span></span><span style="display:flex;"><span> OceanMaterial_Opaque
+</span></span><span style="display:flex;"><span> OceanMaterial_Opaque_AF
+</span></span><span style="display:flex;"><span> OceanMaterial_SLW
+</span></span><span style="display:flex;"><span> OceanMaterial_SLW_AF
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Planet
+</span></span><span style="display:flex;"><span>    BP_EarthSizedClouds
+</span></span><span style="display:flex;"><span>    BP_EarthSizedOcean
+</span></span><span style="display:flex;"><span>    BP_EarthSizedSphercialMesh
+</span></span><span style="display:flex;"><span>    BP_SkyAtmposhereAdjuster
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PostProcessVolume
+</span></span><span style="display:flex;"><span>WaterVolume
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+PlayerStart
+</span></span><span style="display:flex;"><span>+Plane
+</span></span></code></pre></div><p>もしlvからcopyして使用する場合は<code>BP_xxx</code>の値が一部抜けるので注意してください。例えば、<code>BP_EarthSizedOcean</code>は海の設定です。詳細のOceanVolumeに<code>WaterVolume</code>を参照するようにしてください。</p>
+<p>雲の形式は<code>VolumetricCloud</code>で設定していきます。大体の使い方としてはこんな感じです。詳しくはblueprintを見ます。</p>
+<h4 id="buildすると雲が中央に集中する">buildすると雲が中央に集中する</h4>
+<p>package buildすると光が中央に集中し、雲も全体的におかしくなります。中央に向かってレンダリングが伸びているように見えます。</p>
+<p><code>BP_EarthSizedClouds</code>の<code>Global Wind</code>が原因です。ここで<code>Ocean : BP_EarthSizedOcean</code>に指定するとこの現象が発生します。</p>
+<h4 id="海に入った直前だけ背景が映り込む">海に入った直前だけ背景が映り込む</h4>
+<p><code>BP_EarthSizedOcean</code>を編集します。</p>
+<p>私が独自に設定している<code>SM_SkySphere</code>が潜った瞬間だけそれが表示されてしまうので、<code>Volume Material Height</code>は0にしています。</p>
+<p><code>Above Water Material</code>にも<code>Underwater</code>と同じものを入れてください。</p>
 <h3 id="作り直すもの">作り直すもの</h3>
 <p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
 <p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
