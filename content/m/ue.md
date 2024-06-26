@@ -250,6 +250,62 @@ city sampleはnightmodeのblueprintにerrが出ます。これは`set daytime`, 
 
 https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea
 
+### ocean waves
+
+<video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-22_025510.mp4"></video>
+
+星と海と空をつなげるには`ocean waves`が参考になります。このassetは結構すごいことをやっています。
+
+- [ocean waves](https://www.unrealengine.com/marketplace/ja/product/ocean-waves)
+
+まずは`ocean waves`でplayerを動かし不要なものを削除します。
+
+`OceanWaves/Levels/EarthSizedOceanPlanet`を開いて必要なものを列挙します。
+
+```sh
+Lighting
+    DirectionLight
+    SkyAtmosher
+    SkyLight
+    VolumetricCloud
+
+OceanMaterialPresets
+ OceanMaterial_Opaque
+ OceanMaterial_Opaque_AF
+ OceanMaterial_SLW
+ OceanMaterial_SLW_AF
+
+Planet
+    BP_EarthSizedClouds
+    BP_EarthSizedOcean
+    BP_EarthSizedSphercialMesh
+    BP_SkyAtmposhereAdjuster
+
+PostProcessVolume
+WaterVolume
+
++PlayerStart
++Plane
+```
+
+もしlvからcopyして使用する場合は`BP_xxx`の値が一部抜けるので注意してください。例えば、`BP_EarthSizedOcean`は海の設定です。詳細のOceanVolumeに`WaterVolume`を参照するようにしてください。
+
+雲の形式は`VolumetricCloud`で設定していきます。大体の使い方としてはこんな感じです。詳しくはblueprintを見ます。
+
+#### buildすると雲が中央に集中する
+
+package buildすると光が中央に集中し、雲も全体的におかしくなります。中央に向かってレンダリングが伸びているように見えます。
+
+`BP_EarthSizedClouds`の`Global Wind`が原因です。ここで`Ocean : BP_EarthSizedOcean`に指定するとこの現象が発生します。
+
+#### 海に入った直前だけ背景が映り込む
+
+`BP_EarthSizedOcean`を編集します。
+
+私が独自に設定している`SM_SkySphere`が潜った瞬間だけそれが表示されてしまうので、`Volume Material Height`は0にしています。
+
+`Above Water Material`にも`Underwater`と同じものを入れてください。
+
 ### 作り直すもの
 
 今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。
