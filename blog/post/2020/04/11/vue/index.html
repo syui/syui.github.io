@@ -195,7 +195,7 @@
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span>&gt;
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">slide</span> <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-navigation</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
 </span></span><span style="display:flex;"><span>
@@ -225,14 +225,14 @@
 </span></span></code></pre></div><h4 id="hooperでの実装例">hooperでの実装例</h4>
 <p>私の場合は、画像をスライドさせているので以下のような感じになりました。後で個別に解説します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooperSettings&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
 </span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-navigation</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-pagination</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-progress</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
 </span></span><span style="display:flex;"><span>
@@ -286,7 +286,7 @@
 </span></span></code></pre></div><h4 id="hooperのslideをloopで書く">hooperのslideをloopで書く</h4>
 <p>わざわざslideを一つずつ用意するのは面倒ですので、通常はfor,bindなどでloop処理を書くことになると思います。あるいは配列を持ってくるなど。以下は必要な部分の記述です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooperSettings&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(n,index) of products&#34; </span><span style="color:#f92672">:key</span><span style="color:#e6db74">=&#34;n&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;/manga/&#39;+ (index) +&#39;.png&#39;&#34;</span> /&gt;
 </span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;page_n&#34;</span>&gt;{{ <span style="color:#a6e22e">n</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
@@ -311,13 +311,13 @@
 <h4 id="hooperのoption">hooperのoption</h4>
 <p>hooperには様々なbarなどが用意されています。基本的にはこんな感じで使います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:src/App.vue" data-lang="html:src/App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooperSettings&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 上の全体位置を示すバー
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-navigation&gt;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-navigation</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-navigation</span>&gt;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ページ、戻る、進むのボタン
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-pagination&gt;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-pagination</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-pagination</span>&gt;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 下の全体位置を示す個別ボタン
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/hooper-progress&gt;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;<span style="color:#f92672">hooper-progress</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooper-addons&#34;</span>&gt;&lt;/<span style="color:#f92672">hooper-progress</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
 </span></span><span style="display:flex;"><span>
@@ -332,8 +332,8 @@
 <p>この場合のスライド出力は、0 - Foo, 1 - Barとなります。<code>data{items}</code>を変更すればいいでしょう。vueのexampleを参考にしましょう。</p>
 <p><a href="https://jp.vuejs.org/v2/guide/list.html">https://jp.vuejs.org/v2/guide/list.html</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:App.vue" data-lang="html:App.vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#e6db74">=&#34;hooperSettings&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(item, index) in items&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hooper</span> <span style="color:#f92672">:settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hooperSettings&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">slide</span> <span style="color:#f92672">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(item, index) in items&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    {{ <span style="color:#a6e22e">index</span> }} <span style="color:#960050;background-color:#1e0010">-</span> {{ <span style="color:#a6e22e">item.message</span> }}
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">slide</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">hooper</span>&gt;
