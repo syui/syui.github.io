@@ -3,19 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue5/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/06/24/ue-dinamic-volumetric-sky/</loc>
+    <lastmod>2024-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/06/23/ue-ocean-sky/</loc>
     <lastmod>2024-06-23T00:00:00+00:00</lastmod>
