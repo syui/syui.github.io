@@ -7,13 +7,20 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 24 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ue5.4のdynamic volumetric skyとocean wavesの統合</title>
+      <link>https://syui.ai/blog/post/2024/06/29/ue-planet-sky/</link>
+      <pubDate>Sat, 29 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/06/29/ue-planet-sky/</guid>
+      <description>前提&#xA;dynamic volumetric sky ocean waves 今回は、dynamic volumetric skyとocean wavesの統合してみました。&#xA;結果として理想の地表と海面、空と雲を手に入れました。&#xA;issue:地平線 まずはdynamic volumetric skyの地平線を消していきましょう。&#xA;普通に考えて地平線を消したいことなんてありそうですけど、英語はこちらで説明されています。日本語は見つかりませんでした。これは通常、Horizon Falloffで調整しています。&#xA;ただし、dynamic volumetric skyは少し特殊です。&#xA;どうやらBP_Dynamic_VoluemetricSkyにあるExponentialHeightFogで地平線を設定しているようです。これを削除していくか、設定を変更していく必要があります。削除する場合はcompileするとerrorが出るので使用している箇所の関数やblueprintを削除します。&#xA;issue:海の波紋 これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。&#xA;dynamic volumetric skyと合わせることで海に波紋が現れます。&#xA;この解消方法はdynamic volumetirc skyのatmoshereのtransformのlocation-zを-6360にすることで回避できました。&#xA;ただし、わからないところもあって、私はBP_EarthSizedSpericalMeshの中にBP_DynamicVolumetircSkyを入れています。ですから、そのままでも座標は星の中心を指しています。&#xA;BP_DynamicVolumetircSkyのVolumetricSkySupportのtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。この辺も星の内部に展開される領域に関係します。&#xA;具体的な統合 重要な問題は以上の2点ですが統合には他にやらなければならないことがたくさんあります。&#xA;例えば、「dynamic volumetric skyの範囲を超えたとき、一体どうやって地球と太陽と月を表現するのか」です。&#xA;さっきまであった太陽がいきなり消えて別の場所に出現したり、見た目が変わったりするのはできれば避けたい。しかし、それだと見た目のクオリティは一気に落ちます。&#xA;まずは月を消すことからですが、月は2DSkyで実装されています。visible:falseにすればいいでしょう。&#xA;次に本物の月を地球の外に回します。ここではsplineで軌道を設定しています。&#xA;loopさせるにはspline lenをmaxにしてfloat wrapします。&#xA;地球の外側 そのままでは宇宙に出たときの見栄えがよくありません。したがって、宇宙に出たとき地球の見た目を整える必要があります。&#xA;しかし、これもunreal engineの問題から解決が難しい。私は以下のように実装していますが、良い方法ではありません。&#xA;地球の自転 これは失敗談ですが、地球に自転を設定してみました。これで外側を回っている月や太陽はゆっくりした速度で動けば良くなります。つまり、現実に合わせることができる。&#xA;しかし、地球を自転させることで地面は揺れマップは崩壊。様々な問題が発生しました。&#xA;やはり、ゲーム上で地動説を実現するのは難しいようです。太陽側を回すしかありません。</description>
+    </item>
+    <item>
       <title>ue5.4のdynamic volumetric skyの空を飛んでみる</title>
-      <link>https://syui.ai/blog/post/2024/06/24/ue-dinamic-volumetric-sky/</link>
+      <link>https://syui.ai/blog/post/2024/06/24/ue-dynamic-volumetric-sky/</link>
       <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/blog/post/2024/06/24/ue-dinamic-volumetric-sky/</guid>
+      <guid>https://syui.ai/blog/post/2024/06/24/ue-dynamic-volumetric-sky/</guid>
       <description>dynamic volumetric skyはほとんどのゲームに使われているvolumetric skyです。&#xA;昔からあるassetで、更新もされているのでずっと使われています。多くの開発者が最初に購入するassetの一つです。&#xA;しかし、当たり前ですが宇宙にはいけません。&#xA;このassetも他のassetと同様、平面マップを想定しています。ですから、どこまでいってもその先は平面になります。&#xA;また、このassetのvolumetric skyは様々なものと依存しているので切り離しも難しい。&#xA;ですが、雲がとても綺麗で天候も昼夜もあります。&#xA;飛ぶときはBP_DynamicVolumetricSkyの詳細でColoud -&amp;gt; Coloud Fly Optionを選択します。そして、時間を早めるためSingle Player Fps Lockを60 FPSにします。</description>
     </item>
     <item>
