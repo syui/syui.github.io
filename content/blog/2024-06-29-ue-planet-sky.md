@@ -4,16 +4,14 @@ tags = ["ue5","ue"]
 title = "ue5.4のdynamic volumetric skyとocean wavesの統合"
 +++
 
-前提
+今回は、`dynamic volumetric sky`と`ocean waves`の統合してみました。
+
+結果として理想の地表と海面、空と雲を手に入れました。
 
 - [dynamic volumetric sky](https://www.unrealengine.com/marketplace/ja/product/dynamic-volumetric-sky/)
 - [ocean waves](https://www.unrealengine.com/marketplace/ja/product/ocean-waves)
 
 <video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-29_025510.mp4"></video>
-
-今回は、`dynamic volumetric sky`と`ocean waves`の統合してみました。
-
-結果として理想の地表と海面、空と雲を手に入れました。
 
 ## issue:地平線
 
