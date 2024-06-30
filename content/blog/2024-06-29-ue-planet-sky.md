@@ -27,9 +27,9 @@ title = "ue5.4のdynamic volumetric skyとocean wavesの統合"
 
 ## issue:海の波紋
 
-これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。
-
 dynamic volumetric skyと合わせることで海に波紋が現れます。
+
+これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。
 
 ![](/m/post/ue/ue5_2024-06-24_025510.png)
 
@@ -37,7 +37,11 @@ dynamic volumetric skyと合わせることで海に波紋が現れます。
 
 ただし、わからないところもあって、私は`BP_EarthSizedSpericalMesh`の中に`BP_DynamicVolumetircSky`を入れています。ですから、そのままでも座標は星の中心を指しています。
 
-`BP_DynamicVolumetircSky`の`VolumetricSkySupport`のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。この辺も星の内部に展開される領域に関係します。
+## issue:海の影
+
+海に円形の影が現れることがあります。これは`BP_DynamicVolumetircSky`の`VolumetricSkySupport`のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。
+
+この辺も星の内部に展開される領域に関係します。
 
 ## 具体的な統合
 
