@@ -144,16 +144,37 @@
 
 		<h2>ue</h2>
 
-		<p>ここでは<a href="https://www.epicgames.com/">epic games</a>の<a href="https://www.unrealengine.com/ja/unreal-engine-5">unreal engine 5</a>の使い方をまとめます。</p>
+		<p>ここでは<a href="https://www.epicgames.com/">epic games</a>の<a href="https://www.unrealengine.com/ja/unreal-engine-5">unreal engine 5</a>の使い方をまとめます。現在はversionの<code>5.4.2</code>に追従しています。昔は<code>5.3.2</code>を使っていました。</p>
+<ul>
+<li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/unreal-engine-5.4-release-notes">ue 5.4.2</a></li>
+<li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/unreal-engine-5.3-release-notes">ue 5.3.2</a></li>
+</ul>
 <p>ブログで説明しづらい部分が多いので<a href="https://blueprintue.com/profile/ai/">blueprintue</a>を参考にしてください。</p>
 <ul>
 <li>repo : <a href="https://git.syui.ai/ai/ue">https://git.syui.ai/ai/ue</a></li>
 <li>blueprint : <a href="https://blueprintue.com/profile/ai">https://blueprintue.com/profile/ai</a></li>
 </ul>
-<h2 id="ue54-vrm4u--superhero-fligth-animations">[ue5.4] vrm4u + superhero fligth animations</h2>
+<h2 id="unreal-engine-54">unreal engine 5.4</h2>
+<h3 id="無料">無料</h3>
+<p>使用しているassetなどです。</p>
 <ul>
+<li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/city-sample">city sample</a></li>
+<li>asset : <a href="https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample">game animation sample</a></li>
+<li>plugin : <a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/pixel-streaming-in-unreal-engine">pixel streaming</a></li>
 <li>plugin : <a href="https://github.com/ruyo/VRM4U">vrm4u</a></li>
+<li>plugin : <a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a></li>
+</ul>
+<h3 id="有料">有料</h3>
+<p>おすすめのassetです。</p>
+<ul>
 <li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">superhero fligth animations</a></li>
+<li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/dynamic-volumetric-sky/">dynamic volumetric sky</a></li>
+<li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/ocean-waves">ocean waves</a></li>
+</ul>
+<h3 id="asset-vrm4u--superhero-fligth-animations">[asset] vrm4u + superhero fligth animations</h3>
+<ul>
+<li><a href="https://github.com/ruyo/VRM4U">vrm4u</a></li>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">superhero fligth animations</a></li>
 </ul>
 <p><code>ue5.4</code>がリリースされました。updateしてみましたが、色々と動かなくなっています。そして、前よりも頻繁に落ちるようになりました。結論として<code>5.3</code>を使いましょう。</p>
 <p>動かなくなった箇所は以下の通り。</p>
@@ -197,7 +218,7 @@
 <img src="/m/post/ue/ue5_2024-05-28_151511.png" alt=""></p>
 <p>ここでそれぞれのアニメーションを当てておきます。</p>
 <p><img src="/m/post/ue/ue5_2024-05-28_151839.png" alt=""></p>
-<h3 id="飛行するとカメラがモデル内部に入り込む">飛行するとカメラがモデル内部に入り込む</h3>
+<h4 id="issue-飛行するとカメラがモデル内部に入り込む">[issue] 飛行するとカメラがモデル内部に入り込む</h4>
 <p>再生してみると飛行が正常に動きません。カメラがモデル内部に移動します。これは<code>scale</code>が間違っているためです。<code>apply additive</code>が原因でそこのscaleを変更すると回避できます。</p>
 <p>また代わりに<code>blend bone by channel</code>を使用することでも回避できます。</p>
 <p>これはv5.4で発生し、v5.3では発生しません。</p>
@@ -208,13 +229,45 @@
 <img src="/m/post/ue/ue5_2024-05-28_134214.png" alt="">
 <img src="/m/post/ue/ue5_2024-05-28_134235.png" alt=""></p>
 <p>また、<code>flying &gt; flying state machine -&gt; idle/hover</code>の<code>look_at</code>にエラーが出てるので<code>bone</code>の<code>j_bip_c_neck</code>を入れます。</p>
-<h3 id="飛行の上下左右の向きが反映されない">飛行の上下左右の向きが反映されない</h3>
+<p>これらの飛行中の問題については、リターゲットしない方法でmeshを活用することで問題は発生しません。詳しくは<code>game animation sample</code>との統合を見てください。</p>
+<h4 id="issue-飛行の上下左右の向きが反映されない">[issue] 飛行の上下左右の向きが反映されない</h4>
 <p>飛行すると向きが一定になります。視点を動かしても変わりません。</p>
 <p>通常だと視点を下に向けると、頭も下を向いて移動しますが、それがありません。下に移動してもずっと横飛行を行います。</p>
 <p>これもv5.4で発生し、v5.3では発生しません。</p>
-<h3 id="game-animation-sampleで飛べるようにする">game animation sampleで飛べるようにする</h3>
+<h4 id="issue-vrm4uのmaterialについて考える">[issue] vrm4uのmaterialについて考える</h4>
+<p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
+<p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>
+<iframe src="https://blueprintue.com/render/wi2aobel/" scrolling="no" width="100%" height="400px"></iframe>
+<h4 id="issue-buildすると髪が動かなくなる">[issue] buildすると髪が動かなくなる</h4>
+<p>package化すると髪が動かなくなります。これは<code>ue 5.3</code>でも発生し、vrm4uのversionの問題です。</p>
+<p>ediorで確認すると動くのですが、pacakge build後に動かなくなるのです。</p>
+<p>これは、buildとeditorでは実行順が異なっているためです。</p>
 <ul>
-<li><a href="https://www.unrealengine.com/en">ue 5.4.2</a></li>
+<li><a href="https://zenn.dev/daichi_gamedev/articles/unreal-engine-beginplay-order">https://zenn.dev/daichi_gamedev/articles/unreal-engine-beginplay-order</a></li>
+<li><a href="https://zenn.dev/posita33/books/ue5_starter_cpp_and_bp_002/viewer/chap_01-06_cpp-package_project_settings">https://zenn.dev/posita33/books/ue5_starter_cpp_and_bp_002/viewer/chap_01-06_cpp-package_project_settings</a></li>
+</ul>
+<p>基本的にpackageではplayerが最後に呼ばれます。editorは4番目くらいに呼ばれます。つまり、これを前段階で呼ばれるようにすれば髪の毛が動くようになります。</p>
+<p>私はtitle画面から<code>open level</code>で最初のステージを呼び出しているのですが、これがよくありません。ue5はmapを一つとして想定しているようで、それ以上読み込む場合はproject settingでpackage化されたbuildに含めるmapを追加する必要があります。titleを挟まないmapを<code>stand alone</code>でpreviewして確認します。</p>
+<p><img src="/m/post/ue/ue5_2024-05-30_132917.png" alt=""></p>
+<p>この問題はそれでも完全に治らなくて度々、髪の毛が動かなくなっていました。game modeの<code>BP_Player</code>が<code>spawn</code>されていないからではないかと色々やってみたのですが治りませんでした。<code>superhero fligth animations</code>をupdateしたら治ったと思いましたが60秒後に動かなくなります。</p>
+<p>そこでmapのbpにevent tickを追加して、そこで<code>dealy</code>, <code>add child actor component BP_Player</code>することで無理やり動かしています。これは良い方法ではありません。また、stand aloneとpackageの動作が大きく異なります。stand aloneでうまくいってもbuildすると上手くいかないのが基本です。簡易な方法、負担が少ない方法はことごとく動きません。event beginでは対処できません。</p>
+<p>なお、ここでadd child actorする<code>BP_Player</code>はmeshとmotionさえあれば良く、eventは必要ありません。削っておきましょう。そして、title.mapにBP_Playerを置きます。</p>
+<p>ちなみに、必殺技のシーケンスを呼び出したときだけ動く様になるのは変だなと思っていましたが、BP_Playerがその時にmapにspawnされるからだと思います。つまり、長時間設定のシーケンサを置いておけばうまくいくかとも思いましたが、うまくいきませんでした。どうやらmapに置くだけではダメでゲーム中に呼び出す必要があるみたいです。</p>
+<p>このような解決法を取るなら<a href="https://github.com/pafuhana1213/KawaiiPhysics">KawaiiPhysics</a>を使いましょう。そのほうが安定します。</p>
+<h4 id="idea-作り直すもの">[idea] 作り直すもの</h4>
+<p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
+<p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
+<ul>
+<li>account login system</li>
+<li>account item system</li>
+<li>character lv system</li>
+<li>character skill</li>
+<li>character sword &amp; collision</li>
+</ul>
+<p>一気に解説します。移動すると経験値が入ります。Lv1になると変身できるようになります。変身すると飛行できるようになります。飛行できる時間はlvに応じて変化します。特殊なアイテムを取るとスキルを覚えます。スキルにはクールタイムやcollisionなどが設定されており、敵が吹っ飛びます。剣のモーションは原作を再現しています。原作では輪が剣になりますので、剣を登場させたときは輪を消さなければなりません。meshを入れ替える処理などを書いています。アイテム画面やストーリー進行などもapiと連携するシステムを作りました。</p>
+<p>これらを全部作り直すことになります。</p>
+<h3 id="game-animation-sample">game animation sample</h3>
+<ul>
 <li><a href="https://www.unrealengine.com/en/blog/game-animation-sample">game animation sample</a></li>
 <li><a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">superhero flight animations</a></li>
 </ul>
@@ -225,26 +278,8 @@
 <p>基本的には<code>BP_SandboxCharacter</code>にeventの<code>IA_Sprit</code>で<code>anim instance class(ABP_Player)</code>を指定しますが<code>BP_Player_UE5</code>から様々な設定や変数を持ってきて動くように改変していきます。</p>
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_025510.mp4"></video></p>
 <iframe src="https://blueprintue.com/render/7z11v96t/" scrolling="no" width="100%" height="400px"></iframe>
-<h3 id="sky-atmosphereを使って宇宙をつなげる">sky atmosphereを使って宇宙をつなげる</h3>
-<ul>
-<li><a href="https://www.unrealengine.com/marketplace/ja/product/cesium-for-unreal">cesium</a></li>
-<li><a href="https://www.unrealengine.com/marketplace/en-US/product/ocean-waves">ocean waves</a></li>
-</ul>
-<p>私が作ってきたlv(map)は宇宙と街でわけられていました。</p>
-<p>これは特別なことではなく当たり前のことで、mapは基本的に平面なのです。平面のmapにキャラクターやフィールドを配置していくのです。</p>
-<p>私の場合はサークルのアクターを用意してぶつかると別の場所に移動するように設定していました。</p>
-<p>しかし、これは本来やりたかったことではありません。現実に基づいたものを作りたかった。宇宙と街が異なる場所に置かれるのではなく、最初からつながっている形が良かったのです。</p>
-<p>例えば、空に上昇して大気圏を抜けると宇宙に行ける形です。空に上昇すると宇宙マップに移動させられる形ではありません。</p>
-<p>なぜこのようなことがやりたかったのかというと「目に見えない部分もしっかり作られているゲームを作りたかったから」です。</p>
-<p>昼と夜がゲーム内で再現されていることがよくあります。これは単にライトと月の絵を背景で回しているだけなのです。しかし、私はゲーム内でもその場所に行くと本物そっくりの天体が動いている、そういうのがいいなと思っていました。</p>
-<p>今回は、それを実現するために<a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/sky-atmosphere-component-in-unreal-engine">sky atmosphere</a>を利用するようにしました。</p>
-<p>また、月などの天体には重力がありませんでした。そのまま丸い球体が浮いているという形だったのです。ですから、上から落下すると月に乗れますが、横からだと乗れません。ぶつかるだけです。これを改善したかった。</p>
-<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_125510.mp4"></video></p>
-<blockquote>
-<p><code>game animation sample</code>には飛び越せるブロックがあります。あれをフィールドに設置して岩にかぶせ見えないようにすることで動作します。見えないようにというのはブロックのmeshをvisibilityで制御します。</p>
-</blockquote>
-<p>しかし、注意点もあります。太陽と月を追加するとあまりに負荷が高くなったのか落ちるようになったことがありました。いくつか改善すると治りましたが、この形を採用するとbuildが通らなくなることもあります。</p>
-<h3 id="custom-gravitygravity-direction">custom gravity(gravity direction)</h3>
+<h3 id="custom-gravity">custom gravity</h3>
+<p>重力をactorに設定し、月の上を歩けるようにします。<code>gravity direction</code>を使います。</p>
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_225510.mp4"></video></p>
 <p>youtube : <a href="https://www.youtube.com/watch?v=CZK7QplEbJs">Unreal Engine 5 Tutorial - Custom Gravity UE5.4 Preview</a></p>
 <p>基本的には<code>bp_actor</code>を作成し範囲を設定します。<code>bp_actor</code>を置いたとき惑星(bp_planet)に親子付けするといいですね。この場合はlocationは<code>0</code>, scaleは<code>1.1</code>を設定します。</p>
@@ -252,12 +287,12 @@
 <p>gravity directionを無効にする方法が用意されていないようなので、<code>actor end</code>で<code>destroy actor</code>して<code>restart player</code>しています。</p>
 <iframe src="https://blueprintue.com/render/tybb0lyd/" scrolling="no" width="100%" height="400px"></iframe>
 <p><a href="https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4">https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4</a></p>
-<h3 id="vrm4uのmaterialについて考える">vrm4uのmaterialについて考える</h3>
-<p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
-<p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>
-<iframe src="https://blueprintue.com/render/wi2aobel/" scrolling="no" width="100%" height="400px"></iframe>
 <h3 id="city-sample">city sample</h3>
 <p>今回は、<a href="https://www.unrealengine.com/marketplace/ja/product/city-sample">city sample</a>と<a href="https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample">game animation sample</a>を統合する方法を紹介します。どちらも<code>epic games</code>が提供しているため無料で使えます。最初のスターターキットとして使用されることが多くなるはずです。</p>
+<ul>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/city-sample">city sample</a></li>
+<li><a href="https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample">game animation sample</a></li>
+</ul>
 <p>city sampleのほうが複雑なので、city sampleをベースにgame animation sampleをコピーする形で統合します。</p>
 <p>まずコピーするファイルです。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># game-animation-sample</span>
@@ -303,7 +338,6 @@
 <p>city sampleはnightmodeのblueprintにerrが出ます。これは<code>set daytime</code>, <code>set nighttime</code>を飛ばしてやればでなくなります。昼夜の切り替えはこちらの記事が参考になります。</p>
 <p><a href="https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea">https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea</a></p>
 <h3 id="ocean-waves">ocean waves</h3>
-<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-22_025510.mp4"></video></p>
 <p>星と海と空をつなげるには<code>ocean waves</code>が参考になります。このassetは結構すごいことをやっています。</p>
 <ul>
 <li><a href="https://www.unrealengine.com/marketplace/ja/product/ocean-waves">ocean waves</a></li>
@@ -335,81 +369,73 @@
 </span></span><span style="display:flex;"><span>+Plane
 </span></span></code></pre></div><p>もしlvからcopyして使用する場合は<code>BP_xxx</code>の値が一部抜けるので注意してください。例えば、<code>BP_EarthSizedOcean</code>は海の設定です。詳細のOceanVolumeに<code>WaterVolume</code>を参照するようにしてください。</p>
 <p>雲の形式は<code>VolumetricCloud</code>で設定していきます。大体の使い方としてはこんな感じです。詳しくはblueprintを見ます。</p>
-<h4 id="buildすると雲が中央に集中する">buildすると雲が中央に集中する</h4>
+<h4 id="issue-buildすると雲が中央に集中する">[issue] buildすると雲が中央に集中する</h4>
 <p>package buildすると光が中央に集中し、雲も全体的におかしくなります。中央に向かってレンダリングが伸びているように見えます。</p>
 <p><code>BP_EarthSizedClouds</code>の<code>Global Wind</code>が原因です。ここで<code>Ocean : BP_EarthSizedOcean</code>に指定するとこの現象が発生します。</p>
-<h4 id="海に入った直前だけ背景が映り込む">海に入った直前だけ背景が映り込む</h4>
+<h4 id="issue-海に入った直前だけ背景が映り込む">[issue] 海に入った直前だけ背景が映り込む</h4>
 <p><code>BP_EarthSizedOcean</code>を編集します。</p>
 <p>私が独自に設定している<code>SM_SkySphere</code>が潜った瞬間だけそれが表示されてしまうので、<code>Volume Material Height</code>は0にしています。</p>
 <p><code>Above Water Material</code>にも<code>Underwater</code>と同じものを入れてください。</p>
-<h3 id="作り直すもの">作り直すもの</h3>
-<p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
-<p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
+<h4 id="idea-atmoshereで宇宙をつなげる">[idea] atmoshereで宇宙をつなげる</h4>
+<p>私が作ってきたlv(map)は宇宙と街でわけられていました。</p>
+<p>これは特別なことではなく当たり前のことで、mapは基本的に平面なのです。平面のmapにキャラクターやフィールドを配置していくのです。</p>
+<p>私の場合はサークルのアクターを用意してぶつかると別の場所に移動するように設定していました。</p>
+<p>しかし、これは本来やりたかったことではありません。現実に基づいたものを作りたかった。宇宙と街が異なる場所に置かれるのではなく、最初からつながっている形が良かったのです。</p>
+<p>例えば、空に上昇して大気圏を抜けると宇宙に行ける形です。空に上昇すると宇宙マップに移動させられる形ではありません。</p>
+<p>なぜこのようなことがやりたかったのかというと「目に見えない部分もしっかり作られているゲームを作りたかったから」です。</p>
+<p>昼と夜がゲーム内で再現されていることがよくあります。これは単にライトと月の絵を背景で回しているだけなのです。しかし、私はゲーム内でもその場所に行くと本物そっくりの天体が動いている、そういうのがいいなと思っていました。</p>
+<p>今回は、それを実現するために<a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/sky-atmosphere-component-in-unreal-engine">sky atmosphere</a>を利用するようにしました。</p>
+<p>また、月などの天体には重力がありませんでした。そのまま丸い球体が浮いているという形だったのです。ですから、上から落下すると月に乗れますが、横からだと乗れません。ぶつかるだけです。これを改善したかった。</p>
+<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_125510.mp4"></video></p>
+<blockquote>
+<p><code>game animation sample</code>には飛び越せるブロックがあります。あれをフィールドに設置して岩にかぶせ見えないようにすることで動作します。見えないようにというのはブロックのmeshをvisibilityで制御します。</p>
+</blockquote>
+<p>しかし、注意点もあります。太陽と月を追加するとあまりに負荷が高くなったのか落ちるようになったことがありました。いくつか改善すると治りましたが、この形を採用するとbuildが通らなくなることもあります。</p>
+<h3 id="dynamic-volumetric-sky">dynamic volumetric sky</h3>
+<p>今回は、<code>dynamic volumetric sky</code>と<code>ocean waves</code>の統合してみました。</p>
 <ul>
-<li>account login system</li>
-<li>account item system</li>
-<li>character lv system</li>
-<li>character skill</li>
-<li>character sword &amp; collision</li>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/dynamic-volumetric-sky/">dynamic volumetric sky</a></li>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/ocean-waves">ocean waves</a></li>
 </ul>
-<p>一気に解説します。移動すると経験値が入ります。Lv1になると変身できるようになります。変身すると飛行できるようになります。飛行できる時間はlvに応じて変化します。特殊なアイテムを取るとスキルを覚えます。スキルにはクールタイムやcollisionなどが設定されており、敵が吹っ飛びます。剣のモーションは原作を再現しています。原作では輪が剣になりますので、剣を登場させたときは輪を消さなければなりません。meshを入れ替える処理などを書いています。アイテム画面やストーリー進行などもapiと連携するシステムを作りました。</p>
-<p>これらを全部作り直すことになります。</p>
-<h2 id="ue53">[ue5.3]</h2>
-<p>ここからは個人的に実装したものをまとめます。</p>
-<h3 id="モデルを法線で強調する">モデルを法線で強調する</h3>
-<p>モデルのoutline(法線)を強調する設定を行います。<code>Content/yui/model/SK_xxx</code>を開いて<code>レンダリング &gt; overlay material</code>で以下のマテリアルを作成して適用します。</p>
+<p>なお、<code>superhero fligth animations</code>, <code>game animation sample</code>, <code>city sample</code>も入っています。</p>
+<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-29_025510.mp4"></video></p>
+<p>結果として理想の地表と海面、空と雲を手に入れました。</p>
+<h4 id="issue-地平線">[issue] 地平線</h4>
+<p>まずはdynamic volumetric skyの地平線を消していきましょう。</p>
+<p>普通に考えて地平線を消したいことなんてありそうですけど、英語は<a href="https://forums.unrealengine.com/t/how-can-i-remove-the-foggy-horizon-in-the-default-skysphere/339893">こちら</a>で説明されています。日本語は見つかりませんでした。これは通常、<code>Horizon Falloff</code>で調整しています。</p>
+<p>ただし、dynamic volumetric skyは少し特殊です。</p>
+<p>どうやら<code>BP_Dynamic_VoluemetricSky</code>にある<code>ExponentialHeightFog</code>で地平線を設定しているようです。これを削除していくか、設定を変更していく必要があります。削除する場合はcompileするとerrorが出るので使用している箇所の関数やblueprintを削除します。</p>
+<h4 id="issue-海の波紋">[issue] 海の波紋</h4>
+<p>dynamic volumetric skyと合わせることで海に波紋が現れます。</p>
+<p>これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。</p>
+<p><img src="/m/post/ue/ue5_2024-06-24_025510.png" alt=""></p>
+<p>この解消方法はdynamic volumetirc skyのatmoshereのtransformのlocation-zを<code>-6360</code>にすることで回避できました。</p>
+<p>ただし、わからないところもあって、私は<code>BP_EarthSizedSpericalMesh</code>の中に<code>BP_DynamicVolumetircSky</code>を入れています。ですから、そのままでも座標は星の中心を指しています。</p>
+<h4 id="issue-海の影">[issue] 海の影</h4>
+<p>海に円形の影が現れることがあります。これは<code>BP_DynamicVolumetircSky</code>の<code>VolumetricSkySupport</code>のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。</p>
+<p>この辺も星の内部に展開される領域に関係します。</p>
+<h4 id="idea-具体的な統合">[idea] 具体的な統合</h4>
+<p>重要な問題は以上の2点ですが統合には他にやらなければならないことがたくさんあります。</p>
+<p>例えば、「dynamic volumetric skyの範囲を超えたとき、一体どうやって地球と太陽と月を表現するのか」です。</p>
+<p>さっきまであった太陽がいきなり消えて別の場所に出現したり、見た目が変わったりするのはできれば避けたい。しかし、それだと見た目のクオリティは一気に落ちます。</p>
+<p>まずは月を消すことからですが、月は<code>2DSky</code>で実装されています。<code>visible:false</code>にすればいいでしょう。</p>
+<p>次に本物の月を地球の外に回します。ここでは<code>spline</code>で軌道を設定しています。</p>
+<p><img src="/m/post/ue/ue5_2024-06-29_025510.png" alt=""></p>
+<p>loopさせるには<code>spline len</code>をmaxにして<code>float wrap</code>します。</p>
+<iframe src="https://blueprintue.com/render/8gfrd45h/" scrolling="no" width="100%" height="450px" allowfullscreen></iframe>
+<h4 id="idea-地球の外側">[idea] 地球の外側</h4>
+<p>そのままでは宇宙に出たときの見栄えがよくありません。したがって、宇宙に出たとき地球の見た目を整える必要があります。</p>
+<p>しかし、これもunreal engineの問題から解決が難しい。私は以下のように実装していますが、良い方法ではありません。</p>
+<iframe src="https://blueprintue.com/render/t46sbleq/" scrolling="no" width="100%" height="450px" allowfullscreen></iframe>
+<h4 id="idea-地球の自転">[idea] 地球の自転</h4>
+<p>これは失敗談ですが、地球に自転を設定してみました。これで外側を回っている月や太陽はゆっくりした速度で動けば良くなります。つまり、現実に合わせることができる。</p>
+<p>しかし、地球を自転させることで地面は揺れマップは崩壊。様々な問題が発生しました。</p>
+<p>やはり、ゲーム上で地動説を実現するのは難しいようです。太陽側を回すしかありません。</p>
+<h4 id="idea-本物の地球を作る">[idea] 本物の地球を作る</h4>
+<p><code>cesium</code>を使うとgoogle mapと連携できます。</p>
 <ul>
-<li><code>Content/yui/model/SK_xxx</code></li>
+<li><a href="https://www.unrealengine.com/marketplace/ja/product/cesium-for-unreal">cesium</a></li>
 </ul>
-<p><img src="/m/post/ue/ue5_2024-05-28_135604.png" alt=""></p>
-<iframe src="https://blueprintue.com/render/t1xc2azx/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p><a href="https://blueprintue.com/blueprint/t1xc2azx/">blueprintue.com</a></p>
-<h3 id="待機モーションをランダムにする">待機モーションをランダムにする</h3>
-<p><code>ABP_xxx</code>の<code>locomotion &gt; idle</code>にて<code>random sequence player</code>を追加します。詳細からanimを追加してランダムで再生できます。</p>
-<p><img src="/m/post/ue/ue5_2024-05-30_132836.png" alt=""></p>
-<h3 id="アニメーションにエフェクトを付ける">アニメーションにエフェクトを付ける</h3>
-<p>animに時間制限のエフェクトを付けます。通知に<code>timed niagara effect</code>を追加して詳細からniagaraを追加します。</p>
-<p><img src="/m/post/ue/ue5_2024-05-30_132915.png" alt=""></p>
-<h3 id="剣のモーションを作る">剣のモーションを作る</h3>
-<p>新しくswordのactor(static mesh)を作成し、collisionを作ります。</p>
-<p>それを<code>BP_Player_UE5</code>に装備し、motionを作成し、キーに割り当てます。剣をしまうのはniagaraで作成しました。</p>
-<iframe src="https://blueprintue.com/render/cu104wg0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by <a href="https://blueprintue.com/blueprint/cu104wg0/">ai</a></p>
-<p>これは<code>sword_open</code>, <code>sword_close</code>というactor, blueprintを作成して、それを<code>BP_Player</code>のmeshに当てます。そして、<code>set visible</code>で切り替えています。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.01.png" alt=""></p>
-<p>ではparticle(粒子)はどうやって実現しているのかというと<code>niagara</code>です。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.02.png" alt=""></p>
-<p>まずはboneを追加します。このboneを元にtrailというeffectをつけていくわけです。<code>sword-trail</code>は検索タグとしても有効です。effectはanim sequence(アニメ・シーケンス)で設定します。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.35.44.png" alt=""></p>
-<p><code>PSTemplate</code>, <code>Socket Name</code>を指定します。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203306.png" alt=""></p>
-<p>また、niagaraで作成してもいいですね。<code>sword-trail-naigara</code>とでも検索してみてください。</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=0vYPkxEZEtQ">ソードトレイル</a></li>
-</ul>
-<p>sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。</p>
-<p>これは<code>root motion</code>をenableにしたり、他の設定をやっても戻ってしまうのです。</p>
-<p>原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</p>
-<p>これを変動するようにしないといけないのですが、bone(ボーン)の<code>root</code>を選択してFKの平行移動モードを<code>Globally Scaled</code>に設定します。</p>
-<p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
-<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.37.18.png" alt=""></p>
-<ul>
-<li><a href="https://happynetwork2019.hatenablog.com/entry/2023/10/02/191340#:~:text=%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%83%96%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88,%E3%81%95%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B%E3%80%82">UE5でルートモーションを有効にしたままリターゲットをする方法</a></li>
-</ul>
-<h3 id="apiを使って処理を行う">apiを使って処理を行う</h3>
-<p>pluginである<a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a>のpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
-<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
-<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/4qo0qydu/">ai</a></p>
-<p>login処理です。atprotoと連携できればいいなと考えています。</p>
-<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
-<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<p>by : <a href="https://blueprintue.com/blueprint/9v24l5h6/">ai</a></p>
-<h3 id="カメラを近づけるとキャラの表示を変える">カメラを近づけるとキャラの表示を変える</h3>
-<p>透明にフィードアウトする形がいいのですが、非常に面倒なのでoverlayで対応します。</p>
-<p><code>get world location</code>, <code>get actor location</code>を<code>distance(vector)</code>で差を取り<code>180 &gt;= value</code>, <code>100 &gt;= value</code>で比較して<code>branch</code>で<code>overlay</code>、100以下の場合は<code>set visibility</code>します。</p>
-<p><a href="https://historia.co.jp/archives/23521/">https://historia.co.jp/archives/23521/</a></p>
-<p><code>m_outline_7</code>を変換して使いました。パラメータの調整は厄介で基本設定が<code>surface, masked, subsurface profile</code>, パラメータを<code>U_pos_01 : 0.2</code>以外は0にします。これは自分が購入したassetの設定です。</p>
 <h3 id="pixel-streaming">pixel streaming</h3>
 <p>個人的にやりたかったのは<code>multiple full stacks with matchmaking</code>です。具体的には複数のインスタンスを起動して、各ユーザーごとにsessionをわけます。これにより異なる画面(自分の画面)で操作できるようになります。</p>
 <blockquote>
@@ -444,42 +470,82 @@
 <p>シンプルな LAN では、各エンドポイントは通常、それ自身のネットワーク カードで把握しているプライベート IP アドレスを使用して、相手がアクセスできることを前提にしています。オープンなインターネットやサブネットにまたがる場合、またはブラウザと UE4 アプリケーションの間にネットワーク アドレス変換 (NAT) がある場合、一般的にこの前提は当てはまりません。代わりに、各パーティは STUN (Session Traversal Utilities for NAT) プロトコルを実装しているサーバーにクエリを送信して、それ自身のパブリック公開の IP アドレスを検出する必要があります。STUN サーバーが各エンドポイントにパブリック公開の IP アドレスを通知した後、Signaling and Web サーバーは直接接続を引き続き仲介できます。</p>
 </blockquote>
 <p>例えば、login時にipをgetして、それを保存します。そのipと一致しないと操作できないようにすれば一人のユーザーのみ操作可能になります。ですが本来は各ユーザーが別々のスタック、ストリームでゲーム画面を実行できるようにするのが望ましいでしょう。</p>
-<h3 id="レベルアップ">レベルアップ</h3>
+<h2 id="unreal-engine-53">unreal engine 5.3</h2>
+<p>ここからは個人的に実装したものをまとめます。</p>
+<h3 id="tips-モデルを法線で強調する">[tips] モデルを法線で強調する</h3>
+<p>モデルのoutline(法線)を強調する設定を行います。<code>Content/yui/model/SK_xxx</code>を開いて<code>レンダリング &gt; overlay material</code>で以下のマテリアルを作成して適用します。</p>
+<ul>
+<li><code>Content/yui/model/SK_xxx</code></li>
+</ul>
+<p><img src="/m/post/ue/ue5_2024-05-28_135604.png" alt=""></p>
+<iframe src="https://blueprintue.com/render/t1xc2azx/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p><a href="https://blueprintue.com/blueprint/t1xc2azx/">blueprintue.com</a></p>
+<h3 id="tips-待機モーションをランダムにする">[tips] 待機モーションをランダムにする</h3>
+<p><code>ABP_xxx</code>の<code>locomotion &gt; idle</code>にて<code>random sequence player</code>を追加します。詳細からanimを追加してランダムで再生できます。</p>
+<p><img src="/m/post/ue/ue5_2024-05-30_132836.png" alt=""></p>
+<h3 id="tips-アニメーションにエフェクトを付ける">[tips] アニメーションにエフェクトを付ける</h3>
+<p>animに時間制限のエフェクトを付けます。通知に<code>timed niagara effect</code>を追加して詳細からniagaraを追加します。</p>
+<p><img src="/m/post/ue/ue5_2024-05-30_132915.png" alt=""></p>
+<h3 id="tips-剣のモーションを作る">[tips] 剣のモーションを作る</h3>
+<p>新しくswordのactor(static mesh)を作成し、collisionを作ります。</p>
+<p>それを<code>BP_Player_UE5</code>に装備し、motionを作成し、キーに割り当てます。剣をしまうのはniagaraで作成しました。</p>
+<iframe src="https://blueprintue.com/render/cu104wg0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p>by <a href="https://blueprintue.com/blueprint/cu104wg0/">ai</a></p>
+<p>これは<code>sword_open</code>, <code>sword_close</code>というactor, blueprintを作成して、それを<code>BP_Player</code>のmeshに当てます。そして、<code>set visible</code>で切り替えています。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.01.png" alt=""></p>
+<p>ではparticle(粒子)はどうやって実現しているのかというと<code>niagara</code>です。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-10_00.39.02.png" alt=""></p>
+<p>まずはboneを追加します。このboneを元にtrailというeffectをつけていくわけです。<code>sword-trail</code>は検索タグとしても有効です。effectはanim sequence(アニメ・シーケンス)で設定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.35.44.png" alt=""></p>
+<p><code>PSTemplate</code>, <code>Socket Name</code>を指定します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_20231203_203306.png" alt=""></p>
+<p>また、niagaraで作成してもいいですね。<code>sword-trail-naigara</code>とでも検索してみてください。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0vYPkxEZEtQ">ソードトレイル</a></li>
+</ul>
+<p>sword motion(ソード・モーション)はanim montage(アニメ・モンタージュ)を使用しているのですが、実行後に元のlocation(位置)に戻ってしまう問題がありました。</p>
+<p>これは<code>root motion</code>をenableにしたり、他の設定をやっても戻ってしまうのです。</p>
+<p>原因はIKリターゲットしたときrootが動いていないために起こります。animationを開いてsrcとtargetを比較してみると、srcのほうはrootが動いていますが、targetのアニメは動いていません。具体的には、srcはlocationが変動しますが、targetは変動していません。</p>
+<p>これを変動するようにしないといけないのですが、bone(ボーン)の<code>root</code>を選択してFKの平行移動モードを<code>Globally Scaled</code>に設定します。</p>
+<p>これでtargetのrootが変動しているのを確認後、リターゲットし、montageを作成します。</p>
+<p><img src="https://raw.githubusercontent.com/syui/img/master/other/ue5_ai_2023-12-09_16.37.18.png" alt=""></p>
+<ul>
+<li><a href="https://happynetwork2019.hatenablog.com/entry/2023/10/02/191340#:~:text=%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%83%96%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88,%E3%81%95%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B%E3%80%82">UE5でルートモーションを有効にしたままリターゲットをする方法</a></li>
+</ul>
+<h3 id="tips-apiを使って処理を行う">[tips] apiを使って処理を行う</h3>
+<p>pluginである<a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a>のpostですが、macで動いたものがwindowsでは動きませんでした。ですが、windowsでイチから作成すると動きました。</p>
+<p>ue5は<code>PATCH</code>に対応していません。この辺はapiを作り直さないといけないかもしれない。</p>
+<iframe src="https://blueprintue.com/render/4qo0qydu/" scrolling="no" width="100%" height="400px"></iframe>
+<p>by : <a href="https://blueprintue.com/blueprint/4qo0qydu/">ai</a></p>
+<p>login処理です。atprotoと連携できればいいなと考えています。</p>
+<p>あと、ゲーム公開/非公開はaiのアカウントで判断しています。ある値がtrueなら公開、falseなら非公開です。ここをapiで変更すれば基本的にゲームの起動自体をコントロールできるようになってる。</p>
+<iframe src="https://blueprintue.com/render/9v24l5h6/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p>by : <a href="https://blueprintue.com/blueprint/9v24l5h6/">ai</a></p>
+<h3 id="tips-カメラを近づけるとキャラの表示を変える">[tips] カメラを近づけるとキャラの表示を変える</h3>
+<p>透明にフィードアウトする形がいいのですが、非常に面倒なのでoverlayで対応します。</p>
+<p><code>get world location</code>, <code>get actor location</code>を<code>distance(vector)</code>で差を取り<code>180 &gt;= value</code>, <code>100 &gt;= value</code>で比較して<code>branch</code>で<code>overlay</code>、100以下の場合は<code>set visibility</code>します。</p>
+<p><a href="https://historia.co.jp/archives/23521/">https://historia.co.jp/archives/23521/</a></p>
+<p><code>m_outline_7</code>を変換して使いました。パラメータの調整は厄介で基本設定が<code>surface, masked, subsurface profile</code>, パラメータを<code>U_pos_01 : 0.2</code>以外は0にします。これは自分が購入したassetの設定です。</p>
+<h3 id="system-レベルアップ">[system] レベルアップ</h3>
 <p>移動するとrandomで経験値が入るようにしました。大体、40秒間移動すれば1 expです。経験値をapiに保存します。expに応じてlvを表示します。この辺はstatusのuiを再度表示しないといけなかったり、anim-eventを作ったり大変でした。</p>
-<h3 id="アイテムストレージ">アイテムストレージ</h3>
+<h3 id="system-アイテムストレージ">[system] アイテムストレージ</h3>
 <p>アイテムストレージと言っても<code>wp</code>です。uiとボタンで作ります。</p>
 <p>uiをマウスで動かすには<code>Set Input Game And UI</code>を使用します。これ以外だと色々と問題があります。例えば、<code>Set Input Only</code>は2回クリックしないとボタンを押せないなど。</p>
 <p>基本的にアイテムをapiに保存して、それがある場合はスキルやテレポートを開放します。テレポートはカードを拾う場所に<code>PlayStart</code>を置いておきます。<code>Open Level</code>の<code>options</code>にtagを入れて移動します。</p>
-<h3 id="瞳の変化">瞳の変化</h3>
+<h3 id="tips-瞳の変化">[tips] 瞳の変化</h3>
 <p><code>create dynamic material instance</code></p>
 <p><a href="https://historia.co.jp/archives/33401/">https://historia.co.jp/archives/33401/</a></p>
 <p>これを利用することでmaterialを光らせてそれを設定することで瞳や輪を光らせることができます。ただ常時はやめたほうがいいでしょう。プレイヤーがつかれてしまいます。</p>
-<h3 id="物の破壊">物の破壊</h3>
+<h3 id="tips-物の破壊">[tips] 物の破壊</h3>
 <blockquote>
 <p>選択モードから「フラクチャ」モードに変更します。このフラクチャモードで実際に Chaos Destructionに関わるメッシュの分割などを行います。複数選択する。新規作成。一様化で分割。色はジオメトリコレクションの詳細から「Show Bone colors」のチェックを外します。</p>
 </blockquote>
 <p><a href="https://logicalbeat.jp/blog/11044/">https://logicalbeat.jp/blog/11044/</a></p>
-<h3 id="表情を動かす">表情を動かす</h3>
+<h3 id="tips-表情を動かす">[tips] 表情を動かす</h3>
 <p><img src="/m/post/ue/ue5_2024-05-30_132916.png" alt=""></p>
-<h3 id="必殺技をつける">必殺技をつける</h3>
+<h3 id="tips-必殺技をつける">[tips] 必殺技をつける</h3>
 <p>レベルシーケンスで作成しました。カメラ移動に苦戦しましたが、それさえやれば割と簡単かも。あと爆発と同時に見えないsphereを作成してsimulate physics, collisionを設定しています。これによりダメージや吹っ飛び判定ができます。なお、play後は<code>input enable</code>しておいてください。</p>
 <iframe src="https://blueprintue.com/render/xn4sm3ok/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
-<h3 id="buildすると髪が動かなくなる">buildすると髪が動かなくなる</h3>
-<p>package化すると髪が動かなくなります。</p>
-<p>ediorで確認すると動くのですが、pacakge build後に動かなくなるのです。</p>
-<p>これは、buildとeditorでは実行順が異なっているためです。</p>
-<ul>
-<li><a href="https://zenn.dev/daichi_gamedev/articles/unreal-engine-beginplay-order">https://zenn.dev/daichi_gamedev/articles/unreal-engine-beginplay-order</a></li>
-<li><a href="https://zenn.dev/posita33/books/ue5_starter_cpp_and_bp_002/viewer/chap_01-06_cpp-package_project_settings">https://zenn.dev/posita33/books/ue5_starter_cpp_and_bp_002/viewer/chap_01-06_cpp-package_project_settings</a></li>
-</ul>
-<p>基本的にpackageではplayerが最後に呼ばれます。editorは4番目くらいに呼ばれます。つまり、これを前段階で呼ばれるようにすれば髪の毛が動くようになります。</p>
-<p>私はtitle画面から<code>open level</code>で最初のステージを呼び出しているのですが、これがよくありません。ue5はmapを一つとして想定しているようで、それ以上読み込む場合はproject settingでpackage化されたbuildに含めるmapを追加する必要があります。titleを挟まないmapを<code>stand alone</code>でpreviewして確認します。</p>
-<p><img src="/m/post/ue/ue5_2024-05-30_132917.png" alt=""></p>
-<p>なお、この問題はそれでも完全に治らなくて度々、髪の毛が動かなくなっていました。game modeの<code>BP_Player</code>が<code>spawn</code>されていないからではないかと色々やってみたのですが治りませんでした。<code>superhero fligth animations</code>をupdateしたら治ったと思いましたが60秒後に動かなくなります。</p>
-<p>そこでmapのbpにevent tickを追加して、そこで<code>dealy</code>, <code>add child actor component BP_Player</code>することで無理やり動かしています。これは良い方法ではありません。また、stand aloneとpackageの動作が大きく異なります。stand aloneでうまくいってもbuildすると上手くいかないのが基本です。簡易な方法、負担が少ない方法はことごとく動きません。event beginでは対処できません。</p>
-<p>なお、ここでadd child actorする<code>BP_Player</code>はmeshとmotionさえあれば良く、eventは必要ありません。削っておきましょう。そして、title.mapにBP_Playerを置きます。</p>
-<p>ちなみに、必殺技のシーケンスを呼び出したときだけ動く様になるのは変だなと思っていましたが、BP_Playerがその時にmapにspawnされるからだと思います。つまり、長時間設定のシーケンサを置いておけばうまくいくかとも思いましたが、うまくいきませんでした。どうやらmapに置くだけではダメでゲーム中に呼び出す必要があるみたいです。</p>
-<p>このような解決法を取るなら<a href="https://github.com/pafuhana1213/KawaiiPhysics">KawaiiPhysics</a>を使いましょう。そのほうが安定します。</p>
 
 
 		
