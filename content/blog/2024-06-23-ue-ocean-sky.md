@@ -1,7 +1,7 @@
 +++
 date = "2024-06-23"
 tags = ["ue5","ue"]
-title = "ue5.4のocean wavesで星と空と海をつなげる"
+title = "ue5.4でocean wavesで星と空と海をつなげる"
 slug = "ue-ocean-sky"
 +++
 

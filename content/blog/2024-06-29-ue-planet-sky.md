@@ -1,7 +1,7 @@
 +++
 date = "2024-06-29"
 tags = ["ue5","ue"]
-title = "ue5.4のdynamic volumetric skyとocean wavesの統合"
+title = "ue5.4でdynamic volumetric skyとocean wavesの統合"
 +++
 
 今回は、`dynamic volumetric sky`と`ocean waves`の統合してみました。

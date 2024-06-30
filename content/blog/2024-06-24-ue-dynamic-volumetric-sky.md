@@ -1,7 +1,7 @@
 +++
 date = "2024-06-24"
 tags = ["ue5","ue"]
-title = "ue5.4のdynamic volumetric skyの空を飛んでみる"
+title = "ue5.4でdynamic volumetric skyの空を飛んでみる"
 +++
 
 [dynamic volumetric sky](https://www.unrealengine.com/marketplace/ja/product/dynamic-volumetric-sky/)はほとんどのゲームに使われているvolumetric skyです。
