@@ -149,12 +149,14 @@
 <p>ただし、dynamic volumetric skyは少し特殊です。</p>
 <p>どうやら<code>BP_Dynamic_VoluemetricSky</code>にある<code>ExponentialHeightFog</code>で地平線を設定しているようです。これを削除していくか、設定を変更していく必要があります。削除する場合はcompileするとerrorが出るので使用している箇所の関数やblueprintを削除します。</p>
 <h2 id="issue海の波紋">issue:海の波紋</h2>
-<p>これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。</p>
 <p>dynamic volumetric skyと合わせることで海に波紋が現れます。</p>
+<p>これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。</p>
 <p><img src="/m/post/ue/ue5_2024-06-24_025510.png" alt=""></p>
 <p>この解消方法はdynamic volumetirc skyのatmoshereのtransformのlocation-zを<code>-6360</code>にすることで回避できました。</p>
 <p>ただし、わからないところもあって、私は<code>BP_EarthSizedSpericalMesh</code>の中に<code>BP_DynamicVolumetircSky</code>を入れています。ですから、そのままでも座標は星の中心を指しています。</p>
-<p><code>BP_DynamicVolumetircSky</code>の<code>VolumetricSkySupport</code>のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。この辺も星の内部に展開される領域に関係します。</p>
+<h2 id="issue海の影">issue:海の影</h2>
+<p>海に円形の影が現れることがあります。これは<code>BP_DynamicVolumetircSky</code>の<code>VolumetricSkySupport</code>のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。</p>
+<p>この辺も星の内部に展開される領域に関係します。</p>
 <h2 id="具体的な統合">具体的な統合</h2>
 <p>重要な問題は以上の2点ですが統合には他にやらなければならないことがたくさんあります。</p>
 <p>例えば、「dynamic volumetric skyの範囲を超えたとき、一体どうやって地球と太陽と月を表現するのか」です。</p>
