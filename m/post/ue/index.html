@@ -400,6 +400,20 @@
 <p>なお、<code>superhero fligth animations</code>, <code>game animation sample</code>, <code>city sample</code>も入っています。</p>
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-29_025510.mp4"></video></p>
 <p>結果として理想の地表と海面、空と雲を手に入れました。</p>
+<h4 id="tips-default-setting">[tips] default setting</h4>
+<ul>
+<li>BP_DynamicVolumetricSky(self) -&gt; Coloud : Coloud Fly Option</li>
+<li>BP_DynamicVolumetricSky(self) -&gt; Single Player Fps Lock : 60 FPS</li>
+<li>SkyAtmosphere -&gt; Transform Mode : Planet Center at Component Transform</li>
+<li>SkyAtmosphere -&gt; Transform(location-z : -6360)</li>
+</ul>
+<h4 id="tips-option-setting">[tips] option setting</h4>
+<ul>
+<li>VolumetricCloud -&gt; Layer Bottom Sltitude : 20</li>
+<li>VolumetricCloud -&gt; Tracking Start Max Distance : 500</li>
+<li>VolumetricCloud -&gt; Tracking Max Distance : 500</li>
+<li>2DSky -&gt; visible : false</li>
+</ul>
 <h4 id="issue-地平線">[issue] 地平線</h4>
 <p>まずはdynamic volumetric skyの地平線を消していきましょう。</p>
 <p>普通に考えて地平線を消したいことなんてありそうですけど、英語は<a href="https://forums.unrealengine.com/t/how-can-i-remove-the-foggy-horizon-in-the-default-skysphere/339893">こちら</a>で説明されています。日本語は見つかりませんでした。これは通常、<code>Horizon Falloff</code>で調整しています。</p>
