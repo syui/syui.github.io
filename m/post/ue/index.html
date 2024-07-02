@@ -337,6 +337,8 @@
 </span></span></code></pre></div><p>大体こんな感じでやればgame animation sample(ABP_SandboxCharacter)が動くでしょう。</p>
 <p>city sampleはnightmodeのblueprintにerrが出ます。これは<code>set daytime</code>, <code>set nighttime</code>を飛ばしてやればでなくなります。昼夜の切り替えはこちらの記事が参考になります。</p>
 <p><a href="https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea">https://qiita.com/EGJ-Nori_Shinoyama/items/429804dc2d7cc99fc0ea</a></p>
+<p>city sampleは何かと問題が多いassetですが、その一番の原因は<code>one file per actor</code>を採用していて、外部アクタの読み込みを変更できないからでしょう。</p>
+<p>基本的にlvをcopyしたものを使用し、バグが発生したときは<code>Content/_ExternalActors_/Map/</code>にある自身が使っているmapのフォルダを削除しましょう。その後、またlvをcopyしてそれを使います。こんな方法しかありません。</p>
 <h3 id="ocean-waves">ocean waves</h3>
 <p>星と海と空をつなげるには<code>ocean waves</code>が参考になります。このassetは結構すごいことをやっています。</p>
 <ul>
@@ -403,12 +405,13 @@
 <h4 id="tips-default-setting">[tips] default setting</h4>
 <ul>
 <li>BP_DynamicVolumetricSky(self) -&gt; Coloud : Coloud Fly Option</li>
-<li>BP_DynamicVolumetricSky(self) -&gt; Single Player Fps Lock : 60 FPS</li>
+<li>BP_DynamicVolumetricSky(self) -&gt; Height Fog Max Opacity : 0</li>
 <li>SkyAtmosphere -&gt; Transform Mode : Planet Center at Component Transform</li>
 <li>SkyAtmosphere -&gt; Transform(location-z : -6360)</li>
 </ul>
 <h4 id="tips-option-setting">[tips] option setting</h4>
 <ul>
+<li>BP_DynamicVolumetricSky(self) -&gt; Single Player Fps Lock : 60 FPS</li>
 <li>VolumetricCloud -&gt; Layer Bottom Sltitude : 20</li>
 <li>VolumetricCloud -&gt; Tracking Start Max Distance : 500</li>
 <li>VolumetricCloud -&gt; Tracking Max Distance : 500</li>
@@ -417,8 +420,8 @@
 <h4 id="issue-地平線">[issue] 地平線</h4>
 <p>まずはdynamic volumetric skyの地平線を消していきましょう。</p>
 <p>普通に考えて地平線を消したいことなんてありそうですけど、英語は<a href="https://forums.unrealengine.com/t/how-can-i-remove-the-foggy-horizon-in-the-default-skysphere/339893">こちら</a>で説明されています。日本語は見つかりませんでした。これは通常、<code>Horizon Falloff</code>で調整しています。</p>
-<p>ただし、dynamic volumetric skyは少し特殊です。</p>
-<p>どうやら<code>BP_Dynamic_VoluemetricSky</code>にある<code>ExponentialHeightFog</code>で地平線を設定しているようです。これを削除していくか、設定を変更していく必要があります。削除する場合はcompileするとerrorが出るので使用している箇所の関数やblueprintを削除します。</p>
+<p>ただし、dynamic volumetric skyは少し特殊です。<code>Height Fog Max Opacity</code>を0にすれば消えます。</p>
+<p>どうやら<code>BP_Dynamic_VoluemetricSky</code>にある<code>ExponentialHeightFog</code>で地平線を設定しているようです。これを削除していくか、設定を変更してもいいですが、削除した場合はbuildがおかしくなるかもしれません。削除する場合はcompileするとerrorが出るので使用している箇所の関数やblueprintを削除します。</p>
 <h4 id="issue-海の波紋">[issue] 海の波紋</h4>
 <p>dynamic volumetric skyと合わせることで海に波紋が現れます。</p>
 <p>これはocean wavesのsky atmosphereが星の中心を規定していることから発生します。つまり、sky atmosphereを星の中心に設定しないと描写の問題が出るということです。</p>
@@ -484,6 +487,14 @@
 <p>シンプルな LAN では、各エンドポイントは通常、それ自身のネットワーク カードで把握しているプライベート IP アドレスを使用して、相手がアクセスできることを前提にしています。オープンなインターネットやサブネットにまたがる場合、またはブラウザと UE4 アプリケーションの間にネットワーク アドレス変換 (NAT) がある場合、一般的にこの前提は当てはまりません。代わりに、各パーティは STUN (Session Traversal Utilities for NAT) プロトコルを実装しているサーバーにクエリを送信して、それ自身のパブリック公開の IP アドレスを検出する必要があります。STUN サーバーが各エンドポイントにパブリック公開の IP アドレスを通知した後、Signaling and Web サーバーは直接接続を引き続き仲介できます。</p>
 </blockquote>
 <p>例えば、login時にipをgetして、それを保存します。そのipと一致しないと操作できないようにすれば一人のユーザーのみ操作可能になります。ですが本来は各ユーザーが別々のスタック、ストリームでゲーム画面を実行できるようにするのが望ましいでしょう。</p>
+<h3 id="error-install-asset">[error] install asset</h3>
+<p>assetをinstallするときにerrorが出ます。原因は<code>EpicLaucher</code>のダウンロードキャッシュフォルダ、<code>VaultCache</code>です。これを外部であれ内部であれ指定しているわけですが、原因不明のerrorが出て解消できないことがあります。基本的には全く新しいフォルダを作ってそれを指定するとうまくいく場合があります。この際、<code>VaultCache</code>という名前にしてはいけませんし、選択してもいけません。</p>
+<h3 id="error-package-to-generate-with-the-same-id">[error] package to generate with the same ID</h3>
+<blockquote>
+<p>PackagingResults: Error:: [Cook] Tryning to add package in context but there is already a package to with the same ID</p>
+</blockquote>
+<p>大体は<a href="https://forums.unrealengine.com/t/cant-package-game-an-item-with-the-same-key-has-already-been-added/329072">これ</a>と似たような問題です。</p>
+<p>city sampleで頻発します。<code>Content/_ExternalActors_</code>を削除して新しいcity sampleの<code>Content/</code>を上書きします。</p>
 <h2 id="unreal-engine-53">unreal engine 5.3</h2>
 <p>ここからは個人的に実装したものをまとめます。</p>
 <h3 id="tips-モデルを法線で強調する">[tips] モデルを法線で強調する</h3>
