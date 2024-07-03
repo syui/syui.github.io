@@ -413,8 +413,8 @@
 <ul>
 <li>BP_DynamicVolumetricSky(self) -&gt; Single Player Fps Lock : 60 FPS</li>
 <li>VolumetricCloud -&gt; Layer Bottom Sltitude : 20</li>
-<li>VolumetricCloud -&gt; Tracking Start Max Distance : 500</li>
-<li>VolumetricCloud -&gt; Tracking Max Distance : 500</li>
+<li>VolumetricCloud -&gt; Tracking Start Max Distance : 400</li>
+<li>VolumetricCloud -&gt; Tracking Max Distance : 400</li>
 <li>2DSky -&gt; visible : false</li>
 </ul>
 <h4 id="issue-地平線">[issue] 地平線</h4>
@@ -431,6 +431,11 @@
 <h4 id="issue-海の影">[issue] 海の影</h4>
 <p>海に円形の影が現れることがあります。これは<code>BP_DynamicVolumetircSky</code>の<code>VolumetricSkySupport</code>のtransform-scaleを大きくすると海に入る影が大きくなり、1にするとなくなります。</p>
 <p>この辺も星の内部に展開される領域に関係します。</p>
+<h4 id="issue-city-sampleとの統合">[issue] city sampleとの統合</h4>
+<p>city sampleとocean waves + dynamic volumetric skyを統合するのは容易ではありません。buildの結果が異なるからです。</p>
+<p>具体的には以下の画像の通りの構成にしなければなりません。oceanの他のactorを入れてはいけません。</p>
+<p><img src="/m/post/ue/ue5_2024-06-30_025510.png" alt=""></p>
+<p>まずdynamic volumetric skyは0に置きます。oceanの惑星の中心ではありません。そして、dynamicのatmosphereを念の為に<code>location-z:-636000001</code>とします。<code>location-z:-636000000</code>でもいいと思います。これは<code>Ground Raidus:6359</code>になっているからです。</p>
 <h4 id="idea-具体的な統合">[idea] 具体的な統合</h4>
 <p>重要な問題は以上の2点ですが統合には他にやらなければならないことがたくさんあります。</p>
 <p>例えば、「dynamic volumetric skyの範囲を超えたとき、一体どうやって地球と太陽と月を表現するのか」です。</p>
@@ -488,12 +493,20 @@
 </blockquote>
 <p>例えば、login時にipをgetして、それを保存します。そのipと一致しないと操作できないようにすれば一人のユーザーのみ操作可能になります。ですが本来は各ユーザーが別々のスタック、ストリームでゲーム画面を実行できるようにするのが望ましいでしょう。</p>
 <h3 id="error-install-asset">[error] install asset</h3>
-<p>assetをinstallするときにerrorが出ます。原因は<code>EpicLaucher</code>のダウンロードキャッシュフォルダ、<code>VaultCache</code>です。これを外部であれ内部であれ指定しているわけですが、原因不明のerrorが出て解消できないことがあります。基本的には全く新しいフォルダを作ってそれを指定するとうまくいく場合があります。この際、<code>VaultCache</code>という名前にしてはいけませんし、選択してもいけません。</p>
+<blockquote>
+<p>インストールに失敗しました</p>
+<p>エラーコード: II-E1001</p>
+</blockquote>
+<p><a href="https://forums.unrealengine.com/t/i-keep-getting-error-code-ii-e1001-when-attempting-to-create-some-unreal-projects/535863">https://forums.unrealengine.com/t/i-keep-getting-error-code-ii-e1001-when-attempting-to-create-some-unreal-projects/535863</a></p>
+<p>この問題は修正されていません。</p>
+<p>assetをinstallするときにerrorが出ます。原因は<code>Epic Games Launcher</code>のダウンロードキャッシュフォルダである<code>VaultCache</code>です。これを内部であれ外部であれ指定しているわけですが、原因不明の<code>II-E1001</code>というerrorが出て解消できないことがあります。基本的には全く新しいフォルダを作ってそれを指定するとうまくいく場合があります。上手くいかない場合もあります。この際、<code>VaultCache</code>という名前にしてはいけませんし、選択してもいけません。</p>
+<p>そもそもこの問題が発生するのは不定期で、何もしていないのに治ることがあります。ハードディスクをlauncherが認識できていないからかもしれませんが、なぜ認識できないのかわかりません。</p>
+<p>とはいえ、unreal engineは基本的にバグだらけであり、ほとんどがバグっているので、この問題もその中の一つに過ぎません。特に困っているので書きました。</p>
 <h3 id="error-package-to-generate-with-the-same-id">[error] package to generate with the same ID</h3>
 <blockquote>
 <p>PackagingResults: Error:: [Cook] Tryning to add package in context but there is already a package to with the same ID</p>
 </blockquote>
-<p>大体は<a href="https://forums.unrealengine.com/t/cant-package-game-an-item-with-the-same-key-has-already-been-added/329072">これ</a>と似たような問題です。</p>
+<p>大体は<a href="https://forums.unrealengine.com/t/cant-package-game-an-item-with-the-same-key-has-already-been-added/329072">これ</a>と似たような問題です。基本的にはocean wavesのactorを追加した後に削除すると発生します。</p>
 <p>city sampleで頻発します。<code>Content/_ExternalActors_</code>を削除して新しいcity sampleの<code>Content/</code>を上書きします。</p>
 <h2 id="unreal-engine-53">unreal engine 5.3</h2>
 <p>ここからは個人的に実装したものをまとめます。</p>
