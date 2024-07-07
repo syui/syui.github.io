@@ -170,6 +170,7 @@
 <li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/dynamic-volumetric-sky/">dynamic volumetric sky</a></li>
 <li>asset : <a href="https://www.unrealengine.com/marketplace/ja/product/ocean-waves">ocean waves</a></li>
 <li>plugin : <a href="https://www.unrealengine.com/marketplace/en-US/product/http-websocket-helper">http websocket helper</a></li>
+<li>plugin : <a href="https://www.unrealengine.com/marketplace/ja/product/jsonparser">jsonparser</a></li>
 </ul>
 <h2 id="asset-vrm4u--superhero-fligth-animations">[asset] vrm4u + superhero fligth animations</h2>
 <ul>
@@ -238,6 +239,11 @@
 <p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
 <p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>
 <iframe src="https://blueprintue.com/render/wi2aobel/" scrolling="no" width="100%" height="400px"></iframe>
+<h3 id="close-buildすると髪が動かなくなる">[close] buildすると髪が動かなくなる</h3>
+<p>vrm4uがpackage buildすると髪の毛が動かなくなっていました。</p>
+<p>これを動かせるには<code>ABP_Post_${model_name}</code>を編集して、<code>VrmSpringBone</code>で<code>Vrm Meta Object:VM_${model_name}_VrmMeta</code>を指定します。</p>
+<p><img src="/m/post/ue/ue5_2024-07-06_125510.png" alt=""></p>
+<p>これでこの問題は解消されました。この<code>issue</code>を閉じます。</p>
 <h3 id="issue-buildすると髪が動かなくなる">[issue] buildすると髪が動かなくなる</h3>
 <p>package化すると髪が動かなくなります。これは<code>ue 5.3</code>でも発生し、vrm4uのversionの問題です。</p>
 <p>ediorで確認すると動くのですが、pacakge build後に動かなくなるのです。</p>
@@ -254,6 +260,13 @@
 <p>なお、ここでadd child actorする<code>BP_Player</code>はmeshとmotionさえあれば良く、eventは必要ありません。削っておきましょう。そして、title.mapにBP_Playerを置きます。</p>
 <p>ちなみに、必殺技のシーケンスを呼び出したときだけ動く様になるのは変だなと思っていましたが、BP_Playerがその時にmapにspawnされるからだと思います。つまり、長時間設定のシーケンサを置いておけばうまくいくかとも思いましたが、うまくいきませんでした。どうやらmapに置くだけではダメでゲーム中に呼び出す必要があるみたいです。</p>
 <p>このような解決法を取るなら<a href="https://github.com/pafuhana1213/KawaiiPhysics">KawaiiPhysics</a>を使いましょう。そのほうが安定します。</p>
+<h3 id="issue-54でanimリターゲットすると頭の動きがおかしくなる">[issue] 5.4でanimリターゲットすると頭の動きがおかしくなる</h3>
+<p>これは<code>Source IKRig : IK_UE4_Mannequin</code>などを使用すると正常になりますが、それではABP_Playerとの互換性などが損なわれます。つまり、<code>BP_Player</code>でanimを再生できなくなるということです。</p>
+<p><img src="/m/post/ue/ue5_2024-07-06_025510.png" alt=""></p>
+<p>この問題の解決は少し複雑で録画からanimを作成しなければなりません。しかも普通の作り方ではありません。</p>
+<p>まずは<code>Source Preview Mesh</code>を取りたいanim元にします。そして、使用したいanimをassetブラウザから再生します。</p>
+<p>その後、<code>Source IKRig : IK_UEFN_Mannequin</code>などを指定してやると、anim元を再生しながらも<code>IK_UEFN_Mannequin</code>を使用することができます。この状態では不思議なことにanimが正常に再生されています。</p>
+<p>そこで録画ボタンを押してanimを作ります。するとABP_Playerで使えるanimが生成されます。</p>
 <h3 id="idea-作り直すもの">[idea] 作り直すもの</h3>
 <p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
 <p><video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video></p>
@@ -492,11 +505,13 @@
 <p>シンプルな LAN では、各エンドポイントは通常、それ自身のネットワーク カードで把握しているプライベート IP アドレスを使用して、相手がアクセスできることを前提にしています。オープンなインターネットやサブネットにまたがる場合、またはブラウザと UE4 アプリケーションの間にネットワーク アドレス変換 (NAT) がある場合、一般的にこの前提は当てはまりません。代わりに、各パーティは STUN (Session Traversal Utilities for NAT) プロトコルを実装しているサーバーにクエリを送信して、それ自身のパブリック公開の IP アドレスを検出する必要があります。STUN サーバーが各エンドポイントにパブリック公開の IP アドレスを通知した後、Signaling and Web サーバーは直接接続を引き続き仲介できます。</p>
 </blockquote>
 <p>例えば、login時にipをgetして、それを保存します。そのipと一致しないと操作できないようにすれば一人のユーザーのみ操作可能になります。ですが本来は各ユーザーが別々のスタック、ストリームでゲーム画面を実行できるようにするのが望ましいでしょう。</p>
-<h2 id="http-websocket-helper">http websocket helper</h2>
+<h2 id="http-helper--jsonparser">http helper + jsonparser</h2>
 <p>これまで<code>put</code>ができるhttp requestはありましたが、<code>patch</code>ができるものはありませんでした。しかし、<a href="https://github.com/RLoris/HttpHelperDoc">RLoris/HttpHelperDoc</a>がそれを可能にします。無料で使えるものには<a href="https://github.com/ufna/VaRest">ufna/VaRest</a>があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -X PUT
-</span></span><span style="display:flex;"><span>$ curl -X PATCH
-</span></span></code></pre></div><h2 id="error-install-asset">[error] install asset</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -X PUT -sL example.com
+</span></span><span style="display:flex;"><span>$ curl -X PATCH -sL example.com
+</span></span></code></pre></div><p>これと<a href="https://www.unrealengine.com/marketplace/ja/product/jsonparser">jsonparser</a>を組み合わせることでかなりblueprintが楽に書くことができます。もちろん、無料でやることは可能ですが、相当な時間と手間がかかってしまうので、こういったpluginは購入しておくのも手です。ただし、本来は公式が対応する機能ではないかとも思っていて、pluginを購入してもsupportがいつまで継続されるのかは未知数です。</p>
+<iframe src="https://blueprintue.com/render/mb0s7e_a/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<h2 id="error-install-asset">[error] install asset</h2>
 <blockquote>
 <p>インストールに失敗しました</p>
 <p>エラーコード: II-E1001</p>
