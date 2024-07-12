@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sun, 07 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nike</title>
+      <link>https://syui.ai/tags/nike/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/nike/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Private</title>
+      <link>https://syui.ai/tags/private/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/private/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Running</title>
+      <link>https://syui.ai/tags/running/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/running/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Note</title>
       <link>https://syui.ai/tags/note/</link>
@@ -98,20 +119,6 @@
       <link>https://syui.ai/tags/yui/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/yui/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Private</title>
-      <link>https://syui.ai/tags/private/</link>
-      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/private/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Running</title>
-      <link>https://syui.ai/tags/running/</link>
-      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/running/</guid>
       <description></description>
     </item>
     <item>
@@ -497,13 +504,6 @@
       <link>https://syui.ai/tags/nvim/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/nvim/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Nike</title>
-      <link>https://syui.ai/tags/nike/</link>
-      <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/nike/</guid>
       <description></description>
     </item>
     <item>

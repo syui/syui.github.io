@@ -2,23 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/post/2024/07/12/nike/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/nike/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/private/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/running/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-07-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/note/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/post/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/archive/note/19/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-07-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
     <lastmod>2024-07-06T00:00:00+00:00</lastmod>
@@ -122,9 +134,6 @@
     <loc>https://syui.ai/blog/post/2024/04/04/genshin/</loc>
     <lastmod>2024-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/tags/private/</loc>
-    <lastmod>2024-04-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/post/2024/04/03/private/</loc>
     <lastmod>2024-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -133,9 +142,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2024/04/01/genshin/</loc>
     <lastmod>2024-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/running/</loc>
-    <lastmod>2024-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/03/31/private/</loc>
     <lastmod>2024-03-31T00:00:00+00:00</lastmod>
@@ -661,9 +667,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2022/12/24/illust/</loc>
     <lastmod>2022-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/nike/</loc>
-    <lastmod>2022-12-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2022/12/22/run/</loc>
     <lastmod>2022-12-22T00:00:00+00:00</lastmod>
