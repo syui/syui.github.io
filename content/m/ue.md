@@ -722,4 +722,33 @@ https://logicalbeat.jp/blog/11044/
 
 <iframe src="https://blueprintue.com/render/xn4sm3ok/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
 
+## [issue] シーケンサを5.3から5.4にインポートしたらバグっていた
+
+原子爆発をシーケンサで作成していましたが、バグに遭遇しましたので記録しておきます。
+
+5.3から5.4にシーケンサを持ってきて使用していましたが、一度でも編集するとおかしくなります。例えば、BP_Playerを置いたとして、mesh(skeltal)も追加しなければならなくなりました。なぜならanimを追加できないからです。meshを追加したあとanimを追加できます。しかし、これでもまだ正常ではありません。buildが進まなくなり、編集するとanimが機能しなくなります。つまり、meshを追加、animを追加、meshを削除という手順を踏まなければいけません。BP_Playerの直下にanimを置くことでようやく正常になります。
+
+## [tips] vrm4uの見た目の調整
+
+今回は誰も解説していないBP_PoseCopyToonを使ったvrmモデルの見た目を改良する手順を紹介します。ドキュメントにも書かれていませんが、大体は以下の手順になります。
+
+1. ファイラーでPlugins/を見えるようにする(プラグインコンテンツを表示)
+
+2. All/Plugins/VRM4U/Util/Actor/PostShadow/BP_PoseCopyToonをlevel(map)に配置し、target actorにBP_Playerを選択して調整する(BP_Playerもlevelに配置しないといけない)
+
+3. All/Plugins/VRM4U/Util/Actor/PostShadow/MI_PostToonが更新されているのでAll/Plugins/VRM4U/ImportData/DS_VRMCustomを開いて、全部をMI_PostToonにする
+
+4. vrmファイルをインポートする。この際、type:customを選択する
+
+5. 奇妙なSK_${name}ができるが、重ねがけ用なので正常です。BP_PoseCopyToonを開いてVrmPoseableMesh_translucentをコピーし、BP_Playerに貼り付ける
+
+6. VrmPoseableMesh_translucentでSK_${name}を参照する
+
+## [issue] 背景がチカチカする
+
+dynamic volumetric skyで2dskyが原因である領域に視線を向けるとチカチカ背景の色が変わる現象に遭遇しました。2dskyをdisableにすることで解消しました。
+
+## [tips] 雲を綺麗にする
+
+dynamic volumetric skyのtime speedをゆっくりにすることで、雲がきれいになりました。fpsはfreeにしました。projectでもfpsを高めに設定しました。
 
