@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 20 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/bluesky/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bluesky self-hostの最新事情</title>
+      <link>https://syui.ai/blog/post/2024/07/17/bluesky/</link>
+      <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/17/bluesky/</guid>
+      <description>現在、blueskyのself-hostはbsync,dataplaneをどうにかする必要があります。これは最新版を動かしたい場合の話です。&#xA;これに取り組んでいるのがitaru2622さんです。この人が現在のbluesky self-host最先端だと思われます。&#xA;以下のpatchをベースに動くdocker imageを公開されています。&#xA;https://github.com/itaru2622/bluesky-selfhost-env https://hub.docker.com/u/itaru2622 現在、問題があるのはbskyなので、それらを置き換えればよいでしょう。bgsが上手く動作しない場合はそれも置き換えてください。&#xA;bsky: ports: - 2584:2584 image: itaru2622/bluesky-atproto-bsky restart: always env_file: - ./envs/bsky volumes: - ./data/bsky/:/data/ #- ./repos/bsky.js:/app/services/bsky/api.js:ro command: node --enable-source-maps api.js depends_on: database: condition: service_healthy redis: condition: service_healthy bsky-fix-permission: condition: service_completed_successfully #healthcheck: # test: &amp;#34;wget -q --spider http://localhost:2584/xrpc/_health&amp;#34; # interval: 5s # retries: 20 #build: # context: ./repos/atproto/ # dockerfile: services/bsky/Dockerfile なお、私は昔のdbのままだとapp.bsky.actor.getProfileが動作しなかったので、postgresを退避してイチから作り直す必要があるかもしれません。</description>
+    </item>
     <item>
       <title>linkの集約</title>
       <link>https://syui.ai/blog/post/2024/05/20/bluesky/</link>

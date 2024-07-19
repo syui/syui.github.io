@@ -7,14 +7,28 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ゲームと哲学</title>
+      <link>https://syui.ai/blog/post/2024/07/19/game/</link>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/19/game/</guid>
+      <description>今回は、私が作っているゲームの話をしていきたいと思います。&#xA;私はどんなゲームを作っていくつもりなのかという話です。&#xA;アイを使用できない まず私はよくゲーム内でアイを動かしています。&#xA;アイは飛べるのでこのキャラを使いながら世界を作っています。&#xA;普通に考えればゲームが完成したときこのキャラクターを使えるんだと思っている方がいるかもしれませんが、アイは基本的に使えるようにはなりません。&#xA;限りなくゼロに近い特殊な機会においてのみ、アイを使えるルートを用意するつもりです。&#xA;つまり、通常は使えるようにならないキャラクターになります。&#xA;ああ、そういえばこのゲームはキャラゲーです。キャラゲーというのは魅力的なキャラクターに力を入れストーリーを構築することを目指すということです。&#xA;アイはストーリーでたまに出てくる謎人物として登場するかもしれませんが、そのくらいです。&#xA;アイに関しては初日の数時間だけテストも兼ねて引けるようにしておくかもしれませんが、それ以降ピックアップされることはありません。&#xA;ちなみに、数ヶ月に一度、新しいキャラをガチャを引けるようにする。そのようなスタイルで運用を考えています。&#xA;ただし、ストーリーが完結した際にはもしかしたらピックアップされるかもしれませんね。そのへんはどうなるかわかりません。&#xA;世界の構築 今現在、私が作っているのは通常のプレイヤーが行くことができない領域を作っています。&#xA;このゲームは最初、非常に限られた空間で遊ぶことを考えています。&#xA;そして、今作っているのはその外側のプレイヤーが物理的に到達できない場所です。&#xA;キャラはそれぞれに普通のモーションを採用します。&#xA;つまり、飛べないし、そんな早く走れるわけでもない。攻撃やスキルも思った以上にこじんまりとしたものになります。&#xA;今操作しているアイのように動けるわけではありません。それは全く違います。&#xA;開発者の哲学 ここで、私がどういうつもりでこんな仕様にするのかというと、これにはある種の哲学的な思想があります。&#xA;プレイヤーが行ける場所以外にも世界が広がっていること。&#xA;まだ見ぬキャラクターがいること。&#xA;謎があること。&#xA;これらはゲームを面白くすると考えるからです。&#xA;なんかワクワクしませんか。&#xA;私もわざわざ作っている以上は最終的にプレイヤーはそこに到達できるようになると思います。&#xA;しかし、最初からそこに行けてもつまらないですよね。&#xA;超パワーやアイに頼らずゲームを面白くしたい、そんな思いがあります。&#xA;そのためアイはゲームでたまに出てくる謎キャラ。脇役として、他のキャラたちの力でこのゲームを作っていきたいと考えています。&#xA;このゲームは身内のためのゲームと言うより、一般的なソシャゲを目指す。そんな感じです。&#xA;とはいえ、アイは初日だけ引けるし、ストーリーにも登場しますので、知る人ぞ知る、そんなキャラになるでしょう。</description>
+    </item>
     <item>
       <title>vrm4uでBP_PoseCopyToonを使う</title>
       <link>https://syui.ai/blog/post/2024/07/18/vrm/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2024/07/18/vrm/</guid>
       <description>今回は誰も解説していないvrm4uでBP_PoseCopyToonを使った見た目をカスタマイズする方法を紹介します。ドキュメントにも書かれていませんが、大体は以下の手順になります。&#xA;ファイラーでPlugins/を見えるようにする(プラグインコンテンツを表示)&#xA;All/Plugins/VRM4U/Util/Actor/PostShadow/BP_PoseCopyToonをlevel(map)に配置し、target actorにBP_Playerを選択して調整する(BP_Playerもlevelに配置しないといけない)&#xA;All/Plugins/VRM4U/Util/Actor/PostShadow/MI_PostToonが更新されているのでAll/Plugins/VRM4U/ImportData/DS_VRMCustomを開いて、全部をMI_PostToonに変更する&#xA;新しくvrmファイル(.vrm)をインポートする。この際、type:customを選択する&#xA;奇妙なSK_${name}ができるが重ねがけ用なので正常。BP_PoseCopyToonを開いてVrmPoseableMesh_translucentをコピーし、BP_Playerに貼り付ける&#xA;VrmPoseableMesh_translucentで先程作ったSK_${name}を参照する&#xA;VrmPoseableMesh_translucentで生成されるmaterialはlevel専用の一時的なものです。これはコピー、貼付けして一時的に使えますが、保存されません。unreal engineを落とすと無効になります。&#xA;したがって、customに入れて生成して使います。それが上記の手順です。&#xA;近づくとよく分かる違い 近づくとその違いは明らかです。subsurface profileで作ったモデルはデコボコしていますが、postshadowを重ねて表示するモデルはデコボコが消えきれいになっています。&#xA;今回は原子爆発を使ったあとは輪っかと瞳のmaterialを切り替えて光らせるようにしました。&#xA;この辺のmaterialの調整も結構大変で試行錯誤しています。&#xA;なぜvrm4uの見た目をカスタマイズしている人がいないのか そもそも日本語のunreal engineの情報自体が少ないのですが、その中のvrm4uとなると、なおさら触る人が少ないのだと思います。&#xA;また、どこにもやり方が書かれていないので、見た目のカスタマイズは相当大変です。検索しても情報は出てこない。&#xA;説明しようにも環境問題が大きく、解説が難しい事情もあるのでしょう。&#xA;最近の出来事 だいぶ理想の空に近づいてきました。ぱっと見は問題なさそうですが納得できないところが多く、修正していたら時間がかかりました。&#xA;dynamic volumetric skyで2dskyが原因である領域に視線を向けるとチカチカ背景の色が変わる現象に遭遇しました。2dskyをdisableにすることで解消しました。&#xA;また、time speedをゆっくりにすることで、雲がきれいになりました。fpsはfreeにしました。projectでもfpsを高めに設定しました。&#xA;その後、モデルに目を向けました。モデルも悪くはないんだけど、でも理想的ではありません。個人的にはリアル寄りではなく、アニメ寄りにしたかったのです。&#xA;ですが、unreal engineはリアル寄りのゲームで、アセットの多くもリアル寄りが多いので、subsurface profileを使用していました。&#xA;基本はこれを調整したものをベースに、BP_PoseCopyToonを使っていきたいと思います。&#xA;原子爆発をシーケンサで作成していましたが、バグに遭遇しましたので記録しておきます。&#xA;5.3から5.4にシーケンサを持ってきて使用していましたが、一度でも編集するとおかしくなります。例えば、BP_Playerを置いたとして、meshも追加しなければならなくなりました。meshを追加したあとはじめてanimを追加できます。しかし、これでもまだ正常ではありません。buildが進まなくなり、編集するとanimが機能しなくなります。つまり、meshを追加、animを追加、meshを削除という手順を踏まなければいけません。 BP_Playerの直下にanimを置くことでようやく正常になります。&#xA;最近、googleではなくperplexity.aiを使用するようになりました。&#xA;srcに当たりたい気持ちはありgoogleのほうが使いやすいように思えますが、unreal engineに関してはperplexityのほうが問題解決が早かった。</description>
+    </item>
+    <item>
+      <title>bluesky self-hostの最新事情</title>
+      <link>https://syui.ai/blog/post/2024/07/17/bluesky/</link>
+      <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/17/bluesky/</guid>
+      <description>現在、blueskyのself-hostはbsync,dataplaneをどうにかする必要があります。これは最新版を動かしたい場合の話です。&#xA;これに取り組んでいるのがitaru2622さんです。この人が現在のbluesky self-host最先端だと思われます。&#xA;以下のpatchをベースに動くdocker imageを公開されています。&#xA;https://github.com/itaru2622/bluesky-selfhost-env https://hub.docker.com/u/itaru2622 現在、問題があるのはbskyなので、それらを置き換えればよいでしょう。bgsが上手く動作しない場合はそれも置き換えてください。&#xA;bsky: ports: - 2584:2584 image: itaru2622/bluesky-atproto-bsky restart: always env_file: - ./envs/bsky volumes: - ./data/bsky/:/data/ #- ./repos/bsky.js:/app/services/bsky/api.js:ro command: node --enable-source-maps api.js depends_on: database: condition: service_healthy redis: condition: service_healthy bsky-fix-permission: condition: service_completed_successfully #healthcheck: # test: &amp;#34;wget -q --spider http://localhost:2584/xrpc/_health&amp;#34; # interval: 5s # retries: 20 #build: # context: ./repos/atproto/ # dockerfile: services/bsky/Dockerfile なお、私は昔のdbのままだとapp.bsky.actor.getProfileが動作しなかったので、postgresを退避してイチから作り直す必要があるかもしれません。</description>
     </item>
     <item>
       <title>1年ぶりにランニングを記録してみた</title>

@@ -7,19 +7,26 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Game</title>
+      <link>https://syui.ai/tags/game/</link>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/game/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ue</title>
       <link>https://syui.ai/tags/ue/</link>
-      <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ue/</guid>
       <description></description>
     </item>
     <item>
       <title>Ue5</title>
       <link>https://syui.ai/tags/ue5/</link>
-      <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ue5/</guid>
       <description></description>
     </item>
@@ -28,6 +35,20 @@
       <link>https://syui.ai/tags/vrm/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/vrm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Atproto</title>
+      <link>https://syui.ai/tags/atproto/</link>
+      <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/atproto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bluesky</title>
+      <link>https://syui.ai/tags/bluesky/</link>
+      <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/bluesky/</guid>
       <description></description>
     </item>
     <item>
@@ -66,13 +87,6 @@
       <description></description>
     </item>
     <item>
-      <title>Bluesky</title>
-      <link>https://syui.ai/tags/bluesky/</link>
-      <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/bluesky/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Mastodon</title>
       <link>https://syui.ai/tags/mastodon/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
@@ -98,13 +112,6 @@
       <link>https://syui.ai/tags/nasa/</link>
       <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/nasa/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Atproto</title>
-      <link>https://syui.ai/tags/atproto/</link>
-      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/atproto/</guid>
       <description></description>
     </item>
     <item>
@@ -434,13 +441,6 @@
       <link>https://syui.ai/tags/iphone/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/iphone/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Game</title>
-      <link>https://syui.ai/tags/game/</link>
-      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/game/</guid>
       <description></description>
     </item>
     <item>

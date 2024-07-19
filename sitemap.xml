@@ -3,25 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/game/</loc>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue5/</loc>
-    <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/07/19/game/</loc>
+    <lastmod>2024-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/vrm/</loc>
     <lastmod>2024-07-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/07/18/vrm/</loc>
     <lastmod>2024-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/atproto/</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/bluesky/</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/07/17/bluesky/</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/note/</loc>
     <lastmod>2024-07-15T00:00:00+00:00</lastmod>
@@ -80,9 +95,6 @@
     <loc>https://syui.ai/blog/post/2024/06/12/ue/</loc>
     <lastmod>2024-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/tags/bluesky/</loc>
-    <lastmod>2024-05-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/post/2024/05/20/bluesky/</loc>
     <lastmod>2024-05-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -112,9 +124,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2024/04/28/nasa/</loc>
     <lastmod>2024-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/atproto/</loc>
-    <lastmod>2024-04-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/hugo/</loc>
     <lastmod>2024-04-26T00:00:00+00:00</lastmod>
@@ -613,9 +622,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/01/21/illust/</loc>
     <lastmod>2023-01-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/game/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/01/16/genshin/</loc>
     <lastmod>2023-01-16T00:00:00+00:00</lastmod>
