@@ -630,6 +630,10 @@
 <p>dynamic volumetric skyで2dskyが原因である領域に視線を向けるとチカチカ背景の色が変わる現象に遭遇しました。2dskyをdisableにすることで解消しました。</p>
 <h2 id="tips-雲を綺麗にする">[tips] 雲を綺麗にする</h2>
 <p>dynamic volumetric skyのtime speedをゆっくりにすることで、雲がきれいになりました。fpsはfreeにしました。projectでもfpsを高めに設定しました。</p>
+<h2 id="issue-sostylizedのskyでmodelが光る">[issue] SoStylizedのskyでmodelが光る</h2>
+<p>これは<code>BP_StylizedSky</code>にあるPostProcessのBloomが原因です。強度を0にしましょう。ただし、blueprintから直接変更するしかない場合があります。</p>
+<p><img src="/m/post/ue/ue5_2024-07-18_01.png" alt="">
+<img src="/m/post/ue/ue5_2024-07-18_02.png" alt=""></p>
 
 
 		
