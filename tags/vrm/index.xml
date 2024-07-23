@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5でキャラを切り替える</title>
+      <link>https://syui.ai/blog/post/2024/07/20/vrm/</link>
+      <pubDate>Sat, 20 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/20/vrm/</guid>
+      <description>キャラの切り替え キャラの切り替えはWidgets/GameAnimationWidgetの一部を使用します。具体的にはEUW_CharacterSelectButtonを以下のように書き換えれば使用できるでしょう。&#xA;これらはeditor utilityなのでcook(package build)に含まれません。もし切り替えボタンをbuild後も表示したければ、EUW(editor utility widget)をやめてWP(widget)で作成しましょう。またここで使われているblueprintアイコンはbuild時は真っ黒になります。画像を用意しましょう。&#xA;アイの変身に難儀している three-vrmを触っていた時代に衣装を作ったわけですが、ue5では思ったように動かないことがあります。&#xA;これは衣装の作り方に問題があるわけですが、かつてthree-vrmでよく見える衣装を試行錯誤して作ったやつを修正する時期が来たと思ったので、modelを全面的にupdateしました。&#xA;服の揺れで内部に入り込むので衣装を作り直した 腕輪を作り直した 輪っかをSMにしてmodelと分離した 瞳の中のマークを完璧な形状にした 靴のデザインを少し変更した 腕輪に関してはデザインとモデル、マテリアルに改善の余地があります。これもSMにして光沢化すればうまくいきそうですが、モデリングは苦手です。&#xA;基本的にアイの変身は複数のmodelを切り替えることで実装していました。&#xA;しかし、今回の衣装の変更ですべてのmodelを更新するのが非常にめんどくさいので、materialを切り替える方針に変更しました。&#xA;つまり、黒髪にしたいなら髪の毛のelementに黒髪のmaterialをsetします。今まではmodelそのものをsetしていました。&#xA;ですがこれも非常にめんどくさいことになるのですが、例えば、他のキャラと切り替えるとき、SMをすべてdisableにしなければなりません。そうでないとSMが残ってしまいます。&#xA;これはBP_VrmOutlineComponentやVrmPoseableMesh_translucent, SMなどをmesh下に追加するときに起こります。&#xA;set visibilityのoptionにチェックをいれることで全体化できますが、そうではなく現在キャラ切り替えはCBP_SandboxCharacterで行っています。&#xA;変更するたびにCBP_SandboxCharacterでvisibility:disableを設定しなければなりません。そうでないとアイのmodelに入れたやつが表示されてしまいます。&#xA;頻繁に変更しないならいいのですが、キャラが多くなってくるとアイのmodelを修正するたびに非常にめんどくさいことになります。&#xA;逆にCBP_SandboxCharacterをアイにしておかないと、blueprintが書きづらく、castする必要が出てきます。今のところmeshをぱっと参照できる方がいい。また、シーケンサで作ったムービー(モーション)が動かなくなります。&#xA;衣装に問題が発生した その後、印象に問題が発生しました。&#xA;現在、ロングコートをベースに衣装作成を行いましたが、胸の部分の隙間が開いてしまっており、これをワンピースベースにする必要があると感じました。&#xA;色々と書き換えていますが、納得できるものを完成させられていません。&#xA;ずっと使うものですから、ここでいいものを作っておきたい。</description>
+    </item>
     <item>
       <title>vrm4uでBP_PoseCopyToonを使う</title>
       <link>https://syui.ai/blog/post/2024/07/18/vrm/</link>
