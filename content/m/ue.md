@@ -758,3 +758,14 @@ dynamic volumetric skyのtime speedをゆっくりにすることで、雲がき
 
 ![](/m/post/ue/ue5_2024-07-18_01.png)
 ![](/m/post/ue/ue5_2024-07-18_02.png)
+
+## [tips] キャラの切り替え
+
+game animation sampleの実装を基準にキャラを切り替えていきます。
+
+キャラの切り替えは`Widgets/GameAnimationWidget`の一部を使用します。具体的には`EUW_CharacterSelectButton`を以下のように書き換えれば使用できるでしょう。
+
+<img src="/m/post/ue/ue5_2024-07-19_02.png">
+
+<iframe src="https://blueprintue.com/render/7z9nt-bi/" scrolling="no" width="100%" height="450px" allowfullscreen></iframe>
+
