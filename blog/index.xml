@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sat, 20 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vroidでマントを作る</title>
+      <link>https://syui.ai/blog/post/2024/07/21/vrm/</link>
+      <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/21/vrm/</guid>
+      <description>アイの衣装を作っています。走っている姿があまり可愛くないのでマントを付けてみることにしました。原因はおそらくデフォルトの姿勢だと思われます。&#xA;しかし、vroidでマントは相当難しいです。&#xA;マントの作り方と調整 vroidで髪の毛から作りました。したがって、頭の動きと連動します。&#xA;調整は髪の揺れ方から行います。動かしたいboneを追加して、ボーン数は少ないほど安定します。これで動く場所を追加します。固定点はどこからboneを始めるかを決めます。かたさは数字が小さいほど固い動きになります。衝突半径はboneを基準にカプセルのようなものを追加して衝突の有無を判定するのでしょう。&#xA;マントは以下を基準に設定しました。&#xA;ボーン : 1 固定点 : 0.6 かたさ : 0.1 重力 : 0 衝突半径 : 0.01 この値だけでもダメで上向きにすることが必要です。これ以外では貫通してしまいました。本当はもう少し下向きがいいですね。&#xA;体を貫通する マントが体を貫通します。&#xA;これは現時点でどうしようもない問題です。あらゆるパラメータを調整しても貫通してしまい、無理やりなんとかしようとすると、今度は後ろ髪とのバッティングが発生し、髪の毛がごちゃごちゃに動くようになります。&#xA;マントを上向きにしているのは走ると体を貫通してしまうからです。&#xA;できる限り貫通しないようにしましたが、完璧は無理でしょう。&#xA;boneを増やすのは良くない 固定値を根本から設定し、boneを増やして衝突半径を大きくすることで貫通を解消する事ができるかもしれません。&#xA;しかし、マントの動きが安定しなくなってしまいます。</description>
+    </item>
     <item>
       <title>ue5でキャラを切り替える</title>
       <link>https://syui.ai/blog/post/2024/07/20/vrm/</link>
