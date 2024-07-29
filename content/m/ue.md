@@ -789,3 +789,27 @@ https://forums.unrealengine.com/t/no-cloth-simulation-in-ue5-but-works-in-ue4/61
 
 `RTG_UEFN_${name}`で右足と左足にあるボックスを選択して、IK -> スタティックローカルオフセットを左を`x:2.0`, 右を`x:-2.0`にします。
 
+## [issue] 一つのwidgetで各キャラのiconを設定する
+
+objectに`cbp_character_${name}`を指定してボタンをクリックするとキャラが切り替えるwidgetを作成していました。
+
+以前はiconごとに読み込むファイルを別々に作っていたのですが、その処理を簡略化しました。まずは各キャラのcbpをobjectに指定しているので、名前が異なります。objectからdisplay nameやobject name, object pathを取ってきて、brush(image)を設定するようにしたのですが、これはeditorでは動作しますが、buildで動作しないことがわかりました。
+
+理由は不明ですが、object(name)がNoneになります。ボタンを押すと正常に動作するためobjectはそのキャラのものが使われているはずです。これは少し奇妙です。
+
+そんなことを言っていても問題は解決しないので別の方法でやることにしました。objectとは別の値を用意して処理します。また、とりあえず`インスタンス編集可能`, `スポーン時に公開`, `シネマティックスに公開`にチェックを入れておくことにしました。
+
+<iframe src="https://blueprintue.com/render/afervnjy/" scrolling="no" allowfullscreen width="100%" height="450px"></iframe>
+
+## [issue] bp_playerのキャラを切り替えるときに装備を外す
+
+これも以前から放置していた問題ですが、アイの衣装を変更したときに他キャラで`visibility:false`するのがめんどくさかったので、自動で処理されるようにしました。
+
+`cbp_sandbox_character`をcastしてobjectのdisplay nameでもobject nameでも取ってきて、それが`ai`じゃなければ`set visibility`します。childrenにチェックを入れておきます。
+
+<iframe src="https://blueprintue.com/render/7z9nt-bi/" scrolling="no" allowfullscreen width="100%" height="450px"></iframe>
+
+なお、最初は`destroy actor child`のようなものを探したのですが、unreal engineにそんなものはありませんでした。
+
+unreal engineは「これくらい基本的なことはできるでしょう」ということができませんし、そんなものはありません。splineをいじっていたときも驚きました。
+
