@@ -640,6 +640,27 @@
 <img src="/m/post/ue/ue5_2024-07-19_02.png">
 <p><img src="/m/post/ue/ue5_2024-07-20_01.png" alt=""></p>
 <iframe src="https://blueprintue.com/render/7z9nt-bi/" scrolling="no" width="100%" height="450px" allowfullscreen></iframe>
+<h2 id="issue-city-sampleでcloth-simulationが機能しない">[issue] city sampleでcloth simulationが機能しない</h2>
+<p>他のprojectでは機能するのに<code>cloth simulation</code>が機能しない場合、project settingの問題です。</p>
+<p><a href="https://forums.unrealengine.com/t/no-cloth-simulation-in-ue5-but-works-in-ue4/619532">https://forums.unrealengine.com/t/no-cloth-simulation-in-ue5-but-works-in-ue4/619532</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:Config/DefaultEngine.ini" data-lang="sh:Config/DefaultEngine.ini"><span style="display:flex;"><span><span style="color:#66d9ef">[ConsoleVariables]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">- p.ClothPhysics</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ p.ClothPhysics</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+</span></span></code></pre></div><h2 id="tips-デフォルトの姿勢では足が開いてしまい可愛くない">[tips] デフォルトの姿勢では足が開いてしまい可愛くない</h2>
+<p>走っている姿やアイドル状態などをよく見てみると可愛くありません。</p>
+<p><code>RTG_UEFN_${name}</code>で右足と左足にあるボックスを選択して、IK -&gt; スタティックローカルオフセットを左を<code>x:2.0</code>, 右を<code>x:-2.0</code>にします。</p>
+<h2 id="issue-一つのwidgetで各キャラのiconを設定する">[issue] 一つのwidgetで各キャラのiconを設定する</h2>
+<p>objectに<code>cbp_character_${name}</code>を指定してボタンをクリックするとキャラが切り替えるwidgetを作成していました。</p>
+<p>以前はiconごとに読み込むファイルを別々に作っていたのですが、その処理を簡略化しました。まずは各キャラのcbpをobjectに指定しているので、名前が異なります。objectからdisplay nameやobject name, object pathを取ってきて、brush(image)を設定するようにしたのですが、これはeditorでは動作しますが、buildで動作しないことがわかりました。</p>
+<p>理由は不明ですが、object(name)がNoneになります。ボタンを押すと正常に動作するためobjectはそのキャラのものが使われているはずです。これは少し奇妙です。</p>
+<p>そんなことを言っていても問題は解決しないので別の方法でやることにしました。objectとは別の値を用意して処理します。また、とりあえず<code>インスタンス編集可能</code>, <code>スポーン時に公開</code>, <code>シネマティックスに公開</code>にチェックを入れておくことにしました。</p>
+<iframe src="https://blueprintue.com/render/afervnjy/" scrolling="no" allowfullscreen width="100%" height="450px"></iframe>
+<h2 id="issue-bp_playerのキャラを切り替えるときに装備を外す">[issue] bp_playerのキャラを切り替えるときに装備を外す</h2>
+<p>これも以前から放置していた問題ですが、アイの衣装を変更したときに他キャラで<code>visibility:false</code>するのがめんどくさかったので、自動で処理されるようにしました。</p>
+<p><code>cbp_sandbox_character</code>をcastしてobjectのdisplay nameでもobject nameでも取ってきて、それが<code>ai</code>じゃなければ<code>set visibility</code>します。childrenにチェックを入れておきます。</p>
+<iframe src="https://blueprintue.com/render/7z9nt-bi/" scrolling="no" allowfullscreen width="100%" height="450px"></iframe>
+<p>なお、最初は<code>destroy actor child</code>のようなものを探したのですが、unreal engineにそんなものはありませんでした。</p>
+<p>unreal engineは「これくらい基本的なことはできるでしょう」ということができませんし、そんなものはありません。splineをいじっていたときも驚きました。</p>
 
 
 		

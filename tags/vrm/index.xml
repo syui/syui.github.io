@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sun, 21 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5でbrushの動作がbuildと違う</title>
+      <link>https://syui.ai/blog/post/2024/07/29/ue/</link>
+      <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/29/ue/</guid>
+      <description>今回はコード周りを整理した時の話です。&#xA;[issue] 一つのwidgetで各キャラのiconを設定する objectにcbp_character_${name}を指定してボタンをクリックするとキャラが切り替えるwidgetを作成していました。&#xA;以前はiconごとに読み込むファイルを別々に作っていたのですが、その処理を簡略化しました。まずは各キャラのcbpをobjectに指定しているので、名前が異なります。objectからdisplay nameやobject name, object pathを取ってきて、brush(image)を設定するようにしたのですが、これはeditorでは動作しますが、buildで動作しないことがわかりました。&#xA;理由は不明ですが、object(name)がNoneになります。ボタンを押すと正常に動作するためobjectはそのキャラのものが使われているはずです。これは少し奇妙です。&#xA;そんなことを言っていても問題は解決しないので別の方法でやることにしました。objectとは別の値を用意して処理します。また、とりあえずインスタンス編集可能, スポーン時に公開, シネマティックスに公開にチェックを入れておくことにしました。&#xA;[issue] city sampleでclothが動作しない 他のprojectでは機能するのにcloth simulationが機能しない場合、project settingの問題です。&#xA;https://forums.unrealengine.com/t/no-cloth-simulation-in-ue5-but-works-in-ue4/619532&#xA;[ConsoleVariables] - p.ClothPhysics=0 + p.ClothPhysics=1 これはなぜclothが動作しないのか、わけがわからなくて困ってる人がいそうです。&#xA;[issue] bp_playerのキャラを切り替えるときに装備を外す これも以前から放置していた問題ですが、アイの衣装を変更したときに他キャラでvisibility:falseするのがめんどくさかったので、自動で処理されるようにしました。&#xA;cbp_sandbox_characterをcastしてobjectのdisplay nameでもobject nameでも取ってきて、それがaiじゃなければset visibilityします。childrenにチェックを入れておきます。&#xA;なお、最初はdestroy actor childのようなものを探したのですが、unreal engineにはありませんでした。</description>
+    </item>
+    <item>
+      <title>アイの新衣装と方向性</title>
+      <link>https://syui.ai/blog/post/2024/07/28/ue/</link>
+      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/07/28/ue/</guid>
+      <description>今回は、アイの衣装を作り始めた話をします。&#xA;まずアイの衣装のことを少し解説すると、アイは基本的に真っ白で少しボロがある服を着ていて、それが気に入っています。&#xA;この衣装をv1.0としましょう。&#xA;絵を描く時とか衣装はめんどくさいので、そういう利点があります。&#xA;しかし、この衣装を3Dやゲームにする場合はどうでしょう。例えば、衣装を書くのがめんどくさいというのは、主に繰り返し描くのがつらいわけで、一度作れば使い回せるなら話は変わってきます。&#xA;めんどくさいけど、そこまでじゃない&amp;hellip;かもしれない。&#xA;それにゲームに使われるような衣装を一度作ってみたいと思っていたので、その時に作りました。この衣装をv2.0とします。&#xA;この衣装はvroidで作成し、どのよう作ったかと言うと、vroidが公式で提供してくれている衣装があって、その組み合わせで作りました。もちろん、組み合わせればそれでいいかというと、そんなことはなく、独自に調整して作りました。調整はイラストを描くアプリで絵を描く要領で行います。&#xA;どのような衣装を目指したかというと、これは明確に原神のナヒーダの衣装を参考にしました。&#xA;正直、衣装といっても私はよくわからない。作ったこともありません。ですから、センスが良いと思った衣装を参考にしました。&#xA;しかし、v2.0の衣装はthree-vrmの見栄えで調整していました。&#xA;これをunreal engineに持ってきて使っていたわけですが、正直、厳しかった。&#xA;vroidで作る衣装というのは基本的に紙なのです。ペラペラの紙をモデルに貼り付ける感じ。厚みも立体感もありません。three-vrmで表示するならいいのですが、ゲームで動かす場合は厳しいと思います。&#xA;そこで、新しく衣装を作り直す必要がありました。&#xA;現在作っているのはこの衣装でナンバリングでいうとv3.0になります。&#xA;blenderによる3DモデリングとSK+ABPの組み合わせによる揺れの制御 3Dモデリング SK+ABP SKを右クリックでanim(blueprint)を作ります。そこでkawaii physicsを当てます。settingsはWorld Damping Location:1.0, World Damping Rotation:0.3, Limit Angle:20.0です。後ろに下がると体に入り込んでしまうのを抑えるため20で設定しています。&#xA;今回はblenderによる3Dモデリングを行いました。vroidの髪の毛でマントを作ってみましたが、調整が難しく、ipadで描ければいいのですがアプリが落ちるので、しかも、macとwinで出力したものは同じではなく、unreal engineの描写に不具合が出る関係で、髪はmacで描いて、衣装はipadでやって、macで出力したものをwinに送って、unreal engineで動きを確認し、おかしければまたvroidで調整するみたいなことをやっていました。これは今も続いていますが、やろうとする人はとても大変な思いをすると思います。今回はblender, vroid, unreal engine, ipad, mac, winを使って作りました。&#xA;これをベースにv3.xなどの改良を重ねていくことになると思います。デザイン的な変更はあるかもしれません。今までのバージョンは主にデザインではなく作り方によって決まっていて、v1は一つの衣装を改造して作ったもので、v2は衣装の組み合わせ、v3はモデリング(厚み)になっています。&#xA;vroidのワンピースはおすすめしない vroidのワンピースは、上半身、下半身に1mmの隙間ができます。これは正常の姿勢では問題になりませんが、three-vrmで確認してみると浮かび上がる動作で確認できます。&#xA;その他にも仕様上の問題ですが、胸の部分の肌マスクを一部消しておかないといけません。&#xA;しかし、それをやると、今度はunreal engineで表示する場合の問題が発生します。&#xA;つまり、vroidのワンピースは基本的に使うべきではなく、ロングコートを使っていたv2.0のほうが良かったところがあります。</description>
+    </item>
     <item>
       <title>vroidでマントを作る</title>
       <link>https://syui.ai/blog/post/2024/07/21/vrm/</link>
