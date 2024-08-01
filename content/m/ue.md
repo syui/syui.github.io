@@ -813,3 +813,18 @@ objectに`cbp_character_${name}`を指定してボタンをクリックすると
 
 unreal engineは「これくらい基本的なことはできるでしょう」ということができませんし、そんなものはありません。splineをいじっていたときも驚きました。
 
+## [issue] fbxからunityを使ってvrmaを作成するときの罠
+
+vrm 1.0はバグだらけなので避けてたんだけど、fbxをvrmaにする際に[malaybaku/AnimationClipToVrmaSample](https://github.com/malaybaku/AnimationClipToVrmaSample)を使うんだけど、univrmのvrm 1.0をインストールしないといけない。両方必要なのかもしれない。つまり、インストールするものは以下の3つ。
+
+- [malaybaku/AnimationClipToVrmaSample](https://github.com/malaybaku/AnimationClipToVrmaSample)
+- [VRM 1.0 Import/Export](https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/VRM-0.124.2_dd50.unitypackage)
+- [VRM 0.x Import/Export](https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/UniVRM-0.124.2_dd50.unitypackage)
+
+ue5からfbxをexportする際は、animationですべてのチェックを付けましょう。精度が高まります。あと、コリジョンは外しました。
+
+unityでの操作は以下の通り。
+
+- 1. Animation Type : Humanoid
+- 2. Animation Clip(Unreal Take) -> 右クリック -> VRM -> Convert to VRM Animation -> .vrma
+
