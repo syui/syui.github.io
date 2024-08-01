@@ -363,9 +363,8 @@
 <p>例えば、最新版の<code>UniVRM</code>をinstallして、<code>AnimationClipToVrmaSample/Assets</code>をunity(project)にコピーすれば<code>SampleMotion/Wave.anim</code>を<code>.vrma</code>でexportできます。</p>
 <p>基本的な手順としては、まず<code>ue5</code>や<code>.bvh</code>から<code>.fbx</code>を用意し、それをunityで読み込みます。</p>
 <p>読み込むと<code>Animation Clip</code>ができます。これはunity独自のmodel motionのようなものです。まずはfbxの<code>Animation Type</code>を<code>Humanoid</code>にします。</p>
-<blockquote>
 <p>ue5からfbxをexportする際は、animationですべてのチェックを付けましょう。精度が高まります。あと、コリジョンは外しました。</p>
-</blockquote>
+<p>unityでの操作は以下の通り。</p>
 <ul>
 <li>
 <ol>
@@ -374,11 +373,17 @@
 </li>
 <li>
 <ol start="2">
-<li>Animation Clip -&gt; .vrma</li>
+<li>Animation Clip(Unreal Take) -&gt; 右クリック -&gt; VRM -&gt; Convert to VRM Animation -&gt; .vrma</li>
 </ol>
 </li>
 </ul>
-<p>ref : <a href="https://note.com/hibit_at/n/nf05ac76ecc3c">https://note.com/hibit_at/n/nf05ac76ecc3c</a></p>
+<h3 id="issue-fbxからunityを使ってvrmaを作成するときの罠">[issue] fbxからunityを使ってvrmaを作成するときの罠</h3>
+<p>vrm 1.0はバグだらけなので避けてたんだけど、fbxをvrmaにする際に<a href="https://github.com/malaybaku/AnimationClipToVrmaSample">malaybaku/AnimationClipToVrmaSample</a>を使うんだけど、univrmのvrm 1.0をインストールしないといけない。両方必要なのかもしれない。つまり、インストールするものは以下の3つ。</p>
+<ul>
+<li><a href="https://github.com/malaybaku/AnimationClipToVrmaSample">malaybaku/AnimationClipToVrmaSample</a></li>
+<li><a href="https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/VRM-0.124.2_dd50.unitypackage">VRM 1.0 Import/Export</a></li>
+<li><a href="https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/UniVRM-0.124.2_dd50.unitypackage">VRM 0.x Import/Export</a></li>
+</ul>
 <h2 id="srgbencoding">sRGBEncoding</h2>
 <p>見た目を変えます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:src/index.ts" data-lang="js:src/index.ts"><span style="display:flex;"><span><span style="color:#75715e">// https://threejs.org/docs/#api/en/constants/Renderer

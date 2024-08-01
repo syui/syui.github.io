@@ -661,6 +661,27 @@
 <iframe src="https://blueprintue.com/render/7z9nt-bi/" scrolling="no" allowfullscreen width="100%" height="450px"></iframe>
 <p>なお、最初は<code>destroy actor child</code>のようなものを探したのですが、unreal engineにそんなものはありませんでした。</p>
 <p>unreal engineは「これくらい基本的なことはできるでしょう」ということができませんし、そんなものはありません。splineをいじっていたときも驚きました。</p>
+<h2 id="issue-fbxからunityを使ってvrmaを作成するときの罠">[issue] fbxからunityを使ってvrmaを作成するときの罠</h2>
+<p>vrm 1.0はバグだらけなので避けてたんだけど、fbxをvrmaにする際に<a href="https://github.com/malaybaku/AnimationClipToVrmaSample">malaybaku/AnimationClipToVrmaSample</a>を使うんだけど、univrmのvrm 1.0をインストールしないといけない。両方必要なのかもしれない。つまり、インストールするものは以下の3つ。</p>
+<ul>
+<li><a href="https://github.com/malaybaku/AnimationClipToVrmaSample">malaybaku/AnimationClipToVrmaSample</a></li>
+<li><a href="https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/VRM-0.124.2_dd50.unitypackage">VRM 1.0 Import/Export</a></li>
+<li><a href="https://github.com/vrm-c/UniVRM/releases/download/v0.124.2/UniVRM-0.124.2_dd50.unitypackage">VRM 0.x Import/Export</a></li>
+</ul>
+<p>ue5からfbxをexportする際は、animationですべてのチェックを付けましょう。精度が高まります。あと、コリジョンは外しました。</p>
+<p>unityでの操作は以下の通り。</p>
+<ul>
+<li>
+<ol>
+<li>Animation Type : Humanoid</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Animation Clip(Unreal Take) -&gt; 右クリック -&gt; VRM -&gt; Convert to VRM Animation -&gt; .vrma</li>
+</ol>
+</li>
+</ul>
 
 
 		
