@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React</title>
+      <link>https://syui.ai/tags/react/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vrm</title>
+      <link>https://syui.ai/tags/vrm/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/vrm/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ue</title>
       <link>https://syui.ai/tags/ue/</link>
@@ -21,13 +35,6 @@
       <link>https://syui.ai/tags/ue5/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ue5/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vrm</title>
-      <link>https://syui.ai/tags/vrm/</link>
-      <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/vrm/</guid>
       <description></description>
     </item>
     <item>

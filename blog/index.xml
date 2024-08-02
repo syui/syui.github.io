@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react-threeを使ってglbを表示する</title>
+      <link>https://syui.ai/blog/post/2024/08/01/react/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/01/react/</guid>
+      <description>今回はreactのtsxで書きます。&#xA;$ npx create-react-app galaxy --template typescript これで準備はできましたが、設定ファイルを見てみます。&#xA;{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;dom&amp;#34;, &amp;#34;dom.iterable&amp;#34;, &amp;#34;esnext&amp;#34; ], &amp;#34;allowJs&amp;#34;: true, &amp;#34;skipLibCheck&amp;#34;: true, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;allowSyntheticDefaultImports&amp;#34;: true, &amp;#34;strict&amp;#34;: true, &amp;#34;forceConsistentCasingInFileNames&amp;#34;: true, &amp;#34;noFallthroughCasesInSwitch&amp;#34;: true, &amp;#34;module&amp;#34;: &amp;#34;esnext&amp;#34;, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;resolveJsonModule&amp;#34;: true, &amp;#34;isolatedModules&amp;#34;: true, &amp;#34;noEmit&amp;#34;: true, &amp;#34;jsx&amp;#34;: &amp;#34;react-jsx&amp;#34; }, &amp;#34;include&amp;#34;: [ &amp;#34;src&amp;#34; ] } es5, react-jsxを使っているようです。&#xA;buildなどはwebpackではなくreact-scriptsですね。&#xA;&amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;react-scripts start&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;react-scripts build&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;react-scripts test&amp;#34;, &amp;#34;eject&amp;#34;: &amp;#34;react-scripts eject&amp;#34; } import React from &amp;#39;react&amp;#39;; import &amp;#39;.</description>
+    </item>
     <item>
       <title>ue5でbrushの動作がbuildと違う</title>
       <link>https://syui.ai/blog/post/2024/07/29/ue/</link>
