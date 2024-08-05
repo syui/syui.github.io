@@ -834,7 +834,7 @@ three-vrmを使って`.vrm`を表示します。`unity + vrm 1.0`でexportした
 
 react-three-fiberはsceneなどを自動でやってくれて、コードもシンプルになります。
 
-> anim(vrma)を動かす場合は注意が必要で`vrm 1.0`でないと正常に動きません。これは`three-vrm`がv3になったからでしょうか。一応、動きますが動きがおかしくなります。前は`vrm 0.x`で動きましたが、最新版では同じ`.vrm`でも動きが異なります。これは`react-three-fiber`で書く場合に発生します。個人的には`unity + vrm 1.0`でexportしたものを使いました。
+> anim(vrma)を動かす場合は注意が必要で`vrm 1.0`でないと正常に動きません。一応、動きますが動きがおかしくなります。これは`react-three-fiber`で書く場合に発生します。個人環境では`unity + vrm 1.0`でexportしたものを使うと正常に動きました。
 
 ```sh
 $ npx create-react-app vrm-model --template typescript
