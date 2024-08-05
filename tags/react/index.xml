@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vrmの表示にreact-three-fiberを使う</title>
+      <link>https://syui.ai/blog/post/2024/08/02/react/</link>
+      <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/02/react/</guid>
+      <description>今回はreact-three-fiberとthree-vrm-animationの話になります。&#xA;react-three-fiberはsceneなどを自動でやってくれて、コードもシンプルになります。&#xA;anim(vrma)を動かす場合は注意が必要でvrm 1.0でないと正常に動きません。これはthree-vrmがv3になったからでしょうか。一応、動きますが動きがおかしくなります。前はvrm 0.xで動きましたが、最新版では同じ.vrmでも動きが異なります。これはreact-three-fiberで書く場合に発生します。個人的にはunity + vrm 1.0でexportしたものを使いました。&#xA;例えば、three-vrm-animationで書くと以下のようになります。&#xA;$ npx create-react-app vrm-model --template typescript $ npm i $ npm run start import * as THREE from &amp;#39;three&amp;#39; import React, { useState, useEffect, useRef } from &amp;#39;react&amp;#39;; import { OrbitControls } from &amp;#39;@react-three/drei&amp;#39; import { useFrame, Canvas } from &amp;#39;@react-three/fiber&amp;#39;; import { GLTFLoader } from &amp;#39;three/examples/jsm/loaders/GLTFLoader&amp;#39;; import { VRM, VRMUtils, VRMLoaderPlugin } from &amp;#39;@pixiv/three-vrm&amp;#39;; import { VRMAnimationLoaderPlugin, VRMAnimation, createVRMAnimationClip } from &amp;#34;@pixiv/three-vrm-animation&amp;#34;; interface ModelProps { url: string url_anim: string } const VRMModel: React.</description>
+    </item>
     <item>
       <title>react-threeを使ってglbを表示する</title>
       <link>https://syui.ai/blog/post/2024/08/01/react/</link>
