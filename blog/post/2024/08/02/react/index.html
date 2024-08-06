@@ -132,7 +132,7 @@
 		<p>今回は<code>react-three-fiber</code>と<code>three-vrm-animation</code>の話になります。</p>
 <p>react-three-fiberはsceneなどを自動でやってくれて、コードもシンプルになります。</p>
 <blockquote>
-<p>anim(vrma)を動かす場合は注意が必要で<code>vrm 1.0</code>でないと正常に動きません。一応、動きますが動きがおかしくなります。これは<code>react-three-fiber</code>で書く場合に発生します。個人環境では<code>unity + vrm 1.0</code>でexportしたものを使うと正常に動きました。</p>
+<p>anim(vrma)を動かす場合は注意が必要で動きますが動きがおかしくなります。これは<code>react-three-fiber</code>で書く場合に発生します。個人環境では<code>unity + vrm 1.0</code>でexportしたものを使うと正常に動きました。</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ npx create-react-app vrm-model --template typescript
 </span></span><span style="display:flex;"><span>$ npm i
@@ -311,6 +311,7 @@
 <p>modelにつけるアクセサリをblenderで統合させ、three-vrmで表示していましたが、textureが剥がされていることに気づきました。</p>
 <p>最初はthreeの<code>toneMapping</code>の問題だろうと思っていましたが、model(vrm)の問題です。</p>
 <p><code>unity + vrm 1.0</code>でアクセサリを付けて、exportしましょう。</p>
+<iframe src="https://card.syui.ai/planet?g=moon" scrolling="no" width="100%" height="450px" allowfullscreen></iframe>
 
 
 		
