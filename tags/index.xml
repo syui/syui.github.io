@@ -10,6 +10,13 @@
     <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Note</title>
+      <link>https://syui.ai/tags/note/</link>
+      <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/note/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>React</title>
       <link>https://syui.ai/tags/react/</link>
       <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
@@ -56,13 +63,6 @@
       <link>https://syui.ai/tags/bluesky/</link>
       <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/bluesky/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Note</title>
-      <link>https://syui.ai/tags/note/</link>
-      <pubDate>Mon, 15 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/note/</guid>
       <description></description>
     </item>
     <item>
