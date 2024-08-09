@@ -1,7 +1,7 @@
 +++
 date = "2024-08-02"
 tags = ["note"]
-title = "一と哲学"
+title = "一つと哲学"
 slug = "21"
 +++
 

@@ -24,6 +24,7 @@ slug = "ue"
 - asset : [game animation sample](https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample)
 - plugin : [pixel streaming](https://dev.epicgames.com/documentation/ja-jp/unreal-engine/pixel-streaming-in-unreal-engine)
 - plugin : [vrm4u](https://github.com/ruyo/VRM4U)
+- plugin : [kawaiiphysics](https://github.com/pafuhana1213/KawaiiPhysics)
 - plugin : [varest](https://www.unrealengine.com/marketplace/ja/product/varest-plugin)
 
 ## 有料
@@ -728,6 +729,8 @@ https://logicalbeat.jp/blog/11044/
 
 5.3から5.4にシーケンサを持ってきて使用していましたが、一度でも編集するとおかしくなります。例えば、BP_Playerを置いたとして、mesh(skeltal)も追加しなければならなくなりました。なぜならanimを追加できないからです。meshを追加したあとanimを追加できます。しかし、これでもまだ正常ではありません。buildが進まなくなり、編集するとanimが機能しなくなります。つまり、meshを追加、animを追加、meshを削除という手順を踏まなければいけません。BP_Playerの直下にanimを置くことでようやく正常になります。
 
+これは5.4.3にしたら治りました。基本的にはskeltal meshがSKM_UEFN_Mannequinのもの`CharacterMesh0`を置いて、その下にanimを置きます。この際、Mannequinのanimが必要です。リターゲットで作成します。そして、transformを0にしておいてください。animは右クリックで`ルートコンポーネントを交換`にしておくといいかもしれません。
+
 ## [tips] vrm4uの見た目の調整
 
 今回は誰も解説していないBP_PoseCopyToonを使ったvrmモデルの見た目を改良する手順を紹介します。ドキュメントにも書かれていませんが、大体は以下の手順になります。
@@ -787,7 +790,7 @@ https://forums.unrealengine.com/t/no-cloth-simulation-in-ue5-but-works-in-ue4/61
 
 走っている姿やアイドル状態などをよく見てみると可愛くありません。
 
-`RTG_UEFN_${name}`で右足と左足にあるボックスを選択して、IK -> スタティックローカルオフセットを左を`x:2.0`, 右を`x:-2.0`にします。
+`RTG_UEFN_${name}`で右足と左足にあるボックスを選択して、IK -> スタティックローカルオフセットを左を`x:1.0`, 右を`x:-1.0`にします。
 
 ## [issue] 一つのwidgetで各キャラのiconを設定する
 
