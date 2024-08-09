@@ -14,7 +14,7 @@
       <link>https://syui.ai/m/post/ue/</link>
       <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/m/post/ue/</guid>
-      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。現在はversionの5.4.2に追従しています。&#xA;ue 5.4.2 ue 5.3.2 ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。&#xA;repo : https://git.syui.ai/ai/ue blueprint : https://blueprintue.com/profile/ai 無料 使用しているassetなどです。&#xA;asset : city sample asset : game animation sample plugin : pixel streaming plugin : vrm4u plugin : varest 有料 おすすめのassetです。&#xA;asset : superhero fligth animations asset : dynamic volumetric sky asset : ocean waves plugin : http websocket helper plugin : jsonparser [asset] vrm4u + superhero fligth animations vrm4u superhero fligth animations ue5.</description>
+      <description>ここではepic gamesのunreal engine 5の使い方をまとめます。現在はversionの5.4.2に追従しています。&#xA;ue 5.4.2 ue 5.3.2 ブログで説明しづらい部分が多いのでblueprintueを参考にしてください。&#xA;repo : https://git.syui.ai/ai/ue blueprint : https://blueprintue.com/profile/ai 無料 使用しているassetなどです。&#xA;asset : city sample asset : game animation sample plugin : pixel streaming plugin : vrm4u plugin : kawaiiphysics plugin : varest 有料 おすすめのassetです。&#xA;asset : superhero fligth animations asset : dynamic volumetric sky asset : ocean waves plugin : http websocket helper plugin : jsonparser [asset] vrm4u + superhero fligth animations vrm4u superhero fligth animations ue5.</description>
     </item>
     <item>
       <title>fly</title>

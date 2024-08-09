@@ -161,6 +161,7 @@
 <li>asset : <a href="https://www.unrealengine.com/marketplace/en-US/product/game-animation-sample">game animation sample</a></li>
 <li>plugin : <a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/pixel-streaming-in-unreal-engine">pixel streaming</a></li>
 <li>plugin : <a href="https://github.com/ruyo/VRM4U">vrm4u</a></li>
+<li>plugin : <a href="https://github.com/pafuhana1213/KawaiiPhysics">kawaiiphysics</a></li>
 <li>plugin : <a href="https://www.unrealengine.com/marketplace/ja/product/varest-plugin">varest</a></li>
 </ul>
 <h2 id="有料">有料</h2>
@@ -604,6 +605,7 @@
 <h2 id="issue-シーケンサを53から54にインポートしたらバグっていた">[issue] シーケンサを5.3から5.4にインポートしたらバグっていた</h2>
 <p>原子爆発をシーケンサで作成していましたが、バグに遭遇しましたので記録しておきます。</p>
 <p>5.3から5.4にシーケンサを持ってきて使用していましたが、一度でも編集するとおかしくなります。例えば、BP_Playerを置いたとして、mesh(skeltal)も追加しなければならなくなりました。なぜならanimを追加できないからです。meshを追加したあとanimを追加できます。しかし、これでもまだ正常ではありません。buildが進まなくなり、編集するとanimが機能しなくなります。つまり、meshを追加、animを追加、meshを削除という手順を踏まなければいけません。BP_Playerの直下にanimを置くことでようやく正常になります。</p>
+<p>これは5.4.3にしたら治りました。基本的にはskeltal meshがSKM_UEFN_Mannequinのもの<code>CharacterMesh0</code>を置いて、その下にanimを置きます。この際、Mannequinのanimが必要です。リターゲットで作成します。そして、transformを0にしておいてください。animは右クリックで<code>ルートコンポーネントを交換</code>にしておくといいかもしれません。</p>
 <h2 id="tips-vrm4uの見た目の調整">[tips] vrm4uの見た目の調整</h2>
 <p>今回は誰も解説していないBP_PoseCopyToonを使ったvrmモデルの見た目を改良する手順を紹介します。ドキュメントにも書かれていませんが、大体は以下の手順になります。</p>
 <ol>
@@ -648,7 +650,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">+ p.ClothPhysics</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
 </span></span></code></pre></div><h2 id="tips-デフォルトの姿勢では足が開いてしまい可愛くない">[tips] デフォルトの姿勢では足が開いてしまい可愛くない</h2>
 <p>走っている姿やアイドル状態などをよく見てみると可愛くありません。</p>
-<p><code>RTG_UEFN_${name}</code>で右足と左足にあるボックスを選択して、IK -&gt; スタティックローカルオフセットを左を<code>x:2.0</code>, 右を<code>x:-2.0</code>にします。</p>
+<p><code>RTG_UEFN_${name}</code>で右足と左足にあるボックスを選択して、IK -&gt; スタティックローカルオフセットを左を<code>x:1.0</code>, 右を<code>x:-1.0</code>にします。</p>
 <h2 id="issue-一つのwidgetで各キャラのiconを設定する">[issue] 一つのwidgetで各キャラのiconを設定する</h2>
 <p>objectに<code>cbp_character_${name}</code>を指定してボタンをクリックするとキャラが切り替えるwidgetを作成していました。</p>
 <p>以前はiconごとに読み込むファイルを別々に作っていたのですが、その処理を簡略化しました。まずは各キャラのcbpをobjectに指定しているので、名前が異なります。objectからdisplay nameやobject name, object pathを取ってきて、brush(image)を設定するようにしたのですが、これはeditorでは動作しますが、buildで動作しないことがわかりました。</p>
