@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最近やったue5のこと</title>
+      <link>https://syui.ai/blog/post/2024/08/08/ue/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/08/ue/</guid>
+      <description>package build後のscreen sizeなどの設定 build後は画面が低画質でひどかったので、そのへんを調整できるようにしました。&#xA;これは以前購入したassetを使いました。使い道がわからないなあと思っていたものですが、ue5はbuild後にscreen sizeやftpなどの設定を反映してくれません。editorと異なる見た目になり、project settingなどからも設定できません。&#xA;この事に気づいてassetを使いました。この辺、ueではすごくめんどくさいので買ってよかった。&#xA;アイの衣装を調整中 よりシンプルに近づけています。肩の装飾と腕輪を外しました。&#xA;アイの変身やスタミナの再実装 以前、ue5.3で作っていたものが全部作り直しになった関係で放置していましたが、書き直しました。</description>
+    </item>
     <item>
       <title>ue5でbrushの動作がbuildと違う</title>
       <link>https://syui.ai/blog/post/2024/07/29/ue/</link>
