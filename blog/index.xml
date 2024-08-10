@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinuxの初期設定</title>
+      <link>https://syui.ai/blog/post/2024/08/09/arch/</link>
+      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/09/arch/</guid>
+      <description>久しぶりにarchを初期設定したのでその時の記録&#xA;$ cfdisk /dev/sda $ mkfs.vfat /dev/sda1 $ mkfs.ext4 /dev/sda2 $ mount /dev/sda2 /mnt $ pacstrap /mnt base linux grub efibootmgr dhcpcd openssh $ arch-chroot /mnt $ grub-install --force /dev/sda1 $ grub-mkconfig -o /boot/grub/grub.cfg $ systemctl enable dhcpcd $ systemctl enable sshd $ passwd $ exit $ reboot sshの設定です。reboot前にやっておいてもいいかもしれませんが、その場合はuseraddして~/.ssh/authorized_keysを置きましょう。/etc/ssh/sshd_configでPasswordAuthentication noにしておきます。&#xA;# 接続する側 $ ssh-keygen -f ~/.ssh/archlinux $ ssh-copy-id -i ~/.ssh/archlinux.pub ${USER}@192.168.x.x # archlinux $ vim /etc/ssh/sshd_config PasswordAuthentication no $ systemctl restart sshd あとはお好みで設定します。</description>
+    </item>
     <item>
       <title>最近やったue5のこと</title>
       <link>https://syui.ai/blog/post/2024/08/08/ue/</link>

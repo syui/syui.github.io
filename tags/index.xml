@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch</title>
+      <link>https://syui.ai/tags/arch/</link>
+      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/arch/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ue5</title>
       <link>https://syui.ai/tags/ue5/</link>
@@ -98,13 +105,6 @@
       <link>https://syui.ai/tags/mastodon/</link>
       <pubDate>Mon, 20 May 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/mastodon/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Arch</title>
-      <link>https://syui.ai/tags/arch/</link>
-      <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/arch/</guid>
       <description></description>
     </item>
     <item>
