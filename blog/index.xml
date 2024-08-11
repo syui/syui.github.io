@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ip.networkとicloud private relay</title>
+      <link>https://syui.ai/blog/post/2024/08/10/ip/</link>
+      <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/10/ip/</guid>
+      <description>ip addr(global)を調べるにはip.network, ipinfo.ioなどがあります。試してみましょう。&#xA;$ curl -sL ip.network/more { &amp;#34;ip&amp;#34;: &amp;#34;2a0a:bac2:4515:1e14::2ff:6&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;JP&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Matsue&amp;#34;, &amp;#34;region&amp;#34;: &amp;#34;Shimane&amp;#34;, &amp;#34;regionCode&amp;#34;: &amp;#34;32&amp;#34;, &amp;#34;timezone&amp;#34;: &amp;#34;Asia/Tokyo&amp;#34;, &amp;#34;postalCode&amp;#34;: &amp;#34;690-0801&amp;#34;, &amp;#34;asn&amp;#34;: 13344, &amp;#34;asOrganization&amp;#34;: &amp;#34;iCloud Private Relay&amp;#34;, &amp;#34;more&amp;#34;: &amp;#34;https://ip.network&amp;#34; } $ curl -sL ipinfo.io { &amp;#34;ip&amp;#34;: &amp;#34;103.28.83.214&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Tokyo&amp;#34;, &amp;#34;region&amp;#34;: &amp;#34;Tokyo&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;JP&amp;#34;, &amp;#34;loc&amp;#34;: &amp;#34;35.6895,139.6917&amp;#34;, &amp;#34;org&amp;#34;: &amp;#34;AS13335 Cloudflare, Inc.&amp;#34;, &amp;#34;postal&amp;#34;: &amp;#34;101-8656&amp;#34;, &amp;#34;timezone&amp;#34;: &amp;#34;Asia/Tokyo&amp;#34;, &amp;#34;readme&amp;#34;: &amp;#34;https://ipinfo.io/missingauth&amp;#34; } どうやらicloud private relayのipv4はcloudflareを使ってるみたいです。&#xA;最近、icloud private relayが使いやすいのでbrowserをsafariに置き換えようかなと思っています。もうすぐchromeの広告ブロック排除がくるみたいだし。</description>
+    </item>
     <item>
       <title>archlinuxの初期設定</title>
       <link>https://syui.ai/blog/post/2024/08/09/arch/</link>
