@@ -1140,3 +1140,9 @@ r.SetRes=1920x1080f
 
 その後、dynamic volumetric skyの雲や時間が動いていない事に気づきました。editorでは動いていますが、buildは動いていません。他のassetやmap(level)は動いています。これが雲の画質に関係しているのかもしれません。ただ、そう考えるとタイトル文字のぼやけが奇妙です。
 
+## [close] build後の画質問題
+
+特にdynamic volumetric skyの画質問題は`BP_DynamicVolumetricSky`のSingle Player Fps Lockを`Free`にしていると発生するようです。これを`60 FPS`に変更すると雲が動くようになり、画質も改善されました。
+
+ただ、タイトル文字の画質は改善されていません。
+
