@@ -605,7 +605,44 @@
 <h2 id="issue-シーケンサを53から54にインポートしたらバグっていた">[issue] シーケンサを5.3から5.4にインポートしたらバグっていた</h2>
 <p>原子爆発をシーケンサで作成していましたが、バグに遭遇しましたので記録しておきます。</p>
 <p>5.3から5.4にシーケンサを持ってきて使用していましたが、一度でも編集するとおかしくなります。例えば、BP_Playerを置いたとして、mesh(skeltal)も追加しなければならなくなりました。なぜならanimを追加できないからです。meshを追加したあとanimを追加できます。しかし、これでもまだ正常ではありません。buildが進まなくなり、編集するとanimが機能しなくなります。つまり、meshを追加、animを追加、meshを削除という手順を踏まなければいけません。BP_Playerの直下にanimを置くことでようやく正常になります。</p>
-<p>これは5.4.3にしたら治りました。基本的にはskeltal meshがSKM_UEFN_Mannequinのもの<code>CharacterMesh0</code>を置いて、その下にanimを置きます。この際、Mannequinのanimが必要です。リターゲットで作成します。そして、transformを0にしておいてください。animは右クリックで<code>ルートコンポーネントを交換</code>にしておくといいかもしれません。</p>
+<p>これは5.4.3にしたら治りました。基本的にはskeltal meshがSKM_UEFN_Mannequinのもの<code>CharacterMesh0</code>を置いて、その下にanimを置きます。この際、Mannequinのanimが必要です。リターゲットで作成します。そして、transformを0にしておいてください。animは右クリックで<code>ルートコンポーネントを交換</code>にしておくといいかもしれません。
+今もbuild後の画質問題に悩まされています。私はcity sampleをベースにprojectを作成し、package buildしていますが、build後は画質が悪くなります。editor上では問題ありません。<code>高DPIを許可</code>なども試してみましたが効果がありませんでした。</p>
+<p>以下のようなscalability(エンジン拡張機能設定)をしています。DeviceProfilesでも設定できます。ツール -&gt; プラットフォーム -&gt; デバイスプロファイル -&gt; Windows, rはレンダリングで、sgはscalability group</p>
+<pre tabindex="0"><code>#DefaultEngine.ini
+[ConsoleVariables]
+sg.AntiAliasingQuality=4
+sg.EffectsQuality=4
+sg.FoliageQuality=4
+sg.GlobalIlluminationQuality=4
+sg.LandscapeQuality=4
+sg.ReflectionQuality=4
+sg.ResolutionQuality=100
+sg.ShadingQuality=4
+sg.ShadowQuality=4
+sg.PostProcessQuality=4
+sg.TextureQuality=4
+sg.ViewDistanceQuality=4
+r.MaterialQualityLevel=3
+
+#DefaultScalability.ini
+[ScalabilitySettings]
+sg.AntiAliasingQuality=4
+sg.EffectsQuality=4
+sg.FoliageQuality=4
+sg.GlobalIlluminationQuality=4
+sg.LandscapeQuality=4
+sg.ReflectionQuality=4
+sg.ResolutionQuality=100
+sg.ShadingQuality=4
+sg.ShadowQuality=4
+sg.PostProcessQuality=4
+sg.TextureQuality=4
+sg.ViewDistanceQuality=4
+</code></pre><p>また、blueprintで<code>r.SetRes 1920x1080f</code>や<code>Set Screen Resolution</code>+<code>Apply Settings</code>を実行し、build後のwidgetから確認済みです。<code>Get Game User Settings</code>から<code>Get Screen Resolution</code>して<code>1920x1080</code>が表示されています。ウィンドウ形式なども<code>Set Fullscreen Mode</code>で変更できているようです。念の為<code>.ini</code>に以下の項目なども追加しています。</p>
+<pre tabindex="0"><code>[ConsoleVariables]
+r.SetRes=1920x1080f
+</code></pre><p>他にはゲーム中にscalabilityやscreen size(Screen Resolution)を変更できるようにしていて、これを変更すると画質や表示が切り替わっているように感じます。ウィンドウ形式は確実に切り替えられます。</p>
+<p>ただ、肝心のタイトル文字はぼやけていて、ゲーム中の雲の画質が解像度でいうと<code>1280x720</code>相当になってしまいます。雲はdynamic volumetric skyを使用しており、editor上の画質に問題はありません。</p>
 <h2 id="tips-vrm4uの見た目の調整">[tips] vrm4uの見た目の調整</h2>
 <p>今回は誰も解説していないBP_PoseCopyToonを使ったvrmモデルの見た目を改良する手順を紹介します。ドキュメントにも書かれていませんが、大体は以下の手順になります。</p>
 <ol>
@@ -867,6 +904,47 @@
 <p>modelにつけるアクセサリをblenderで統合させ、three-vrmで表示していましたが、textureが剥がされていることに気づきました。</p>
 <p>最初はthreeの<code>toneMapping</code>の問題だろうと思っていましたが、model(vrm)の問題です。</p>
 <p><code>unity + vrm 1.0</code>でアクセサリを付けて、exportしましょう。</p>
+<h2 id="issue-build後の画質問題">[issue] build後の画質問題</h2>
+<p>今もbuild後の画質問題に悩まされています。私はcity sampleをベースにprojectを作成し、package buildしていますが、build後は画質が悪くなります。editor上では問題ありません。<code>高DPIを許可</code>なども試してみましたが効果がありませんでした。</p>
+<p>以下のようなscalability(エンジン拡張機能設定)をしています。DeviceProfilesでも設定できます。ツール -&gt; プラットフォーム -&gt; デバイスプロファイル -&gt; Windows, rはレンダリングで、sgはscalability group</p>
+<pre tabindex="0"><code>#DefaultEngine.ini
+[ConsoleVariables]
+sg.AntiAliasingQuality=4
+sg.EffectsQuality=4
+sg.FoliageQuality=4
+sg.GlobalIlluminationQuality=4
+sg.LandscapeQuality=4
+sg.ReflectionQuality=4
+sg.ResolutionQuality=100
+sg.ShadingQuality=4
+sg.ShadowQuality=4
+sg.PostProcessQuality=4
+sg.TextureQuality=4
+sg.ViewDistanceQuality=4
+r.MaterialQualityLevel=3
+
+#DefaultScalability.ini
+[ScalabilitySettings]
+sg.AntiAliasingQuality=4
+sg.EffectsQuality=4
+sg.FoliageQuality=4
+sg.GlobalIlluminationQuality=4
+sg.LandscapeQuality=4
+sg.ReflectionQuality=4
+sg.ResolutionQuality=100
+sg.ShadingQuality=4
+sg.ShadowQuality=4
+sg.PostProcessQuality=4
+sg.TextureQuality=4
+sg.ViewDistanceQuality=4
+</code></pre><p>また、blueprintで<code>r.SetRes 1920x1080f</code>や<code>Set Screen Resolution</code>+<code>Apply Settings</code>を実行し、build後のwidgetから確認済みです。<code>Get Game User Settings</code>から<code>Get Screen Resolution</code>して<code>1920x1080</code>が表示されています。ウィンドウ形式なども<code>Set Fullscreen Mode</code>で変更できているようです。念の為<code>.ini</code>に以下の項目なども追加しています。fはfull, wはwindowed</p>
+<pre tabindex="0"><code>[ConsoleVariables]
+r.SetRes=1920x1080f
+</code></pre><blockquote>
+<p>Unreal Engineのr.SetResコマンドは、画面やウィンドウの解像度を変更するために使用されます。このコマンドは、解像度を指定した後にオプションでウィンドウモードを示すことで構成されます。例えば、r.SetRes 1920x1080wは1920x1080のウィンドウモードに設定し、r.SetRes 1920x1080fはフルスクリーンモードに設定します。ただし、特定のバージョンのUnreal Engine（例えば4.5.1）では、r.SetResコマンドが信頼性を持って動作しないという報告があります。特にウィンドウモードからフルスクリーンモードに切り替える際に、解像度が正しく更新されないという問題が発生しています。この不具合はハードウェアやドライバの特性に関連している可能性があり、ウィンドウモードの方がフルスクリーンよりも信頼性が高いと指摘されています。Unreal Engine 5.1では、解像度やその他の画面設定は一般的にUGameUserSettingsクラスを通じて管理され、特定のプロジェクトニーズに合わせてカスタマイズすることができます。</p>
+</blockquote>
+<p>他にはゲーム中にscalabilityやscreen size(Screen Resolution)を変更できるようにしていて、これを変更すると画質や表示が切り替わっているように感じます。ウィンドウ形式は確実に切り替えられます。</p>
+<p>ただ、肝心のタイトル文字はぼやけていて、ゲーム中の雲の画質が解像度でいうと<code>1280x720</code>相当になってしまいます。雲はdynamic volumetric skyを使用しており、editor上の画質に問題はありません。</p>
 
 
 		
