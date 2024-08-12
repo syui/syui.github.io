@@ -906,6 +906,8 @@ r.SetRes=1920x1080f
 <p><code>unity + vrm 1.0</code>でアクセサリを付けて、exportしましょう。</p>
 <h2 id="issue-build後の画質問題">[issue] build後の画質問題</h2>
 <p>今もbuild後の画質問題に悩まされています。私はcity sampleをベースにprojectを作成し、package buildしていますが、build後は画質が悪くなります。editor上では問題ありません。<code>高DPIを許可</code>なども試してみましたが効果がありませんでした。</p>
+<p><img src="/m/post/ue/ue5_2024-08-12_01.png" alt=""></p>
+<p>左:build / 右:editor</p>
 <p>以下のようなscalability(エンジン拡張機能設定)をしています。DeviceProfilesでも設定できます。ツール -&gt; プラットフォーム -&gt; デバイスプロファイル -&gt; Windows, rはレンダリングで、sgはscalability group</p>
 <pre tabindex="0"><code>#DefaultEngine.ini
 [ConsoleVariables]
