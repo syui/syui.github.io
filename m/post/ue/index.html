@@ -945,6 +945,7 @@ r.SetRes=1920x1080f
 </blockquote>
 <p>他にはゲーム中にscalabilityやscreen size(Screen Resolution)を変更できるようにしていて、これを変更すると画質や表示が切り替わっているように感じます。ウィンドウ形式は確実に切り替えられます。</p>
 <p>ただ、肝心のタイトル文字はぼやけていて、ゲーム中の雲の画質が解像度でいうと<code>1280x720</code>相当になってしまいます。雲はdynamic volumetric skyを使用しており、editor上の画質に問題はありません。</p>
+<p>その後、dynamic volumetric skyの雲や時間が動いていない事に気づきました。editorでは動いていますが、buildは動いていません。他のassetやmap(level)は動いています。これが雲の画質に関係しているのかもしれません。ただ、そう考えるとタイトル文字のぼやけが奇妙です。</p>
 
 
 		
