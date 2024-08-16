@@ -156,7 +156,7 @@
 <p>こういうのを見て、やってみたいなあって思う。でもそういうのはおすすめしない。</p>
 <p>理由としては、何かが流行っているとき、先行者利益はすでに失われている。</p>
 <p>vtuberになるには、vtuberがまだ知られていないし、誰もやっていない、流行ってもいない。そういうとき勇気を出してやるのが一番いい。</p>
-<p>逆に言うと、そこで勇気を出し努力をしてきた人たちが最もvtuberで活躍すると思う。それ以外は難しいと思う。</p>
+<p>逆に言うと、そこで勇気を出し努力をしてきた人たちが最もvtuberで活躍すると思う。それ以外は厳しいと思う。</p>
 <p>「誰でもvtuberになれます」、「今、vtuberが大流行」みたいな状況でそういうのに参入するのはおすすめしない。</p>
 <p>個人的には誰もやってないこと、かつ自分が好きで続けられて得意なことをやるのが良いように思います。</p>
 <h3 id="vtuberの技術が気になったのでやってみた">vtuberの技術が気になったのでやってみた</h3>
@@ -164,13 +164,11 @@
 <p>途中でモーションキャプチャに切り替えて動かしてます。</p>
 <p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-08-15_01.mp4"></video></p>
 <p>vみたいなことやるならアイのモデルを貸してもらうしかないな。名前はyoutubeで@syuiが取れなかったので@syaiなんだけどこれになる。シャイ?かな。んでその際はアイじゃなく自分(シャイ)であることを説明しないと。作者とキャラって全く関係ない別人だから。</p>
-<p>ただ、やるにしてもvtuberでは厳しいと思う。新しい何かを組み合わせないとダメそう。</p>
+<p>ただ、やるにしてもvtuberでは厳しいと思う。何かを新しいものを組み合わせないとダメそう。</p>
 <p>みんなを楽しませるもので、かつ気軽に楽しめるもので、今までにないもの。</p>
 <p>どういった形で実現できそうかな。</p>
 <h3 id="ゲーム動画の注釈">ゲーム動画の注釈</h3>
 <p>今回実装したもの</p>
-<h4 id="loading-screen">loading screen</h4>
-<p>バグあり、build後に一時背景が映り込んでしまう。editor上では再現しないし、コード的には映り込まないはず。</p>
 <h4 id="roomhome">room(home)</h4>
 <p>vではみんな背景にroomを表示しているので作ることにした。</p>
 <p>twinmotion+collisionで実装してる。meshを全選択して、右クリックで<code>アセットアクション -&gt; プロパティマトリクスで選択内容を... -&gt; collision complexity(use complex collision as simple...)</code>を選択します。</p>
@@ -178,7 +176,10 @@
 <p>モーションキャプチャ</p>
 <p>vrmvmc+abpの切り替えで実装してる。blueprintはこんな感じ。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cast to CBP_SandboxCharacter_ai -&gt; target:ai, target:sk_ai -&gt; set anim instance class -&gt; ABP_GenericRetarget_2
-</span></span></code></pre></div>
+</span></span></code></pre></div><h4 id="loading-screen">loading screen</h4>
+<p>ローディング画面</p>
+<p>バグあり、build後に一時背景が映り込んでしまう。editor上では再現しないし、コード的には映り込まないはず。</p>
+
 
 		
 
