@@ -1146,3 +1146,17 @@ r.SetRes=1920x1080f
 
 ただ、タイトル文字の画質は改善されていません。
 
+## [issue] loading widget
+
+ue5はloading画面を作るのにも苦労します。個人的にはwidgetがそもそも使いづらいのと、open levelの扱いがおかしいのです。例えば、widgetは`all remove`しか用意されていません。
+
+私はprojectのconfigを用意して、変数にwidget blueprint(loading)のobjectを作成し、BP_Playerのevent beginでcreate widgetしてから、cast configからset loadingしています。
+
+ocean waveは少し特殊で読み込みが遅いので、ここで待たなければなりません。ocean waveの読み込みが終わったときconfigから取ってきたloading(object)を`remove parent`します。
+
+```sh
+title -> create loading -> open level -> bp_palyer -> create loading, set config -> ocean wave(loadend) -> cast config -> remove parent
+```
+
+mapのloadign画面を出すだけのことで、わざわざこんなことをしないといけないのは完全に狂ってると思いますね。
+
