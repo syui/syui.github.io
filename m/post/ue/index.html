@@ -951,6 +951,12 @@ r.SetRes=1920x1080f
 <h2 id="close-build後の画質問題">[close] build後の画質問題</h2>
 <p>特にdynamic volumetric skyの画質問題は<code>BP_DynamicVolumetricSky</code>のSingle Player Fps Lockを<code>Free</code>にしていると発生するようです。これを<code>60 FPS</code>に変更すると雲が動くようになり、画質も改善されました。</p>
 <p>ただ、タイトル文字の画質は改善されていません。</p>
+<h2 id="issue-loading-widget">[issue] loading widget</h2>
+<p>ue5はloading画面を作るのにも苦労します。個人的にはwidgetがそもそも使いづらいのと、open levelの扱いがおかしいのです。例えば、widgetは<code>all remove</code>しか用意されていません。</p>
+<p>私はprojectのconfigを用意して、変数にwidget blueprint(loading)のobjectを作成し、BP_Playerのevent beginでcreate widgetしてから、cast configからset loadingしています。</p>
+<p>ocean waveは少し特殊で読み込みが遅いので、ここで待たなければなりません。ocean waveの読み込みが終わったときconfigから取ってきたloading(object)を<code>remove parent</code>します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>title -&gt; create loading -&gt; open level -&gt; bp_palyer -&gt; create loading, set config -&gt; ocean wave<span style="color:#f92672">(</span>loadend<span style="color:#f92672">)</span> -&gt; cast config -&gt; remove parent
+</span></span></code></pre></div><p>mapのloadign画面を出すだけのことで、わざわざこんなことをしないといけないのは完全に狂ってると思いますね。</p>
 
 
 		
