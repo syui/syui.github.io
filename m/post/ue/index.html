@@ -951,12 +951,44 @@ r.SetRes=1920x1080f
 <h2 id="close-build後の画質問題">[close] build後の画質問題</h2>
 <p>特にdynamic volumetric skyの画質問題は<code>BP_DynamicVolumetricSky</code>のSingle Player Fps Lockを<code>Free</code>にしていると発生するようです。これを<code>60 FPS</code>に変更すると雲が動くようになり、画質も改善されました。</p>
 <p>ただ、タイトル文字の画質は改善されていません。</p>
+<blockquote>
+<p>nvidiaの<code>グラフィック -&gt; グローバル設定</code>が原因で、アプリが新しくなったからとインストール通知が来てて、そこから低画質が始まってたっぽい。イメージスケーリング(maxが解像度85%)をオフにすると治った。この設定は一体何なのだろう。windowsとゲームで設定できるから解像度はそれでいいと思ってた。でも違った。windows + ue + nvidiaの全部で解像度をうまく設定しないとおかしくなる。</p>
+</blockquote>
 <h2 id="issue-loading-widget">[issue] loading widget</h2>
 <p>ue5はloading画面を作るのにも苦労します。個人的にはwidgetがそもそも使いづらいのと、open levelの扱いがおかしいのです。例えば、widgetは<code>all remove</code>しか用意されていません。</p>
 <p>私はprojectのconfigを用意して、変数にwidget blueprint(loading)のobjectを作成し、BP_Playerのevent beginでcreate widgetしてから、cast configからset loadingしています。</p>
 <p>ocean waveは少し特殊で読み込みが遅いので、ここで待たなければなりません。ocean waveの読み込みが終わったときconfigから取ってきたloading(object)を<code>remove parent</code>します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>title -&gt; create loading -&gt; open level -&gt; bp_palyer -&gt; create loading, set config -&gt; ocean wave<span style="color:#f92672">(</span>loadend<span style="color:#f92672">)</span> -&gt; cast config -&gt; remove parent
-</span></span></code></pre></div><p>mapのloadign画面を出すだけのことで、わざわざこんなことをしないといけないのは完全に狂ってると思いますね。</p>
+</span></span></code></pre></div><h3 id="issue-家を置くとexeが落ちる">[issue] 家を置くとexeが落ちる</h3>
+<blockquote>
+<p>建物の上に浮かんでいる輪っかみたいなactorを消したら正常に動くようになった。なんか変なのが浮かんでいると思っていた。<code>WeatherOccluder</code></p>
+</blockquote>
+<p>ビデオメモリが足りないと言われ落ちます。editorでは落ちません。</p>
+<p>円形の家でライトは周りを取り囲むように設置されてて、それが重くなる一つの要因だとは思ってた。ちょっとおかしいけど、でもライトを少なくすると落ちなくなったのでそれが原因だったぽい。</p>
+<p>ちなみに、ビデオメモリは足りてる。全然使っていない。最初の読み込みのところでmapが起動しない。小さな家の中にあるライトが原因でゲームが起動しないなんてこと普通ないと思うけど。</p>
+<p>その後、また落ちるようになり、今度はライトを消しても落ちるようになったみたいだ。試しにコードをうまく行ったときの状態に戻してbuildしてみると落ちる。</p>
+<h3 id="issue-city-sampleで少しでも遠ざかると追加したactorが消える">[issue] city sampleで少しでも遠ざかると追加したactorが消える</h3>
+<p>これはcity sampleに持ってくるといつの間にかインスタンスの親子関係がバラバラに解除されるからです。</p>
+<p>最初はうまく構成されていますが、いつの間にかおかしいフォルダ構成になっていたり、親子付が解除されていたりします。</p>
+<p>一度アプリを落とすと次に起動したときにはおかしくなっているのでしょう。</p>
+<p>つまり、保存したものがいつの間にか勝手に変更されているのです。ですから場合によっては気づかないことがあります。</p>
+<p>actorをまたもとのインスタンス下に置くと遠ざかっても建物が消えないようになります。</p>
+<p>これはあらゆるものをcity sampleに追加するときに見られる挙動でもあります。</p>
+<p>追加するとそのときは問題ないのですが、アプリを落とした以降におかしな挙動や構成になり再設定しないと適切に描写されず、距離に応じて消えてしまうactorになります。</p>
+<p>また、再度設定して親子付けしたはずのものがいつの間にか解除されてたりもします。描写されないのでおかしいなと見てみると勝手に変更されています。定期的にあるので、毎回チェックするのが大変です。</p>
+<p>色々な距離設定やプロジェクト設定、ワールド設定を見てみましたが、どれも効果を発揮しませんでした。</p>
+<blockquote>
+<p>目の前のactorしか表示しないのは負荷軽減になります。正常な描写に戻すよう努力することでビデオメモリが足りないと落ちる可能性が高まります。ただ、ビデオメモリが足りなくなるようなものは追加していないし、負荷を監視していますがメモリは足りているので、ue(もしくはcity sample)が壊れているのかもしれません。その証拠にeditorからの起動では落ちません。あるいはdynamic volumetric skyとocean wavesを追加したことで相当な負荷がかかっており、少しactorを追加するだけでも落ちるようになっている可能性もあります。</p>
+</blockquote>
+<h3 id="tips-twinmotionがすり抜け">[tips] twinmotionがすり抜け</h3>
+<p>twinmotionで実装するものはcollisionが設定されていないのですり抜けます。</p>
+<p>これを解消するにはmeshを全選択して、右クリックで<code>アセットアクション -&gt; プロパティマトリクスで選択内容を... -&gt; collision complexity(use complex collision as simple...)</code>を選択します。</p>
+<p>これはtwinmotionに限らず<code>AutomotiveBridgeScene</code>にも見られる挙動でした。とはいえ設置したい場所にもよります。</p>
+<h3 id="issue-nvidiaの画面がちらつく">[issue] nvidiaの画面がちらつく</h3>
+<p>特にue5でひどかった画面のチラ付きに対処するには、nvidiaコントロールパネルを開いて解像度の変更からリフレッシュレートをディスプレイに合わせたあと<code>nvidiaのカラー設定を使用</code>を選択して再起動します。</p>
+<h3 id="tips-音声を読み取りchatgptで変換する">[tips] 音声を読み取り、chatgptで変換する</h3>
+<p><a href="https://github.com/gtreshchev/RuntimeSpeechRecognizer/wiki/1.-How-to-use-the-plugin">https://github.com/gtreshchev/RuntimeSpeechRecognizer/wiki/1.-How-to-use-the-plugin</a></p>
+<p><a href="https://www.youtube.com/watch?v=xBs-nXzXwoM&amp;list=LL&amp;index=1">https://www.youtube.com/watch?v=xBs-nXzXwoM&amp;list=LL&amp;index=1</a></p>
 
 
 		

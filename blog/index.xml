@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gpt-4o-miniに乗り換え</title>
+      <link>https://syui.ai/blog/post/2024/08/24/ue/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/24/ue/</guid>
+      <description>この前、elevenlabsを使って、ゲーム内で音声で聞くと音声で返してくれるようにした。&#xA;その時、gpt-3.5-turboよりgpt-4o-miniのほうが安いことに気づいたので乗り換えた。&#xA;https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/&#xA;ただ、elevenlabsは、かわいい声が少なかったのと、日本語の発音がちょっと微妙なことがあるので、これよりおすすめのものはないかなと思ってる。</description>
+    </item>
     <item>
       <title>vtuberのfuwamocoを見始めた</title>
       <link>https://syui.ai/blog/post/2024/08/15/vtuber/</link>
