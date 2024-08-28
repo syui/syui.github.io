@@ -146,7 +146,7 @@
 
 		<p>ここでは<a href="https://www.epicgames.com/">epic games</a>の<a href="https://www.unrealengine.com/ja/unreal-engine-5">unreal engine 5</a>の使い方をまとめます。現在はversionの<code>5.4.2</code>に追従しています。</p>
 <ul>
-<li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/unreal-engine-5.4-release-notes">ue 5.4.2</a></li>
+<li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/unreal-engine-5.4-release-notes">ue 5.4.4</a></li>
 <li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/unreal-engine-5.3-release-notes">ue 5.3.2</a></li>
 </ul>
 <p>ブログで説明しづらい部分が多いので<a href="https://blueprintue.com/profile/ai/">blueprintue</a>を参考にしてください。</p>
@@ -989,6 +989,21 @@ r.SetRes=1920x1080f
 <h3 id="tips-音声を読み取りchatgptで変換する">[tips] 音声を読み取り、chatgptで変換する</h3>
 <p><a href="https://github.com/gtreshchev/RuntimeSpeechRecognizer/wiki/1.-How-to-use-the-plugin">https://github.com/gtreshchev/RuntimeSpeechRecognizer/wiki/1.-How-to-use-the-plugin</a></p>
 <p><a href="https://www.youtube.com/watch?v=xBs-nXzXwoM&amp;list=LL&amp;index=1">https://www.youtube.com/watch?v=xBs-nXzXwoM&amp;list=LL&amp;index=1</a></p>
+<h3 id="tips-city-sampleのbgmをcustomする">[tips] city sampleのbgmをcustomする</h3>
+<p><a href="https://suno.com/@syui">suno</a>を使用して作ると良いでしょう。</p>
+<p><a href="https://www.youtube.com/watch?v=99uP2WuU2Jo">https://www.youtube.com/watch?v=99uP2WuU2Jo</a></p>
+<p><code>Audio/MetaSounds/Music/music_leavebehind_New_mix_Meta</code>を編集して、引用されているbaseの音楽を変更します。ただし、補助楽器を鳴らしているものは変更しません。</p>
+<p>基本的にはそれぞれのパターンに合わせて、baseとなるbgmを改変して複数用意して入れていきます。そこまで面倒な手間をかけていられない場合は全部同じものを入れます。</p>
+<h3 id="issue-build後にcity-sampleの風の音が消える">[issue] build後にcity sampleの風の音が消える</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># [close] </span>
+</span></span><span style="display:flex;"><span>この問題は最初にPlayStartする場所が鍵でした。私は上空の家でスタートさせているのですが、これを地上でスタートさせるようにしなければなりません。
+</span></span><span style="display:flex;"><span>あるいは、再度スタートさせる場所を変更、移動して読み込みましょう。
+</span></span></code></pre></div><p>build後にcity sampleの風の音が消えていることに気づいた。</p>
+<p>いつ頃から消えていたかはよくわからないけど、多分、音声認識のpluginを入れてからだと思う。</p>
+<p>しかし、おかしなところはopen levelでまずはtitle画面を読み込んでそこからmapに移行するんだけど、title画面では風の音が聞こえている。mapに移行してから消える。</p>
+<p>それもただ消えるだけじゃなく、他の音は聞こえる。他の音もcity sampleの同じシステムで作成、管理されている。</p>
+<p>でも風の音だけ消えているように思う。なお、これらの問題はeditorやpreviewでは確認できず、あくまでbuild後のpackage(exe)で発生している。</p>
+<p>参照ビューアで辿っていると、<code>Script/CitySampleWorldAudioDataScript</code>に行き当たり、そこで<code>MetaSounds/Ambint/sfx_amb_Pawn_Wind_lp_meta</code>を追加したがbuild後に再生されていない。</p>
 
 
 		

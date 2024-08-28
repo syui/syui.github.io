@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>theatre.jsを使ってみる</title>
+      <link>https://syui.ai/blog/post/2024/08/28/three/</link>
+      <pubDate>Wed, 28 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/08/28/three/</guid>
+      <description>three.jsをGUIで調整するためのlibです。reactのexampleがあるのでreactで書きます。&#xA;ちなみに、最近は色々なprojectがreactばかりになってきたのでreactを使っています。ただ、vueのほうがわかりやすいのでvueをおすすめしておきます。jsに近いほどよいですね。最初はjs+html+cssが一番ですけど。&#xA;$ nvm use 21 # https://www.theatrejs.com/docs/latest/getting-started/with-react-three-fiber $ npx create-react-app theatre --template typescript $ npm install --save react three @react-three/fiber @theatre/core @theatre/studio @theatre/r3f $ npm install --save-dev @types/three { &amp;#34;name&amp;#34;: &amp;#34;vite-react-typescript-starter&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;version&amp;#34;: &amp;#34;0.0.0&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;module&amp;#34;, &amp;#34;scripts&amp;#34;: { &amp;#34;dev&amp;#34;: &amp;#34;vite&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;tsc -b &amp;amp;&amp;amp; vite build&amp;#34;, &amp;#34;lint&amp;#34;: &amp;#34;eslint .&amp;#34;, &amp;#34;preview&amp;#34;: &amp;#34;vite preview&amp;#34; }, &amp;#34;dependencies&amp;#34;: { &amp;#34;@theatre/core&amp;#34;: &amp;#34;^0.6.1&amp;#34;, &amp;#34;@theatre/r3f&amp;#34;: &amp;#34;^0.7.2&amp;#34;, &amp;#34;@theatre/studio&amp;#34;: &amp;#34;^0.6.1&amp;#34;, &amp;#34;react&amp;#34;: &amp;#34;^18.3.1&amp;#34;, &amp;#34;react-dom&amp;#34;: &amp;#34;^18.3.1&amp;#34; }, &amp;#34;devDependencies&amp;#34;: { &amp;#34;@eslint/js&amp;#34;: &amp;#34;^9.</description>
+    </item>
     <item>
       <title>gpt-4o-miniに乗り換え</title>
       <link>https://syui.ai/blog/post/2024/08/24/ue/</link>
