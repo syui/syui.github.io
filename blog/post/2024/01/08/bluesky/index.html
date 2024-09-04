@@ -135,88 +135,88 @@
 <li><a href="https://web.syu.is">https://web.syu.is</a></li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>url</th>
-<th>src</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pds</td>
-<td><a href="https://syu.is">https://syu.is</a></td>
-<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/pds">src</a></td>
-</tr>
-<tr>
-<td>plc</td>
-<td><a href="https://plc.syu.is">https://plc.syu.is</a></td>
-<td><a href="https://github.com/did-method-plc/did-method-plc/tree/main/packages/server">src</a></td>
-</tr>
-<tr>
-<td>mod</td>
-<td><a href="https://mod.syu.is">https://mod.syu.is</a></td>
-<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/ozone">src</a></td>
-</tr>
-<tr>
-<td>bgs</td>
-<td><a href="https://bgs.syu.is">https://bgs.syu.is</a></td>
-<td><a href="https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky">src</a></td>
-</tr>
-<tr>
-<td>appview</td>
-<td><a href="https://api.syu.is">https://api.syu.is</a></td>
-<td><a href="https://github.com/bluesky-social/atproto/tree/main/services/bsky">src</a></td>
-</tr>
-<tr>
-<td>web</td>
-<td><a href="https://web.syu.is">https://web.syu.is</a></td>
-<td><a href="https://github.com/bluesky-social/social-app">src</a></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">url</th>
+          <th style="text-align: left">src</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left"><a href="https://syu.is">https://syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/bluesky-social/atproto/tree/main/services/pds">src</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">plc</td>
+          <td style="text-align: left"><a href="https://plc.syu.is">https://plc.syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/did-method-plc/did-method-plc/tree/main/packages/server">src</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left"><a href="https://mod.syu.is">https://mod.syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/bluesky-social/atproto/tree/main/services/ozone">src</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left"><a href="https://bgs.syu.is">https://bgs.syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky">src</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appview</td>
+          <td style="text-align: left"><a href="https://api.syu.is">https://api.syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/bluesky-social/atproto/tree/main/services/bsky">src</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">web</td>
+          <td style="text-align: left"><a href="https://web.syu.is">https://web.syu.is</a></td>
+          <td style="text-align: left"><a href="https://github.com/bluesky-social/social-app">src</a></td>
+      </tr>
+  </tbody>
 </table>
 <p>以前はbluesky(pds+appview)を動かしていたのですが、一般的にblueskyと呼ばれるものは複数のserverに依存しています。例えば、plc, bgsです。今ではpdsにあったappviewも分離しています。</p>
 <p>bsky.teamがそれぞれのsandboxを用意してくれていますが、全部をself-hostしないといつか動かなくなります。</p>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pds</td>
-<td>PDS_DID_PLC_URL</td>
-<td><code>https://plc.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BSKY_APP_VIEW_URL</td>
-<td><code>https://api.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BSKY_APP_VIEW_DID</td>
-<td>did:web:api.${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_MOD_SERVICE_URL</td>
-<td><code>https://mod.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_MOD_SERVICE_DID</td>
-<td>did:web:mod.${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_CRAWLERS</td>
-<td><code>https://bgs.${host}</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_DID_PLC_URL</td>
+          <td style="text-align: left"><code>https://plc.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BSKY_APP_VIEW_URL</td>
+          <td style="text-align: left"><code>https://api.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BSKY_APP_VIEW_DID</td>
+          <td style="text-align: left">did:web:api.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_MOD_SERVICE_URL</td>
+          <td style="text-align: left"><code>https://mod.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_MOD_SERVICE_DID</td>
+          <td style="text-align: left">did:web:mod.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_CRAWLERS</td>
+          <td style="text-align: left"><code>https://bgs.${host}</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>nostrで活動されているikuradonさんが全部のserverをセルフホストしているのを見て、どうやら他のserverも動作できる環境にあるようだと思ったので立ててみました。なお、ikuradonさんに結構助けてもらった。</p>
 <p>今回、<code>syu.is</code>というdomainを取りました。なお、<code>.is</code>はあまりおすすめしません。これはアイスランドが独自方針で管理している感じで、メール認証などが必要です。その他、様々な制限があります。</p>
@@ -454,374 +454,374 @@
 </span></span><span style="display:flex;"><span>PDS_EMAIL_SMTP_URL<span style="color:#f92672">=</span>smtps://$username:$password@smtp.gmail.com
 </span></span></code></pre></div><p>環境変数をまとめます。</p>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bsky</td>
-<td>DB_PRIMARY_POSTGRES_URL</td>
-<td>postgres://postgres:postgres@db/bsky</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>DB_REPLICA_POSTGRES_URLS</td>
-<td>postgres://postgres:postgres@db/bsky</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>DB_REPLICA_TAGS_ANY</td>
-<td>0</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>PUBLIC_URL</td>
-<td><code>https://api.${host}</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>SERVER_DID</td>
-<td>did:web:api.${host}</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>DID_PLC_URL</td>
-<td><code>https://plc.${host}</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>BLOB_CACHE_LOC</td>
-<td>/cache/</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>SEARCH_ENDPOINT</td>
-<td><code>https://search.${host}</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>REDIS_HOST</td>
-<td>redis</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>INDEXER_PARTITION_IDS</td>
-<td>0</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>INGESTER_PARTITION_COUNT</td>
-<td>1</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>PUSH_NOTIFICATION_ENDPOINT</td>
-<td><code>https://push.bsky.${host}/api/push</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>REPO_PROVIDER</td>
-<td>wss://${host}</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>IMG_URI_ENDPOINT</td>
-<td><code>https://cdn.${host}/img</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>ODERATION_SERVICE_DID</td>
-<td>did:web:mod.${host}</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>MODERATION_PUSH_URL</td>
-<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>ADMIN_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>MODERATOR_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>TRIAGE_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>SERVICE_SIGNING_KEY</td>
-<td>$ openssl ecparam &ndash;name secp256k1 &ndash;genkey &hellip;</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>IMG_URI_SALT</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>bsky</td>
-<td>IMG_URI_KEY</td>
-<td>xxx</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">DB_PRIMARY_POSTGRES_URL</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/bsky</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">DB_REPLICA_POSTGRES_URLS</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/bsky</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">DB_REPLICA_TAGS_ANY</td>
+          <td style="text-align: left">0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">PUBLIC_URL</td>
+          <td style="text-align: left"><code>https://api.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">SERVER_DID</td>
+          <td style="text-align: left">did:web:api.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">DID_PLC_URL</td>
+          <td style="text-align: left"><code>https://plc.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">BLOB_CACHE_LOC</td>
+          <td style="text-align: left">/cache/</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">SEARCH_ENDPOINT</td>
+          <td style="text-align: left"><code>https://search.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">REDIS_HOST</td>
+          <td style="text-align: left">redis</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">INDEXER_PARTITION_IDS</td>
+          <td style="text-align: left">0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">INGESTER_PARTITION_COUNT</td>
+          <td style="text-align: left">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">PUSH_NOTIFICATION_ENDPOINT</td>
+          <td style="text-align: left"><code>https://push.bsky.${host}/api/push</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">REPO_PROVIDER</td>
+          <td style="text-align: left">wss://${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">IMG_URI_ENDPOINT</td>
+          <td style="text-align: left"><code>https://cdn.${host}/img</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">ODERATION_SERVICE_DID</td>
+          <td style="text-align: left">did:web:mod.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">MODERATION_PUSH_URL</td>
+          <td style="text-align: left"><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">ADMIN_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">MODERATOR_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">TRIAGE_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">SERVICE_SIGNING_KEY</td>
+          <td style="text-align: left">$ openssl ecparam &ndash;name secp256k1 &ndash;genkey &hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">IMG_URI_SALT</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bsky</td>
+          <td style="text-align: left">IMG_URI_KEY</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bgs</td>
-<td>DATABASE_URL</td>
-<td>postgres://postgres:postgres@db/bgs</td>
-</tr>
-<tr>
-<td>bgs</td>
-<td>CARSTORE_DATABASE_URL</td>
-<td>postgres://postgres:postgres@db/carstore</td>
-</tr>
-<tr>
-<td>bgs</td>
-<td>DATA_DIR</td>
-<td>/data</td>
-</tr>
-<tr>
-<td>bgs</td>
-<td>ATP_PLC_HOST</td>
-<td><code>https://plc.${host}</code></td>
-</tr>
-<tr>
-<td>bgs</td>
-<td>BGS_ADMIN_KEY</td>
-<td>xxx</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left">DATABASE_URL</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/bgs</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left">CARSTORE_DATABASE_URL</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/carstore</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left">DATA_DIR</td>
+          <td style="text-align: left">/data</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left">ATP_PLC_HOST</td>
+          <td style="text-align: left"><code>https://plc.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bgs</td>
+          <td style="text-align: left">BGS_ADMIN_KEY</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mod</td>
-<td>OZONE_PUBLIC_URL</td>
-<td><code>https://mod.${host}</code></td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_SERVER_DID</td>
-<td>did:web:mod.${host}</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_APPVIEW_URL</td>
-<td><code>https://api.${host}</code></td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_APPVIEW_DID</td>
-<td>did:web:api.${host}</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_PDS_URL</td>
-<td><code>https://${host}</code></td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_PDS_DID</td>
-<td>did:web:${host}</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_DB_POSTGRES_URL</td>
-<td>postgres://postgres:postgres@db/mod</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_DID_PLC_URL</td>
-<td><code>https://plc.${host}</code></td>
-</tr>
-<tr>
-<td>mod</td>
-<td>MODERATION_PUSH_URL</td>
-<td><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_ADMIN_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_MODERATOR_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_TRIAGE_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>mod</td>
-<td>OZONE_SIGNING_KEY_HEX</td>
-<td>xxx</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_PUBLIC_URL</td>
+          <td style="text-align: left"><code>https://mod.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_SERVER_DID</td>
+          <td style="text-align: left">did:web:mod.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_APPVIEW_URL</td>
+          <td style="text-align: left"><code>https://api.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_APPVIEW_DID</td>
+          <td style="text-align: left">did:web:api.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_PDS_URL</td>
+          <td style="text-align: left"><code>https://${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_PDS_DID</td>
+          <td style="text-align: left">did:web:${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_DB_POSTGRES_URL</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/mod</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_DID_PLC_URL</td>
+          <td style="text-align: left"><code>https://plc.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">MODERATION_PUSH_URL</td>
+          <td style="text-align: left"><code>https://admin:${OZONE_ADMIN_PASSWORD}@mod.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_ADMIN_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_MODERATOR_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_TRIAGE_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mod</td>
+          <td style="text-align: left">OZONE_SIGNING_KEY_HEX</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pds</td>
-<td>PDS_HOSTNAME</td>
-<td>${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_DATA_DIRECTORY</td>
-<td>/data</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_DB_POSTGRES_URL</td>
-<td>postgresql://postgres:postgres@db/pds</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_DID_PLC_URL</td>
-<td><code>https://plc.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BSKY_APP_VIEW_URL</td>
-<td><code>https://api.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BSKY_APP_VIEW_DID</td>
-<td>did:web:api.${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_MOD_SERVICE_URL</td>
-<td><code>https://mod.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_MOD_SERVICE_DID</td>
-<td>did:web:mod.${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_CRAWLERS</td>
-<td><code>https://bgs.${host}</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_EMAIL_SMTP_URL</td>
-<td>smtps://$username:$password@smtp.gmail.com</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_EMAIL_FROM_ADDRESS</td>
-<td>no-reply@${host}</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_INVITE_REQUIRED (招待コード)</td>
-<td>false</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_INVITE_INTERVAL</td>
-<td>604800000</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BLOBSTORE_DISK_LOCATION</td>
-<td>/data/img/static</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_BLOBSTORE_DISK_TMP_LOCATION</td>
-<td>/data/img/tmp</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_JWT_SECRET</td>
-<td><code>$ openssl rand --hex 16</code></td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_ADMIN_PASSWORD</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_REPO_SIGNING_KEY_K256_PRIVATE_KEY_HEX</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td>pds</td>
-<td>PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX</td>
-<td>xxx</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_HOSTNAME</td>
+          <td style="text-align: left">${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_DATA_DIRECTORY</td>
+          <td style="text-align: left">/data</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_DB_POSTGRES_URL</td>
+          <td style="text-align: left">postgresql://postgres:postgres@db/pds</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_DID_PLC_URL</td>
+          <td style="text-align: left"><code>https://plc.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BSKY_APP_VIEW_URL</td>
+          <td style="text-align: left"><code>https://api.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BSKY_APP_VIEW_DID</td>
+          <td style="text-align: left">did:web:api.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_MOD_SERVICE_URL</td>
+          <td style="text-align: left"><code>https://mod.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_MOD_SERVICE_DID</td>
+          <td style="text-align: left">did:web:mod.${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_CRAWLERS</td>
+          <td style="text-align: left"><code>https://bgs.${host}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_EMAIL_SMTP_URL</td>
+          <td style="text-align: left">smtps://$username:$password@smtp.gmail.com</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_EMAIL_FROM_ADDRESS</td>
+          <td style="text-align: left">no-reply@${host}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_INVITE_REQUIRED (招待コード)</td>
+          <td style="text-align: left">false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_INVITE_INTERVAL</td>
+          <td style="text-align: left">604800000</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BLOBSTORE_DISK_LOCATION</td>
+          <td style="text-align: left">/data/img/static</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_BLOBSTORE_DISK_TMP_LOCATION</td>
+          <td style="text-align: left">/data/img/tmp</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_JWT_SECRET</td>
+          <td style="text-align: left"><code>$ openssl rand --hex 16</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_ADMIN_PASSWORD</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_REPO_SIGNING_KEY_K256_PRIVATE_KEY_HEX</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pds</td>
+          <td style="text-align: left">PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX</td>
+          <td style="text-align: left">xxx</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>server</th>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>plc</td>
-<td>DATABASE_URL</td>
-<td>postgres://postgres:postgres@db/plc</td>
-</tr>
-<tr>
-<td>plc</td>
-<td>DB_CREDS_JSON</td>
-<td>&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
-</tr>
-<tr>
-<td>plc</td>
-<td>ENABLE_MIGRATIONS</td>
-<td>true</td>
-</tr>
-<tr>
-<td>plc</td>
-<td>DB_MIGRATE_CREDS_JSON</td>
-<td>&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">server</th>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">plc</td>
+          <td style="text-align: left">DATABASE_URL</td>
+          <td style="text-align: left">postgres://postgres:postgres@db/plc</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">plc</td>
+          <td style="text-align: left">DB_CREDS_JSON</td>
+          <td style="text-align: left">&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">plc</td>
+          <td style="text-align: left">ENABLE_MIGRATIONS</td>
+          <td style="text-align: left">true</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">plc</td>
+          <td style="text-align: left">DB_MIGRATE_CREDS_JSON</td>
+          <td style="text-align: left">&lsquo;{&ldquo;username&rdquo;:&ldquo;postgres&rdquo;,&ldquo;password&rdquo;:&ldquo;postgres&rdquo;,&ldquo;host&rdquo;:&ldquo;db&rdquo;,&ldquo;port&rdquo;:&ldquo;5432&rdquo;,&ldquo;database&rdquo;:&ldquo;plc&rdquo;}&rsquo;</td>
+      </tr>
+  </tbody>
 </table>
 <p><code>xxx</code>は以下のコマンドなどで作成してもいいと思います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl ecparam --name secp256k1 --genkey --noout --outform DER | tail --bytes<span style="color:#f92672">=</span>+8 | head --bytes<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span> | xxd --plain --cols <span style="color:#ae81ff">32</span>

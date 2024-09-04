@@ -14,21 +14,21 @@
       <link>https://syui.ai/blog/post/2018/10/20/chrome/</link>
       <pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2018/10/20/chrome/</guid>
-      <description>タイトルのとおりだけど、具体的には、「終了するにはCmd+Qを押します」みたいな表示が出るようになった。&#xA;最初は、chrome70のchrome://flagsとかで新しい機能がenableになったのかなと思ったけど、違った。&#xA;これ、メニューのオプションからChrome -&amp;gt; 終了する前に警告メッセージを表示するにチェックが入ってることで有効になるみたい。&#xA;つまり、このチェックを外すと、元に戻ります。</description>
+      <description>&lt;p&gt;タイトルのとおりだけど、具体的には、「終了するにはCmd+Qを押します」みたいな表示が出るようになった。&lt;/p&gt;&#xA;&lt;p&gt;最初は、chrome70のchrome://flagsとかで新しい機能がenableになったのかなと思ったけど、違った。&lt;/p&gt;&#xA;&lt;p&gt;これ、メニューのオプションから&lt;code&gt;Chrome -&amp;gt; 終了する前に警告メッセージを表示する&lt;/code&gt;にチェックが入ってることで有効になるみたい。&lt;/p&gt;&#xA;&lt;p&gt;つまり、このチェックを外すと、元に戻ります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>headless-chrome</title>
       <link>https://syui.ai/blog/post/2017/05/09/chrome/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2017/05/09/chrome/</guid>
-      <description>https://developers.google.com/web/updates/2017/04/headless-chrome&#xA;http://bufferings.hatenablog.com/entry/2017/05/03/181713&#xA;このあたりの情報が参考になりそうだった。</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://developers.google.com/web/updates/2017/04/headless-chrome&#34;&gt;https://developers.google.com/web/updates/2017/04/headless-chrome&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://bufferings.hatenablog.com/entry/2017/05/03/181713&#34;&gt;http://bufferings.hatenablog.com/entry/2017/05/03/181713&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;このあたりの情報が参考になりそうだった。&lt;/p&gt;</description>
     </item>
     <item>
       <title>chrome://pluginsの仕様変更?</title>
       <link>https://syui.ai/blog/post/2017/02/04/chrome/</link>
       <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2017/02/04/chrome/</guid>
-      <description>最新バージョンのChromeでabout://pluginsを無効にできない(再起動すると戻る)問題があって、これはどうしたものかと迷った後、一旦、Safariに移行している。仕様なのかバグなのかわからない。&#xA;Safari使いにくい。&#xA;追記 : 仕様だったらしい。わかりにくい気がしますね。&#xA;https://it.srad.jp/story/17/02/01/053228/</description>
+      <description>&lt;p&gt;最新バージョンのChromeで&lt;code&gt;about://plugins&lt;/code&gt;を無効にできない(再起動すると戻る)問題があって、これはどうしたものかと迷った後、一旦、Safariに移行している。仕様なのかバグなのかわからない。&lt;/p&gt;&#xA;&lt;p&gt;Safari使いにくい。&lt;/p&gt;&#xA;&lt;p&gt;追記 : 仕様だったらしい。わかりにくい気がしますね。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://it.srad.jp/story/17/02/01/053228/&#34;&gt;https://it.srad.jp/story/17/02/01/053228/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

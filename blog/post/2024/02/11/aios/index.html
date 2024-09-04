@@ -150,26 +150,26 @@
 </span></span></code></pre></div><p>archlinuxベースの自作osで名前は<code>ai os</code>です。</p>
 <p>Arch Linuxが<code>archlinux</code>や<code>arch</code>と呼ばれるように<code>aios</code>や<code>ai</code>と呼ぶことがあります。使い分けは以下の通りです。</p>
 <table>
-<thead>
-<tr>
-<th>var</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ai os</td>
-<td>Name</td>
-</tr>
-<tr>
-<td>aios</td>
-<td>Code</td>
-</tr>
-<tr>
-<td>ai</td>
-<td>ID</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">var</th>
+          <th style="text-align: left"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">ai os</td>
+          <td style="text-align: left">Name</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">aios</td>
+          <td style="text-align: left">Code</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ai</td>
+          <td style="text-align: left">ID</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="archiso">archiso</h3>
 <p>archは非常に使いやすいosです。あらゆる用途に使えますが、自作osにも使えます。その使い勝手の良さから、archベースのosはたくさんあります。例えば、<code>manjaro linux</code>, <code>steam os</code>, <code>asahi linux</code>, <code>alter linux</code>など。<code>ai os</code>もその中の一つになります。</p>
@@ -198,30 +198,30 @@ fi
 <p><code>github actions</code>でbuildして、releases, packageとdocker-hubにpushします。</p>
 <p><code>github actions</code>は毎度のことながらハマるので注意です。例えば、docker loginは<code>docker.io</code>と<code>ghcr.io</code>で挙動が違います。</p>
 <table>
-<thead>
-<tr>
-<th>env</th>
-<th>body</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>${{ github.repository }}</td>
-<td>syui/aios</td>
-</tr>
-<tr>
-<td>${{ secrets.DOCKER_USERNAME }}</td>
-<td>syui</td>
-</tr>
-<tr>
-<td>${{ secrets.DOCKER_TOKEN }}</td>
-<td><a href="https://matsuand.github.io/docs.docker.jp.onthefly/docker-hub/access-tokens/">token</a></td>
-</tr>
-<tr>
-<td>${{ secrets.APP_TOKEN }}</td>
-<td><a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">token</a>, pacakge</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">env</th>
+          <th style="text-align: left">body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">${{ github.repository }}</td>
+          <td style="text-align: left">syui/aios</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">${{ secrets.DOCKER_USERNAME }}</td>
+          <td style="text-align: left">syui</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">${{ secrets.DOCKER_TOKEN }}</td>
+          <td style="text-align: left"><a href="https://matsuand.github.io/docs.docker.jp.onthefly/docker-hub/access-tokens/">token</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">${{ secrets.APP_TOKEN }}</td>
+          <td style="text-align: left"><a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">token</a>, pacakge</td>
+      </tr>
+  </tbody>
 </table>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:.github/workflows/release.yml" data-lang="yml:.github/workflows/release.yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">release</span>
 </span></span><span style="display:flex;"><span>

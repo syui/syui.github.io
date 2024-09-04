@@ -14,7 +14,7 @@
       <link>https://syui.ai/blog/post/2023/08/19/vbox/</link>
       <pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2023/08/19/vbox/</guid>
-      <description>外部からアクセスするにはvirtualboxのnetwork設定でブリッジアダプターが必要なんだけど、windowsで使用ししているネットワークアダプタにipv6のチェックが入っていると動きません。&#xA;これをやらないとネットワークアダプタにvirtualboxのイーサネットが自動追加されない感じだと思う。ipv6のチェックは外したら再起動します。&#xA;ちなみに、natのポートフォワーディングもそのホストから接続するときに使うやつなので、他のpcからアクセスできなかったと思う。</description>
+      <description>&lt;p&gt;外部からアクセスするにはvirtualboxのnetwork設定でブリッジアダプターが必要なんだけど、windowsで使用ししているネットワークアダプタにipv6のチェックが入っていると動きません。&lt;/p&gt;&#xA;&lt;p&gt;これをやらないとネットワークアダプタにvirtualboxのイーサネットが自動追加されない感じだと思う。ipv6のチェックは外したら再起動します。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/windows_virtualbox_network_20230819_0001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/windows_virtualbox_network_20230819_0002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;ちなみに、natのポートフォワーディングもそのホストから接続するときに使うやつなので、他のpcからアクセスできなかったと思う。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

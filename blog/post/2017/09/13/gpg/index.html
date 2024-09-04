@@ -132,40 +132,40 @@
 <p>できれば匿名アドレスを使いたいのですが、GitLabでGPGをVerifiedにするにはそれは不可能で、なおかつ<code>.gitconfig</code>に設定した<code>email</code>とGPGのメールアドレスが不一致を見ると今度はGitHubでUnverifiedになってしまいます。</p>
 <p>これは何が問題なのかというと以下のようにできないのが問題なのです。</p>
 <table>
-<thead>
-<tr>
-<th>Host</th>
-<th>Rep</th>
-<th>GPG</th>
-<th>Verified</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GitHub</td>
-<td>匿名</td>
-<td>匿名</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>GitHub</td>
-<td>匿名</td>
-<td>実名</td>
-<td>No</td>
-</tr>
-<tr>
-<td>GitLab</td>
-<td>匿名</td>
-<td>匿名</td>
-<td>No</td>
-</tr>
-<tr>
-<td>GitLab</td>
-<td>匿名</td>
-<td>実名</td>
-<td>Yes</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Host</th>
+          <th style="text-align: left">Rep</th>
+          <th style="text-align: left">GPG</th>
+          <th style="text-align: left">Verified</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">GitHub</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">Yes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GitHub</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">実名</td>
+          <td style="text-align: left">No</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GitLab</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">No</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GitLab</td>
+          <td style="text-align: left">匿名</td>
+          <td style="text-align: left">実名</td>
+          <td style="text-align: left">Yes</td>
+      </tr>
+  </tbody>
 </table>
 <p>全部実名で行う場合はどちらもYes.ですが、匿名で行う場合、別々のキーを用意するか、または実名キーを使用するかで面倒が生じます。私は、できれば同一のキーを使いたいと考えていますが、その場合はやはり実名アドレスを使うしかないでしょう。反対にキーを別々にしたとしても、一つは実名アドレスを使用するしか無く、この点において匿名を使用する意義が低下します。キーを調べれば一方に実名アドレスが使われている事がわかるからです。</p>
 <p>また、もしキーを別々にしたとしても、新しい問題が発生します。それは<code>git commit</code>を行う場合、つまり、GitHubでVerifiedを維持する方向でコミットを行うにはGitHubのリポジトリでわざわざ<code>git config user.email</code>する必要があるのです。これは、<code>.gitconfig [email]匿名</code>の場合の話です。</p>

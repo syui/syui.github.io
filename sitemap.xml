@@ -3,13 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-08-28T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2024-08-28T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-08-28T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/windows/</loc>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/09/02/ws-sixel/</loc>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/mac/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/obs/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/09/01/voice/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/08/28/three/</loc>
     <lastmod>2024-08-28T00:00:00+00:00</lastmod>
@@ -23,9 +41,6 @@
     <loc>https://syui.ai/blog/post/2024/08/24/ue/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/ue5/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -37,9 +52,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2024/08/15/vtuber/</loc>
     <lastmod>2024-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/mac/</loc>
-    <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/08/11/safari/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
@@ -279,9 +291,6 @@
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/stable-diffusion/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/windows/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/01/08/bluesky/</loc>

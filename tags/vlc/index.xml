@@ -14,7 +14,7 @@
       <link>https://syui.ai/blog/post/2018/12/07/vlc/</link>
       <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/blog/post/2018/12/07/vlc/</guid>
-      <description>archlinuxのmpv, mplayer, cvlcが全滅していて、現在、非常に倍速再生に支障をきたす感じになっている。&#xA;これが一般的なものか、個人的なものかはわかりませんが、mpv, mplayerは倍速再生にmplayer -speed 3 -af scaletempoとかしても、なぜか声が途切れ途切れになる現象に遭遇していて、ちょっと&amp;hellip;いや、かなり聞き取りづらいです。&#xA;cvlcは、cvlc -I ncursesが落ちる。&#xA;vlcは、ピッチの調整がONになっておらず、倍速再生で声がおかしいので、ピッチ調整をONにしなければならなかった。&#xA;なんかウィドウ下メニューに|||みたいなアイコン(詳細設定を表示)があるので、それをクリックして、オーディオエフェクト -&amp;gt; 詳細設定 -&amp;gt; ピッチ調整にチェックを入れる。&#xA;コマンドラインオプションにもありそうだけど、面倒なので調べてない。&#xA;結論として、倍速再生でまともに聴けるのがvlcしかなくてつらい。</description>
+      <description>&lt;p&gt;archlinuxのmpv, mplayer, cvlcが全滅していて、現在、非常に倍速再生に支障をきたす感じになっている。&lt;/p&gt;&#xA;&lt;p&gt;これが一般的なものか、個人的なものかはわかりませんが、mpv, mplayerは倍速再生に&lt;code&gt;mplayer -speed 3 -af scaletempo&lt;/code&gt;とかしても、なぜか声が途切れ途切れになる現象に遭遇していて、ちょっと&amp;hellip;いや、かなり聞き取りづらいです。&lt;/p&gt;&#xA;&lt;p&gt;cvlcは、&lt;code&gt;cvlc -I ncurses&lt;/code&gt;が落ちる。&lt;/p&gt;&#xA;&lt;p&gt;vlcは、ピッチの調整がONになっておらず、倍速再生で声がおかしいので、ピッチ調整をONにしなければならなかった。&lt;/p&gt;&#xA;&lt;p&gt;なんかウィドウ下メニューに&lt;code&gt;|||&lt;/code&gt;みたいなアイコン(詳細設定を表示)があるので、それをクリックして、&lt;code&gt;オーディオエフェクト -&amp;gt; 詳細設定 -&amp;gt; ピッチ調整&lt;/code&gt;にチェックを入れる。&lt;/p&gt;&#xA;&lt;p&gt;コマンドラインオプションにもありそうだけど、面倒なので調べてない。&lt;/p&gt;&#xA;&lt;p&gt;結論として、倍速再生でまともに聴けるのがvlcしかなくてつらい。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
