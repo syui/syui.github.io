@@ -148,7 +148,7 @@
 
 		<h2>obs&#43;discord&#43;beatriceを使う</h2>
 
-		<p>obsは配信のためのアプリですが、windowsで使えるマイクがないので、iphoneかmacを使って音声変換してdiscrodから取ってみた。このやり方がすごく良かった。あと後述する<a href="https://chihaya369.booth.pm/">ちやは神社</a>が配布しているrvc modelがすごかった。</p>
+		<p>obsは配信のためのアプリですが、windowsで使えるマイクがないので、iphoneかmacを使って音声変換してdiscordから取ってみた。このやり方がすごく良かった。あと後述する<a href="https://chihaya369.booth.pm/">ちやは神社</a>が配布しているrvc modelがすごかった。</p>
 <ul>
 <li><a href="https://github.com/w-okada/voice-changer">https://github.com/w-okada/voice-changer</a></li>
 <li><a href="https://huggingface.co/wok000/vcclient000/tree/main">https://huggingface.co/wok000/vcclient000/tree/main</a></li>
@@ -157,16 +157,16 @@
 </span></span></code></pre></div><ul>
 <li><a href="https://booth.pm/ja/items/4701666">https://booth.pm/ja/items/4701666</a></li>
 </ul>
-<p>まずマイクに近づかないと音を取れないのがきつい。なので離れていても音を取るのがいい。最初はiphone(discrod)からwindowsに繋いだらかなり離れててもしっかりと音を取れてよかった。</p>
-<p>ただ、音声変換があまりうまくいかなくて、obsのVST Pluginだったかを使うのは厳しいと感じた。なので、方向を変えてmac(discrod)から接続することにした。</p>
+<p>まずマイクに近づかないと音を取れないのがきつい。なので離れていても音を取るのがいい。最初はiphone(discord)からwindowsに繋いだらかなり離れててもしっかりと音を取れてよかった。</p>
+<p>ただ、音声変換があまりうまくいかなくて、obsのVST Pluginだったかを使うのは厳しいと感じた。なので、方向を変えてmac(discord)から接続することにした。</p>
 <p>macのgaragebandによる音声変換も使えるけど、beatriceがいいらしいのでw-okada/voice-changerから使うことにした。</p>
 <h2 id="webcam-motion-capture">webcam motion capture</h2>
 <ul>
 <li><a href="https://webcammotioncapture.info/ja/">https://webcammotioncapture.info/ja/</a></li>
 </ul>
 <p>まずvrm4u(vmc)ではwebcam motion captureが動きません。ue5.4.4のvrm4u(202408)の環境ですが動かない。しかし、一旦、vseefaceなどを挟むと使用できます。ただし、<code>webcam motion capture</code>と<code>w-okada/voice-changer</code>を同時に使用するとアプリが落ちます。時間経過でwebcamのcaptureが動かなくなります。</p>
-<h2 id="discrodを使う理由">discrodを使う理由</h2>
-<p>discordからでないと音量が大きくなりません。小さい声でもちゃんと拾って変換してくれるやり方として、discrodを使うとうまくいきました。ただし、高価なマイクがある場合はそちらの方が良いでしょう。</p>
+<h2 id="discordを使う理由">discordを使う理由</h2>
+<p>discordからでないと音量が大きくなりません。小さい声でもちゃんと拾って変換してくれるやり方として、discordを使うとうまくいきました。ただし、高価なマイクがある場合はそちらの方が良いでしょう。</p>
 <h2 id="配信環境">配信環境</h2>
 <p>[mac]</p>
 <ol>
@@ -176,13 +176,13 @@
 </ol>
 <p>[windows]</p>
 <ol start="4">
-<li>discrodでボイスチャットに入る(別アカウント)、ここで音声が聴こえるはず</li>
-<li>obsでdiscrodの音声キャプチャ</li>
+<li>discordでボイスチャットに入る(別アカウント)、ここで音声が聴こえるはず</li>
+<li>obsでdiscordの音声キャプチャ</li>
 <li>webcam motion capture -&gt; vseefaceでカメラからvrmを動かせるようにする</li>
 <li>ue5を起動して、obsでウィンドウキャプチャ。youtubeアカウントに接続し、配信管理から予約、開始する。開始したあとは準備できるまで音声キャプチャをミュート。ゲームを調整できれば開始してミュートを切る</li>
 </ol>
 <p>配信中にやること。操作がちょっと大変です。カメラ操作や移動操作など。</p>
-<p>また、英語音声に変換しながら配信する予定。自動音声変換は精度が悪かったので文字列にしました。文字を打ち込むかあらかじめ用意しておいた文字を変換します。これをmacで流すとdiscrodを通じてかなりはっきり英語を喋ってくれます。たまってきたら音声ファイルをpecoとかfzfで検索できるようにしておくと良さそう。</p>
+<p>また、英語音声に変換しながら配信する予定。自動音声変換は精度が悪かったので文字列にしました。文字を打ち込むかあらかじめ用意しておいた文字を変換します。これをmacで流すとdiscordを通じてかなりはっきり英語を喋ってくれます。たまってきたら音声ファイルをpecoとかfzfで検索できるようにしておくと良さそう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:voice.zsh" data-lang="sh:voice.zsh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/zsh
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span>d<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>0:a:h<span style="color:#e6db74">}</span>
