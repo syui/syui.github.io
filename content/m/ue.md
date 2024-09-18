@@ -1212,6 +1212,12 @@ https://github.com/gtreshchev/RuntimeSpeechRecognizer/wiki/1.-How-to-use-the-plu
 
 https://www.youtube.com/watch?v=xBs-nXzXwoM&list=LL&index=1
 
+- https://github.com/gtreshchev/RuntimeSpeechRecognizer
+- https://github.com/gtreshchev/RuntimeAudioImporter
+- https://blueprintue.com/blueprint/et6u52bm/
+
+最後の`Get Sample Rate -> Process Audio Data(Sample Rate)`のところだけコピーでは対応できないので手動でつなげること。
+
 ### [tips] city sampleのbgmをcustomする
 
 [suno](https://suno.com/@syui)を使用して作ると良いでしょう。
