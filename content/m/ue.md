@@ -1248,3 +1248,27 @@ build後にcity sampleの風の音が消えていることに気づいた。
 
 参照ビューアで辿っていると、`Script/CitySampleWorldAudioDataScript`に行き当たり、そこで`MetaSounds/Ambint/sfx_amb_Pawn_Wind_lp_meta`を追加したがbuild後に再生されていない。
 
+### [tips] ultra dynamic skyの雲がきれいになった
+
+updateが来てから雲の質が上がったので、`dynamic volumetric sky`と比べてもそこまで差がないです。したがって、天候もあるultra skyを使用することにしました。ちなみに、未だ雲の質はdynamic skyのほうが少し上です。
+
+oceanと同時に使うには`BP_EarthSizedSphericalMesh`のtransform-location-zを`-636000100`にすると波紋が軽減される。ただし、この問題を完全に解決するには、sky-atmosphereを惑星の中心にするしかなく、ultra skyはそれだと問題が発生します。
+
+### [issue] 画面がチカチカする2
+
+nvidiaのスケーリングをONにしたら治った。でもこれをONにするとbuildしたpackageで雲の画質が悪くなったのを思い出した。
+
+### [tips] 音声で操作する
+
+これは前からやろうか迷ってたけど、簡単に実装できる。
+
+configで音声を保存してstatus画面でも表示する。
+
+### [tips] 音声でNPCを喋らせる
+
+まず音声認識からchatgpt,elevenlabsを使うのは前回まででやっているけど、これを利用するとNPCを喋らせることができる。
+
+この場合、会話のバリエーションは無限大だが制御はできない。
+
+NPC(collision)にあたったとき、configにNPCのnumを入れてボタンが表示されるようにする。キーを押すとchatgptにNPCの設定をいれる。
+
