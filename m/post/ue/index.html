@@ -1010,6 +1010,18 @@ r.SetRes=1920x1080f
 <p>それもただ消えるだけじゃなく、他の音は聞こえる。他の音もcity sampleの同じシステムで作成、管理されている。</p>
 <p>でも風の音だけ消えているように思う。なお、これらの問題はeditorやpreviewでは確認できず、あくまでbuild後のpackage(exe)で発生している。</p>
 <p>参照ビューアで辿っていると、<code>Script/CitySampleWorldAudioDataScript</code>に行き当たり、そこで<code>MetaSounds/Ambint/sfx_amb_Pawn_Wind_lp_meta</code>を追加したがbuild後に再生されていない。</p>
+<h3 id="tips-ultra-dynamic-skyの雲がきれいになった">[tips] ultra dynamic skyの雲がきれいになった</h3>
+<p>updateが来てから雲の質が上がったので、<code>dynamic volumetric sky</code>と比べてもそこまで差がないです。したがって、天候もあるultra skyを使用することにしました。ちなみに、未だ雲の質はdynamic skyのほうが少し上です。</p>
+<p>oceanと同時に使うには<code>BP_EarthSizedSphericalMesh</code>のtransform-location-zを<code>-636000100</code>にすると波紋が軽減される。ただし、この問題を完全に解決するには、sky-atmosphereを惑星の中心にするしかなく、ultra skyはそれだと問題が発生します。</p>
+<h3 id="issue-画面がチカチカする2">[issue] 画面がチカチカする2</h3>
+<p>nvidiaのスケーリングをONにしたら治った。でもこれをONにするとbuildしたpackageで雲の画質が悪くなったのを思い出した。</p>
+<h3 id="tips-音声で操作する">[tips] 音声で操作する</h3>
+<p>これは前からやろうか迷ってたけど、簡単に実装できる。</p>
+<p>configで音声を保存してstatus画面でも表示する。</p>
+<h3 id="tips-音声でnpcを喋らせる">[tips] 音声でNPCを喋らせる</h3>
+<p>まず音声認識からchatgpt,elevenlabsを使うのは前回まででやっているけど、これを利用するとNPCを喋らせることができる。</p>
+<p>この場合、会話のバリエーションは無限大だが制御はできない。</p>
+<p>NPC(collision)にあたったとき、configにNPCのnumを入れてボタンが表示されるようにする。キーを押すとchatgptにNPCの設定をいれる。</p>
 
 
 		
