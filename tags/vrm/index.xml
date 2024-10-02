@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Wed, 28 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/vrm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3Dホログラムを作った</title>
+      <link>https://syui.ai/blog/post/2024/10/01/holo/</link>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/10/01/holo/</guid>
+      <description>&lt;p&gt;この前、ホログラムを作ってみようと思い10分くらいで作ってみた。必要なものは透明板だけ。それを斜めに設置してスマホで黒背景の3Dモデルを表示する。&lt;/p&gt;&#xA;&lt;p&gt;もともと写真立てが余っててそれに付いてる透明板を使った。&lt;/p&gt;&#xA;&lt;p&gt;設置にはスマホの箱が便利だった。どちらかに切り込みを入れればいいと思う。&lt;/p&gt;&#xA;&lt;p&gt;ここまではっきり映るとは思ってなくて驚いた。余ってるスマホを何に使おうと思ってたので、こういうのを表示させておくといいかも。ただし、表記は反転させないといけないみたい。&lt;/p&gt;&#xA;&lt;p&gt;&lt;video  loop autoplay muted controls style=&#34;width:100%;&#34;&gt;&lt;source src=&#34;https://syui.ai/img/holo.mov&#34;&gt;&lt;/video&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>theatre.jsを使ってみる</title>
       <link>https://syui.ai/blog/post/2024/08/28/three/</link>
