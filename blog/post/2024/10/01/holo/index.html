@@ -125,7 +125,198 @@
 <p>設置にはスマホの箱が便利だった。どちらかに切り込みを入れればいいと思う。</p>
 <p>ここまではっきり映るとは思ってなくて驚いた。余ってるスマホを何に使おうと思ってたので、こういうのを表示させておくといいかも。ただし、表記は反転させないといけないみたい。</p>
 <p><video  loop autoplay muted controls style="width:100%;"><source src="/img/holo.mov"></video></p>
-
+<h2 id="react--tsx--three-vrm">react + tsx + three-vrm</h2>
+<p>一応、最小限のコードを載せておきます。反転は対応しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:package.json" data-lang="json:package.json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;holoai&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@pixiv/three-vrm&#34;</span>: <span style="color:#e6db74">&#34;^3.1.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@pixiv/three-vrm-animation&#34;</span>: <span style="color:#e6db74">&#34;^3.1.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@react-three/drei&#34;</span>: <span style="color:#e6db74">&#34;^9.114.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@react-three/fiber&#34;</span>: <span style="color:#e6db74">&#34;^8.17.9&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@react-three/postprocessing&#34;</span>: <span style="color:#e6db74">&#34;^2.16.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@testing-library/jest-dom&#34;</span>: <span style="color:#e6db74">&#34;^5.17.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@testing-library/react&#34;</span>: <span style="color:#e6db74">&#34;^13.4.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@testing-library/user-event&#34;</span>: <span style="color:#e6db74">&#34;^13.5.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@types/jest&#34;</span>: <span style="color:#e6db74">&#34;^27.5.2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@types/node&#34;</span>: <span style="color:#e6db74">&#34;^16.18.112&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@types/react&#34;</span>: <span style="color:#e6db74">&#34;^18.3.10&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@types/react-dom&#34;</span>: <span style="color:#e6db74">&#34;^18.3.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@types/three&#34;</span>: <span style="color:#e6db74">&#34;^0.167.2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;axios&#34;</span>: <span style="color:#e6db74">&#34;^1.7.7&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;react&#34;</span>: <span style="color:#e6db74">&#34;^18.3.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;react-dom&#34;</span>: <span style="color:#e6db74">&#34;^18.3.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;react-scripts&#34;</span>: <span style="color:#e6db74">&#34;5.0.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;three&#34;</span>: <span style="color:#e6db74">&#34;^0.167.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;three-stdlib&#34;</span>: <span style="color:#e6db74">&#34;^2.30.5&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;typescript&#34;</span>: <span style="color:#e6db74">&#34;^4.9.5&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;web-vitals&#34;</span>: <span style="color:#e6db74">&#34;^2.1.4&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;react-scripts start&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;react-scripts build&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;react-scripts test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;eject&#34;</span>: <span style="color:#e6db74">&#34;react-scripts eject&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;eslintConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;extends&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;react-app&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;react-app/jest&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;browserslist&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;production&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;&gt;0.2%&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;not dead&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;not op_mini all&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;development&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;last 1 chrome version&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;last 1 firefox version&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;last 1 safari version&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:src/index.css" data-lang="css:src/index.css"><span style="display:flex;"><span>.<span style="color:#a6e22e">time</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">transform</span>:scale(<span style="color:#ae81ff">-1</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#e9ff00</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx:src/pages/time.tsx" data-lang="tsx:src/pages/time.tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//function reverseString(str: string): string {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  return str.split(&#39;&#39;).reverse().join(&#39;&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ScreenTimeCanvas</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">currentDateTime</span>, <span style="color:#a6e22e">setCurrentDateTime</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">string</span>&gt;(<span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//const [reversedDateTime, setReversedDateTime] = useState&lt;string&gt;(&#39;&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">updateDateTime</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">formatted</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">toLocaleString</span>(<span style="color:#e6db74">&#34;ja-JP&#34;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">year</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;numeric&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">second</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setCurrentDateTime</span>(<span style="color:#a6e22e">formatted</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//setReversedDateTime(reverseString(formatted));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">updateDateTime</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>(<span style="color:#a6e22e">updateDateTime</span>, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">clearInterval</span>(<span style="color:#a6e22e">timer</span>);
+</span></span><span style="display:flex;"><span>  }, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;time&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">currentDateTime</span>}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">ScreenTimeCanvas</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx:src/pages/vrm.tsx" data-lang="tsx:src/pages/vrm.tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">THREE</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useRef</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">OrbitControls</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@react-three/drei&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useFrame</span>, <span style="color:#a6e22e">Canvas</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@react-three/fiber&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GLTFLoader</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;three/examples/jsm/loaders/GLTFLoader&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">VRM</span>, <span style="color:#a6e22e">VRMUtils</span>, <span style="color:#a6e22e">VRMLoaderPlugin</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@pixiv/three-vrm&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">VRMAnimationLoaderPlugin</span>, <span style="color:#a6e22e">VRMAnimation</span>, <span style="color:#a6e22e">createVRMAnimationClip</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@pixiv/three-vrm-animation&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ModelProps</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">url_anim</span>: <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">scale</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>]
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>]
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">rotation</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">VRMModel</span>: <span style="color:#66d9ef">React.FC</span>&lt;<span style="color:#f92672">ModelProps</span>&gt; <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">url_anim</span>, <span style="color:#a6e22e">position</span>, <span style="color:#a6e22e">rotation</span>, <span style="color:#a6e22e">scale</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">vrm</span>, <span style="color:#a6e22e">setVrm</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">VRM</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt;(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mixerRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRef</span>&lt;<span style="color:#f92672">THREE.AnimationMixer</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt;(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">loader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">GLTFLoader</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">register</span>((<span style="color:#a6e22e">parser</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMLoaderPlugin</span>(<span style="color:#a6e22e">parser</span>));
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">register</span>((<span style="color:#a6e22e">parser</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VRMAnimationLoaderPlugin</span>(<span style="color:#a6e22e">parser</span>));
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">url</span>, (<span style="color:#a6e22e">gltf</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vrmModel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gltf</span>.<span style="color:#a6e22e">userData</span>.<span style="color:#a6e22e">vrm</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">VRM</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">VRMUtils</span>.<span style="color:#a6e22e">removeUnnecessaryJoints</span>(<span style="color:#a6e22e">vrmModel</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">setVrm</span>(<span style="color:#a6e22e">vrmModel</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mixer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">THREE</span>.<span style="color:#a6e22e">AnimationMixer</span>(<span style="color:#a6e22e">vrmModel</span>.<span style="color:#a6e22e">scene</span>);
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">mixerRef</span>.<span style="color:#a6e22e">current</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mixer</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">loader</span>.<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">url_anim</span>, (<span style="color:#a6e22e">animGltf</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vrmAnimations</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">animGltf</span>.<span style="color:#a6e22e">userData</span>.<span style="color:#a6e22e">vrmAnimations</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">VRMAnimation</span>[];
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">vrmAnimations</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">vrmAnimations</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clip</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createVRMAnimationClip</span>(<span style="color:#a6e22e">vrmAnimations</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">vrmModel</span>);
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">mixer</span>.<span style="color:#a6e22e">clipAction</span>(<span style="color:#a6e22e">clip</span>).<span style="color:#a6e22e">play</span>();
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			});
+</span></span><span style="display:flex;"><span>		});
+</span></span><span style="display:flex;"><span>	}, [<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">url_anim</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">useFrame</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">delta</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">mixerRef</span>.<span style="color:#a6e22e">current</span>) <span style="color:#a6e22e">mixerRef</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">vrm</span>) <span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">delta</span>);
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">vrm</span> <span style="color:#f92672">?</span> &lt;<span style="color:#f92672">primitive</span> <span style="color:#a6e22e">object</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">vrm</span>.<span style="color:#a6e22e">scene</span>} <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">position</span>} <span style="color:#a6e22e">rotation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">rotation</span>} <span style="color:#a6e22e">scale</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">scale</span>}/&gt; <span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">VRMModelCanvas</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100vh&#39;</span>, <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;100vw&#39;</span> }}&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">Canvas</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">shadows</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">gl</span><span style="color:#f92672">=</span>{{
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//toneMapping: THREE.ACESFilmicToneMapping,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#75715e">//toneMapping: THREE.ReinhardToneMapping,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">toneMapping</span>: <span style="color:#66d9ef">THREE.NeutralToneMapping</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">toneMappingExposure</span>: <span style="color:#66d9ef">1</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">alpha</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">powerPreference</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;high-performance&#34;</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">antialias</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">//stencil: false,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#75715e">//depth: false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		}}
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">camera</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>] }}&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">color</span> <span style="color:#a6e22e">attach</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background&#34;</span> <span style="color:#a6e22e">args</span><span style="color:#f92672">=</span>{[<span style="color:#e6db74">&#34;#000&#34;</span>]} /&gt; {<span style="color:#75715e">/* Light gray background */</span>}
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">OrbitControls</span> /&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">ambientLight</span> <span style="color:#a6e22e">intensity</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">10</span>} /&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">pointLight</span> <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span>{[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>]} /&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">VRMModel</span> <span style="color:#a6e22e">url</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./models/t.vrm&#34;</span> <span style="color:#a6e22e">url_anim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./models/default.vrma&#34;</span> <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span>{[<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.6</span>, <span style="color:#ae81ff">0</span>]} <span style="color:#a6e22e">rotation</span><span style="color:#f92672">=</span>{[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]} <span style="color:#a6e22e">scale</span><span style="color:#f92672">=</span>{[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]} /&gt;
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">Canvas</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">VRMModelCanvas</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx:src/App.tsx" data-lang="tsx:src/App.tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">VRMModelCanvas</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/vrm&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ScreenTimeCanvas</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/time&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>		&lt;&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">VRMModelCanvas</span>/&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">ScreenTimeCanvas</span>/&gt;
+</span></span><span style="display:flex;"><span>		&lt;/&gt;
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div>
 
 		
 
