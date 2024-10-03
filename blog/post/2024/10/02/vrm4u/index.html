@@ -153,6 +153,9 @@
 </blockquote>
 <p><code>vmc4ue</code>はue5.1までしかbuildされていません。そこでue5.5でbuildして使えるようにしてみます。</p>
 <p>まずc++でprojectを作成し、patchをsrcに当てて<code>$project/Plugins/</code>に入れます。projectをueで開くとbuildされます。正常に終了するとeditorが開きます。</p>
+<blockquote>
+<p>c++で作成したprojectには$project.slnが作成されますので、それを開いてrebuildしてもいいです。</p>
+</blockquote>
 <p>なお、patchはbuildが通るよう適当に作ったものです。vmcは動きますが、表情は動きませんでした。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp:VMC4UEBlueprintFunctionLibrary.cpp.patch" data-lang="cpp:VMC4UEBlueprintFunctionLibrary.cpp.patch"><span style="display:flex;"><span><span style="color:#f92672">--- ./VMC4UE/VMC4UE/Source/VMC4UE/Source/VMC4UEBlueprintFunctionLibrary.cpp
 </span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+++ ./VMC4UEBlueprintFunctionLibrary.cpp
@@ -239,7 +242,14 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ patch -u ./VMC4UE/VMC4UE/Source/VMC4UE/Source/VMC4UEBlueprintFunctionLibrary.cpp &lt; VMC4UEBlueprintFunctionLibrary.cpp.patch
 </span></span><span style="display:flex;"><span>$ patch -u ./VMC4UE/VMC4UE/Source/VMC4UEEd/Source/VMC4UEBoneMappingAssetFactory.cpp &lt; VMC4UEBoneMappingAssetFactory.cpp.patch
-</span></span></code></pre></div><h2 id="vrm4uvmcはbuild後にも表情を動かせるのだろうか">vrm4u(vmc)はbuild後にも表情を動かせるのだろうか</h2>
+</span></span></code></pre></div><h2 id="vrm4uを55向けにbuildしてみる">vrm4uを5.5向けにbuildしてみる</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/ruyo/VRM4U
+</span></span><span style="display:flex;"><span>$ cd VRM4U
+</span></span><span style="display:flex;"><span>$ git reset --hard a261860872936c8654e1705a91cff6f8224dbee5
+</span></span><span style="display:flex;"><span>$ grep -R 5,4,0 ./Source/*|cut -d : -f 1|xargs sed -i <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#e6db74">&#39;s/5,4,0/5,5,0/g&#39;</span>
+</span></span><span style="display:flex;"><span>$ grep -R 5,5,0 .
+</span></span></code></pre></div><p>これを先程と同じ手順でue5.5で開いてbuildします。</p>
+<h2 id="vrm4uvmcはbuild後にも表情を動かせるのだろうか">vrm4u(vmc)はbuild後にも表情を動かせるのだろうか</h2>
 <p>わかりません。私の環境下では動きませんでした。他の人も動かない可能性がありますが、issueを読む限り動くようにも思えます。</p>
 <p>それではどうするのか。livelink(face)を使います。ここからは少しめんどくさいことになりますが、かなり多くのアプリが必要です。</p>
 <ul>
