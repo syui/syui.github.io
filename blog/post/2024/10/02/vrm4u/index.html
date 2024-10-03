@@ -271,6 +271,12 @@
 <p><code>/VRM4U/Util/Actor/latest/BP_LiveLinkFace</code>をmapにおいて、<code>live link subject -&gt; iphone</code>, <code>target actor sk -&gt; SK_$name</code>を設定します。</p>
 <p><img src="/img/ue-2024-10-01-7.36.38.png" alt=""></p>
 <p>これでbuildすると表情を動かすことができます。</p>
+<h2 id="characterplayerにlivelinkを当てるには">character(player)にlivelinkを当てるには</h2>
+<p>これはblueprintを編集する必要があります。characterのdirにでもcopyして<code>BP_Player(CBP_Character)</code>に追加します。</p>
+<p><img src="/img/ue-2024-10-01-7.36.39.png" alt=""></p>
+<p>ここで<code>BP_LiveLinkFace -&gt; livelink subject -&gt; iphone</code>をセットしておきます。</p>
+<p>次に以下のような形で<code>sk_$name</code>に置き換えます。私の場合は見た目をカスタマイズしているので少し複雑です。</p>
+<iframe src="https://blueprintue.com/render/pu_xl52s/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
 
 
 		
