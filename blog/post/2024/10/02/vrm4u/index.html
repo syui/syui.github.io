@@ -243,6 +243,11 @@
 </span></span><span style="display:flex;"><span>$ patch -u ./VMC4UE/VMC4UE/Source/VMC4UE/Source/VMC4UEBlueprintFunctionLibrary.cpp &lt; VMC4UEBlueprintFunctionLibrary.cpp.patch
 </span></span><span style="display:flex;"><span>$ patch -u ./VMC4UE/VMC4UE/Source/VMC4UEEd/Source/VMC4UEBoneMappingAssetFactory.cpp &lt; VMC4UEBoneMappingAssetFactory.cpp.patch
 </span></span></code></pre></div><h2 id="vrm4uを55向けにbuildしてみる">vrm4uを5.5向けにbuildしてみる</h2>
+<blockquote>
+<p>この手順は興味がある人以外は読み飛ばすことを推奨します。表情を動かしたい人はこの方法で問題を解決することができません。</p>
+</blockquote>
+<p>vrm4uは既に5.5のbuildを<a href="https://github.com/ruyo/VRM4U/releases/tag/20241002">releases</a>しています。</p>
+<p>ただいくつかの処理が5,4,0向けのようです。それを書き直してbuildしてみます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/ruyo/VRM4U
 </span></span><span style="display:flex;"><span>$ cd VRM4U
 </span></span><span style="display:flex;"><span>$ git reset --hard a261860872936c8654e1705a91cff6f8224dbee5
