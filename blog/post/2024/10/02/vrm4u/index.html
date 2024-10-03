@@ -261,7 +261,7 @@
 <li>動き : webcam motion capture(vmc送信) + vseeface(vmc受信/送信) + vrm4u(vmc受信)</li>
 <li>表情 : iphone + livelink face</li>
 </ul>
-<p>まず、<code>vrm4u</code>は<code>webcam motion capture</code>のvmcを直接受信できません。なので、一旦、vseefaceなどのclientで受信する必要があります。それをvrm4uで受信するportに送信します。なお、webcam(vmc)は<code>vmc4ue</code>では直接受信できて動きます。また、xr-animator, vseeface, vmc(client)も受信できて動いています。不思議な現象です。</p>
+<p>まず、<code>vrm4u</code>は<code>webcam motion capture</code>のvmcを直接受信できません。なので、一旦、vseefaceなどのclientで受信する必要があります。それをvrm4uで受信するportに送信します。なお、<code>vmc4ue</code>では直接受信できて動きます。また、xr-animator, vseeface, vmc(client)も受信できて動いています。不思議な現象です。</p>
 <p>vrm4u(vmc)はbuild後は表情が動かないので、表情はlivelinkを使用します。これはiphoneに<code>livelink face</code>というappがあります。ueでいくつかのpluginを有効にします。</p>
 <ul>
 <li>live link</li>
@@ -272,11 +272,12 @@
 <p><img src="/img/ue-2024-10-01-7.36.38.png" alt=""></p>
 <p>これでbuildすると表情を動かすことができます。</p>
 <h2 id="characterplayerにlivelinkを当てるには">character(player)にlivelinkを当てるには</h2>
-<p>これはblueprintを編集する必要があります。characterのdirにでもcopyして<code>BP_Player(CBP_Character)</code>に追加します。</p>
+<p>character(player)にlivelinkを当てるにはblueprintを編集する必要があります。characterのdirにでも<code>BP_LiveLinkFace</code>をcopyして<code>BP_Player(CBP_Character)</code>に追加します。</p>
 <p><img src="/img/ue-2024-10-01-7.36.39.png" alt=""></p>
 <p>ここで<code>BP_LiveLinkFace -&gt; livelink subject -&gt; iphone</code>をセットしておきます。</p>
-<p>次に以下のような形で<code>sk_$name</code>に置き換えます。私の場合は見た目をカスタマイズしているので少し複雑です。</p>
+<p>次に<code>BP_LiveLinkFace</code>を以下のような形で<code>sk_$name</code>に置き換えます。場所はコメントを参考にしてください。私の場合は見た目をカスタマイズしているので少し複雑です。</p>
 <iframe src="https://blueprintue.com/render/pu_xl52s/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+<p><a href="https://blueprintue.com/blueprint/pu_xl52s/">https://blueprintue.com/blueprint/pu_xl52s/</a></p>
 
 
 		
