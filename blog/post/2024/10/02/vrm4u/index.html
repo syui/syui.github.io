@@ -99,7 +99,7 @@
 
 <article>
 	<div class="content">
-		
+		<div class="post-time-date">update : 2024-10-03</div>
 		<div class="post-time-date">2024-10-02 / <a href="https://bsky.syui.ai">@syui</a>
 
 		
@@ -135,7 +135,7 @@
 
 		<h2>ue5.5と最新のvmc事情</h2>
 
-		<p>unreal engine 5.5.0 previewがインストールできるようになっています。今回は最新環境のvmc事情を解説します。</p>
+		<p>unreal engine 5.5.0 preview(ue5.5p)がインストールできるようになっています。今回は最新環境のvmc事情を解説します。</p>
 <h2 id="vmcとは">vmcとは</h2>
 <p>webカメラから表情や動きをキャラクターに反映させるためのものです。vmcはprotocolとclientがあります。大抵はprotocolを指します。webカメラからの読み取りをcaptureといいます。つまり、captureとprotocolとclientを組みわせて動作します。ueで使うには更にvmcを受信してキャラクターに反映させるpluginが必要です。わけがわからないと思いますが、そんな感じです。</p>
 <ul>
@@ -278,6 +278,7 @@
 <p>次に<code>BP_LiveLinkFace</code>を以下のような形で<code>sk_$name</code>に置き換えます。場所はコメントを参考にしてください。私の場合は見た目をカスタマイズしているので少し複雑です。</p>
 <iframe src="https://blueprintue.com/render/pu_xl52s/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
 <p><a href="https://blueprintue.com/blueprint/pu_xl52s/">https://blueprintue.com/blueprint/pu_xl52s/</a></p>
+<p>issue : <a href="https://git.syui.ai/ai/ue/issues/9">https://git.syui.ai/ai/ue/issues/9</a></p>
 <h2 id="vmcで行くべきか">vmcで行くべきか</h2>
 <p>基本的には依存関係が少なく使うアプリが少ないほうがいいですね。vmcの更新頻度やclient, vrm1のsupport状況を見るとueはlivelink路線のほうがいいかもしれません。</p>
 <p>仮に<code>webcam motion capture -&gt; vrm4u</code>で表情も体も動かせるならvmcで問題ないですが、表情にlivelinkを使うなら全部統一するのがいいですね。</p>
