@@ -256,6 +256,10 @@
 </span></span></code></pre></div><p>これを先程と同じ手順でue5.5で開いてbuildします。</p>
 <h2 id="vrm4uvmcはbuild後にも表情を動かせるのだろうか">vrm4u(vmc)はbuild後にも表情を動かせるのだろうか</h2>
 <p>わかりません。私の環境下では動きませんでした。他の人も動かない可能性がありますが、issueを読む限り動くようにも思えます。</p>
+<blockquote>
+<p>この問題は<code>vrm4u 20241007</code>で修正されました</p>
+</blockquote>
+<p>issue : <a href="https://git.syui.ai/ai/ue/issues/9">https://git.syui.ai/ai/ue/issues/9</a></p>
 <p>それではどうするのか。livelink(face)を使います。ここからは少しめんどくさいことになりますが、かなり多くのアプリが必要です。</p>
 <ul>
 <li>動き : webcam motion capture(vmc送信) + vseeface(vmc受信/送信) + vrm4u(vmc受信)</li>
@@ -278,7 +282,6 @@
 <p>次に<code>BP_LiveLinkFace</code>を以下のような形で<code>sk_$name</code>に置き換えます。場所はコメントを参考にしてください。私の場合は見た目をカスタマイズしているので少し複雑です。</p>
 <iframe src="https://blueprintue.com/render/pu_xl52s/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
 <p><a href="https://blueprintue.com/blueprint/pu_xl52s/">https://blueprintue.com/blueprint/pu_xl52s/</a></p>
-<p>issue : <a href="https://git.syui.ai/ai/ue/issues/9">https://git.syui.ai/ai/ue/issues/9</a></p>
 <h2 id="vmcで行くべきか">vmcで行くべきか</h2>
 <p>基本的には依存関係が少なく使うアプリが少ないほうがいいですね。vmcの更新頻度やclient, vrm1のsupport状況を見るとueはlivelink路線のほうがいいかもしれません。</p>
 <p>仮に<code>webcam motion capture -&gt; vrm4u</code>で表情も体も動かせるならvmcで問題ないですが、表情にlivelinkを使うなら全部統一するのがいいですね。</p>
