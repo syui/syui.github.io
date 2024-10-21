@@ -144,7 +144,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./data/config:/core/config</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./data/data:/core/data</span>
-</span></span></code></pre></div><p><code>8080</code>がweb, <code>1935</code>がrtmp, <code>6000</code>がsrtです。rtmpとsrtではstrのほうが高品質で遅延が少なくなると思います。使わないものはportを閉じてもokです。基本的にはバッティングなどもありますから以下のようにlocahostのportを変えて使うのがいいですね。</p>
+</span></span></code></pre></div><p><code>8080</code>がweb, <code>1935</code>がrtmp, <code>6000</code>がsrtです。rtmpとsrtではsrtのほうが高品質で遅延が少なくなると思います。使わないものはportを閉じてもokです。基本的にはバッティングなどもありますから以下のようにlocahostのportを変えて使うのがいいですね。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:compose.yaml" data-lang="yml:compose.yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">restreamer</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
