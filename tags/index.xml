@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sat, 12 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare</title>
+      <link>https://syui.ai/tags/cloudflare/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/cloudflare/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Wasm</title>
       <link>https://syui.ai/tags/wasm/</link>
@@ -308,13 +315,6 @@
       <link>https://syui.ai/tags/gitbook/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/gitbook/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cloudflare</title>
-      <link>https://syui.ai/tags/cloudflare/</link>
-      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/cloudflare/</guid>
       <description></description>
     </item>
     <item>

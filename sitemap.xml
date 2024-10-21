@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-10-12T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/cloudflare/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/10/20/stream/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2024-10-12T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-10-12T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/wasm/</loc>
     <lastmod>2024-10-12T00:00:00+00:00</lastmod>
@@ -418,9 +424,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2023/10/05/gitbook/</loc>
     <lastmod>2023-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/cloudflare/</loc>
-    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/10/04/cloudflare/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
