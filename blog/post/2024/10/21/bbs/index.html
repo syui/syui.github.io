@@ -143,6 +143,7 @@
 </span></span></code></pre></div><p>表示されるurlにアクセスするとoauthでloginすることができました。oauthの情報はserverに保存されており以後は承認なしにlogin可能となります。</p>
 <h2 id="bbsと連携する">bbsと連携する</h2>
 <p>今回はloginしている場合にbbsの書き込みシステムを表示します。</p>
+<p><video src="https://raw.githubusercontent.com/syui/img/master/movie/bluesky_oauth_livestream_gameplay.mp4" width="100%" height="500px" controls> </video></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:template/home.html" data-lang="html:template/home.html"><span style="display:flex;"><span>{% block content %}
 </span></span><span style="display:flex;"><span>{% if g.user %}
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;@{{ g.user[&#39;handle&#39;] }}&lt;/<span style="color:#f92672">p</span>&gt;
@@ -283,10 +284,77 @@
 </span></span><span style="display:flex;"><span>RUN cargo build --release
 </span></span><span style="display:flex;"><span>COPY ./templates /templates
 </span></span><span style="display:flex;"><span>CMD [&#34;/usr/src/app/target/release/rust-bbs&#34;]
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ docker compose up
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cargo build
+</span></span><span style="display:flex;"><span>$ ./target/debug/rust-bbs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ docker compose up
 </span></span><span style="display:flex;"><span>$ curl -sL localhost:8080
 </span></span></code></pre></div><p>あとは、iframeからparamでhandleを取得するので、それを使用するようにしたり、cssで見栄えを整えたら完成です。</p>
-
+<p>要点だけまとめたので適時修正してください。redirectしたときにurlを変更しないとiframeで呼び出したとき2回目からはhandleが使えません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust:src/main.rs" data-lang="rust:src/main.rs"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">submit_post</span>(
+</span></span><span style="display:flex;"><span>    req: <span style="color:#a6e22e">HttpRequest</span>,
+</span></span><span style="display:flex;"><span>    form: <span style="color:#a6e22e">web</span>::Form<span style="color:#f92672">&lt;</span>FormData<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>) -&gt; Result<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">impl</span> Responder, Error<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> query <span style="color:#f92672">=</span> web::Query::<span style="color:#f92672">&lt;</span>QueryParams<span style="color:#f92672">&gt;</span>::from_query(req.query_string())
+</span></span><span style="display:flex;"><span>        .unwrap_or_else(<span style="color:#f92672">|</span>_<span style="color:#f92672">|</span> web::Query(QueryParams { handle: None }));
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//let handle = query.handle.clone().filter(|h| !h.is_empty());
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//println!(&#34;Debug: Extracted handle: {:?}&#34;, handle);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> handle <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>form.handle.is_empty() {
+</span></span><span style="display:flex;"><span>        form.handle.clone()
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        query.handle.clone().unwrap_or_default()
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;Debug: Using handle: </span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, handle);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> conn <span style="color:#f92672">=</span> Connection::open(<span style="color:#e6db74">&#34;sqlite.db&#34;</span>)
+</span></span><span style="display:flex;"><span>        .map_err(<span style="color:#f92672">|</span>_<span style="color:#f92672">|</span> ErrorInternalServerError(<span style="color:#e6db74">&#34;Database connection failed&#34;</span>))<span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> conn.execute(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;INSERT INTO posts (handle, content) VALUES (?1, ?2)&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&amp;</span>[<span style="color:#f92672">&amp;</span>form.handle, <span style="color:#f92672">&amp;</span>form.content],
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">match</span> result {
+</span></span><span style="display:flex;"><span>        Ok(_) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> redirect_url <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>handle.is_empty() {
+</span></span><span style="display:flex;"><span>                format!(<span style="color:#e6db74">&#34;/?handle=</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, handle)
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;/&#34;</span>.to_string()
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>            Ok(HttpResponse::SeeOther()
+</span></span><span style="display:flex;"><span>                .append_header((<span style="color:#e6db74">&#34;Location&#34;</span>,
+</span></span><span style="display:flex;"><span>                        redirect_url))
+</span></span><span style="display:flex;"><span>                .finish())
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//Ok(_) =&gt; Ok(web::Redirect::to(&#34;/&#34;).see_other()),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Err(_) <span style="color:#f92672">=&gt;</span> Err(ErrorInternalServerError(<span style="color:#e6db74">&#34;Failed to insert post&#34;</span>)),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:templates/index.html" data-lang="html:templates/index.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/submit&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handle&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleInput&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span> <span style="color:#a6e22e">required</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getHandleFromUrl</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">urlParams</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URLSearchParams</span>(window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">urlParams</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;handle&#39;</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handle</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getHandleFromUrl</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">handle</span>) {
+</span></span><span style="display:flex;"><span>			document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;handleInput&#39;</span>).<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handle</span>;
+</span></span><span style="display:flex;"><span>		} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;handleInput&#39;</span>).<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;anonymous&#34;</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><pre tabindex="0"><code class="language-html:templates/home.htmll" data-lang="html:templates/home.htmll">{% if g.user %}
+    @{{ g.user[&#39;handle&#39;] }}
+    &lt;iframe id=&#34;livechat&#34; title=&#34;bskychat&#34; width=&#34;100%&#34; height=&#34;500&#34; src=&#34;example.com/?handle={{ session[&#39;user_handle&#39;] }}&#34;&gt;&lt;/iframe&gt;
+{% endif %}
+</code></pre>
 
 		
 
