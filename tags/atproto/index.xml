@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Wed, 17 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/atproto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>atprotoのfrontpageを触ってみる</title>
+      <link>https://syui.ai/blog/post/2024/10/26/frontpage/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/10/26/frontpage/</guid>
+      <description>&lt;p&gt;前回、live配信にatprotoでoauth loginして掲示板(bbs)に書き込めるサイトを作成し、bbsは簡単にrustで自作したものを使っていました。&lt;/p&gt;&#xA;&lt;p&gt;しかし、やはり機能的に不足していたのと、公式のoauth exampleがpythonで書かれていたため、python + rustでやっていました。&lt;/p&gt;&#xA;&lt;p&gt;そこに&lt;a href=&#34;https://github.com/likeandscribe/frontpage&#34;&gt;likeandscribe/frontpage&lt;/a&gt;というものを見つけて、これはいいものだと思ったので触っていきます。&lt;/p&gt;&#xA;&lt;p&gt;詳しくはこちらを見てください。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://frontpage.fyi/post/tom.frontpage.team/3l6nbjyjmcg2v&#34;&gt;https://frontpage.fyi/post/tom.frontpage.team/3l6nbjyjmcg2v&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これがどういったものかというと、おそらく、bsky.socialとは別サービスですがoauthでlogin(signin)でき、投稿情報は自身のpdsに保存されるのでしょう。また、&lt;code&gt;drainpipe&lt;/code&gt;はこう書かれています。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Drainpipe is a atproto firehose consumer written in rust. It knows how to reliably* take messages from the firehose, filter them, and forward them over HTTPs to a webhook receiver some place else on the internet.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/likeandscribe/frontpage&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd !$:t&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ nvm use &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pnpm i&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cat turbo.json&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pnpm exec turbo run --affected type-check&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;turboを見て分かる通り、dbはtursoを使用するようです。また、&lt;code&gt;drainpipe&lt;/code&gt;は&lt;code&gt;fly.io&lt;/code&gt;ですね。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>bluesky self-hostの最新事情</title>
       <link>https://syui.ai/blog/post/2024/07/17/bluesky/</link>

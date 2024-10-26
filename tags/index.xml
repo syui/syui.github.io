@@ -7,19 +7,26 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Atproto</title>
+      <link>https://syui.ai/tags/atproto/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/atproto/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Bluesky</title>
       <link>https://syui.ai/tags/bluesky/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/bluesky/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloudflare</title>
       <link>https://syui.ai/tags/cloudflare/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/cloudflare/</guid>
       <description></description>
     </item>
@@ -119,13 +126,6 @@
       <link>https://syui.ai/tags/game/</link>
       <pubDate>Fri, 19 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/game/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Atproto</title>
-      <link>https://syui.ai/tags/atproto/</link>
-      <pubDate>Wed, 17 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/atproto/</guid>
       <description></description>
     </item>
     <item>
