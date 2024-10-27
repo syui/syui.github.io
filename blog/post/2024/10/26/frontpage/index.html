@@ -203,40 +203,6 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># packages/frontpage/lib/auth.ts</span>
 </span></span><span style="display:flex;"><span>VERCEL_PROJECT_PRODUCTION_URL<span style="color:#f92672">=</span>example.com
 </span></span><span style="display:flex;"><span>VERCEL_BRANCH_URL<span style="color:#f92672">=</span>example.com
-</span></span></code></pre></div><p><code>fyi.unravel.frontpage.</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust:packages-rs/drainpipe/src/main.rs" data-lang="rust:packages-rs/drainpipe/src/main.rs"><span style="display:flex;"><span><span style="color:#75715e">// https://github.com/likeandscribe/frontpage/blob/e7444ec6c19f0ccef3776f04702c3bb033ed3bfc/packages-rs/drainpipe/src/main.rs#L66-L97
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">/// Process a message from the firehose. Returns the sequence number of the message or an error.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">process</span>(message: Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>, ctx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context) -&gt; Result<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">i64</span>, ProcessError<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (_header, data) <span style="color:#f92672">=</span> firehose::read(<span style="color:#f92672">&amp;</span>message).map_err(<span style="color:#f92672">|</span>e<span style="color:#f92672">|</span> ProcessError {
-</span></span><span style="display:flex;"><span>        inner: <span style="color:#a6e22e">e</span>.into(),
-</span></span><span style="display:flex;"><span>        seq: <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>        source: <span style="color:#a6e22e">message</span>.clone().into(),
-</span></span><span style="display:flex;"><span>        kind: <span style="color:#a6e22e">ProcessErrorKind</span>::DecodeError,
-</span></span><span style="display:flex;"><span>    })<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> sequence <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> data {
-</span></span><span style="display:flex;"><span>        firehose::SubscribeRepos::Commit(commit) <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> frontpage_ops <span style="color:#f92672">=</span> commit
-</span></span><span style="display:flex;"><span>                .operations
-</span></span><span style="display:flex;"><span>                .iter()
-</span></span><span style="display:flex;"><span>                .filter(<span style="color:#f92672">|</span>op<span style="color:#f92672">|</span> op.path.starts_with(<span style="color:#e6db74">&#34;fyi.unravel.frontpage.&#34;</span>))
-</span></span><span style="display:flex;"><span>                .collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>_<span style="color:#f92672">&gt;&gt;</span>();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>frontpage_ops.is_empty() {
-</span></span><span style="display:flex;"><span>                process_frontpage_ops(<span style="color:#f92672">&amp;</span>frontpage_ops, <span style="color:#f92672">&amp;</span>commit, <span style="color:#f92672">&amp;</span>ctx)
-</span></span><span style="display:flex;"><span>                    .map_err(<span style="color:#f92672">|</span>e<span style="color:#f92672">|</span> ProcessError {
-</span></span><span style="display:flex;"><span>                        seq: <span style="color:#a6e22e">commit</span>.sequence,
-</span></span><span style="display:flex;"><span>                        inner: <span style="color:#a6e22e">e</span>,
-</span></span><span style="display:flex;"><span>                        source: <span style="color:#a6e22e">message</span>.clone().into(),
-</span></span><span style="display:flex;"><span>                        kind: <span style="color:#a6e22e">ProcessErrorKind</span>::ProcessError,
-</span></span><span style="display:flex;"><span>                    })
-</span></span><span style="display:flex;"><span>                    .<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            commit.sequence
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        msg <span style="color:#f92672">=&gt;</span> msg.sequence(),
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Ok(sequence)
-</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="local-infra">local-infra</h2>
 <p>self-hostするのに必要なserver構成だと思います。</p>
 <p><a href="https://github.com/likeandscribe/frontpage/tree/main/packages/frontpage/local-infra">https://github.com/likeandscribe/frontpage/tree/main/packages/frontpage/local-infra</a></p>
@@ -282,7 +248,80 @@
 </span></span><span style="display:flex;"><span>DB_CREDS_JSON<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;username&#34;:&#34;postgres&#34;,&#34;password&#34;:&#34;postgres&#34;,&#34;host&#34;:&#34;plc_db&#34;,&#34;port&#34;:&#34;5432&#34;,&#34;database&#34;:&#34;plc&#34;}&#39;</span>
 </span></span><span style="display:flex;"><span>ENABLE_MIGRATIONS<span style="color:#f92672">=</span>true
 </span></span><span style="display:flex;"><span>DB_MIGRATE_CREDS_JSON<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;username&#34;:&#34;postgres&#34;,&#34;password&#34;:&#34;postgres&#34;,&#34;host&#34;:&#34;plc_db&#34;,&#34;port&#34;:&#34;5432&#34;,&#34;database&#34;:&#34;plc&#34;}&#39;</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="pds">pds</h2>
+<p>大体の原理が理解できてきたので、わかっていることをまとめます。</p>
+<p>まずoauth(session)でpdsUrlをgetする感じなのかなと思います。sessionがあれば投稿などは操作できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ grep -R pdsUrl .
+</span></span><span style="display:flex;"><span>./lib/data/user.ts:  const pdsUrl <span style="color:#f92672">=</span> await getPdsUrl<span style="color:#f92672">(</span>session.user.did<span style="color:#f92672">)</span>;
+</span></span></code></pre></div><p>あるいは<code>ws://pds:3000</code>を使用する可能性も考えられますが、基本は<code>bsky.network</code>を使うのだと思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:packages-rs/drainpipe/.env" data-lang="sh:packages-rs/drainpipe/.env"><span style="display:flex;"><span>RELAY_URL<span style="color:#f92672">=</span>wss://bsky.network
+</span></span></code></pre></div><p>次に<code>unravel.frontpage</code>についてです。これは主に<code>collection</code>に書き込まれているようです。この場合、<code>frontpage.fyi</code>と投稿は共通します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ grep -R unravel.frontpage ./app ./lib
+</span></span><span style="display:flex;"><span>./app/api/receive_hook/route.ts:    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>collection <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;fyi.unravel.frontpage.vote&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>./lib/data/atproto/comment.ts:export const CommentCollection <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fyi.unravel.frontpage.comment&#34;</span>;
+</span></span><span style="display:flex;"><span>./lib/data/atproto/vote.ts:    collection: <span style="color:#e6db74">&#34;fyi.unravel.frontpage.vote&#34;</span>,
+</span></span><span style="display:flex;"><span>./lib/data/atproto/vote.ts:    collection: <span style="color:#e6db74">&#34;fyi.unravel.frontpage.vote&#34;</span>,
+</span></span><span style="display:flex;"><span>./lib/data/atproto/event.ts:  z.literal<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;fyi.unravel.frontpage.vote&#34;</span><span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>./lib/data/atproto/post.ts:export const PostCollection <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fyi.unravel.frontpage.post&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HOST_REVERT=com.unravel.example</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grep -R unravel.frontpage ./app ./lib |cut -d : -f 1|xargs sed -i &#34;s/fyi.unravel.frontpage/${HOST_REVERT}/g&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// https://atproto.com/ja/guides/applications
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// レコードの時間ベースのキーを生成します
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rkey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TID</span>.<span style="color:#a6e22e">nextStr</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 書き込み
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">com</span>.<span style="color:#a6e22e">atproto</span>.<span style="color:#a6e22e">repo</span>.<span style="color:#a6e22e">putRecord</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">repo</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">assertDid</span>, <span style="color:#75715e">// ユーザー
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">collection</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xyz.statusphere.status&#39;</span>, <span style="color:#75715e">// コレクション
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">rkey</span>, <span style="color:#75715e">// レコード キー
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">record</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// レコード値
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;👍&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">createdAt</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toISOString</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><code>drainpipe</code>はpdsの<code>fyi.unravel.frontpage(collection)</code>を検索してfirehoseの<code>subscribeRepos</code>にcommitするようです。この2つの部分を変更すると<code>frontpage.fyi</code>と連動しません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust:packages-rs/drainpipe/src/main.rs" data-lang="rust:packages-rs/drainpipe/src/main.rs"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> ws_request <span style="color:#f92672">=</span> format!(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/xrpc/com.atproto.sync.subscribeRepos</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>        relay_url, query_string
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// https://github.com/likeandscribe/frontpage/blob/e7444ec6c19f0ccef3776f04702c3bb033ed3bfc/packages-rs/drainpipe/src/main.rs#L66-L97
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">/// Process a message from the firehose. Returns the sequence number of the message or an error.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">process</span>(message: Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;</span>, ctx: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Context) -&gt; Result<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">i64</span>, ProcessError<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (_header, data) <span style="color:#f92672">=</span> firehose::read(<span style="color:#f92672">&amp;</span>message).map_err(<span style="color:#f92672">|</span>e<span style="color:#f92672">|</span> ProcessError {
+</span></span><span style="display:flex;"><span>        inner: <span style="color:#a6e22e">e</span>.into(),
+</span></span><span style="display:flex;"><span>        seq: <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        source: <span style="color:#a6e22e">message</span>.clone().into(),
+</span></span><span style="display:flex;"><span>        kind: <span style="color:#a6e22e">ProcessErrorKind</span>::DecodeError,
+</span></span><span style="display:flex;"><span>    })<span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> sequence <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> data {
+</span></span><span style="display:flex;"><span>        firehose::SubscribeRepos::Commit(commit) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> frontpage_ops <span style="color:#f92672">=</span> commit
+</span></span><span style="display:flex;"><span>                .operations
+</span></span><span style="display:flex;"><span>                .iter()
+</span></span><span style="display:flex;"><span>                .filter(<span style="color:#f92672">|</span>op<span style="color:#f92672">|</span> op.path.starts_with(<span style="color:#e6db74">&#34;com.unravel.example.&#34;</span>))
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//.filter(|op| op.path.starts_with(&#34;fyi.unravel.frontpage.&#34;))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                .collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>_<span style="color:#f92672">&gt;&gt;</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>frontpage_ops.is_empty() {
+</span></span><span style="display:flex;"><span>                process_frontpage_ops(<span style="color:#f92672">&amp;</span>frontpage_ops, <span style="color:#f92672">&amp;</span>commit, <span style="color:#f92672">&amp;</span>ctx)
+</span></span><span style="display:flex;"><span>                    .map_err(<span style="color:#f92672">|</span>e<span style="color:#f92672">|</span> ProcessError {
+</span></span><span style="display:flex;"><span>                        seq: <span style="color:#a6e22e">commit</span>.sequence,
+</span></span><span style="display:flex;"><span>                        inner: <span style="color:#a6e22e">e</span>,
+</span></span><span style="display:flex;"><span>                        source: <span style="color:#a6e22e">message</span>.clone().into(),
+</span></span><span style="display:flex;"><span>                        kind: <span style="color:#a6e22e">ProcessErrorKind</span>::ProcessError,
+</span></span><span style="display:flex;"><span>                    })
+</span></span><span style="display:flex;"><span>                    .<span style="color:#66d9ef">await</span><span style="color:#f92672">?</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            commit.sequence
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        msg <span style="color:#f92672">=&gt;</span> msg.sequence(),
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Ok(sequence)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>ただ、infraのpdsは<code>pds.dev.unravel.fyi</code>となっていて、中の人の話を聞くと<code>frontpage.fyi</code>のpdsにpostされるように感じました。</p>
+
 
 		
 
