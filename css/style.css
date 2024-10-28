@@ -3,6 +3,7 @@ body {
 	background-color: #f1f1f1;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width:100%;
+
 	margin:0;
 	padding: 0;
 	-webkit-text-size-adjust: 100%;
@@ -398,3 +399,20 @@ span.icon-syui {
 	}
 }
 
+iframe.frontpage {
+	width:100%;
+	height: 1000px;
+}
+
+button.frontpage {
+	height:40px;
+	width:100%;
+	font-size: 15px;
+	background-color: #007fff;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+a button.frontpage:hover {
+	background-color: #0077ff;
+}
