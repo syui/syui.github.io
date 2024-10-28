@@ -408,11 +408,13 @@ button.frontpage {
 	height:40px;
 	width:100%;
 	font-size: 15px;
-	background-color: #007fff;
+	background-color: #e80063;
+	/* background-color: #007fff; */
 	color: #fff;
 	border: 2px solid #fff;
 }
 
 a button.frontpage:hover {
-	background-color: #0077ff;
+	/* background-color: #0077ff; */
+	background-color: #e80073;
 }
