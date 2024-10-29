@@ -355,9 +355,7 @@ button.comment_open:hover {
 	margin: 0px auto;
 }
 
-.comment {
-	background-color: #fff;
-}
+
 
 .loading {
 	background:#f1f1f1;
@@ -403,6 +401,7 @@ iframe.frontpage {
 	width:100%;
 	height: 1000px;
 	pointer-events:none;
+	border: 2px solid #fff;
 }
 
 a.frontpage-button {
@@ -421,3 +420,8 @@ a.frontpage-button:hover {
 	/* background-color: #0077ff; */
 	background-color: #e80073;
 }
+
+.comment {
+	background-color: #f1f1f1;
+}
+
