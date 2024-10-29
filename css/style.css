@@ -402,19 +402,22 @@ span.icon-syui {
 iframe.frontpage {
 	width:100%;
 	height: 1000px;
+	pointer-events:none;
 }
 
-button.frontpage {
-	height:40px;
+a.frontpage-button {
 	width:100%;
 	font-size: 15px;
 	background-color: #e80063;
 	/* background-color: #007fff; */
 	color: #fff;
 	border: 2px solid #fff;
+	padding: 10px 30px;
+	border-radius: 5px;
+	text-decoration: none;
 }
 
-a button.frontpage:hover {
+a.frontpage-button:hover {
 	/* background-color: #0077ff; */
 	background-color: #e80073;
 }
