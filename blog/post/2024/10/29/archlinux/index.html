@@ -183,7 +183,11 @@
 </span></span><span style="display:flex;"><span>PasswordAuthentication no
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ systemctl restart sshd
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="蓋を閉じてもsleepしないようにする">蓋を閉じてもsleepしないようにする</h2>
+<pre tabindex="0"><code class="language-sh:/etc/systemd/logind.conf" data-lang="sh:/etc/systemd/logind.conf">HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+</code></pre>
 
 		
 
