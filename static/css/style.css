@@ -399,9 +399,8 @@ span.icon-syui {
 
 iframe.frontpage {
 	width:100%;
-	height: 1000px;
+	height: 700px;
 	pointer-events:none;
-	border: 2px solid #fff;
 }
 
 a.frontpage-button {
