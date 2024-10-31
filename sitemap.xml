@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/tags/arch/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/macbook/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/10/29/archlinux/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/tags/atproto/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/10/26/frontpage/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/cloudflare/</loc>
-    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/10/21/bbs/</loc>
@@ -88,9 +97,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2024/08/10/ip/</loc>
     <lastmod>2024-08-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/arch/</loc>
-    <lastmod>2024-08-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/08/09/arch/</loc>
     <lastmod>2024-08-09T00:00:00+00:00</lastmod>
@@ -451,9 +457,6 @@
   </url><url>
     <loc>https://syui.ai/tags/discord/</loc>
     <lastmod>2023-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/macbook/</loc>
-    <lastmod>2023-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2023/09/02/macbook/</loc>
     <lastmod>2023-09-02T00:00:00+00:00</lastmod>
