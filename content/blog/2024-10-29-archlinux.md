@@ -37,7 +37,7 @@ $ passwd ${username}
 
 ## ssh
 
-まずnetworkを設定しsshでaccessしましょう。
+まずnetworkを設定しsshで接続しましょう。
 
 ```sh
 $ ip route show
