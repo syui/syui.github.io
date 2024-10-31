@@ -74,3 +74,10 @@ PasswordAuthentication no
 $ systemctl restart sshd
 ```
 
+## 蓋を閉じてもsleepしないようにする
+
+```sh:/etc/systemd/logind.conf
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+```
