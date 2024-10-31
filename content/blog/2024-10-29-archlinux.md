@@ -43,8 +43,6 @@ $ passwd ${username}
 $ ip route show
 enp0s12 192.168.1.23
 
-$ ssh ${username}@192.168.1.23
-
 $ vim /etc/systemd/network/eth.network
 ```
 
@@ -67,11 +65,15 @@ $ systemctl enable systemd-networkd
 $ ssh-keygen -f ~/.ssh/archlinux
 $ ssh-copy-id -i ~/.ssh/archlinux.pub ${username}@192.168.1.23
 
-# archlinux
+# 接続される側:archlinux
 $ vim /etc/ssh/sshd_config
 PasswordAuthentication no
 
 $ systemctl restart sshd
+```
+
+```sh
+$ ssh ${username}@192.168.1.23
 ```
 
 ## 蓋を閉じてもsleepしないようにする
