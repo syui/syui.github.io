@@ -151,7 +151,8 @@
 </span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p1 /mnt/boot/efi
 </span></span><span style="display:flex;"><span>$ pacstrap /mnt base linux grub efibootmgr dhcpcd openssh
 </span></span><span style="display:flex;"><span>$ arch-chroot /mnt
-</span></span><span style="display:flex;"><span>$ grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot/efi --bootloader-id<span style="color:#f92672">=</span>arch_grub
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub</span>
+</span></span><span style="display:flex;"><span>$ grub-install --force /dev/nvme0n1p1
 </span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
 </span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd
 </span></span><span style="display:flex;"><span>$ systemctl enable sshd
