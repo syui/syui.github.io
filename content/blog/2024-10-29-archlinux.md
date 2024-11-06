@@ -26,7 +26,8 @@ $ mkdir -p /mnt/boot/efi
 $ mount  /dev/nvme0n1p1 /mnt/boot/efi
 $ pacstrap /mnt base linux grub efibootmgr dhcpcd openssh
 $ arch-chroot /mnt
-$ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
+# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
+$ grub-install --force /dev/nvme0n1p1
 $ grub-mkconfig -o /boot/grub/grub.cfg
 $ systemctl enable dhcpcd
 $ systemctl enable sshd
