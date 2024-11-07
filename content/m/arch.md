@@ -693,7 +693,15 @@ xset s off -dpms
 
 $ vim /etc/X11/xorg.conf.d/10-monitor.conf
 Section "Monitor"
+    Identifier "LVDS0"
     Option "DPMS" "false"
+EndSection
+Section "ServerLayout"
+    Identifier "ServerLayout0"
+    Option "StandbyTime" "0"
+    Option "SuspendTime" "0"
+    Option "OffTime"     "0"
+    Option "BlankTime"   "0"
 EndSection
 ```
 
