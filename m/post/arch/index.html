@@ -135,7 +135,129 @@
 
 		<h2>archlinux</h2>
 
-		<p>archlinuxのinstaller(script)です。</p>
+		<h1 id="install">install</h1>
+<p>archのinstallは簡単で<code>/</code>にpacstrapでarch(linux,base)を入れること。bootを設定することです。grubが簡単なのでgrubを使用します。bootloaderは起動時にlinux.imgを実行したり選択するものです。</p>
+<p>現在は、macbook air(intel)の2台にインストールしています。serverやdockerもほとんどarchlinuxを使用しています。</p>
+<p><code>arch-install-script</code>が用意されているので、面倒な人は実行するといいでしょう。</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide">https://wiki.archlinux.org/title/Installation_guide</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://gitlab.archlinux.org/archlinux/arch-install-scripts</span>
+</span></span><span style="display:flex;"><span>$ archinstall
+</span></span></code></pre></div><p>私は毎回手動でinstallしています。昔は自動化していましたがメンテナンスが面倒になりました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fdisk -l
+</span></span><span style="display:flex;"><span>/dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>/dev/nvme0n1p2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mkfs.vfat /dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/nvme0n1p2
+</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p2 /mnt
+</span></span><span style="display:flex;"><span>$ mkdir -p /mnt/boot/efi
+</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p1 /mnt/boot/efi
+</span></span><span style="display:flex;"><span>$ pacstrap /mnt base linux grub efibootmgr
+</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
+</span></span><span style="display:flex;"><span>$ grub-install --force /dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style="display:flex;"><span>$ passwd
+</span></span><span style="display:flex;"><span>$ useradd -m -g wheel -s /bin/bash <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span> 
+</span></span><span style="display:flex;"><span>$ passwd <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># mkfs.vfat /dev/sda1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mkfs.ext4 /dev/sda2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S base-devel zsh git vim tmux sudo dhcpcd openssh
+</span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd
+</span></span><span style="display:flex;"><span>$ systemctl enable sshd
+</span></span><span style="display:flex;"><span>$ chsh -s /bin/zsh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ exit
+</span></span><span style="display:flex;"><span>$ reboot
+</span></span></code></pre></div><h2 id="network">network</h2>
+<p><code>dhcpcd</code>を使う方法と<code>systemd-networkd</code>を使う方法があります。基本的にどのlinuxもdhcpcdを入れておりnetworkを設定しています。</p>
+<p>まずkernelで自動設定されるインターフェイス名を<code>eth0</code>などに戻しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ip route show
+</span></span><span style="display:flex;"><span>enp0s12 192.168.1.23
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 伝統的な名前を使う</span>
+</span></span><span style="display:flex;"><span>$ mkdir -p /etc/systemd/network/99-default.link.d
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/99-default.link.d/traditional-naming.conf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Link<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>NamePolicy<span style="color:#f92672">=</span>keep kernel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># こちらの方法も使える</span>
+</span></span><span style="display:flex;"><span>$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+</span></span></code></pre></div><h3 id="dhcpcd">dhcpcd</h3>
+<blockquote>
+<p>/etc/dhcpcd.conf</p>
+</blockquote>
+<pre tabindex="0"><code class="language-sh:/etc/dhcpcd.conf" data-lang="sh:/etc/dhcpcd.conf">interface eth0
+static ip_address=192.168.1.23/24	
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1 1.1.1.1
+</code></pre><h3 id="systemd-networkd">systemd-networkd</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl disable dhcpcd
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/eth.network
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/systemd/network/eth.network" data-lang="sh:/etc/systemd/network/eth.network"><span style="display:flex;"><span><span style="color:#66d9ef">[Match]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Name</span><span style="color:#f92672">=</span><span style="color:#e6db74">eth0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Network]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Address</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.23/24</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Gateway</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DNS</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable systemd-networkd
+</span></span></code></pre></div><p>なお、デバイスによってはこの方法で接続できない場合があります。その場合は<code>dhcpcd</code>が有効です。</p>
+<p>nameserverは<code>/etc/resolv.conf</code>を見てください。</p>
+<h2 id="ssh">ssh</h2>
+<p>次にsshで接続する方法です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 接続する側</span>
+</span></span><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/archlinux
+</span></span><span style="display:flex;"><span>$ ssh-copy-id -i ~/.ssh/archlinux.pub <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 接続される側:archlinux</span>
+</span></span><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ systemctl restart sshd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ssh <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
+</span></span></code></pre></div><h2 id="xorg">xorg</h2>
+<p>デスクトップ環境の構築です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S tilix xterm zsh git tmux chromium otf-ipaexfont i3 xorg xorg-xinit pcmanfm lightdm lightdm-gtk-greeter
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># autologin</span>
+</span></span><span style="display:flex;"><span>$ groupadd -r autologin
+</span></span><span style="display:flex;"><span>$ gpasswd -a $USER autologin
+</span></span><span style="display:flex;"><span>$ vim /etc/lightdm/lightdm.conf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>pam-service<span style="color:#f92672">=</span>lightdm
+</span></span><span style="display:flex;"><span>pam-autologin-service<span style="color:#f92672">=</span>lightdm-autologin
+</span></span><span style="display:flex;"><span>autologin-user<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>session-wrapper<span style="color:#f92672">=</span>/etc/lightdm/Xsession
+</span></span><span style="display:flex;"><span>autologin-session<span style="color:#f92672">=</span>i3
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable lightdm
+</span></span></code></pre></div><h2 id="zip">zip</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S atool zip unrar
+</span></span></code></pre></div><h2 id="displayが暗くならないようにする">displayが暗くならないようにする</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim /etc/X11/xorg.conf.d/10-monitor.conf
+</span></span><span style="display:flex;"><span>Section <span style="color:#e6db74">&#34;ServerFlags&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;BlankTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;StandbyTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;SuspendTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;OffTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>EndSection
+</span></span></code></pre></div><h2 id="蓋を閉じてもsleepしないようにする">蓋を閉じてもsleepしないようにする</h2>
+<blockquote>
+<p>/etc/systemd/logind.conf</p>
+</blockquote>
+<pre tabindex="0"><code class="language-sh:/etc/systemd/logind.conf" data-lang="sh:/etc/systemd/logind.conf">HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+</code></pre><h1 id="make">make</h1>
+<p>archlinux.imgを作る方法です。</p>
+<p><a href="https://gitlab.archlinux.org/archlinux/archiso">https://gitlab.archlinux.org/archlinux/archiso</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -Syuu --noconfirm base-devel archiso git
+</span></span><span style="display:flex;"><span>$ git clone https://gitlab.archlinux.org/archlinux/archiso
+</span></span><span style="display:flex;"><span>$ ./archiso/archiso/mkarchiso -v -o ./ ./archiso/configs/releng/
+</span></span><span style="display:flex;"><span>$ tar xf *bootstrap*.tar.gz
+</span></span><span style="display:flex;"><span>$ mkdir -p root.x86_64/var/lib/machines/arch
+</span></span><span style="display:flex;"><span>$ pacstrap -c root.x86_64/var/lib/machines/arch base
+</span></span></code></pre></div><h1 id="old">old</h1>
+<p>ここからは古い情報です。</p>
+<p>archlinuxのinstaller(script)です。</p>
 <p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fdisk -l
 </span></span><span style="display:flex;"><span>sda
@@ -234,7 +356,7 @@
 </span></span><span style="display:flex;"><span>source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 </span></span><span style="display:flex;"><span>fpath<span style="color:#f92672">=(</span>usr/share/zsh/site-functions $fpath<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>autoload -Uz compinit <span style="color:#f92672">&amp;&amp;</span> compinit
-</span></span></code></pre></div><h3 id="zip">zip</h3>
+</span></span></code></pre></div><h3 id="zip-1">zip</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S atool zip unrar
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 解凍</span>
@@ -245,7 +367,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># rar</span>
 </span></span><span style="display:flex;"><span>$ aunpack test.rar
-</span></span></code></pre></div><h3 id="ssh">ssh</h3>
+</span></span></code></pre></div><h3 id="ssh-1">ssh</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:host.txt" data-lang="sh:host.txt"><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
 </span></span><span style="display:flex;"><span>Port 2299
 </span></span><span style="display:flex;"><span>PasswordAuthentication no
@@ -487,118 +609,7 @@ VirtualEthernet=no
 </span></span><span style="display:flex;"><span>$ sudo machinectl poweroff arch
 </span></span><span style="display:flex;"><span>$ sudo machinectl remove arch
 </span></span><span style="display:flex;"><span>$ sudo machinectl clone backup arch
-</span></span></code></pre></div><h2 id="install-v2">install v2</h2>
-<p>installは簡単で<code>/</code>にpacstrapでarch(linux,base)を入れること。bootを設定することです。grubが簡単なのでgrubを使用します。bootloaderは起動時にlinux.imgを実行したり選択するものです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fdisk -l
-</span></span><span style="display:flex;"><span>/dev/nvme0n1p1
-</span></span><span style="display:flex;"><span>/dev/nvme0n1p2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ mkfs.vfat /dev/nvme0n1p1
-</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/nvme0n1p2
-</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p2 /mnt
-</span></span><span style="display:flex;"><span>$ mkdir -p /mnt/boot/efi
-</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p1 /mnt/boot/efi
-</span></span><span style="display:flex;"><span>$ pacstrap /mnt base linux grub efibootmgr
-</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub</span>
-</span></span><span style="display:flex;"><span>$ grub-install --force /dev/nvme0n1p1
-</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
-</span></span><span style="display:flex;"><span>$ passwd
-</span></span><span style="display:flex;"><span>$ useradd -m -g wheel -s /bin/bash <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span> 
-</span></span><span style="display:flex;"><span>$ passwd <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S base-devel zsh git vim tmux sudo dhcpcd openssh
-</span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd
-</span></span><span style="display:flex;"><span>$ systemctl enable sshd
-</span></span><span style="display:flex;"><span>$ chsh -s /bin/zsh
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ exit
-</span></span><span style="display:flex;"><span>$ reboot
-</span></span></code></pre></div><h3 id="network">network</h3>
-<p><code>dhcpcd</code>を使う方法と<code>systemd-networkd</code>を使う方法があります。基本的にどのlinuxもdhcpcdを入れておりnetworkを設定しています。</p>
-<p>まずkernelで自動設定されるインターフェイス名を<code>eth0</code>などに戻しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ip route show
-</span></span><span style="display:flex;"><span>enp0s12 192.168.1.23
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 伝統的な名前を使う</span>
-</span></span><span style="display:flex;"><span>$ mkdir -p /etc/systemd/network/99-default.link.d
-</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/99-default.link.d/traditional-naming.conf
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Link<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>NamePolicy<span style="color:#f92672">=</span>keep kernel
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># こちらの方法も使える</span>
-</span></span><span style="display:flex;"><span>$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
-</span></span></code></pre></div><h3 id="dhcpcd">dhcpcd</h3>
-<blockquote>
-<p>/etc/dhcpcd.conf</p>
-</blockquote>
-<pre tabindex="0"><code class="language-sh:/etc/dhcpcd.conf" data-lang="sh:/etc/dhcpcd.conf">interface eth0
-static ip_address=192.168.1.23/24	
-static routers=192.168.1.1
-static domain_name_servers=192.168.1.1 1.1.1.1
-</code></pre><h3 id="systemd-networkd">systemd-networkd</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl disable dhcpcd
-</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/eth.network
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/systemd/network/eth.network" data-lang="sh:/etc/systemd/network/eth.network"><span style="display:flex;"><span><span style="color:#66d9ef">[Match]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Name</span><span style="color:#f92672">=</span><span style="color:#e6db74">eth0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Network]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Address</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.23/24</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Gateway</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DNS</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable systemd-networkd
-</span></span></code></pre></div><p>なお、デバイスによってはこの方法で接続できない場合があります。その場合は<code>dhcpcd</code>が有効です。</p>
-<p>nameserverは<code>/etc/resolv.conf</code>を見てください。</p>
-<h3 id="ssh-1">ssh</h3>
-<p>次にsshで接続する方法です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 接続する側</span>
-</span></span><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/archlinux
-</span></span><span style="display:flex;"><span>$ ssh-copy-id -i ~/.ssh/archlinux.pub <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 接続される側:archlinux</span>
-</span></span><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
-</span></span><span style="display:flex;"><span>PasswordAuthentication no
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ systemctl restart sshd
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ssh <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
-</span></span></code></pre></div><h3 id="xorg">xorg</h3>
-<p>デスクトップ環境の構築です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S tilix xterm zsh git tmux chromium otf-ipaexfont i3 xorg xorg-xinit pcmanfm lightdm lightdm-gtk-greeter
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># autologin</span>
-</span></span><span style="display:flex;"><span>$ groupadd -r autologin
-</span></span><span style="display:flex;"><span>$ gpasswd -a $USER autologin
-</span></span><span style="display:flex;"><span>$ vim /etc/lightdm/lightdm.conf
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>pam-service<span style="color:#f92672">=</span>lightdm
-</span></span><span style="display:flex;"><span>pam-autologin-service<span style="color:#f92672">=</span>lightdm-autologin
-</span></span><span style="display:flex;"><span>autologin-user<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>session-wrapper<span style="color:#f92672">=</span>/etc/lightdm/Xsession
-</span></span><span style="display:flex;"><span>autologin-session<span style="color:#f92672">=</span>i3
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable lightdm
-</span></span></code></pre></div><h3 id="zip-1">zip</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S atool zip unrar
-</span></span></code></pre></div><h3 id="displayが暗くならないようにする">displayが暗くならないようにする</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim ~/.xinitrc
-</span></span><span style="display:flex;"><span>xset s off -dpms
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ vim /etc/X11/xorg.conf.d/10-monitor.conf
-</span></span><span style="display:flex;"><span>Section <span style="color:#e6db74">&#34;Monitor&#34;</span>
-</span></span><span style="display:flex;"><span>    Identifier <span style="color:#e6db74">&#34;LVDS0&#34;</span>
-</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;DPMS&#34;</span> <span style="color:#e6db74">&#34;false&#34;</span>
-</span></span><span style="display:flex;"><span>EndSection
-</span></span><span style="display:flex;"><span>Section <span style="color:#e6db74">&#34;ServerLayout&#34;</span>
-</span></span><span style="display:flex;"><span>    Identifier <span style="color:#e6db74">&#34;ServerLayout0&#34;</span>
-</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;StandbyTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;SuspendTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;OffTime&#34;</span>     <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;BlankTime&#34;</span>   <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>EndSection
-</span></span></code></pre></div><h3 id="蓋を閉じてもsleepしないようにする">蓋を閉じてもsleepしないようにする</h3>
-<blockquote>
-<p>/etc/systemd/logind.conf</p>
-</blockquote>
-<pre tabindex="0"><code class="language-sh:/etc/systemd/logind.conf" data-lang="sh:/etc/systemd/logind.conf">HandleLidSwitch=suspend
-HandleLidSwitchExternalPower=ignore
-HandleLidSwitchDocked=ignore
-</code></pre>
+</span></span></code></pre></div>
 
 		
 
