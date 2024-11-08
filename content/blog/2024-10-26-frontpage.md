@@ -3,7 +3,7 @@ date = "2024-10-26"
 tags = ["cloudflare", "bluesky", "atproto"]
 title = "atprotoのfrontpageを触ってみる"
 [params]
-  comment = "3lafhf3xkjo2g"
+  comment = "3lafos6to6y2y"
 +++
 
 前回、live配信にatprotoでoauth loginして掲示板(bbs)に書き込めるサイトを作成し、bbsは簡単にrustで自作したものを使っていました。
