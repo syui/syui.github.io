@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://syui.ai/tags/arch/</loc>
-    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/11/19/ue55/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/arch/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/macbook/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/10/29/archlinux/</loc>
-    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-10-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/atproto/</loc>
@@ -43,9 +49,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2024/10/12/wasmer/</loc>
     <lastmod>2024-10-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/10/02/vrm4u/</loc>
     <lastmod>2024-10-03T00:00:00+00:00</lastmod>
