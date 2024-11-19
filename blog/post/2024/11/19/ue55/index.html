@@ -129,7 +129,7 @@
 		<p><code>city sample</code>にearth system(solar system)を組み込みます。具体的には惑星(planet)の形式でmapを作成し、空から宇宙に出ても問題ないようにすることを目指します。</p>
 <ul>
 <li>海 : <code>ocean waves</code></li>
-<li>空 : <code>ultra volumetric sky</code></li>
+<li>空 : <code>ultra dynamic sky</code></li>
 </ul>
 <h2 id="city-sample">city sample</h2>
 <p>5.5からcrashする回数が大幅に減りました。</p>
@@ -182,8 +182,8 @@
 <p>次に<code>BP_EarthSizedOcean</code>の<code>Volume Maaterials</code>で<code>WaterVolume</code>をセットします。Above, Underwaterを<code>/Vefects/Water/VFX/UnderWater</code>に変更します。heightは<code>0</code>にします。これは海に入って出たときに海中を適用する高さを設定します。</p>
 <p>これで正常に海を作ることができました。</p>
 <p><img src="https://git.syui.ai/ai/ue/raw/branch/main/img/ue-2024-11-18-220316.png" alt=""></p>
-<h2 id="ultra-volumetric-sky">ultra volumetric sky</h2>
-<p><code>ultra volumetric sky</code>は空と天候を作ります。</p>
+<h2 id="ultra-dynamic-sky">ultra dynamic sky</h2>
+<p><code>ultra dynamic sky</code>は空と天候を作ります。</p>
 <p>まずblueprintを開いて<code>HeightFog</code>を<code>visible:false</code>にします。これは霧を地平線に表示するものです。</p>
 <h2 id="rain">rain</h2>
 <p>rain, snowなどのweatherでは<code>postprocess volume</code>を使って画面に水滴を付けるなどの表現を行います。</p>
