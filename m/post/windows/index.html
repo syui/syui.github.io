@@ -353,7 +353,23 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ python safe.py <span style="color:#e6db74">&#34;masterpiece, best quality, very_high_resolution, large_filesize, full color, beautiful kawaii, gold hair, little girl&#34;</span>
 </span></span><span style="display:flex;"><span>$ ls test.png
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="mcafee-remove">mcafee remove</h2>
+<p><code>Win</code>+<code>R</code>を押して<code>msconfig</code>からboot(セーフモード)を起動しましょう。以下のようなフォルダを削除します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>C:<span style="color:#ae81ff">\P</span>rogram Files<span style="color:#ae81ff">\C</span>ommon Files<span style="color:#ae81ff">\M</span>cAfee
+</span></span><span style="display:flex;"><span>C:<span style="color:#ae81ff">\P</span>rogram Files<span style="color:#ae81ff">\C</span>ommon Files<span style="color:#ae81ff">\A</span>V
+</span></span><span style="display:flex;"><span>C:<span style="color:#ae81ff">\P</span>rogram Files<span style="color:#f92672">(</span>x86_64<span style="color:#f92672">)</span><span style="color:#ae81ff">\C</span>ommon Files<span style="color:#ae81ff">\M</span>cAfee
+</span></span><span style="display:flex;"><span>C:<span style="color:#ae81ff">\P</span>rogram Files<span style="color:#f92672">(</span>x86_64<span style="color:#f92672">)</span><span style="color:#ae81ff">\C</span>ommon Files<span style="color:#ae81ff">\A</span>V
+</span></span><span style="display:flex;"><span>C:<span style="color:#ae81ff">\P</span>rogramData<span style="color:#ae81ff">\M</span>cAfee
+</span></span></code></pre></div><p>なお、以下のコマンドは管理者実行でも効果なし。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>taskkill /im /f mfemms.exe
+</span></span><span style="display:flex;"><span>wmic process where <span style="color:#e6db74">&#34;name=&#39;mfemms.exe&#39;&#34;</span> delete
+</span></span><span style="display:flex;"><span>理由: アクセスが拒否されました。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sc stop <span style="color:#e6db74">&#34;mfemms&#34;</span>
+</span></span><span style="display:flex;"><span>sc config <span style="color:#e6db74">&#34;mfemms&#34;</span> start<span style="color:#f92672">=</span> disabled
+</span></span><span style="display:flex;"><span>sc delete <span style="color:#e6db74">&#34;mfemms&#34;</span>
+</span></span></code></pre></div><p><a href="https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853">https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853</a></p>
+
 
 		
 
