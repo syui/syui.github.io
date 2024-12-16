@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lang:en on syui.ai</title>
+    <link>https://syui.ai/tags/langen/</link>
+    <description>Recent content in Lang:en on syui.ai</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 21 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.ai/tags/langen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>atmosphere</title>
+      <link>https://syui.ai/en/post/2024/11/21/bluesky-ac-en/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/en/post/2024/11/21/bluesky-ac-en/</guid>
+      <description>&lt;p&gt;This year I participated in the Bluesky Advent Calendar. &lt;a href=&#34;https://syui.ai/en/post/2024/11/21/bluesky-ac-en/&#34;&gt;&lt;button&gt;en&lt;/button&gt;&lt;/a&gt; &lt;a href=&#34;https://syui.ai/blog/post/2024/11/21/bluesky-ac-ja/&#34;&gt;&lt;button&gt;ja&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://whtwnd.com/moja.blue/entries/%E3%83%96%E3%83%AB%E3%82%B9%E3%82%B3%E3%80%81%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2024&#34;&gt;Bluesco Advent Calendar 2024&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-atmosphere&#34;&gt;what atmosphere&lt;/h2&gt;&#xA;&lt;p&gt;First, let&amp;rsquo;s explain the terminology. &lt;code&gt;at&lt;/code&gt; has various meanings. &lt;code&gt;@&lt;/code&gt;, &lt;code&gt;at://&lt;/code&gt;, &lt;code&gt;[at]mosphere&lt;/code&gt;, &lt;code&gt;[a]uthenticated [t]ransfer&lt;/code&gt;, etc.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://atproto.com/guides/glossary&#34;&gt;https://atproto.com/guides/glossary&lt;/a&gt;&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;word&lt;/th&gt;&#xA;          &lt;th&gt;name&lt;/th&gt;&#xA;          &lt;th&gt;example&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;at&lt;/td&gt;&#xA;          &lt;td&gt;uri&lt;/td&gt;&#xA;          &lt;td&gt;at://syui.ai&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;@&lt;/td&gt;&#xA;          &lt;td&gt;user&lt;/td&gt;&#xA;          &lt;td&gt;@syui.ai&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;[at]proto&lt;/td&gt;&#xA;          &lt;td&gt;repo&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;git@github.com:bluesky-social/atproto&lt;/code&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;[at]mosphere&lt;/td&gt;&#xA;          &lt;td&gt;system&lt;/td&gt;&#xA;          &lt;td&gt;pds, bsky(appview), ozone, bgs, plc&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;[a]uthenticated [t]ransfer&lt;/td&gt;&#xA;          &lt;td&gt;protocol&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://www.w3.org/TR/did-core/&#34;&gt;did&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Atmosphere&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Atmosphere&amp;rdquo; is the term used to describe the AT Protocol ecosystem.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;AT Protocol&lt;/p&gt;&#xA;&lt;p&gt;AT Protocol stands for &amp;ldquo;Authenticated Transfer Protocol&amp;rdquo;. The name comes from the fact that all user data is signed by the creating user. This allows data to be broadcast through many services and prove its authenticity without having to communicate directly with the origin server.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

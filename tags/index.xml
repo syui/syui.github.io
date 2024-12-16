@@ -7,8 +7,36 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Tue, 19 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Atproto</title>
+      <link>https://syui.ai/tags/atproto/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/atproto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bluesky</title>
+      <link>https://syui.ai/tags/bluesky/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/bluesky/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lang:en</title>
+      <link>https://syui.ai/tags/langen/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/langen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lang:ja</title>
+      <link>https://syui.ai/tags/langja/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/langja/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ue</title>
       <link>https://syui.ai/tags/ue/</link>
@@ -28,20 +56,6 @@
       <link>https://syui.ai/tags/macbook/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/macbook/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Atproto</title>
-      <link>https://syui.ai/tags/atproto/</link>
-      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/atproto/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bluesky</title>
-      <link>https://syui.ai/tags/bluesky/</link>
-      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/bluesky/</guid>
       <description></description>
     </item>
     <item>
