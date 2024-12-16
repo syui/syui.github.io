@@ -14,13 +14,13 @@ First, let's explain the terminology. `at` has various meanings. `@`, `at://`, `
 
 https://atproto.com/guides/glossary
 
-|title|name|
-|---|---|
-|at|uri|
-|@|user|
-|[at]proto|github repo|
-|[at]mosphere|system|
-|[a]uthenticated [t]ransfer|protocol|
+|word|name|example|
+|---|---|---|
+|at|uri|at://syui.ai|
+|@|user|@syui.ai|
+|[at]proto|repo|`git@github.com:bluesky-social/atproto`|
+|[at]mosphere|system|pds, bsky(appview), ozone, bgs, plc|
+|[a]uthenticated [t]ransfer|protocol|[did](https://www.w3.org/TR/did-core/)|
 
 > Atmosphere
 >
