@@ -338,6 +338,12 @@ The first group planned is `fantasy`, followed by `animal`. Fantasy can handle o
 
 For example, the character Dragon in Season 1 has the attribute `atomic` and is in the fantasy group. Fantasy includes phoenixes and pegasuses, while animals include whales and lions. The season in which you start the game determines the character you are initially assigned to.
 
+|season|group|type|character|
+|---|---|---|---|
+|1|fantasy|proton, neutron, nucleus, electron, quark|dragon, pegasus, phoenix...|
+|2|animal|water, fire, rock, wind, ice|whale, lion, eagle...|
+|3|...|...|...|
+
 ```json
 $ cat ue.json|jq ".[]|{atom,molecule}"
 {
