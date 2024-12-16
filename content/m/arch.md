@@ -745,4 +745,9 @@ $ sudo machinectl clone backup arch
 ```
 
 
+## test
 
+```sh
+# sound
+$ sudo pacman -S sof-firmware
+```

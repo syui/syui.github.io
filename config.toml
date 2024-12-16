@@ -11,6 +11,7 @@ m = "/m/post/:slug"
 blog = "/blog/post/:year/:month/:day/:slug"
 novel = "/ai/novel/:slug"
 app = "/app/dev/:filename"
+en = "/en/post/:year/:month/:day/:slug"
 
 [author]
 name = "syui"
