@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 02 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/genshin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神、スカークはナタで実装</title>
+      <link>https://syui.ai/blog/post/2024/12/21/genshin/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/12/21/genshin/</guid>
+      <description>&lt;p&gt;公式チャンネルで動画が公開され、最後のシルエットでスカークの姿がありました。&lt;/p&gt;&#xA;&lt;p&gt;つまり、&lt;code&gt;5.x&lt;/code&gt;で実装される可能性があります。面白くなってきた。&lt;/p&gt;&#xA;&lt;p&gt;私は現在、炎神と氷神は完凸予定です。それ以外ではナタでシロネンを引きましたが、凸はしていません。&lt;/p&gt;&#xA;&lt;p&gt;今後凸することも考えていたところ、この発表があったので、スカークの完凸を目指す計画になりそうです。&lt;/p&gt;&#xA;&lt;p&gt;ですが、現在の原石数を考えると、炎神は完凸できるものの、スカークまでカバーするのは無課金勢としては難しいか。&lt;/p&gt;&#xA;&lt;p&gt;フォンテーヌでは&lt;code&gt;フリーナ(c2)&lt;/code&gt;, &lt;code&gt;ヌヴィレット(c1)&lt;/code&gt;でした。スメールでは&lt;code&gt;ナヒーダ(c6)&lt;/code&gt;です。&lt;/p&gt;&#xA;&lt;p&gt;ナタで&lt;code&gt;マーヴィカ(c6)&lt;/code&gt;, &lt;code&gt;シロネン(c0)&lt;/code&gt;, &lt;code&gt;スカーク(c6)&lt;/code&gt;になるのか。普通に考えると無理そう。マーヴィカの凸はいい感じのところで止めておくのがいいかもね。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>原神、最新螺旋攻略ガイド</title>
       <link>https://syui.ai/blog/post/2024/05/02/genshin/</link>
