@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>atmosphere | syui.ai</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="atmosphere" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.ai//og.png" />
+		<meta property="og:url" content="https://syui.ai/en/post/2024/12/21/bluesky-ac-en/" />
+		<meta property="og:site_name" content="syui.ai" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+					"@type": "WebSite",
+					"name": "syui.ai",
+					"url": "https:\/\/syui.ai\/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="https://syui.ai//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+<body>
+	<div class="containerx">
+		<header id="header">
+			
+			<div class="logo">
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+			</div>
+			
+		</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-12-21 / <a href="https://bsky.syui.ai">@syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/bluesky/">bluesky</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/atproto/">atproto</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.ai/tags/langen/">lang:en</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<h2>atmosphere</h2>
+
+		<p>This year, I&rsquo;m participating in the Bluesky Advent Calendar. I&rsquo;ve prepared articles in both English and Japanese. <a href="https://whtwnd.com/moja.blue/entries/%E3%83%96%E3%83%AB%E3%82%B9%E3%82%B3%E3%80%81%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2024">Bluesco Advent Calendar 2024</a> <a href="/en/post/2024/11/21/bluesky-ac-en/"><button>en</button></a> <a href="/blog/post/2024/11/21/bluesky-ac-ja/"><button>ja</button></a></p>
+<h2 id="what-is-atmosphere">What is atmosphere?</h2>
+<p>First, let&rsquo;s explain the terminology. <code>at</code> has various meanings embedded in it. For example, <code>@</code>, <code>at://</code>, <code>[at]mosphere</code>, <code>[a]uthenticated [t]ransfer</code>, etc. In the early days, the icon was <code>@</code>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>word</th>
+          <th>name</th>
+          <th>example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>at</td>
+          <td>uri</td>
+          <td>at://syui.ai</td>
+      </tr>
+      <tr>
+          <td>@</td>
+          <td>user</td>
+          <td>@syui.ai</td>
+      </tr>
+      <tr>
+          <td>[at]proto</td>
+          <td>repo</td>
+          <td><code>git@github.com:bluesky-social/atproto</code></td>
+      </tr>
+      <tr>
+          <td>[at]mosphere</td>
+          <td>system</td>
+          <td>pds, bsky(appview), ozone, bgs, plc</td>
+      </tr>
+      <tr>
+          <td>[a]uthenticated [t]ransfer</td>
+          <td>protocol</td>
+          <td><a href="https://www.w3.org/TR/did-core/">did</a></td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>Atmosphere</p>
+<p>&ldquo;Atmosphere&rdquo; is a term used to describe the ecosystem of the AT protocol.
+AT Protocol</p>
+<p>AT Protocol stands for &ldquo;Authenticated Transfer Protocol&rdquo;. This name comes from the fact that all user data is signed by the creating user. This allows data to be broadcast through many services and proven authentic without direct communication with the originating server.</p>
+<p>The name is also a play on the &ldquo;@&rdquo; symbol, aka the &ldquo;at&rdquo; symbol, as atproto is designed for social systems.</p>
+</blockquote>
+<p>It seems that each area is named, and the entire system is called <code>atmosphere</code>.</p>
+<p>The services under atmosphere are named after the Earth&rsquo;s atmospheric structure, such as <code>bluesky(bsky)</code>, <code>ozone</code>, <code>bigsky(bgs)</code>.</p>
+<ul>
+<li><a href="https://github.com/bluesky-social/atproto/tree/main/services/bsky">https://github.com/bluesky-social/atproto/tree/main/services/bsky</a></li>
+<li><a href="https://github.com/bluesky-social/atproto/tree/main/services/ozone">https://github.com/bluesky-social/atproto/tree/main/services/ozone</a></li>
+<li><a href="https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky">https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky</a></li>
+</ul>
+<p>There are other things in the atmosphere like <code>meteor</code> and <code>aurora</code>, so they might be used for naming something in the future.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;atmosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;uri&#34;</span>: <span style="color:#e6db74">&#34;https://atproto.com/ja/guides/glossary&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/atmosphere_of_earth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;exosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">700</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">10000</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;universe&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;thermosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">80</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">700</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;aurora&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;mesosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">50</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">80</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;meteor&#34;</span>, <span style="color:#e6db74">&#34;bigsky&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;stratosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">12</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">50</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;ozone&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;troposphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">12</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;bluesky&#34;</span> ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="thoughts-on-game-development">Thoughts on Game Development</h2>
+<p>I&rsquo;m currently developing a game using <code>atproto</code>.</p>
+<p>Here&rsquo;s a summary of my thoughts on game development.</p>
+<h3 id="the-invisible-part">The Invisible Part</h3>
+<p>The first thing I started working on was the invisible part.</p>
+<p>Game engines are usually based on a plane. The map is just an endless horizon no matter how far you go. Even if you fly up into the sky, you can&rsquo;t escape the planet.</p>
+<p>There&rsquo;s no need to create places in the game that you can&rsquo;t go to, so even if there&rsquo;s a moon in the game, it&rsquo;s just moving a picture in the background.</p>
+<p>However, my idea is that even if you can&rsquo;t go to a place in the game, there should be things that should be there. If the moon rises in the game, I want to create something that characters can actually touch.</p>
+<p>Unreal Engine has a feature called <code>atmosphere</code>, and with some ingenuity, I managed to make it work.</p>
+<p>I want to continue game development with the philosophy of reflecting reality as much as possible.</p>
+<h3 id="what-do-people-want">What Do People Want?</h3>
+<p>What do people want? This is something we need to consider when making games.</p>
+<p>For example, even if the operation ends, you want to keep the data, right?</p>
+<p>People have a desire to leave their traces, and living beings have an instinct to leave descendants. As a derivative of this, people are happy when what they&rsquo;ve done is preserved. That&rsquo;s why I thought about saving data with <code>atproto</code>.</p>
+<p>Users don&rsquo;t want to waste everything they&rsquo;ve done, and they&rsquo;d prefer &ldquo;It&rsquo;s okay even if the service ends&rdquo; over &ldquo;It&rsquo;s over when the service ends&rdquo;. This is especially true if they&rsquo;re going to be active for decades to come.</p>
+<p><code>atproto</code> is creating something that can withstand the future.</p>
+<h3 id="where-do-people-get-information-from">Where Do People Get Information From?</h3>
+<p>Where people get information from changes with the times.</p>
+<p>In the past, it was from books. Then it became television, and now it&rsquo;s the internet.</p>
+<p>People in the past got information from books, so books had value. I think publishers, newspapers, and bookstores had high value. But as television and the internet became widespread, publishing, newspapers, and bookstores started to struggle.</p>
+<p>What&rsquo;s important is &ldquo;people and information&rdquo;. The question is where people will get information from in the future. Currently, it&rsquo;s from the internet.</p>
+<p>The next thing to consider is &ldquo;how&rdquo;. Even if we get information from the internet, how will we get it? Let&rsquo;s think about that.</p>
+<p>First, let&rsquo;s look at history. When the internet became widespread, the first thing that happened was that individuals started creating homepages. Anyone could create a homepage and disseminate information. Then search engines appeared.</p>
+<p>People who initially accessed websites by entering URLs started accessing websites from search engines. Let&rsquo;s call this era 1.</p>
+<p>Next came services. Various services were created, and social network services (SNS) appeared. Twitter, Facebook, and so on. Gradually, people started getting information from SNS rather than homepages or search engines. Let&rsquo;s call this era 2.</p>
+<p>So what&rsquo;s next? This isn&rsquo;t clear yet.</p>
+<p>But I feel like the outline is starting to become visible. I think it will be something like <code>activitypub</code> or <code>atproto</code>. And AI. AI also gets information from people, and it&rsquo;s necessary for people to disseminate information.</p>
+<p>Indeed, in era 2, people started creating accounts on services. All posts are attributed to that service. Not to individuals. Of course, where people get information from is also within the service. This has been the form and way of the internet in recent years.</p>
+<p>But it was different in 1. Search engines resulted in traffic to personal sites.</p>
+<p>I think that in 3, we&rsquo;ll head back in the direction of 1, that is, towards individuals. From individuals to corporations. From corporations to individuals. It&rsquo;s not that simple, but I think we&rsquo;ll move towards individuals in a way that&rsquo;s balanced for the times.</p>
+<p>This doesn&rsquo;t mean we&rsquo;re simply going back to 1. There were many problems with 1. It&rsquo;s because of these problems that 2 came to be used. For example, it became increasingly difficult to find the information you were looking for with search engines, right? I think the transition to 3 will happen while balancing and avoiding such problems.</p>
+<p>And in any era, the only thing we can choose is where to place our own identity.</p>
+<p>atproto is well-balanced in this respect.</p>
+<h3 id="why-atproto">Why atproto?</h3>
+<p>I&rsquo;ve been using activitypub since around 2016. I set up a Mastodon instance around that time. I remember it was around the time when the Japanese instance was just being set up or not yet set up&hellip; At that time, it was using a protocol called <code>ostatus</code>, and soon after, it transitioned to activitypub.</p>
+<p>Besides Mastodon, I was setting up <code>pleroma</code>, <code>misskey</code>, <code>mitra</code>, <code>gnu-social</code>, etc. on Heroku.</p>
+<p>It was a very interesting technology, and I really enjoyed it at that time.</p>
+<p>Then, after several years passed, I started <code>bluesky</code> around 2023.</p>
+<p>Bluesky adopts a protocol called at. When I saw that, I thought that the future internet might become <code>at</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://syui.ai --&gt; at://syui.ai
+</span></span></code></pre></div><p>activitypub and atproto have fundamentally different systems. One of these is the preservation of history.</p>
+<p>For example, if you create an account or server, with atproto, you can check its history from plc. When it was set up, how the name was changed, etc.</p>
+<p>I said &ldquo;I&rsquo;ve been using activitypub since around 2016&rdquo;, but the records from that time only exist on my blog. Since I&rsquo;ve reset the db several times since then, it looks like I just opened it recently on Mastodon.</p>
+<p>activitypub doesn&rsquo;t have a centralized function, and each server saves records independently. Traces might be left somewhere, but we don&rsquo;t know where.</p>
+<p>atproto can solve these kinds of problems. Think back to when search engines became popular, but technologies that gain dominance and are used by many people don&rsquo;t put technology at the forefront.</p>
+<p>It&rsquo;s not about &ldquo;Choose your favorite server&rdquo; or &ldquo;This technology is decentralized and non-centralized&rdquo;, but rather, the protocol shouldn&rsquo;t be something that users are conscious of. I want it to be distributed internally and do difficult things behind the scenes.</p>
+<p>In other words, it needs to be understandable even for people who are touching it for the first time. And that must be directly linked to results.</p>
+<p>Results mean things like &ldquo;If you search, you get results&rdquo;. For SNS, it means &ldquo;You can connect without being conscious of the server&rdquo;.</p>
+<p>This is difficult with activitypub. It&rsquo;s related to the core of the technology, so it&rsquo;s difficult to solve, and I think it&rsquo;s fatal.</p>
+<p>Also, to use your own name, you need to set up a server.</p>
+<table>
+  <thead>
+      <tr>
+          <th>protocol</th>
+          <th>user</th>
+          <th>body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>activitypub://</td>
+          <td>@syui@syui.ai</td>
+          <td>Need to set up a server</td>
+      </tr>
+      <tr>
+          <td>at://</td>
+          <td>@syui.ai</td>
+          <td>Can be set up without setting up a server and it&rsquo;s shorter</td>
+      </tr>
+  </tbody>
+</table>
+<p>I particularly like the <code>at://</code> part. It&rsquo;s short, concise, and yet a meaningful name.</p>
+<h3 id="what-about-nostr">What about nostr?</h3>
+<p>To me, nostr seems like a more promising protocol than activitypub.</p>
+<p>However, if we&rsquo;re talking about whether it will spread or not, I predict that it won&rsquo;t spread that much.</p>
+<p>Bluesky and atproto have clear accountability, and it&rsquo;s easy to understand who&rsquo;s operating them. They&rsquo;re in an environment where spam can be eliminated. Conversely, in environments where this isn&rsquo;t clear, it&rsquo;s easy to become full of spam. I think such things are dealt with individually by relay server administrators, and there might be servers where spam doesn&rsquo;t come. But for ordinary people, it&rsquo;s incomprehensible. Even I would say, &ldquo;Where is that?&rdquo;</p>
+<p>This kind of nature is sometimes called lawlessness, disorder, irresponsible decentralization, and I think ordinary people wouldn&rsquo;t want to live there.</p>
+<p>It&rsquo;s not that difficult to create such places on the net. However, given the history of search engines becoming desolate, that didn&rsquo;t work well. That&rsquo;s why we need to consider what to do, how to create order, and how to maintain it. People have been thinking about this and seeking solutions for many years.</p>
+<p>I think many people are seeking well-balanced order.</p>
+<p>For example, a world where all individuals are independent, self-reliant, and can do anything by themselves. A world where all residents have stable minds, don&rsquo;t cause disputes or troubles, no one does bad things, and everyone lives doing everything by themselves. In such a world, it&rsquo;s strange to have rules, laws, administrators, or governments. Because such things are not necessary. At this stage, lawlessness is correct.</p>
+<p>But whether such things will become widespread at this stage now, I think it&rsquo;s difficult.</p>
+<h3 id="the-limits-of-names">The Limits of Names</h3>
+<p>Humans use names, not numbers, in any era. For example, programming languages are also things that convert names to numbers. This is because names are easier for humans to read and write. Therefore, names are important.</p>
+<p>Now, let&rsquo;s think about these names.</p>
+<p>I feel that the current internet has limitations with these names.</p>
+<p>The current internet completes information exchange only within services. For example, information exchange is completed only within Twitter, Facebook, YouTube, right? To make these interact with each other, they need to adopt the same protocol.</p>
+<p>My prediction was that in the future internet, services would be able to interact with each other.</p>
+<p>And here, I think we&rsquo;re heading towards that future for two reasons, one of which is that names have limitations.</p>
+<p>Names are being exhausted in each service, but there are many people who will be born and new companies that will be created. They are the future information trend. Growth can&rsquo;t be expected if they don&rsquo;t come in.</p>
+<p>However, new people can&rsquo;t use the names they want to use. Because those names are already taken. Then it&rsquo;s natural to go somewhere else.</p>
+<p>In other words, I think this problem will naturally move towards resolution. I predict it will become a <code>domain</code> format.</p>
+<p>In the future, the names people use will become domain format, because (1) names are being exhausted in each service, and (2) you can&rsquo;t interact outside the service unless you make the name a domain format. And I predict that in the future internet, it will become common to use multiple services with one account.</p>
+<h3 id="gravity-and-weak-force">Gravity and Weak Force</h3>
+<p>Araragi: &ldquo;Names don&rsquo;t matter at all.&rdquo;</p>
+<p>Oshino: &ldquo;No, names are important, Araragi-kun.&rdquo;</p>
+<p>Which of these two exchanges is correct?</p>
+<p>The answer is &ldquo;Both are correct.&rdquo;</p>
+<p>However, if I had to say, the former seeks immediacy and impact, while the latter seeks influence and environment.</p>
+<p>From here, I&rsquo;ll talk a bit about the natural world. Do you know what the weakest force in the natural world is?</p>
+<p>The answer is gravity.</p>
+<p>You might be surprised, but in current science, gravity is considered the weakest force in this world.</p>
+<p>However, you might think that gravity should be powerful enough to construct the current universe environment.</p>
+<p>That&rsquo;s right. In this world, weaker forces have greater influence and construct the environment. This is the law of nature, the principle of nature.</p>
+<p>Let&rsquo;s go back to thinking about names.</p>
+<p>Names don&rsquo;t have the power to change something instantly. They don&rsquo;t have immediacy or impact.</p>
+<p>However, they affect human consciousness and subconsciousness, shaping the environment over a long period of time. They have an effect similar to gravity.</p>
+<p>For example, human society is constructed by people&rsquo;s consciousness.</p>
+<h3 id="spreading">Spreading</h3>
+<p>For protocols, spreading to many people becomes the most important thing.</p>
+<p>This is not limited to protocols, but the more fundamental the technology, the more it becomes a game of who can spread it the most.</p>
+<p>The fundamental part is easy to understand if you think about it in terms of time.</p>
+<p>What people use the most time in a day, the answer is computers.</p>
+<p>Therefore, those who develop and provide the most widely used OS gain dominance.</p>
+<p>This is easy to understand if you think about market capitalization. Microsoft (Windows) and Apple (Mac/iOS).</p>
+<p>Recently, as AI consumes (reduces) enormous amounts of time, Nvidia (GPU) has gained a huge market capitalization.</p>
+<p>Looking at human history, spreading something has the most value.</p>
+<p>For example, spreading one&rsquo;s own story is called religion. The dollar as the key currency has great power. Language is the same. The influence of English is immeasurable.</p>
+<h3 id="similar-things-dont-spread">Similar Things Don&rsquo;t Spread</h3>
+<p>I often play a game called Genshin Impact.</p>
+<p>Should I make a game like Genshin Impact then? I don&rsquo;t think that&rsquo;s good. Even if you make something of the same or higher quality, I think it would be difficult. Why? Because Genshin Impact already exists.</p>
+<p>Recently, I&rsquo;ve been hooked on watching VTuber videos. However, I thought it would be difficult to start as a VTuber now. I feel that those who benefit as VTubers are those who have been working on it since the time when such a concept didn&rsquo;t exist, not those who are starting now.</p>
+<p>Even if you try to imitate or enter what&rsquo;s popular now, it&rsquo;s already too late. If you&rsquo;re going to do something, do something different.</p>
+<h3 id="what-do-people-find-fun">What do people find fun?</h3>
+<p>When I thought about what kind of game I should make, the answer was &ldquo;to entertain people&rdquo;.</p>
+<p>However, I think there is a limit to what I can do by myself to make a fun game.</p>
+<p>So what I need to think about are the people who are already &ldquo;entertaining people&rdquo;.</p>
+<p>If I can connect vtubers who entertain the viewers with games, I think I can spread the word about both the game and the person at the same time.</p>
+<p>And currently, it is difficult to become a vtuber, and there are too many things to do.</p>
+<p>For example, you need to prepare a 3D model, open a Twitter account, choose the game you want to play, set up a live environment, open a YouTube channel, and display your username, account, and model on the screen. You also need a voice environment, and you have to operate the game while talking and operate the live screen.</p>
+<p>I thought it would be nice to be able to integrate all of this.</p>
+<p>What do people find fun? Let&rsquo;s think about it from the basics again.</p>
+<p>In previous games, the player became the protagonist of the game and relived the story. That&rsquo;s the case with my favorite games. For example, in Genshin Impact, there are two main characters, Hotaru and Sora, and it is their story.</p>
+<p>But don&rsquo;t you think you want to play the story of the main character? What is it that players really want?</p>
+<p>There are already games that are designed in this direction, for example, there are games where you start by creating your own character and customizing the main character.</p>
+<p>But I don&rsquo;t play those kinds of games very often. I don&rsquo;t know how to customize, it&rsquo;s troublesome, and even if I customize it, it doesn&rsquo;t feel right. That&rsquo;s why I don&rsquo;t play many games of the &ldquo;make it yourself&rdquo; type. I prefer games like Genshin Impact where the characters are well-made from the beginning.</p>
+<p>After all, customization games are hard at first. I don&rsquo;t understand it well, and it&rsquo;s troublesome. I think the most important thing is to be able to start right away.</p>
+<p>So what about cases like this? For example, if Genshin Impact had a character designed by me and I could control it. I would definitely play it with joy. I think I would be able to become attached to that character. Voice actors also play Genshin Impact, and it was impressive to see them enjoying the characters that used their own voices.</p>
+<p>In other words, if more players can have this experience, the game will surely become more fun.</p>
+<p>What is needed to achieve this? One of them is uniqueness.</p>
+<h3 id="uniqueness-of-the-player">Uniqueness of the player</h3>
+<p>In this game, we aim to give each player uniqueness. In other words, we design the game to ensure the uniqueness of the player.</p>
+<p>How do we achieve this? I will tell you what I am thinking now.</p>
+<p>From here on, I will talk about more specific directions. If you are not interested, I recommend you skip this.</p>
+<ul>
+<li>Players are assigned one character</li>
+<li>The character that can be used is unique to the player. It has a unique skill that only that player can use</li>
+<li>There is one pickup period per character. Characters drawn by gacha cannot use unique skills</li>
+</ul>
+<p>One is given for each character, and when it reaches 0, it will not be picked up again.</p>
+<p>The reason is that I know developers well. If there are no restrictions, there is a risk of repeated reprints and remakes. Now we don&rsquo;t have time, so we can just reprint and remake.</p>
+<p>As we do this, we lose the ability to create new things. We have set rules so that if you want to play gacha, you have no choice but to make something new.</p>
+<p>The uniqueness of the player is an accumulation of <code>irreversible elements</code>.</p>
+<h2 id="lets-go-to-the-atmosphere">Let&rsquo;s go to the atmosphere</h2>
+<p>From here, we will introduce examples of the game&rsquo;s functions.</p>
+<!--
+<video src="" width="100%" height="500px"></video>
+-->
+<iframe
+width="100%" height="650"
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+src="https://www.youtube.com/embed/rJXC_sfnoBo"></iframe>
+<h3 id="about-characters">About characters</h3>
+<p>Each character is assigned one attribute. The assigned character has a group, and it transitions with each season. The attribute is different for each group. And it will not return to the previous season.</p>
+<p>The first group we plan to have is <code>fantasy</code>, followed by <code>animal</code>. Fantasy can handle one of the <code>atomic</code> attributes. Animal is one of the <code>molecular</code> attributes.</p>
+<p>For example, the character Dragon from Season 1 has the <code>atomic</code> attribute and is in the fantasy group. Other fantasy characters include the phoenix (proton) and pegasus (neutron). Animals include the whale (water) and lion (fire). The season you start the game in determines the character you are initially assigned to.</p>
+<table>
+  <thead>
+      <tr>
+          <th>season</th>
+          <th>group</th>
+          <th>type</th>
+          <th>character</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>fantasy</td>
+          <td>proton, neutron, nucleus, electron, quark</td>
+          <td>dragon, pegasus, phoenix&hellip;</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>animal</td>
+          <td>water, fire, rock, wind, ice</td>
+          <td>whale, lion, eagle&hellip;</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;atom&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;atom&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;group&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fantasy&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;原子&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/atom&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;the word atom comes from the greek word atmos, which means indivisible. an atom consists of an atomic nucleus, which is made up of protons and neutrons, and electrons distributed around the nucleus&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;アトムはギリシャ語のアトモスの「これ以上分割できない」という単語が由来。原子は陽子と中性子からなる原子核と、その周囲に分布する電子から構成される&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;proton(陽子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;neutron(中性子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;atomic(原子核)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;electron(電子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;quark(クォーク)&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;molecule&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;molecule&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;group&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;animal&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;分子&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/molecule&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;a neutrally charged substance made up of two or more atoms&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;2つ以上の原子から構成される電荷的に中性な物質&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;water(水)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;wind(風)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;rock(岩)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;ice(氷)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fire(火)&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Let&rsquo;s move on. Next, I&rsquo;ll explain about character evolution.</p>
+<p>Just as humans have evolved from single-celled organisms, I designed the characters to evolve as well.</p>
+<p>Each character can evolve to <code>model: animal -&gt; human -&gt; divinity</code>. In the game, you will be able to change forms to each model.</p>
+<ul>
+<li>animal -&gt; human -&gt; divinity</li>
+</ul>
+<p><img src="https://git.syui.ai/ai/ue/raw/branch/main/verse/img/shinka.png" alt=""></p>
+<h3 id="about-each-area">About each area</h3>
+<p>They are divided into ground, sky, and space. However, that doesn&rsquo;t mean you&rsquo;ll be able to fly around freely.</p>
+<p>I use eyes because they are convenient in development, but I don&rsquo;t think you&rsquo;ll be able to move around freely in the release version.</p>
+<p>Because the frequency of bugs will increase.</p>
+<p>To prevent bugs, we must limit the range and speed of freedom of movement. Also, the characters used in the demo are basically unusable because they have many development functions.</p>
+<p>However, it is possible. If it becomes stable, you may be able to go there.</p>
+<p>I introduced this part this time because I want you to know that there is an outside world.</p>
+<p>The starry sky you look up at is real, you can actually go there, and the world is expanding.</p>
+<h3 id="choices-should-come-first">Choices should come first</h3>
+<p>I am thinking of making the game into three elements: <code>choices</code>, <code>diagnosis</code>, and <code>fate</code>.</p>
+<ul>
+<li>choices -&gt; diagnosis -&gt; fate</li>
+</ul>
+<p>I think the choice element should come first. For example, if we apply this to the case of creating an account,</p>
+<ol>
+<li>
+<p>Select the gender of the character</p>
+</li>
+<li>
+<p>The character is decided from the diagnosis</p>
+</li>
+<li>
+<p>The status is assigned randomly, i.e. by fate (9:1)</p>
+</li>
+</ol>
+<p>There are many games where you choose your gender at the beginning, and I think this has an important meaning. One reason is that it makes the player understand that they have the right to choose the game.</p>
+<h3 id="blueprint-tips">blueprint tips</h3>
+<p>To post to <code>atproto</code> in <code>blueprint</code>, do the following. Use <code>Content-Type:x_www_from_urlencoded_url</code>.</p>
+<iframe src="https://blueprintue.com/render/4yf7viyt/" width="100%" height="400px"></iframe>
+<ul>
+<li>plugin : <a href="https://github.com/ufna/VaRest">varset</a></li>
+</ul>
+
+
+		
+
+	</div>
+
+</article>
+
+
+
+
+</div>
+		<div class="footer-link">
+	<span class="footer-link"><a href="https://bsky.syui.ai" target="_blank"><i class="fab fa-bluesky"></i></a></span>
+		<span class="footer-link"><a href="https://card.syui.ai/syui" target="_blank"><span class="icon-ai"></span></a></span>
+	<span class="footer-link"><a href="https://git.syui.ai/syui" target="_blank"><span class="icon-git"></span></a></span>
+</div>
+
+<script src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>
