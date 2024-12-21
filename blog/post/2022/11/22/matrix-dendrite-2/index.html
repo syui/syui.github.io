@@ -159,7 +159,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">global</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">server_name</span>: <span style="color:#ae81ff">xxx.fly.dev</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#well_known_server_name: &#34;syui.cf:443&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#well_known_server_name: &#34;syui.ai:443&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">private_key</span>: <span style="color:#ae81ff">/etc/dendrite/matrix_key.pem</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">key_validity_period</span>: <span style="color:#ae81ff">168h0m0s</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">trusted_third_party_id_servers</span>:
@@ -602,7 +602,7 @@
 <p>様々な問題を解決してもpanic(golang)で動かないことがあります。これは、fly.ioのcpu, memoryの問題っぽい気がしますが、planをupgradeすれば解決するかもしれません。</p>
 <h4 id="遅い">遅い</h4>
 <p>遅い、とにかく遅い&hellip;。</p>
-<p>matrix.orgとsyui.cfでやり取りしてみたのですが、非常に遅かったので、今後、高速化をやっていきたいのですが、fly.ioのplanを上げるしかないのか、あるいは、dendrite-configとかでなんとかなるものなのか、わかりません。</p>
+<p>matrix.orgとsyui.aiでやり取りしてみたのですが、非常に遅かったので、今後、高速化をやっていきたいのですが、fly.ioのplanを上げるしかないのか、あるいは、dendrite-configとかでなんとかなるものなのか、わかりません。</p>
 <p><img src="https://raw.githubusercontent.com/syui/img/master/other/matrix-server-origin_0003.png" alt=""></p>
 <h3 id="注釈">注釈</h3>
 <p>正確には、matrixはprotocolで、dendriteがserver、elementがclientです。</p>

@@ -130,7 +130,7 @@
 </span></span></code></pre></div><blockquote>
 <p>config.toml</p>
 </blockquote>
-<pre tabindex="0"><code>baseurl = &#34;https://amp.syui.cf/&#34;
+<pre tabindex="0"><code>baseurl = &#34;https://amp.syui.ai/&#34;
 languageCode = &#34;en-us&#34;
 title = &#34;MBA-HACK3 AMP&#34;
 theme = &#34;gohugo-amp&#34;
@@ -154,14 +154,14 @@ enableRobotsTXT = true
     #ampManifest = &#34;/amp-manifest.json&#34; # required if you want to add the app-banner feature
     
     alternatePageName = &#34;HUGO AMP&#34; # alternative name for website structured data
-    organisationLogo = &#34;https://amp.syui.cf/favicon.png&#34; # set organisation logo for structured data
-    organisationName = &#34;syui.cf&#34; # set organisation name
+    organisationLogo = &#34;https://amp.syui.ai/favicon.png&#34; # set organisation logo for structured data
+    organisationName = &#34;syui.ai&#34; # set organisation name
     organisationAddress = &#34;Some Street 123, 12345 City&#34; # set organisation address
 
     socialProfiles = [&#34;http://www.facebook.com/your-profile&#34;,&#34;http://instagram.com/yourProfile&#34;,&#34;http://www.linkedin.com/in/yourprofile&#34;,&#34;http://plus.google.com/your_profile&#34;]  # for sameAs in organisation&#39;s structured data
     
-    publisherName = &#34;syui.cf&#34; # publisher used in article schema
-    publisherLogo = &#34;https://amp.syui.cf/favicon.png&#34; # https://developers.google.com/search/docs/data-types/articles#logo-guidelines
+    publisherName = &#34;syui.ai&#34; # publisher used in article schema
+    publisherLogo = &#34;https://amp.syui.ai/favicon.png&#34; # https://developers.google.com/search/docs/data-types/articles#logo-guidelines
     publisherLogoWidth = 600 # logo width
     publisherLogoHeight = 60 # logo height
 
@@ -171,7 +171,7 @@ enableRobotsTXT = true
 [permalinks]
     post = &#34;/:year/:month/:day/:slug&#34;
 </code></pre><p><a href="https://cdn.ampproject.org/">https://cdn.ampproject.org/</a>/v0 以下にjsがあります。</p>
-<p><code>cloudflare.com</code>で<code>CNAME amp syui.cf</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p>
+<p><code>cloudflare.com</code>で<code>CNAME amp syui.ai</code>を設定。<code>https://syui.gitlab.io/amp</code>、つまり、<code>gitlab.com/$user/$project</code>にテンプレートをアップロードします。</p>
 <p>もしcloudflareなどを使わずにカスタムドメインを設定していなければアドレスは<code>syui.gitlab.io/amp/</code>以下になります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitlab-ci.yml" data-lang=".gitlab-ci.yml"><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">publysher/hugo</span>
 </span></span><span style="display:flex;"><span>
@@ -184,11 +184,11 @@ enableRobotsTXT = true
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">only</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">master</span>
 </span></span></code></pre></div><p><code>content/post</code>はまるごとコピーしておきましょう。</p>
-<p>これで<code>amp.syui.cf</code>がampのコンテンツアドレスになります。したがって、<a href="https://syui.cf/2016/10/26/web-app/">https://syui.cf/2016/10/26/web-app/</a> = <a href="https://amp.syui.cf/2016/10/26/web-app/">https://amp.syui.cf/2016/10/26/web-app/</a>です。</p>
+<p>これで<code>amp.syui.ai</code>がampのコンテンツアドレスになります。したがって、<a href="https://syui.ai/2016/10/26/web-app/">https://syui.ai/2016/10/26/web-app/</a> = <a href="https://amp.syui.ai/2016/10/26/web-app/">https://amp.syui.ai/2016/10/26/web-app/</a>です。</p>
 <p><code>post = &quot;/:year/:month/:day/:slug&quot;</code>は2つの<code>config.toml</code>で一致させます。本来なら<code>post = &quot;/post/:slug&quot;</code>などのpermlinkを設定したかったのですが、コメントシステムの対応が面倒だったので、日付を入れることにしました。</p>
 <p>あと、ちょっと気になったのはAnalyticsを設定してないと文字が表示されてしまうことでした。したがって、<code>themes/gohugo-amp/layouts/partials/amp/google-analytics.html</code>を編集。</p>
 <p>検証は<code>npm i amphtml-validator -g</code>で行います。または、<a href="https://validator.ampproject.org/">https://validator.ampproject.org/</a>です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ amphtml-validator https://amp.syui.cf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ amphtml-validator https://amp.syui.ai
 </span></span><span style="display:flex;"><span>The tag <span style="color:#e6db74">&#39;img&#39;</span> may only appear as a descendant of tag <span style="color:#e6db74">&#39;noscript&#39;</span>. Did you mean <span style="color:#e6db74">&#39;amp-img&#39;</span>?
 </span></span></code></pre></div><p>どうやら<code>![](/favicon.png)</code>などの記述では問題がでるようです。</p>
 

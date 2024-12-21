@@ -121,7 +121,7 @@
 		<h2>cloudflare mailとmailgun</h2>
 
 		<p>mailは全く使ってなくて、spam-mailに分類されてそのまま見ないこともあるため、個人的に、やり取りするには不確実性が高いものになってます。</p>
-<p>私は、gmailをベースにmailgunで<code>address(syui@syui.cf)</code>に転送していました。</p>
+<p>私は、gmailをベースにmailgunで<code>address(syui@syui.ai)</code>に転送していました。</p>
 <p>ただ、2022.1.16あたりからroutingが動いてないことに気づき、mailgun-logを見る限りでは単なるmailgun側の障害だったようですが、その時に送信ができなくなってることに気づきました。(送信自体は全くしないので)</p>
 <p>具体的には、gmailにmailgunのsmtp serverを適用していました。これによって指定のaddressを送信元と表示することができます。</p>
 <p>結論から言うと、mailgunが<code>plan:free -&gt; plan:flex</code>に移行し、昔からのユーザーは、発行しているsmtp serverが裏で動かない状態でした。</p>

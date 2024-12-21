@@ -170,7 +170,7 @@ VOLUME [&#34;/data&#34;]
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>: <span style="color:#ae81ff">./Dockerfile</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">run</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">web</span>: <span style="color:#ae81ff">gitea web -p $PORT</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#web: echo RUN_USER=$USER &gt;&gt; /data/gitea/conf/app.ini; echo &#34;[server]\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.cf:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#web: echo RUN_USER=$USER &gt;&gt; /data/gitea/conf/app.ini; echo &#34;[server]\nHTTP_PORT=$PORT\nROOT_URL=https://git.syui.ai:$PORT&#34; &gt;&gt; /data/gitea/conf/app.ini ;gitea web -p $PORT -c /data/gitea/conf/app.ini</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:gitea/conf/app.ini" data-lang="yml:gitea/conf/app.ini"><span style="display:flex;"><span><span style="color:#66d9ef">[database]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DB_TYPE</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">postgres</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">HOST</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">aws.amazonaws.com:5432</span>

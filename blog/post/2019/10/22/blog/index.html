@@ -121,12 +121,12 @@
 		<h2>blogを統合してみた</h2>
 
 		<p>ホームページをりにゅーあるしたついでに、ブログを統合しました。前はブログしか更新してなくて不便はなかったのですが、ホームページも更新するようになると徐々に分けてpushするの面倒になってきたので。</p>
-<p>urlは、<code>https://syui.cf/blog</code>になります。hugoて、xmlをcontent/以下のディレクトリでも生成してくれるぽいので、ブログのrssとかは/blog/index.xmlから取ってもらえればと思います。</p>
-<p>しばらくの間は、過去urlであるblog.syui.cfとかlog.syui.cfとかは、cloudflareでリダイレクトしてますが、それほど長い期間は対応しないと思います。対応した内容を書いておきます。</p>
+<p>urlは、<code>https://syui.ai/blog</code>になります。hugoて、xmlをcontent/以下のディレクトリでも生成してくれるぽいので、ブログのrssとかは/blog/index.xmlから取ってもらえればと思います。</p>
+<p>しばらくの間は、過去urlであるblog.syui.aiとかlog.syui.aiとかは、cloudflareでリダイレクトしてますが、それほど長い期間は対応しないと思います。対応した内容を書いておきます。</p>
 <pre tabindex="0"><code># cloudflare
 CNAME log syui.gitlab.io
 CNAME blog syui.gitlab.io
-Redirect *log.syui.cf/* 301 https://syui.cf/blog
+Redirect *log.syui.ai/* 301 https://syui.ai/blog
 </code></pre><p><code>$ mkdir -p content/{blog,log}</code>します。そして、githubではdomain設定は新しいリポジトリ作らなければならないので、gitlabのほうでリポジトリを作って、<code>pages -&gt; domain</code>を設定します。gitlab-pagesの場合、複数のcnameが設定できるので便利。</p>
 
 

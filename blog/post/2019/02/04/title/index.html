@@ -127,27 +127,27 @@
 <p>今のタイトルにこれだ感がありますので。スペースもなければ、ドットもない。スペースはよくないですし、ドットはドメインとの区別がつきにくいので問題でした。また、ハイフンとかも基本、良くないですよね。</p>
 <p>piyologを参考にしました。piyologoを見た時、タイトルはこの方式が正解だって思いました。piyologは偉大。</p>
 <p>cnameも追加しました。</p>
-<p><a href="https://log.syui.cf">https://log.syui.cf</a></p>
-<p><a href="https://blog.syui.cf">https://blog.syui.cf</a></p>
+<p><a href="https://log.syui.ai">https://log.syui.ai</a></p>
+<p><a href="https://blog.syui.ai">https://blog.syui.ai</a></p>
 <p><a href="https://syui.gitlab.io/blog">https://syui.gitlab.io/blog</a></p>
 <p>しかし、元のリポジトリが、blogというのがちょっと不満ですが、割とどうしようもない。そちらをリダイレクトページにすればいいんですけど、良くないので、やりません。</p>
 <h2 id="変化の過程">変化の過程</h2>
 <p>タイトルの変化過程を一応、記録しときます。心境も同時に。</p>
-<p>昔はですね、例えば、ドメインがblog.syui.cfなら、ドットの前後を反転させるのが正解だって思っていました。だって、シンプルですし、めんどくさくないですしね(ルールが明白という意味で)。そんな考え方でした。</p>
+<p>昔はですね、例えば、ドメインがblog.syui.aiなら、ドットの前後を反転させるのが正解だって思っていました。だって、シンプルですし、めんどくさくないですしね(ルールが明白という意味で)。そんな考え方でした。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>↓    ↓
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>blog.syui.cf <span style="color:#f92672">=</span> syui.blog
+</span></span><span style="display:flex;"><span>blog.syui.ai <span style="color:#f92672">=</span> syui.blog
 </span></span></code></pre></div><p>しかし、上記は見た目はたしかにいいのですが、これではドメインとの区別がつきにくくてダメでした。実は、昔からこの問題点は把握していたのですが、見た目と簡潔さを重視していました。しかし、考え方が変わりました。ブラウザのアドレスバーから検索しやすくないとやっぱりダメですよね。</p>
 <p>次に、ドメインをそのままというのも考えました。しかし、サブドメインの場合は、ドットが2つもあるので、覚えにくいのでダメだと思いました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.cf <span style="color:#f92672">=</span> blog.syui.cf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.ai <span style="color:#f92672">=</span> blog.syui.ai
 </span></span></code></pre></div><p>これがメインドメインなら、ありだと思いますし、いいと思います。けど、blogはサブでやってますしね。ダメです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>syui.cf <span style="color:#f92672">=</span> syui.cf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>syui.ai <span style="color:#f92672">=</span> syui.ai
 </span></span></code></pre></div><p>次は、スペースでやってみました。上記のような区別問題もないですし、見た目もわかりやすいですが、スペース自体が好きではなかったのです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.cf <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;syui blog&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.ai <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;syui blog&#34;</span>
 </span></span></code></pre></div><p>そこで、ドット前後を反転した上で、単純にドットを消すのが正解かなって思いました。今思いましたね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.cf <span style="color:#f92672">=</span> syuiblog
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>blog.syui.ai <span style="color:#f92672">=</span> syuiblog
 </span></span></code></pre></div><p>しかし、8文字って多いですよね。7文字くらいに減らしたいところです。しかも、元ネタもありますし、blogをlogにすることにしました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>log.syui.cf <span style="color:#f92672">=</span> syuilog
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>log.syui.ai <span style="color:#f92672">=</span> syuilog
 </span></span></code></pre></div><p>限りなくめんどくさくないルールで、かつ間違いが起こりにくい方式で行きたいです。サブドメインなら、シンプルに単語を連結させるのが正解でした。そう思います。</p>
 <p>ついでにbaseurlもセットしておくことにしました。今までは、実は確実性を期して、セットしていなかったのですけど、流石に、やはりタイトルがlogなのに、blogリポジトリ<code>syui.gitlab.io/blog</code>は変ですしね。</p>
 <p>以上</p>

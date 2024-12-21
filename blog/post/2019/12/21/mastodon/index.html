@@ -148,7 +148,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        mkdir -p ~/.config/twg
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        cat .config/twg/user.json| jq &#34;.|=. + {\&#34;Token\&#34;:\&#34;${{ secrets.TWITTER_TOKEN }}\&#34;,\&#34;Secret\&#34;:\&#34;${{ secrets.TWITTER_SECRET }}\&#34;}&#34; &gt; t
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        mv t ~/.config/twg/user.json
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        url=https://mstdn.syui.cf/api/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        url=https://mstdn.syui.ai/api/v1
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        j=mastodon.json
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        user_id=1
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        url=&#34;$url/accounts/$user_id/statuses?limit=40&#34;

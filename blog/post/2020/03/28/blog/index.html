@@ -185,8 +185,8 @@
 <p>その後、GitLabの方で非公開が解除されたのですが、なんだったのかよくわからなかったので、その後、GitLabに戻ることはありませんでした。そのような経緯で、それ以降は、GitHub Pagesを使っています。</p>
 <p>ただ、GitHubはCI連携がデフォルトではなかったため、通常は、ビルドしたものをリポジトリにpushしなければ更新できません。したがって、Travis CIを回してページのビルド、デプロイを自動化してましたが、GitHub Actionsが登場したので、今はそちらに移行しています。</p>
 <h3 id="gitlab-pagesを使った複数ドメインを利用するハック">GitLab Pagesを使った複数ドメインを利用するハック</h3>
-<p>例えば、<code>blog.syui.cf</code>と<code>log.syui.cf</code>というドメインを<code>syui.github.io/blog</code>に飛ばしたいとしましょう。この場合、GitHub Pagesは一つのページに一つしかドメインを指定することができないので難しい。</p>
-<p>そこで、GitLab Pagesで２つのドメインを登録した上で、CloudFlareなどのリダイレクトをGitHub Pagesへ走らせることで、<code>blog.syui.cf</code>と<code>log.syui.cf</code>を目的の場所に飛ばすことができます。</p>
+<p>例えば、<code>blog.syui.ai</code>と<code>log.syui.ai</code>というドメインを<code>syui.github.io/blog</code>に飛ばしたいとしましょう。この場合、GitHub Pagesは一つのページに一つしかドメインを指定することができないので難しい。</p>
+<p>そこで、GitLab Pagesで２つのドメインを登録した上で、CloudFlareなどのリダイレクトをGitHub Pagesへ走らせることで、<code>blog.syui.ai</code>と<code>log.syui.ai</code>を目的の場所に飛ばすことができます。</p>
 <pre tabindex="0"><code>CNAME : gitlab pages
 
 ↓
