@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/post/2024/12/21/account/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/blog/post/2024/12/21/bluesky-ac-ja/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,6 +12,9 @@
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/atproto/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/author/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/</loc>
@@ -24,6 +30,9 @@
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/langja/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/syui/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
@@ -2410,9 +2419,6 @@
   </url><url>
     <loc>https://syui.ai/blog/post/2020/01/02/game/</loc>
     <lastmod>2020-01-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/author/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2020/01/01/first/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>

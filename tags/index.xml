@@ -17,6 +17,13 @@
       <description></description>
     </item>
     <item>
+      <title>Author</title>
+      <link>https://syui.ai/tags/author/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/author/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Bluesky</title>
       <link>https://syui.ai/tags/bluesky/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
@@ -35,6 +42,13 @@
       <link>https://syui.ai/tags/langja/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/langja/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Syui</title>
+      <link>https://syui.ai/tags/syui/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/syui/</guid>
       <description></description>
     </item>
     <item>
@@ -910,13 +924,6 @@
       <link>https://syui.ai/tags/dotfiles/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/dotfiles/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Author</title>
-      <link>https://syui.ai/tags/author/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/author/</guid>
       <description></description>
     </item>
   </channel>
