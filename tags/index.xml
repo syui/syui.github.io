@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ue</title>
+      <link>https://syui.ai/tags/ue/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/ue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Genshin</title>
+      <link>https://syui.ai/tags/genshin/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/genshin/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Atproto</title>
       <link>https://syui.ai/tags/atproto/</link>
@@ -31,13 +45,6 @@
       <description></description>
     </item>
     <item>
-      <title>Genshin</title>
-      <link>https://syui.ai/tags/genshin/</link>
-      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/genshin/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Lang:en</title>
       <link>https://syui.ai/tags/langen/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
@@ -56,13 +63,6 @@
       <link>https://syui.ai/tags/syui/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/syui/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ue</title>
-      <link>https://syui.ai/tags/ue/</link>
-      <pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://syui.ai/tags/ue/</guid>
       <description></description>
     </item>
     <item>

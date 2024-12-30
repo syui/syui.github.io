@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.139.2">
-		<title>syui.ai</title>
+		<title>ue5.5.1でps5 controllerを使う | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="syui" />
-		<meta name="keywords" content="syui" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@syui__" />
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="syui.ai" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="ue5.5.1でps5 controllerを使う" />
 		<meta property="og:locale" content="ja_JP" />
-		<meta property="og:description" content="© syui" />
+		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.ai//og.png" />
-		<meta property="og:url" content="https://syui.ai/" />
+		<meta property="og:url" content="https://syui.ai/blog/post/2024/12/29/ue-ps5/" />
 		<meta property="og:site_name" content="syui.ai" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
-		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="/css/terminal.css" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
 		<link rel="stylesheet" href="/css/nav.css" />
 		<link rel="stylesheet" href="/css/svg.css" />
-
-		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
 		<script type="application/ld+json">
 			{
-			  "@context": "http://schema.org",
-			  "@type": "WebSite",
+				"@context": "http://schema.org",
+					"@type": "WebSite",
 					"name": "syui.ai",
-					"url": "https://syui.ai"
+					"url": "https:\/\/syui.ai\/"
 			}
 		</script>
 
-		<link rel="alternate" type="application/json" href="https://syui.ai/index.json" title="syui.ai" />
-		</head>
+		<link rel="stylesheet" href="https://syui.ai//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.ai//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -66,7 +68,7 @@
 		<header id="header">
 			
 			<div class="logo">
-				<a href="/"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
   <circle class="explosion" r="150" cx="250" cy="250"></circle>
   <g class="particleLayer">
     <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
@@ -91,129 +93,86 @@
 
 </svg>
 </a>
-				<div id="aiterm" style="display:none;">
-	<link rel="stylesheet" href="https://term.syui.ai/term/pkg/jquery.terminal/css/jquery.terminal.css" />
-	<link rel="stylesheet" href="https://term.syui.ai/term/css/terminal.css" />
-	<script src="https://term.syui.ai/term/pkg/axios/dist/axios.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/jquery.terminal/js/jquery.terminal.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/jquery.terminal/js/jquery.mousewheel-min.js"></script>
-	<script src="https://term.syui.ai/term/js/terminal.js"></script>
-	<app></app>
-	<script src="https://term.syui.ai/term/js/bundle.js"></script>
-	<script src="https://term.syui.ai/term/pkg/hotkeys-js/dist/hotkeys.min.js"></script>
-	<script src="https://term.syui.ai/term/pkg/hotkeys-js/dist/terminal.js"></script>
-	
-</div>
-
 			</div>
 			
 		</header>
 
-<div class="top-sns-header">
-	<a href="/sitemap/"><i class="far fa-question-circle"></i></a>
-</div>
-<blockquote class="ai">
-	<p>
-	<div class="top-link">
-		<a href="https://yui.syui.ai"><span class="icon-ai"></span></a>
-	</div>
-	</p>
-</blockquote>
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-12-29 / <a href="https://bsky.syui.ai">@syui</a>
 
-
-<div class="content-top">
-
-	<div id="blog-archives" class="category">
-		<ul class="cp_list">
-			
-			<li>
-				
-				2024-12-29<p><a id="fmove" href="https://syui.ai/blog/post/2024/12/29/ue-ps5/" class="lmove">ue5.5.1でps5 controllerを使う</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-12-22<p><a href="https://syui.ai/blog/post/2024/12/22/genshin/" class="lmove">原神、確保キャラを考える</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-12-21<p><a href="https://syui.ai/blog/post/2024/12/21/genshin/" class="lmove">原神、スカークはナタで実装</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-12-21<p><a href="https://syui.ai/blog/post/2024/12/21/bluesky-ac-ja/" class="lmove">atmosphere</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-12-21<p><a href="https://syui.ai/blog/post/2024/12/21/account/" class="lmove">accountを整理する</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-11-19<p><a href="https://syui.ai/blog/post/2024/11/19/ue55/" class="lmove">ue5.5で作り直す</a></p>
-				
-			</li>
-			
-			<li>
-				
-				2024-10-29<p><a href="https://syui.ai/blog/post/2024/10/29/archlinux/" class="lmove">macbook air(intel)にarchlinuxをinstallした</a></p>
-				
-			</li>
-			
-			<li><p style="text-align:center;"><a href="/blog/" class="lmove"><i class="fas fa-bars"></i></a></p></li>
-
-		</ul>
-	</div>
-</div>
-
-<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
-<script type="text/javascript" src="/bower_components/cal-heatmap/cal-heatmap.min.js"></script>
-<link rel="stylesheet" href="/bower_components/cal-heatmap/cal-heatmap.css" />
-<div id="example-b"></div>
-<script type="text/javascript">
-	var currentTime = new Date();
-	var year = currentTime.getFullYear()
-	var cal = new CalHeatMap();
-	cal.init({
-			itemSelector: "#example-b",
-			domain: "month",
-			data: "/json/cal.json",
-			start: new Date(year, 0),
-			cellSize: 9,
-			range: 13,
-	legendColors: ["#f0e68c", "red"],
-			previousSelector: "#example-b-PreviousDomain-selector",
-			nextSelector: "#example-b-NextDomain-selector",
-			legend: [2, 4, 6, 8],
-		});
-</script>
-<style>
-div#example-b{
-	margin-right: auto;
-	margin-left: auto;
-}
-.cal-heatmap-container {
-	width: 100%;
-}
-</style>
-
-<div class="sns-link">
-	<p><i class="fab fa-github"></i> <a href="https://github.com/syui/" target="_blank">@syui</a></p>
-	<p><span class="icon-git"></span> <a href="https://git.syui.ai/ai" target="_blank">@ai</a></p>
-	<p><i class="fa-brands fa-bluesky"></i> <a href="https://bsky.app/profile/syui.ai" target="_blank" class="bluesky-icon">@syui.ai</a></p>
-	
-</div>
-
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.ai/tags/ue/">ue</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/ue">ue</a></p>
+		
 		</div>
 
+		<h2>ue5.5.1でps5 controllerを使う</h2>
+
+		<p>基本的には<code>Game Input for Windows</code>というpluginを使います。しかし、問題は動かないことです。</p>
+<ul>
+<li><a href="https://dev.epicgames.com/community/learning/tutorials/EpZ4/unreal-engine-game-input-for-windows-experimental-release-notes">https://dev.epicgames.com/community/learning/tutorials/EpZ4/unreal-engine-game-input-for-windows-experimental-release-notes</a></li>
+<li><a href="https://forums.unrealengine.com/t/tutorial-game-input-for-windows-experimental-release-notes/1763696">https://forums.unrealengine.com/t/tutorial-game-input-for-windows-experimental-release-notes/1763696</a></li>
+</ul>
+<blockquote>
+<p>GAME_INPUT_SUPPORT is false!</p>
+</blockquote>
+<p>なぜかというと、<code>GDK</code>をインストールしたうえで、<code>Microsoft.GameInput</code>をインストールしなければならず、かつ、GDKはEngineをbuildしないとpathを認識しないからです。この際、念の為にprojectの<code>sln</code>もrebuildしましょう。</p>
+<blockquote>
+<p>As of the March 2024 GDK release, the GDK installer no longer installs the GameInput libraries.</p>
+<p>If you’re targeting PC, add the Microsoft.GameInput NuGet package (NuGet Gallery | Microsoft.GameInput 0.2303.22621.3038) to your solution. Run the NuGet package’s GameInput redistributable MSI to ensure that you have the latest runtime. Although the runtime is included in Windows May 2020 Updates and later, running the MSI will ensure that you have the latest version.
+Include this redistributable in game installers to ensure that GameInput is available on all supported versions of Windows.&quot;</p>
+</blockquote>
+<p>ue5をsrcからbuildする方法です。</p>
+<ul>
+<li><a href="https://dev.epicgames.com/documentation/ja-jp/unreal-engine/building-unreal-engine-from-source">https://dev.epicgames.com/documentation/ja-jp/unreal-engine/building-unreal-engine-from-source</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/epicGames/UnrealEngine
+</span></span><span style="display:flex;"><span>$ cd UnrealEngine
+</span></span><span style="display:flex;"><span>$ ./Setup.bat
+</span></span><span style="display:flex;"><span>$ ./GenerateProjectFiles.bat
+</span></span><span style="display:flex;"><span>$ open UE5.sln
+</span></span></code></pre></div><p>ここで<code>Engine/UE5</code>をbuildします。dlとbuildにはかなり時間がかかります。容量も膨大に必要になるため注意しましょう。</p>
+<p>buildが終了すると、実行ファイルは<code>/Engine/Binaries/Win64/UnrealEditor.exe</code>にあります。</p>
+<p>GASのprojectで試してみます。logを見てみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>LogPluginManager: Mounting Engine plugin GameInputWindows
+</span></span><span style="display:flex;"><span>LogPluginManager: Mounting Engine plugin GameInput
+</span></span><span style="display:flex;"><span>LogConfig: Branch <span style="color:#e6db74">&#39;GameInputWindows&#39;</span> had been unloaded. Reloading on-demand took 0.16ms
+</span></span><span style="display:flex;"><span>LogConfig: Branch <span style="color:#e6db74">&#39;GameInput&#39;</span> had been unloaded. Reloading on-demand took 0.15ms
+</span></span><span style="display:flex;"><span>LogGameInput: GameInputBase module startup...
+</span></span><span style="display:flex;"><span>LogGameInput: <span style="color:#f92672">[</span>FGameInputBaseModule::StartupModule<span style="color:#f92672">]</span> Successfully created the IGameInput interface
+</span></span><span style="display:flex;"><span>LogGameProjectGeneration: Project GameAnimationSample requires update. Plugin GameInputWindows SupportedTargetPlatforms value in project descriptor <span style="color:#f92672">(</span>Win64, WinGDK<span style="color:#f92672">)</span> differs from value in plugin descriptor <span style="color:#f92672">(</span>Win64<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>LogGameInput: Registering Device Callback <span style="color:#66d9ef">for</span> GameInputKind: <span style="color:#e6db74">&#39;Unknown&#39;</span>. Listening <span style="color:#66d9ef">for</span> Device Status: <span style="color:#e6db74">&#39;Connected&#39;</span>.
+</span></span></code></pre></div><p>接続はできているみたいです。これでps5 controllerは動かせるようになりました。しかし、バグがあるみたいでコントロールできません。</p>
+
+
+		
+
+	</div>
+
+</article>
+
+
+
+
+</div>
 		<div class="footer-link">
 	<span class="footer-link"><a href="https://bsky.syui.ai" target="_blank"><i class="fab fa-bluesky"></i></a></span>
 		<span class="footer-link"><a href="https://card.syui.ai/syui" target="_blank"><span class="icon-ai"></span></a></span>
@@ -223,7 +182,6 @@ div#example-b{
 <script src="/js/svg.js"></script>
 <script src="/js/highlight-filename.js"></script>
 <footer id="footer">© syui</footer>
-
 
 	</body>
 </html>

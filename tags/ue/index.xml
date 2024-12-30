@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Tue, 19 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/ue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ue5.5.1でps5 controllerを使う</title>
+      <link>https://syui.ai/blog/post/2024/12/29/ue-ps5/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2024/12/29/ue-ps5/</guid>
+      <description>&lt;p&gt;基本的には&lt;code&gt;Game Input for Windows&lt;/code&gt;というpluginを使います。しかし、問題は動かないことです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dev.epicgames.com/community/learning/tutorials/EpZ4/unreal-engine-game-input-for-windows-experimental-release-notes&#34;&gt;https://dev.epicgames.com/community/learning/tutorials/EpZ4/unreal-engine-game-input-for-windows-experimental-release-notes&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://forums.unrealengine.com/t/tutorial-game-input-for-windows-experimental-release-notes/1763696&#34;&gt;https://forums.unrealengine.com/t/tutorial-game-input-for-windows-experimental-release-notes/1763696&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;GAME_INPUT_SUPPORT is false!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;なぜかというと、&lt;code&gt;GDK&lt;/code&gt;をインストールしたうえで、&lt;code&gt;Microsoft.GameInput&lt;/code&gt;をインストールしなければならず、かつ、GDKはEngineをbuildしないとpathを認識しないからです。この際、念の為にprojectの&lt;code&gt;sln&lt;/code&gt;もrebuildしましょう。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;As of the March 2024 GDK release, the GDK installer no longer installs the GameInput libraries.&lt;/p&gt;&#xA;&lt;p&gt;If you’re targeting PC, add the Microsoft.GameInput NuGet package (NuGet Gallery | Microsoft.GameInput 0.2303.22621.3038) to your solution. Run the NuGet package’s GameInput redistributable MSI to ensure that you have the latest runtime. Although the runtime is included in Windows May 2020 Updates and later, running the MSI will ensure that you have the latest version.&#xA;Include this redistributable in game installers to ensure that GameInput is available on all supported versions of Windows.&amp;quot;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>ue5.5で作り直す</title>
       <link>https://syui.ai/blog/post/2024/11/19/ue55/</link>

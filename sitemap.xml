@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://syui.ai/blog/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ue/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/12/29/ue-ps5/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/genshin/</loc>
+    <lastmod>2024-12-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2024/12/22/genshin/</loc>
+    <lastmod>2024-12-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://syui.ai/blog/post/2024/12/21/account/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
@@ -17,16 +38,10 @@
     <loc>https://syui.ai/tags/author/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/blog/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/tags/bluesky/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/en/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/genshin/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/langen/</loc>
@@ -38,17 +53,8 @@
     <loc>https://syui.ai/tags/syui/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://syui.ai/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://syui.ai/blog/post/2024/12/21/genshin/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/ue/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2024/11/19/ue55/</loc>
     <lastmod>2024-11-19T00:00:00+00:00</lastmod>
