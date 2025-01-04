@@ -15,13 +15,6 @@
 		<a href="{{ .Permalink }}">{{ $director }}</a>
 		{{ $s := path.Dir (.Permalink | relURL) }}
 		{{ $dirFile := path.Split $s }}
-		{{ $dirPath := print "/m/genshin/" $dirFile.File ".md"}}
-		{{ $dirCheck := os.FileExists $dirPath }}
-		{{ if os.FileExists $dirPath }}
-		{{ $.Scratch.Set "check" $dirCheck }}
-		{{ $.Scratch.Set "path" $dirPath }}
-		{{ $.Scratch.Set "name" $dirFile.File }}
-		{{ end }}
 		{{ $dirPath := print "/m/" $dirFile.File ".md"}}
 		{{ $dirPathFix := print "/m/post/" $dirFile.File }}
 		{{ $dirCheck := os.FileExists $dirPath }}

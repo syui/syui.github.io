@@ -1,7 +1,7 @@
 +++
 date = "2021-12-25"
-lastmod = "2023-12-01"
-tags = ["genshin","game"]
+lastmod = "2025-01-01"
+tags = ["genshin", "m"]
 title = "genshin"
 slug = "genshin"
 aliases = "/m/post/genshin"
