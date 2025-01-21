@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ue5.4にupdateすることにした | syui.ai</title>
+		<title>ue5のpixel streaming2に移行する | syui.ai</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="syui" />
 		<meta name="copyright" content="© syui" />
@@ -13,11 +13,11 @@
 		<meta name="robots" content="all" />
 		<meta name="googlebot" content="all" />
 		<meta property="og:type" content="blog" />
-		<meta property="og:title" content="ue5.4にupdateすることにした" />
+		<meta property="og:title" content="ue5のpixel streaming2に移行する" />
 		<meta property="og:locale" content="ja_JP" />
 		<meta property="og:description" content="syui blog" />
 		<meta property="og:image" content="https://syui.ai//og.png" />
-		<meta property="og:url" content="https://syui.ai/blog/post/2024/06/20/ue-game-animation/" />
+		<meta property="og:url" content="https://syui.ai/blog/post/2025/01/21/pixelstreaming/" />
 		<meta property="og:site_name" content="syui.ai" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -100,7 +100,7 @@
 <article>
 	<div class="content">
 		
-		<div class="post-time-date">2024-06-20 / <a href="https://bsky.syui.ai">@syui</a>
+		<div class="post-time-date">2025-01-21 / <a href="https://bsky.syui.ai">@syui</a>
 
 		
 		
@@ -127,58 +127,38 @@
 		
 		</div>
 
-		<h2>ue5.4にupdateすることにした</h2>
+		<h2>ue5のpixel streaming2に移行する</h2>
 
-		<h2 id="前提">前提</h2>
+		<p>ue5のplugin(server)のpixel streaming2ですが、情報がどこにもないので移行方法を書きます。</p>
 <ul>
-<li><a href="https://www.unrealengine.com/en">ue 5.4.2</a></li>
-<li><a href="https://www.unrealengine.com/en/blog/game-animation-sample">game animation sample</a></li>
-<li><a href="https://www.unrealengine.com/marketplace/ja/product/superhero-flight-animations">superhero flight animations</a></li>
+<li><a href="https://github.com/EpicGamesExt/PixelStreamingInfrastructure/blob/master/Docs/pixel-streaming-2-migration-guide.md">https://github.com/EpicGamesExt/PixelStreamingInfrastructure/blob/master/Docs/pixel-streaming-2-migration-guide.md</a></li>
 </ul>
-<p>今回は<code>game animation sample</code>と<code>superhero flight animations</code>を統合してみました。今までのモーションに加えて空を飛べるようにしたのですが、違和感ない形で自動的にブレンドされます。これは想像以上に大変なことをやっているので<code>5.4.2</code>に追従したほうが良さそうです。</p>
-<p>ただ、今まで開発実装してきたものがすべて作り直しになります。</p>
-<p>インポートできないのかと思われるかもしれませんが、ue5にそんなことできません。動かなくなります。仮に動かせたとしても、おそらく、作り直したほうが早いでしょう。</p>
-<h2 id="game-animation-sampleで飛べるようにする">game animation sampleで飛べるようにする</h2>
-<p><code>game animation sample</code>と<code>superhero flight animations</code>の統合を解説します。</p>
-<p>基本的には<code>BP_SandboxCharacter</code>にeventの<code>IA_Sprit</code>で<code>anim instance class(ABP_Player)</code>を指定しますが<code>BP_Player_UE5</code>から様々な設定や変数を持ってきて動くように改変していきます。</p>
-<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_025510.mp4"></video></p>
-<iframe src="https://blueprintue.com/render/7z11v96t/" scrolling="no" width="100%" height="400px"></iframe>
-<h2 id="sky-atmosphereを使って宇宙をつなげる">sky atmosphereを使って宇宙をつなげる</h2>
-<ul>
-<li><a href="https://www.unrealengine.com/marketplace/ja/product/cesium-for-unreal">cesium</a></li>
-<li><a href="https://www.unrealengine.com/marketplace/en-US/product/ocean-waves">ocean waves</a></li>
-</ul>
-<p>私が作ってきたlv(map)は宇宙と街でわけられていました。</p>
-<p>これは特別なことではなく当たり前のことで、mapは基本的に平面なのです。平面のmapにキャラクターやフィールドを配置していくのです。</p>
-<p>私の場合はサークルのアクターを用意してぶつかると別の場所に移動するように設定していました。</p>
-<p>しかし、これは本来やりたかったことではありません。現実に基づいたものを作りたかった。宇宙と街が異なる場所に置かれるのではなく、最初からつながっている形が良かったのです。</p>
-<p>例えば、空に上昇して大気圏を抜けると宇宙に行ける形です。空に上昇すると宇宙マップに移動させられる形ではありません。</p>
-<p>なぜこのようなことがやりたかったのかというと「目に見えない部分もしっかり作られているゲームを作りたかったから」です。</p>
-<p>昼と夜がゲーム内で再現されていることがよくあります。これは単にライトと月の絵を背景で回しているだけなのです。しかし、私はゲーム内でもその場所に行くと本物そっくりの天体が動いている、そういうのがいいなと思っていました。</p>
-<p>今回は、それを実現するために<a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/sky-atmosphere-component-in-unreal-engine">sky atmosphere</a>を利用するようにしました。</p>
-<p>また、月などの天体には重力がありませんでした。そのまま丸い球体が浮いているという形だったのです。ですから、上から落下すると月に乗れますが、横からだと乗れません。ぶつかるだけです。これを改善したかった。</p>
-<p><a href="https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4">https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom-gravity-in-ue-5-4</a></p>
-<p><video controls style="width:100%;"><source src="/m/post/ue/ue5_2024-06-21_125510.mp4"></video></p>
-<blockquote>
-<p><code>game animation sample</code>には飛び越せるブロックがあります。あれをフィールドに設置して岩にかぶせ見えないようにすることで動作します。見えないようにというのはブロックのmeshをvisibilityで制御します。</p>
-</blockquote>
-<p>しかし、注意点もあります。太陽と月を追加するとあまりに負荷が高くなったのか落ちるようになったことがありました。いくつか改善すると治りましたが、この形を採用するとbuildが通らなくなることもあります。</p>
-<h2 id="vrm4uのmaterialについて考える">vrm4uのmaterialについて考える</h2>
-<p>私は<code>SubsurfaceProfile</code>を使用していますが、他のタイプだと影(shadow)と反射(light)の問題がかなり強く出てしまい、あらゆる場面で常用できません。移動したら背景の加減でおかしくなるなど問題が多いのです。</p>
-<p>そこで完全に影響を受けない<code>MToon Unlit</code>を使用することも考えられます。一部分だけ他のタイプのmaterialを利用して調整していきます。この場合の肌の色を以下に調整するといいでしょう。</p>
-<iframe src="https://blueprintue.com/render/wi2aobel/" scrolling="no" width="100%" height="400px"></iframe>
-<h2 id="作り直すもの">作り直すもの</h2>
-<p>今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。</p>
-<ul>
-<li>account login system</li>
-<li>account item system</li>
-<li>character lv system</li>
-<li>character skill</li>
-<li>character sword &amp; collision</li>
-</ul>
-<p>一気に解説します。移動すると経験値が入ります。Lv1になると変身できるようになります。変身すると飛行できるようになります。飛行できる時間はlvに応じて変化します。特殊なアイテムを取るとスキルを覚えます。スキルにはクールタイムやcollisionなどが設定されており、敵が吹っ飛びます。剣のモーションは原作を再現しています。原作では輪が剣になりますので、剣を登場させたときは輪を消さなければなりません。meshを入れ替える処理などを書いています。アイテム画面やストーリー進行などもapiと連携するシステムを作りました。</p>
-<p>これらを全部作り直すことになります。</p>
-
+<p>まず、2では<code>WebRTC</code>, <code>Matchmaker</code>が削除されます。そして、app-package.exeの引数がそのままでは動きません。また、serverのconfig.json, scriptが変更されています。</p>
+<ol>
+<li>
+<p>projectのpluginでpixel streamingをdisableにし、pixel streaming2をenableにする。</p>
+</li>
+<li>
+<p>これをpackage buildして、app.exeを作ります。そして、引数は以下のようにしてください。</p>
+</li>
+</ol>
+<p>なお、sshなどで作業している場合はfirewallの許可が出ませんので、local-desktopで作業してください。または手動でruleを更新してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./$project/Windows/app.exe -PixelStreamingSignallingURL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ws://127.0.0.1:8888&#34;</span>
+</span></span></code></pre></div><ol start="3">
+<li>次にserverの初期設定です。scriptがだいぶ変更されていますし、引数も変わっています。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone --branch UE5.5 https://github.com/EpicGamesExt/PixelStreamingInfrastructure.git
+</span></span><span style="display:flex;"><span>$ cd PixelStreamingInfrastructure/SignallingWebServer/platform_scripts/cmd
+</span></span><span style="display:flex;"><span>$ ./setup.bat
+</span></span><span style="display:flex;"><span>$ ./start.bat
+</span></span></code></pre></div><ol start="4">
+<li><code>config.json</code>の書き換えと起動。特に注意すべきは<code>http_root</code>です。Publicからwwwに変更されています。pathにも注意してください。</li>
+</ol>
+<p>なお、sshなどで作業している場合はfirewallの許可が出ませんので、local-desktopで作業してください。browserでpreviewしてください。または手動でruleを更新してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd PixelStreamingInfrastructure/SignallingWebServer
+</span></span><span style="display:flex;"><span>$ vim config.json
+</span></span><span style="display:flex;"><span>$ npm start -- --public_ip localhost
+</span></span></code></pre></div>
 
 		
 
