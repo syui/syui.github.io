@@ -70,8 +70,6 @@ https://dev.epicgames.com/community/learning/tutorials/w6l7/unreal-engine-custom
 
 今まで実装開発してきたものはいくつかありますが、代表的なものを挙げます。記録のため動画にしておきます。
 
-<video controls style="width:100%;"><source src="https://git.syui.ai/syui/media/raw/branch/main/yui_20240621.mp4"></video>
-
 - account login system
 - account item system
 - character lv system
