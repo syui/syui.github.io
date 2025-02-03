@@ -131,7 +131,7 @@
 
 		<p>macの使い方をまとめます。macbook air(m1, intel)を使っています。</p>
 <p>最初にインストールしたソフトウェアとサービスの一覧です。</p>
-<h3 id="使ってるソフトウェア">使ってるソフトウェア</h3>
+<h2 id="使ってるソフトウェア">使ってるソフトウェア</h2>
 <ul>
 <li>xcode, commandline tools, etc&hellip; : <a href="https://developer.apple.com/">https://developer.apple.com/</a></li>
 <li>chrome : <a href="https://www.google.com/chrome/">https://www.google.com/chrome/</a></li>
@@ -143,25 +143,30 @@
 <li>virtualbox : <a href="https://download.virtualbox.org/virtualbox/">https://download.virtualbox.org/virtualbox/</a></li>
 <li>clipy : <a href="https://clipy-app.com/">https://clipy-app.com/</a></li>
 </ul>
-<h3 id="使ってるサービス">使ってるサービス</h3>
+<h2 id="使ってるサービス">使ってるサービス</h2>
 <ul>
 <li>github : <a href="https://github.com/">https://github.com/</a></li>
 <li>bluesky : <a href="https://bsky.app/">https://bsky.app/</a></li>
 <li>google : <a href="https://www.google.com/">https://www.google.com/</a></li>
 <li>youtube : <a href="https://www.youtube.com/">https://www.youtube.com/</a></li>
 <li>northflank : <a href="https://northflank.com/">https://northflank.com/</a></li>
-<li>sketchfab : <a href="https://sketchfab.com/">https://sketchfab.com/</a></li>
+<li>fab : <a href="https://www.fab.com/">https://www.fab.com/</a></li>
 <li>amazon : <a href="https://www.amazon.co.jp/">https://www.amazon.co.jp/</a></li>
 <li>cloudflare : <a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
 <li>wiki : <a href="https://wiki.archlinux.jp/">https://wiki.archlinux.jp/</a></li>
 <li>slack : <a href="https://archlinuxjp.slack.com/">https://archlinuxjp.slack.com/</a></li>
 </ul>
-<h3 id="other">other</h3>
+<h2 id="other">other</h2>
 <ul>
 <li>studioone2 : <a href="https://piaprostudio.com/">https://piaprostudio.com/</a></li>
 <li>synthesizerv : <a href="https://synthesizerv.com/">https://synthesizerv.com/</a></li>
 </ul>
-<h3 id="macの個人設定">macの個人設定</h3>
+<h2 id="chrome">chrome</h2>
+<ul>
+<li><a href="https://github.com/gorhill/uBlock">https://github.com/gorhill/uBlock</a></li>
+<li><a href="https://github.com/uBlockOrigin/uBOL-home">https://github.com/uBlockOrigin/uBOL-home</a></li>
+</ul>
+<h2 id="macの個人設定">macの個人設定</h2>
 <p>まず、電源offのショートカットがないので作ります。</p>
 <ul>
 <li><code>キーボード -&gt; ショートカット -&gt; アプリケーション -&gt; システム終了...</code> : Ctrl + Command + L</li>
@@ -176,7 +181,7 @@
 </span></span><span style="display:flex;"><span>------
 </span></span><span style="display:flex;"><span>$ brew install gpg
 </span></span><span style="display:flex;"><span>$ gpg --import sec.key
-</span></span></code></pre></div><h3 id="intel-mac">intel mac</h3>
+</span></span></code></pre></div><h2 id="intel-mac">intel mac</h2>
 <p>intel版のmacbook airには、archlinuxを入れています。また、usbに入れているarchも起動できるので、外出時などに便利です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:bootloaderにiconを表示する.txt" data-lang="sh:bootloaderにiconを表示する.txt"><span style="display:flex;"><span>$ sudo mount /dev/sdb1 /mnt
 </span></span><span style="display:flex;"><span>$ sudo cp ~/pics/arch.icns /mnt/.volumeicon.icns
