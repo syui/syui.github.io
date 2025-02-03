@@ -744,10 +744,32 @@ $ sudo machinectl remove arch
 $ sudo machinectl clone backup arch
 ```
 
-
 ## test
 
 ```sh
 # sound
 $ sudo pacman -S sof-firmware
+```
+
+## docker
+
+基本的に`docker volume prune -a`を実行しても問題ないように構築します。
+
+`df -H`を実行して空きがあっても`100%`で`No space left on device`になることがあります。これは、大きく空き領域を確保しないと`df -i`の領域が確保されないためです。これは`docker builder prune`が有効です。
+
+```Sh
+docker-rm () {
+        sudo docker system prune -a
+        sudo docker builder prune -a
+
+        sudo docker image prune -a
+        sudo docker volume prune -a
+        sudo docker container prune
+        sudo docker network prune
+        case $1 in
+                (v) docker volume rm $(docker volume ls -qf dangling=true) ;;
+                (p) docker rm $(docker ps -aq) ;;
+                (i) docker rmi $(docker images -q) ;;
+        esac
+}
 ```
