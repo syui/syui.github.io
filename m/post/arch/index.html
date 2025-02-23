@@ -513,7 +513,8 @@ autologin-session=sway
 </span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
 </span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><h3 id="continersystemd-nspawn">continer(systemd-nspawn)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p ~/arch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S arch-install-scripts
+</span></span><span style="display:flex;"><span>$ mkdir -p ~/arch
 </span></span><span style="display:flex;"><span>$ sudo pacstrap -c ~/arch base
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># -D : chroot</span>
 </span></span><span style="display:flex;"><span>$ sudo systemd-nspawn -D ~/arch
@@ -537,7 +538,9 @@ autologin-session=sway
 </span></span></code></pre></div><p>次に、本来の<code>systemd-nspawn</code>の一般的な使い方を説明します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ machinectl --help
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># machinectlを使う場合はvmのrootフォルダはここに入れます</span>
 </span></span><span style="display:flex;"><span>$ sudo mv ~/arch /var/lib/machines/
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ sudo machinectl list-images
 </span></span><span style="display:flex;"><span>$ sudo machinectl start arch
 </span></span><span style="display:flex;"><span>$ sudo machinectl login arch
