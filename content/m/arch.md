@@ -611,6 +611,7 @@ $ ./${GOPATH}/bin/gotunl -c 1
 ### continer(systemd-nspawn)
 
 ```sh
+$ sudo pacman -S arch-install-scripts
 $ mkdir -p ~/arch
 $ sudo pacstrap -c ~/arch base
 # -D : chroot
@@ -652,7 +653,9 @@ $ machinectl list
 ```sh
 $ machinectl --help
 
+# machinectlを使う場合はvmのrootフォルダはここに入れます
 $ sudo mv ~/arch /var/lib/machines/
+
 $ sudo machinectl list-images
 $ sudo machinectl start arch
 $ sudo machinectl login arch
