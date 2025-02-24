@@ -776,3 +776,13 @@ docker-rm () {
         esac
 }
 ```
+
+serverを移行する際は、volumeなどの権限を同じにしなければなりません。reposのdirごとtarします。したがって、以下のような手順を踏んでください。
+
+```sh
+sudo tar cvzfp app.tar.gz
+scp -r app.tar.gz server:~
+---
+sudo tar xvzfp ~/app.tar.gz
+```
+
