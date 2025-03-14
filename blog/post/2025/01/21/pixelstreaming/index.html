@@ -155,7 +155,6 @@
 </span></span></code></pre></div><ol start="4">
 <li><code>config.json</code>の書き換えと起動。特に注意すべきは<code>http_root</code>です。Publicからwwwに変更されています。pathにも注意してください。</li>
 </ol>
-<p>なお、sshなどで作業している場合はfirewallの許可が出ませんので、local-desktopで作業してください。browserでpreviewしてください。または手動でruleを更新してください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd PixelStreamingInfrastructure/SignallingWebServer
 </span></span><span style="display:flex;"><span>$ vim config.json
 </span></span><span style="display:flex;"><span>$ npm start -- --public_ip localhost
