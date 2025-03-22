@@ -122,13 +122,13 @@
 <p>modelは<code>gemma3</code>がおすすめです。</p>
 <h2 id="model">model</h2>
 <ol>
-<li>gemma3:14b</li>
-<li>deepseek-r1:14b</li>
+<li>gemma3:12b</li>
+<li>deepseek-r1:12b</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install ollama
 </span></span><span style="display:flex;"><span>$ brew services restart ollama
-</span></span><span style="display:flex;"><span>$ ollama pull gemma3:14b
-</span></span><span style="display:flex;"><span>$ ollama run gemma3:14b <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>$ ollama pull gemma3:12b
+</span></span><span style="display:flex;"><span>$ ollama run gemma3:12b <span style="color:#e6db74">&#34;hello&#34;</span>
 </span></span></code></pre></div><h2 id="n8n">n8n</h2>
 <p><code>n8n</code>でAIエージェントを作成できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/n8n-io/n8n/</span>
@@ -154,15 +154,15 @@
 </span></span><span style="display:flex;"><span>$ conda create -n finetuning python<span style="color:#f92672">=</span>3.11
 </span></span><span style="display:flex;"><span>$ conda activate finetuning
 </span></span><span style="display:flex;"><span>$ pip install mlx-lm <span style="color:#75715e">#apple silicon</span>
-</span></span><span style="display:flex;"><span>$ ollama run llama3.2
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;{ \&#34;model\&#34;: \&#34;https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct\&#34;, \&#34;data\&#34;: \&#34;https://github.com/ml-explore/mlx-examples/tree/main/lora/data\&#34; }&#34;</span>|jq .
-</span></span><span style="display:flex;"><span>$ model<span style="color:#f92672">=</span>meta-llama/Llama-3.2-3B-Instruct
+</span></span><span style="display:flex;"><span>$ ollama run llama3.2:1b
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;{ \&#34;model\&#34;: \&#34;https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct\&#34;, \&#34;data\&#34;: \&#34;https://github.com/ml-explore/mlx-examples/tree/main/lora/data\&#34; }&#34;</span>|jq .
+</span></span><span style="display:flex;"><span>$ model<span style="color:#f92672">=</span>meta-llama/Llama-3.2-1B-Instruct
 </span></span><span style="display:flex;"><span>$ data<span style="color:#f92672">=</span>ml-explore/mlx-examples/lora/data
 </span></span><span style="display:flex;"><span>$ mlx_lm.lora --train --model $model --data $data --batch-size <span style="color:#ae81ff">3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ ls adapters
 </span></span><span style="display:flex;"><span>$ vim Modelfile
-</span></span><span style="display:flex;"><span>FROM llama3.2:3b
+</span></span><span style="display:flex;"><span>FROM llama3.2:1b
 </span></span><span style="display:flex;"><span>ADAPTER ./adapters
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ ollama create ai -f ./Modelfile
