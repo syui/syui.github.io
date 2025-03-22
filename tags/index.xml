@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Tue, 21 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Openai</title>
+      <link>https://syui.ai/tags/openai/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/openai/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ue</title>
       <link>https://syui.ai/tags/ue/</link>
