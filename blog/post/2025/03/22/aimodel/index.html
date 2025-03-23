@@ -174,13 +174,6 @@
 </span></span><span style="display:flex;"><span>$ model<span style="color:#f92672">=</span>google/gemma-3-1b-it
 </span></span><span style="display:flex;"><span>$ data<span style="color:#f92672">=</span>mlx-examples/lora/data
 </span></span><span style="display:flex;"><span>$ mlx_lm.lora --train --model $model --data $data --batch-size <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ls adapters
-</span></span><span style="display:flex;"><span>$ vim Modelfile
-</span></span><span style="display:flex;"><span>FROM gemma3:1b
-</span></span><span style="display:flex;"><span>ADAPTER ./adapters
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ ollama create ai -f ./Modelfile
 </span></span></code></pre></div><h2 id="unsloth">unsloth</h2>
 <p>windowsでLoRA(finetuning)するには<code>unsloth</code>を使います。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ nvidia-smi
