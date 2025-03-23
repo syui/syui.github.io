@@ -122,13 +122,13 @@
 <p>modelは<code>gemma3</code>がおすすめです。</p>
 <h2 id="model">model</h2>
 <ol>
-<li>gemma3:12b</li>
+<li>gemma3:1b</li>
 <li>deepseek-r1:12b</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install ollama
 </span></span><span style="display:flex;"><span>$ brew services restart ollama
-</span></span><span style="display:flex;"><span>$ ollama pull gemma3:12b
-</span></span><span style="display:flex;"><span>$ ollama run gemma3:12b <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>$ ollama pull gemma3:1b
+</span></span><span style="display:flex;"><span>$ ollama run gemma3:1b <span style="color:#e6db74">&#34;hello&#34;</span>
 </span></span></code></pre></div><h2 id="n8n">n8n</h2>
 <p><code>n8n</code>でAIエージェントを作成できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/n8n-io/n8n/</span>
@@ -137,7 +137,7 @@
 </span></span></code></pre></div><h2 id="webui">webui</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ winget install ollama.ollama
 </span></span><span style="display:flex;"><span>$ ollama server
-</span></span><span style="display:flex;"><span>$ ollama run llama3.2:1b
+</span></span><span style="display:flex;"><span>$ ollama run gemma3:1b
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ winget install --id Python.Python.3.11 -e
 </span></span><span style="display:flex;"><span>$ python --version
@@ -149,30 +149,94 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>http://localhost:8080
 </span></span></code></pre></div><h2 id="lora">LoRA</h2>
-<p>finetuning</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://ai.google.dev/gemma/docs/core/lora_tuning</span>
-</span></span><span style="display:flex;"><span>$ conda create -n finetuning python<span style="color:#f92672">=</span>3.11
+<p>apple siliconでLoRA(finetuning)するには<code>mlx_lm</code>を使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install --cask anaconda
+</span></span><span style="display:flex;"><span>$ brew info anaconda
+</span></span><span style="display:flex;"><span>$ cd /opt/homebrew/Caskroom/anaconda/*
+</span></span><span style="display:flex;"><span>$ ./Anaconda3*.sh
+</span></span></code></pre></div><p><code>google/gemma-3-1b-it</code>を承認しておきます。</p>
+<ul>
+<li><a href="https://huggingface.co/google/gemma-3-1b-it">https://huggingface.co/google/gemma-3-1b-it</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install -U <span style="color:#e6db74">&#34;huggingface_hub[cli]&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://huggingface.co/settings/tokens</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Repositories permissions:Read access to contents of selected repos</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ huggingface_hub login
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install ollama
+</span></span><span style="display:flex;"><span>$ brew service restart ollama
+</span></span><span style="display:flex;"><span>$ ollama pull gemma3:1b
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ conda create -n finetuning python<span style="color:#f92672">=</span>3.11
 </span></span><span style="display:flex;"><span>$ conda activate finetuning
-</span></span><span style="display:flex;"><span>$ pip install mlx-lm <span style="color:#75715e">#apple silicon</span>
-</span></span><span style="display:flex;"><span>$ ollama run llama3.2:1b
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;{ \&#34;model\&#34;: \&#34;https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct\&#34;, \&#34;data\&#34;: \&#34;https://github.com/ml-explore/mlx-examples/tree/main/lora/data\&#34; }&#34;</span>|jq .
-</span></span><span style="display:flex;"><span>$ model<span style="color:#f92672">=</span>meta-llama/Llama-3.2-1B-Instruct
-</span></span><span style="display:flex;"><span>$ data<span style="color:#f92672">=</span>ml-explore/mlx-examples/lora/data
+</span></span><span style="display:flex;"><span>$ pip install mlx-lm
+</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;{ \&#34;model\&#34;: \&#34;https://huggingface.co/google/gemma-3-1b-it\&#34;, \&#34;data\&#34;: \&#34;https://github.com/ml-explore/mlx-examples/tree/main/lora/data\&#34; }&#34;</span>|jq .
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/ml-explore/mlx-examples
+</span></span><span style="display:flex;"><span>$ model<span style="color:#f92672">=</span>google/gemma-3-1b-it
+</span></span><span style="display:flex;"><span>$ data<span style="color:#f92672">=</span>mlx-examples/lora/data
 </span></span><span style="display:flex;"><span>$ mlx_lm.lora --train --model $model --data $data --batch-size <span style="color:#ae81ff">3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ ls adapters
 </span></span><span style="display:flex;"><span>$ vim Modelfile
-</span></span><span style="display:flex;"><span>FROM llama3.2:1b
+</span></span><span style="display:flex;"><span>FROM gemma3:1b
 </span></span><span style="display:flex;"><span>ADAPTER ./adapters
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ ollama create ai -f ./Modelfile
 </span></span></code></pre></div><h2 id="unsloth">unsloth</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pip install unsloth
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> unsloth <span style="color:#f92672">import</span> FastLanguageModel
+<p>windowsでLoRA(finetuning)するには<code>unsloth</code>を使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ nvidia-smi
+</span></span><span style="display:flex;"><span>$ nvcc --version
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model, tokenizer <span style="color:#f92672">=</span> FastLanguageModel<span style="color:#f92672">.</span>from_pretrained(
-</span></span><span style="display:flex;"><span>    model_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Qwen2.5-1.5B&#34;</span>,
-</span></span><span style="display:flex;"><span>    grpo<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/unslothai/notebooks/blob/main/unsloth_windows.ps1</span>
+</span></span><span style="display:flex;"><span>cuda: 12.4
+</span></span><span style="display:flex;"><span>python: 3.11
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ winget install --scope machine nvidia.cuda --version 12.4.1
+</span></span><span style="display:flex;"><span>$ winget install curl.curl
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://docs.unsloth.ai/get-started/installing-+-updating/windows-installation</span>
+</span></span><span style="display:flex;"><span>$ curl -sLO https://raw.githubusercontent.com/unslothai/notebooks/refs/heads/main/unsloth_windows.ps1
+</span></span><span style="display:flex;"><span>$ powershell.exe -ExecutionPolicy Bypass -File .<span style="color:#ae81ff">\u</span>nsloth_windows.ps1
+</span></span><span style="display:flex;"><span>$ vim custom.py
+</span></span></code></pre></div><p>上記はpwshでunsolthを使う方法ですが、wslを使ったほうがいいです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e"># https://docs.unsloth.ai/get-started/fine-tuning-guide</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> unsloth <span style="color:#f92672">import</span> FastModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fourbit_models <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 4bit dynamic quants for superior accuracy and low memory use</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># https://docs.unsloth.ai/basics/tutorial-how-to-run-and-fine-tune-gemma-3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># https://huggingface.co/unsloth/gemma-3-4b-it</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/gemma-3-1b-it-unsloth-bnb-4bit&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/gemma-3-4b-it-unsloth-bnb-4bit&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/gemma-3-12b-it-unsloth-bnb-4bit&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/gemma-3-27b-it-unsloth-bnb-4bit&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Other popular models!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/Llama-3.1-8B&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/Llama-3.2-3B&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/Llama-3.3-70B&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/mistral-7b-instruct-v0.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;unsloth/Phi-4&#34;</span>,
+</span></span><span style="display:flex;"><span>] <span style="color:#75715e"># More models at https://huggingface.co/unsloth</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model, tokenizer <span style="color:#f92672">=</span> FastModel<span style="color:#f92672">.</span>from_pretrained(
+</span></span><span style="display:flex;"><span>    model_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;unsloth/gemma-3-4b-it&#34;</span>,
+</span></span><span style="display:flex;"><span>    max_seq_length <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span>, <span style="color:#75715e"># Choose any for long context!</span>
+</span></span><span style="display:flex;"><span>    load_in_4bit <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,  <span style="color:#75715e"># 4 bit quantization to reduce memory</span>
+</span></span><span style="display:flex;"><span>    load_in_8bit <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>, <span style="color:#75715e"># [NEW!] A bit more accurate, uses 2x memory</span>
+</span></span><span style="display:flex;"><span>    full_finetuning <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>, <span style="color:#75715e"># [NEW!] We have full finetuning now!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># token = &#34;hf_...&#34;, # use one if using gated models</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> FastModel<span style="color:#f92672">.</span>get_peft_model(
+</span></span><span style="display:flex;"><span>    model,
+</span></span><span style="display:flex;"><span>    finetune_vision_layers     <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>, <span style="color:#75715e"># Turn off for just text!</span>
+</span></span><span style="display:flex;"><span>    finetune_language_layers   <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,  <span style="color:#75715e"># Should leave on!</span>
+</span></span><span style="display:flex;"><span>    finetune_attention_modules <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,  <span style="color:#75715e"># Attention good for GRPO</span>
+</span></span><span style="display:flex;"><span>    finetune_mlp_modules       <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,  <span style="color:#75715e"># SHould leave on always!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    r <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>,           <span style="color:#75715e"># Larger = higher accuracy, but might overfit</span>
+</span></span><span style="display:flex;"><span>    lora_alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>,  <span style="color:#75715e"># Recommended alpha == r at least</span>
+</span></span><span style="display:flex;"><span>    lora_dropout <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    bias <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>    random_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">3407</span>,
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div>
 
