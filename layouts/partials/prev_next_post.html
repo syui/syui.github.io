@@ -1,0 +1,18 @@
+{{ $prev := "fa fa-chevron-left"}}
+{{ $next := "fa fa-chevron-right"}}
+{{ if or .PrevInSection .NextInSection }}
+<nav id="article-nav">
+	<div class="previnsection">
+    {{ if .PrevInSection }}
+				<p><i class="fa-solid fa-circle-chevron-left"></i> <a href="{{ .PrevInSection.Permalink }}" id="article-nav-older" class="article-nav-link-wrap">
+{{ .PrevInSection.Title }}
+					</a></p>
+    {{ end }}
+    {{ if .NextInSection }}
+				<p><i class="fa-solid fa-circle-chevron-right"></i> <a href="{{ .NextInSection.Permalink }}" id="article-nav-newer" class="article-nav-link-wrap">
+     {{ .NextInSection.Title }}
+				</a></p>
+    {{ end }}
+	</div>
+</nav>
+{{ end }}

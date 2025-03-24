@@ -1,0 +1,21 @@
+@media screen and (max-width:1000px){i.icon.ion-minus-circled{display:none}
+}
+@media screen and (max-width:800px){body{padding-top:0px;}
+#title-left{left:50%;}
+#window{width:100%;}
+.container{padding:0px;}
+/*article{padding:10px 20px;}*/
+i.icon.ion-minus-circled{display:none}
+}
+@media screen and (max-width:800px){#title-left{left:48%;}
+}
+@media screen and (max-width:500px){#title-left{left:40%;}
+}
+@media screen and (max-width:400px){body{padding-top:0px;width:auto;}
+#title-left{left:50%;}
+/*article{padding:10px 10px;}*/
+#particles-js{width:auto;}
+#particles-js-no{width:auto;}
+i.icon.ion-minus-circled{display:none}
+i.icon.ion-plus-circled{display:none}
+}

@@ -1,0 +1,25 @@
+{{ $s := path.Dir (.Permalink | relURL) }}
+{{ $t := index (split $s "/") 2 }}
+{{ $o := index (split $s "/") 1 }}
+<body>
+	<div class="containerx">
+		<header id="header">
+			{{ if or (eq $o "") (eq $o "syui") }}
+			<div class="logo">
+				<a href="/">{{ partial "svg.html" . }}</a>
+				{{ partial "term.html" . }}
+			</div>
+			{{ else if eq $t "note" }}
+			<div class="logo">
+				<a href="/archive">{{ partial "svg.html" . }}</a>
+			</div>
+			{{ else if eq $t "post" }}
+			<div class="logo">
+				<a href="/blog">{{ partial "svg.html" . }}</a>
+			</div>
+			{{ else }}
+			<div class="logo">
+				<a href="/">{{ partial "svg.html" . }}</a>
+			</div>
+			{{ end }}
+		</header>
