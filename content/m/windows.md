@@ -321,3 +321,12 @@ sc delete "mfemms"
 ```
 
 https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853
+
+## desktop
+
+https://github.com/rocksdanister/lively
+
+こういうのはあまり使わないんだけど、nasaのページが気に入っているので、それを設定したいということで。
+
+https://eyes.nasa.gov/apps/solar-system/#/earth
+
