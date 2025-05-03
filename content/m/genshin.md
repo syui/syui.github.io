@@ -80,7 +80,7 @@ header_image = "/games/genshin.jpg"
 |2024|04|`ヌヴィレット`を1凸|螺旋単騎やってみた|
 |2024|10|`シロネン`を確保|マーヴィカと氷神を完凸予定なので1人につき原石が90,000必要|
 |2025|01|`マーヴィカ`を2凸|2凸で止めておくことにしました|
-|2025|05|幻想を星10でクリア|
+|2025|05|幻想を星10でクリア|気が向いたので挑戦|
 
 [![](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)](https://raw.githubusercontent.com/syui/img/master/other/genshin_20220701_0001.png)
 
