@@ -1,0 +1,26 @@
+{
+  "name": "highlightjs",
+  "version": "9.16.2",
+  "license": "BSD-3-Clause",
+  "main": [
+    "highlight.pack.js",
+    "styles/default.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "components"
+  ],
+  "homepage": "https://github.com/components/highlightjs",
+  "_release": "9.16.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v9.16.2",
+    "commit": "1dea393aa70365843cfec34b1f365930d383bdfe"
+  },
+  "_source": "https://github.com/components/highlightjs.git",
+  "_target": "^9.16.2",
+  "_originalSource": "highlightjs",
+  "_direct": true
+}

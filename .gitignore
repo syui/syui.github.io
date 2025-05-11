@@ -1,0 +1,15 @@
+public
+resources
+*.DS_Store
+**.DS_Store
+node_modules
+resources
+yarn.lock
+.env
+dist
+src-*
+*.lock
+*/*node_*
+**node_module*
+**.zsh
+package-lock.json

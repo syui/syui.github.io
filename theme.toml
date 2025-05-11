@@ -1,0 +1,16 @@
+name = "ai/web"
+license = "MIT"
+licenselink = "https://git.syui.ai/ai/web"
+description = "ai/web hugo theme"
+homepage = "https://yui.syui.ai"
+tags = ["blog"]
+features = ["font-awesome","icomoon"]
+
+[author]
+  name = "syui"
+  homepage = "https://syui.ai"
+
+[original]
+    author = "syui"
+    homepage = "https://syui.github.io"
+    repo = "https://github.com/syui/syui.github.io"

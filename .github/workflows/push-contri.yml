@@ -1,0 +1,39 @@
+name: push json github contribution
+on: 
+  schedule:
+    - cron:  '00 00 1 * *'
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: src
+
+    - name: install jq
+      env:
+        WORKFLOW_FILE_PATH: ${{ github.workflow }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+
+      run: |
+        sudo apt-get install -y jq curl
+
+    - name: get json
+      run: |
+        curl -sL https://github-contributions-api.deno.dev/syui.json|jq ".|del(.totalContributions)|.[]|.[]|.[]|{(.date+\"T00:00:00Z\"|fromdate|tostring):(.contributionCount)}"|jq -n '[inputs] | add' >> ./static/json/cal.json.tmp
+        mv ./static/json/cal.json.tmp ./static/json/cal.json
+        cat ./static/json/cal.json|jq .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        if [ -z "`git status -s`" ];then
+          exit
+        fi
+        git add ./static/json/cal.json
+        git commit -m "push json github contribution"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: src
+
