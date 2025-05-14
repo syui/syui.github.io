@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://syui.ai/blog/</loc>
-    <lastmod>2025-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/lmstudio/</loc>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/ollama/</loc>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/openai/</loc>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/tags/qwen/</loc>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://syui.ai/blog/post/2025/05/13/llm/</loc>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/</loc>
-    <lastmod>2025-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/</loc>
-    <lastmod>2025-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/ue/</loc>
     <lastmod>2025-05-10T00:00:00+00:00</lastmod>
@@ -18,9 +33,6 @@
     <lastmod>2025-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/blog/post/2025/03/26/manus/</loc>
-    <lastmod>2025-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://syui.ai/tags/openai/</loc>
     <lastmod>2025-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://syui.ai/tags/comfyui/</loc>
