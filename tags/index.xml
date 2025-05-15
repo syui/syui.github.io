@@ -7,19 +7,26 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deephermes</title>
+      <link>https://syui.ai/tags/deephermes/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/tags/deephermes/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Lmstudio</title>
       <link>https://syui.ai/tags/lmstudio/</link>
-      <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/lmstudio/</guid>
       <description></description>
     </item>
     <item>
       <title>Ollama</title>
       <link>https://syui.ai/tags/ollama/</link>
-      <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
       <guid>https://syui.ai/tags/ollama/</guid>
       <description></description>
     </item>

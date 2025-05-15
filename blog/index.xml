@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepHermes 3 Preview</title>
+      <link>https://syui.ai/blog/post/2025/05/14/llm/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2025/05/14/llm/</guid>
+      <description>&lt;p&gt;DeepHermes 3 Previewが意外と良かったので紹介。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://huggingface.co/NousResearch/DeepHermes-3-Mistral-24B-Preview-GGUF&#34;&gt;https://huggingface.co/NousResearch/DeepHermes-3-Mistral-24B-Preview-GGUF&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ollama run hf.co/NousResearch/DeepHermes-3-Mistral-24B-Preview-GGUF:DeepHermes-3-Mistral-24B-Preview-q6.gguf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>qwen3が4oと同じくらい使える</title>
       <link>https://syui.ai/blog/post/2025/05/13/llm/</link>
