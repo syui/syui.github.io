@@ -16,7 +16,7 @@ windowsの使い方をまとめます。windows11を使用しています。
 |storage|1TB M.2 NVMe SSD|
 |inc|© INVERSENET|
 
-### gpu
+## gpu
 
 基本的にgpuのhdmi端子からdispalyに接続します。
 
@@ -26,11 +26,89 @@ download : [driver](https://www.nvidia.com/download/driverResults.aspx/216928/),
 
 現在、[pytorch](https://pytorch.org/get-started/previous-versions/)は`cuda v12.1`に対応しています。
 
-### local account
+## local account
 
 windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
 
-### openssh
+## winget
+
+`choco`, `scoop`などがありますが、現在はwingetが使いやすくなっています。
+
+```sh
+# https://github.com/microsoft/winget-pkgs
+$ winget install git.git
+<Publisher>.<PackageName>
+
+$ winget show --id=9NT1R1C2HH7J --source=msstore
+公開元: OpenAI
+発行元 URL: https://help.openai.com
+```
+
+
+|title|command(id)|url|
+|---|---|---|
+|terminal|microsoft.windowsterminal.preview|https://github.com/microsoft/terminal|
+|pwsh|microsoft.powershell.preview|https://github.com/powershell/powershell|
+|aishell|microsoft.aishell|https://github.com/powershell/aishell/|
+|openssh|microsoft.openssh.preview|https://github.com/powershell/win32-openssh|
+|wsl|microsoft.wsl|https://github.com/microsoft/wsl|
+|vscode|microsoft.visualstudiocode|https://github.com/microsoft/vscode|
+|vim|vim.vim|https://github.com/vim/vim-win32-installer|
+|git|git.git|https://github.com/git/git|
+|lazygit|jesseduffield.lazygit|https://github.com/jesseduffield/lazygit|
+|node|openjs.nodejs|https://github.com/nodejs/node|
+|nvm|coreybutler.nvmforwindows|https://github.com/nvm-sh/nvm|
+|python|python.python.3.12|https://github.com/python|
+|conda|anaconda.miniconda3|https://github.com/anaconda|
+
+|title|command(id)|
+|---|---|
+|cuda|nvidia.cuda|
+|epicgameslauncher|epicgames.epicgameslauncher|
+|blender|blenderfoundation.blender|
+|discord|discord.discord|
+|unity|unity.unity|
+|unity hub|unity.unityhub|
+|godot|godot.godot|
+|obs|obsproject.obsstudio|
+|ollama|ollama.ollama|
+|chatgpt|--id=9NT1R1C2HH7J --source=msstore|
+
+### default shell
+
+wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。
+
+```sh
+$ ssh windows
+
+$ winget -v
+# 7.2.6
+$ winget upgrade microsoft.powershell
+# 7.3.0
+$ winget install microsoft.powershell.preview
+
+$ pwsh-preview
+
+# winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも
+$ vim c:/programdata/ssh/sshd_config
+PasswordAuthentication no
+ForceCommand pwsh-preview
+
+# default-shellにする手順(forcecommandより早くなるけど注意が必要)
+$ get-command pwsh-preview
+$ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\PowerShell\7-preview\preview\pwsh-preview.cmd" -PropertyType String -Force
+
+$ net stop sshd
+$ net start sshd
+
+$ exit
+$ ssh windows
+powershell 7.3.0-preview
+
+$ winget upgrade --all
+```
+
+## openssh
 
 https://github.com/PowerShell/Win32-OpenSSH
 
@@ -83,32 +161,7 @@ $ get-command fstp
 $ Set-Item Env:Path "c:C:\Program Files\OpenSSH;$ENV:Path"
 ```
 
-### ultravnc
-
-https://www.uvnc.com/downloads/ultravnc.html
-
-```sh
-$ winget install uvncbvba.UltraVnc
-```
-
-管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。
-
-したがって、exeやstartup(shell:startup)は、`プロパティ > 管理者としてこのプログラムを実行する`にチェックを入れます。
-
-その後、タスクスケジューラで設定しなければ自動起動しないようになりました。最上位の権限にチェックを入れます。
-
-
-### virtualbox
-
-https://www.virtualbox.org/
-
-virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。
-
-```sh:startup/vm-arch.bat
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm arch --type headless
-```
-
-### auto-login
+## auto-login
 
 起動時のパスワードを省略する設定です。
 
@@ -120,39 +173,7 @@ virtualboxのimgを起動時にbackgraundで実行するには、以下のよう
 
 https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon
 
-### winget
 
-wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。
-
-```sh
-$ ssh windows
-
-$ winget -v
-# 7.2.6
-$ winget upgrade microsoft.powershell
-# 7.3.0
-$ winget install microsoft.powershell.preview
-
-$ pwsh-preview
-
-# winのpathは面倒なので適当に補完。下記でも行けると思いますが、念の為tabで変換するといいかも
-$ vim c:/programdata/ssh/sshd_config
-PasswordAuthentication no
-ForceCommand pwsh-preview
-
-# default-shellにする手順(forcecommandより早くなるけど注意が必要)
-$ get-command pwsh-preview
-$ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\PowerShell\7-preview\preview\pwsh-preview.cmd" -PropertyType String -Force
-
-$ net stop sshd
-$ net start sshd
-
-$ exit
-$ ssh windows
-powershell 7.3.0-preview
-
-$ winget upgrade --all
-```
 
 ### sysinternals
 
@@ -160,11 +181,15 @@ https://learn.microsoft.com/ja-jp/sysinternals/downloads/
 
 ### synthv
 
+`suno`に移行しました。
+
 作曲アプリです。
 
 https://dreamtonics.com/synthesizerv
 
-### stable-diffution
+## stable-diffution
+
+`comfyui`に移行しました。
 
 AIによるイラスト生成です。
 
@@ -324,9 +349,39 @@ https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19
 
 ## desktop
 
-https://github.com/rocksdanister/lively
+このアプリは現在非推奨です。
 
+```sh
+https://github.com/rocksdanister/lively
 こういうのはあまり使わないんだけど、nasaのページが気に入っているので、それを設定したいということで。
 
 https://eyes.nasa.gov/apps/solar-system/#/earth
+```
+
+## ultravnc
+
+このアプリは現在非推奨です。
+
+```sh
+https://www.uvnc.com/downloads/ultravnc.html
+$ winget install uvncbvba.UltraVnc
+
+管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。
+
+したがって、exeやstartup(shell:startup)は、`プロパティ > 管理者としてこのプログラムを実行する`にチェックを入れます。
+
+その後、タスクスケジューラで設定しなければ自動起動しないようになりました。最上位の権限にチェックを入れます。
+```
+
+## virtualbox
+
+このアプリは現在非推奨です。
+
+```sh
+https://www.virtualbox.org/
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm arch --type headless
+
+virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。
+```
+
 
