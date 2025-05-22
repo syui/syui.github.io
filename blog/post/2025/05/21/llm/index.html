@@ -141,7 +141,7 @@
 <p>mcpは、今後バックエンドの主流になると思います。ようはサーバーを扱ったり、環境を構築したりといった分野。</p>
 <p>それ以外は、主にclient、ollamaだったり、llm studioだったりのほうが便利だと思います。</p>
 <p>mcpはAI環境の構築を目指す技術で、それぞれのmodelは今まで独自の仕様で動かしていました。これだとAIで何をするにも面倒です。したがって、AI(model)のinput/outputの形式を統一しようというのがmcpです。protocolなので、普通の人は学ぶ必要がありません。通常の開発でも意識するような領域ではないですね。</p>
-<p>そのうち、便利なツールがでてくると思うので、それを使うのが一番かなと思います。k8sやdockerのようなものが出てくるのではないでしょうか。まあ、ollamaやllm studioがそれらに相当するかもしれませんけど。</p>
+<p>そのうち、便利なツールがでてくると思うので、それを使うのが一番かなと思います。k8sやdockerのようなものが出てくるのではないでしょうか。まあ、ollamaやllm studioがそれらに相当するかもしれません。</p>
 <h2 id="mcpの使い方">mcpの使い方</h2>
 <p>mcpでどうやって環境を構築するのか、具体的な手順を見ていきたいと思います。</p>
 <p>これは何を作りたいかによりますが、基本的なmodelの呼び出しから。</p>
@@ -276,7 +276,18 @@
 </span></span><span style="display:flex;"><span>python scripts/ask.py <span style="color:#e6db74">&#34;このプロジェクトで設定ファイルを読み込む処理はどこ？&#34;</span>
 </span></span></code></pre></div><p><code>PROMPT_TEMPLATE</code>の記述はollamaのmodelなどで異なる場合があります。</p>
 <p>mcpは自動化の環境構築に最適だと思います。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py:cli.py" data-lang="py:cli.py"><span style="display:flex;"><span><span style="color:#75715e"># cli.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> subprocess
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        script <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        script_args <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">2</span>:]
+</span></span><span style="display:flex;"><span>        subprocess<span style="color:#f92672">.</span>run([<span style="color:#e6db74">&#34;python&#34;</span>, script] <span style="color:#f92672">+</span> script_args)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;🧠 mcp: スクリプトを指定してください&#34;</span>)
+</span></span></code></pre></div>
 
 		
 
