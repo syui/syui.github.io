@@ -160,58 +160,149 @@
       </tr>
   </tbody>
 </table>
-<h3 id="gpu">gpu</h3>
+<h2 id="gpu">gpu</h2>
 <p>基本的にgpuのhdmi端子からdispalyに接続します。</p>
 <p>nvidiaの<a href="https://www.nvidia.com/download">driver</a>は常にupdateしてください。</p>
 <p>download : <a href="https://www.nvidia.com/download/driverResults.aspx/216928/">driver</a>, <a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda v12.1</a>, <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a></p>
 <p>現在、<a href="https://pytorch.org/get-started/previous-versions/">pytorch</a>は<code>cuda v12.1</code>に対応しています。</p>
-<h3 id="local-account">local account</h3>
+<h2 id="local-account">local account</h2>
 <p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
-<h3 id="openssh">openssh</h3>
-<p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ winget install microsoft.openssh.beta
-</span></span></code></pre></div><p><code>sshd_config</code>は<code>c:/programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:/programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ls c:/programdata/ssh/
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Match Group administrators
-</span></span><span style="display:flex;"><span>       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-</span></span></code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。pathに<code>authorizedKeyPath</code>:<code>c:/users/$user/.ssh/authorized_keys</code>を追加します。</p>
-<blockquote>
-<p>c:/programdata/ssh/sshd_config</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PasswordAuthentication no
-</span></span><span style="display:flex;"><span>PermitEmptyPasswords yes
-</span></span><span style="display:flex;"><span>AuthorizedKeysFile      .ssh/authorized_keys
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Match Group administrators</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span>
-</span></span></code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
-<p><a href="https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration">https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
-</span></span></code></pre></div><p>default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。</p>
-<blockquote>
-<p>Permission denied (publickey,keyboard-interactive).</p>
-</blockquote>
-<p>scpで<code>Connection closed</code>が出る場合、pathが通っていない可能性があります。</p>
-<p><code>sshd_config</code>でfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ get-command fstp
+<h2 id="winget">winget</h2>
+<p><code>choco</code>, <code>scoop</code>などがありますが、現在はwingetが使いやすくなっています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/microsoft/winget-pkgs</span>
+</span></span><span style="display:flex;"><span>$ winget install git.git
+</span></span><span style="display:flex;"><span>&lt;Publisher&gt;.&lt;PackageName&gt;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ Set-Item Env:Path <span style="color:#e6db74">&#34;c:C:\Program Files\OpenSSH;</span>$ENV<span style="color:#e6db74">:Path&#34;</span>
-</span></span></code></pre></div><h3 id="ultravnc">ultravnc</h3>
-<p><a href="https://www.uvnc.com/downloads/ultravnc.html">https://www.uvnc.com/downloads/ultravnc.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ winget install uvncbvba.UltraVnc
-</span></span></code></pre></div><p>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。</p>
-<p>したがって、exeやstartup(shell:startup)は、<code>プロパティ &gt; 管理者としてこのプログラムを実行する</code>にチェックを入れます。</p>
-<p>その後、タスクスケジューラで設定しなければ自動起動しないようになりました。最上位の権限にチェックを入れます。</p>
-<h3 id="virtualbox">virtualbox</h3>
-<p><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
-<p>virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:startup/vm-arch.bat" data-lang="sh:startup/vm-arch.bat"><span style="display:flex;"><span><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
-</span></span></code></pre></div><h3 id="auto-login">auto-login</h3>
-<p>起動時のパスワードを省略する設定です。</p>
-<p>通常は<code>netplwiz</code>を起動して、パスワード入力が必要のチェックを外します。</p>
-<p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
-<p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>
-<p><a href="https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon">https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</a></p>
-<h3 id="winget">winget</h3>
+</span></span><span style="display:flex;"><span>$ winget show --id<span style="color:#f92672">=</span>9NT1R1C2HH7J --source<span style="color:#f92672">=</span>msstore
+</span></span><span style="display:flex;"><span>公開元: OpenAI
+</span></span><span style="display:flex;"><span>発行元 URL: https://help.openai.com
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>title</th>
+          <th>command(id)</th>
+          <th>url</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>terminal</td>
+          <td>microsoft.windowsterminal.preview</td>
+          <td><a href="https://github.com/microsoft/terminal">https://github.com/microsoft/terminal</a></td>
+      </tr>
+      <tr>
+          <td>pwsh</td>
+          <td>microsoft.powershell.preview</td>
+          <td><a href="https://github.com/powershell/powershell">https://github.com/powershell/powershell</a></td>
+      </tr>
+      <tr>
+          <td>aishell</td>
+          <td>microsoft.aishell</td>
+          <td><a href="https://github.com/powershell/aishell/">https://github.com/powershell/aishell/</a></td>
+      </tr>
+      <tr>
+          <td>openssh</td>
+          <td>microsoft.openssh.preview</td>
+          <td><a href="https://github.com/powershell/win32-openssh">https://github.com/powershell/win32-openssh</a></td>
+      </tr>
+      <tr>
+          <td>wsl</td>
+          <td>microsoft.wsl</td>
+          <td><a href="https://github.com/microsoft/wsl">https://github.com/microsoft/wsl</a></td>
+      </tr>
+      <tr>
+          <td>vscode</td>
+          <td>microsoft.visualstudiocode</td>
+          <td><a href="https://github.com/microsoft/vscode">https://github.com/microsoft/vscode</a></td>
+      </tr>
+      <tr>
+          <td>vim</td>
+          <td>vim.vim</td>
+          <td><a href="https://github.com/vim/vim-win32-installer">https://github.com/vim/vim-win32-installer</a></td>
+      </tr>
+      <tr>
+          <td>git</td>
+          <td>git.git</td>
+          <td><a href="https://github.com/git/git">https://github.com/git/git</a></td>
+      </tr>
+      <tr>
+          <td>lazygit</td>
+          <td>jesseduffield.lazygit</td>
+          <td><a href="https://github.com/jesseduffield/lazygit">https://github.com/jesseduffield/lazygit</a></td>
+      </tr>
+      <tr>
+          <td>node</td>
+          <td>openjs.nodejs</td>
+          <td><a href="https://github.com/nodejs/node">https://github.com/nodejs/node</a></td>
+      </tr>
+      <tr>
+          <td>nvm</td>
+          <td>coreybutler.nvmforwindows</td>
+          <td><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></td>
+      </tr>
+      <tr>
+          <td>python</td>
+          <td>python.python.3.12</td>
+          <td><a href="https://github.com/python">https://github.com/python</a></td>
+      </tr>
+      <tr>
+          <td>conda</td>
+          <td>anaconda.miniconda3</td>
+          <td><a href="https://github.com/anaconda">https://github.com/anaconda</a></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>title</th>
+          <th>command(id)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>cuda</td>
+          <td>nvidia.cuda</td>
+      </tr>
+      <tr>
+          <td>epicgameslauncher</td>
+          <td>epicgames.epicgameslauncher</td>
+      </tr>
+      <tr>
+          <td>blender</td>
+          <td>blenderfoundation.blender</td>
+      </tr>
+      <tr>
+          <td>discord</td>
+          <td>discord.discord</td>
+      </tr>
+      <tr>
+          <td>unity</td>
+          <td>unity.unity</td>
+      </tr>
+      <tr>
+          <td>unity hub</td>
+          <td>unity.unityhub</td>
+      </tr>
+      <tr>
+          <td>godot</td>
+          <td>godot.godot</td>
+      </tr>
+      <tr>
+          <td>obs</td>
+          <td>obsproject.obsstudio</td>
+      </tr>
+      <tr>
+          <td>ollama</td>
+          <td>ollama.ollama</td>
+      </tr>
+      <tr>
+          <td>chatgpt</td>
+          <td>&ndash;id=9NT1R1C2HH7J &ndash;source=msstore</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="default-shell">default shell</h3>
 <p>wingetでpwshをinstall, upgradeしてopensshのdefault-shellにする手順です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ssh windows
 </span></span><span style="display:flex;"><span>
@@ -240,12 +331,48 @@
 </span></span><span style="display:flex;"><span>powershell 7.3.0-preview
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ winget upgrade --all
-</span></span></code></pre></div><h3 id="sysinternals">sysinternals</h3>
+</span></span></code></pre></div><h2 id="openssh">openssh</h2>
+<p><a href="https://github.com/PowerShell/Win32-OpenSSH">https://github.com/PowerShell/Win32-OpenSSH</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ winget install microsoft.openssh.beta
+</span></span></code></pre></div><p><code>sshd_config</code>は<code>c:/programdata/ssh/sshd_config</code>にあります。public-key方式でアクセスするには、最後の方の行に<code>authorized_keys</code>のpathが記載されており、そこにpublickeyを記述します。ここでは、<code>c:/programdata/ssh/administrators_authorized_keys</code>になります。なお、<code>ssh-copy-id</code>コマンドは機能しません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ls c:/programdata/ssh/
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Match Group administrators
+</span></span><span style="display:flex;"><span>       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+</span></span></code></pre></div><p>ADD userの場合、publickey認証が通らないことがあるようです。このようにして<code>c:/users/$user/.ssh/authorized_keys</code>に置いてみましょう。pathに<code>authorizedKeyPath</code>:<code>c:/users/$user/.ssh/authorized_keys</code>を追加します。</p>
+<blockquote>
+<p>c:/programdata/ssh/sshd_config</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span>PermitEmptyPasswords yes
+</span></span><span style="display:flex;"><span>AuthorizedKeysFile      .ssh/authorized_keys
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Match Group administrators</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span>
+</span></span></code></pre></div><p>shellをpwshに変更するには、以下のコマンドを実行します。</p>
+<p><a href="https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration">https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_server_configuration</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ New-ItemProperty -Path <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\OpenSSH&#34;</span> -Name DefaultShell -Value <span style="color:#e6db74">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> -PropertyType String -Force
+</span></span></code></pre></div><p>default-shellを変更した場合の注意ですが、更新した際に以下のerrが出るようになる場合があります。default-shellのpathが違うとpassword/publickey認証のどちらも通りません。</p>
+<blockquote>
+<p>Permission denied (publickey,keyboard-interactive).</p>
+</blockquote>
+<p>scpで<code>Connection closed</code>が出る場合、pathが通っていない可能性があります。</p>
+<p><code>sshd_config</code>でfstp-serverのpathを記述するか、openssh(dir)のpathを追加しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ get-command fstp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ Set-Item Env:Path <span style="color:#e6db74">&#34;c:C:\Program Files\OpenSSH;</span>$ENV<span style="color:#e6db74">:Path&#34;</span>
+</span></span></code></pre></div><h2 id="auto-login">auto-login</h2>
+<p>起動時のパスワードを省略する設定です。</p>
+<p>通常は<code>netplwiz</code>を起動して、パスワード入力が必要のチェックを外します。</p>
+<p>仮に<code>ユーザーがこのコンピューターを使うには、ユーザー名とパスワードの入力が必要</code>のチェックボックスが表示されない場合、レジストリの値が<code>2</code>になっているので変更する必要があります。</p>
+<p><code>regedit</code>を開き、<code>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Microsoft &gt;Windows NT &gt; CurrentVersion &gt; PasswordLess &gt; Device</code>を<code>0</code>にします。</p>
+<p><a href="https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon">https://docs.microsoft.com/ja-jp/troubleshoot/windows-server/user-profiles-and-logon/turn-on-automatic-logon</a></p>
+<h3 id="sysinternals">sysinternals</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/sysinternals/downloads/">https://learn.microsoft.com/ja-jp/sysinternals/downloads/</a></p>
 <h3 id="synthv">synthv</h3>
+<p><code>suno</code>に移行しました。</p>
 <p>作曲アプリです。</p>
 <p><a href="https://dreamtonics.com/synthesizerv">https://dreamtonics.com/synthesizerv</a></p>
-<h3 id="stable-diffution">stable-diffution</h3>
+<h2 id="stable-diffution">stable-diffution</h2>
+<p><code>comfyui</code>に移行しました。</p>
 <p>AIによるイラスト生成です。</p>
 <p>model-fileをdownloadします。今回は<code>stable-diffusion-v1-4</code>を使用します。novelaiのmodelがすごいらしい。他のmodelも<code>model.ckpt</code>に置き換えると動きます。</p>
 <p><a href="https://huggingface.co/">huggingface.co</a></p>
@@ -364,10 +491,28 @@
 </span></span><span style="display:flex;"><span>sc delete <span style="color:#e6db74">&#34;mfemms&#34;</span>
 </span></span></code></pre></div><p><a href="https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853">https://answers.microsoft.com/en-us/windows/forum/all/remove-all-mcafee-files/19ff126f-4378-4e43-ab7f-262a6f6e4853</a></p>
 <h2 id="desktop">desktop</h2>
-<p><a href="https://github.com/rocksdanister/lively">https://github.com/rocksdanister/lively</a></p>
-<p>こういうのはあまり使わないんだけど、nasaのページが気に入っているので、それを設定したいということで。</p>
-<p><a href="https://eyes.nasa.gov/apps/solar-system/#/earth">https://eyes.nasa.gov/apps/solar-system/#/earth</a></p>
-
+<p>このアプリは現在非推奨です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://github.com/rocksdanister/lively
+</span></span><span style="display:flex;"><span>こういうのはあまり使わないんだけど、nasaのページが気に入っているので、それを設定したいということで。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>https://eyes.nasa.gov/apps/solar-system/#/earth
+</span></span></code></pre></div><h2 id="ultravnc">ultravnc</h2>
+<p>このアプリは現在非推奨です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://www.uvnc.com/downloads/ultravnc.html
+</span></span><span style="display:flex;"><span>$ winget install uvncbvba.UltraVnc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>管理者権限で実行しなければ、すべてのウィンドウに対して操作することができません。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>したがって、exeやstartup<span style="color:#f92672">(</span>shell:startup<span style="color:#f92672">)</span>は、<span style="color:#e6db74">`</span>プロパティ &gt; 管理者としてこのプログラムを実行する<span style="color:#e6db74">`</span>にチェックを入れます。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>その後、タスクスケジューラで設定しなければ自動起動しないようになりました。最上位の権限にチェックを入れます。
+</span></span></code></pre></div><h2 id="virtualbox">virtualbox</h2>
+<p>このアプリは現在非推奨です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://www.virtualbox.org/
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34;</span> startvm arch --type headless
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>virtualboxのimgを起動時にbackgraundで実行するには、以下のようなscriptをstartupを置きます。
+</span></span></code></pre></div>
 
 		
 
