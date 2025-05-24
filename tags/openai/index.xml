@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Thu, 22 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mcpとclaude</title>
+      <link>https://syui.ai/blog/post/2025/05/23/llm/</link>
+      <pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/blog/post/2025/05/23/llm/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.anthropic.com/news/claude-4&#34;&gt;claude4&lt;/a&gt;が出たので使ってみました。&lt;/p&gt;&#xA;&lt;p&gt;mcpは&lt;code&gt;anthropic&lt;/code&gt;が出していて、そのanthropicが出しているのが&lt;code&gt;claude&lt;/code&gt;です。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pip show mcp&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Home-page: https://modelcontextprotocol.io&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: Anthropic, PBC.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;コードを書くAIは色々ありますが、私は&lt;code&gt;claude&lt;/code&gt;を使っていこうかなと考えています。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>mcpとfastapi</title>
       <link>https://syui.ai/blog/post/2025/05/22/llm/</link>
