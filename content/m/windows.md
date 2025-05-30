@@ -26,6 +26,25 @@ download : [driver](https://www.nvidia.com/download/driverResults.aspx/216928/),
 
 現在、[pytorch](https://pytorch.org/get-started/previous-versions/)は`cuda v12.1`に対応しています。
 
+## default setting
+
+基本的には`pwsh`を使用します。これからはmcpからAIで操作してもらってもよいでしょう。
+
+### search-bar(bing disable)
+
+```sh
+# 「Explorer」キーの存在確認 & 作成
+New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Force | Out-Null
+
+# DisableSearchBoxSuggestions を 1 に設定（Bing無効化）
+New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" `
+  -Name "DisableSearchBoxSuggestions" -PropertyType DWord -Value 1 -Force
+
+# Explorer.exe を再起動
+Stop-Process -Name explorer -Force
+Start-Process explorer
+```
+
 ## local account
 
 windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。
@@ -43,7 +62,6 @@ $ winget show --id=9NT1R1C2HH7J --source=msstore
 公開元: OpenAI
 発行元 URL: https://help.openai.com
 ```
-
 
 |title|command(id)|url|
 |---|---|---|
