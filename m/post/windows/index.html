@@ -165,7 +165,20 @@
 <p>nvidiaの<a href="https://www.nvidia.com/download">driver</a>は常にupdateしてください。</p>
 <p>download : <a href="https://www.nvidia.com/download/driverResults.aspx/216928/">driver</a>, <a href="https://developer.nvidia.com/cuda-toolkit-archive">cuda v12.1</a>, <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a></p>
 <p>現在、<a href="https://pytorch.org/get-started/previous-versions/">pytorch</a>は<code>cuda v12.1</code>に対応しています。</p>
-<h2 id="local-account">local account</h2>
+<h2 id="default-setting">default setting</h2>
+<p>基本的には<code>pwsh</code>を使用します。これからはmcpからAIで操作してもらってもよいでしょう。</p>
+<h3 id="search-barbing-disable">search-bar(bing disable)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 「Explorer」キーの存在確認 &amp; 作成</span>
+</span></span><span style="display:flex;"><span>New-Item -Path <span style="color:#e6db74">&#34;HKCU:\Software\Policies\Microsoft\Windows\Explorer&#34;</span> -Force | Out-Null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DisableSearchBoxSuggestions を 1 に設定（Bing無効化）</span>
+</span></span><span style="display:flex;"><span>New-ItemProperty -Path <span style="color:#e6db74">&#34;HKCU:\Software\Policies\Microsoft\Windows\Explorer&#34;</span> <span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>  -Name <span style="color:#e6db74">&#34;DisableSearchBoxSuggestions&#34;</span> -PropertyType DWord -Value <span style="color:#ae81ff">1</span> -Force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Explorer.exe を再起動</span>
+</span></span><span style="display:flex;"><span>Stop-Process -Name explorer -Force
+</span></span><span style="display:flex;"><span>Start-Process explorer
+</span></span></code></pre></div><h2 id="local-account">local account</h2>
 <p>windowsをinstallする際に、microsoft accountを要求されます。これを回避するには、インターネット接続を停止、つまり、回線を引っこ抜いてから初期設定を行う必要があります。</p>
 <h2 id="winget">winget</h2>
 <p><code>choco</code>, <code>scoop</code>などがありますが、現在はwingetが使いやすくなっています。</p>
