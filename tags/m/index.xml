@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; syui</copyright>
-    <lastBuildDate>Sat, 26 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://syui.ai/tags/m/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu</title>
+      <link>https://syui.ai/m/post/ubuntu/</link>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://syui.ai/m/post/ubuntu/</guid>
+      <description>&lt;p&gt;稀にubuntu serverを使うことがあります。sshが遅いことがあります。ipv6を使用している場合などが影響しているのかもしれません。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ssh -4 user@server&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;~/.ssh/config&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-sh:~/.ssh/config&#34; data-lang=&#34;sh:~/.ssh/config&#34;&gt;Host ubuntu&#xA;&#x9;HostName 192.168.1.2&#xA;&#x9;User syui&#xA;&#x9;Port 22&#xA;&#x9;IdentityFile ~/.ssh/ubuntu&#xA;&#x9;AddressFamily inet&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;/etc/ssh/sshd_config&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-sh:/etc/ssh/sshd_config&#34; data-lang=&#34;sh:/etc/ssh/sshd_config&#34;&gt;UseDNS no&#xA;GSSAPIAuthentication no&#xA;GSSAPICleanupCredentials no&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     <item>
       <title>ue</title>
       <link>https://syui.ai/m/post/ue/</link>
