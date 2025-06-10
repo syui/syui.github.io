@@ -73,7 +73,6 @@ $ winget show --id=9NT1R1C2HH7J --source=msstore
 |vscode|microsoft.visualstudiocode|https://github.com/microsoft/vscode|
 |vim|vim.vim|https://github.com/vim/vim-win32-installer|
 |git|git.git|https://github.com/git/git|
-|lazygit|jesseduffield.lazygit|https://github.com/jesseduffield/lazygit|
 |node|openjs.nodejs|https://github.com/nodejs/node|
 |nvm|coreybutler.nvmforwindows|https://github.com/nvm-sh/nvm|
 |python|python.python.3.12|https://github.com/python|
