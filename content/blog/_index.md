@@ -1,4 +1,3 @@
 ---
-title: blog | syui.ai
 ---
 
