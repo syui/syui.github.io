@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mail on syui.github.io</title>
+    <link>https://syui.github.io/tags/mail/</link>
+    <description>Recent content in Mail on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 22 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/mail/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloudflare mailとmailgun</title>
+      <link>https://syui.github.io/blog/post/2022/01/22/mail/</link>
+      <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2022/01/22/mail/</guid>
+      <description>&lt;p&gt;mailは全く使ってなくて、spam-mailに分類されてそのまま見ないこともあるため、個人的に、やり取りするには不確実性が高いものになってます。&lt;/p&gt;&#xA;&lt;p&gt;私は、gmailをベースにmailgunで&lt;code&gt;address(syui@syui.ai)&lt;/code&gt;に転送していました。&lt;/p&gt;&#xA;&lt;p&gt;ただ、2022.1.16あたりからroutingが動いてないことに気づき、mailgun-logを見る限りでは単なるmailgun側の障害だったようですが、その時に送信ができなくなってることに気づきました。(送信自体は全くしないので)&lt;/p&gt;&#xA;&lt;p&gt;具体的には、gmailにmailgunのsmtp serverを適用していました。これによって指定のaddressを送信元と表示することができます。&lt;/p&gt;&#xA;&lt;p&gt;結論から言うと、mailgunが&lt;code&gt;plan:free -&amp;gt; plan:flex&lt;/code&gt;に移行し、昔からのユーザーは、発行しているsmtp serverが裏で動かない状態でした。&lt;/p&gt;&#xA;&lt;p&gt;何度か再発行して、UIでは正常に動いているように見えるけど、実は動いてなくて、新たに必要になった登録情報を更新しないとsmtp serverは正常に動作しないようです。&lt;/p&gt;&#xA;&lt;p&gt;そんな感じの変化がmailgunにあって、今更気づいたという話です。ちなみに、移行は2020だったらしい。&lt;/p&gt;&#xA;&lt;p&gt;で、色々と試している際、cloudflare mailがβ版で登場しており、これは予約制ですが、たまたま通ったので使ってみることにしました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/ja-jp/introducing-email-routing-ja-jp/&#34;&gt;https://blog.cloudflare.com/ja-jp/introducing-email-routing-ja-jp/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;これはmailgunでも簡単にできるrouting(受信)を可能にするものです。ただし、smtpなどは今のところなく、送信元にすることはできません。&lt;/p&gt;&#xA;&lt;p&gt;なので、しばらくはcloudflare-mailで受信、mailgunで送信を設定していこうかなと思っています。&lt;/p&gt;&#xA;&lt;p&gt;なお、gmailでmailgunのsmtpを設定する方法は、&lt;code&gt;gmail mailgun  smtp&lt;/code&gt;とかで検索すれば良さそう。この設定に関するgoogle(gmail)の公式docsがどこにあるのかちょっとわからなかった。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

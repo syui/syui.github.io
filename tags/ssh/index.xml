@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on syui.github.io</title>
+    <link>https://syui.github.io/tags/ssh/</link>
+    <description>Recent content in Ssh on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>openssh 8.2とgoodreader</title>
+      <link>https://syui.github.io/blog/post/2020/02/16/openssh/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/02/16/openssh/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.openssh.com/txt/release-8.2&#34;&gt;openssh 8.2&lt;/a&gt;がreleasesされました。updateしたところ、ios-goodreaderからsftp-serverにアクセスできなくなりました。&lt;/p&gt;&#xA;&lt;p&gt;ので、downgradeしました。downgradeが古かったので、何故か実行してもアクセスできないという現象に遭遇したので、downgradeもupdateしておきましょう。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ yay -S downgrade&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ downgrade openssh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;openssh    8.1p1  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  x86_64  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;remote&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo systemctl restart sshd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;goodreaderでキー(private-key)が読み込めない問題はこちらが参考になります。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/blog/post/2020/01/26/goodreader/&#34;&gt;iosのgoodreaderでsftpのprivate-keyが読み込めない問題&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

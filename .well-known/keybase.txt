@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/syui
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://syui.cf
+  * I am syui (https://keybase.io/syui) on keybase.
+  * I have a public key with fingerprint 1E8D B9FC 4B49 FA72 66A6  8426 8459 A733 DDFB 3B95
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01016869c5cbd032bb3caeb207fabe6639a8f7dd817ba901e095a2b62f245ee3fe910a",
+            "fingerprint": "1e8db9fc4b49fa7266a684268459a733ddfb3b95",
+            "host": "keybase.io",
+            "key_id": "8459a733ddfb3b95",
+            "kid": "01016869c5cbd032bb3caeb207fabe6639a8f7dd817ba901e095a2b62f245ee3fe910a",
+            "uid": "53cc85468df64c6d2727ebb3a20eec19",
+            "username": "syui"
+        },
+        "service": {
+            "hostname": "syui.cf",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1490896889,
+    "expire_in": 157680000,
+    "prev": "84e1ea4bc3d770408b96e2982d0ea2f358134aef0c1d1c9c9363e423d008bded",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.68
+Comment: https://keybase.io/crypto
+
+yMIeAnicrVJtSBRBGD41TS3Fvr+waMuCvGT2a3bnLEopJcIwI4wojpmd2XO5vL1u
+965MBIVQKwmNrH4EERUFQUdRiUhpFvRl9cdA6OtPSGQEHYVkRc1KQT/62cAwzDvP
+88zzvLz38jJ8uWlr2ies9gczBtMe3zka9+14Vfm1USA2bRACjUKYTR5sD2WOGwxb
+VAgIQAQi1CEyVINQIEuEyAZmRAKaiQmDUEZYNzVKdVEjGAGRAaRiiUDJlBSVMdlk
+SARY8AumFQmxWDRmRVwuKzKdEmQaClGQiTUJQgx1ReJbRViTZUpNIhOkcmKd7XgM
+bo5gh5VYNq/xS3DS3j/w/9l3fFJOlQ1DVxWoUxMqBqSSJmmMa2IJMGaIyAM6LBbB
+9YyjnYa4JTT5BV5JWAbzmuql+Ou1xDA5JRqzXduw9/BinetGnYBHchuiHmofI8Hf
+/CCxIpS3jzMSLOZYdkQIiBxpuJYnKCoI6AjqOvILbH/UirGg5SFUDeqAL+8flphs
+FhMZVoghU00DCtAJgkxCukQBw5Ipq7ooK5iZwBCpaCADyVBmiiRTwKGUUcFLtDdi
+CwGZ28QhL4sVimA3HmNC0+DArim+tFxfVma6N1a+3JyCP8N2ckW27+KCZKJrnnPc
++XnoRktHW3d1Y/3T0SnNVa+X2R15o4PPsr8V/lgTutv03l92K3hs9otZi3onPp+u
+3Ra+Sj6+fJiu2PfGwVlryVgyp+JJcWew/EHBqbb+A1+aq1LnP62vmZNd/6jn/lDP
+h0vjb7dnTi1IFA3nvh87ngnetVTsPNNybuba/qzU/CQbO5GxcGTa0LJ9ZtvOvoH8
+0pMLRobDVRMtOVcPFw7V3Czvv54q6epM1pL2xeSyzy23erYUd/duXbWxNH365t1w
+Q+umpTlXvleufu6uW9RWoWben4dqsy/EN8Lzfd2XqjNWrrzdCh5tLntDrx2p8y8f
+D83d0XruYMQsSuX/AvpdOR0=
+=J9BT
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/syui
+
+==================================================================

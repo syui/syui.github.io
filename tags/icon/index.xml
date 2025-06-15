@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Icon on syui.github.io</title>
+    <link>https://syui.github.io/tags/icon/</link>
+    <description>Recent content in Icon on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 04 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/icon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>アイコンのリデザインした</title>
+      <link>https://syui.github.io/blog/post/2023/02/04/icon/</link>
+      <pubDate>Sat, 04 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/02/04/icon/</guid>
+      <description>&lt;p&gt;バッジを作った際に使ったアイコンに不都合があったので新しくデザインしました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/icon/ai_all_bg.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;例えば、下記のアイコンはアルファベットの&lt;code&gt;A&lt;/code&gt;がモデルになっています。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/icon/ai_bg.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;しかし、&lt;code&gt;A&lt;/code&gt;というのはどの方向から見ても同じではありませんよね。バッジにする場合、それだと不都合があるのです。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;あたしンち&lt;/code&gt;というアニメに、こんなシーンがあります。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;今日は、お父さんとお母さんがお出かけだったが、お母さんが怒る&lt;/p&gt;&#xA;&lt;p&gt;お母さん「ちょっと、お父さん、変なところがあったら教えなさい！」&lt;/p&gt;&#xA;&lt;p&gt;お父さん「&amp;hellip;&amp;hellip;」&lt;/p&gt;&#xA;&lt;p&gt;お父さんは、お母さんが付けているトンボのバッジに気づく。トンボが逆さになっている&lt;/p&gt;&#xA;&lt;p&gt;お父さん「それ、トンボがしたむいとるけど、ほんとにいいんか？」&lt;/p&gt;&#xA;&lt;p&gt;お母さん「これはこれでいいんです」&lt;/p&gt;&#xA;&lt;p&gt;お父さん「ほんとにいいんか、トンボがしたむいてて」&lt;/p&gt;&#xA;&lt;p&gt;お母さん「いいんです」&lt;/p&gt;&#xA;&lt;p&gt;お父さん「ほんとにそれでいいんか」&lt;/p&gt;&#xA;&lt;p&gt;お母さん「これはこういうもんなの！間違い探しじゃないんだから」&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;この話が一体何なのかというと、バッジには向きがあって、お母さんにとってトンボを逆さにするのが正解だったようで、わざわざトンボを下向きにセットしていたのです。&lt;/p&gt;&#xA;&lt;p&gt;どちらが上でどちらが下か。明確なデザインならいいのですが、分かりづらいデザインでそれはめんどくさすぎる。&lt;/p&gt;&#xA;&lt;p&gt;ということで、3つのどの起点から見ても同じように見えるデザインを作りました。&lt;/p&gt;&#xA;&lt;p&gt;細かいところですが、気になったので。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>アイのアイコンを作った</title>
+      <link>https://syui.github.io/blog/post/2021/11/28/icon/</link>
+      <pubDate>Sun, 28 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2021/11/28/icon/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://syui.github.io/ai&#34;&gt;/ai&lt;/a&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/ai_circle.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;こっちはinkscapeでsvgを作ったんだけど、このアプリ、毎度触るたびによくわからんってなってる。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/icon/ai.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>特製のアイコンを作ってみた</title>
+      <link>https://syui.github.io/blog/post/2020/09/08/icon/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/09/08/icon/</guid>
+      <description>&lt;img src=&#34;https://syui.github.io/icon/syui-ai.png&#34; width=&#34;128&#34;&gt;&#xA;&lt;p&gt;何かの記念日等に使用したい変身アイコン。1日だけちょっとアイコンが変化したりするの。&lt;/p&gt;&#xA;&lt;p&gt;クリスマスとか正月とか、あとは作品キャラの誕生日とかに1日だけ設定しようかなって思ったりしてます。&lt;/p&gt;&#xA;&lt;p&gt;キャラ、プロフィールが決まってるのもあれば決まってないのもありますが、ちょびっとだけ紹介すると&lt;/p&gt;&#xA;&lt;p&gt;月見唯 : 身長 123cm, 誕生日 1/23&lt;/p&gt;&#xA;&lt;p&gt;ポンタ : 身長 166cm, 誕生日 6/6&lt;/p&gt;&#xA;&lt;p&gt;キョウスケ : 身長 171cm, 誕生日 7/1&lt;/p&gt;&#xA;&lt;p&gt;となってます。というか忘れそうなので、どっかに設定資料作りたい&amp;hellip;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>アイコンを追加してみた</title>
+      <link>https://syui.github.io/blog/post/2020/07/18/icon/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/07/18/icon/</guid>
+      <description>&lt;p&gt;またアイコンとか追加してた。&lt;/p&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/design.png&#34; width=&#34;144&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/icon/&#34;&gt;/icon&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>アイコンをいくつか作ってみた</title>
+      <link>https://syui.github.io/blog/post/2020/06/23/icon/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/06/23/icon/</guid>
+      <description>&lt;p&gt;アイコンをいくつか作ってみました。&lt;/p&gt;&#xA;&lt;h3 id=&#34;trace&#34;&gt;trace&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/trace.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;こちらは、&lt;a href=&#34;https://github.com/ny-a&#34;&gt;ny-a&lt;/a&gt;さんに提供したやつで、&lt;code&gt;trace&lt;/code&gt;というファイル名。動物は難しそうだったので足跡なら簡単なんじゃないと思って作り始めたんだけど、いらない部分を削ぎ落としていったら、色々あってこんな形になった。&lt;/p&gt;&#xA;&lt;p&gt;一応、いろんな角度から見てもそれなりにいろんなものに見えるようなってる。私の場合だと、上からは石、斜め右は爪、左は箱、下は鐘など。&lt;/p&gt;&#xA;&lt;p&gt;実は、私は、アイコンを移行したばかりのとき、違和感だらけで、「うーん、やっぱりなんか違うよなあ」みたいなことを思ったりしたんだけど、今は慣れたという経験があって、逆に複雑なアイコンに戻すのはちょっと無理ってなったりするので、最終的には、シンプルに落ち着くのではという考えがあったりするので、一番シンプルにしてみた。なお、シンプルさの指標として、一つは使用されている色の数かな。&lt;/p&gt;&#xA;&lt;h3 id=&#34;robot&#34;&gt;robot&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/robot.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;以前、ロボットのアイコンを作ったんだけど、あまり納得いってなかったので、作り直して、やっと完成したと思う。&lt;/p&gt;&#xA;&lt;h3 id=&#34;moon&#34;&gt;moon&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/moon.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;月のアイコン。絵文字とかにもあるけどね。でも、線の大きさや色が結構違ってたりするんだよ。よく使いそうだから、自分でも作っとくかとか思って。&lt;/p&gt;&#xA;&lt;h3 id=&#34;cloud&#34;&gt;cloud&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/cloud.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;雲のアイコン。よく自分のイラストに登場している。&lt;/p&gt;&#xA;&lt;h3 id=&#34;owl&#34;&gt;owl&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/owl.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;フクロウをイメージして作ったアイコン。&lt;a href=&#34;https://16test.uranaino.net/&#34;&gt;心理テスト&lt;/a&gt;をやったらフクロウだったので作ってみた。&lt;/p&gt;&#xA;&lt;p&gt;目をつけるとかわいくなったりするなあとか、色々な学びがあったアイコンだった。&lt;/p&gt;&#xA;&lt;p&gt;フクロウぽくないというのは確かにそのとおり。&lt;/p&gt;&#xA;&lt;p&gt;ただ、目を大きくすると、強調が強すぎて個人的にはNGでした。最初は、緑一色にしようかと思ったくらいなので、強調は抑えていきたい。また、くちばしを小さくするのはわかりにくいし、人に見えるので、大きくしてみた。&lt;/p&gt;&#xA;&lt;p&gt;フクロウから考えはじめたアイコンなんだけど、最終的には、普通の鳥っぽい。&lt;/p&gt;&#xA;&lt;p&gt;実はアイコンを作ってるとこういうことはよくある。最初のイメージと出来上がったものが違ってくる。&lt;/p&gt;&#xA;&lt;p&gt;ただ、私の場合は、出来上がったものに納得してればOKだし、いくら最初のイメージ通りでも、納得できないならNGなので、最初のイメージにこだわりはあまりない。&lt;/p&gt;&#xA;&lt;p&gt;とはいえ、名前は最初のイメージにすることが多いかな。出発点がわからなくなるし。&lt;/p&gt;&#xA;&lt;h3 id=&#34;sword&#34;&gt;sword&lt;/h3&gt;&#xA;&lt;img src=&#34;https://syui.github.io/icon/sword.png&#34; width=&#34;120&#34;&gt;&#xA;&lt;p&gt;ソードのアイコン。私は、図形をこねくり回してアイコンを作ることが多くて、&lt;code&gt;owl&lt;/code&gt;も&lt;code&gt;sword&lt;/code&gt;も、元は&lt;code&gt;trace&lt;/code&gt;のアイコンに使った図形を使用している。それを伸ばしたり、狭めたり、回転させたり。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;trace&lt;/code&gt;の図形自体も一つ作って、複製し、色を白とオレンジにして重ね合わせ、白の部分を透過するという作りになってる。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/icon&#34;&gt;/icon&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nasa on syui.github.io</title>
+    <link>https://syui.github.io/tags/nasa/</link>
+    <description>Recent content in Nasa on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/nasa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>solar-system</title>
+      <link>https://syui.github.io/blog/post/2024/04/28/nasa/</link>
+      <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2024/04/28/nasa/</guid>
+      <description>&lt;p&gt;この前、nasaのvoyager-1の不具合が修正された話がありました。&lt;/p&gt;&#xA;&lt;p&gt;私もニュース媒体でそれを知り、最もわかりやすかったのは&lt;a href=&#34;https://gigazine.net/news/20240423-voyager-1-resumes-sending-signal/&#34;&gt;gigazine.net&lt;/a&gt;の記事だったと思います。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;nasa&lt;/code&gt;には&lt;code&gt;solar-system&lt;/code&gt;があって、そこではvoyagerのstoryも公開されています。&lt;/p&gt;&#xA;&lt;iframe src=&#34;https://eyes.nasa.gov/apps/solar-system/#/story/voyager_grand_tour?slide=slide_2&#34; allowfullscreen frameborder=&#34;0&#34; style=&#34;width:100%;height:500px;&#34;&gt;&lt;/iframe&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yui.syui.ai&#34;&gt;yui.syui.ai&lt;/a&gt;のレイアウトを考えてて、あれも宇宙に関係した話なので&lt;code&gt;solar-system&lt;/code&gt;を自前で作りたいなと思い作ってみました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;host : &lt;a href=&#34;https://yui.syui.ai/pkg/solar&#34;&gt;https://yui.syui.ai/pkg/solar&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;例えば、&lt;code&gt;camera:earth&lt;/code&gt;にしてみてください。&lt;/p&gt;&#xA;&lt;p&gt;参考にしたのは&lt;a href=&#34;https://github.com/solarcg/SolarSys&#34;&gt;solarcg/SolarSys&lt;/a&gt;です。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

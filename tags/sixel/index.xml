@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sixel on syui.github.io</title>
+    <link>https://syui.github.io/tags/sixel/</link>
+    <description>Recent content in Sixel on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/sixel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsでのsixel</title>
+      <link>https://syui.github.io/blog/post/2022/02/11/sixel/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2022/02/11/sixel/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/syui/msr&#34;&gt;msr&lt;/a&gt;というmastodon clientでは、macはiterm2の&lt;code&gt;imgcat&lt;/code&gt;を使い、linuxはmltermなどで&lt;code&gt;img2sixel&lt;/code&gt;を使って画像アイコンを表示します。&lt;/p&gt;&#xA;&lt;p&gt;windowsの場合は、msys2でsixelをcompileし、minttyで表示できます。&lt;/p&gt;&#xA;&lt;video controls=&#34;controls&#34; width=&#34;100%&#34; height=&#34;350&#34;&gt;&#xA;  &lt;source src=&#34;https://raw.githubusercontent.com/syui/img/master/movie/dev_msr_sixel_20220211_0000.mov&#34;&gt;&#xA;&lt;/video&gt;&#xA;&lt;p&gt;msys2をscoopでinstallする場合のpathは&lt;code&gt;~/scoop/apps/msys2/current&lt;/code&gt;になります。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ scoop install msys2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ msys2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/saitoha/libsixel&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd libsixel&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pacman -S make gcc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./configure&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ make install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mintty&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ img2sixel test.png&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/saitoha/libsixel&#34;&gt;https://github.com/saitoha/libsixel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;windows terminalもsixelに対応してくれるといいんですけどね。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;https://github.com/microsoft/terminal&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/terminal/issues/448&#34;&gt;https://github.com/microsoft/terminal/issues/448&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
