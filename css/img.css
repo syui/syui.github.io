@@ -1,0 +1,46 @@
+.containerx {
+	padding: 0 20px;
+	width: auto;
+
+}
+
+.containerx p img {
+	width: 300px;
+}
+.tarot-card-list p img {
+	border-radius: 8px;
+}
+.containerx {
+	text-align: center;
+}
+
+@media screen and (max-width:1000px) { 
+	html {
+		font-size: 100%; 
+	}
+	.logo span.icon-phoenix-world{
+		font-size: 60px;
+		font-size: 6rem;
+	}
+	.containerx { 
+		margin: 0 15px;
+		padding: 0 ;
+		font-size:18px;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+	.containerx p img {
+		width: 100%;
+	}
+}
+
+p.img-fa-bars {
+	text-align: right;
+}
+
+.tarot-card-list button {
+	margin: 10px 0px 20px 0px;
+	font-size: 20px;
+	padding: 5px 15px 5px 15px;
+	color:#99892b;
+}

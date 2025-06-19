@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vnc on syui.github.io</title>
+    <link>https://syui.github.io/tags/vnc/</link>
+    <description>Recent content in Vnc on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/vnc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i3でおすすめのvnc clientであるremmina</title>
+      <link>https://syui.github.io/blog/post/2021/05/13/vnc/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2021/05/13/vnc/</guid>
+      <description>&lt;p&gt;vnc clinetは色々ありますが、個人的には、&lt;code&gt;remmina&lt;/code&gt;が最もおすすめです。linuxでは主にこちらを使っています。&lt;/p&gt;&#xA;&lt;p&gt;remminaは、非常に柔軟性のあるvnc clientで、i3でも普通に動作すると思います。また、コマンドオプションも豊富です。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo pacman -S remmina&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ remmina -c vnc://&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;user&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;password&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;@192.168.xx.xxx&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.jp/index.php/Remmina&#34;&gt;https://wiki.archlinux.jp/index.php/Remmina&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

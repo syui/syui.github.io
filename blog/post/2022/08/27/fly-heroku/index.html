@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>herokuからfly.ioへの移行 | syui.github.io</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="herokuからfly.ioへの移行" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.github.io//og.png" />
+		<meta property="og:url" content="https://syui.github.io/blog/post/2022/08/27/fly-heroku/" />
+		<meta property="og:site_name" content="syui.github.io" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+					"@type": "WebSite",
+					"name": "syui.github.io",
+					"url": "https:\/\/syui.github.io\/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="https://syui.github.io//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.github.io//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+<body>
+	<div class="containerx">
+		<header id="header">
+			
+			<div class="logo">
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+			</div>
+			
+		</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2022-08-27 / <a href="https://bsky.syui.ai">@syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.github.io/tags/heroku/">heroku</a>
+		
+		
+		
+		
+		
+		, <a href="https://syui.github.io/tags/fly/">fly</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/fly">fly</a></p>
+		
+		</div>
+
+		<h2>herokuからfly.ioへの移行</h2>
+
+		<p>herokuのplan:free(hobby)が廃止され、<code>mo/$31</code>になるので、<a href="https://heroku.com/">heroku</a>から<a href="https://fly.io/">fly.io</a>へ移行を考えています。</p>
+<blockquote>
+<p>Heroku Dynos starts at $7/month, Heroku Data for Redis® starts at $15/month, Heroku Postgres starts at $9/month.</p>
+</blockquote>
+<p><a href="https://blog.heroku.com/next-chapter">https://blog.heroku.com/next-chapter</a></p>
+<p>herokuのこれまでの評価は、素晴らしかったです。感謝しかありません。ありがとう！</p>
+<h3 id="flyio-planfreehobby">fly.io plan:free(hobby)</h3>
+<p>クレジットカードを登録するとplan:hobbyが使えるようになります。クレジットカードはできればVプリカ(visaプリペイドカード)などを使用するようにしてください。登録できない場合に通常のクレジットカードで登録するしかありません。このへんは未検証です。</p>
+<blockquote>
+<p>Add a payment method to get even more free allowances.</p>
+<p>VM: shared-cpu	2,340 hours per month	Run 3 shared-cpu-1x VMs with 256MB RAM full time.
+Volumes	3GB	Provision 3GB of persistent volumes for permanent storage
+Bandwidth	160GB per month	See outbound data transfer for regional breakdown
+Anycast IPs	Unlimited IPv6, 1 IPv4 per active app	Additional IPv4 addresses are $2 per month
+Certificates	10 active certificates	Add 10 certificates to your apps</p>
+</blockquote>
+<ul>
+<li>
+<p>dyno : 2,340</p>
+</li>
+<li>
+<p>ram : 256M</p>
+</li>
+<li>
+<p>strage(volume) : 3G</p>
+</li>
+</ul>
+<p><a href="https://fly.io/docs/about/pricing/">https://fly.io/docs/about/pricing/</a></p>
+<p>fly.ioはかなりherokuを意識しているようで、cliもありますので、herokuと同じように使いやすいと思いました。</p>
+<p>herokuからの移行は<a href="https://fly.io/launch/heroku">こちら</a>から自動で移行するツールがあります。が、これでうまくいくとは思っていません。</p>
+<p>注意点としては以下になります。</p>
+<ul>
+<li>herokuとfly.ioで使うメールアドレスを同一のものにすること</li>
+</ul>
+<p>これを行わないとfly.ioでherokuのメールアドレスからアカウントが作成された上で、appをdeployします。この際、アカウントにはクレジットカードの登録も必要です。あらかじめfly.ioで作成している場合、そのアカウントは使われません。</p>
+<p>fly.ioの<code>launch/heroku</code>を使う際はherokuとfly.ioで使うメールアドレスを同一のものにしておきましょう。</p>
+<p>さて、ではherokuからの移行ツールが動作するかというと、当然ですが移行ツールでは正常にdeployが完了しませんでした。</p>
+<p>したがって、docsを読んで最初からfly.io用にdeployできる構成を作らなければなりません。</p>
+<h3 id="mastodon">mastodon</h3>
+<blockquote>
+<p>ここではfly.ioでmastodonを正常に動作させるまでをやります</p>
+</blockquote>
+<p>fly.ioでmastodonを動かす場合、(1)memory:512Mにすること、(2)redis-serverを独自に立ち上げることが重要になります。</p>
+<p>公式のdockerfileでもdeployは成功しますが、logsを見てみると、redisの処理がうまく行かず、webにアクセスできませんでした。</p>
+<p>さらに、独自のアドレスを使う場合は、fly.ioの<code>apps/xxx/certificates</code>で証明書を発行した上でCNAMEを追加します。ここまでやって初めて正常に動作しました。</p>
+<p>ref : <a href="https://github.com/tmm1/flyapp-mastodon">https://github.com/tmm1/flyapp-mastodon</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly apps create xxx
+</span></span><span style="display:flex;"><span>$ fly scale memory <span style="color:#ae81ff">512</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="display:flex;"><span><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;xxx&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kill_signal</span> = <span style="color:#e6db74">&#34;SIGINT&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kill_timeout</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">env</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># WEB_DOMAIN=&#34;mstdn.syui.ai&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># LOCAL_DOMAIN=&#34;syui.ai&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LOCAL_DOMAIN</span>=<span style="color:#e6db74">&#34;xxx.fly.dev&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">LANG</span>=<span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RAILS_ENV</span> = <span style="color:#e6db74">&#34;production&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RAILS_LOG_TO_STDOUT</span> = <span style="color:#e6db74">&#34;enabled&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">WEB_CONCURRENCY</span> = <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">REDIS_HOST</span> = <span style="color:#e6db74">&#34;xxx-redis.internal&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">REDIS_PORT</span> = <span style="color:#e6db74">&#34;6379&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">S3_ENABLED</span>=<span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SINGLE_USER_MODE</span>=<span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">OTP_SECRET</span>=<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SECRET_KEY_BASE</span>=<span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># LOCAL_HTTPS=false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">deploy</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">release_command</span> = <span style="color:#e6db74">&#34;bundle exec rails db:migrate&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">mounts</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">processes</span> = [<span style="color:#e6db74">&#34;rails&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;mastodon_uploads&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">destination</span> = <span style="color:#e6db74">&#34;/opt/mastodon/public/system&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">processes</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rails</span> = <span style="color:#e6db74">&#34;bundle exec rails s -p 8080&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">sidekiq</span> = <span style="color:#e6db74">&#34;bundle exec sidekiq&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">statics</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guest_path</span> = <span style="color:#e6db74">&#34;/opt/mastodon/public&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url_prefix</span> = <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">services</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">processes</span> = [<span style="color:#e6db74">&#34;rails&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;http&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">ports</span>]]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">handlers</span> = [<span style="color:#e6db74">&#34;tls&#34;</span>, <span style="color:#e6db74">&#34;http&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">port</span> = <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">tcp_checks</span>]]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">grace_period</span> = <span style="color:#e6db74">&#34;1s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">interval</span> = <span style="color:#e6db74">&#34;15s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">restart_limit</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">timeout</span> = <span style="color:#e6db74">&#34;2s&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">http_checks</span>]]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span> = <span style="color:#e6db74">&#34;/health&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">grace_period</span> = <span style="color:#e6db74">&#34;1s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">interval</span> = <span style="color:#e6db74">&#34;15s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">restart_limit</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">timeout</span> = <span style="color:#e6db74">&#34;2s&#34;</span>
+</span></span></code></pre></div><p><code>OTP_SECRET</code>, <code>SECRET_KEY_BASE</code>は<code>fly secrets set</code>したほうがいいです。ですが、secretsは不安定なので、envに書いたほうがいいです。理由は後述します。</p>
+<p>私の場合、下記のようにDBを引き継いだのですが、反映されませんでした。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config
+</span></span><span style="display:flex;"><span>$ fly pg create xxx
+</span></span><span style="display:flex;"><span>$ fly proxy <span style="color:#ae81ff">5432</span> -a xxx
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># host=localhost</span>
+</span></span><span style="display:flex;"><span>$ export DATABASE_URL<span style="color:#f92672">=</span>postgres://xxx:xxx@localhost:5432
+</span></span><span style="display:flex;"><span>$ pg_dump --no-owner -C -d $HEROKU_DATABASE_URL | psql -d $DATABASE_URL
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>$ fly pg attach -a $app $app_db
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DATABASE_URLにsecrets setしている場合はattachは動きません。unsetしてください</span>
+</span></span><span style="display:flex;"><span>$ fly secrets unset DATABASE_URL
+</span></span></code></pre></div><p>以前のsecret-keyなどもenvに入れて、<code>rails db:setup</code>を実行していません。引き継ぎなのでmigrateの処理を入れています。</p>
+<p>しかし、新しくアカウントを作り直すことになったので、最初から初期化してdeployするのがおすすめかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly pg create --name xxx-pg
+</span></span><span style="display:flex;"><span>$ fly pg attach -a xxx xxx-pg
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fly deploy -c fly.setup.toml</span>
+</span></span></code></pre></div><p>次は、redis-serverを作ります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:fly.redis.toml" data-lang="toml:fly.redis.toml"><span style="display:flex;"><span><span style="color:#a6e22e">app</span> = <span style="color:#e6db74">&#34;xxx-redis&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">mounts</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;xxx_redis&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">destination</span> = <span style="color:#e6db74">&#34;/data&#34;</span>
+</span></span></code></pre></div><p>volume sizeが3G以上になる場合、課金が発生します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly apps create xxx-redis
+</span></span><span style="display:flex;"><span>$ fly vol create -c fly.redis.toml xxx_redis --size <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>$ fly deploy --config fly.redis.toml --build-target redis-server
+</span></span></code></pre></div><p>dockerからなのか、ちょっとしたことですぐに動かなくなります。例えば、mediaのurlがうまく取得できない場合でもそういった事が起こるので、注意が必要です。問題が発生した場合、pgをresetしたほうが早いです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly vol create mastodon_uploads --size <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># こういったやり方で画像をuploadしている場合は動かなくなる</span>
+</span></span><span style="display:flex;"><span>PAPERCLIP_SECRET<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span>
+</span></span><span style="display:flex;"><span>PAPERCLIP_ROOT_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.com/syui/xxx/raw&#34;</span>
+</span></span></code></pre></div><p>最終的には、appを<code>deploy</code>します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly deploy
+</span></span><span style="display:flex;"><span>$ fly open
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fly ssh console
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://zenn.dev/kumasun/articles/12dcc7b3e91722945228</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 新しくアカウントを作る</span>
+</span></span><span style="display:flex;"><span>$ cd mastodon
+</span></span><span style="display:flex;"><span>$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts create $USER --email<span style="color:#f92672">=</span>$EMAIL --confirmed --role admin 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 既存のアカウントを上書き</span>
+</span></span><span style="display:flex;"><span>$ RAILS_ENV<span style="color:#f92672">=</span>production bundle exec bin/tootctl accounts modify $USER --email<span style="color:#f92672">=</span>$EMAIL --confirm --role admin
+</span></span></code></pre></div><p>sidekiqが遅い場合があり、redisが原因だと思われます。しかし、これ以上の方法があるとは思えません。</p>
+<p>あと、fly.io(cli)は、バグっているので、まあまあの割合で有効に動作しないことがあります。なにかおかしいと思ったときは、そういうこともあるということで。私の場合、secretsに入れたはずのやつが消えたり、消したはずのやつが残ってたり、DATABASE_URLを消したあとにもattachで追加できなくなったりといったことが頻発しました。</p>
+<h4 id="mastodondockerfile">mastodon/dockerfile</h4>
+<blockquote>
+<p>下記からは主にうまく動作しない手順となります。</p>
+</blockquote>
+<p>通常は<code>fly launch</code>にてy/NでNにします。こうすることでdockerfileが上書きされず、mastodonのdockerfileを使用します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:fly.toml" data-lang="toml:fly.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">processes</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">web</span> = <span style="color:#e6db74">&#34;bundle exec puma -C config/puma.rb&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">worker</span> = <span style="color:#e6db74">&#34;bundle exec sidekiq&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">build</span>]
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">build</span>.<span style="color:#a6e22e">args</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">BUNDLER_VERSION</span> = <span style="color:#e6db74">&#34;2.3.9&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">NODE_VERSION</span> = <span style="color:#e6db74">&#34;14&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">RUBY_VERSION</span> = <span style="color:#e6db74">&#34;3.0.4&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">deploy</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">release_command</span> = <span style="color:#e6db74">&#34;bundle exec rails db:migrate&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">env</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">PORT</span> = <span style="color:#e6db74">&#34;8080&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">services</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">processes</span> = [<span style="color:#e6db74">&#34;web&#34;</span>] <span style="color:#75715e"># this service only applies to the web process</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">http_checks</span> = []
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">internal_port</span> = <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">script_checks</span> = []
+</span></span></code></pre></div><p>多少、dockerfileを手直ししてdeployすればいいです。postgres, redisのurlをenvに入れておきましょう。これはdockerfileに入れてもfly.ioに入れてもいいです。herokuからの移行は<a href="https://fly.io/docs/rails/getting-started/migrate-from-heroku/">こちら</a>を参考にしてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -v
+</span></span><span style="display:flex;"><span>$ rbenv install 3.0.4
+</span></span><span style="display:flex;"><span>$ bunlde
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ fly secrets set DATABASE_URL<span style="color:#f92672">=</span>xxx
+</span></span><span style="display:flex;"><span>$ fly secrets set REDIS_URL<span style="color:#f92672">=</span>xxx
+</span></span><span style="display:flex;"><span>$ fly deploy
+</span></span><span style="display:flex;"><span>$ fly open
+</span></span></code></pre></div><h4 id="flyiodockerfile">fly.io/dockerfile</h4>
+<blockquote>
+<p>下記からは主にうまく動作しない手順となります。</p>
+</blockquote>
+<p>fly.ioが生成するdockerfileを使ってdeployする大まかなヒントです。</p>
+<blockquote>
+<p>ruby &lsquo;~&gt; 3.1.0&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 3.1.0
+</span></span><span style="display:flex;"><span>$ ruby -v
+</span></span><span style="display:flex;"><span>$ bundle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ fly auth login
+</span></span><span style="display:flex;"><span>$ fly launch
+</span></span><span style="display:flex;"><span>$ fly deploy
+</span></span><span style="display:flex;"><span>&gt; An error occurred <span style="color:#66d9ef">while</span> installing idn-ruby <span style="color:#f92672">(</span>0.1.4<span style="color:#f92672">)</span>, and Bundler cannot
+</span></span><span style="display:flex;"><span>&gt; An error occurred <span style="color:#66d9ef">while</span> installing charlock_holmes <span style="color:#f92672">(</span>0.7.7<span style="color:#f92672">)</span>, and Bundler cannot
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><blockquote>
+<p>Dockerfile</p>
+</blockquote>
+<pre tabindex="0"><code>ARG DEV_PACKAGES=&#34;git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev ffmpeg libicu[0-9][0-9] libicu-dev libidn11 libidn11-dev libpq-dev libxdamage1 libxfixes3 zlib1g-dev libcairo2 libdatrie1 libgdk-pixbuf2.0-0 libgraphite2-3 libharfbuzz0b libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpixman-1-0 librsvg2-2 libthai-data libthai0 libvpx[5-9] libxcb-render0 libxcb-shm0 libxrender1 libglib2.0-0&#34;
+</code></pre><p>これでやっと通りました。</p>
+<p>しかし、<code>bundle exec rails assets:precompile</code>で<code>libicudata.so.67: cannot open shared object file: No such file or directory - /app/vendor/bundle/ruby/3.1.0/gems/charlock_holmes</code>が出ます。</p>
+<blockquote>
+<p>Dockerfile</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ENV OTP_SECRET<span style="color:#f92672">=</span>xxx
+</span></span><span style="display:flex;"><span>RUN gem pristine --all
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ARG PROD_PACKAGES<span style="color:#f92672">=</span>xxx libglib2.0-0
+</span></span></code></pre></div><h4 id="postgres">postgres</h4>
+<p>fly-postgres(pg)はpublicではなくprivateです。container内からしかアクセスできません。ただし、localからアクセスする手段があります。それを使いheroku-pgのdumpをfly-pgに追加します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku config
+</span></span><span style="display:flex;"><span>$ fly pg create
+</span></span><span style="display:flex;"><span>$ fly proxy <span style="color:#ae81ff">5432</span> -a xxx
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># host=localhost</span>
+</span></span><span style="display:flex;"><span>$ export DATABASE_URL<span style="color:#f92672">=</span>postgres://xxx:xxx@localhost:5432
+</span></span><span style="display:flex;"><span>$ pg_dump --no-owner -C -d $HEROKU_DATABASE_URL | psql -d $DATABASE_URL
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>$ fly pg attach --app $app $app_db
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DATABASE_URLにsecrets setしている場合はattachは動きません。unsetしてください</span>
+</span></span><span style="display:flex;"><span>$ fly secrets unset DATABASE_URL
+</span></span></code></pre></div><h4 id="redis">redis</h4>
+<p>fly.ioはredisがつらい。もしかしたらherokuのrediscloud使えばいいかも。でも<code>REDIS_URL</code>に入れてもうまく動作しなかった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ heroku addons:create rediscloud
+</span></span></code></pre></div><p>総評として、herokuがよすぎた。</p>
+<p>追記 : 調整することで、fly.ioでもかなり快適に動作するようになりました。ただし、総合的に見てherokuのほうが便利です。fly.ioはherokuより安く運用できるという点で評価できます。</p>
+
+
+		
+
+	</div>
+
+</article>
+
+
+
+
+</div>
+		<div class="footer-link">
+	<span class="footer-link"><a href="https://web.syu.is/@syui" target="_blank"><i class="fab fa-bluesky"></i></a></span>
+		<span class="footer-link"><a href="https://card.syui.ai/syui" target="_blank"><span class="icon-ai"></span></a></span>
+	<span class="footer-link"><a href="https://git.syui.ai/syui" target="_blank"><span class="icon-git"></span></a></span>
+</div>
+
+<script src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>

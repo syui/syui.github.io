@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discord on syui.github.io</title>
+    <link>https://syui.github.io/tags/discord/</link>
+    <description>Recent content in Discord on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/discord/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bluesky勉強会#2</title>
+      <link>https://syui.github.io/blog/post/2023/09/03/discrod/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/09/03/discrod/</guid>
+      <description>&lt;p&gt;この前、bluesky勉強会2があって、discordで発表してみた。初発表だったので緊張した。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://428lab.connpass.com/event/293255/&#34;&gt;https://428lab.connpass.com/event/293255/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;スライド : &lt;a href=&#34;https://yui.syui.ai/slidev&#34;&gt;https://yui.syui.ai/slidev&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>discordの配信環境を整えた</title>
+      <link>https://syui.github.io/blog/post/2023/08/12/discord/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/08/12/discord/</guid>
+      <description>&lt;p&gt;macでは、音声キャプチャっていうのがインストールできなくて、これがインストールできないとアプリの音声が流れなかったので対応しました。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;リカバリモードで、起動セキュリティユーティリティ &amp;gt; 低セキュリティ &amp;gt; kernel拡張をenableにする&lt;/p&gt;&#xA;&lt;p&gt;リカバリモードのターミナルを開いて&lt;/p&gt;&#xA;&lt;p&gt;spctl kext-consent disable spctl kext-consent add 7266XEXAPM spctl kext-consent enable&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://support.discord.com/hc/ja/articles/1500006741102&#34;&gt;https://support.discord.com/hc/ja/articles/1500006741102&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;rogueamoeba.com/audiohijack をインストールする&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twitter.com/discord_jp/status/1645651865588183042&#34;&gt;https://twitter.com/discord_jp/status/1645651865588183042&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;基本的に挙動がバグってるので、どうしてもうまく行かないことはあります。この辺は運次第だと思います。何度か同じことやるとうまくいくかもしれません。私の場合は、許可するウィンドウが出たり出なかったり、複数出たり、違うものが出たり、ウィンドウのタイトルやボタンがなかったり、と色々でした。&lt;/p&gt;&#xA;&lt;h2 id=&#34;quicktime-player&#34;&gt;quicktime player&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ipadをusb接続してムービー収録で画面を出す&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;discordの音声キャプチャがインストールされていることを確認する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;この場合、画面共有しているアプリとマイクから音が取れます。ipadでプレイしている原神をライブ配信できました。&lt;/p&gt;&#xA;&lt;h2 id=&#34;配信の確認&#34;&gt;配信の確認&lt;/h2&gt;&#xA;&lt;p&gt;別垢を作って違うデバイスから確認します。ブラウザとアプリでログインアカウントを別々にしても、ブラウザのほうが何故か同一アカウントになってしまう。この辺の挙動もよくわからない。&lt;/p&gt;&#xA;&lt;p&gt;でもこれで配信自体はできるようになったし、色々な仕組みを理解できたので良かった。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/discord_20230814_0001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

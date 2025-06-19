@@ -1,0 +1,11 @@
+{
+	"names": {
+		"_": "53bde5f1748546a0c28f1fab8ee18d7229e6ebaaea2df343906de9325333dd3c",
+		"ai": "6dfbd6ab09921fdb48e0741574976b02dba780788632d4e0291d2dbea715d08b"
+	},
+	"relays": {
+		"53bde5f1748546a0c28f1fab8ee18d7229e6ebaaea2df343906de9325333dd3c": [
+			"wss://nostr-pub.wellorder.net"
+		]
+	}
+}
