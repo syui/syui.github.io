@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manga on syui.github.io</title>
+    <link>https://syui.github.io/tags/manga/</link>
+    <description>Recent content in Manga on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sat, 03 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/manga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>漫画描いた5</title>
+      <link>https://syui.github.io/blog/post/2023/06/03/manga/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/06/03/manga/</guid>
+      <description>&lt;p&gt;漫画を描いたのと、ページを参照できなくて不便だったので、参照できるようにしたのと、イラストを描いたのと、カードを作ったりしてました。&lt;/p&gt;&#xA;&lt;p&gt;また、bot(@yui.bsky.social)から限定カードを1,2日だけ排出するようにしてました。&lt;/p&gt;&#xA;&lt;h3 id=&#34;新しいページを作った&#34;&gt;新しいページを作った&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://manga.syui.ai/91&#34;&gt;yui | manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;以前 : &lt;a href=&#34;https://syui.ai/ai/manga&#34;&gt;/ai/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;イラスト&#34;&gt;イラスト&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/img/yui_137.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;プロットやキャラ&#34;&gt;プロットやキャラ&lt;/h3&gt;&#xA;&lt;p&gt;今回も少しだけ普段から思ってることを書きます。&lt;/p&gt;&#xA;&lt;p&gt;私は頭の中にプロット?があり、割と勝手に生成されます。&lt;/p&gt;&#xA;&lt;p&gt;キャラも勝手に喋るので、特に考えたりはあまりないです。&lt;/p&gt;&#xA;&lt;p&gt;例えば、アイに関しては、私とは全く別人格なので、アイはアイで勝手にすればいいと思ってます。私は知りません。&lt;/p&gt;&#xA;&lt;p&gt;ただ、物語に関しては、できるだけ面白くなるよう調整したりします。今回も話が暗くなりすぎないように最後のほうはギャグ方向で調整しました。&lt;/p&gt;&#xA;&lt;h3 id=&#34;アイのモジモード&#34;&gt;アイのモジ・モード&lt;/h3&gt;&#xA;&lt;p&gt;本来はアイの小説由来ですが、&lt;a href=&#34;https://syui.github.io/moji/&#34;&gt;ai-moji&lt;/a&gt;が関係しています。&lt;/p&gt;&#xA;&lt;p&gt;何かを書き換える能力を持つようです。&lt;/p&gt;&#xA;&lt;p&gt;機会があれば、&lt;code&gt;ai-moji&lt;/code&gt;はupdateしたいと思っています。いくつかの文字の変更と拡大画像の生成。&lt;/p&gt;&#xA;&lt;p&gt;blueskyが面白いので、最新情報のほとんどをblueskyに投稿するようになってしまいました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画描いた4</title>
+      <link>https://syui.github.io/blog/post/2023/05/24/manga/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/05/24/manga/</guid>
+      <description>&lt;p&gt;この前、blueskyのほうで新しいカード追加すると同時に漫画出そうと思ってたんだけど、ほぼ土日だけで30ページくらい描いたんだけど、間に合わなかったので、とりあえず出すことにしました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.ai/ai/manga/&#34;&gt;/ai/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;今回、私の漫画の書き方がちょっと変わってるかもしれないと思ったので、まとめてみます。&lt;/p&gt;&#xA;&lt;h3 id=&#34;ネームを書かない&#34;&gt;ネームを書かない&lt;/h3&gt;&#xA;&lt;p&gt;漫画にはネームって呼ばれるものがあるらしい。と言っても具体的になにかは知らない。おそらく、構成のことを言ってるんだと思うけど、私は、頭の中に物語ができているので、ネームと呼ばれるものはやったことがありません。&lt;/p&gt;&#xA;&lt;h3 id=&#34;下書きをしない&#34;&gt;下書きをしない&lt;/h3&gt;&#xA;&lt;p&gt;私は、下書きをしません。絵というのは線を何本も重ねて、少しずつ形にしていく手法を取る人もいるかも知れませんが、私の場合、一発書きです。レイヤーなども面倒なので基本使いません。&lt;/p&gt;&#xA;&lt;h3 id=&#34;コマ割りを考えない&#34;&gt;コマ割りを考えない&lt;/h3&gt;&#xA;&lt;p&gt;漫画ではコマ割りに困っている人が多いらしいです。しかし、私の漫画の描き方は非常に独特で、まずコマ割りを適当に行います。で、そのコマ割りに合わせて絵を書きます。絵が先にあって、その絵にコマ割りを合わせるということは基本ありません。私の場合、コマが最初で、絵があとなのです。ですから、コマ割りに悩んだことはないですね。&lt;/p&gt;&#xA;&lt;h3 id=&#34;設定資料を作らない&#34;&gt;設定資料を作らない&lt;/h3&gt;&#xA;&lt;p&gt;時間ないので設定資料を作りません。あると便利なのは間違いないし、作るべきだと思っているけど、作れてないのが現状。&lt;/p&gt;&#xA;&lt;p&gt;設定資料は、このサイトにまとめてあることだけです。それ以外にはありません。&lt;/p&gt;&#xA;&lt;p&gt;私は自分が作った設定を読み返すことがほとんどないので、その多くを作者すら忘れてたりもするんだけど、あまり気にしてない。&lt;/p&gt;&#xA;&lt;h3 id=&#34;まとめ&#34;&gt;まとめ&lt;/h3&gt;&#xA;&lt;p&gt;まとめると、最初は頭の中に話があって、まずコマ割り、あるいはパターンのコピーをし、そこに一発描きで頭の中の話を描き出す、みたいな作業になります。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画描いた3</title>
+      <link>https://syui.github.io/blog/post/2022/10/20/manga/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2022/10/20/manga/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://syui.github.io/manga/51.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/52.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/53.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/54.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/55.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/56.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/57.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/58.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/59.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画描いた2</title>
+      <link>https://syui.github.io/blog/post/2022/05/07/manga/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2022/05/07/manga/</guid>
+      <description>&lt;p&gt;この前、漫画に新しい話を追加したい気分だったので、書いてると、ストーリーが進むに連れ、どんどん絵が雑になっていき、最終的には下書きみたいになってしまったので、これはまずいと思い、過去コマの修正からやり直すことにしました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://files.mastodon.social/media_attachments/files/108/258/586/466/983/571/original/3d9e1b4781eac1c7.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;なぜ最初から書き直しているのか&#34;&gt;なぜ最初から書き直しているのか&lt;/h3&gt;&#xA;&lt;p&gt;絵が雑になっていく理由はいくつかあります。&lt;/p&gt;&#xA;&lt;p&gt;私の場合は、さっさとストーリーを進めて、早く自分が思い描いているコマ(ゴール)にたどり着きたいからです。&lt;/p&gt;&#xA;&lt;p&gt;しかし、雑になりすぎたので、今まで作った漫画の過去コマ全部を書き直すことにしました。&lt;/p&gt;&#xA;&lt;p&gt;今読み直すと、納得できないコマがたくさんあります。&lt;/p&gt;&#xA;&lt;p&gt;この作業を通して、漫画の描き方がわかってくればと思います。(物語の変更はありません)&lt;/p&gt;&#xA;&lt;p&gt;ページ数が少ない段階でこの作業に取り組めてよかったと今は思います。&lt;/p&gt;&#xA;&lt;p&gt;しばらく修正が続きます&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/ai/manga/&#34;&gt;/ai/manga/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画描いた1</title>
+      <link>https://syui.github.io/blog/post/2021/07/11/manga/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2021/07/11/manga/</guid>
+      <description>&lt;p&gt;漫画、描いてみました。以前のナンバリングを忘れてしまったので、これが1ってことにします。近々、続き書くかはわかりませんが。&lt;/p&gt;&#xA;&lt;p&gt;一応、スライドで読みやすくしてるやつはこっち(だけど、最初のページ探さないといけない)&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/manga/45.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/46.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/47.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/48.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/49.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/50.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/51.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/52.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/53.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/54.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/55.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;漫画、一度経験しておきたかった戦闘シーンを以前書いたので、これからは普通に、日常とギャグ中心のストーリー展開をしていければとは思ってます。&lt;/p&gt;&#xA;&lt;p&gt;これ2日くらいで書き上げたため、どうも下書きっぽくて、気が向けば後々修正入れるかもしれません。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>やっと3話まで完成した</title>
+      <link>https://syui.github.io/blog/post/2020/08/22/manga/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/08/22/manga/</guid>
+      <description>&lt;p&gt;以前描いた漫画をrewriteしててやっと既存の3話まで完成しました。&lt;/p&gt;&#xA;&lt;p&gt;読み直してみて、完璧に納得してるわけではないですけど、前よりはいいものに仕上がったのではないかと思います。&lt;/p&gt;&#xA;&lt;p&gt;これからはもう少し丁寧に描こうと思ったのでした。以上。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画を2話まで仕上げてみた</title>
+      <link>https://syui.github.io/blog/post/2020/08/14/manga/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/08/14/manga/</guid>
+      <description>&lt;p&gt;漫画を2話まで書き直してみました。2話は戦いの話です。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;全部で44ページになりました。ページ数は少し増えた気がする。ブログを見ると8/5から書き直しを開始、8/14で44ページほぼ全部を書き直したので、少し多めに見積もって9日間で約40ページあげた計算になります。&lt;/p&gt;&#xA;&lt;p&gt;もちろん、元になる下書き？あってのことですが、気に入らなくて下書き全削除した箇所も結構多かった。&lt;/p&gt;&#xA;&lt;p&gt;感想としては、楽しかったのと、きつかったの半々くらいかな。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画のrewriteを継続中</title>
+      <link>https://syui.github.io/blog/post/2020/08/09/manga/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/08/09/manga/</guid>
+      <description>&lt;p&gt;最近、漫画をrewriteしていたのですが、やっと1話をそこそこ納得できる形に書き直すことができました。作業は主に絵に関してなので、お話は同じです。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;改めて以前描いた2話(戦いの話)、3話(伝説の剣の話)を見てみると、これはあまりにも納得できない、書き直さなきゃと思ったので、一旦、非公開にしてrewriteし、終了した段階で改めて公開という形になりそうです。&lt;/p&gt;&#xA;&lt;p&gt;以下、rewriteで思ったことなど書きます。&lt;/p&gt;&#xA;&lt;h3 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h3&gt;&#xA;&lt;p&gt;私がrewriteをはじめたきっかけは、なんとなく「上手くできそうな気がするのでやろうかな」とか、「仕上げの練習になりそう」と思ったのでやってみることにしました。&lt;/p&gt;&#xA;&lt;p&gt;仕上げをどうしていくかあまり決まってなかったし、よくわかってなかった。もちろん、今でもよくわかってませんが。&lt;/p&gt;&#xA;&lt;p&gt;また、漫画の絵柄についても固定できず曖昧なところがありました。&lt;/p&gt;&#xA;&lt;p&gt;よって、今回のrewriteで絵柄やその方向性をある程度決め、仕上げについても練習するつもりでした。&lt;/p&gt;&#xA;&lt;h3 id=&#34;rewriteをやるべきかまたはタイミングの問題&#34;&gt;rewriteをやるべきか、またはタイミングの問題&lt;/h3&gt;&#xA;&lt;p&gt;私の場合は、rewriteをやってよかったです。また、タイミング的にも最適だったと思います。&lt;/p&gt;&#xA;&lt;p&gt;rewriteをやるべきかは人によって考えが異なると思います。なので、私の考えを紹介します。&lt;/p&gt;&#xA;&lt;p&gt;この問題は、最初から完璧なものを仕上げるべきか否かの問題でもあります。&lt;/p&gt;&#xA;&lt;p&gt;私は、今回、rewrite作業で大変な目にあっています。しかし、最初から完璧なものを目指すべきではないので、これでよかったと思っています。&lt;/p&gt;&#xA;&lt;p&gt;初めて漫画を描いて公開したとき、それはそれは雑なものでした。&lt;/p&gt;&#xA;&lt;p&gt;しかし、最初から完璧な仕上げでやろうと思っていたら、多分、続いていません。完成すらしなかったと思います。&lt;/p&gt;&#xA;&lt;p&gt;ということで、最初は、雑でもいいからとりあえず完成させてみることが大切だと思います。&lt;/p&gt;&#xA;&lt;p&gt;私は48ページ(全3話と仮定)を描いた時点でrewriteやってみるかという気分になり、やりはじめましたが、これくらいがちょうどよかったのでは、と感じています。&lt;/p&gt;&#xA;&lt;p&gt;おそらく、早すぎても遅すぎても、うまくできなかった気がする。早すぎるとそこまで上手くできないし、遅すぎるとページ数が大変です。&lt;/p&gt;&#xA;&lt;h3 id=&#34;絵柄の方向性&#34;&gt;絵柄の方向性&lt;/h3&gt;&#xA;&lt;p&gt;簡単で上手く見せる表現を模索しています。&lt;/p&gt;&#xA;&lt;p&gt;私は、とにかく楽がしたい。面倒な作業も大変な作業もやりたくないのです。&lt;/p&gt;&#xA;&lt;p&gt;ということで、今回は、その方向性も同時に模索しました。&lt;/p&gt;&#xA;&lt;p&gt;大体、こんな感じでやればいいんじゃないって組み合わせができてきたような気がします。&lt;/p&gt;&#xA;&lt;p&gt;これも一つ良かった点かな。&lt;/p&gt;&#xA;&lt;h3 id=&#34;今後のrewriteについて&#34;&gt;今後のrewriteについて&lt;/h3&gt;&#xA;&lt;p&gt;今後は、もう書き直すのやりたくないので、1話1話丁寧に(最低限は納得できるように)仕上げていこうって思いました。&lt;/p&gt;&#xA;&lt;p&gt;雑にやると後々大変なことになりますので&amp;hellip;。&lt;/p&gt;&#xA;&lt;p&gt;とはいえ、雑に描いてしまった3話までは書き直す予定。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画をrewriteしてみる</title>
+      <link>https://syui.github.io/blog/post/2020/08/05/manga/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/08/05/manga/</guid>
+      <description>&lt;p&gt;以前、漫画を描いてみたんだけど、どうにも下書きっぽくて、でもめんどくさいから放置してて、でも仕上げを上達したいなってちょっと思ったので、以前描いたページで納得いかないやつ、rewriteしてみようかなと思います。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/manga/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漫画とゲームの続きを作った</title>
+      <link>https://syui.github.io/blog/post/2020/08/04/manga/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/08/04/manga/</guid>
+      <description>&lt;p&gt;最近、漫画を少し描いてたのとゲームの物語は週更新なので続きを書いたりしてました。&lt;/p&gt;&#xA;&lt;p&gt;漫画は40ページからなんですが、ちょっとわかりにくいなあ。でも、面倒なので放置。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/imgame&#34;&gt;/imgame&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;追記 : 現在、1話を除いて公開を停止しています。&lt;a href=&#34;https://syui.ai/blog/post/2020/08/05/manga/&#34;&gt;書き直し&lt;/a&gt;が終われば改めて公開される予定です。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>マンガの4,5話を描いてみた</title>
+      <link>https://syui.github.io/blog/post/2020/04/17/manga/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/04/17/manga/</guid>
+      <description>&lt;p&gt;マンガの4話と5話を描いてみました。cookieが効いてるかもなので、その場合はシークレットモードで。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.ai/manga/&#34;&gt;https://syui.ai/manga/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;ひとりごと&#34;&gt;ひとりごと&lt;/h3&gt;&#xA;&lt;p&gt;vueのページも不便だったので作り直したりと思ったより時間がかかってしまいました。&lt;/p&gt;&#xA;&lt;p&gt;とはいえ一番はモチベがないと描かないってことかなと思います。モチベがあれば割とすぐ描きますけど、モチベがないと全く描かない。描かないと完成しませんから、モチベが全て。&lt;/p&gt;&#xA;&lt;p&gt;4話は誕生、5話は戦いみたいな感じで構築しました。これからガララ星はにぎやかになっていくのかもしれませんね。後に人間が生まれ、折れたつるぎを拾ったりして、その場所にある足跡やらなんやらからへんなおとぎ話でも作ったりするのかな。まだわかりません。(方向転換も考えて予防線を張っておく&lt;/p&gt;&#xA;&lt;p&gt;バトルについてですが、これはマンガでやりたかったことの一つだったので、実現できてよかったです。&lt;/p&gt;&#xA;&lt;p&gt;小説とかノベルゲームの戦闘シーン、あれがあまりに味気ないので、マンガで表現してみたいなあと思っていました。とはいえ、正直いうと、難しかったです。私は感覚で描いたりするだけなので、うまく行っているのかもわかりません。&lt;/p&gt;&#xA;&lt;p&gt;ただ、バトル漫画とか好きですし、描いてるときは楽しかったと思います。それにバトルシーンって読み直していても飽きが少ないような気がします。&lt;/p&gt;&#xA;&lt;p&gt;絵の雑さがひどすぎる件。本当にひどい&amp;hellip;もう少し丁寧に描けるといいんですけど。&lt;/p&gt;&#xA;&lt;p&gt;「これ下書きですか？」&lt;/p&gt;&#xA;&lt;p&gt;「いや、あれが限界なんですよ&amp;hellip;」&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>マンガを1話だけ完成させてみる</title>
+      <link>https://syui.github.io/blog/post/2020/04/02/manga/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/04/02/manga/</guid>
+      <description>&lt;p&gt;これが1話かどうか怪しいですが、ページ数的には、1話の分量ですね。物語的にも一区切り付きました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;マンガのページはvue.jsで構築しています。次のページボタンと画像URLのリンクを生成。&lt;/p&gt;&#xA;&lt;p&gt;できればこちらのリンクから読んだほうが読みやすいと思います。ブログページは画像を縮小して表示するため。&lt;/p&gt;&#xA;&lt;h3 id=&#34;独り言&#34;&gt;独り言&lt;/h3&gt;&#xA;&lt;p&gt;週間連載の漫画家は、バケモンじゃないかと思いました。絵を書くのって大変で、セリフとか背景とか時間がかかります。&lt;/p&gt;&#xA;&lt;p&gt;私は、そこまで緻密に考えたり設計したり描き込んだりするタイプではなく、それでも時間がかかってしまいました。&lt;/p&gt;&#xA;&lt;p&gt;物語の構成は、1:海, 2:虹, 3:月となっています。とはいえ、内容があるかと言うと、特にありません。&lt;/p&gt;&#xA;&lt;p&gt;オリジナル小説または、ノベルゲームとの関連性はあります。設定はすべてそこから来ているため、キャラやその他の設定を受け継いでいます。今の所、ノベルゲームのスピンオフという位置づけ。しかし、これからどうなるのかは、わかりません。&lt;/p&gt;&#xA;&lt;p&gt;唯を追い出した羊は、第423代の大統領。ドラゴンの名前は、ドライ。色はブルーぽい感じ。ゲームの方でも必要になればキャラクター(モンスター)一覧に追加しますが、おそらく、追加しないでしょう。ガララ星に大陸はないの？反対側に一つだけあります。&lt;/p&gt;&#xA;&lt;h3 id=&#34;ページ&#34;&gt;ページ&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/manga/0.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/1.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/2.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/3.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/4.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/5.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/6.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/7.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/8.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/9.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/10.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/11.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/12.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/13.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/14.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;img src=&#34;https://syui.github.io/manga/15.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>再びマンガを描きはじめた話</title>
+      <link>https://syui.github.io/blog/post/2020/03/24/manga/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/03/24/manga/</guid>
+      <description>&lt;p&gt;昔、ちょっとだけよくわからないマンガを書いてたことあります。&lt;/p&gt;&#xA;&lt;p&gt;今回、ノベルゲームの物語が進み、ようやく繋がりそうだったので、再びそのあたりをマンガで描いてみることにしました。&lt;/p&gt;&#xA;&lt;p&gt;書き直しになるのか、スピンオフになるのか、そんな感じです。&lt;/p&gt;&#xA;&lt;p&gt;ノベルゲームも物語を追加したので、気になる方は、続きを読んでみてください。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://syui.github.io/manga/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://syui.github.io/manga&#34;&gt;/manga&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;私は、昔から気ままに書いてきた絵があるんですけど、それにお話を付けらたらなあとずっと思ってて、もう一度、ノベルゲームの設定を使って実現できたらと思ったので、描きはじめたという経緯。&lt;/p&gt;&#xA;&lt;p&gt;特に内容があるわけではありませんけど、マンガでは、へんなドラゴンと一緒に暮らす女の子の日常を予定してます。&lt;/p&gt;&#xA;&lt;p&gt;ドラゴンのほう、こいつも地球出身で、古来から地底深くに生息していたドラゴンの生き残り。生命の龍と呼ばれています。色々あってユイと同じく地球を離れることになったやつ。&lt;/p&gt;&#xA;&lt;p&gt;私は、非公開の小説を書いていたり、ゲームを作っていたりして、ゲームで追加したキャラとかもたくさんいて、新しいキャラの影響もあって、非公開(稀に公開)のマンガや小説の設定も成長してきました。その意味でも今回は少しだけ頑張って描いていけたらと思います。&lt;/p&gt;&#xA;&lt;p&gt;というか、今、ipadで描いてるんですけど、ipadなら楽しく描けるような気がする。&lt;/p&gt;&#xA;&lt;p&gt;マンガは数ページだけnexus7で描いたことがあったのですが、今思うと、作業環境としては猛烈につらかったんだなって&amp;hellip;。&lt;/p&gt;&#xA;&lt;p&gt;ipad、買ってよかったじょ！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>五等分の花嫁、最後のクイズ</title>
+      <link>https://syui.github.io/blog/post/2020/02/13/manga/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2020/02/13/manga/</guid>
+      <description>&lt;p&gt;五等分の花嫁、最後のクイズが出されたので、一応、答えておくことにします。&lt;/p&gt;&#xA;&lt;p&gt;左から5,2,1,3,4なので、一番右が四葉だと思います。80%の確率で。&lt;/p&gt;&#xA;&lt;p&gt;まず手の仕草からわかるのは、5,2,3です。1,4は表情からなんとなくです。&lt;/p&gt;&#xA;&lt;p&gt;花嫁は四葉でした。これは個人的な推しということを抜きにしても、最も結婚に向いているのも性格的に四葉だろうなあと思っていて、よかったねーという感想しかない。&lt;/p&gt;&#xA;&lt;p&gt;私が好きなキャラ、そういうのに向いてないのが多いんですけどね。平沢唯(けいおん)とかはかせ(日常)とか。&lt;/p&gt;&#xA;&lt;p&gt;でも四葉は向いてるんじゃないかなって思います。&lt;/p&gt;&#xA;&lt;p&gt;本作は最後まで誰だろうってのが面白くて、ついつい考えたくなっちゃいますね。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

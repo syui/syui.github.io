@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Freenom on syui.github.io</title>
+    <link>https://syui.github.io/tags/freenom/</link>
+    <description>Recent content in Freenom on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/freenom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>freenomの現状と考察</title>
+      <link>https://syui.github.io/blog/post/2023/10/29/freenom/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/10/29/freenom/</guid>
+      <description>&lt;p&gt;前回の続きです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://syui.ai/blog/post/2023/03/23/domain/&#34;&gt;https://syui.ai/blog/post/2023/03/23/domain/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;freenomのdomain更新がうまくいったので、そのとき感じたことを書きます。&lt;/p&gt;&#xA;&lt;p&gt;感じたことは以下の2点です。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;スパム排除が活発になる&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;新規登録が厳格化される&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これらは認証手続きがめんどくさい感じになっていたので、そのように感じました。&lt;/p&gt;&#xA;&lt;p&gt;今回も以前と変わらない使用感で&lt;code&gt;.cf&lt;/code&gt;を1年更新できました。費用は&lt;code&gt;$0&lt;/code&gt;でした。&lt;/p&gt;&#xA;&lt;p&gt;基本的にグリーン判定のアカウントは継続して使えているみたいです。&lt;/p&gt;&#xA;&lt;p&gt;ただし、アカウントによっては対応が異なるという情報があります。&lt;/p&gt;&#xA;&lt;p&gt;これはスパム排除の一貫だと考えられます。停止、あるいは更新料が必要になったケースがあるようです。&lt;/p&gt;&#xA;&lt;p&gt;ですから、freenomを使い続けるのはリスキーと言えるでしょう。&lt;/p&gt;&#xA;&lt;p&gt;例えば、pixiv(pawoo), misskey系などは海外から相当警戒されているようで、特に児童ポルノ関連と予想されますが、domainが停止されたことがありました。これはfreenomだけでなく、別のregisterからも確認されています。&lt;/p&gt;&#xA;&lt;p&gt;また、連合(fediverse)を見てみると、やはりこれらのサーバーは相当に警戒されているように感じます。&lt;/p&gt;&#xA;&lt;p&gt;したがって、仮にfreenomで停止されたとしても、それがfreenomだけの問題でない可能性があります。&lt;/p&gt;&#xA;&lt;p&gt;しかし、registerの中でfreenomは今後さらにスパムや要注意サーバーを排除する動きが活発化することが予想されます。よって、個人的にはおすすめできないと考えます。&lt;/p&gt;&#xA;&lt;p&gt;とはいえ、あくまで個人利用、かつ海外から警戒されない範囲での一般利用の場合、問題が生じる危険性は少ないと判断しています。&lt;/p&gt;&#xA;&lt;p&gt;これは私のアカウントが普通に使えて更新もできているからです。やはり、伝聞だけではわからないことが多々あります。ここでは、その伝聞を考慮した上で個人の所感を述べていると思ってください。&lt;/p&gt;&#xA;&lt;p&gt;海外から警戒される利用というのは、児童ポルノに見られるイラスト等のことを指します。これは日本基準ではなく海外基準での判断になります。&lt;/p&gt;&#xA;&lt;p&gt;分散snsのprotocolが広まって以来、日本では問題にならないけど海外では問題視されるケースが確認されています。&lt;/p&gt;&#xA;&lt;h3 id=&#34;freenomと私&#34;&gt;freenomと私&lt;/h3&gt;&#xA;&lt;p&gt;私は弱々のdomainを$0で取れるfreenomのようなサービスは、開発者にとって非常に喜ばしいものだったと思います。&lt;/p&gt;&#xA;&lt;p&gt;それはdomainの価値を理解するのに役立ちましたし、また、テスト環境も構築しやすかった。&lt;/p&gt;&#xA;&lt;p&gt;そのようなサービスが失われてしまうのは寂しい。&lt;/p&gt;&#xA;&lt;p&gt;私自身が$0のdomainを使ってきましたし、また、人にもおすすめしてきました。&lt;/p&gt;&#xA;&lt;p&gt;なぜかというと、誰でも気軽に始めやすいし、そういうサービスだったからです。&lt;/p&gt;&#xA;&lt;p&gt;検索エンジンからはスパム扱いされ、検索しても出てこないような弱々のdomainでしたが、私は満足していて楽しかったです。&lt;/p&gt;&#xA;&lt;p&gt;freenomというサービスからはそういった経験や機会を得られました。感謝。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

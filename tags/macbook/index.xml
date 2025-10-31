@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Macbook on syui.github.io</title>
+    <link>https://syui.github.io/tags/macbook/</link>
+    <description>Recent content in Macbook on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/macbook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macbook air(intel)にarchlinuxをinstallした</title>
+      <link>https://syui.github.io/blog/post/2024/10/29/archlinux/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2024/10/29/archlinux/</guid>
+      <description>&lt;p&gt;いよいよm1の前に使っていたmacbook air(intel)の使い道がなくなっていたので、archをinstallすることにしました。例えば、homebrewはmac-intelのsupportを打ち切っています。packageのinstallはbuildが必要になり、現実的使用が困難です。&lt;/p&gt;&#xA;&lt;p&gt;私がapple製品を買うのはハードがいいからです(長持ちです)。ただし、バッテリーは何度か交換しています。&lt;/p&gt;&#xA;&lt;p&gt;しかし、近年は少し事情が変わってきました。apple製品を買うならgpuを買ったほうがいいかもしれません。私ならそうします。&lt;/p&gt;&#xA;&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;&#xA;&lt;p&gt;installは簡単で&lt;code&gt;/&lt;/code&gt;にpacstrapでarch(linux,base)を入れること。bootを設定することです。grubが簡単なのでgrubを使用します。bootloaderは起動時にlinux.imgを実行したり選択するものです。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ fdisk -l&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/nvme0n1p1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/nvme0n1p2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkfs.vfat /dev/nvme0n1p1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkfs.ext4 /dev/nvme0n1p2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mount  /dev/nvme0n1p2 /mnt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir -p /mnt/boot/efi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mount  /dev/nvme0n1p1 /mnt/boot/efi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pacstrap /mnt base linux grub efibootmgr&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ arch-chroot /mnt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ grub-install --force /dev/nvme0n1p1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ grub-mkconfig -o /boot/grub/grub.cfg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ passwd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ useradd -m -g wheel -s /bin/bash &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;username&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ passwd &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;username&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pacman -S base-devel zsh git vim tmux sudo dhcpcd openssh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ systemctl enable dhcpcd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ systemctl enable sshd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chsh -s /bin/zsh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;network&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;dhcpcd&lt;/code&gt;を使う方法と&lt;code&gt;systemd-networkd&lt;/code&gt;を使う方法があります。基本的にどのlinuxもdhcpcdを入れておりnetworkを設定しています。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macbook air mid2013が壊れたので直した</title>
+      <link>https://syui.github.io/blog/post/2023/09/02/macbook/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/09/02/macbook/</guid>
+      <description>&lt;p&gt;今使ってるのはmacbook air m1です。&lt;/p&gt;&#xA;&lt;p&gt;intelのmid2013はあまり使ってない古い機種です。&lt;/p&gt;&#xA;&lt;p&gt;このmid2013のssdが突然認識しなくなったので部品を注文して修理しました。&lt;/p&gt;&#xA;&lt;p&gt;今までmid2013で行った修理は&lt;code&gt;ディスプレイ交換&lt;/code&gt;, &lt;code&gt;キーボード交換&lt;/code&gt;, &lt;code&gt;バッテリー交換&lt;/code&gt;でした。&lt;/p&gt;&#xA;&lt;p&gt;部品代は、それぞれ10,000くらいをみておけばいいかな。ssdもそれくらいだった。&lt;/p&gt;&#xA;&lt;p&gt;あまり使ってないので修理する意味はあまりないんだけど、昔から愛用してきた端末だから使えるようにしておきたい。&lt;/p&gt;&#xA;&lt;p&gt;古いiphoneも修理して取ってある。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ステッカーを作ってみた2</title>
+      <link>https://syui.github.io/blog/post/2023/02/02/macbook/</link>
+      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/02/02/macbook/</guid>
+      <description>&lt;p&gt;初代macbook airはステッカーなしですが、macbook airが増えるにつれ見分けがつかないため、ステッカーを貼るようになりました。あとリンゴマーク部分のプロテクト。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;macbook air 13-inch (m1)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/macbookair_20230201_0007.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;今回は&lt;a href=&#34;https://syui.github.io/blog/post/2022/12/15/card/&#34;&gt;カード制作&lt;/a&gt;の知識を生かして、透明なオーロラシールを採用。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/macbookair_20230201_0001.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;昔、サークル型のステッカーは切り取る作業に苦労した覚えがあるんですよ。&lt;/p&gt;&#xA;&lt;p&gt;なので、今回はハニカム型にしてハサミを入れやすいようにしています。&lt;/p&gt;&#xA;&lt;p&gt;ボックス型もいいのですが、ハニカムより調整が難しい気がしてる。&lt;/p&gt;&#xA;&lt;p&gt;ハニカムだと多少ズレても違和感ないですし、おすすめかもしれません。&lt;/p&gt;&#xA;&lt;p&gt;あと、壁紙と統一してみた。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/macbookair_20230201_0002.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;皆様は、どのようにノートパソコンを愛用されていますか?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ステッカーを作ってみた1</title>
+      <link>https://syui.github.io/blog/post/2021/01/21/badge/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2021/01/21/badge/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;macbook air 11-inch (intel)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/syui/img/master/other/make_card_20221214_0008.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

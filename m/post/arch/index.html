@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>archlinux | syui.github.io</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="archlinux" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.github.io//og.png" />
+		<meta property="og:url" content="https://syui.github.io/m/post/arch/" />
+		<meta property="og:site_name" content="syui.github.io" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+					"@type": "WebSite",
+					"name": "syui.github.io",
+					"url": "https:\/\/syui.github.io\/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="https://syui.github.io//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.github.io//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+<body>
+	<div class="containerx">
+		<header id="header">
+			
+			<div class="logo">
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+			</div>
+			
+		</header>
+
+<article>
+	<div class="content">
+		<div class="post-time-date">update : 2022-12-05</div>
+		<div class="post-time-date">2022-10-29 / <a href="https://bsky.syui.ai">@syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.github.io/tags/arch/">arch</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		, <a href="https://syui.github.io/tags/m/">m</a>
+		
+		
+		
+		
+		
+		
+		
+		/ <i class="fa-sharp fa-solid fa-folder"></i> <a href="/m/post/arch">arch</a></p>
+		
+		</div>
+
+		<h2>archlinux</h2>
+
+		<h1 id="install">install</h1>
+<p>archのinstallは簡単で<code>/</code>にpacstrapでarch(linux,base)を入れること。bootを設定することです。grubが簡単なのでgrubを使用します。bootloaderは起動時にlinux.imgを実行したり選択するものです。</p>
+<p>現在は、macbook air(intel)の2台にインストールしています。serverやdockerもほとんどarchlinuxを使用しています。</p>
+<p><code>arch-install-script</code>が用意されているので、面倒な人は実行するといいでしょう。</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide">https://wiki.archlinux.org/title/Installation_guide</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://gitlab.archlinux.org/archlinux/arch-install-scripts</span>
+</span></span><span style="display:flex;"><span>$ archinstall
+</span></span></code></pre></div><p>私は毎回手動でinstallしています。昔は自動化していましたがメンテナンスが面倒になりました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fdisk -l
+</span></span><span style="display:flex;"><span>/dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>/dev/nvme0n1p2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mkfs.vfat /dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>$ mkfs.ext4 /dev/nvme0n1p2
+</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p2 /mnt
+</span></span><span style="display:flex;"><span>$ mkdir -p /mnt/boot/efi
+</span></span><span style="display:flex;"><span>$ mount  /dev/nvme0n1p1 /mnt/boot/efi
+</span></span><span style="display:flex;"><span>$ pacstrap /mnt base linux grub efibootmgr
+</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
+</span></span><span style="display:flex;"><span>$ grub-install --force /dev/nvme0n1p1
+</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style="display:flex;"><span>$ passwd
+</span></span><span style="display:flex;"><span>$ useradd -m -g wheel -s /bin/bash <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span> 
+</span></span><span style="display:flex;"><span>$ passwd <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># mkfs.vfat /dev/sda1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mkfs.ext4 /dev/sda2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S base-devel zsh git vim tmux sudo dhcpcd openssh
+</span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd
+</span></span><span style="display:flex;"><span>$ systemctl enable sshd
+</span></span><span style="display:flex;"><span>$ chsh -s /bin/zsh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ exit
+</span></span><span style="display:flex;"><span>$ reboot
+</span></span></code></pre></div><h2 id="network">network</h2>
+<p><code>dhcpcd</code>を使う方法と<code>systemd-networkd</code>を使う方法があります。基本的にどのlinuxもdhcpcdを入れておりnetworkを設定しています。</p>
+<p>まずkernelで自動設定されるインターフェイス名を<code>eth0</code>などに戻しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ip route show
+</span></span><span style="display:flex;"><span>enp0s12 192.168.1.23
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 伝統的な名前を使う</span>
+</span></span><span style="display:flex;"><span>$ mkdir -p /etc/systemd/network/99-default.link.d
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/99-default.link.d/traditional-naming.conf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Link<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>NamePolicy<span style="color:#f92672">=</span>keep kernel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># こちらの方法も使える</span>
+</span></span><span style="display:flex;"><span>$ ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+</span></span></code></pre></div><h3 id="dhcpcd">dhcpcd</h3>
+<blockquote>
+<p>/etc/dhcpcd.conf</p>
+</blockquote>
+<pre tabindex="0"><code class="language-sh:/etc/dhcpcd.conf" data-lang="sh:/etc/dhcpcd.conf">interface eth0
+static ip_address=192.168.1.23/24	
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1 1.1.1.1
+</code></pre><h3 id="systemd-networkd">systemd-networkd</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl disable dhcpcd
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/eth.network
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/systemd/network/eth.network" data-lang="sh:/etc/systemd/network/eth.network"><span style="display:flex;"><span><span style="color:#66d9ef">[Match]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Name</span><span style="color:#f92672">=</span><span style="color:#e6db74">eth0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Network]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Address</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.23/24</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Gateway</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DNS</span><span style="color:#f92672">=</span><span style="color:#e6db74">192.168.1.1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable systemd-networkd
+</span></span></code></pre></div><p>なお、デバイスによってはこの方法で接続できない場合があります。その場合は<code>dhcpcd</code>が有効です。</p>
+<p>nameserverは<code>/etc/resolv.conf</code>を見てください。</p>
+<h2 id="ssh">ssh</h2>
+<p>次にsshで接続する方法です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 接続する側</span>
+</span></span><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/archlinux
+</span></span><span style="display:flex;"><span>$ ssh-copy-id -i ~/.ssh/archlinux.pub <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 接続される側:archlinux</span>
+</span></span><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ systemctl restart sshd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ssh <span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span>@192.168.1.23
+</span></span></code></pre></div><h2 id="xorg">xorg</h2>
+<p>デスクトップ環境の構築です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S tilix xterm zsh git tmux chromium otf-ipaexfont i3 xorg xorg-xinit pcmanfm lightdm lightdm-gtk-greeter
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># autologin</span>
+</span></span><span style="display:flex;"><span>$ groupadd -r autologin
+</span></span><span style="display:flex;"><span>$ gpasswd -a $USER autologin
+</span></span><span style="display:flex;"><span>$ vim /etc/lightdm/lightdm.conf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Seat:*<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>pam-service<span style="color:#f92672">=</span>lightdm
+</span></span><span style="display:flex;"><span>pam-autologin-service<span style="color:#f92672">=</span>lightdm-autologin
+</span></span><span style="display:flex;"><span>autologin-user<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>autologin-user-timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>session-wrapper<span style="color:#f92672">=</span>/etc/lightdm/Xsession
+</span></span><span style="display:flex;"><span>autologin-session<span style="color:#f92672">=</span>i3
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ systemctl enable lightdm
+</span></span></code></pre></div><h2 id="zip">zip</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S atool zip unrar
+</span></span></code></pre></div><h2 id="displayが暗くならないようにする">displayが暗くならないようにする</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim /etc/X11/xorg.conf.d/10-monitor.conf
+</span></span><span style="display:flex;"><span>Section <span style="color:#e6db74">&#34;ServerFlags&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;BlankTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;StandbyTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;SuspendTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#e6db74">&#34;OffTime&#34;</span> <span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>EndSection
+</span></span></code></pre></div><h2 id="蓋を閉じてもsleepしないようにする">蓋を閉じてもsleepしないようにする</h2>
+<blockquote>
+<p>/etc/systemd/logind.conf</p>
+</blockquote>
+<pre tabindex="0"><code class="language-sh:/etc/systemd/logind.conf" data-lang="sh:/etc/systemd/logind.conf">HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+</code></pre><h1 id="make">make</h1>
+<p>archlinux.imgを作る方法です。</p>
+<p><a href="https://gitlab.archlinux.org/archlinux/archiso">https://gitlab.archlinux.org/archlinux/archiso</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -Syuu --noconfirm base-devel archiso git
+</span></span><span style="display:flex;"><span>$ git clone https://gitlab.archlinux.org/archlinux/archiso
+</span></span><span style="display:flex;"><span>$ ./archiso/archiso/mkarchiso -v -o ./ ./archiso/configs/releng/
+</span></span><span style="display:flex;"><span>$ tar xf *bootstrap*.tar.gz
+</span></span><span style="display:flex;"><span>$ mkdir -p root.x86_64/var/lib/machines/arch
+</span></span><span style="display:flex;"><span>$ pacstrap -c root.x86_64/var/lib/machines/arch base
+</span></span></code></pre></div><h1 id="old">old</h1>
+<p>ここからは古い情報です。</p>
+<p>archlinuxのinstaller(script)です。</p>
+<p><a href="https://github.com/syui/arch">https://github.com/syui/arch</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ fdisk -l
+</span></span><span style="display:flex;"><span>sda
+</span></span><span style="display:flex;"><span>$ export x<span style="color:#f92672">=</span>a
+</span></span><span style="display:flex;"><span>$ curl -sL git.io/air | zsh
+</span></span></code></pre></div><p>archlinuxの一般的なinstall手順です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cfdisk /dev/sda
+</span></span><span style="display:flex;"><span>sda1 200M linux-system
+</span></span><span style="display:flex;"><span>sda2 8GB linux-system
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>yes<span style="color:#f92672">)</span>, quit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ mkfs.vfat /sda1
+</span></span><span style="display:flex;"><span>$ mkfs.ext4 /sda2
+</span></span><span style="display:flex;"><span>$ mount /dev/sda2 /mnt
+</span></span><span style="display:flex;"><span>$ pacstrap -K /mnt base linux base-devel
+</span></span><span style="display:flex;"><span>$ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ arch-chroot /mnt
+</span></span><span style="display:flex;"><span>$ user<span style="color:#f92672">=</span>syui
+</span></span><span style="display:flex;"><span>$ echo xxx &gt;&gt; /etc/hostname
+</span></span><span style="display:flex;"><span>$ pacman -S zsh git tmux vim openssh grub dhcpcd efibootmgr atool net-tools inetutils jq
+</span></span><span style="display:flex;"><span>$ grub-install --force --recheck /dev/sda
+</span></span><span style="display:flex;"><span>$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim /etc/systemd/network/eth.network
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Name<span style="color:#f92672">=</span>en*
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#DHCP=ipv4</span>
+</span></span><span style="display:flex;"><span>Address<span style="color:#f92672">=</span>192.168.11.15
+</span></span><span style="display:flex;"><span>Gateway<span style="color:#f92672">=</span>192.168.11.1
+</span></span><span style="display:flex;"><span>DNS<span style="color:#f92672">=</span>192.168.11.1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>DHCP<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#RouteMetric=10</span>
+</span></span><span style="display:flex;"><span>$ systemctl enabel systemd-networkd
+</span></span><span style="display:flex;"><span>$ ip link
+</span></span><span style="display:flex;"><span>$ systemctl enable dhcpcd
+</span></span><span style="display:flex;"><span>$ systemctl enable sshd 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ useradd -m -G wheel -s /bin/zsh $user
+</span></span><span style="display:flex;"><span>$ passwd
+</span></span><span style="display:flex;"><span>$ passwd $user
+</span></span><span style="display:flex;"><span>$ vim /etc/sudoers
+</span></span><span style="display:flex;"><span>Defaults env_keep <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;HOME&#34;</span>
+</span></span><span style="display:flex;"><span>%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
+</span></span><span style="display:flex;"><span>%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/reboot, /usr/bin/poweroff
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ exit
+</span></span><span style="display:flex;"><span>$ reboot
+</span></span></code></pre></div><h3 id="macbook-airintel">macbook air(intel)</h3>
+<p>macは<code>/dev/sda1</code>のrootに<code>.volumeicon.icns</code>を置くとアイコンを設定できます。</p>
+<p>icns : <a href="https://www.iconfinder.com">https://www.iconfinder.com</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">## macbook air(intel)</span>
+</span></span><span style="display:flex;"><span>$ cd;mkdir boot
+</span></span><span style="display:flex;"><span>$ mount /dev/sda1 boot
+</span></span><span style="display:flex;"><span>$ grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>boot
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">2</span> ./boot
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── .volumeicon.icns
+</span></span><span style="display:flex;"><span>├── EFI
+</span></span><span style="display:flex;"><span>│   └── arch/grubx64.efi
+</span></span><span style="display:flex;"><span>├── System
+</span></span><span style="display:flex;"><span>│   └── Library/CoreServices/Boot.efi
+</span></span><span style="display:flex;"><span>└── grub
+</span></span><span style="display:flex;"><span>    ├── fonts
+</span></span><span style="display:flex;"><span>    ├── grub.cfg
+</span></span><span style="display:flex;"><span>    ├── grubenv
+</span></span><span style="display:flex;"><span>    ├── locale
+</span></span><span style="display:flex;"><span>    ├── themes
+</span></span><span style="display:flex;"><span>    └── x86_64-efi
+</span></span></code></pre></div><h3 id="usb">usb</h3>
+<p>img : <a href="http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/">http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ d<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date <span style="color:#e6db74">&#39;+%Y.%m&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>$ curl -sLO http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/iso/$d.01/archlinux-$d.01-x86_64.iso
+</span></span><span style="display:flex;"><span>$ diskutil list
+</span></span><span style="display:flex;"><span>$ sudo dd bs<span style="color:#f92672">=</span>4M <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>./archlinux-$d.01-x86_64.iso of<span style="color:#f92672">=</span>/dev/disk4 conv<span style="color:#f92672">=</span>fsync oflag<span style="color:#f92672">=</span>direct status<span style="color:#f92672">=</span>progress
+</span></span></code></pre></div><h3 id="locale">locale</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vim /etc/locale.gen
+</span></span><span style="display:flex;"><span>ja_JP.UTF-8 UTF-8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ locale-gen
+</span></span><span style="display:flex;"><span>$ vim /etc/locale.conf
+</span></span><span style="display:flex;"><span>LANG<span style="color:#f92672">=</span>ja_JP.UTF-8
+</span></span></code></pre></div><h3 id="timezone">timezone</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rm -rf /etc/localtime
+</span></span><span style="display:flex;"><span>$ pacman -S tzdata
+</span></span><span style="display:flex;"><span>$ ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+</span></span><span style="display:flex;"><span>$ timedatectl set-timezone Asia/Tokyo 
+</span></span></code></pre></div><h3 id="zsh">zsh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S zsh
+</span></span><span style="display:flex;"><span>$ pacman -S powerline zsh-completions zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ vim ~/.zshrc
+</span></span><span style="display:flex;"><span>source /usr/share/powerline/bindings/zsh/powerline.zsh
+</span></span><span style="display:flex;"><span>source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</span></span><span style="display:flex;"><span>fpath<span style="color:#f92672">=(</span>usr/share/zsh/site-functions $fpath<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>autoload -Uz compinit <span style="color:#f92672">&amp;&amp;</span> compinit
+</span></span></code></pre></div><h3 id="zip-1">zip</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S atool zip unrar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解凍</span>
+</span></span><span style="display:flex;"><span>$ aunpack test.zip
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 圧縮</span>
+</span></span><span style="display:flex;"><span>$ apack test.zip $dir
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># rar</span>
+</span></span><span style="display:flex;"><span>$ aunpack test.rar
+</span></span></code></pre></div><h3 id="ssh-1">ssh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:host.txt" data-lang="sh:host.txt"><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>Port 2299
+</span></span><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span>$ systemctl restart sshd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:guest.txt" data-lang="sh:guest.txt"><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/xxx
+</span></span><span style="display:flex;"><span>$ ssh-copy-id -i ~/.ssh/xxx.pub -p 2299 $user@192.168.11.15
+</span></span><span style="display:flex;"><span>$ ssh -p 2299 $user@192.168.11.15
+</span></span></code></pre></div><h3 id="pacman">pacman</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># install</span>
+</span></span><span style="display:flex;"><span>$ pacman -S zsh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># search</span>
+</span></span><span style="display:flex;"><span>$ pacman -Ss zsh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># uninstall</span>
+</span></span><span style="display:flex;"><span>$ pacman -R zsh
+</span></span><span style="display:flex;"><span>$ pacman -Rc zsh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># clean</span>
+</span></span><span style="display:flex;"><span>$ pacman -Scc
+</span></span></code></pre></div><p>例えば、下記はcore, extra, communityのpkg(package) binaryをmirrorlistからdownloadするという意味です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="display:flex;"><span><span style="color:#66d9ef">[core]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">[extra]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">[community]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Include</span> <span style="color:#f92672">=</span> /etc/pacman.d/mirrorlist<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>速度は使用回線の場所からmirror-serverの場所により変化します。</p>
+<pre tabindex="0"><code class="language-sh:/etc/pacman.d/mirrorlist" data-lang="sh:/etc/pacman.d/mirrorlist"># japan
+Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch
+</code></pre><p>armのmirrorは別です。armのjp-mirrorは<code>asashi linux</code>が用意してくれているようです。</p>
+<pre tabindex="0"><code class="language-sh:/etc/pacman.d/mirrorlist" data-lang="sh:/etc/pacman.d/mirrorlist">Server = jp.mirror.archlinuxarm.org/$arch/$repo
+</code></pre><h3 id="aur">aur</h3>
+<p><code>yay</code>と<code>paru</code>が人気です。aurは公式にないappをinstallするときに使います。もちろん、公式にあるpkgをbuildしたいときにも使えます。</p>
+<p>ただし、aurを使用する場合、src(source)を手元のマシンでbuildするため時間がかかります。</p>
+<p>pacmanでinstallされるpkg(core,community,etc&hellip;)は、あらかじめarchでbuildされたbinaryをdownloadしてくるだけなので。</p>
+<p><a href="https://aur.archlinux.org/paru.git">https://aur.archlinux.org/paru.git</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S --needed base-devel
+</span></span><span style="display:flex;"><span>$ git clone https://aur.archlinux.org/paru.git
+</span></span><span style="display:flex;"><span>$ cd paru
+</span></span><span style="display:flex;"><span>$ makepkg -si
+</span></span><span style="display:flex;"><span>$ ./paru
+</span></span></code></pre></div><h3 id="desktop">desktop</h3>
+<p>window managerは<code>i3(xorg)</code>, <code>sway(wayland)</code>を使用しています。かつては<code>awesome</code>を使用していました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir -p ~/.config/sway
+</span></span><span style="display:flex;"><span>$ cp -rf /etc/sway/config ~/.config/sway/
+</span></span><span style="display:flex;"><span>$ pacman -S sway swaybg xorg-xwayland polkit dmenu foot
+</span></span></code></pre></div><p>file managerは<code>pcmanfm</code>です。かつては<code>spacefm</code>を使用していました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 自動マウント</span>
+</span></span><span style="display:flex;"><span>$ pacman -S pcmanfm gvfs
+</span></span></code></pre></div><p>login managerは<code>lightdm</code>です。かつては<code>slim</code>を使用していました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pacman -S lightdm
+</span></span><span style="display:flex;"><span>$ systemctl enable lightdm
+</span></span><span style="display:flex;"><span>$ groupadd -r autologin
+</span></span><span style="display:flex;"><span>$ gpasswd -a USERNAME autologin
+</span></span></code></pre></div><pre tabindex="0"><code class="language-sh:/etc/lightdm/lightdm.conf" data-lang="sh:/etc/lightdm/lightdm.conf">[Seat:*]
+autologin-user=syui
+autologin-session=sway
+</code></pre><p>アイコンは<code>blueman</code>, <code>network-manager(nm-applet)</code>, <code>pulseaudio</code>, <code>fcitx</code>, <code>clipman</code>, <code>rofi</code>など。</p>
+<p>キーバインドは<code>xdotool</code>, <code>xmodmap</code>, <code>xbindkeys</code>などを使用しています。</p>
+<p>screenshotは、<code>grim</code>を使用しています。</p>
+<p>その他、画像関連は<code>imagemagick</code>, <code>gimp</code>, <code>inkscape</code>, <code>krita</code>あたりが便利です。</p>
+<p>音楽動画は<code>ffmpeg</code>, <code>vlc</code>, <code>mpv</code>あたりが便利です。</p>
+<h3 id="theme">theme</h3>
+<p>例えば、<code>pcmanfm</code>のthemeはgtk2です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ paru -S arc-icon-theme arc-gtk-theme ttf-font-awesome
+</span></span><span style="display:flex;"><span>$ ls /usr/share/<span style="color:#f92672">{</span>icon*,theme*,font*<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>$ cp /usr/share/gtk-2.0/gtkrc ~/.gtkrc-2.0
+</span></span><span style="display:flex;"><span>$ vim ~/.gitrc-2.0
+</span></span><span style="display:flex;"><span>$ gtk-icon-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+</span></span><span style="display:flex;"><span>$ gtk-theme-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Arc&#34;</span>
+</span></span><span style="display:flex;"><span>$ gtk-font-name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;awesome-terminal-fonts&#34;</span>
+</span></span></code></pre></div><h3 id="cron">cron</h3>
+<p>cronie, fcron</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S fcron
+</span></span><span style="display:flex;"><span>$ fcrontab -e
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># auto update</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> * * * sudo rm -rf /var/lib/pacman/db.lck <span style="color:#f92672">&amp;&amp;</span> sudo pacman -Syu --noconfirm
+</span></span><span style="display:flex;"><span>$ systemctl enable fcron
+</span></span></code></pre></div><p><code>/etc/sudoers</code>に以下のような設定が必要です。これは、<code>sudo xxx</code>とする際にpasswordを要求しないコマンドを設定します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>%wheel ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/pacman -Syu --noconfirm, /usr/bin/rm -rf /var/lib/pacman/db.lck
+</span></span></code></pre></div><h3 id="vpn">vpn</h3>
+<p>vpn serverとclientは<code>pritunl</code>が便利です。</p>
+<p><a href="https://pritunl.com">https://pritunl.com</a></p>
+<h4 id="vpn-server">vpn server</h4>
+<p>wanからlan(local-network)に入るには、様々な方法がありますが、ルーターのポートフォワーディングと呼ばれる機能とvpn serverを使用します。</p>
+<p>ポートフォワーディングでssh-serverに接続し、dockerからpritunl(vpn server)を立ち上げ、profileを書き換えて、vpnにアクセスし、lanに入ります。lanに入ればlocal-ipが使えるはずですから、private-keyだけで様々なserverにアクセスできるはず。よく使うserverは<a href="https://syui.cf/m/post/ios/">termius</a>に登録しておきましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S docker docker-compose
+</span></span></code></pre></div><p><a href="https://github.com/goofball222/pritunl">https://github.com/goofball222/pritunl</a></p>
+<p><a href="https://hub.docker.com/r/goofball222/pritunl">https://hub.docker.com/r/goofball222/pritunl</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml:docker-compose.yml" data-lang="yml:docker-compose.yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mongo</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunldb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunldb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./db:/data/db</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pritunl</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">goofball222/pritunl:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pritunl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pritunl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">bridge</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sysctls</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">net.ipv6.conf.all.disable_ipv6=0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">links</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">443</span>:<span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">1194</span>:<span style="color:#ae81ff">1194</span><span style="color:#ae81ff">/udp</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">14036</span>:<span style="color:#ae81ff">14036</span><span style="color:#ae81ff">/udp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=UTC</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo systemctl start docker
+</span></span><span style="display:flex;"><span>$ mkdir -p mongo
+</span></span><span style="display:flex;"><span>$ sudo docker-compose up -d
+</span></span></code></pre></div><p>browser(chromiumなど)で<code>localhost</code>にアクセスし、web-uiから初期設定を行います。defaultのuserとpassは両方ともpritunlです。</p>
+<p>profileをdownloadしてiosに共有しておきます。なお、global-ipは通常は変動しますので、固定ipを持っていない場合は、ddnsの登録を行ったうえでそれを使用するか、ipが変わったとき通知するか、してください。</p>
+<p>固定ipやddnsの場合は、profileを書き換える必要はありませんが、そうでない場合は、profileのglobal-ipを書き換える必要があります。書き換えは<code>goodreader</code>などが便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>- remote 123.45.67.89 $port udp
+</span></span><span style="display:flex;"><span>+ remote 89.45.67.123 $port udp
+</span></span></code></pre></div><p>vpn serverを常時起動しておくのは電力の無駄でsecurity上もよくありません。したがって、できればポートフォワーディング用のserverを用意して、使用するときに起動したほうがいいと思います。</p>
+<p>また、securityを考慮するなら、ポートフォワーディング用のserver自体を必要最小限にし、wol serverにした上で、ssh serverをwolで起動する役割のみを与えます。wolしたあとは、sshの踏み台にして、private-key自体はiosに置いておくという形が理想的だと思います。そのssh serverにアクセスしたあとはvpn serverを立ち上げ、lanに入ればいいでしょう。ただし、手間がかかりますから、そのへんのsecurityは使用頻度を考慮した上で考えればいいと思います。</p>
+<h4 id="vpn-client">vpn client</h4>
+<p><a href="https://github.com/cghdev/gotunl">gotunl</a>でvpn serverにアクセスし、local-networkに入ります。</p>
+<p>なお、<code>gotunl</code>を使うには、あらかじめ公式client(electron)をinstallして、profileを<a href="https://syui.cf/m/post/arch/">import</a>しておく必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh:/etc/pacman.conf" data-lang="sh:/etc/pacman.conf"><span style="display:flex;"><span><span style="color:#66d9ef">[pritunl]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Server</span> <span style="color:#f92672">=</span> https://repo.pritunl.com/stable/pacman<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -Syu pritunl-client-electron
+</span></span><span style="display:flex;"><span>$ sudo pacman -S pritunl-client-electron-numix-theme
+</span></span><span style="display:flex;"><span>$ pritunl-client-electron
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ここでprofile(.vpn)をimport</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/cghdev/gotunl.git
+</span></span><span style="display:flex;"><span>$ cd gotunl
+</span></span><span style="display:flex;"><span>$ go install
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -l
+</span></span><span style="display:flex;"><span>$ ./<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin/gotunl -c <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h3 id="continersystemd-nspawn">continer(systemd-nspawn)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo pacman -S arch-install-scripts
+</span></span><span style="display:flex;"><span>$ mkdir -p ~/arch
+</span></span><span style="display:flex;"><span>$ sudo pacstrap -c ~/arch base
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -D : chroot</span>
+</span></span><span style="display:flex;"><span>$ sudo systemd-nspawn -D ~/arch
+</span></span><span style="display:flex;"><span>$ passwd
+</span></span><span style="display:flex;"><span>$ logout
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -b : コンテナ起動</span>
+</span></span><span style="display:flex;"><span>$ sudo systemd-nspawn -b -D ~/arch
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -n : ネットワーク</span>
+</span></span><span style="display:flex;"><span>$ sudo systemd-nspawn -b -D ~/arch -n
+</span></span></code></pre></div><p>これは色んな意味で正しいのですが、私の環境では動作しません。</p>
+<p>設定したpasswordでloginできない。なお、設定していないと空なのでenterでloginできるはず(たぶん)。ttyのsecurityが働いているからです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Arch Linux 6.0.11-arch1-1 <span style="color:#f92672">(</span>pts/1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>arch login:
+</span></span><span style="display:flex;"><span>arch-nspawn login: root
+</span></span><span style="display:flex;"><span>Login incorrect
+</span></span></code></pre></div><p>ここでホストから<code>~/arch/etc/securetty</code>を編集し、ここでは<code>pts/1</code>でloginしようとしているため、これを追記します。<code>pts/0</code>なら<code>pts/0</code>です。その他ならそのttyを記述してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo vim ~/arch/etc/securetty
+</span></span></code></pre></div><p>一旦、<code>poweroff</code>して仮想環境(continer)を落とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ poweroff
+</span></span><span style="display:flex;"><span>$ machinectl list
+</span></span></code></pre></div><p>次に、本来の<code>systemd-nspawn</code>の一般的な使い方を説明します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ machinectl --help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># machinectlを使う場合はvmのrootフォルダはここに入れます</span>
+</span></span><span style="display:flex;"><span>$ sudo mv ~/arch /var/lib/machines/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl list-images
+</span></span><span style="display:flex;"><span>$ sudo machinectl start arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl login arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># vmの削除</span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl remove arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># vmをdown</span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl poweroff arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl terminate arch
+</span></span></code></pre></div><p>continerにアクセスする場合、loginはおすすめしません。Ctrl+Dで抜けられません</p>
+<p>shellの場合はexitで抜けられます。continerはupしたままになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo machinectl shell arch
+</span></span></code></pre></div><p><code>/var/lib/machines</code>においたcontiner image(dir)をmachinectlで呼び出します。</p>
+<p>これは、<code>systemctl</code>の<code>systemd-nspawn@arch</code>でも同じようなことができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># archというcontinerをstart</span>
+</span></span><span style="display:flex;"><span>$ sudo systemctl start systemd-nspawn@arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl start arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># archというccontinerをPC起動時に立ち上げる</span>
+</span></span><span style="display:flex;"><span>$ sudo systemctl enable systemd-nspawn@arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl enable arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo systemctl daemon-reload
+</span></span></code></pre></div><p>machinectl, systemd-nspawn, systemctlのどれを使ってもいいですが、個人的にはmachinectlをおすすめします。しかし、それぞれが使い方に微妙な違いを含んでいます。</p>
+<p>machinectlは主にvm操作で、pacstrapはarchの構築、systemctlはホスト環境の構築、systemd-nspawnはdir(chroot)操作です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># イメージのダウンロード</span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl pull-tar --verify<span style="color:#f92672">=</span>no http://localhost:8000/arch.tar.gz arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># アーカイブ</span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl export-tar --format<span style="color:#f92672">=[</span>gz, bzip2, xz<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># xz でマルチスレッド圧縮をする例 (一番お勧め！)</span>
+</span></span><span style="display:flex;"><span>$ maxz<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> machinectl export-tar $1 $1.tar <span style="color:#f92672">&amp;&amp;</span> nice -n <span style="color:#ae81ff">20</span> xz -z -f -T <span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> -vv $1.tar; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>$ maxz gbase
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># インポート</span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl import-tar <span style="color:#f92672">[</span>ファイル名<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>コンテナ名<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># docker imgをインポート</span>
+</span></span><span style="display:flex;"><span>$ sudo docker export <span style="color:#66d9ef">$(</span>docker create debian:latest<span style="color:#66d9ef">)</span> | machinectl import-tar - debian
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># hostのnetworkを使う, VirtualEthernetもconfiguredにすると有効</span>
+</span></span><span style="display:flex;"><span>$ networkctl
+</span></span><span style="display:flex;"><span>IDX LINK    TYPE     OPERATIONAL SETUP
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span> lo      loopback carrier     unmanaged
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> eth0  ether    routable    configured
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> ve-arch ether    no-carrier  configuring
+</span></span><span style="display:flex;"><span>$ sudo vim /etc/systemd/nspawn/arch.nspawn
+</span></span></code></pre></div><pre tabindex="0"><code class="language-sh:/etc/systemd/nspawn/arch.nspawn" data-lang="sh:/etc/systemd/nspawn/arch.nspawn">[Network]
+VirtualEthernet=no
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># ssh接続</span>
+</span></span><span style="display:flex;"><span>$ ssh-keygen -f ~/.ssh/test
+</span></span><span style="display:flex;"><span>$ sudo cat ~/.ssh/test.pub &gt;&gt; /var/lib/machines/arch/root/.ssh/authorized_keys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo machinectl shell arch
+</span></span><span style="display:flex;"><span>$ pacman -S openssh
+</span></span><span style="display:flex;"><span>$ vim /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>$ systemctl enable sshd
+</span></span><span style="display:flex;"><span>$ systemctl start ssh
+</span></span><span style="display:flex;"><span>$ exit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ssh root@localhost -p xxx -i ~/.ssh/test
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo machinectl clone arch backup
+</span></span><span style="display:flex;"><span>$ sudo machinectl poweroff arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl remove arch
+</span></span><span style="display:flex;"><span>$ sudo machinectl clone backup arch
+</span></span></code></pre></div><h2 id="test">test</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># sound</span>
+</span></span><span style="display:flex;"><span>$ sudo pacman -S sof-firmware
+</span></span></code></pre></div><h2 id="docker">docker</h2>
+<p>基本的に<code>docker volume prune -a</code>を実行しても問題ないように構築します。</p>
+<p><code>df -H</code>を実行して空きがあっても<code>100%</code>で<code>No space left on device</code>になることがあります。これは、大きく空き領域を確保しないと<code>df -i</code>の領域が確保されないためです。これは<code>docker builder prune</code>が有効です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Sh" data-lang="Sh"><span style="display:flex;"><span>docker-rm <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        sudo docker system prune -a
+</span></span><span style="display:flex;"><span>        sudo docker builder prune -a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sudo docker image prune -a
+</span></span><span style="display:flex;"><span>        sudo docker volume prune -a
+</span></span><span style="display:flex;"><span>        sudo docker container prune
+</span></span><span style="display:flex;"><span>        sudo docker network prune
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> $1 in
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">(</span>v<span style="color:#f92672">)</span> docker volume rm <span style="color:#66d9ef">$(</span>docker volume ls -qf dangling<span style="color:#f92672">=</span>true<span style="color:#66d9ef">)</span> ;;
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">(</span>p<span style="color:#f92672">)</span> docker rm <span style="color:#66d9ef">$(</span>docker ps -aq<span style="color:#66d9ef">)</span> ;;
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> docker rmi <span style="color:#66d9ef">$(</span>docker images -q<span style="color:#66d9ef">)</span> ;;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>serverを移行する際は、volumeなどの権限を同じにしなければなりません。reposのdirごとtarします。したがって、以下のような手順を踏んでください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo tar cvzfp app.tar.gz
+</span></span><span style="display:flex;"><span>scp -r app.tar.gz server:~
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>sudo tar xvzfp ~/app.tar.gz
+</span></span></code></pre></div>
+
+		
+
+	</div>
+
+</article>
+
+
+
+
+</div>
+		<div class="footer-link">
+	<span class="footer-link"><a href="https://syu.is/syui" target="_blank"><i class="fab fa-bluesky"></i></a></span>
+		<span class="footer-link"><a href="https://card.syui.ai/syui" target="_blank"><span class="icon-ai"></span></a></span>
+	<span class="footer-link"><a href="https://git.syui.ai/syui" target="_blank"><span class="icon-git"></span></a></span>
+</div>
+
+<script src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>

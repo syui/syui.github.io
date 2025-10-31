@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Element on syui.github.io</title>
+    <link>https://syui.github.io/tags/element/</link>
+    <description>Recent content in Element on syui.github.io</description>
+    <generator>Hugo</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; syui</copyright>
+    <lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://syui.github.io/tags/element/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>element webをcloudflare pagesでhostしてみた</title>
+      <link>https://syui.github.io/blog/post/2023/02/13/matrix-element-web/</link>
+      <pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://syui.github.io/blog/post/2023/02/13/matrix-element-web/</guid>
+      <description>&lt;p&gt;config.json : &lt;a href=&#34;https://github.com/vector-im/element-web/blob/develop/docs/config.md&#34;&gt;https://github.com/vector-im/element-web/blob/develop/docs/config.md&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;dist : &lt;a href=&#34;https://github.com/vector-im/element-web/releases&#34;&gt;https://github.com/vector-im/element-web/releases&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;まずdistファイルをdownloadします。それをdist/以下に展開し、&lt;code&gt;dist/config.json&lt;/code&gt;を置きます。&lt;/p&gt;&#xA;&lt;p&gt;cloudflare pagesにてrepositorieを連携し、public-rootをdistに設定します。&lt;/p&gt;&#xA;&lt;p&gt;commitすれば自動でcloudflare pagesにdeployされます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/vector-im/element-web&#34;&gt;https://github.com/vector-im/element-web&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developers.cloudflare.com/pages&#34;&gt;https://developers.cloudflare.com/pages&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;感想&#34;&gt;感想&lt;/h3&gt;&#xA;&lt;p&gt;cloudflare pagesもめちゃくちゃ使いやすいし、element webも非常に展開しやすくなってる。&lt;/p&gt;&#xA;&lt;p&gt;そのため、elementは基本的にユーザーの負担なしで運用できる環境が整っています。&lt;/p&gt;&#xA;&lt;p&gt;github, cloudflareなど各種サービスのpages(web-server)を使えばいいし、通常使用でのtrafficはそこまでweb-serverの負担にならない。&lt;/p&gt;&#xA;&lt;p&gt;もしこだわりがあるなら、hostしてみてもいいかもしれません。&lt;/p&gt;&#xA;&lt;p&gt;とはいえ、&lt;code&gt;app.element.io&lt;/code&gt;で事足りるというのは、そのとおり。&lt;/p&gt;&#xA;&lt;h3 id=&#34;github-pages&#34;&gt;github pages&lt;/h3&gt;&#xA;&lt;p&gt;github pagesでも動作したので追記しておきます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&#34;&gt;https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

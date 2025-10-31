@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>atmosphere | syui.github.io</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="syui" />
+		<meta name="copyright" content="© syui" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="syui blog" />
+		<meta name="keywords" content="syui, blog" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@syui__" />
+		<meta name="robots" content="all" />
+		<meta name="googlebot" content="all" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:title" content="atmosphere" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:description" content="syui blog" />
+		<meta property="og:image" content="https://syui.github.io//og.png" />
+		<meta property="og:url" content="https://syui.github.io/blog/post/2024/12/21/bluesky-ac-ja/" />
+		<meta property="og:site_name" content="syui.github.io" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="/css/terminal.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/blog.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/svg.css" />
+		<link rel="stylesheet" href="/bower_components/icomoon/style.css" />
+		<link rel="stylesheet" href="/bower_components/font-awesome/css/all.min.css" />
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+					"@type": "WebSite",
+					"name": "syui.github.io",
+					"url": "https:\/\/syui.github.io\/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="https://syui.github.io//bower_components/highlightjs/styles/monokai.css">
+		<script src="https://syui.github.io//bower_components/highlightjs/highlight.pack.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="https://term.syui.ai/term/pkg/jquery.ajax/jquery.min.js"></script>
+	</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<span class="navbar-title-text"><a href="/"><span class="icon-syui"></span></a></span>
+			<div class="navbar-nav-left">
+				<a class="navbar-brand" href="/blog">ブログ</a>
+				<a class="navbar-brand" href="/m">タグ</a>
+				<a class="navbar-brand" href="/icon">アイコン</a>
+				<a class="navbar-brand" href="/syui">プロフィール</a>
+			</div>
+		</div>
+		<div class="navbar-nav-right">
+		<a href="/blog/index.xml"><i class="fas fa-rss"></i></a>
+		</div>
+</nav>
+
+
+
+
+<body>
+	<div class="containerx">
+		<header id="header">
+			
+			<div class="logo">
+				<a href="/blog"><svg width="77pt" height="77pt" viewBox="0 0 512 512" class="likeButton" >
+  <circle class="explosion" r="150" cx="250" cy="250"></circle>
+  <g class="particleLayer">
+    <circle fill="#ef454aba" cx="130" cy="126.5" r="12.5"/>
+    <circle fill="#ef454acc" cx="411" cy="313.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="279" cy="86.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="155" cy="390.5" r="12.5"/>
+    <circle fill="#ef454aba" cx="89" cy="292.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="414" cy="282.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="115" cy="149.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="250" cy="80.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="78" cy="261.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="182" cy="402.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="401.5" cy="166" r="13"/>
+    <circle fill="#ef454aba" cx="379" cy="141.5" r="10.5"/>
+    <circle fill="#ef454a91" cx="327" cy="397.5" r="10.5"/>
+    <circle fill="#ef454aba" cx="296" cy="392.5" r="10.5"/>
+  </g>
+<g transform="translate(0,512) scale(0.1,-0.1)" fill="#000000" class="icon_syui">
+
+<path class="syui" d="M3660 4460 c-11 -11 -33 -47 -48 -80 l-29 -60 -12 38 c-27 88 -58 92 -98 11 -35 -70 -73 -159 -73 -169 0 -6 -5 -10 -10 -10 -6 0 -15 -10 -21 -22 -33 -73 -52 -92 -47 -48 2 26 -1 35 -14 38 -16 3 -168 -121 -168 -138 0 -5 -13 -16 -28 -24 -24 -13 -35 -12 -87 0 -221 55 -231 56 -480 56 -219 1 -247 -1 -320 -22 -44 -12 -96 -26 -115 -30 -57 -13 -122 -39 -200 -82 -8 -4 -31 -14 -50 -23 -41 -17 -34 -13 -146 -90 -87 -59 -292 -252 -351 -330 -63 -83 -143 -209 -143 -225 0 -10 -7 -23 -15 -30 -8 -7 -15 -17 -15 -22 0 -5 -13 -37 -28 -71 -16 -34 -36 -93 -45 -132 -9 -38 -24 -104 -34 -145 -13 -60 -17 -121 -17 -300 1 -224 1 -225 36 -365 24 -94 53 -175 87 -247 28 -58 51 -108 51 -112 0 -3 13 -24 28 -48 42 -63 46 -79 22 -85 -11 -3 -20 -9 -20 -14 0 -5 -4 -9 -10 -9 -5 0 -22 -11 -37 -25 -16 -13 -75 -59 -133 -100 -58 -42 -113 -82 -123 -90 -9 -8 -22 -15 -27 -15 -6 0 -10 -6 -10 -13 0 -8 -11 -20 -25 -27 -34 -18 -34 -54 0 -48 14 3 25 2 25 -1 0 -3 -43 -31 -95 -61 -52 -30 -95 -58 -95 -62 0 -5 -5 -8 -11 -8 -19 0 -84 -33 -92 -47 -4 -7 -15 -13 -22 -13 -14 0 -17 -4 -19 -32 -1 -8 15 -15 37 -18 l38 -5 -47 -48 c-56 -59 -54 -81 9 -75 30 3 45 0 54 -11 9 -13 16 -14 43 -4 29 11 30 10 18 -5 -7 -9 -19 -23 -25 -30 -7 -7 -13 -20 -13 -29 0 -12 8 -14 38 -9 20 4 57 8 82 9 25 2 54 8 66 15 18 10 23 8 32 -13 17 -38 86 -35 152 6 27 17 50 34 50 38 0 16 62 30 85 19 33 -15 72 -2 89 30 8 15 31 43 51 62 35 34 38 35 118 35 77 0 85 2 126 33 24 17 52 32 61 32 9 0 42 18 73 40 30 22 61 40 69 40 21 0 88 -26 100 -38 7 -7 17 -12 24 -12 7 0 35 -11 62 -25 66 -33 263 -84 387 -101 189 -25 372 -12 574 41 106 27 130 37 261 97 41 20 80 37 85 39 6 2 51 31 100 64 166 111 405 372 489 534 10 20 22 43 27 51 5 8 12 22 15 30 3 8 17 40 31 70 54 115 95 313 108 520 13 200 -43 480 -134 672 -28 58 -51 108 -51 112 0 3 -13 24 -29 48 -15 24 -34 60 -40 80 -19 57 3 142 50 193 10 11 22 49 28 85 6 36 16 67 21 68 18 6 31 53 25 83 -4 18 -17 33 -36 41 -16 7 -29 15 -29 18 1 10 38 50 47 50 5 0 20 11 33 25 18 19 22 31 17 61 -3 20 -14 45 -23 55 -16 18 -16 20 6 44 15 16 21 32 18 49 -3 15 1 34 8 43 32 43 7 73 -46 55 l-30 -11 0 85 c0 74 -2 84 -18 84 -21 0 -53 -33 -103 -104 l-34 -48 -5 74 c-7 102 -35 133 -80 88z m-870 -740 c36 -7 75 -14 88 -16 21 -4 23 -9 16 -37 -3 -18 -14 -43 -24 -57 -10 -14 -20 -35 -24 -46 -4 -12 -16 -32 -27 -45 -12 -13 -37 -49 -56 -79 -20 -30 -52 -73 -72 -96 -53 -60 -114 -133 -156 -189 -21 -27 -44 -54 -52 -58 -7 -4 -13 -14 -13 -22 0 -7 -18 -33 -40 -57 -22 -23 -40 -46 -40 -50 0 -5 -19 -21 -42 -38 -47 -35 -85 -38 -188 -15 -115 25 -173 20 -264 -23 -45 -22 -106 -46 -136 -56 -48 -15 -77 -25 -140 -50 -70 -28 -100 -77 -51 -84 14 -2 34 -10 45 -17 12 -7 53 -16 91 -20 90 -9 131 -22 178 -57 20 -16 52 -35 70 -43 18 -7 40 -22 49 -32 16 -18 15 -22 -24 -88 -23 -39 -47 -74 -53 -80 -7 -5 -23 -26 -36 -45 -26 -39 -92 -113 -207 -232 -4 -4 -37 -36 -73 -71 l-66 -64 -20 41 c-58 119 -105 240 -115 301 -40 244 -35 409 20 595 8 30 21 66 28 80 7 14 24 54 38 89 15 35 35 75 46 89 11 13 20 31 20 38 0 8 3 14 8 14 4 0 16 16 27 36 24 45 221 245 278 281 23 15 44 30 47 33 20 20 138 78 250 123 61 24 167 50 250 61 60 7 302 -1 370 -14z m837 -661 c52 -101 102 -279 106 -379 2 -42 0 -45 -28 -51 -16 -4 -101 -7 -187 -8 -166 -1 -229 10 -271 49 -19 19 -19 19 14 49 22 21 44 31 65 31 41 0 84 34 84 66 0 30 12 55 56 112 19 25 37 65 44 95 11 51 53 111 74 104 6 -2 25 -32 43 -68z m-662 -810 c17 -10 40 -24 53 -30 12 -7 22 -16 22 -20 0 -4 17 -13 38 -19 20 -7 44 -18 52 -24 8 -7 33 -21 55 -31 22 -11 42 -23 45 -26 11 -14 109 -49 164 -58 62 -11 101 -7 126 14 15 14 38 18 78 16 39 -2 26 -41 -49 -146 -78 -109 -85 -118 -186 -219 -61 -61 -239 -189 -281 -203 -17 -5 -73 -29 -104 -44 -187 -92 -605 -103 -791 -21 -42 19 -47 24 -37 41 5 11 28 32 51 48 22 15 51 38 64 51 13 12 28 22 33 22 17 0 242 233 242 250 0 6 5 10 10 10 6 0 10 6 10 14 0 25 50 55 100 62 59 8 56 6 115 83 50 66 74 117 75 162 0 14 7 40 16 57 18 38 52 41 99 11z"/>
+</g>
+
+</svg>
+</a>
+			</div>
+			
+		</header>
+
+<article>
+	<div class="content">
+		
+		<div class="post-time-date">2024-12-21 / <a href="https://bsky.syui.ai">@syui</a>
+
+		
+		
+		<p><i class="fa-regular fa-folder"></i> 
+		<a href="https://syui.github.io/tags/bluesky/">bluesky</a>
+		
+		
+		
+		
+		
+		, <a href="https://syui.github.io/tags/atproto/">atproto</a>
+		
+		
+		
+		
+		
+		, <a href="https://syui.github.io/tags/langja/">lang:ja</a>
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<h2>atmosphere</h2>
+
+		<p>今年はblueskyのアドベントカレンダーに参加しています。<code>英語/日本語</code>の記事を用意しました。</p>
+<p><a href="https://whtwnd.com/moja.blue/entries/%E3%83%96%E3%83%AB%E3%82%B9%E3%82%B3%E3%80%81%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2024">Bluesco Advent Calendar 2024</a></p>
+<p><a href="/en/post/2024/11/21/bluesky-ac-en/"><button>en</button></a> <a href="/blog/post/2024/11/21/bluesky-ac-ja/"><button>ja</button></a></p>
+<h2 id="atmosphereとは">atmosphereとは</h2>
+<p>まず用語の説明です。<code>at</code>にはいろいろな意味が込められています。<code>@</code>, <code>at://</code>, <code>[at]mosphere</code>, <code>[a]uthenticated [t]ransfer</code>など。例えば、初期の頃はアイコンが<code>@</code>でした。</p>
+<p><a href="https://atproto.com/ja/guides/glossary">https://atproto.com/ja/guides/glossary</a></p>
+<table>
+  <thead>
+      <tr>
+          <th>word</th>
+          <th>name</th>
+          <th>example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>at</td>
+          <td>uri</td>
+          <td>at://syui.ai</td>
+      </tr>
+      <tr>
+          <td>@</td>
+          <td>user</td>
+          <td>@syui.ai</td>
+      </tr>
+      <tr>
+          <td>[at]proto</td>
+          <td>repo</td>
+          <td><code>git@github.com:bluesky-social/atproto</code></td>
+      </tr>
+      <tr>
+          <td>[at]mosphere</td>
+          <td>system</td>
+          <td>pds, bsky(appview), ozone, bgs, plc</td>
+      </tr>
+      <tr>
+          <td>[a]uthenticated [t]ransfer</td>
+          <td>protocol</td>
+          <td><a href="https://www.w3.org/TR/did-core/">did</a></td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>Atmosphere</p>
+<p>「Atmosphere」は、AT プロトコル のエコシステムを説明するために使用する用語です。</p>
+</blockquote>
+<blockquote>
+<p>AT プロトコル</p>
+<p>AT プロトコルは、「Authenticated Transfer Protocol」の略です。この名前は、すべてのユーザー データが作成ユーザーによって署名されているという事実に由来しています。これにより、多くのサービスを通じてデータをブロードキャストし、発信元サーバーと直接通信しなくても、データが本物であることを証明できます。</p>
+<p>この名前は、atproto がソーシャル システム向けに設計されているため、「@」記号、別名「at」記号をもじったものです。</p>
+</blockquote>
+<p>そして、各領域に名前がつけられ、システム全体を<code>atmosphere(大気圏)</code>と呼んでいるみたいです。</p>
+<p>atmosphereの下にあるそれぞれのservice(サービス)はearth(地球)の大気構造にちなんで<code>bluesky(bsky)</code>, <code>ozone(オゾン)</code>, <code>bigsky(bgs)</code>などの名前が使われています。</p>
+<ul>
+<li><a href="https://github.com/bluesky-social/atproto/tree/main/services/bsky">https://github.com/bluesky-social/atproto/tree/main/services/bsky</a></li>
+<li><a href="https://github.com/bluesky-social/atproto/tree/main/services/ozone">https://github.com/bluesky-social/atproto/tree/main/services/ozone</a></li>
+<li><a href="https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky">https://github.com/bluesky-social/indigo/tree/main/cmd/bigsky</a></li>
+</ul>
+<p>大気圏にはその他にも<code>meteor(流星)</code>, <code>aurora(オーロラ)</code>などがあるので今後、なにかの名前に使われることがあるかもしれません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;atmosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;uri&#34;</span>: <span style="color:#e6db74">&#34;https://atproto.com/ja/guides/glossary&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/atmosphere_of_earth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;exosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">700</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">10000</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;universe&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;thermosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">80</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">700</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;aurora&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;mesosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">50</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">80</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;meteor&#34;</span>, <span style="color:#e6db74">&#34;bigsky&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;stratosphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">12</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">50</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;ozone&#34;</span> ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;troposphere&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;km&#34;</span>:[{ <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">12</span> }],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;tag&#34;</span>: [ <span style="color:#e6db74">&#34;bluesky&#34;</span> ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="ゲーム開発で考えたこと">ゲーム開発で考えたこと</h2>
+<p>現在、<code>atproto</code>を使ったゲームを開発中です。</p>
+<p>ゲーム開発で考えたことをまとめます。</p>
+<h3 id="見えない部分">見えない部分</h3>
+<p>最初に作り始めたのは見えない部分でした。</p>
+<p>ゲームエンジンは通常、平面をベースにします。マップはどこまで行っても地平線が広がっているばかり。上空に飛んでも惑星から抜けることはできないのです。</p>
+<p>ゲーム内で行くことができない場所を作る必要がないため、ゲームで月が出ていたとしても、その月は絵を背後で動かしているだけなのです。</p>
+<p>しかし、たとえゲームでは行くことができない場所でもそこにあるべきものがある、というのが私の考えです。ゲーム内で月が昇るなら、その月はちゃんとキャラクターが触れられるものを作りたい。</p>
+<p>unreal engineには<code>atmosphere</code>という機能があり、工夫することでなんとか形になりました。</p>
+<p>できる限り現実を反映させるという理念のもと、ゲーム開発をやっていきたいと思います。</p>
+<h3 id="人は何を求めているのだろう">人は何を求めているのだろう</h3>
+<p>人は何を求めているのでしょう。これはゲームを作るうえで考えていかなければならないことです。</p>
+<p>例えば、運営が終了してもデータは残したいですよね。</p>
+<p>人は自分の痕跡を残したいという欲求があり、生命は子孫を残す本能があります。その派生として自分がやってきたことが残されると嬉しい。そのため<code>atproto</code>でデータを保存する事を考えました。</p>
+<p>ユーザーは活動してきたものを全部無駄にしたくないはずで「サービスが終了したらおしまいです」より「サービスが終了しても大丈夫です」を選択したい。今後、何十年も活動していくならなおさらです。</p>
+<p><code>atproto</code>は未来に耐えられるものを作っています。</p>
+<h3 id="人はどこから情報を得るのだろう">人はどこから情報を得るのだろう</h3>
+<p>人がどこから情報を得るのかは時代とともに変化します。</p>
+<p>昔は本からでした。それがテレビになり、インターネットになりました。</p>
+<p>昔の人は本から情報を得ていたので、本には価値がありました。出版社や新聞社、書店の価値は高かったと思います。ですが、テレビ、インターネットが普及するとともに出版、新聞、書店の経営は厳しくなっていきます。</p>
+<p>重要なのは「人と情報」。これから先、人はどこから情報を得ていくのかです。今はインターネットからですね。</p>
+<p>次に考えるべきは「どのように」です。インターネットから情報を得ていくにしても、どのように得ていくのでしょう。それを考えます。</p>
+<p>まずは歴史を見てみましょう。インターネットが普及し、最初に起こったのは個々人がホームページを作りだしたことでした。誰でもホームページを作ると情報を発信できたのです。そして、検索エンジンが登場します。</p>
+<p>最初はurlを入力してアクセスしていた人々が検索エンジンからwebサイトにアクセスするようになります。この時代を1としましょう。</p>
+<p>次に登場したのはサービスでした。色々なサービスができて、sns(social network service)が登場します。twitterとかfacebookなどですね。次第に人々はホームページや検索エンジンからではなく、snsから情報を得ていくようになります。この時代を2としましょう。</p>
+<p>ではその次はなんなのでしょう。これはまだはっきりとはしません。</p>
+<p>ですが、次第に輪郭が見えてきたような気がします。それが<code>activitypub</code>や<code>atproto</code>のようなものになると思います。それとAIですね。AIも人から情報を得ていて、人が情報を発信することは必要になります。</p>
+<p>確かに2の時代では人々がサービス上にアカウントを作るようになりました。すべての投稿はそのサービスに帰結します。個人にではありません。もちろん、情報をどこから得ていくのかもサービスの中からです。これが近年のインターネットの形であり、あり方でした。</p>
+<p>ですが、1では違いました。検索エンジンは個人サイトにトラフィックが帰結していました。</p>
+<p>私は3ではまた1の方向、つまり、個人の方向に帰結するのではないかと考えているのです。個人から企業へ。企業から個人へ。そこまで単純なものでもないですけど、時代に合ったバランスで個人の方向へ向かうのでしょう。</p>
+<p>これは1にそのまま戻るというわけではありません。1にはたくさんの問題がありました。その問題のため、2が使われるようになった側面があるのです。例えば、検索エンジンでは求めている情報にたどり着けないことが増えましたよね。そうした問題をバランスよく解決したり回避したりしながら、3への移行になるのだと思います。</p>
+<p>そして、どの時代でも私達が唯一選択できるのは自身のアイディンティティをどこに置くかということです。</p>
+<p>atprotoはその点でバランスがいい。</p>
+<h3 id="なぜatprotoなのか">なぜatprotoなのか</h3>
+<p>activitypubを2017年頃から触っています。mastodonでインスタンスを立てたのがそれくらいでした。当時はjpが立ったか立ってないかくらいの時期だったと記憶しています。</p>
+<p>当時は<code>ostatus</code>というprotocol(プロトコル)を使っており、それから程なくしてactivitypubに移行しました。</p>
+<p>mastodonの他には<code>pleroma</code>, <code>misskey</code>, <code>mitra</code>, <code>gnu-social</code>などをherokuで立てたりしていました。</p>
+<p>とても面白い技術で、当時は本当に楽しかった。</p>
+<p>それから数年が経過し、2023年頃から<code>bluesky</code>を始めました。</p>
+<p>blueskyにはatというprotocolが採用されています。それを見て、これからのインターネットは<code>at</code>になるかもしれないと思いました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://syui.ai --&gt; at://syui.ai
+</span></span></code></pre></div><p>activitypubとatprotoはシステムが根本的に異なります。その一つが履歴の保存性です。</p>
+<p>例えば、アカウントやサーバーを作成したとして、atprotoではplcからその歴史を確認できます。いつ建てられたのか、どのように名前が変更されたのか、です。</p>
+<p>私は「activitypubを2017年頃から触っている」と言いましたが、当時の記録はブログにしかありません。その後、何度かdbをリセットしているので、mastodon上では最近開通したばかりに見えます。</p>
+<p>activitypubには中央集権的な機能がなく、それぞれのサーバーがそれぞれに記録を保存します。どこかには痕跡が残されているのかもしれませんが、それがどこかはわからない。</p>
+<p>atprotoではこのような問題を解決できるのです。多くの人が使用するようになる技術というのは、あまり技術を全面に出さないような気がします。</p>
+<p>「好きなサーバーを選んでください」とか「この技術は分散しており非中央集権です」とかそういうことではなくて、protocolはユーザーが意識するような領域のものではありませんから、ユーザー側からすると、内部で勝手に分散し、難しいことは裏でやっていてほしいのです。つまり、初めて触れる人にもわかりやすいものでなければいけません。そして、それは結果と直結していなければならないのです。</p>
+<p>結果というのは、「検索すれば結果が返ってくる」みたいなものです。snsでいうなら「サーバーを意識しなくても繋がれる」ということ。</p>
+<p>activitypubはこれが難しい。技術の根幹に関わるものなので、解決は難しく、そして致命的だと思うのです。</p>
+<p>また、自分の名前を使うにはサーバーを立てる必要があります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>protocol</th>
+          <th>user</th>
+          <th>body</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>activitypub://</td>
+          <td>@syui@syui.ai</td>
+          <td>サーバーを建てる必要がある</td>
+      </tr>
+      <tr>
+          <td>at://</td>
+          <td>@syui.ai</td>
+          <td>サーバーを建てなくても設定できるし短くなる</td>
+      </tr>
+  </tbody>
+</table>
+<p>特に<code>at://</code>の部分が気に入っており、短く簡潔で、なおかつ意味が通る名前です。</p>
+<h3 id="nostrはどうか">nostrはどうか</h3>
+<p>nostrは私からするとactivitypubよりも有望なprotocolに見えます。</p>
+<p>ただ、広まるか広まらないかでいうと、そこまで広まらないと予想します。</p>
+<p>blueskyやatprotoは責任の所在がはっきりしており、誰が運営しているのかもわかりやすい。スパムが排除される環境にあります。逆に言うと、これがはっきりしない環境ではスパムだらけになりやすいと思っています。そういうものはリレーサーバーの管理者が個別に対処しており、サーバーによってはスパムが来ないものもあると思います。しかし、一般人からするとわけがわからない。私も「どこですかそれは」となります。</p>
+<p>このような性質を無法地帯、無秩序、無責任分散と呼ぶことがあり、普通の人は住みたがらないと思います。</p>
+<p>ネットでそういう場所を作るのはそこまで難しいことではありません。しかし、検索エンジンが荒廃していった経緯もあり、それではうまくいかなかった。だからこそどうするか、どうやって秩序を作り、それを維持するのか。人々は長年その事を考え、解決策を模索してきました。</p>
+<p>多くの人はバランスの良い秩序を求めているのだと思います。</p>
+<p>例えば、すべての個人が独立し、自立していて、何でも自分でできるようになった世界。すべての住人が安定した精神を持ち、揉め事やトラブルも起こさず、誰も悪いことをせず、すべてのことを一人でやって生きている、そんな世界では、ルールや法律、管理者や政府がある事自体おかしい。そのようなものは必要ないからです。このような段階において無法地帯は正しい。</p>
+<p>ですが今この段階でそういったものが普及するかというと、私は難しいと思っています。</p>
+<p>また、インターネットを変えていくには、個人と企業の両方を取り込んでいく必要があります。</p>
+<p>もしあなたが企業の責任者だった場合、nostrでやるかblueskyでやるか、どのように検討するでしょう。</p>
+<h3 id="名前の限界">名前の限界</h3>
+<p>人間はいつの時代も数字ではなく名前を使います。例えば、プログラミング言語も名前を数字に変換するものです。名前のほうが人間にとって読み書きしやすいからです。したがって、名前は重要です。</p>
+<p>今度はこの名前について考えてみることにします。</p>
+<p>今のインターネットはこの名前に限界があると感じています。</p>
+<p>今のインターネットはサービスの中だけで情報のやり取りが完結していて、例えば、twitter, facebook, youtubeの中だけで情報のやり取りが完結していますよね。これらを相互にやり取りできるようにするには、同じprotocolを採用する必要があります。</p>
+<p>未来のインターネットではサービス同士がやり取りできるようになるというのが、私の予測でした。</p>
+<p>そして、ここでは2つの理由からその未来に向かうだろうと考えていて、その一つが名前に限界があるからです。</p>
+<p>各サービスで名前が枯渇していますが、これから生まれてくる人や新しい会社はたくさんあります。今後の情報の潮流になるのは彼らです。そんな彼らが入ってこないと成長は見込めません。</p>
+<p>しかし、新しい人たちは自分が使いたい名前が使えません。なぜならその名前はすでに取られているからです。それなら他のところに行くというのが自然の流れです。</p>
+<p>つまり、この問題は自然と解決される方向に進むだろうと私は考えています。それが<code>domain</code>形式になると予想します。</p>
+<p>今後、人々が使う名前はdomain形式になり、なぜなら(1)各サービスごとの名前が枯渇しているからという理由と、(2)名前をdomain形式にしないとサービス外とやり取りできないという理由からです。そして、未来のインターネットは一つのアカウントで複数のサービスを使うのが一般的な形に変化していくと予測しています。</p>
+<h3 id="重力と弱い力">重力と弱い力</h3>
+<p>アララギ「名前なんてそんなのどうでもいいだろ」</p>
+<p>オシノ「いや、名前は重要だよ。アララギくん」</p>
+<p>この二人のやり取りはどちらが正しいのでしょう。</p>
+<p>答えは「どちらも正しい」です。</p>
+<p>しかし、あえて言うなら前者は即効性やインパクトを求め、後者は影響力や環境を求めるといったところでしょうか。</p>
+<p>ここからは少し自然界の話をします。自然界で最も弱い力がなんなのかご存知ですか。</p>
+<p>答えは重力です。</p>
+<p>意外に思われるかもしれませんが、現在の科学では重力がこの世界で最も弱い力と考えられています。</p>
+<p>しかし、重力というと現在の宇宙環境を構築するほどに強力なもののはずではと思っている人がいるかもしれません。</p>
+<p>そうです。この世界では弱い力ほど大きな影響力を持ち、環境を構築しているものなのです。これが自然の摂理、自然の原理です。</p>
+<p>話を戻して、名前について考えてみましょう。</p>
+<p>名前には瞬時に何かを変える力はありません。即効性やインパクトがあるようなものではない。</p>
+<p>しかし、人間の意識、無意識下に影響を及ぼし、長い時間をかけて環境を形作っていく。重力に似た作用を持つのです。</p>
+<p>例えば、人間社会は人々の意識によって構築されています。</p>
+<h3 id="広めること">広めること</h3>
+<p>protocolは、多くの人に広めることが最も重要になります。</p>
+<p>これはprotocolに限らず、より根幹部分の技術になるほど広めたもの勝ちになります。</p>
+<p>根幹部分というのは、時間に置き換えて考えるとわかりやすい。</p>
+<p>人々が一日のうちに最も多くの時間を使っているもの、答えはコンピュータです。</p>
+<p>したがって、最も広く使われるosを開発、提供しているところが覇権を握ります。</p>
+<p>これは時価総額で考えてみてもわかりやすい。microsoft(windows)やapple(mac/ios)です。</p>
+<p>最近はAIが膨大な時間を消費(削減)しているためnvidia(gpu)が巨大な時価総額を持つようになりました。</p>
+<p>人間の歴史を見ると、広めることが最も価値を持つのです。</p>
+<p>例えば、自分たちの物語を広めることを宗教と呼びます。基軸通貨のドルは大きな力を持ちます。言語もそうです。英語の影響力は計り知れない。</p>
+<h3 id="同じようなものが広まることはない">同じようなものが広まることはない</h3>
+<p>私は原神というゲームをよくプレイしています。</p>
+<p>そこで原神のようなゲームを作ればいいのでしょうか。それではダメだと思うのです。たとえ品質が同じかそれ以上のものを作っても厳しいのではないでしょうか。なぜなら、すでに原神があるからです。</p>
+<p>最近はvtuberにハマって動画を見ていました。しかし、vtuberを今から始めるのは厳しいと思いました。vtuberとして恩恵を受けるのは、そのような概念が存在しなかった当時から取り組んでいた人達であって、今から始める人達ではない、そんな風に感じます。</p>
+<p>今流行っているものをそのまま真似したり、参入しようとしても、ときすでにおそし(時既に遅し)。どうせやるなら違うことをやろう。</p>
+<h3 id="人は何を楽しいと思うのか">人は何を楽しいと思うのか</h3>
+<p>どんなゲームを作ろうかと考えたとき、その答えは「人を楽しませること」でした。</p>
+<p>ですが、私一人が頑張って楽しいゲームを作ろうにも、やっぱり限界があると思うのです。</p>
+<p>そこで考えなければいけないのは既に「人を楽しませている」人達です。</p>
+<p>見ている人を楽しませているvtuberとゲームを繋げれば、ゲームと本人を同時に広めることができるのではないか。</p>
+<p>そして、現在、vtuberをやるにはハードルが高く、やることが多すぎるのです。</p>
+<p>例えば、3dモデルを用意し、twitterアカウントを開設、プレイするゲームを選定して、ライブ環境を整え、youtubeの開設、画面にユーザー名やアカウント、モデルを表示しなければなりません。ボイス環境も必要で、喋りながらゲームを操作し、ライブ画面を操作しなければなりません。</p>
+<p>これをすべて統合できたらいいなと考えました。</p>
+<p>人々は何を楽しいと思うのか。もう一度根本的な部分から考えてみましょう。</p>
+<p>今までのゲームではプレイヤーがゲームの主人公になりきって物語を追体験していました。私が好きなゲームはそうですね。例えば、原神では蛍と空という主人公がいて、彼らの物語です。</p>
+<p>しかし、本当は自分が主人公の物語をプレイしたいのではないでしょうか。プレイヤーが本当に求めているものは何なのでしょう。</p>
+<p>この方向で考えられたゲームはすでにあり、例えば、最初にキャラメイク、自分で主人公をカスタマイズしてスタートするゲームがあります。</p>
+<p>しかし、私はそういったゲームをあまりプレイしません。どのようにカスタマイズしていいかわからないし、めんどくさいし、カスタマイズしてもどうもしっくりと来ないのです。ですから「自分で作る」タイプのゲームはあまりやりません。原神のように最初からキャラクターが作り込まれているゲームを好みます。</p>
+<p>やはり、カスタマイズ系は最初で躓いてしまうのです。よくわからないし、面倒なのです。すぐに始められることが何より重要だと思います。</p>
+<p>ではこういったケースはどうでしょう。例えば、原神に自分自身がデザインされたキャラがいてそれを操作することができたら。私はきっと喜んでプレイしたでしょう。そのキャラに愛着を持てると思います。原神は声優さんもプレイしており、特に自分の声を使ったキャラを中心に楽しまれている姿が印象的でした。</p>
+<p>つまり、このような体験を多くのプレイヤーができるようになれば、きっとゲームは楽しくなる。</p>
+<p>そのためには何が必要になるでしょう。その一つが唯一性です。</p>
+<h3 id="プレイヤーの唯一性">プレイヤーの唯一性</h3>
+<p>このゲームでは、各プレイヤーに唯一性をもたせることを目指します。つまり、プレイヤーの唯一性を担保し、デザインするということです。</p>
+<p>これをどのように実現していくのか。今考えている内容をお伝えします。</p>
+<p>ここからはより具体的な方向性を話します。興味がない人は読み飛ばしを推奨します。</p>
+<ul>
+<li>プレイヤーは1キャラクターを割り当てられる</li>
+<li>使用できるキャラクターはプレイヤー固有のものとなる。そのプレイヤーしか使えない固有スキルを持つ</li>
+<li>1キャラクターにつき1回のピックアップ期間がある。ガチャで引いたキャラは固有スキルを使えない</li>
+</ul>
+<p>1キャラクターにつき1が付与され、それが0になると、二度とピックアップされません。</p>
+<p>なぜかというと、私は開発者というものをよく知っています。制限がないと復刻やリメイクを連発してしまうおそれがあります。今は時間がないから復刻やリメイクすればいい、と。</p>
+<p>そうしているうち新しいものを作る力を失っていくのです。ガチャをやりたければ新しいものを作るしかないようルールを決めておきます。</p>
+<p>プレイヤーの唯一性は<code>取り返しがつかない要素</code>の積み重ねです。</p>
+<h2 id="大気圏に行こう">大気圏に行こう</h2>
+<p>ここからはゲームの機能例を紹介します。</p>
+<!--
+<video src="" width="100%" height="500px"></video>
+-->
+<iframe  
+width="100%" height="650"
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+src="https://www.youtube.com/embed/rJXC_sfnoBo"></iframe>
+<h3 id="キャラクターについて">キャラクターについて</h3>
+<p>1キャラクターには1属性が割り当てられます。割り当てられたキャラクターにはgroup(グループ)があり、season(シーズン)ごとに移行します。属性はグループ毎に異なります。そして、前シーズンに戻ることはありません。</p>
+<p>最初に予定しているのは<code>fantasy(ファンタジー)</code>、次は<code>animal(アニマル)</code>というグループです。ファンタジーは<code>原子</code>属性のうちの1つを扱えます。アニマルは<code>分子</code>属性のうちの1つです。</p>
+<p>例えば、シーズン1のドラゴンというキャラクターは<code>atomic(核)</code>という属性を持ち、ファンタジーのグループです。ファンタジーは他にフェニックス(陽子)、ペガサス(中性子)など。アニマルはクジラ(水)やライオン(火)がいます。ゲームを開始したシーズンにより最初に割り当てられるキャラクターが決まります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>season</th>
+          <th>group</th>
+          <th>type</th>
+          <th>character</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>fantasy</td>
+          <td>陽子、中性子、核、電子、クォーク</td>
+          <td>ドラゴン、ペガサス、フェニックス&hellip;</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>animal</td>
+          <td>水、火、岩、風、氷</td>
+          <td>クジラ、ライオン、ワシ&hellip;</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;atom&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;atom&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;group&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fantasy&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;原子&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/atom&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;the word atom comes from the greek word atmos, which means indivisible. an atom consists of an atomic nucleus, which is made up of protons and neutrons, and electrons distributed around the nucleus&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;アトムはギリシャ語のアトモスの「これ以上分割できない」という単語が由来。原子は陽子と中性子からなる原子核と、その周囲に分布する電子から構成される&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;proton(陽子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;neutron(中性子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;atomic(原子核)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;electron(電子)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;quark(クォーク)&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;molecule&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;molecule&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;group&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;animal&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;分子&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ref&#34;</span>: <span style="color:#e6db74">&#34;https://en.wikipedia.org/wiki/molecule&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;a neutrally charged substance made up of two or more atoms&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;lang&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ja&#34;</span>: <span style="color:#e6db74">&#34;2つ以上の原子から構成される電荷的に中性な物質&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enum&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;water(水)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;wind(風)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;rock(岩)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;ice(氷)&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;fire(火)&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>どんどん進みましょう。次に説明するのはキャラクターの進化についてです。</p>
+<p>人が単細胞生物から進化してきたように、キャラクターも進化するようデザインしました。</p>
+<p>各キャラクターは<code>animal(動物型) -&gt; human(人型) -&gt; divinity(神性)</code>に進化できます。ゲーム内では各モデルにフォルムチェンジ(切り替え)できるようになります。</p>
+<ul>
+<li>animal(動物型) -&gt; human(人型) -&gt; divinity(神性)</li>
+</ul>
+<p><img src="https://git.syui.ai/ai/ue/raw/branch/main/verse/img/shinka.png" alt=""></p>
+<h3 id="各領域について">各領域について</h3>
+<p>地上、天空、宇宙に分けられます。しかし、自由に飛び回れるようになるかというと、そうではありません。</p>
+<p>開発では便利なのでアイを使用していますが、リリース版では自由に動き回ることはできなくなると思います。</p>
+<p>なぜならバグの頻度が跳ね上がるからです。</p>
+<p>バグを出さないようにするには自由に動き回れる範囲や速度を制限しなければなりません。また、デモで使用しているキャラクターは基本的に使えません。開発用の機能がたくさん付いているからです。</p>
+<p>ですが、可能性がないわけではありません。安定して動作するようになれば行けるようになるかもしれない。</p>
+<p>今回こういう部分を紹介したのは、外の世界があることを知ってほしいからです。</p>
+<p>見上げる星空は本物で、実際に行くことができ、世界は広がっているのだと。</p>
+<h3 id="自由であれば面白いのか">自由であれば面白いのか</h3>
+<p>一見、プレイ動画を見て面白そうだなと思った人はいるかもしれません。</p>
+<p>しかし、リリースできない理由があります。</p>
+<p>リリースできない理由、それは「面白くない」からです。今の時点でプレイしていても面白くないなと思っていて、どうすれば面白くなるのかを考えています。</p>
+<p>いくつか案はありますが、一つは不自由さを追加することです。</p>
+<p>ゲームは制約があり不自由があるからこそ面白い。</p>
+<p>原神やエルデンリングを参考にしながら制約のあるゲームを作っていきたいなと考えています。</p>
+<h3 id="最初に選択があるべき">最初に選択があるべき</h3>
+<p>ゲームは3つの要素で構成する方向で考えています。<code>choices(選択要素)</code>, <code>diagnosis(診断要素)</code>、<code>fate(運要素)</code>です。</p>
+<ul>
+<li>choices(選択要素) -&gt; diagnosis(診断要素) -&gt; fate(運要素)</li>
+</ul>
+<p>最初にあるべきなのは選択要素だと思います。これを例えばアカウントを作成するケースに当てはめてみると</p>
+<ol>
+<li>キャラクターの性別を選択する</li>
+<li>キャラクターは診断から決められる</li>
+<li>ステータスは運命、つまりランダムで割り振られる(9:1)</li>
+</ol>
+<p>最初に性別を選択させるというゲームは多く、そこにも重要な意味があると思います。一つはプレイヤーにゲームの選択権があると理解してもらうところに意味があります。</p>
+
+
+		
+
+	</div>
+
+</article>
+
+
+
+
+</div>
+		<div class="footer-link">
+	<span class="footer-link"><a href="https://syu.is/syui" target="_blank"><i class="fab fa-bluesky"></i></a></span>
+		<span class="footer-link"><a href="https://card.syui.ai/syui" target="_blank"><span class="icon-ai"></span></a></span>
+	<span class="footer-link"><a href="https://git.syui.ai/syui" target="_blank"><span class="icon-git"></span></a></span>
+</div>
+
+<script src="/js/svg.js"></script>
+<script src="/js/highlight-filename.js"></script>
+<footer id="footer">© syui</footer>
+
+	</body>
+</html>
