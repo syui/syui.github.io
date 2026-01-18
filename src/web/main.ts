@@ -67,6 +67,9 @@ async function render(route: Route): Promise<void> {
       document.title = config.title
     }
 
+    // Check OAuth enabled
+    const oauthEnabled = config.oauth !== false
+
     // Handle OAuth callback if present (check both ? and #)
     const searchParams = new URLSearchParams(window.location.search)
     const hashParams = window.location.hash ? new URLSearchParams(window.location.hash.slice(1)) : null
@@ -108,7 +111,7 @@ async function render(route: Route): Promise<void> {
 
     if (!did) {
       app.innerHTML = `
-        ${renderHeader(handle)}
+        ${renderHeader(handle, oauthEnabled)}
         <div class="error">Could not resolve handle: ${handle}</div>
         ${renderFooter(handle)}
       `
@@ -139,7 +142,7 @@ async function render(route: Route): Promise<void> {
     const langList = Array.from(availableLangs)
 
     // Build page
-    let html = renderHeader(handle)
+    let html = renderHeader(handle, oauthEnabled)
 
     // Mode tabs (Blog/Browser/Post/PDS)
     const activeTab = route.type === 'postpage' ? 'post' :
@@ -264,7 +267,7 @@ async function render(route: Route): Promise<void> {
   } catch (error) {
     console.error('Render error:', error)
     app.innerHTML = `
-      ${renderHeader(currentHandle)}
+      ${renderHeader(currentHandle, false)}
       <div class="error">Error: ${error}</div>
       ${renderFooter(currentHandle)}
     `

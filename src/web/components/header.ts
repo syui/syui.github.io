@@ -1,12 +1,15 @@
 import { isLoggedIn, getLoggedInHandle } from '../lib/auth'
 
-export function renderHeader(currentHandle: string): string {
+export function renderHeader(currentHandle: string, oauth: boolean = true): string {
   const loggedIn = isLoggedIn()
   const handle = getLoggedInHandle()
 
-  const loginBtn = loggedIn
-    ? `<button type="button" class="header-btn user-btn" id="logout-btn" title="Logout">${handle || 'logout'}</button>`
-    : `<button type="button" class="header-btn login-btn" id="login-btn" title="Login"><img src="/icon/user.svg" alt="Login" class="login-icon"></button>`
+  let loginBtn = ''
+  if (oauth) {
+    loginBtn = loggedIn
+      ? `<button type="button" class="header-btn user-btn" id="logout-btn" title="Logout">${handle || 'logout'}</button>`
+      : `<button type="button" class="header-btn login-btn" id="login-btn" title="Login"><img src="/icon/user.svg" alt="Login" class="login-icon"></button>`
+  }
 
   return `
     <header id="header">
