@@ -62,6 +62,11 @@ async function render(route: Route): Promise<void> {
       document.documentElement.style.setProperty('--btn-color', config.color)
     }
 
+    // Set page title from config
+    if (config.title) {
+      document.title = config.title
+    }
+
     // Handle OAuth callback if present (check both ? and #)
     const searchParams = new URLSearchParams(window.location.search)
     const hashParams = window.location.hash ? new URLSearchParams(window.location.hash.slice(1)) : null
