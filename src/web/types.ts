@@ -6,6 +6,7 @@ export interface AppConfig {
   network: string
   color: string
   siteUrl: string
+  oauth?: boolean
 }
 
 export interface Networks {

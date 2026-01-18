@@ -1,9 +1,9 @@
 {
-  "title": "syui.ai",
-  "handle": "syui.syui.ai",
-  "collection": "ai.syui.log.post",
-  "network": "syu.is",
-  "color": "#EF454A",
-  "siteUrl": "https://syui.ai",
-		"oauth": true
+	"title": "ailog",
+	"handle": "syui.ai",
+	"collection": "ai.syui.log.post",
+	"network": "bsky.social",
+	"color": "#EF454A",
+	"siteUrl": "https://syui.github.io",
+	"oauth": false
 }
