@@ -1,0 +1,68 @@
+{
+  "lexicon": 1,
+  "id": "ai.syui.log.post",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Record containing a blog post.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["title", "content", "createdAt"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+            "description": "The title of the post."
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 1000000,
+            "maxGraphemes": 100000,
+            "description": "The content of the post (markdown)."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Client-declared timestamp when this post was originally created."
+          },
+          "lang": {
+            "type": "string",
+            "maxLength": 10,
+            "description": "Language code of the original content (e.g., 'ja', 'en')."
+          },
+          "translations": {
+            "type": "ref",
+            "ref": "#translationMap",
+            "description": "Translations of the post in other languages."
+          }
+        }
+      }
+    },
+    "translationMap": {
+      "type": "object",
+      "description": "Map of language codes to translations.",
+      "properties": {
+        "en": { "type": "ref", "ref": "#translation" },
+        "ja": { "type": "ref", "ref": "#translation" }
+      }
+    },
+    "translation": {
+      "type": "object",
+      "description": "A translation of a post.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 3000,
+          "maxGraphemes": 300
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 1000000,
+          "maxGraphemes": 100000
+        }
+      }
+    }
+  }
+}

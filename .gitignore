@@ -1,0 +1,9 @@
+/dist
+/repos
+/target
+/CLAUDE.md
+/.claude
+node_modules
+package-lock.json
+Cargo.lock
+.env

@@ -1,0 +1,12 @@
+{
+  "client_id": "https://syui.ai/client-metadata.json",
+  "client_name": "syui.ai",
+  "client_uri": "https://syui.ai",
+  "redirect_uris": ["https://syui.ai/oauth/callback"],
+  "scope": "atproto transition:generic",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "application_type": "web",
+  "token_endpoint_auth_method": "none",
+  "dpop_bound_access_tokens": true
+}

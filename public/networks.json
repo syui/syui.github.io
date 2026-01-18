@@ -1,0 +1,12 @@
+{
+  "bsky.social": {
+    "plc": "https://plc.directory",
+    "bsky": "https://public.api.bsky.app",
+    "web": "https://bsky.app"
+  },
+  "syu.is": {
+    "plc": "https://plc.syu.is",
+    "bsky": "https://bsky.syu.is",
+    "web": "https://syu.is"
+  }
+}
