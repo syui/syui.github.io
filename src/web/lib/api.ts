@@ -63,11 +63,17 @@ export async function getPds(did: string): Promise<string | null> {
   return null
 }
 
+// Check if response is JSON
+function isJsonResponse(res: Response): boolean {
+  const contentType = res.headers.get('content-type')
+  return contentType?.includes('application/json') ?? false
+}
+
 // Load local profile
 async function getLocalProfile(did: string): Promise<Profile | null> {
   try {
     const res = await fetch(`/content/${did}/app.bsky.actor.profile/self.json`)
-    if (res.ok) return res.json()
+    if (res.ok && isJsonResponse(res)) return res.json()
   } catch {
     // Not found
   }
@@ -109,12 +115,12 @@ export async function getAvatarUrl(did: string, profile: Profile): Promise<strin
 async function getLocalPosts(did: string, collection: string): Promise<Post[]> {
   try {
     const indexRes = await fetch(`/content/${did}/${collection}/index.json`)
-    if (indexRes.ok) {
+    if (indexRes.ok && isJsonResponse(indexRes)) {
       const rkeys: string[] = await indexRes.json()
       const posts: Post[] = []
       for (const rkey of rkeys) {
         const res = await fetch(`/content/${did}/${collection}/${rkey}.json`)
-        if (res.ok) posts.push(await res.json())
+        if (res.ok && isJsonResponse(res)) posts.push(await res.json())
       }
       return posts.sort((a, b) =>
         new Date(b.value.createdAt).getTime() - new Date(a.value.createdAt).getTime()
@@ -157,7 +163,7 @@ export async function getPost(did: string, collection: string, rkey: string, loc
   if (localFirst) {
     try {
       const res = await fetch(`/content/${did}/${collection}/${rkey}.json`)
-      if (res.ok) return res.json()
+      if (res.ok && isJsonResponse(res)) return res.json()
     } catch {
       // Not found
     }
@@ -182,7 +188,7 @@ export async function describeRepo(did: string): Promise<string[]> {
   // Try local first
   try {
     const res = await fetch(`/content/${did}/describe.json`)
-    if (res.ok) {
+    if (res.ok && isJsonResponse(res)) {
       const data = await res.json()
       return data.collections || []
     }
